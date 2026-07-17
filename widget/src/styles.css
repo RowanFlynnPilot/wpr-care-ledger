@@ -156,6 +156,108 @@ body {
   color: var(--sepia);
 }
 
+/* ------------------------------------------------------- activity chart */
+
+.activity {
+  margin: 20px 0 0;
+}
+
+.activity-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin-bottom: 6px;
+}
+
+.activity-head h2 {
+  font-family: var(--heading);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0;
+}
+
+.legend {
+  list-style: none;
+  display: flex;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+.legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--heading);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.swatch {
+  width: 9px;
+  height: 9px;
+  display: inline-block;
+}
+
+.swatch-enf {
+  background: var(--red);
+}
+
+.swatch-plain {
+  background: #767676;
+}
+
+.chart-wrap {
+  position: relative;
+}
+
+.bar-label {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  fill: var(--ink);
+}
+
+.year-label {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  fill: var(--muted);
+}
+
+.chart-tip {
+  position: absolute;
+  top: -2px;
+  transform: translate(-50%, -100%);
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  padding: 4px 9px;
+  font-family: var(--mono);
+  font-size: 11px;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 2px 2px 0 rgba(17, 17, 17, 0.12);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ------------------------------------------------------------- controls */
 
 .controls {
@@ -295,6 +397,12 @@ a:focus-visible {
   flex-shrink: 0;
 }
 
+.row-dots {
+  align-self: center;
+  flex-shrink: 0;
+  margin-right: 4px;
+}
+
 .chip {
   font-family: var(--heading);
   font-size: 10.5px;
@@ -402,6 +510,25 @@ a:focus-visible {
   color: var(--paper);
 }
 
+.operator-link {
+  display: inline-block;
+  font-family: var(--body);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--hairline-soft);
+  border: none;
+  border-radius: 0;
+  padding: 4px 9px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.operator-link:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
 /* ------------------------------------------------------------- timeline */
 
 .history h2 {
@@ -452,6 +579,20 @@ a:focus-visible {
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.01em;
+}
+
+.new-stamp {
+  display: inline-block;
+  font-family: var(--heading);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 2px 6px;
+  margin-left: 8px;
+  vertical-align: 2px;
 }
 
 .event-docs {
@@ -607,6 +748,10 @@ a:focus-visible {
 
   .event-date {
     flex-basis: 78px;
+  }
+
+  .row-dots {
+    display: none;
   }
 }
 

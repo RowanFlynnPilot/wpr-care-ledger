@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   fetch:
@@ -25,3 +26,20 @@ jobs:
           git add data archive
           git diff --cached --quiet || git commit -m "Weekly ledger update $(date -u +%F)"
           git push
+      # Fail loud: a red run nobody opens isn't loud. One open issue, not one
+      # per week. Expected to fire when the state launches the Wisconsin
+      # Provider Finder and retires DQA Provider Search (see CLAUDE.md).
+      - name: Open issue on failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create fetch-failure --color B60205 \
+            --description "Weekly DQA fetch failed" --force
+          if [ -z "$(gh issue list --label fetch-failure --state open --json number --jq '.[0].number')" ]; then
+            gh issue create --title "Weekly fetch failed — $(date -u +%F)" \
+              --label fetch-failure \
+              --body "The scheduled DQA fetch failed: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+          If the state's DQA Provider Search has been replaced by the Wisconsin Provider Finder, this is the migration event described in CLAUDE.md — rewrite the fetcher against the new tool; the ledger and archive carry forward untouched."
+          fi

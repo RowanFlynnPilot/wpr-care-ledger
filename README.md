@@ -39,4 +39,13 @@ expanded rows — no inner scrollbar.
 
 The `height="1200"` is only the fallback before the first message arrives.
 
+### Linking to one facility from a story
+
+Add a hash to the iframe `src` (or to the standalone URL):
+
+- `…/wpr-care-ledger/#lic=0015628` — opens that license's row, closed
+  facilities included.
+- `…/wpr-care-ledger/#q=cedar%20ridge` — presets the search box (works for
+  operator names too).
+
 A [Wausau Pilot & Review](https://wausaupilotandreview.com) project.

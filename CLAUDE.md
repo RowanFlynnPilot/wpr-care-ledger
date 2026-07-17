@@ -99,18 +99,36 @@ the state drops in the migration, we already have.
 
 ## Widget
 
-`widget/` — React/Vite facility lookup, WPR design system (teal `#3A867C`,
-cream `#F6F2E9`, Fraunces display, Public Sans body, JetBrains Mono data).
+`widget/` — React/Vite facility lookup styled to match the live site
+(WordPress Newspack, `newspack-joseph` child theme): Oswald condensed
+headlines/kickers, Merriweather serif body, black-on-white newspaper frame,
+JetBrains Mono for data. Teal `#3A867C` survives only as the brand accent —
+it is the typewriter in the WPR badge (`widget/public/brand/`, also favicon
+and og:image). Enforcement reads newspaper red `#b32d2e`.
+
 Search by facility / city / operator / license, type filter, closed toggle,
-sort by name / latest activity / most enforcement. Expandable ledger rows:
-license facts + survey timeline linking to archived PDFs, "View on state
-site" link built from the cached detail key, and same-address cross-links
-(neutral copy — the dates tell the Acorn Hill story on their own).
+enforcement-only toggle, sort by name / latest activity / most enforcement.
+Masthead: typewriter badge, four stats, and a quarterly survey-activity
+chart (gray = no enforcement, red = enforcement; hover tooltips + sr-only
+table; the x-range grows as the archive outlives the state's window).
+Rows carry a 3-year dot strip (red enforcement, hollow sepia = held;
+desktop only). Expandable ledger rows: license facts + survey timeline
+linking to archived PDFs, "View on state site" link built from the cached
+detail key, same-address cross-links (neutral copy — the dates tell the
+Acorn Hill story on their own), and operator cross-links when a
+`corporate_name` runs 2+ facilities. Survey events first seen by the most
+recent fetch get a "New this update" stamp (suppressed for the initial
+pull). Deep links for stories: `#lic=<license>` opens one facility,
+`#q=<text>` presets the search (documented in README).
 
 Signature element: the sepia **held in the ledger** treatment on survey
 records with `expired_from_state: true`, plus the masthead stat that counts
 them once records start aging off (until then the fourth stat shows
 documents archived).
+
+State names arrive ALL CAPS; `smartTitle()` title-cases them for print,
+preserving acronyms (LLC, CBRF, HCBS, …) and never capitalizing after an
+apostrophe (Alzheimer's).
 
 Build plumbing: `predev`/`prebuild` run `scripts/dev-sync.mjs`, which copies
 `data/` (always) and `archive/` (if missing) into `widget/public/` — Vite
@@ -121,6 +139,8 @@ then bundles them into `dist/`, so **the Pages artifact is just
 ## Deploy
 
 - `fetch.yml` — Mondays 09:00 UTC, commits `data/` + `archive/` updates.
+  On failure it opens a `fetch-failure` issue (one at a time) so a dead
+  scraper is loud — expected to fire at the Provider Finder migration.
 - `deploy.yml` — builds the widget and publishes `widget/dist` to GitHub
   Pages. Triggers: pushes to main, successful completion of the fetch
   workflow (`workflow_run`), or manual dispatch. The `workflow_run` chain

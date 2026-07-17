@@ -47,7 +47,7 @@ function titleCase(s) {
    them for print, preserving corporate and licensing acronyms. */
 const KEEP_UPPER = new Set([
   "LLC", "LLP", "INC", "CO", "II", "III", "IV", "AFH", "CBRF", "RCAC",
-  "AF", "ALF", "WI", "USA", "SLF",
+  "AF", "ALF", "WI", "USA", "SLF", "HCBS",
 ]);
 const KEEP_LOWER = new Set(["of", "and", "the", "at", "by", "for", "on", "in"]);
 
@@ -61,7 +61,9 @@ function smartTitle(s) {
       if (KEEP_UPPER.has(bare.toUpperCase())) return w.toUpperCase();
       const lower = w.toLowerCase();
       if (i > 0 && KEEP_LOWER.has(bare.toLowerCase())) return lower;
-      return lower.replace(/(^|[-/('’])([a-z])/g, (m, p, c) => p + c.toUpperCase());
+      // Capitalize after hyphens, slashes, parens — but not apostrophes
+      // (Alzheimer's, not Alzheimer'S).
+      return lower.replace(/(^|[-/(])([a-z])/g, (m, p, c) => p + c.toUpperCase());
     })
     .join(" ");
 }
@@ -80,6 +82,35 @@ function addressKey(f) {
   return (f.address + f.city).toUpperCase().replace(/[^A-Z0-9]/g, "");
 }
 
+function quarterOf(iso) {
+  const [y, m] = iso.split("-").map(Number);
+  return { y, q: Math.floor((m - 1) / 3) + 1 };
+}
+
+function bucketQuarters(surveys) {
+  const dated = surveys.filter((s) => s.exit_date);
+  if (dated.length === 0) return { quarters: [], max: 0 };
+  const dates = dated.map((s) => s.exit_date).sort();
+  const first = quarterOf(dates[0]);
+  const last = quarterOf(dates[dates.length - 1]);
+  const quarters = [];
+  for (
+    let y = first.y, q = first.q;
+    y < last.y || (y === last.y && q <= last.q);
+    q === 4 ? ((q = 1), y++) : q++
+  ) {
+    quarters.push({ y, q, total: 0, enforcement: 0 });
+  }
+  const at = Object.fromEntries(quarters.map((b) => [`${b.y}-${b.q}`, b]));
+  for (const s of dated) {
+    const k = quarterOf(s.exit_date);
+    const b = at[`${k.y}-${k.q}`];
+    b.total += 1;
+    if ("enforcement" in s.documents) b.enforcement += 1;
+  }
+  return { quarters, max: Math.max(...quarters.map((b) => b.total)) };
+}
+
 /* ------------------------------------------------------------------- app */
 
 export default function App() {
@@ -89,6 +120,7 @@ export default function App() {
   const [type, setType] = useState("ALL");
   const [sort, setSort] = useState("name");
   const [showClosed, setShowClosed] = useState(false);
+  const [enfOnly, setEnfOnly] = useState(false);
   const [open, setOpen] = useState(null);
 
   useEffect(() => {
@@ -119,11 +151,37 @@ export default function App() {
     return () => ro.disconnect();
   }, []);
 
+  // Deep links: #lic=0015628 opens one facility (closed included so links
+  // to closed licenses always resolve); #q=text presets the search box.
+  useEffect(() => {
+    if (!db) return;
+    const m = window.location.hash.match(/^#(?:lic=([0-9A-Za-z]+)|q=(.+))$/);
+    if (!m) return;
+    if (m[1] && db.byLicense[m[1]]) {
+      setShowClosed(true);
+      setQuery(m[1]);
+      setOpen(m[1]);
+    } else if (m[2]) {
+      setQuery(decodeURIComponent(m[2]));
+    }
+  }, [db]);
+
+  // Keep the standalone URL shareable: reflect the open row in the hash.
+  useEffect(() => {
+    if (!db) return;
+    window.history.replaceState(
+      null,
+      "",
+      open ? `#lic=${open}` : window.location.pathname + window.location.search
+    );
+  }, [open, db]);
+
   const list = useMemo(() => {
     if (!db) return [];
     const q = query.trim().toLowerCase();
     let rows = db.facilities.filter((f) => {
       if (!showClosed && f.closed) return false;
+      if (enfOnly && f.enforcementCount === 0) return false;
       if (type !== "ALL" && f.typeAbbr !== type) return false;
       if (!q) return true;
       return f.haystack.includes(q);
@@ -135,7 +193,7 @@ export default function App() {
         b.enforcementCount - a.enforcementCount || a.name.localeCompare(b.name),
     };
     return rows.sort(bySort[sort]);
-  }, [db, query, type, sort, showClosed]);
+  }, [db, query, type, sort, showClosed, enfOnly]);
 
   if (error)
     return (
@@ -152,6 +210,13 @@ export default function App() {
     setShowClosed(true);
     setQuery(license);
     setOpen(license);
+  };
+
+  const showOperator = (name) => {
+    setShowClosed(true);
+    setEnfOnly(false);
+    setQuery(name);
+    setOpen(null);
   };
 
   return (
@@ -189,6 +254,7 @@ export default function App() {
             <Stat n={db.stats.documents} label="documents archived" />
           )}
         </dl>
+        <ActivityChart surveys={db.surveysFlat} />
       </header>
 
       <div className="controls">
@@ -218,6 +284,14 @@ export default function App() {
           />
           Include closed
         </label>
+        <label className="closed-toggle">
+          <input
+            type="checkbox"
+            checked={enfOnly}
+            onChange={(e) => setEnfOnly(e.target.checked)}
+          />
+          Enforcement only
+        </label>
       </div>
 
       <p className="result-count" role="status">
@@ -233,6 +307,7 @@ export default function App() {
             open={open === f.license}
             onToggle={() => setOpen(open === f.license ? null : f.license)}
             onCrossLink={crossLink}
+            onOperator={showOperator}
           />
         ))}
         {list.length === 0 && (
@@ -292,9 +367,214 @@ function Stat({ n, label, held }) {
   );
 }
 
+/* ------------------------------------------------------- activity chart */
+
+const CHART = { H: 96, TOP: 12, BASE: 78, LABEL_Y: 92 };
+
+function ActivityChart({ surveys }) {
+  const [hover, setHover] = useState(null);
+  const { quarters, max } = useMemo(() => bucketQuarters(surveys), [surveys]);
+  if (quarters.length < 2) return null;
+
+  const n = quarters.length;
+  const slot = 100 / n;
+  const barW = slot * 0.62;
+  const inset = (slot - barW) / 2;
+  const plotH = CHART.BASE - CHART.TOP;
+  const hOf = (v) => (v / max) * plotH;
+  const maxIdx = quarters.findIndex((b) => b.total === max);
+  const tip = hover === null ? null : quarters[hover];
+
+  return (
+    <figure className="activity">
+      <div className="activity-head">
+        <h2 id="activity-title">Survey activity by quarter</h2>
+        <ul className="legend">
+          <li>
+            <span className="swatch swatch-enf" /> Enforcement action
+          </li>
+          <li>
+            <span className="swatch swatch-plain" /> No enforcement
+          </li>
+        </ul>
+      </div>
+      <div className="chart-wrap">
+        <svg
+          width="100%"
+          height={CHART.H}
+          role="img"
+          aria-labelledby="activity-title"
+          aria-describedby="activity-desc"
+        >
+          <desc id="activity-desc">
+            {`Survey events per quarter, ${quarters[0].y} through ${quarters[n - 1].y}. Red segments are surveys that carry an enforcement action. Details in the table that follows.`}
+          </desc>
+          <line
+            x1="0"
+            x2="100%"
+            y1={CHART.BASE}
+            y2={CHART.BASE}
+            stroke="var(--ink)"
+            strokeWidth="1"
+          />
+          {quarters.map((b, i) => {
+            const x = `${i * slot + inset}%`;
+            const w = `${barW}%`;
+            const enfH = hOf(b.enforcement);
+            const plainH = hOf(b.total - b.enforcement);
+            const gap = b.enforcement > 0 && b.total > b.enforcement ? 2 : 0;
+            return (
+              <g key={`${b.y}q${b.q}`}>
+                {b.enforcement > 0 && (
+                  <rect
+                    x={x}
+                    width={w}
+                    y={CHART.BASE - enfH}
+                    height={enfH}
+                    fill="var(--red)"
+                  />
+                )}
+                {b.total - b.enforcement > 0 && (
+                  <rect
+                    x={x}
+                    width={w}
+                    y={CHART.BASE - enfH - gap - plainH}
+                    height={plainH}
+                    rx="1.5"
+                    fill="#767676"
+                  />
+                )}
+                {i === maxIdx && (
+                  <text
+                    className="bar-label"
+                    x={`${i * slot + slot / 2}%`}
+                    y={CHART.BASE - enfH - gap - plainH - (gap ? 4 : 4)}
+                    textAnchor="middle"
+                  >
+                    {b.total}
+                  </text>
+                )}
+                {(b.q === 1 || i === 0) && (
+                  <text
+                    className="year-label"
+                    x={`${i * slot + inset}%`}
+                    y={CHART.LABEL_Y}
+                  >
+                    {b.y}
+                  </text>
+                )}
+              </g>
+            );
+          })}
+          {quarters.map((b, i) => (
+            <rect
+              key={`hit-${b.y}q${b.q}`}
+              x={`${i * slot}%`}
+              width={`${slot}%`}
+              y={0}
+              height={CHART.BASE}
+              fill="transparent"
+              onMouseEnter={() => setHover(i)}
+              onMouseLeave={() => setHover(null)}
+            />
+          ))}
+        </svg>
+        {tip && (
+          <div
+            className="chart-tip"
+            style={{
+              left: `clamp(80px, ${hover * slot + slot / 2}%, calc(100% - 80px))`,
+            }}
+          >
+            Q{tip.q} {tip.y} · {tip.total}{" "}
+            {tip.total === 1 ? "survey" : "surveys"} · {tip.enforcement}{" "}
+            enforcement
+          </div>
+        )}
+      </div>
+      <table className="sr-only">
+        <caption>Survey events per quarter</caption>
+        <thead>
+          <tr>
+            <th scope="col">Quarter</th>
+            <th scope="col">Surveys</th>
+            <th scope="col">With enforcement action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {quarters.map((b) => (
+            <tr key={`sr-${b.y}q${b.q}`}>
+              <th scope="row">{`Q${b.q} ${b.y}`}</th>
+              <td>{b.total}</td>
+              <td>{b.enforcement}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </figure>
+  );
+}
+
+/* ------------------------------------------------- per-row activity dots */
+
+function DotStrip({ surveys, windowEnd }) {
+  if (surveys.length === 0) return null;
+  const W = 96;
+  const H = 14;
+  const PAD = 5;
+  const end = new Date(windowEnd).getTime();
+  const start = end - 3 * 365.25 * 86400e3;
+  return (
+    <svg className="row-dots" width={W} height={H} aria-hidden="true">
+      <line
+        x1={PAD}
+        x2={W - PAD}
+        y1={H / 2}
+        y2={H / 2}
+        stroke="var(--hairline)"
+        strokeWidth="1"
+      />
+      {[...surveys].reverse().map((s) => {
+        const t = new Date(s.exit_date).getTime();
+        const frac = Math.min(1, Math.max(0, (t - start) / (end - start)));
+        const cx = PAD + frac * (W - 2 * PAD);
+        const enf = "enforcement" in s.documents;
+        const label = `${fmtDate(s.exit_date)} — ${surveyLabel(s.survey_type)}${
+          enf ? " · enforcement" : ""
+        }${s.expired_from_state ? " · held in the ledger" : ""}`;
+        return s.expired_from_state ? (
+          <circle
+            key={s.id}
+            cx={cx}
+            cy={H / 2}
+            r={2.5}
+            fill="var(--paper)"
+            stroke="var(--sepia)"
+            strokeWidth="1.5"
+          >
+            <title>{label}</title>
+          </circle>
+        ) : (
+          <circle
+            key={s.id}
+            cx={cx}
+            cy={H / 2}
+            r={3}
+            fill={enf ? "var(--red)" : "#767676"}
+            stroke="var(--paper)"
+            strokeWidth="1.5"
+          >
+            <title>{label}</title>
+          </circle>
+        );
+      })}
+    </svg>
+  );
+}
+
 /* ------------------------------------------------------------ facility row */
 
-function FacilityRow({ f, db, open, onToggle, onCrossLink }) {
+function FacilityRow({ f, db, open, onToggle, onCrossLink, onOperator }) {
   const panelId = `panel-${f.license}`;
   return (
     <li className={open ? "row is-open" : "row"}>
@@ -308,9 +588,11 @@ function FacilityRow({ f, db, open, onToggle, onCrossLink }) {
           <span className="row-name">{smartTitle(f.name)}</span>
           <span className="row-meta">
             {f.typeAbbr} · {titleCase(f.city)} · {f.capacity} beds
+            {f.latest && <> · last survey {fmtDate(f.latest)}</>}
           </span>
         </span>
         <span className="row-chips">
+          <DotStrip surveys={f.surveys} windowEnd={db.stats.lastUpdated} />
           {f.enforcementCount > 0 && (
             <span className="chip chip-enforcement">
               {f.enforcementCount} enforcement
@@ -330,11 +612,27 @@ function FacilityRow({ f, db, open, onToggle, onCrossLink }) {
             <Fact k="Address" v={`${titleCase(f.address)}, ${titleCase(f.city)} ${f.zip}`} />
             <Fact k="License" v={f.license} mono />
             <Fact k="Status" v={titleCase(f.licensure_status || "")} />
-            <Fact k="Operator" v={f.corporate_name ? smartTitle(f.corporate_name) : "—"} />
+            {f.corporate_name && db.operatorCounts[f.corporate_name] > 1 ? (
+              <div className="fact">
+                <dt>Operator</dt>
+                <dd>
+                  <button
+                    className="operator-link"
+                    title="Show every facility run by this operator"
+                    onClick={() => onOperator(f.corporate_name)}
+                  >
+                    {smartTitle(f.corporate_name)} ·{" "}
+                    {db.operatorCounts[f.corporate_name]} facilities
+                  </button>
+                </dd>
+              </div>
+            ) : (
+              <Fact k="Operator" v={f.corporate_name ? smartTitle(f.corporate_name) : "—"} />
+            )}
             <Fact k="Ownership" v={f.ownership_type || "—"} />
             {f.date_regular && <Fact k="Licensed" v={fmtDate(f.date_regular)} mono />}
             {f.date_closed && <Fact k="Closed" v={fmtDate(f.date_closed)} mono />}
-            <Fact k="Serves" v={titleCase(f.client_groups || "—")} wide />
+            <Fact k="Serves" v={f.client_groups ? smartTitle(f.client_groups) : "—"} wide />
             {f.siblings.length > 0 && (
               <div className="fact fact-wide">
                 <dt>Also licensed at this address</dt>
@@ -370,7 +668,13 @@ function FacilityRow({ f, db, open, onToggle, onCrossLink }) {
                   <li key={s.id} className={s.expired_from_state ? "event is-held" : "event"}>
                     <span className="event-date">{fmtDate(s.exit_date)}</span>
                     <span className="event-body">
-                      <span className="event-type">{surveyLabel(s.survey_type)}</span>
+                      <span className="event-type">
+                        {surveyLabel(s.survey_type)}
+                        {s.first_seen === db.stats.lastUpdated &&
+                          s.first_seen !== db.stats.firstPull && (
+                            <span className="new-stamp">New this update</span>
+                          )}
+                      </span>
                       {s.expired_from_state && (
                         <span className="held-stamp">
                           No longer shown by the state · held in the ledger
@@ -457,9 +761,17 @@ function shape(facilitiesObj, surveysObj) {
 
   const openFacilities = facilities.filter((f) => !f.closed);
   const allSurveys = Object.values(surveysObj);
+  const operatorCounts = {};
+  for (const f of facilities) {
+    if (f.corporate_name) {
+      operatorCounts[f.corporate_name] = (operatorCounts[f.corporate_name] || 0) + 1;
+    }
+  }
   return {
     facilities,
     byLicense: Object.fromEntries(facilities.map((f) => [f.license, f])),
+    surveysFlat: allSurveys,
+    operatorCounts,
     stats: {
       openFacilities: openFacilities.length,
       surveyEvents: allSurveys.length,
@@ -469,6 +781,10 @@ function shape(facilitiesObj, surveysObj) {
       held: allSurveys.filter((s) => s.expired_from_state).length,
       documents: allSurveys.reduce((n, s) => n + Object.keys(s.documents).length, 0),
       lastUpdated: allSurveys.reduce((m, s) => (s.last_seen > m ? s.last_seen : m), ""),
+      firstPull: allSurveys.reduce(
+        (m, s) => (m === "" || s.first_seen < m ? s.first_seen : m),
+        ""
+      ),
     },
   };
 }
