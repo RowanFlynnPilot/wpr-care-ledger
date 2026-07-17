@@ -25,6 +25,7 @@ expanded rows — no inner scrollbar.
   style="width:100%;border:0;display:block;"
   height="1200"
   loading="lazy"
+  allow="clipboard-write"
 ></iframe>
 <script>
   window.addEventListener("message", function (e) {

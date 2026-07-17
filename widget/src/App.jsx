@@ -68,6 +68,20 @@ function smartTitle(s) {
     .join(" ");
 }
 
+/* Newspaper highlighter: mark the search match inside a displayed name. */
+function Highlight({ text, q }) {
+  if (!q) return text;
+  const i = text.toLowerCase().indexOf(q.toLowerCase());
+  if (i < 0) return text;
+  return (
+    <>
+      {text.slice(0, i)}
+      <mark>{text.slice(i, i + q.length)}</mark>
+      {text.slice(i + q.length)}
+    </>
+  );
+}
+
 function fmtDate(iso) {
   if (!iso) return "";
   const [y, m, d] = iso.split("-").map(Number);
@@ -197,6 +211,26 @@ export default function App() {
     return rows.sort(bySort[sort]);
   }, [db, query, type, sort, showClosed, enfOnly]);
 
+  // When the search is exactly an operator's corporate name (the operator
+  // cross-link does this), lead the results with an operator brief.
+  const operatorBrief = useMemo(() => {
+    if (!db) return null;
+    const q = query.trim().toLowerCase();
+    if (!q) return null;
+    const name = Object.keys(db.operatorCounts).find(
+      (n) => n.toLowerCase() === q
+    );
+    if (!name || db.operatorCounts[name] < 2) return null;
+    const group = db.facilities.filter((f) => f.corporate_name === name);
+    return {
+      name,
+      count: group.length,
+      operating: group.filter((f) => !f.closed).length,
+      enforcement: group.reduce((n, f) => n + f.enforcementCount, 0),
+      fines: group.reduce((n, f) => n + f.fineTotal, 0),
+    };
+  }, [db, query]);
+
   if (error)
     return (
       <div className="ledger">
@@ -218,6 +252,14 @@ export default function App() {
     setShowClosed(true);
     setEnfOnly(false);
     setQuery(name);
+    setOpen(null);
+  };
+
+  const clearFilters = () => {
+    setQuery("");
+    setType("ALL");
+    setEnfOnly(false);
+    setShowClosed(false);
     setOpen(null);
   };
 
@@ -272,15 +314,15 @@ export default function App() {
         <input
           type="search"
           value={query}
-          placeholder="Search by facility, city, operator, or license number"
+          placeholder="Search facility, city, operator, or license"
           aria-label="Search facilities"
           onChange={(e) => setQuery(e.target.value)}
         />
         <select value={type} aria-label="Facility type" onChange={(e) => setType(e.target.value)}>
           <option value="ALL">All types</option>
-          <option value="CBRF">CBRF</option>
-          <option value="RCAC">RCAC</option>
-          <option value="AFH">Adult family home</option>
+          <option value="CBRF">CBRF — community-based</option>
+          <option value="RCAC">RCAC — care apartments</option>
+          <option value="AFH">AFH — adult family home</option>
         </select>
         <select value={sort} aria-label="Sort order" onChange={(e) => setSort(e.target.value)}>
           <option value="name">A to Z</option>
@@ -305,6 +347,26 @@ export default function App() {
         </label>
       </div>
 
+      {operatorBrief && (
+        <aside className="operator-brief">
+          <p className="op-kicker">Operator</p>
+          <p className="op-name">{smartTitle(operatorBrief.name)}</p>
+          <p className="op-stats">
+            {operatorBrief.count} facilities in this ledger
+            {operatorBrief.operating < operatorBrief.count &&
+              ` (${operatorBrief.operating} operating)`}{" "}
+            · {operatorBrief.enforcement} enforcement{" "}
+            {operatorBrief.enforcement === 1 ? "action" : "actions"}
+            {operatorBrief.fines > 0 && (
+              <>
+                {" "}
+                · <strong>${operatorBrief.fines.toLocaleString()} assessed</strong>
+              </>
+            )}
+          </p>
+        </aside>
+      )}
+
       <p className="result-count" role="status">
         {list.length} {list.length === 1 ? "facility" : "facilities"}
       </p>
@@ -315,6 +377,7 @@ export default function App() {
             key={f.license}
             f={f}
             db={db}
+            query={query.trim()}
             open={open === f.license}
             onToggle={() => setOpen(open === f.license ? null : f.license)}
             onCrossLink={crossLink}
@@ -323,8 +386,10 @@ export default function App() {
         ))}
         {list.length === 0 && (
           <li className="empty">
-            No facilities match. Clear the search or include closed
-            facilities.
+            No facilities match.{" "}
+            <button className="clear-filters" onClick={clearFilters}>
+              Clear search and filters
+            </button>
           </li>
         )}
       </ol>
@@ -600,8 +665,25 @@ function ActivityChart({ surveys, lastUpdated }) {
 
 /* ------------------------------------------------------------ facility row */
 
-function FacilityRow({ f, db, open, onToggle, onCrossLink, onOperator }) {
+function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) {
   const panelId = `panel-${f.license}`;
+  const [copied, setCopied] = useState(false);
+
+  const copyLink = () => {
+    const url = `${window.location.origin}${window.location.pathname}#lic=${f.license}`;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(url).then(
+        () => {
+          setCopied(true);
+          setTimeout(() => setCopied(false), 1800);
+        },
+        () => window.prompt("Copy this link:", url)
+      );
+    } else {
+      window.prompt("Copy this link:", url);
+    }
+  };
+
   return (
     <li className={open ? "row is-open" : "row"}>
       <button
@@ -611,7 +693,9 @@ function FacilityRow({ f, db, open, onToggle, onCrossLink, onOperator }) {
         onClick={onToggle}
       >
         <span className="row-main">
-          <span className="row-name">{smartTitle(f.name)}</span>
+          <span className="row-name">
+            <Highlight text={smartTitle(f.name)} q={query} />
+          </span>
           <span className="row-meta">
             {f.typeAbbr} · {titleCase(f.city)} · {f.capacity} beds
             {f.latest && <> · last survey {fmtDate(f.latest)}</>}
@@ -621,17 +705,36 @@ function FacilityRow({ f, db, open, onToggle, onCrossLink, onOperator }) {
           {f.enforcementCount > 0 && (
             <span className="chip chip-enforcement">
               {f.enforcementCount} enforcement
+              {f.fineTotal > 0 && ` · $${f.fineTotal.toLocaleString()}`}
             </span>
           )}
           {f.probationary && <span className="chip chip-probation">Probationary</span>}
           {f.heldCount > 0 && <span className="chip chip-held">{f.heldCount} held</span>}
           {f.closed && <span className="chip chip-closed">Closed</span>}
-          <span className="row-caret" aria-hidden="true">{open ? "–" : "+"}</span>
+          <span className="row-caret" aria-hidden="true">+</span>
         </span>
       </button>
 
-      {open && (
-        <div className="row-panel" id={panelId}>
+      <div className={open ? "row-reveal is-open" : "row-reveal"}>
+        <div className="row-panel" id={panelId} inert={open ? undefined : ""}>
+          {f.surveys.length > 0 && (
+            <p className="panel-summary">
+              <span>
+                {f.surveys.length} {f.surveys.length === 1 ? "survey" : "surveys"} on
+                record
+              </span>
+              {f.enforcementCount > 0 && (
+                <span className="sum-enf">{f.enforcementCount} enforcement</span>
+              )}
+              {f.fineTotal > 0 && (
+                <span className="sum-enf">
+                  ${f.fineTotal.toLocaleString()} assessed
+                </span>
+              )}
+              {f.latest && <span>last visit {fmtDate(f.latest)}</span>}
+            </p>
+          )}
+          <div className="panel-grid">
           <div className="facts">
             <Fact k="Facility type" v={TYPE_FULL[f.typeAbbr]} />
             <Fact k="Address" v={`${titleCase(f.address)}, ${titleCase(f.city)} ${f.zip}`} />
@@ -759,10 +862,14 @@ function FacilityRow({ f, db, open, onToggle, onCrossLink, onOperator }) {
               >
                 View this facility on the state site
               </a>
+              <button className="copy-link" onClick={copyLink}>
+                {copied ? "Link copied ✓" : "Copy link to this record"}
+              </button>
             </p>
           </div>
+          </div>
         </div>
-      )}
+      </div>
     </li>
   );
 }
@@ -832,6 +939,7 @@ function shape(facilitiesObj, surveysObj, enrichmentObj) {
       probationary: f.licensure_status === "PROBATIONARY",
       typeAbbr: TYPE_ABBR[f.provider_type.trim()] || f.provider_type.trim(),
       enforcementCount: surveys.filter((s) => "enforcement" in s.documents).length,
+      fineTotal: surveys.reduce((n, s) => n + (s.enr.fine || 0), 0),
       heldCount: surveys.filter((s) => s.expired_from_state).length,
       latest: surveys[0]?.exit_date || "",
       siblings: addressGroups[addressKey(f)].filter((l) => l !== license),
@@ -862,10 +970,7 @@ function shape(facilitiesObj, surveysObj, enrichmentObj) {
       ).size,
       held: allSurveys.filter((s) => s.expired_from_state).length,
       documents: allSurveys.reduce((n, s) => n + Object.keys(s.documents).length, 0),
-      finesTotal: facilities.reduce(
-        (n, f) => n + f.surveys.reduce((m, s) => m + (s.enr.fine || 0), 0),
-        0
-      ),
+      finesTotal: facilities.reduce((n, f) => n + f.fineTotal, 0),
       lastUpdated: allSurveys.reduce((m, s) => (s.last_seen > m ? s.last_seen : m), ""),
       firstPull: allSurveys.reduce(
         (m, s) => (m === "" || s.first_seen < m ? s.first_seen : m),

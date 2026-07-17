@@ -156,6 +156,18 @@ State names arrive ALL CAPS; `smartTitle()` title-cases them for print,
 preserving acronyms (LLC, CBRF, HCBS, …) and never capitalizing after an
 apostrophe (Alzheimer's).
 
+UX details: rows expand with an animated grid-rows reveal (caret rotates
++ to ×; closed panels are `inert`; the reduced-motion media query kills
+all transitions). Search highlights its match in facility names
+(highlighter-yellow `<mark>`). Expanded panels lead with a summary band
+(surveys · enforcement · $ assessed · last visit) and offer "Copy link to
+this record" (deep-link URL; the WordPress iframe needs
+`allow="clipboard-write"`, already in the README snippet). A search that
+exactly matches a corporate name — which the operator cross-link produces
+— renders a boxed operator brief above the results. Empty results offer a
+one-click filter reset. The masthead closes with an Oxford rule
+(thick-thin).
+
 Build plumbing: `predev`/`prebuild` run `scripts/dev-sync.mjs`, which copies
 `data/` (always) and `archive/` (if missing) into `widget/public/` — Vite
 then bundles them into `dist/`, so **the Pages artifact is just
