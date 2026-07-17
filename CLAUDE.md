@@ -121,9 +121,12 @@ then bundles them into `dist/`, so **the Pages artifact is just
 ## Deploy
 
 - `fetch.yml` — Mondays 09:00 UTC, commits `data/` + `archive/` updates.
-- `deploy.yml` — on push to main: build widget, publish `widget/dist` to
-  GitHub Pages. The weekly fetch commit triggers it, so the live widget
-  refreshes automatically.
+- `deploy.yml` — builds the widget and publishes `widget/dist` to GitHub
+  Pages. Triggers: pushes to main, successful completion of the fetch
+  workflow (`workflow_run`), or manual dispatch. The `workflow_run` chain
+  exists because commits pushed with the default `GITHUB_TOKEN` (the fetch
+  bot) never trigger other workflows — a plain push trigger would leave the
+  live widget silently stale.
 - Repo settings: Pages source must be set to "GitHub Actions" once.
 
 ## Commands
