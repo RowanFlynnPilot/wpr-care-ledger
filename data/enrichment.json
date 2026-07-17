@@ -1,0 +1,2612 @@
+{
+  "archive/0008655/2023-08-08_complaint-self-report_sod.pdf": {
+    "census": 20,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0008655/2025-01-02_survey-complaint_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply"
+    ],
+    "sod_ref": "RQF811"
+  },
+  "archive/0008655/2025-01-02_survey-complaint_sod.pdf": {
+    "census": 18,
+    "citations": [
+      {
+        "code": "83.47(2)(d)",
+        "tag": "N 525",
+        "title": "Fire drills."
+      },
+      {
+        "code": "83.47(2)(e)",
+        "tag": "N 526",
+        "title": "Other evacuation drills."
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 2,
+    "kind": "sod"
+  },
+  "archive/0008655/2025-06-12_self-report-vv_sod.pdf": {
+    "census": 19,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0009074/2023-11-02_survey-complaint_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply"
+    ],
+    "sod_ref": "KWP311"
+  },
+  "archive/0009074/2023-11-02_survey-complaint_sod.pdf": {
+    "census": 15,
+    "citations": [
+      {
+        "code": "83.37(1)(e)",
+        "tag": "N 404",
+        "title": "Medication regimen, administration review."
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 1,
+    "kind": "sod"
+  },
+  "archive/0009118/2023-12-26_desk-review_sod.pdf": {
+    "census": null,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": null,
+    "kind": "sod"
+  },
+  "archive/0009118/2024-01-22_survey_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0009226/2024-05-22_complaint_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply"
+    ],
+    "sod_ref": "4BLT11"
+  },
+  "archive/0009226/2024-05-22_complaint_sod.pdf": {
+    "census": 13,
+    "citations": [
+      {
+        "code": "83.35(3)(a)",
+        "tag": "N 386",
+        "title": "Comprehensive Individualized"
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 1,
+    "kind": "sod"
+  },
+  "archive/0009226/2024-12-03_verification-visit_sod.pdf": {
+    "census": 13,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0009226/2025-08-05_complaint_sod.pdf": {
+    "census": null,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": null,
+    "kind": "sod"
+  },
+  "archive/0009226/2026-02-17_desk-review_enforcement.pdf": {
+    "fine": 500,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Order to comply"
+    ],
+    "sod_ref": "076T11"
+  },
+  "archive/0009226/2026-02-17_desk-review_sod.pdf": {
+    "census": null,
+    "citations": [
+      {
+        "code": "83.09",
+        "tag": "N 141",
+        "title": "Biennial report and fees."
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 1,
+    "kind": "sod"
+  },
+  "archive/0009226/2026-03-20_desk-review_sod.pdf": {
+    "census": null,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": null,
+    "kind": "sod"
+  },
+  "archive/0010153/2025-01-24_survey_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0010446/2024-08-07_survey_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0010689/2023-10-19_verification-visit_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Special orders",
+      "Order to comply",
+      "Revisit fee"
+    ],
+    "sod_ref": "K0ZR13"
+  },
+  "archive/0010689/2023-10-19_verification-visit_sod.pdf": {
+    "census": 2,
+    "citations": [
+      {
+        "code": "88.04(2)(a)",
+        "tag": "M 216",
+        "title": "Responsibilities"
+      },
+      {
+        "code": "88.04(5)(b)",
+        "tag": "M 246",
+        "title": "Training-8 hours annually"
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 2,
+    "kind": "sod"
+  },
+  "archive/0011313/2025-07-23_survey-complaint_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply"
+    ],
+    "sod_ref": "Z08P11"
+  },
+  "archive/0011313/2025-07-23_survey-complaint_sod.pdf": {
+    "census": 13,
+    "citations": [
+      {
+        "code": "83.38(1)(c)",
+        "tag": "N 427",
+        "title": "Leisure time activities."
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 1,
+    "kind": "sod"
+  },
+  "archive/0011313/2025-12-03_complaint_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply"
+    ],
+    "sod_ref": "5WA611"
+  },
+  "archive/0011313/2025-12-03_complaint_sod.pdf": {
+    "census": 13,
+    "citations": [
+      {
+        "code": "83.12(4)(c)",
+        "tag": "N 165",
+        "title": "Reporting incidents with serious injury"
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 1,
+    "kind": "sod"
+  },
+  "archive/0011887/2023-12-07_survey-complaint_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0011888/2026-06-16_survey_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0011937/2024-07-15_survey_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0012110/2024-09-11_survey-complaint_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Special orders",
+      "Order to comply"
+    ],
+    "sod_ref": "KZEG11"
+  },
+  "archive/0012110/2024-09-11_survey-complaint_sod.pdf": {
+    "census": 4,
+    "citations": [
+      {
+        "code": "88.04(2)(a)",
+        "tag": "M 216",
+        "title": "Responsibilities"
+      }
+    ],
+    "complaints_substantiated": 1,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 1,
+    "kind": "sod"
+  },
+  "archive/0012110/2025-01-22_verification-visit_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0012111/2024-03-05_survey-vv_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0012111/2024-09-11_complaint_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0012338/2025-10-02_survey_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0012339/2025-12-04_survey_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": null,
+    "kind": "sod"
+  },
+  "archive/0012370/2026-06-09_survey-complaint_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0012689/2025-10-03_survey_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0012897/2024-01-22_verification-visit_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0012930/2025-11-04_complaint_sod.pdf": {
+    "census": 10,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0013025/2024-01-18_survey-complaint_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply"
+    ],
+    "sod_ref": "DMOR11"
+  },
+  "archive/0013025/2024-01-18_survey-complaint_sod.pdf": {
+    "census": 80,
+    "citations": [
+      {
+        "code": "89.35(3)",
+        "tag": "U 272",
+        "title": "Grievances"
+      }
+    ],
+    "complaints_substantiated": 1,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 1,
+    "kind": "sod"
+  },
+  "archive/0013025/2025-03-24_complaint_sod.pdf": {
+    "census": 77,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0013025/2026-02-26_survey-complaint_sod.pdf": {
+    "census": 80,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0013419/2026-03-18_survey-complaint_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply"
+    ],
+    "sod_ref": "GJFV11"
+  },
+  "archive/0013419/2026-03-18_survey-complaint_sod.pdf": {
+    "census": 13,
+    "citations": [
+      {
+        "code": "83.35(3)(d)",
+        "tag": "N 389",
+        "title": "Service plans updated annually or on changes"
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 1,
+    "kind": "sod"
+  },
+  "archive/0013419/2026-06-04_verification-visit_sod.pdf": {
+    "kind": "unreadable"
+  },
+  "archive/0013422/2023-12-11_survey-complaint-vv_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply",
+      "Revisit fee"
+    ],
+    "sod_ref": "G3TG12"
+  },
+  "archive/0013422/2023-12-11_survey-complaint-vv_sod.pdf": {
+    "census": 20,
+    "citations": [
+      {
+        "code": "83.47(2)(d)",
+        "tag": "N 525",
+        "title": "Fire drills."
+      },
+      {
+        "code": "83.47(2)(e)",
+        "tag": "N 526",
+        "title": "Other evacuation drills."
+      },
+      {
+        "code": "83.48(1)(b)",
+        "tag": "N 535",
+        "title": "Smoke and heat detectors per NFPA"
+      }
+    ],
+    "complaints_substantiated": 1,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 3,
+    "kind": "sod"
+  },
+  "archive/0013422/2024-11-26_complaint_sod.pdf": {
+    "census": 17,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": null,
+    "kind": "sod"
+  },
+  "archive/0013422/2025-12-02_survey-complaint_enforcement.pdf": {
+    "fine": 400,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Special orders",
+      "Order to comply"
+    ],
+    "sod_ref": "IG3D11"
+  },
+  "archive/0013422/2025-12-02_survey-complaint_sod.pdf": {
+    "census": 15,
+    "citations": [
+      {
+        "code": "83.35(3)(d)",
+        "tag": "N 389",
+        "title": "Service plans updated annually or on changes"
+      },
+      {
+        "code": "83.46(1)(f)",
+        "tag": "N 507",
+        "title": "Combustibles."
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 2,
+    "deficiencies": 2,
+    "kind": "sod"
+  },
+  "archive/0013424/2023-09-25_survey-complaint_enforcement.pdf": {
+    "fine": 150,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Order to comply"
+    ],
+    "sod_ref": "8F3911"
+  },
+  "archive/0013424/2023-09-25_survey-complaint_sod.pdf": {
+    "census": 15,
+    "citations": [
+      {
+        "code": "83.33(4)",
+        "tag": "N 365",
+        "title": "Posting of long term care ombudsman program"
+      },
+      {
+        "code": "83.44(1)(c)",
+        "tag": "N 488",
+        "title": "Clothes dryers enclosed and vented"
+      },
+      {
+        "code": "83.47(2)(d)",
+        "tag": "N 525",
+        "title": "Fire drills."
+      },
+      {
+        "code": "83.47(2)(e)",
+        "tag": "N 526",
+        "title": "Other evacuation drills."
+      },
+      {
+        "code": "83.55(6)(b)",
+        "tag": "N 617",
+        "title": "Bath and toilet areas: water temperature"
+      }
+    ],
+    "complaints_substantiated": 2,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 5,
+    "kind": "sod"
+  },
+  "archive/0013424/2023-12-11_complaint_sod.pdf": {
+    "census": 11,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 2,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0013424/2024-03-05_verification-visit_enforcement.pdf": {
+    "fine": 300,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Special orders",
+      "Order to comply",
+      "Revisit fee"
+    ],
+    "sod_ref": "8F3912"
+  },
+  "archive/0013424/2024-03-05_verification-visit_sod.pdf": {
+    "census": 16,
+    "citations": [
+      {
+        "code": "83.55(6)(b)",
+        "tag": "N 617",
+        "title": "Bath and toilet areas: water temperature"
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": null,
+    "kind": "sod"
+  },
+  "archive/0013424/2024-11-26_verification-visit_enforcement.pdf": {
+    "fine": 400,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Special orders",
+      "Order to comply",
+      "Revisit fee"
+    ],
+    "sod_ref": "8F3913"
+  },
+  "archive/0013424/2024-11-26_verification-visit_sod.pdf": {
+    "census": 16,
+    "citations": [
+      {
+        "code": "83.55(6)(b)",
+        "tag": "N 617",
+        "title": "Bath and toilet areas: water temperature"
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 1,
+    "kind": "sod"
+  },
+  "archive/0013424/2026-03-12_survey-vv_enforcement.pdf": {
+    "fine": 400,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Special orders",
+      "Order to comply",
+      "Revisit fee"
+    ],
+    "sod_ref": "8F3914"
+  },
+  "archive/0013424/2026-03-12_survey-vv_sod.pdf": {
+    "census": 14,
+    "citations": [
+      {
+        "code": "83.36(1)(a)",
+        "tag": "N 396",
+        "title": "Adequate staff to meet resident needs."
+      },
+      {
+        "code": "83.37(3)(c)",
+        "tag": "N 419",
+        "title": "Medication storage: locked cabinet."
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 2,
+    "kind": "sod"
+  },
+  "archive/0013441/2023-07-12_survey_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0013700/2024-07-15_survey_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0013949/2025-11-11_survey-complaint_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply"
+    ],
+    "sod_ref": "FWQC11"
+  },
+  "archive/0013949/2025-11-11_survey-complaint_sod.pdf": {
+    "census": 17,
+    "citations": [
+      {
+        "code": "83.20(1)(b)",
+        "tag": "N 238",
+        "title": "Training documentation requirements."
+      },
+      {
+        "code": "83.38(1)(c)",
+        "tag": "N 427",
+        "title": "Leisure time activities."
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 2,
+    "kind": "sod"
+  },
+  "archive/0013949/2026-04-07_verification-visit_sod.pdf": {
+    "census": 10,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0014480/2025-01-24_survey_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0014504/2025-06-24_survey-complaint_sod.pdf": {
+    "census": 50,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 2,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0014504/2025-10-29_complaint_sod.pdf": {
+    "census": 54,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0015223/2024-04-30_verification-visit_sod.pdf": {
+    "census": 3,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": null,
+    "kind": "sod"
+  },
+  "archive/0015224/2025-10-03_survey_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0015376/2026-01-26_survey_sod.pdf": {
+    "census": 2,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0015628/2023-10-24_survey-complaint_enforcement.pdf": {
+    "fine": 1000,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Special orders",
+      "Order to comply"
+    ],
+    "sod_ref": "CTZQ11"
+  },
+  "archive/0015628/2023-10-24_survey-complaint_sod.pdf": {
+    "census": 28,
+    "citations": [
+      {
+        "code": "83.32(3)(n)",
+        "tag": "N 358",
+        "title": "Rights of Residents: Safe environment"
+      },
+      {
+        "code": "83.47(2)(d)",
+        "tag": "N 525",
+        "title": "Fire drills."
+      }
+    ],
+    "complaints_substantiated": 1,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 2,
+    "kind": "sod"
+  },
+  "archive/0015628/2024-03-11_verification-visit_sod.pdf": {
+    "census": 33,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0015628/2024-07-10_complaint_sod.pdf": {
+    "census": 30,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0015628/2025-08-29_survey-complaint_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply"
+    ],
+    "sod_ref": "V2PA11"
+  },
+  "archive/0015628/2025-08-29_survey-complaint_sod.pdf": {
+    "census": 34,
+    "citations": [
+      {
+        "code": "83.32(3)(h)",
+        "tag": "N 352",
+        "title": "Rights of Residents: Receive medication"
+      },
+      {
+        "code": "50.09(1)(e)",
+        "tag": "Y 3234",
+        "title": "Treatment"
+      }
+    ],
+    "complaints_substantiated": 1,
+    "complaints_unsubstantiated": 2,
+    "deficiencies": 2,
+    "kind": "sod"
+  },
+  "archive/0015628/2025-12-10_complaint-vv_enforcement.pdf": {
+    "fine": 1150,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Special orders",
+      "Order to comply",
+      "Revisit fee"
+    ],
+    "sod_ref": "V2PA12"
+  },
+  "archive/0015628/2025-12-10_complaint-vv_sod.pdf": {
+    "census": 33,
+    "citations": [
+      {
+        "code": "83.31(4)(a)",
+        "tag": "N 326",
+        "title": "Notice of facility initiated discharges"
+      },
+      {
+        "code": "83.32(3)(h)",
+        "tag": "N 352",
+        "title": "Rights of Residents: Receive medication"
+      },
+      {
+        "code": "83.35(3)(a)",
+        "tag": "N 386",
+        "title": "Comprehensive Individualized"
+      },
+      {
+        "code": "83.35(3)(c)",
+        "tag": "N 388",
+        "title": "Implement, follow the individual service plan"
+      },
+      {
+        "code": "83.44(2)(a)",
+        "tag": "N 489",
+        "title": "Rooms clean and free from odors.  N 489"
+      }
+    ],
+    "complaints_substantiated": 3,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 5,
+    "kind": "sod"
+  },
+  "archive/0015628/2026-03-10_complaint_sod.pdf": {
+    "census": 34,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 2,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0015634/2024-01-02_complaint_sod.pdf": {
+    "census": 29,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 4,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0015634/2024-07-09_complaint_sod.pdf": {
+    "census": 40,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0015634/2025-07-11_complaint_sod.pdf": {
+    "census": 38,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 2,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0015844/2024-12-23_survey_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0015844/2026-03-11_complaint-self-report_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Special orders",
+      "Order to comply"
+    ],
+    "sod_ref": "XQIT11"
+  },
+  "archive/0015844/2026-03-11_complaint-self-report_sod.pdf": {
+    "census": 2,
+    "citations": [
+      {
+        "code": "88.07(2)(a)",
+        "tag": "M 436",
+        "title": "Services"
+      }
+    ],
+    "complaints_substantiated": 1,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 1,
+    "kind": "sod"
+  },
+  "archive/0015955/2024-03-19_complaint-self-report_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply"
+    ],
+    "sod_ref": "MPCX11"
+  },
+  "archive/0015955/2024-03-19_complaint-self-report_sod.pdf": {
+    "census": 42,
+    "citations": [
+      {
+        "code": "83.37(1)(g)",
+        "tag": "N 406",
+        "title": "Disposition of medications."
+      }
+    ],
+    "complaints_substantiated": 1,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 1,
+    "kind": "sod"
+  },
+  "archive/0015955/2024-11-27_complaint_sod.pdf": {
+    "census": 43,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0015955/2025-04-10_survey-complaint_sod.pdf": {
+    "census": 43,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0015955/2025-05-15_complaint_sod.pdf": {
+    "census": 42,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0015955/2025-10-02_complaint_sod.pdf": {
+    "census": 44,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 2,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0015955/2026-02-18_complaint_enforcement.pdf": {
+    "fine": 1000,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Order to comply"
+    ],
+    "sod_ref": "UB3G11"
+  },
+  "archive/0015955/2026-02-18_complaint_sod.pdf": {
+    "census": 44,
+    "citations": [
+      {
+        "code": "83.35(3)(c)",
+        "tag": "N 388",
+        "title": "Implement, follow the individual service plan"
+      },
+      {
+        "code": "83.35(3)(d)",
+        "tag": "N 389",
+        "title": "Service plans updated annually or on changes"
+      },
+      {
+        "code": "50.09(1)(a)",
+        "tag": "Y 3229",
+        "title": "1. Mail"
+      },
+      {
+        "code": "50.09(1)(i)",
+        "tag": "Y 3241",
+        "title": "Personal Possessions"
+      }
+    ],
+    "complaints_substantiated": 2,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 4,
+    "kind": "sod"
+  },
+  "archive/0015955/2026-06-08_complaint_sod.pdf": {
+    "census": 43,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0016344/2023-09-12_complaint_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply"
+    ],
+    "sod_ref": "OONJ11"
+  },
+  "archive/0016344/2023-09-12_complaint_sod.pdf": {
+    "census": 30,
+    "citations": [
+      {
+        "code": "89.34(18)",
+        "tag": "U 269",
+        "title": "Tenant rights"
+      }
+    ],
+    "complaints_substantiated": 3,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 1,
+    "kind": "sod"
+  },
+  "archive/0016344/2023-12-14_complaint-vv_enforcement.pdf": {
+    "fine": 150,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Order to comply",
+      "Revisit fee"
+    ],
+    "sod_ref": "OONJ12"
+  },
+  "archive/0016344/2023-12-14_complaint-vv_sod.pdf": {
+    "census": null,
+    "citations": [
+      {
+        "code": "89.23(2)(a)",
+        "tag": "U 118",
+        "title": "2.c SERVICES"
+      },
+      {
+        "code": "89.23(4)(a)",
+        "tag": "U 129",
+        "title": "2. services"
+      },
+      {
+        "code": "89.34(16)",
+        "tag": "U 267",
+        "title": "Tenant rights"
+      }
+    ],
+    "complaints_substantiated": 8,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 3,
+    "kind": "sod"
+  },
+  "archive/0016344/2024-01-09_complaint_sod.pdf": {
+    "census": 24,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0016344/2024-05-15_complaint-vv_enforcement.pdf": {
+    "fine": 3040,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Special orders",
+      "Order to comply",
+      "Revisit fee"
+    ],
+    "sod_ref": "OONJ13"
+  },
+  "archive/0016344/2024-05-15_complaint-vv_sod.pdf": {
+    "census": 26,
+    "citations": [
+      {
+        "code": "89.34(16)",
+        "tag": "U 267",
+        "title": "Tenant rights"
+      }
+    ],
+    "complaints_substantiated": 1,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 1,
+    "kind": "sod"
+  },
+  "archive/0016344/2024-10-31_verification-visit_sod.pdf": {
+    "census": 26,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": null,
+    "kind": "sod"
+  },
+  "archive/0016344/2024-12-04_complaint_sod.pdf": {
+    "census": 28,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": null,
+    "kind": "sod"
+  },
+  "archive/0016456/2024-06-19_survey_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0016514/2024-06-19_survey_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0016520/2024-06-20_survey-complaint_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0016736/2023-10-10_verification-visit_sod.pdf": {
+    "census": 18,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0016736/2024-12-09_complaint_enforcement.pdf": {
+    "fine": 800,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Special orders",
+      "Order to comply"
+    ],
+    "sod_ref": "5GJP11"
+  },
+  "archive/0016736/2024-12-09_complaint_sod.pdf": {
+    "census": 23,
+    "citations": [
+      {
+        "code": "50.09(1)(L)",
+        "tag": "Y 3244",
+        "title": "Care"
+      }
+    ],
+    "complaints_substantiated": 1,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 1,
+    "kind": "sod"
+  },
+  "archive/0016736/2025-11-18_verification-visit_sod.pdf": {
+    "census": 23,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0016736/2026-04-27_survey-complaint_enforcement.pdf": {
+    "fine": 1600,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Order to comply"
+    ],
+    "sod_ref": "3LD711"
+  },
+  "archive/0016736/2026-04-27_survey-complaint_sod.pdf": {
+    "census": 23,
+    "citations": [
+      {
+        "code": "83.17(2)(a)",
+        "tag": "N 220",
+        "title": "Employees screened for communicable disease."
+      },
+      {
+        "code": "83.20(2)(a)",
+        "tag": "N 239",
+        "title": "-(d) Department-approved training courses."
+      },
+      {
+        "code": "83.35(3)(d)",
+        "tag": "N 389",
+        "title": "Service plans updated annually or on changes"
+      },
+      {
+        "code": "83.35(4)",
+        "tag": "N 392",
+        "title": "Resident satisfaction evaluation."
+      },
+      {
+        "code": "83.35(5)(b)",
+        "tag": "N 394",
+        "title": "Annual evaluation of evacuation limits"
+      },
+      {
+        "code": "83.37(1)(i)",
+        "tag": "N 408",
+        "title": "PRN psychotropic medication."
+      },
+      {
+        "code": "83.46(1)(c)",
+        "tag": "N 504",
+        "title": "Heating system maintenance."
+      },
+      {
+        "code": "83.47(2)(d)",
+        "tag": "N 525",
+        "title": "Fire drills."
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 8,
+    "kind": "sod"
+  },
+  "archive/0016838/2026-04-07_survey_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0016880/2026-03-24_complaint_sod.pdf": {
+    "census": 36,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0016883/2023-08-08_verification-visit_sod.pdf": {
+    "census": 6,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0016883/2025-06-19_survey-complaint_sod.pdf": {
+    "census": 5,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": null,
+    "kind": "sod"
+  },
+  "archive/0016894/2024-01-04_survey-complaint_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Special orders",
+      "Order to comply"
+    ],
+    "sod_ref": "RHIC11"
+  },
+  "archive/0016894/2024-01-04_survey-complaint_sod.pdf": {
+    "census": 4,
+    "citations": [
+      {
+        "code": "88.04(2)(h)",
+        "tag": "M 235",
+        "title": "Comply with osha"
+      },
+      {
+        "code": "88.04(5)(b)",
+        "tag": "M 246",
+        "title": "Training-8 hours annually"
+      },
+      {
+        "code": "88.05(4)(d)",
+        "tag": "M 346",
+        "title": "2.b FIRE EVACUATION ANNUAL"
+      },
+      {
+        "code": "88.06(2)(c)",
+        "tag": "M 402",
+        "title": "8 resident rights and"
+      },
+      {
+        "code": "88.07(3)(e)",
+        "tag": "M 466",
+        "title": "1 medication- record keeping"
+      },
+      {
+        "code": "50.065(6)(am)",
+        "tag": "Z 019",
+        "title": "Four Year Caregiver Background"
+      }
+    ],
+    "complaints_substantiated": 1,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 6,
+    "kind": "sod"
+  },
+  "archive/0016894/2025-04-21_verification-visit_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": null,
+    "kind": "sod"
+  },
+  "archive/0016894/2025-08-25_complaint_sod.pdf": {
+    "census": 3,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 3,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0016895/2025-08-14_survey_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0017995/2025-07-29_survey_sod.pdf": {
+    "census": 8,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0017996/2025-08-05_survey_sod.pdf": {
+    "census": 8,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0018018/2025-07-03_survey_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": null,
+    "kind": "sod"
+  },
+  "archive/0018266/2024-01-22_verification-visit_sod.pdf": {
+    "census": 20,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0018276/2023-07-17_survey-complaint-vv_sod.pdf": {
+    "census": 8,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0018276/2024-06-17_complaint_enforcement.pdf": {
+    "fine": 500,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Order to comply"
+    ],
+    "sod_ref": "31KJ11"
+  },
+  "archive/0018276/2024-06-17_complaint_sod.pdf": {
+    "census": 8,
+    "citations": [
+      {
+        "code": "83.32(3)(l)",
+        "tag": "N 356",
+        "title": "Rights of Residents: Least restrictive env"
+      }
+    ],
+    "complaints_substantiated": 1,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 1,
+    "kind": "sod"
+  },
+  "archive/0018276/2025-03-12_survey-vv_sod.pdf": {
+    "census": 8,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0018276/2025-11-03_complaint_enforcement.pdf": {
+    "fine": 850,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Special orders",
+      "Order to comply"
+    ],
+    "sod_ref": "C4OJ11"
+  },
+  "archive/0018276/2025-11-03_complaint_sod.pdf": {
+    "census": 8,
+    "citations": [
+      {
+        "code": "83.32(3)(i)",
+        "tag": "N 353",
+        "title": "Rights of Residents: Adequate treatment"
+      },
+      {
+        "code": "83.38(1)(g)",
+        "tag": "N 431",
+        "title": "Health monitoring."
+      }
+    ],
+    "complaints_substantiated": 3,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 2,
+    "kind": "sod"
+  },
+  "archive/0018300/2024-12-11_survey-complaint_sod.pdf": {
+    "census": 7,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0018300/2025-03-17_complaint_enforcement.pdf": {
+    "fine": 1000,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Special orders",
+      "Order to comply"
+    ],
+    "sod_ref": "H54911"
+  },
+  "archive/0018300/2025-03-17_complaint_sod.pdf": {
+    "census": 8,
+    "citations": [
+      {
+        "code": "83.12(2)(a)",
+        "tag": "N 158",
+        "title": "Caregiver: Investigating abuse & neglect"
+      },
+      {
+        "code": "83.32(3)(d)",
+        "tag": "N 348",
+        "title": "Rights of Residents: Free from mistreatment"
+      },
+      {
+        "code": "83.43(1)",
+        "tag": "N 481",
+        "title": "Environment safe, clean, and comfortable"
+      }
+    ],
+    "complaints_substantiated": 1,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 3,
+    "kind": "sod"
+  },
+  "archive/0018302/2024-01-29_survey-complaint-self-report_enforcement.pdf": {
+    "fine": 600,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Order to comply"
+    ],
+    "sod_ref": "JBS011"
+  },
+  "archive/0018302/2024-01-29_survey-complaint-self-report_sod.pdf": {
+    "census": 24,
+    "citations": [
+      {
+        "code": "83.21(1)",
+        "tag": "N 243",
+        "title": "-(3) All employee training."
+      },
+      {
+        "code": "83.22(1)",
+        "tag": "N 247",
+        "title": "-(4) Task specific training."
+      },
+      {
+        "code": "83.35(2)",
+        "tag": "N 385",
+        "title": "Temporary Service Plan."
+      },
+      {
+        "code": "83.35(5)(a)",
+        "tag": "N 393",
+        "title": "Initial evaluation of evacuation limitations."
+      },
+      {
+        "code": "83.35(5)(b)",
+        "tag": "N 394",
+        "title": "Annual evaluation of evacuation limits"
+      },
+      {
+        "code": "83.37(3)(c)",
+        "tag": "N 419",
+        "title": "Medication storage: locked cabinet."
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 5,
+    "deficiencies": 6,
+    "kind": "sod"
+  },
+  "archive/0018302/2024-02-29_complaint_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply"
+    ],
+    "sod_ref": "WUGI11"
+  },
+  "archive/0018302/2024-02-29_complaint_sod.pdf": {
+    "census": 21,
+    "citations": [
+      {
+        "code": "83.32(3)(h)",
+        "tag": "N 352",
+        "title": "Rights of Residents: Receive medication"
+      },
+      {
+        "code": "83.39(3)",
+        "tag": "N 441",
+        "title": "Hand washing."
+      }
+    ],
+    "complaints_substantiated": 1,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 2,
+    "kind": "sod"
+  },
+  "archive/0018302/2024-11-11_complaint_enforcement.pdf": {
+    "fine": 2150,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Order to comply",
+      "Revisit fee"
+    ],
+    "sod_ref": "WUGI12"
+  },
+  "archive/0018302/2024-11-11_complaint_sod.pdf": {
+    "census": 22,
+    "citations": [
+      {
+        "code": "83.14(2)(e)",
+        "tag": "N 200",
+        "title": "Notify within 7 days of administrator change"
+      },
+      {
+        "code": "83.21(1)",
+        "tag": "N 243",
+        "title": "-(3) All employee training."
+      },
+      {
+        "code": "83.22(1)",
+        "tag": "N 247",
+        "title": "-(4) Task specific training."
+      },
+      {
+        "code": "83.39(3)",
+        "tag": "N 441",
+        "title": "Hand washing."
+      },
+      {
+        "code": "83.44(2)(a)",
+        "tag": "N 489",
+        "title": "Rooms clean and free from odors.  N 489"
+      }
+    ],
+    "complaints_substantiated": 3,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 5,
+    "kind": "sod"
+  },
+  "archive/0018302/2025-01-22_complaint-self-report_enforcement.pdf": {
+    "fine": 1900,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Special orders",
+      "Order to comply"
+    ],
+    "sod_ref": "P3E311"
+  },
+  "archive/0018302/2025-01-22_complaint-self-report_sod.pdf": {
+    "census": 24,
+    "citations": [
+      {
+        "code": "83.38(1)(b)",
+        "tag": "N 426",
+        "title": "Supervision."
+      }
+    ],
+    "complaints_substantiated": 2,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 1,
+    "kind": "sod"
+  },
+  "archive/0018302/2025-06-18_complaint-vv_enforcement.pdf": {
+    "fine": 150,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Order to comply",
+      "Revisit fee"
+    ],
+    "sod_ref": "WUGI13"
+  },
+  "archive/0018302/2025-06-18_complaint-vv_sod.pdf": {
+    "census": 24,
+    "citations": [
+      {
+        "code": "83.14(2)(e)",
+        "tag": "N 200",
+        "title": "Notify within 7 days of administrator change"
+      },
+      {
+        "code": "83.41(3)(b)",
+        "tag": "N 452",
+        "title": "Food safety."
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 2,
+    "kind": "sod"
+  },
+  "archive/0018526/2025-08-26_survey-complaint_sod.pdf": {
+    "census": 7,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0018760/2024-06-03_survey-complaint-self-report_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply"
+    ],
+    "sod_ref": "X5MU11"
+  },
+  "archive/0018760/2024-06-03_survey-complaint-self-report_sod.pdf": {
+    "census": 11,
+    "citations": [
+      {
+        "code": "83.32(3)(n)",
+        "tag": "N 358",
+        "title": "Rights of Residents: Safe environment"
+      },
+      {
+        "code": "83.35(3)(c)",
+        "tag": "N 388",
+        "title": "Implement, follow the individual service plan"
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 2,
+    "kind": "sod"
+  },
+  "archive/0018760/2025-01-22_verification-visit_sod.pdf": {
+    "census": 11,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0018760/2025-04-29_complaint_enforcement.pdf": {
+    "fine": 300,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Special orders",
+      "Order to comply"
+    ],
+    "sod_ref": "XWD311"
+  },
+  "archive/0018760/2025-04-29_complaint_sod.pdf": {
+    "census": 13,
+    "citations": [
+      {
+        "code": "83.32(3)(k)",
+        "tag": "N 355",
+        "title": "Rights of Residents:"
+      }
+    ],
+    "complaints_substantiated": 2,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 1,
+    "kind": "sod"
+  },
+  "archive/0018760/2025-07-23_desk-review_enforcement.pdf": {
+    "fine": 500,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Order to comply"
+    ],
+    "sod_ref": "C7KC11"
+  },
+  "archive/0018760/2025-07-23_desk-review_sod.pdf": {
+    "census": null,
+    "citations": [
+      {
+        "code": "83.09",
+        "tag": "N 141",
+        "title": "Biennial report and fees."
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 1,
+    "kind": "sod"
+  },
+  "archive/0018760/2025-08-13_desk-review_sod.pdf": {
+    "census": null,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": null,
+    "kind": "sod"
+  },
+  "archive/0018760/2025-11-06_complaint-vv_enforcement.pdf": {
+    "fine": 3350,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Special orders",
+      "Order to comply",
+      "Revisit fee"
+    ],
+    "sod_ref": "XWD312"
+  },
+  "archive/0018760/2025-11-06_complaint-vv_sod.pdf": {
+    "census": 12,
+    "citations": [
+      {
+        "code": "83.35(3)(a)",
+        "tag": "N 386",
+        "title": "Comprehensive Individualized"
+      },
+      {
+        "code": "83.35(3)(c)",
+        "tag": "N 388",
+        "title": "Implement, follow the individual service plan"
+      },
+      {
+        "code": "83.36(1)(a)",
+        "tag": "N 396",
+        "title": "Adequate staff to meet resident needs."
+      },
+      {
+        "code": "83.39(3)",
+        "tag": "N 441",
+        "title": "Hand washing."
+      }
+    ],
+    "complaints_substantiated": 1,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 4,
+    "kind": "sod"
+  },
+  "archive/0018940/2025-04-23_survey_sod.pdf": {
+    "census": 6,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0018940/2025-12-17_complaint_enforcement.pdf": {
+    "fine": 1500,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Order to comply"
+    ],
+    "sod_ref": "9P7O11"
+  },
+  "archive/0018940/2025-12-17_complaint_sod.pdf": {
+    "census": 8,
+    "citations": [
+      {
+        "code": "83.36(1)(a)",
+        "tag": "N 396",
+        "title": "Adequate staff to meet resident needs."
+      }
+    ],
+    "complaints_substantiated": 2,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 1,
+    "kind": "sod"
+  },
+  "archive/0018940/2026-03-30_complaint-vv_enforcement.pdf": {
+    "fine": 1300,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Special orders",
+      "Order to comply",
+      "Revisit fee"
+    ],
+    "sod_ref": "9P7O12"
+  },
+  "archive/0018940/2026-03-30_complaint-vv_sod.pdf": {
+    "census": 5,
+    "citations": [
+      {
+        "code": "83.12(5)(a)",
+        "tag": "N 169",
+        "title": "Notification: incident, injury, changes."
+      },
+      {
+        "code": "83.36(1)(a)",
+        "tag": "N 396",
+        "title": "Adequate staff to meet resident needs."
+      },
+      {
+        "code": "83.38(1)(g)",
+        "tag": "N 431",
+        "title": "Health monitoring."
+      }
+    ],
+    "complaints_substantiated": 1,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 3,
+    "kind": "sod"
+  },
+  "archive/0019222/2023-08-16_complaint_sod.pdf": {
+    "census": 3,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0019222/2024-06-11_survey-complaint_sod.pdf": {
+    "census": 3,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0019326/2023-12-21_survey-self-report_sod.pdf": {
+    "census": 10,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0019326/2025-04-16_complaint_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply"
+    ],
+    "sod_ref": "26NO11"
+  },
+  "archive/0019326/2025-04-16_complaint_sod.pdf": {
+    "census": 12,
+    "citations": [
+      {
+        "code": "83.36(1)(b)",
+        "tag": "N 397",
+        "title": "Qualified staff in charge, on duty and awake."
+      },
+      {
+        "code": "83.45(3)",
+        "tag": "N 499",
+        "title": "Toxic substances."
+      },
+      {
+        "code": "83.46(1)(f)",
+        "tag": "N 507",
+        "title": "Combustibles."
+      }
+    ],
+    "complaints_substantiated": 2,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 3,
+    "kind": "sod"
+  },
+  "archive/0019326/2025-09-23_survey-complaint-vv_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply",
+      "Revisit fee"
+    ],
+    "sod_ref": "26NO12"
+  },
+  "archive/0019326/2025-09-23_survey-complaint-vv_sod.pdf": {
+    "census": 11,
+    "citations": [
+      {
+        "code": "83.37(3)(a)",
+        "tag": "N 417",
+        "title": "Medication storage: original containers."
+      },
+      {
+        "code": "83.38(1)(c)",
+        "tag": "N 427",
+        "title": "Leisure time activities."
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 2,
+    "kind": "sod"
+  },
+  "archive/0019328/2023-11-08_survey-complaint_enforcement.pdf": {
+    "fine": 1000,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Special orders",
+      "Order to comply"
+    ],
+    "sod_ref": "CCZ611"
+  },
+  "archive/0019328/2023-11-08_survey-complaint_sod.pdf": {
+    "census": 9,
+    "citations": [
+      {
+        "code": "83.21(1)",
+        "tag": "N 243",
+        "title": "-(3) All employee training."
+      },
+      {
+        "code": "83.22(1)",
+        "tag": "N 247",
+        "title": "-(4) Task specific training."
+      },
+      {
+        "code": "83.37(1)(h)",
+        "tag": "N 407",
+        "title": "Scheduled psychotropic medications."
+      },
+      {
+        "code": "83.37(1)(i)",
+        "tag": "N 408",
+        "title": "PRN psychotropic medication."
+      },
+      {
+        "code": "83.37(2)(e)",
+        "tag": "N 416",
+        "title": "Other administration given or delegated by RN"
+      },
+      {
+        "code": "83.44(2)(c)",
+        "tag": "N 491",
+        "title": "Interior floors, walls and ceilings."
+      },
+      {
+        "code": "83.47(2)(d)",
+        "tag": "N 525",
+        "title": "Fire drills.  N 525"
+      },
+      {
+        "code": "83.47(2)(e)",
+        "tag": "N 526",
+        "title": "Other evacuation drills."
+      },
+      {
+        "code": "83.47(3)",
+        "tag": "N 530",
+        "title": "Fire inspection."
+      },
+      {
+        "code": "83.48(1)(a)",
+        "tag": "N 534",
+        "title": "Smoke detection system."
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 10,
+    "kind": "sod"
+  },
+  "archive/0019328/2024-01-31_verification-visit_sod.pdf": {
+    "census": 14,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0019328/2024-12-19_complaint_enforcement.pdf": {
+    "fine": 600,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Order to comply"
+    ],
+    "sod_ref": "1TFT11"
+  },
+  "archive/0019328/2024-12-19_complaint_sod.pdf": {
+    "census": 13,
+    "citations": [
+      {
+        "code": "83.32(3)(i)",
+        "tag": "N 353",
+        "title": "Rights of Residents: Adequate treatment"
+      },
+      {
+        "code": "83.38(1)(a)",
+        "tag": "N 425",
+        "title": "Personal care."
+      }
+    ],
+    "complaints_substantiated": 1,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 2,
+    "kind": "sod"
+  },
+  "archive/0019328/2025-09-12_complaint_enforcement.pdf": {
+    "fine": 950,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Order to comply"
+    ],
+    "sod_ref": "P02N11"
+  },
+  "archive/0019328/2025-09-12_complaint_sod.pdf": {
+    "census": 13,
+    "citations": [
+      {
+        "code": "83.35(3)(a)",
+        "tag": "N 386",
+        "title": "Comprehensive Individualized"
+      },
+      {
+        "code": "83.36(1)(a)",
+        "tag": "N 396",
+        "title": "Adequate staff to meet resident needs."
+      }
+    ],
+    "complaints_substantiated": 1,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 2,
+    "kind": "sod"
+  },
+  "archive/0019328/2025-10-22_survey-complaint-vv_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply",
+      "Revisit fee"
+    ],
+    "sod_ref": "1TFT12"
+  },
+  "archive/0019328/2025-10-22_survey-complaint-vv_sod.pdf": {
+    "census": 13,
+    "citations": [
+      {
+        "code": "83.39(1)",
+        "tag": "N 439",
+        "title": "Infection control program."
+      },
+      {
+        "code": "83.41(3)(b)",
+        "tag": "N 452",
+        "title": "Food safety."
+      },
+      {
+        "code": "83.44(2)(c)",
+        "tag": "N 491",
+        "title": "Interior floors, walls and ceilings."
+      },
+      {
+        "code": "83.45(5)",
+        "tag": "N 501",
+        "title": "Garbage & refuse."
+      },
+      {
+        "code": "83.60(2)",
+        "tag": "N 669",
+        "title": "Insect-proof screens on openable windows"
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 5,
+    "kind": "sod"
+  },
+  "archive/0019329/2023-11-30_survey-complaint-vv_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply",
+      "Revisit fee"
+    ],
+    "sod_ref": "M3J812"
+  },
+  "archive/0019329/2023-11-30_survey-complaint-vv_sod.pdf": {
+    "census": 11,
+    "citations": [
+      {
+        "code": "83.12(3)(a)",
+        "tag": "N 161",
+        "title": "Investigate injuries of unknown source."
+      },
+      {
+        "code": "83.25",
+        "tag": "N 277",
+        "title": "Continuing education"
+      },
+      {
+        "code": "83.28(4)(a)",
+        "tag": "N 302",
+        "title": "Resident health screening and documentation"
+      },
+      {
+        "code": "83.35(2)",
+        "tag": "N 385",
+        "title": "Temporary Service Plan."
+      },
+      {
+        "code": "83.35(4)",
+        "tag": "N 392",
+        "title": "Resident satisfaction evaluation."
+      },
+      {
+        "code": "83.37(1)(e)",
+        "tag": "N 404",
+        "title": "Medication regimen, administration review."
+      },
+      {
+        "code": "83.37(1)(h)",
+        "tag": "N 407",
+        "title": "Scheduled psychotropic medications."
+      },
+      {
+        "code": "83.39(2)",
+        "tag": "N 440",
+        "title": "Infection control program policies/training"
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 8,
+    "kind": "sod"
+  },
+  "archive/0019329/2024-02-26_complaint-vv_sod.pdf": {
+    "census": 9,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0019329/2026-04-01_survey-complaint_enforcement.pdf": {
+    "fine": 2900,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Special orders",
+      "Order to comply"
+    ],
+    "sod_ref": "F89G11"
+  },
+  "archive/0019329/2026-04-01_survey-complaint_sod.pdf": {
+    "census": 12,
+    "citations": [
+      {
+        "code": "83.14(2)(a)",
+        "tag": "N 196",
+        "title": "Licensee ensures facility complies with laws"
+      },
+      {
+        "code": "83.17(2)(a)",
+        "tag": "N 220",
+        "title": "Employees screened for communicable disease."
+      },
+      {
+        "code": "83.18(1)",
+        "tag": "N 223",
+        "title": "Employee records maintained and current."
+      },
+      {
+        "code": "83.35(2)",
+        "tag": "N 385",
+        "title": "Temporary Service Plan."
+      },
+      {
+        "code": "83.35(3)(d)",
+        "tag": "N 389",
+        "title": "Service plans updated annually or on changes"
+      },
+      {
+        "code": "83.35(5)(a)",
+        "tag": "N 393",
+        "title": "Initial evaluation of evacuation limitations."
+      },
+      {
+        "code": "83.35(5)(b)",
+        "tag": "N 394",
+        "title": "Annual evaluation of evacuation limits"
+      },
+      {
+        "code": "83.36(1)(a)",
+        "tag": "N 396",
+        "title": "Adequate staff to meet resident needs."
+      },
+      {
+        "code": "83.36(2)",
+        "tag": "N 399",
+        "title": "Maintain current written staffing schedule"
+      },
+      {
+        "code": "83.42(1)",
+        "tag": "N 454",
+        "title": "Resident record maintained."
+      },
+      {
+        "code": "83.45(3)",
+        "tag": "N 499",
+        "title": "Toxic substances."
+      },
+      {
+        "code": "83.46(1)(b)",
+        "tag": "N 503",
+        "title": "Portable space heaters prohibited."
+      },
+      {
+        "code": "83.48(1)(b)",
+        "tag": "N 535",
+        "title": "Smoke and heat detectors per NFPA"
+      }
+    ],
+    "complaints_substantiated": 2,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": null,
+    "kind": "sod"
+  },
+  "archive/0019331/2023-12-21_survey_sod.pdf": {
+    "census": 7,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0019331/2025-10-20_survey-complaint_enforcement.pdf": {
+    "census": 9,
+    "citations": [
+      {
+        "code": "83.35(3)(d)",
+        "tag": "N 389",
+        "title": "Service plans updated annually or on changes"
+      },
+      {
+        "code": "83.36(1)(a)",
+        "tag": "N 396",
+        "title": "Adequate staff to meet resident needs."
+      },
+      {
+        "code": "83.38(1)(h)",
+        "tag": "N 432",
+        "title": "Medication administration.  N 432"
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 3,
+    "deficiencies": 3,
+    "kind": "sod"
+  },
+  "archive/0019331/2025-10-20_survey-complaint_sod.pdf": {
+    "fine": 650,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Special orders",
+      "Order to comply"
+    ],
+    "sod_ref": "OBDO11"
+  },
+  "archive/0019733/2024-07-22_survey_sod.pdf": {
+    "census": 7,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0019733/2025-02-27_complaint_sod.pdf": {
+    "census": 10,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": null,
+    "kind": "sod"
+  },
+  "archive/0019733/2025-08-11_self-report_enforcement.pdf": {
+    "fine": 1000,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Order to comply"
+    ],
+    "sod_ref": null
+  },
+  "archive/0019733/2025-08-11_self-report_sod.pdf": {
+    "census": 10,
+    "citations": [
+      {
+        "code": "83.38(1)(b)",
+        "tag": "N 426",
+        "title": "Supervision."
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 1,
+    "kind": "sod"
+  },
+  "archive/0019937/2024-08-15_survey_sod.pdf": {
+    "census": 8,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0019937/2025-07-02_complaint_sod.pdf": {
+    "census": 6,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": null,
+    "kind": "sod"
+  },
+  "archive/0019940/2024-09-12_survey_sod.pdf": {
+    "census": 8,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0019940/2025-11-13_complaint_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply"
+    ],
+    "sod_ref": "K5V811"
+  },
+  "archive/0019940/2025-11-13_complaint_sod.pdf": {
+    "census": 7,
+    "citations": [
+      {
+        "code": "83.12(4)(c)",
+        "tag": "N 165",
+        "title": "Reporting incidents with serious injury"
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 1,
+    "kind": "sod"
+  },
+  "archive/0020363/2024-11-27_complaint_sod.pdf": {
+    "census": 19,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": null,
+    "kind": "sod"
+  },
+  "archive/0020363/2025-08-07_complaint_sod.pdf": {
+    "census": 19,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0020366/2024-11-13_survey-complaint_sod.pdf": {
+    "census": 22,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0020366/2025-04-03_complaint_sod.pdf": {
+    "census": 22,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0020366/2025-07-28_complaint_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply"
+    ],
+    "sod_ref": null
+  },
+  "archive/0020366/2025-07-28_complaint_sod.pdf": {
+    "census": 23,
+    "citations": [
+      {
+        "code": "83.36(1)(a)",
+        "tag": "N 396",
+        "title": "Adequate staff to meet resident needs."
+      },
+      {
+        "code": "83.38(1)(h)",
+        "tag": "N 432",
+        "title": "Medication administration."
+      }
+    ],
+    "complaints_substantiated": 1,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 2,
+    "kind": "sod"
+  },
+  "archive/0020366/2025-09-24_complaint_sod.pdf": {
+    "census": 24,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0020366/2026-01-27_survey-complaint-vv_sod.pdf": {
+    "census": 22,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0020445/2024-10-01_survey-complaint_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply"
+    ],
+    "sod_ref": "2GNJ11"
+  },
+  "archive/0020445/2024-10-01_survey-complaint_sod.pdf": {
+    "census": 18,
+    "citations": [
+      {
+        "code": "83.12(4)(c)",
+        "tag": "N 165",
+        "title": "Reporting incidents with serious injury"
+      },
+      {
+        "code": "83.32(3)(h)",
+        "tag": "N 352",
+        "title": "Rights of Residents: Receive medication"
+      }
+    ],
+    "complaints_substantiated": 3,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 2,
+    "kind": "sod"
+  },
+  "archive/0020445/2024-12-04_complaint_sod.pdf": {
+    "census": null,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": null,
+    "kind": "sod"
+  },
+  "archive/0020445/2025-06-19_complaint-vv_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply",
+      "Revisit fee"
+    ],
+    "sod_ref": "2GNJ12"
+  },
+  "archive/0020445/2025-06-19_complaint-vv_sod.pdf": {
+    "census": 20,
+    "citations": [
+      {
+        "code": "83.36(1)(a)",
+        "tag": "N 396",
+        "title": "Adequate staff to meet resident needs."
+      },
+      {
+        "code": "83.36(2)",
+        "tag": "N 399",
+        "title": "Maintain current written staffing schedule"
+      },
+      {
+        "code": "83.42(3)",
+        "tag": "N 480",
+        "title": "Access to resident records."
+      },
+      {
+        "code": "83.45(3)",
+        "tag": "N 499",
+        "title": "Toxic substances."
+      }
+    ],
+    "complaints_substantiated": 1,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 4,
+    "kind": "sod"
+  },
+  "archive/610201/2024-05-28_survey-complaint_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply"
+    ],
+    "sod_ref": "CDH511"
+  },
+  "archive/610201/2024-05-28_survey-complaint_sod.pdf": {
+    "census": 5,
+    "citations": [
+      {
+        "code": "83.37(1)(e)",
+        "tag": "N 404",
+        "title": "Medication regimen, administration review."
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 1,
+    "kind": "sod"
+  },
+  "archive/611026/2023-11-02_survey-complaint_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply"
+    ],
+    "sod_ref": "D3BZ11"
+  },
+  "archive/611026/2023-11-02_survey-complaint_sod.pdf": {
+    "census": 11,
+    "citations": [
+      {
+        "code": "83.17(1)",
+        "tag": "N 219",
+        "title": "Licensee conduct caregiver background check"
+      },
+      {
+        "code": "83.37(1)(e)",
+        "tag": "N 404",
+        "title": "Medication regimen, administration review."
+      },
+      {
+        "code": "83.37(1)(h)",
+        "tag": "N 407",
+        "title": "Scheduled psychotropic medications."
+      },
+      {
+        "code": "83.37(1)(i)",
+        "tag": "N 408",
+        "title": "PRN psychotropic medication."
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 4,
+    "kind": "sod"
+  },
+  "archive/611026/2024-02-27_verification-visit_sod.pdf": {
+    "census": 12,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/611026/2025-05-07_survey-complaint_sod.pdf": {
+    "census": 13,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": null,
+    "kind": "sod"
+  }
+}

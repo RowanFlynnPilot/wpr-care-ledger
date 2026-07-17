@@ -74,6 +74,20 @@ path; kinds: `enforcement`, `sod`, `poc`), `first_seen`, `last_seen`,
 `archive/{license}/{exit_date}_{survey-type-slug}_{kind}.pdf` — the
 permanent document archive.
 
+`data/enrichment.json` — **derived, rebuildable** facts machine-read from
+the archived PDFs by `pipeline/enrich.py`, keyed by archive path (the same
+path `surveys.json` stores in `documents`, which is the widget's join key).
+Enforcement letters yield `sanctions` (line-anchored ALL-CAPS notice
+headers; the same phrases appear lowercase in boilerplate) and `fine`
+("Total Forfeiture Due"). SODs (state 2567 form) yield `census`,
+`deficiencies`, complaint outcomes, and `citations` (tag + rule code +
+title; repeat violations brace the tag; prefixes N=CBRF, M=AFH, U=RCAC).
+Kind is detected from document *structure* — the state has served
+letters and SODs in swapped grid columns (see license 0019331). Docs are
+immutable so each parses once; `--rebuild` reparses all after parser
+changes. Deleting the file and rerunning is always safe; never hand-edit.
+Per-document parse gaps warn loudly but never fail the weekly run.
+
 ## Known migration event — READ THIS WHEN THE SCRAPER DIES
 
 DHS announced the **Wisconsin Provider Finder** (planned spring 2026, not
@@ -108,7 +122,11 @@ and og:image). Enforcement reads newspaper red `#b32d2e`.
 
 Search by facility / city / operator / license, type filter, closed toggle,
 enforcement-only toggle, sort by name / latest activity / most enforcement.
-Masthead: typewriter badge and four stats. Below it, a quarterly
+Masthead: typewriter badge and four stats (slot 2 shows total forfeitures
+assessed once enrichment finds any, red digits; slot 4 swaps to the held
+count once records age off). Survey timeline events show the assessed
+forfeiture, "Complaint substantiated", and up to three cited-rule titles
+from `enrichment.json`. Below the masthead, a quarterly
 survey-activity chart (gray = no enforcement, red = enforcement; every bar
 value-labeled, enforcement counts printed inside tall red segments,
 quarter + year axis, hover tooltips + sr-only table; quarter labels hide
@@ -154,6 +172,8 @@ then bundles them into `dist/`, so **the Pages artifact is just
 ## Commands
 
 - Fetch: `python pipeline/fetch.py` (idempotent; safe to re-run)
+- Mine documents: `python pipeline/enrich.py` (new docs only; `--rebuild`
+  reparses everything — run after parser changes)
 - Widget dev: `cd widget; npm install; npm run dev`
-- Windows local: `python -m pip install requests beautifulsoup4 lxml openpyxl`
+- Windows local: `python -m pip install requests beautifulsoup4 lxml openpyxl pypdf`
 - Chain with `;` not `&&` in PowerShell 5.1

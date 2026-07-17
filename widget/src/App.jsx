@@ -125,14 +125,16 @@ export default function App() {
 
   useEffect(() => {
     Promise.all(
-      ["data/facilities.json", "data/surveys.json"].map((p) =>
+      ["data/facilities.json", "data/surveys.json", "data/enrichment.json"].map((p) =>
         fetch(p).then((r) => {
           if (!r.ok) throw new Error(`${p}: HTTP ${r.status}`);
           return r.json();
         })
       )
     )
-      .then(([facilities, surveys]) => setDb(shape(facilities, surveys)))
+      .then(([facilities, surveys, enrichment]) =>
+        setDb(shape(facilities, surveys, enrichment))
+      )
       .catch((e) => setError(e.message));
   }, []);
 
@@ -246,7 +248,15 @@ export default function App() {
         </p>
         <dl className="stats" aria-label="Ledger totals">
           <Stat n={db.stats.openFacilities} label="facilities operating" />
-          <Stat n={db.stats.surveyEvents} label="survey events on record" />
+          {db.stats.finesTotal > 0 ? (
+            <Stat
+              n={`$${db.stats.finesTotal.toLocaleString()}`}
+              label="in forfeitures assessed"
+              fine
+            />
+          ) : (
+            <Stat n={db.stats.surveyEvents} label="survey events on record" />
+          )}
           <Stat n={db.stats.withEnforcement} label="facilities with enforcement" />
           {db.stats.held > 0 ? (
             <Stat n={db.stats.held} label="records the state no longer shows" held />
@@ -331,7 +341,10 @@ export default function App() {
           <span className="held-inline">held in the ledger</span>. A facility
           with no records listed has none in the state&rsquo;s current
           three-year window; that is not a statement about its earlier
-          history. Last updated {fmtDate(db.stats.lastUpdated)}.
+          history. Forfeiture amounts and rule citations are machine-read
+          from the archived documents; forfeitures shown are the amounts
+          assessed in enforcement letters, before any reduction for waived
+          appeals. Last updated {fmtDate(db.stats.lastUpdated)}.
         </p>
         <p>
           Questions or corrections:{" "}
@@ -359,11 +372,12 @@ export default function App() {
   );
 }
 
-function Stat({ n, label, held }) {
+function Stat({ n, label, held, fine }) {
+  const cls = held ? "stat stat-held" : fine ? "stat stat-fine" : "stat";
   return (
-    <div className={held ? "stat stat-held" : "stat"}>
+    <div className={cls}>
       <dt>{label}</dt>
-      <dd>{n.toLocaleString()}</dd>
+      <dd>{typeof n === "number" ? n.toLocaleString() : n}</dd>
     </div>
   );
 }
@@ -680,11 +694,37 @@ function FacilityRow({ f, db, open, onToggle, onCrossLink, onOperator }) {
                     <span className="event-body">
                       <span className="event-type">
                         {surveyLabel(s.survey_type)}
+                        {s.enr.fine && (
+                          <span className="event-fine">
+                            ${s.enr.fine.toLocaleString()} forfeiture
+                          </span>
+                        )}
                         {s.first_seen === db.stats.lastUpdated &&
                           s.first_seen !== db.stats.firstPull && (
                             <span className="new-stamp">New this update</span>
                           )}
                       </span>
+                      {(s.enr.substantiated > 0 || s.enr.citations.length > 0) && (
+                        <span className="event-cites">
+                          {s.enr.substantiated > 0 && (
+                            <strong>
+                              Complaint substantiated
+                              {s.enr.citations.length > 0 && " · "}
+                            </strong>
+                          )}
+                          {s.enr.citations.length > 0 && (
+                            <>
+                              Cited:{" "}
+                              {s.enr.citations
+                                .slice(0, 3)
+                                .map((c) => c.title.replace(/[.:]\s*$/, ""))
+                                .join(" · ")}
+                              {s.enr.citations.length > 3 &&
+                                ` · +${s.enr.citations.length - 3} more`}
+                            </>
+                          )}
+                        </span>
+                      )}
                       {s.expired_from_state && (
                         <span className="held-stamp">
                           No longer shown by the state · held in the ledger
@@ -735,10 +775,39 @@ function Fact({ k, v, mono, wide }) {
 
 /* ----------------------------------------------------------------- shaping */
 
-function shape(facilitiesObj, surveysObj) {
+function shape(facilitiesObj, surveysObj, enrichmentObj) {
+  // Join machine-read document facts onto each survey event. A survey's
+  // documents map kind -> archive path; enrichment.json is keyed by that
+  // same path. Kinds come from the parsed structure, not the state's grid
+  // column (the state has served letters and SODs in swapped columns).
+  const enrich = (s) => {
+    let fine = null;
+    const sanctions = [];
+    const citations = [];
+    let substantiated = 0;
+    const seen = new Set();
+    for (const path of Object.values(s.documents)) {
+      const e = enrichmentObj[path];
+      if (!e) continue;
+      if (e.fine) fine = (fine || 0) + e.fine;
+      for (const label of e.sanctions || []) {
+        if (!sanctions.includes(label)) sanctions.push(label);
+      }
+      substantiated += e.complaints_substantiated || 0;
+      for (const c of e.citations || []) {
+        const key = c.tag + c.code;
+        if (!seen.has(key)) {
+          seen.add(key);
+          citations.push(c);
+        }
+      }
+    }
+    return { fine, sanctions, citations, substantiated };
+  };
+
   const surveysByLicense = {};
   for (const [id, s] of Object.entries(surveysObj)) {
-    (surveysByLicense[s.license] ||= []).push({ ...s, id });
+    (surveysByLicense[s.license] ||= []).push({ ...s, id, enr: enrich(s) });
   }
   for (const rows of Object.values(surveysByLicense)) {
     rows.sort((a, b) => b.exit_date.localeCompare(a.exit_date));
@@ -790,6 +859,10 @@ function shape(facilitiesObj, surveysObj) {
       ).size,
       held: allSurveys.filter((s) => s.expired_from_state).length,
       documents: allSurveys.reduce((n, s) => n + Object.keys(s.documents).length, 0),
+      finesTotal: facilities.reduce(
+        (n, f) => n + f.surveys.reduce((m, s) => m + (s.enr.fine || 0), 0),
+        0
+      ),
       lastUpdated: allSurveys.reduce((m, s) => (s.last_seen > m ? s.last_seen : m), ""),
       firstPull: allSurveys.reduce(
         (m, s) => (m === "" || s.first_seen < m ? s.first_seen : m),
