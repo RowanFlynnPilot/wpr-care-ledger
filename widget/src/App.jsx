@@ -338,10 +338,11 @@ export default function App() {
           every statement of deficiency, enforcement action, and plan of
           correction, and retains records after the state stops showing them
           — those entries are marked{" "}
-          <span className="held-inline">held in the ledger</span>. A facility
-          with no records listed has none in the state&rsquo;s current
-          three-year window; that is not a statement about its earlier
-          history. Forfeiture amounts and rule citations are machine-read
+          <span className="held-inline">held in the ledger</span>, as are
+          older records recovered from Internet Archive crawls of the state
+          site. A facility with no records listed has none in the
+          state&rsquo;s current three-year window; that is not a statement
+          about its earlier history. Forfeiture amounts and rule citations are machine-read
           from the archived documents; forfeitures shown are the amounts
           assessed in enforcement letters, before any reduction for waived
           appeals. Last updated {fmtDate(db.stats.lastUpdated)}.
@@ -727,7 +728,9 @@ function FacilityRow({ f, db, open, onToggle, onCrossLink, onOperator }) {
                       )}
                       {s.expired_from_state && (
                         <span className="held-stamp">
-                          No longer shown by the state · held in the ledger
+                          {s.source && s.source.startsWith("wayback")
+                            ? "Recovered via the Internet Archive · held in the ledger"
+                            : "No longer shown by the state · held in the ledger"}
                         </span>
                       )}
                       <span className="event-docs">

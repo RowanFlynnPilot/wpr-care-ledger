@@ -70,6 +70,12 @@ Fields: `license`, `survey_type`, `exit_date`, `documents` (kind → archive
 path; kinds: `enforcement`, `sod`, `poc`), `first_seen`, `last_seen`,
 `expired_from_state`. **Append-only.** A row that vanishes from DQA flips
 `expired_from_state: true` and stays forever. That flag is the product.
+Rows recovered by `pipeline/backfill_wayback.py` (one-time Internet
+Archive recovery of history the state already dropped; survey type
+reconstructed from the documents' own prose) additionally carry
+`source: "wayback:<timestamp>"`, with `last_seen` = the snapshot date. If
+a later fetch ever sees the same row live, the fetch's update wins and
+`source` survives as provenance.
 
 `archive/{license}/{exit_date}_{survey-type-slug}_{kind}.pdf` — the
 permanent document archive.
@@ -174,6 +180,11 @@ then bundles them into `dist/`, so **the Pages artifact is just
 - Fetch: `python pipeline/fetch.py` (idempotent; safe to re-run)
 - Mine documents: `python pipeline/enrich.py` (new docs only; `--rebuild`
   reparses everything — run after parser changes)
+- Wayback recovery (rarely; idempotent): `python pipeline/backfill_wayback.py`,
+  then rerun enrich.py. Empirical result 2026-07: the Internet Archive
+  holds zero Marathon County assisted-living items (attribution verified
+  against foreign-county documents), so the ledger's own weekly fetch is
+  the only archive this county has. Re-run only if IA coverage grows.
 - Widget dev: `cd widget; npm install; npm run dev`
 - Windows local: `python -m pip install requests beautifulsoup4 lxml openpyxl pypdf`
 - Chain with `;` not `&&` in PowerShell 5.1
