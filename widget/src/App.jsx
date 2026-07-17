@@ -43,6 +43,29 @@ function titleCase(s) {
   return s.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
+/* Facility and operator names arrive from the state in ALL CAPS. Title-case
+   them for print, preserving corporate and licensing acronyms. */
+const KEEP_UPPER = new Set([
+  "LLC", "LLP", "INC", "CO", "II", "III", "IV", "AFH", "CBRF", "RCAC",
+  "AF", "ALF", "WI", "USA", "SLF",
+]);
+const KEEP_LOWER = new Set(["of", "and", "the", "at", "by", "for", "on", "in"]);
+
+function smartTitle(s) {
+  if (!s) return s;
+  return s
+    .trim()
+    .split(/\s+/)
+    .map((w, i) => {
+      const bare = w.replace(/[^A-Za-z0-9]/g, "");
+      if (KEEP_UPPER.has(bare.toUpperCase())) return w.toUpperCase();
+      const lower = w.toLowerCase();
+      if (i > 0 && KEEP_LOWER.has(bare.toLowerCase())) return lower;
+      return lower.replace(/(^|[-/('’])([a-z])/g, (m, p, c) => p + c.toUpperCase());
+    })
+    .join(" ");
+}
+
 function fmtDate(iso) {
   if (!iso) return "";
   const [y, m, d] = iso.split("-").map(Number);
@@ -79,6 +102,21 @@ export default function App() {
     )
       .then(([facilities, surveys]) => setDb(shape(facilities, surveys)))
       .catch((e) => setError(e.message));
+  }, []);
+
+  // Report content height to the WordPress page embedding this widget so
+  // the iframe can grow and shrink with searches and expanded rows.
+  useEffect(() => {
+    if (window.parent === window) return;
+    const post = () =>
+      window.parent.postMessage(
+        { type: "wpr-care-ledger:height", height: document.documentElement.scrollHeight },
+        "*"
+      );
+    const ro = new ResizeObserver(post);
+    ro.observe(document.body);
+    post();
+    return () => ro.disconnect();
   }, []);
 
   const list = useMemo(() => {
@@ -119,10 +157,22 @@ export default function App() {
   return (
     <div className="ledger">
       <header className="masthead">
-        <p className="eyebrow">
-          Wausau Pilot &amp; Review · Marathon County
-        </p>
-        <h1>The Care Ledger</h1>
+        <div className="masthead-brand">
+          <img
+            className="badge"
+            src="brand/wpr-typewriter.png"
+            alt="Wausau Pilot &amp; Review — More News. Less Fluff. All Local."
+            width="84"
+            height="84"
+          />
+          <div>
+            <p className="eyebrow">
+              Wausau Pilot &amp; Review <span className="sep">·</span> Marathon
+              County
+            </p>
+            <h1>The Care Ledger</h1>
+          </div>
+        </div>
         <p className="dek">
           Every state-licensed assisted living facility in Marathon County,
           with its complete inspection and enforcement record. Wisconsin only
@@ -207,6 +257,27 @@ export default function App() {
           three-year window; that is not a statement about its earlier
           history. Last updated {fmtDate(db.stats.lastUpdated)}.
         </p>
+        <p>
+          Questions or corrections:{" "}
+          <a href="mailto:editor@wausaupilotandreview.com">
+            editor@wausaupilotandreview.com
+          </a>
+          .
+        </p>
+        <p className="credit">
+          <img src="brand/wpr-typewriter-192.png" alt="" width="28" height="28" />
+          <span>
+            A{" "}
+            <a
+              href="https://wausaupilotandreview.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Wausau Pilot &amp; Review
+            </a>{" "}
+            watchdog project
+          </span>
+        </p>
       </footer>
     </div>
   );
@@ -234,7 +305,7 @@ function FacilityRow({ f, db, open, onToggle, onCrossLink }) {
         onClick={onToggle}
       >
         <span className="row-main">
-          <span className="row-name">{f.name}</span>
+          <span className="row-name">{smartTitle(f.name)}</span>
           <span className="row-meta">
             {f.typeAbbr} · {titleCase(f.city)} · {f.capacity} beds
           </span>
@@ -259,7 +330,7 @@ function FacilityRow({ f, db, open, onToggle, onCrossLink }) {
             <Fact k="Address" v={`${titleCase(f.address)}, ${titleCase(f.city)} ${f.zip}`} />
             <Fact k="License" v={f.license} mono />
             <Fact k="Status" v={titleCase(f.licensure_status || "")} />
-            <Fact k="Operator" v={f.corporate_name || "—"} />
+            <Fact k="Operator" v={f.corporate_name ? smartTitle(f.corporate_name) : "—"} />
             <Fact k="Ownership" v={f.ownership_type || "—"} />
             {f.date_regular && <Fact k="Licensed" v={fmtDate(f.date_regular)} mono />}
             {f.date_closed && <Fact k="Closed" v={fmtDate(f.date_closed)} mono />}
@@ -272,7 +343,7 @@ function FacilityRow({ f, db, open, onToggle, onCrossLink }) {
                     const s = db.byLicense[lic];
                     return (
                       <button key={lic} className="sibling" onClick={() => onCrossLink(lic)}>
-                        {s.name}
+                        {smartTitle(s.name)}
                         {s.date_closed
                           ? ` (closed ${fmtDate(s.date_closed)})`
                           : s.date_regular
