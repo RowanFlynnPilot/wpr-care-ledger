@@ -108,11 +108,13 @@ and og:image). Enforcement reads newspaper red `#b32d2e`.
 
 Search by facility / city / operator / license, type filter, closed toggle,
 enforcement-only toggle, sort by name / latest activity / most enforcement.
-Masthead: typewriter badge, four stats, and a quarterly survey-activity
-chart (gray = no enforcement, red = enforcement; hover tooltips + sr-only
-table; the x-range grows as the archive outlives the state's window).
-Rows carry a 3-year dot strip (red enforcement, hollow sepia = held;
-desktop only). Expandable ledger rows: license facts + survey timeline
+Masthead: typewriter badge and four stats. Below it, a quarterly
+survey-activity chart (gray = no enforcement, red = enforcement; every bar
+value-labeled, enforcement counts printed inside tall red segments,
+quarter + year axis, hover tooltips + sr-only table; quarter labels hide
+on mobile; the x-range grows as the archive outlives the state's window,
+and an in-progress quarter renders dimmed with a footnote).
+Expandable ledger rows: license facts + survey timeline
 linking to archived PDFs, "View on state site" link built from the cached
 detail key, same-address cross-links (neutral copy — the dates tell the
 Acorn Hill story on their own), and operator cross-links when a

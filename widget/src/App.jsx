@@ -254,8 +254,9 @@ export default function App() {
             <Stat n={db.stats.documents} label="documents archived" />
           )}
         </dl>
-        <ActivityChart surveys={db.surveysFlat} />
       </header>
+
+      <ActivityChart surveys={db.surveysFlat} lastUpdated={db.stats.lastUpdated} />
 
       <div className="controls">
         <input
@@ -369,20 +370,36 @@ function Stat({ n, label, held }) {
 
 /* ------------------------------------------------------- activity chart */
 
-const CHART = { H: 96, TOP: 12, BASE: 78, LABEL_Y: 92 };
+const CHART = { TOP: 22, PLOT: 150, BASE: 172, Q_Y: 187, YEAR_Y: 204, H: 210 };
 
-function ActivityChart({ surveys }) {
+function ActivityChart({ surveys, lastUpdated }) {
   const [hover, setHover] = useState(null);
   const { quarters, max } = useMemo(() => bucketQuarters(surveys), [surveys]);
   if (quarters.length < 2) return null;
 
   const n = quarters.length;
   const slot = 100 / n;
-  const barW = slot * 0.62;
+  const barW = slot * 0.6;
   const inset = (slot - barW) / 2;
-  const plotH = CHART.BASE - CHART.TOP;
-  const hOf = (v) => (v / max) * plotH;
-  const maxIdx = quarters.findIndex((b) => b.total === max);
+  const hOf = (v) => (v / max) * CHART.PLOT;
+  const center = (i) => `${i * slot + slot / 2}%`;
+
+  // The ledger updates weekly, so the newest quarter is usually mid-flight.
+  const nowQ = quarterOf(lastUpdated);
+  const lastQ = quarters[n - 1];
+  const partial = lastQ.y === nowQ.y && lastQ.q === nowQ.q;
+
+  const gridStep = max > 12 ? 5 : max > 6 ? 3 : 2;
+  const gridLines = [];
+  for (let v = gridStep; v < max; v += gridStep) gridLines.push(v);
+
+  const years = [];
+  quarters.forEach((b, i) => {
+    const cur = years[years.length - 1];
+    if (!cur || cur.y !== b.y) years.push({ y: b.y, from: i, to: i });
+    else cur.to = i;
+  });
+
   const tip = hover === null ? null : quarters[hover];
 
   return (
@@ -405,67 +422,112 @@ function ActivityChart({ surveys }) {
           role="img"
           aria-labelledby="activity-title"
           aria-describedby="activity-desc"
+          onMouseLeave={() => setHover(null)}
         >
           <desc id="activity-desc">
-            {`Survey events per quarter, ${quarters[0].y} through ${quarters[n - 1].y}. Red segments are surveys that carry an enforcement action. Details in the table that follows.`}
+            {`Survey events per quarter from ${quarters[0].y} through ${quarters[n - 1].y}, with the number that carried an enforcement action shown in red. Full figures in the table that follows.`}
           </desc>
-          <line
-            x1="0"
-            x2="100%"
-            y1={CHART.BASE}
-            y2={CHART.BASE}
-            stroke="var(--ink)"
-            strokeWidth="1"
-          />
+          {gridLines.map((v) => (
+            <line
+              key={`grid-${v}`}
+              className="gridline"
+              x1="0"
+              x2="100%"
+              y1={CHART.BASE - hOf(v)}
+              y2={CHART.BASE - hOf(v)}
+            />
+          ))}
+          {hover !== null && (
+            <rect
+              x={`${hover * slot}%`}
+              width={`${slot}%`}
+              y={CHART.TOP - 16}
+              height={CHART.BASE - CHART.TOP + 16}
+              fill="var(--paper-shade)"
+            />
+          )}
           {quarters.map((b, i) => {
             const x = `${i * slot + inset}%`;
             const w = `${barW}%`;
             const enfH = hOf(b.enforcement);
             const plainH = hOf(b.total - b.enforcement);
             const gap = b.enforcement > 0 && b.total > b.enforcement ? 2 : 0;
+            const top = CHART.BASE - enfH - gap - plainH;
+            const dim = partial && i === n - 1 ? 0.5 : 1;
             return (
-              <g key={`${b.y}q${b.q}`}>
+              <g key={`${b.y}q${b.q}`} fillOpacity={dim}>
                 {b.enforcement > 0 && (
                   <rect
                     x={x}
                     width={w}
                     y={CHART.BASE - enfH}
                     height={enfH}
+                    rx={gap ? 0 : 2}
                     fill="var(--red)"
                   />
                 )}
                 {b.total - b.enforcement > 0 && (
-                  <rect
-                    x={x}
-                    width={w}
-                    y={CHART.BASE - enfH - gap - plainH}
-                    height={plainH}
-                    rx="1.5"
-                    fill="#767676"
-                  />
+                  <rect x={x} width={w} y={top} height={plainH} rx="2" fill="#767676" />
                 )}
-                {i === maxIdx && (
+                <text className="bar-label" x={center(i)} y={top - 6} textAnchor="middle" fillOpacity="1">
+                  {b.total}
+                </text>
+                {b.enforcement > 0 && enfH >= 15 && (
                   <text
-                    className="bar-label"
-                    x={`${i * slot + slot / 2}%`}
-                    y={CHART.BASE - enfH - gap - plainH - (gap ? 4 : 4)}
+                    className="bar-label-inner"
+                    x={center(i)}
+                    y={CHART.BASE - enfH / 2 + 3.5}
                     textAnchor="middle"
                   >
-                    {b.total}
-                  </text>
-                )}
-                {(b.q === 1 || i === 0) && (
-                  <text
-                    className="year-label"
-                    x={`${i * slot + inset}%`}
-                    y={CHART.LABEL_Y}
-                  >
-                    {b.y}
+                    {b.enforcement}
                   </text>
                 )}
               </g>
             );
           })}
+          <line
+            x1="0"
+            x2="100%"
+            y1={CHART.BASE}
+            y2={CHART.BASE}
+            stroke="var(--ink)"
+            strokeWidth="1.5"
+          />
+          {quarters.map((b, i) => (
+            <text
+              key={`q-${b.y}q${b.q}`}
+              className="q-label"
+              x={center(i)}
+              y={CHART.Q_Y}
+              textAnchor="middle"
+            >
+              {`Q${b.q}${partial && i === n - 1 ? "*" : ""}`}
+            </text>
+          ))}
+          {years.map(
+            (yr) =>
+              yr.from > 0 && (
+                <line
+                  key={`tick-${yr.y}`}
+                  className="year-tick"
+                  x1={`${yr.from * slot}%`}
+                  x2={`${yr.from * slot}%`}
+                  y1={CHART.BASE}
+                  y2={CHART.BASE + 22}
+                />
+              )
+          )}
+          {years.map((yr) => (
+            <text
+              key={`yr-${yr.y}`}
+              className="year-label"
+              x={`${((yr.from + yr.to + 1) / 2) * slot}%`}
+              y={CHART.YEAR_Y}
+              textAnchor="middle"
+            >
+              {yr.y}
+            </text>
+          ))}
           {quarters.map((b, i) => (
             <rect
               key={`hit-${b.y}q${b.q}`}
@@ -483,15 +545,20 @@ function ActivityChart({ surveys }) {
           <div
             className="chart-tip"
             style={{
-              left: `clamp(80px, ${hover * slot + slot / 2}%, calc(100% - 80px))`,
+              left: `clamp(90px, ${hover * slot + slot / 2}%, calc(100% - 90px))`,
             }}
           >
-            Q{tip.q} {tip.y} · {tip.total}{" "}
-            {tip.total === 1 ? "survey" : "surveys"} · {tip.enforcement}{" "}
-            enforcement
+            <strong>
+              Q{tip.q} {tip.y}
+            </strong>{" "}
+            · {tip.total} {tip.total === 1 ? "survey" : "surveys"} ·{" "}
+            {tip.enforcement} enforcement
           </div>
         )}
       </div>
+      {partial && (
+        <p className="chart-note">* Latest quarter still in progress</p>
+      )}
       <table className="sr-only">
         <caption>Survey events per quarter</caption>
         <thead>
@@ -515,62 +582,6 @@ function ActivityChart({ surveys }) {
   );
 }
 
-/* ------------------------------------------------- per-row activity dots */
-
-function DotStrip({ surveys, windowEnd }) {
-  if (surveys.length === 0) return null;
-  const W = 96;
-  const H = 14;
-  const PAD = 5;
-  const end = new Date(windowEnd).getTime();
-  const start = end - 3 * 365.25 * 86400e3;
-  return (
-    <svg className="row-dots" width={W} height={H} aria-hidden="true">
-      <line
-        x1={PAD}
-        x2={W - PAD}
-        y1={H / 2}
-        y2={H / 2}
-        stroke="var(--hairline)"
-        strokeWidth="1"
-      />
-      {[...surveys].reverse().map((s) => {
-        const t = new Date(s.exit_date).getTime();
-        const frac = Math.min(1, Math.max(0, (t - start) / (end - start)));
-        const cx = PAD + frac * (W - 2 * PAD);
-        const enf = "enforcement" in s.documents;
-        const label = `${fmtDate(s.exit_date)} — ${surveyLabel(s.survey_type)}${
-          enf ? " · enforcement" : ""
-        }${s.expired_from_state ? " · held in the ledger" : ""}`;
-        return s.expired_from_state ? (
-          <circle
-            key={s.id}
-            cx={cx}
-            cy={H / 2}
-            r={2.5}
-            fill="var(--paper)"
-            stroke="var(--sepia)"
-            strokeWidth="1.5"
-          >
-            <title>{label}</title>
-          </circle>
-        ) : (
-          <circle
-            key={s.id}
-            cx={cx}
-            cy={H / 2}
-            r={3}
-            fill={enf ? "var(--red)" : "#767676"}
-            stroke="var(--paper)"
-            strokeWidth="1.5"
-          >
-            <title>{label}</title>
-          </circle>
-        );
-      })}
-    </svg>
-  );
-}
 
 /* ------------------------------------------------------------ facility row */
 
@@ -592,7 +603,6 @@ function FacilityRow({ f, db, open, onToggle, onCrossLink, onOperator }) {
           </span>
         </span>
         <span className="row-chips">
-          <DotStrip surveys={f.surveys} windowEnd={db.stats.lastUpdated} />
           {f.enforcementCount > 0 && (
             <span className="chip chip-enforcement">
               {f.enforcementCount} enforcement

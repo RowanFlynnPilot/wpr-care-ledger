@@ -159,7 +159,9 @@ body {
 /* ------------------------------------------------------- activity chart */
 
 .activity {
-  margin: 20px 0 0;
+  margin: 22px 0 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
 }
 
 .activity-head {
@@ -168,7 +170,7 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 4px 16px;
-  margin-bottom: 6px;
+  margin-bottom: 14px;
 }
 
 .activity-head h2 {
@@ -221,21 +223,54 @@ body {
 
 .bar-label {
   font-family: var(--mono);
-  font-size: 9.5px;
-  font-weight: 500;
+  font-size: 11px;
+  font-weight: 700;
   fill: var(--ink);
 }
 
-.year-label {
+.bar-label-inner {
   font-family: var(--mono);
   font-size: 9.5px;
+  font-weight: 700;
+  fill: #ffffff;
+}
+
+.q-label {
+  font-family: var(--mono);
+  font-size: 9px;
   fill: var(--muted);
+}
+
+.year-label {
+  font-family: var(--heading);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  fill: var(--ink);
+}
+
+.year-tick {
+  stroke: #949494;
+  stroke-width: 1;
+}
+
+.gridline {
+  stroke: var(--hairline-soft);
+  stroke-width: 1;
+}
+
+.chart-note {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  color: var(--muted);
+  text-align: right;
+  margin: 4px 0 0;
 }
 
 .chart-tip {
   position: absolute;
-  top: -2px;
-  transform: translate(-50%, -100%);
+  top: 2px;
+  transform: translate(-50%, 0);
   background: var(--paper);
   border: 1px solid var(--ink);
   padding: 4px 9px;
@@ -244,6 +279,10 @@ body {
   white-space: nowrap;
   pointer-events: none;
   box-shadow: 2px 2px 0 rgba(17, 17, 17, 0.12);
+}
+
+.chart-tip strong {
+  font-weight: 700;
 }
 
 .sr-only {
@@ -395,12 +434,6 @@ a:focus-visible {
   align-items: center;
   gap: 6px;
   flex-shrink: 0;
-}
-
-.row-dots {
-  align-self: center;
-  flex-shrink: 0;
-  margin-right: 4px;
 }
 
 .chip {
@@ -750,7 +783,7 @@ a:focus-visible {
     flex-basis: 78px;
   }
 
-  .row-dots {
+  .q-label {
     display: none;
   }
 }
