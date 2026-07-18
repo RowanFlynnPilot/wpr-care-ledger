@@ -158,15 +158,23 @@ apostrophe (Alzheimer's).
 
 UX details: rows expand with an animated grid-rows reveal (caret rotates
 + to ×; closed panels are `inert`; the reduced-motion media query kills
-all transitions). Search highlights its match in facility names
-(highlighter-yellow `<mark>`). Expanded panels lead with a summary band
-(surveys · enforcement · $ assessed · last visit) and offer "Copy link to
-this record" (deep-link URL; the WordPress iframe needs
-`allow="clipboard-write"`, already in the README snippet). A search that
-exactly matches a corporate name — which the operator cross-link produces
-— renders a boxed operator brief above the results. Empty results offer a
-one-click filter reset. The masthead closes with an Oxford rule
-(thick-thin).
+all transitions and animations). Search covers name, city, operator,
+licensee, license, and street address; matches highlight in names and
+cities (highlighter-yellow `<mark>`), and when the hit is in a field the
+row doesn't show, the meta line explains it ("· operator: …"). Expanded
+panels lead with a summary band (surveys · enforcement · $ assessed ·
+last visit) and offer "Copy link to this record" (deep-link URL;
+aria-live feedback; the WordPress iframe needs `allow="clipboard-write"`,
+already in the README snippet). A search that exactly matches a corporate
+name — which the operator cross-link produces — renders a boxed operator
+brief above the results. Empty results offer a one-click filter reset, or
+"Show N closed facilities that match" when the closed toggle is what's
+hiding them. Keyboard: "/" focuses search, Escape closes the open record.
+Cross-links and deep links scroll the opened record into view
+(standalone only — the iframe has no inner scroller). The masthead's
+eyebrow carries an "Updated <date>" folio and closes with an Oxford rule
+(thick-thin). A print stylesheet hides interactive chrome and keeps
+records intact across page breaks.
 
 Build plumbing: `predev`/`prebuild` run `scripts/dev-sync.mjs`, which copies
 `data/` (always) and `archive/` (if missing) into `widget/public/` — Vite

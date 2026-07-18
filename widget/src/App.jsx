@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 /* ------------------------------------------------------------- vocabulary */
 
@@ -137,7 +137,10 @@ export default function App() {
   const [enfOnly, setEnfOnly] = useState(false);
   const [open, setOpen] = useState(null);
 
-  useEffect(() => {
+  const searchRef = useRef(null);
+
+  const load = useCallback(() => {
+    setError(null);
     Promise.all(
       ["data/facilities.json", "data/surveys.json", "data/enrichment.json"].map((p) =>
         fetch(p).then((r) => {
@@ -150,6 +153,24 @@ export default function App() {
         setDb(shape(facilities, surveys, enrichment))
       )
       .catch((e) => setError(e.message));
+  }, []);
+
+  useEffect(load, [load]);
+
+  // Newsroom keyboard ergonomics: "/" focuses search, Escape closes the
+  // open record — neither fires while typing in a field.
+  useEffect(() => {
+    const onKey = (e) => {
+      const typing = /^(INPUT|SELECT|TEXTAREA)$/.test(e.target.tagName);
+      if (e.key === "/" && !typing) {
+        e.preventDefault();
+        searchRef.current?.focus();
+      } else if (e.key === "Escape" && !typing) {
+        setOpen(null);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, []);
 
   // Report content height to the WordPress page embedding this widget so
@@ -169,17 +190,29 @@ export default function App() {
 
   // Deep links: #lic=0015628 opens one facility (closed included so links
   // to closed licenses always resolve); #q=text presets the search box.
+  // Applied at load and on later hash changes (replaceState below doesn't
+  // fire hashchange, so reflecting the open row can't loop back here).
   useEffect(() => {
     if (!db) return;
-    const m = window.location.hash.match(/^#(?:lic=([0-9A-Za-z]+)|q=(.+))$/);
-    if (!m) return;
-    if (m[1] && db.byLicense[m[1]]) {
-      setShowClosed(true);
-      setQuery(m[1]);
-      setOpen(m[1]);
-    } else if (m[2]) {
-      setQuery(decodeURIComponent(m[2]));
-    }
+    const apply = () => {
+      const m = window.location.hash.match(/^#(?:lic=([0-9A-Za-z]+)|q=(.+))$/);
+      if (!m) return;
+      if (m[1] && db.byLicense[m[1]]) {
+        setShowClosed(true);
+        setQuery(m[1]);
+        setOpen(m[1]);
+        setTimeout(() => {
+          document
+            .getElementById(`panel-${m[1]}`)
+            ?.scrollIntoView({ block: "nearest", behavior: "auto" });
+        }, 120);
+      } else if (m[2]) {
+        setQuery(decodeURIComponent(m[2]));
+      }
+    };
+    apply();
+    window.addEventListener("hashchange", apply);
+    return () => window.removeEventListener("hashchange", apply);
   }, [db]);
 
   // Keep the standalone URL shareable: reflect the open row in the hash.
@@ -231,21 +264,56 @@ export default function App() {
     };
   }, [db, query]);
 
+  // A dead-end search may only be hiding closed facilities — offer them.
+  const hiddenClosedMatches = useMemo(() => {
+    if (!db || showClosed) return 0;
+    const q = query.trim().toLowerCase();
+    return db.facilities.filter(
+      (f) =>
+        f.closed &&
+        (!enfOnly || f.enforcementCount > 0) &&
+        (type === "ALL" || f.typeAbbr === type) &&
+        (!q || f.haystack.includes(q))
+    ).length;
+  }, [db, query, type, enfOnly, showClosed]);
+
   if (error)
     return (
       <div className="ledger">
         <p className="load-error">
-          The ledger data didn&rsquo;t load ({error}). Reload the page to try
-          again.
+          The ledger data didn&rsquo;t load ({error}).{" "}
+          <button className="clear-filters" onClick={load}>
+            Try again
+          </button>
         </p>
       </div>
     );
-  if (!db) return <div className="ledger loading">Opening the ledger…</div>;
+  if (!db)
+    return (
+      <div className="ledger loading">
+        <img src="brand/wpr-typewriter.png" alt="" width="52" height="52" />
+        <span>Opening the ledger…</span>
+      </div>
+    );
+
+  const revealRow = (license) => {
+    setOpen(license);
+    // Standalone view: bring the record into view once it renders. Inside
+    // the auto-height iframe there is no inner scroller, so this no-ops.
+    setTimeout(() => {
+      document.getElementById(`panel-${license}`)?.scrollIntoView({
+        block: "nearest",
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "auto"
+          : "smooth",
+      });
+    }, 80);
+  };
 
   const crossLink = (license) => {
     setShowClosed(true);
     setQuery(license);
-    setOpen(license);
+    revealRow(license);
   };
 
   const showOperator = (name) => {
@@ -274,10 +342,15 @@ export default function App() {
             width="84"
             height="84"
           />
-          <div>
+          <div className="masthead-text">
             <p className="eyebrow">
-              Wausau Pilot &amp; Review <span className="sep">·</span> Marathon
-              County
+              <span>
+                Wausau Pilot &amp; Review <span className="sep">·</span>{" "}
+                Marathon County
+              </span>
+              <span className="eyebrow-date">
+                Updated {fmtDate(db.stats.lastUpdated)}
+              </span>
             </p>
             <h1>The Care Ledger</h1>
           </div>
@@ -312,6 +385,7 @@ export default function App() {
 
       <div className="controls">
         <input
+          ref={searchRef}
           type="search"
           value={query}
           placeholder="Search facility, city, operator, or license"
@@ -387,9 +461,20 @@ export default function App() {
         {list.length === 0 && (
           <li className="empty">
             No facilities match.{" "}
-            <button className="clear-filters" onClick={clearFilters}>
-              Clear search and filters
-            </button>
+            {hiddenClosedMatches > 0 ? (
+              <button
+                className="clear-filters"
+                onClick={() => setShowClosed(true)}
+              >
+                Show {hiddenClosedMatches} closed{" "}
+                {hiddenClosedMatches === 1 ? "facility" : "facilities"} that{" "}
+                {hiddenClosedMatches === 1 ? "matches" : "match"}
+              </button>
+            ) : (
+              <button className="clear-filters" onClick={clearFilters}>
+                Clear search and filters
+              </button>
+            )}
           </li>
         )}
       </ol>
@@ -669,6 +754,20 @@ function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) 
   const panelId = `panel-${f.license}`;
   const [copied, setCopied] = useState(false);
 
+  // When the search hit lives in a field the row doesn't show (operator,
+  // licensee, address), say so — otherwise the result looks arbitrary.
+  const q = query.toLowerCase();
+  let matchNote = null;
+  if (q && !f.name.toLowerCase().includes(q) && !f.city.toLowerCase().includes(q)) {
+    if (f.corporate_name && f.corporate_name.toLowerCase().includes(q)) {
+      matchNote = { label: "operator", value: smartTitle(f.corporate_name) };
+    } else if (f.licensee && f.licensee.toLowerCase().includes(q)) {
+      matchNote = { label: "licensee", value: smartTitle(f.licensee) };
+    } else if (f.address && f.address.toLowerCase().includes(q)) {
+      matchNote = { label: "address", value: titleCase(f.address) };
+    }
+  }
+
   const copyLink = () => {
     const url = `${window.location.origin}${window.location.pathname}#lic=${f.license}`;
     if (navigator.clipboard) {
@@ -697,8 +796,16 @@ function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) 
             <Highlight text={smartTitle(f.name)} q={query} />
           </span>
           <span className="row-meta">
-            {f.typeAbbr} · {titleCase(f.city)} · {f.capacity} beds
+            {f.typeAbbr} · <Highlight text={titleCase(f.city)} q={query} /> ·{" "}
+            {f.capacity} beds
             {f.latest && <> · last survey {fmtDate(f.latest)}</>}
+            {matchNote && (
+              <>
+                {" "}
+                · {matchNote.label}:{" "}
+                <Highlight text={matchNote.value} q={query} />
+              </>
+            )}
           </span>
         </span>
         <span className="row-chips">
@@ -862,7 +969,7 @@ function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) 
               >
                 View this facility on the state site
               </a>
-              <button className="copy-link" onClick={copyLink}>
+              <button className="copy-link" aria-live="polite" onClick={copyLink}>
                 {copied ? "Link copied ✓" : "Copy link to this record"}
               </button>
             </p>
@@ -943,7 +1050,7 @@ function shape(facilitiesObj, surveysObj, enrichmentObj) {
       heldCount: surveys.filter((s) => s.expired_from_state).length,
       latest: surveys[0]?.exit_date || "",
       siblings: addressGroups[addressKey(f)].filter((l) => l !== license),
-      haystack: [f.name, f.city, f.corporate_name, f.licensee, license]
+      haystack: [f.name, f.city, f.corporate_name, f.licensee, license, f.address]
         .join(" ")
         .toLowerCase(),
     };
