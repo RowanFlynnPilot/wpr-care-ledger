@@ -4,7 +4,7 @@
       "sod": "archive/0008655/2023-08-08_complaint-self-report_sod.pdf"
     },
     "exit_date": "2023-08-08",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0008655",
@@ -16,7 +16,7 @@
       "sod": "archive/0008655/2025-01-02_survey-complaint_sod.pdf"
     },
     "exit_date": "2025-01-02",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0008655",
@@ -27,7 +27,7 @@
       "sod": "archive/0008655/2025-06-12_self-report-vv_sod.pdf"
     },
     "exit_date": "2025-06-12",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0008655",
@@ -39,7 +39,7 @@
       "sod": "archive/0009074/2023-11-02_survey-complaint_sod.pdf"
     },
     "exit_date": "2023-11-02",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0009074",
@@ -50,7 +50,7 @@
       "sod": "archive/0009118/2023-12-26_desk-review_sod.pdf"
     },
     "exit_date": "2023-12-26",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0009118",
@@ -61,7 +61,7 @@
       "sod": "archive/0009118/2024-01-22_survey_sod.pdf"
     },
     "exit_date": "2024-01-22",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0009118",
@@ -73,7 +73,7 @@
       "sod": "archive/0009226/2024-05-22_complaint_sod.pdf"
     },
     "exit_date": "2024-05-22",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0009226",
@@ -84,7 +84,7 @@
       "sod": "archive/0009226/2024-12-03_verification-visit_sod.pdf"
     },
     "exit_date": "2024-12-03",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0009226",
@@ -95,7 +95,7 @@
       "sod": "archive/0009226/2025-08-05_complaint_sod.pdf"
     },
     "exit_date": "2025-08-05",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0009226",
@@ -107,7 +107,7 @@
       "sod": "archive/0009226/2026-02-17_desk-review_sod.pdf"
     },
     "exit_date": "2026-02-17",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0009226",
@@ -118,7 +118,7 @@
       "sod": "archive/0009226/2026-03-20_desk-review_sod.pdf"
     },
     "exit_date": "2026-03-20",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0009226",
@@ -129,7 +129,7 @@
       "sod": "archive/0010153/2025-01-24_survey_sod.pdf"
     },
     "exit_date": "2025-01-24",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0010153",
@@ -140,7 +140,7 @@
       "sod": "archive/0010446/2024-08-07_survey_sod.pdf"
     },
     "exit_date": "2024-08-07",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0010446",
@@ -152,7 +152,7 @@
       "sod": "archive/0010689/2023-10-19_verification-visit_sod.pdf"
     },
     "exit_date": "2023-10-19",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0010689",
@@ -164,7 +164,7 @@
       "sod": "archive/0011313/2025-07-23_survey-complaint_sod.pdf"
     },
     "exit_date": "2025-07-23",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0011313",
@@ -176,7 +176,7 @@
       "sod": "archive/0011313/2025-12-03_complaint_sod.pdf"
     },
     "exit_date": "2025-12-03",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0011313",
@@ -187,7 +187,7 @@
       "sod": "archive/0011887/2023-12-07_survey-complaint_sod.pdf"
     },
     "exit_date": "2023-12-07",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0011887",
@@ -198,7 +198,7 @@
       "sod": "archive/0011888/2026-06-16_survey_sod.pdf"
     },
     "exit_date": "2026-06-16",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0011888",
@@ -209,7 +209,7 @@
       "sod": "archive/0011937/2024-07-15_survey_sod.pdf"
     },
     "exit_date": "2024-07-15",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0011937",
@@ -221,7 +221,7 @@
       "sod": "archive/0012110/2024-09-11_survey-complaint_sod.pdf"
     },
     "exit_date": "2024-09-11",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0012110",
@@ -232,7 +232,7 @@
       "sod": "archive/0012110/2025-01-22_verification-visit_sod.pdf"
     },
     "exit_date": "2025-01-22",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0012110",
@@ -243,7 +243,7 @@
       "sod": "archive/0012111/2024-03-05_survey-vv_sod.pdf"
     },
     "exit_date": "2024-03-05",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0012111",
@@ -254,7 +254,7 @@
       "sod": "archive/0012111/2024-09-11_complaint_sod.pdf"
     },
     "exit_date": "2024-09-11",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0012111",
@@ -265,7 +265,7 @@
       "sod": "archive/0012338/2025-10-02_survey_sod.pdf"
     },
     "exit_date": "2025-10-02",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0012338",
@@ -276,7 +276,7 @@
       "sod": "archive/0012339/2025-12-04_survey_sod.pdf"
     },
     "exit_date": "2025-12-04",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0012339",
@@ -287,7 +287,7 @@
       "sod": "archive/0012370/2026-06-09_survey-complaint_sod.pdf"
     },
     "exit_date": "2026-06-09",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0012370",
@@ -298,7 +298,7 @@
       "sod": "archive/0012689/2025-10-03_survey_sod.pdf"
     },
     "exit_date": "2025-10-03",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0012689",
@@ -309,7 +309,7 @@
       "sod": "archive/0012897/2024-01-22_verification-visit_sod.pdf"
     },
     "exit_date": "2024-01-22",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0012897",
@@ -320,7 +320,7 @@
       "sod": "archive/0012930/2025-11-04_complaint_sod.pdf"
     },
     "exit_date": "2025-11-04",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0012930",
@@ -333,7 +333,7 @@
       "sod": "archive/0013025/2024-01-18_survey-complaint_sod.pdf"
     },
     "exit_date": "2024-01-18",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0013025",
@@ -344,7 +344,7 @@
       "sod": "archive/0013025/2025-03-24_complaint_sod.pdf"
     },
     "exit_date": "2025-03-24",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0013025",
@@ -355,7 +355,7 @@
       "sod": "archive/0013025/2026-02-26_survey-complaint_sod.pdf"
     },
     "exit_date": "2026-02-26",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0013025",
@@ -367,7 +367,7 @@
       "sod": "archive/0013419/2026-03-18_survey-complaint_sod.pdf"
     },
     "exit_date": "2026-03-18",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0013419",
@@ -378,7 +378,7 @@
       "sod": "archive/0013419/2026-06-04_verification-visit_sod.pdf"
     },
     "exit_date": "2026-06-04",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0013419",
@@ -390,7 +390,7 @@
       "sod": "archive/0013422/2023-12-11_survey-complaint-vv_sod.pdf"
     },
     "exit_date": "2023-12-11",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0013422",
@@ -401,7 +401,7 @@
       "sod": "archive/0013422/2024-11-26_complaint_sod.pdf"
     },
     "exit_date": "2024-11-26",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0013422",
@@ -413,7 +413,7 @@
       "sod": "archive/0013422/2025-12-02_survey-complaint_sod.pdf"
     },
     "exit_date": "2025-12-02",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0013422",
@@ -425,7 +425,7 @@
       "sod": "archive/0013424/2023-09-25_survey-complaint_sod.pdf"
     },
     "exit_date": "2023-09-25",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0013424",
@@ -436,7 +436,7 @@
       "sod": "archive/0013424/2023-12-11_complaint_sod.pdf"
     },
     "exit_date": "2023-12-11",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0013424",
@@ -448,7 +448,7 @@
       "sod": "archive/0013424/2024-03-05_verification-visit_sod.pdf"
     },
     "exit_date": "2024-03-05",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0013424",
@@ -460,7 +460,7 @@
       "sod": "archive/0013424/2024-11-26_verification-visit_sod.pdf"
     },
     "exit_date": "2024-11-26",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0013424",
@@ -472,7 +472,7 @@
       "sod": "archive/0013424/2026-03-12_survey-vv_sod.pdf"
     },
     "exit_date": "2026-03-12",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0013424",
@@ -483,7 +483,7 @@
       "sod": "archive/0013441/2023-07-12_survey_sod.pdf"
     },
     "exit_date": "2023-07-12",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0013441",
@@ -494,7 +494,7 @@
       "sod": "archive/0013700/2024-07-15_survey_sod.pdf"
     },
     "exit_date": "2024-07-15",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0013700",
@@ -506,7 +506,7 @@
       "sod": "archive/0013949/2025-11-11_survey-complaint_sod.pdf"
     },
     "exit_date": "2025-11-11",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0013949",
@@ -517,7 +517,7 @@
       "sod": "archive/0013949/2026-04-07_verification-visit_sod.pdf"
     },
     "exit_date": "2026-04-07",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0013949",
@@ -528,7 +528,7 @@
       "sod": "archive/0014480/2025-01-24_survey_sod.pdf"
     },
     "exit_date": "2025-01-24",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0014480",
@@ -539,7 +539,7 @@
       "sod": "archive/0014504/2025-06-24_survey-complaint_sod.pdf"
     },
     "exit_date": "2025-06-24",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0014504",
@@ -550,7 +550,7 @@
       "sod": "archive/0014504/2025-10-29_complaint_sod.pdf"
     },
     "exit_date": "2025-10-29",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0014504",
@@ -561,7 +561,7 @@
       "sod": "archive/0015223/2024-04-30_verification-visit_sod.pdf"
     },
     "exit_date": "2024-04-30",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0015223",
@@ -572,7 +572,7 @@
       "sod": "archive/0015224/2025-10-03_survey_sod.pdf"
     },
     "exit_date": "2025-10-03",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0015224",
@@ -583,7 +583,7 @@
       "sod": "archive/0015376/2026-01-26_survey_sod.pdf"
     },
     "exit_date": "2026-01-26",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0015376",
@@ -595,7 +595,7 @@
       "sod": "archive/0015628/2023-10-24_survey-complaint_sod.pdf"
     },
     "exit_date": "2023-10-24",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0015628",
@@ -606,7 +606,7 @@
       "sod": "archive/0015628/2024-03-11_verification-visit_sod.pdf"
     },
     "exit_date": "2024-03-11",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0015628",
@@ -617,7 +617,7 @@
       "sod": "archive/0015628/2024-07-10_complaint_sod.pdf"
     },
     "exit_date": "2024-07-10",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0015628",
@@ -629,7 +629,7 @@
       "sod": "archive/0015628/2025-08-29_survey-complaint_sod.pdf"
     },
     "exit_date": "2025-08-29",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0015628",
@@ -641,7 +641,7 @@
       "sod": "archive/0015628/2025-12-10_complaint-vv_sod.pdf"
     },
     "exit_date": "2025-12-10",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0015628",
@@ -652,7 +652,7 @@
       "sod": "archive/0015628/2026-03-10_complaint_sod.pdf"
     },
     "exit_date": "2026-03-10",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0015628",
@@ -663,7 +663,7 @@
       "sod": "archive/0015634/2024-01-02_complaint_sod.pdf"
     },
     "exit_date": "2024-01-02",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0015634",
@@ -674,7 +674,7 @@
       "sod": "archive/0015634/2024-07-09_complaint_sod.pdf"
     },
     "exit_date": "2024-07-09",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0015634",
@@ -685,7 +685,7 @@
       "sod": "archive/0015634/2025-07-11_complaint_sod.pdf"
     },
     "exit_date": "2025-07-11",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0015634",
@@ -696,7 +696,7 @@
       "sod": "archive/0015844/2024-12-23_survey_sod.pdf"
     },
     "exit_date": "2024-12-23",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0015844",
@@ -708,7 +708,7 @@
       "sod": "archive/0015844/2026-03-11_complaint-self-report_sod.pdf"
     },
     "exit_date": "2026-03-11",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0015844",
@@ -720,7 +720,7 @@
       "sod": "archive/0015955/2024-03-19_complaint-self-report_sod.pdf"
     },
     "exit_date": "2024-03-19",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0015955",
@@ -731,7 +731,7 @@
       "sod": "archive/0015955/2024-11-27_complaint_sod.pdf"
     },
     "exit_date": "2024-11-27",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0015955",
@@ -742,7 +742,7 @@
       "sod": "archive/0015955/2025-04-10_survey-complaint_sod.pdf"
     },
     "exit_date": "2025-04-10",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0015955",
@@ -753,7 +753,7 @@
       "sod": "archive/0015955/2025-05-15_complaint_sod.pdf"
     },
     "exit_date": "2025-05-15",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0015955",
@@ -764,7 +764,7 @@
       "sod": "archive/0015955/2025-10-02_complaint_sod.pdf"
     },
     "exit_date": "2025-10-02",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0015955",
@@ -776,7 +776,7 @@
       "sod": "archive/0015955/2026-02-18_complaint_sod.pdf"
     },
     "exit_date": "2026-02-18",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0015955",
@@ -787,7 +787,7 @@
       "sod": "archive/0015955/2026-06-08_complaint_sod.pdf"
     },
     "exit_date": "2026-06-08",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0015955",
@@ -800,7 +800,7 @@
       "sod": "archive/0016344/2023-09-12_complaint_sod.pdf"
     },
     "exit_date": "2023-09-12",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0016344",
@@ -813,7 +813,7 @@
       "sod": "archive/0016344/2023-12-14_complaint-vv_sod.pdf"
     },
     "exit_date": "2023-12-14",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0016344",
@@ -824,7 +824,7 @@
       "sod": "archive/0016344/2024-01-09_complaint_sod.pdf"
     },
     "exit_date": "2024-01-09",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0016344",
@@ -837,7 +837,7 @@
       "sod": "archive/0016344/2024-05-15_complaint-vv_sod.pdf"
     },
     "exit_date": "2024-05-15",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0016344",
@@ -848,7 +848,7 @@
       "sod": "archive/0016344/2024-10-31_verification-visit_sod.pdf"
     },
     "exit_date": "2024-10-31",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0016344",
@@ -859,7 +859,7 @@
       "sod": "archive/0016344/2024-12-04_complaint_sod.pdf"
     },
     "exit_date": "2024-12-04",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0016344",
@@ -870,7 +870,7 @@
       "sod": "archive/0016456/2024-06-19_survey_sod.pdf"
     },
     "exit_date": "2024-06-19",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0016456",
@@ -881,7 +881,7 @@
       "sod": "archive/0016514/2024-06-19_survey_sod.pdf"
     },
     "exit_date": "2024-06-19",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0016514",
@@ -892,7 +892,7 @@
       "sod": "archive/0016520/2024-06-20_survey-complaint_sod.pdf"
     },
     "exit_date": "2024-06-20",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0016520",
@@ -903,7 +903,7 @@
       "sod": "archive/0016736/2023-10-10_verification-visit_sod.pdf"
     },
     "exit_date": "2023-10-10",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0016736",
@@ -915,7 +915,7 @@
       "sod": "archive/0016736/2024-12-09_complaint_sod.pdf"
     },
     "exit_date": "2024-12-09",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0016736",
@@ -926,7 +926,7 @@
       "sod": "archive/0016736/2025-11-18_verification-visit_sod.pdf"
     },
     "exit_date": "2025-11-18",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0016736",
@@ -938,7 +938,7 @@
       "sod": "archive/0016736/2026-04-27_survey-complaint_sod.pdf"
     },
     "exit_date": "2026-04-27",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0016736",
@@ -949,7 +949,7 @@
       "sod": "archive/0016838/2026-04-07_survey_sod.pdf"
     },
     "exit_date": "2026-04-07",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0016838",
@@ -960,7 +960,7 @@
       "sod": "archive/0016880/2026-03-24_complaint_sod.pdf"
     },
     "exit_date": "2026-03-24",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0016880",
@@ -971,7 +971,7 @@
       "sod": "archive/0016883/2023-08-08_verification-visit_sod.pdf"
     },
     "exit_date": "2023-08-08",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0016883",
@@ -982,7 +982,7 @@
       "sod": "archive/0016883/2025-06-19_survey-complaint_sod.pdf"
     },
     "exit_date": "2025-06-19",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0016883",
@@ -994,7 +994,7 @@
       "sod": "archive/0016894/2024-01-04_survey-complaint_sod.pdf"
     },
     "exit_date": "2024-01-04",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0016894",
@@ -1005,7 +1005,7 @@
       "sod": "archive/0016894/2025-04-21_verification-visit_sod.pdf"
     },
     "exit_date": "2025-04-21",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0016894",
@@ -1016,7 +1016,7 @@
       "sod": "archive/0016894/2025-08-25_complaint_sod.pdf"
     },
     "exit_date": "2025-08-25",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0016894",
@@ -1027,7 +1027,7 @@
       "sod": "archive/0016895/2025-08-14_survey_sod.pdf"
     },
     "exit_date": "2025-08-14",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0016895",
@@ -1038,7 +1038,7 @@
       "sod": "archive/0017995/2025-07-29_survey_sod.pdf"
     },
     "exit_date": "2025-07-29",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0017995",
@@ -1049,7 +1049,7 @@
       "sod": "archive/0017996/2025-08-05_survey_sod.pdf"
     },
     "exit_date": "2025-08-05",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0017996",
@@ -1060,7 +1060,7 @@
       "sod": "archive/0018018/2025-07-03_survey_sod.pdf"
     },
     "exit_date": "2025-07-03",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0018018",
@@ -1071,7 +1071,7 @@
       "sod": "archive/0018266/2024-01-22_verification-visit_sod.pdf"
     },
     "exit_date": "2024-01-22",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0018266",
@@ -1082,7 +1082,7 @@
       "sod": "archive/0018276/2023-07-17_survey-complaint-vv_sod.pdf"
     },
     "exit_date": "2023-07-17",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0018276",
@@ -1094,7 +1094,7 @@
       "sod": "archive/0018276/2024-06-17_complaint_sod.pdf"
     },
     "exit_date": "2024-06-17",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0018276",
@@ -1105,7 +1105,7 @@
       "sod": "archive/0018276/2025-03-12_survey-vv_sod.pdf"
     },
     "exit_date": "2025-03-12",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0018276",
@@ -1117,7 +1117,7 @@
       "sod": "archive/0018276/2025-11-03_complaint_sod.pdf"
     },
     "exit_date": "2025-11-03",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0018276",
@@ -1128,7 +1128,7 @@
       "sod": "archive/0018300/2024-12-11_survey-complaint_sod.pdf"
     },
     "exit_date": "2024-12-11",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0018300",
@@ -1140,7 +1140,7 @@
       "sod": "archive/0018300/2025-03-17_complaint_sod.pdf"
     },
     "exit_date": "2025-03-17",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0018300",
@@ -1152,7 +1152,7 @@
       "sod": "archive/0018302/2024-01-29_survey-complaint-self-report_sod.pdf"
     },
     "exit_date": "2024-01-29",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0018302",
@@ -1164,7 +1164,7 @@
       "sod": "archive/0018302/2024-02-29_complaint_sod.pdf"
     },
     "exit_date": "2024-02-29",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0018302",
@@ -1176,7 +1176,7 @@
       "sod": "archive/0018302/2024-11-11_complaint_sod.pdf"
     },
     "exit_date": "2024-11-11",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0018302",
@@ -1188,7 +1188,7 @@
       "sod": "archive/0018302/2025-01-22_complaint-self-report_sod.pdf"
     },
     "exit_date": "2025-01-22",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0018302",
@@ -1200,7 +1200,7 @@
       "sod": "archive/0018302/2025-06-18_complaint-vv_sod.pdf"
     },
     "exit_date": "2025-06-18",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0018302",
@@ -1211,7 +1211,7 @@
       "sod": "archive/0018526/2025-08-26_survey-complaint_sod.pdf"
     },
     "exit_date": "2025-08-26",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0018526",
@@ -1223,7 +1223,7 @@
       "sod": "archive/0018760/2024-06-03_survey-complaint-self-report_sod.pdf"
     },
     "exit_date": "2024-06-03",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0018760",
@@ -1234,7 +1234,7 @@
       "sod": "archive/0018760/2025-01-22_verification-visit_sod.pdf"
     },
     "exit_date": "2025-01-22",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0018760",
@@ -1246,7 +1246,7 @@
       "sod": "archive/0018760/2025-04-29_complaint_sod.pdf"
     },
     "exit_date": "2025-04-29",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0018760",
@@ -1258,7 +1258,7 @@
       "sod": "archive/0018760/2025-07-23_desk-review_sod.pdf"
     },
     "exit_date": "2025-07-23",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0018760",
@@ -1269,7 +1269,7 @@
       "sod": "archive/0018760/2025-08-13_desk-review_sod.pdf"
     },
     "exit_date": "2025-08-13",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0018760",
@@ -1281,7 +1281,7 @@
       "sod": "archive/0018760/2025-11-06_complaint-vv_sod.pdf"
     },
     "exit_date": "2025-11-06",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0018760",
@@ -1292,7 +1292,7 @@
       "sod": "archive/0018940/2025-04-23_survey_sod.pdf"
     },
     "exit_date": "2025-04-23",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0018940",
@@ -1304,7 +1304,7 @@
       "sod": "archive/0018940/2025-12-17_complaint_sod.pdf"
     },
     "exit_date": "2025-12-17",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0018940",
@@ -1316,7 +1316,7 @@
       "sod": "archive/0018940/2026-03-30_complaint-vv_sod.pdf"
     },
     "exit_date": "2026-03-30",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0018940",
@@ -1327,7 +1327,7 @@
       "sod": "archive/0019222/2023-08-16_complaint_sod.pdf"
     },
     "exit_date": "2023-08-16",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0019222",
@@ -1338,7 +1338,7 @@
       "sod": "archive/0019222/2024-06-11_survey-complaint_sod.pdf"
     },
     "exit_date": "2024-06-11",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0019222",
@@ -1349,7 +1349,7 @@
       "sod": "archive/0019326/2023-12-21_survey-self-report_sod.pdf"
     },
     "exit_date": "2023-12-21",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0019326",
@@ -1361,7 +1361,7 @@
       "sod": "archive/0019326/2025-04-16_complaint_sod.pdf"
     },
     "exit_date": "2025-04-16",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0019326",
@@ -1373,7 +1373,7 @@
       "sod": "archive/0019326/2025-09-23_survey-complaint-vv_sod.pdf"
     },
     "exit_date": "2025-09-23",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0019326",
@@ -1385,7 +1385,7 @@
       "sod": "archive/0019328/2023-11-08_survey-complaint_sod.pdf"
     },
     "exit_date": "2023-11-08",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0019328",
@@ -1396,7 +1396,7 @@
       "sod": "archive/0019328/2024-01-31_verification-visit_sod.pdf"
     },
     "exit_date": "2024-01-31",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0019328",
@@ -1408,7 +1408,7 @@
       "sod": "archive/0019328/2024-12-19_complaint_sod.pdf"
     },
     "exit_date": "2024-12-19",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0019328",
@@ -1420,7 +1420,7 @@
       "sod": "archive/0019328/2025-09-12_complaint_sod.pdf"
     },
     "exit_date": "2025-09-12",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0019328",
@@ -1432,7 +1432,7 @@
       "sod": "archive/0019328/2025-10-22_survey-complaint-vv_sod.pdf"
     },
     "exit_date": "2025-10-22",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0019328",
@@ -1444,7 +1444,7 @@
       "sod": "archive/0019329/2023-11-30_survey-complaint-vv_sod.pdf"
     },
     "exit_date": "2023-11-30",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0019329",
@@ -1455,7 +1455,7 @@
       "sod": "archive/0019329/2024-02-26_complaint-vv_sod.pdf"
     },
     "exit_date": "2024-02-26",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0019329",
@@ -1467,7 +1467,7 @@
       "sod": "archive/0019329/2026-04-01_survey-complaint_sod.pdf"
     },
     "exit_date": "2026-04-01",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0019329",
@@ -1478,7 +1478,7 @@
       "sod": "archive/0019331/2023-12-21_survey_sod.pdf"
     },
     "exit_date": "2023-12-21",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0019331",
@@ -1490,7 +1490,7 @@
       "sod": "archive/0019331/2025-10-20_survey-complaint_sod.pdf"
     },
     "exit_date": "2025-10-20",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0019331",
@@ -1501,7 +1501,7 @@
       "sod": "archive/0019733/2024-07-22_survey_sod.pdf"
     },
     "exit_date": "2024-07-22",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0019733",
@@ -1512,7 +1512,7 @@
       "sod": "archive/0019733/2025-02-27_complaint_sod.pdf"
     },
     "exit_date": "2025-02-27",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0019733",
@@ -1524,7 +1524,7 @@
       "sod": "archive/0019733/2025-08-11_self-report_sod.pdf"
     },
     "exit_date": "2025-08-11",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0019733",
@@ -1535,7 +1535,7 @@
       "sod": "archive/0019937/2024-08-15_survey_sod.pdf"
     },
     "exit_date": "2024-08-15",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0019937",
@@ -1546,7 +1546,7 @@
       "sod": "archive/0019937/2025-07-02_complaint_sod.pdf"
     },
     "exit_date": "2025-07-02",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0019937",
@@ -1557,7 +1557,7 @@
       "sod": "archive/0019940/2024-09-12_survey_sod.pdf"
     },
     "exit_date": "2024-09-12",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0019940",
@@ -1569,7 +1569,7 @@
       "sod": "archive/0019940/2025-11-13_complaint_sod.pdf"
     },
     "exit_date": "2025-11-13",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0019940",
@@ -1580,7 +1580,7 @@
       "sod": "archive/0020363/2024-11-27_complaint_sod.pdf"
     },
     "exit_date": "2024-11-27",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0020363",
@@ -1591,7 +1591,7 @@
       "sod": "archive/0020363/2025-08-07_complaint_sod.pdf"
     },
     "exit_date": "2025-08-07",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0020363",
@@ -1602,7 +1602,7 @@
       "sod": "archive/0020366/2024-11-13_survey-complaint_sod.pdf"
     },
     "exit_date": "2024-11-13",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0020366",
@@ -1613,7 +1613,7 @@
       "sod": "archive/0020366/2025-04-03_complaint_sod.pdf"
     },
     "exit_date": "2025-04-03",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0020366",
@@ -1625,7 +1625,7 @@
       "sod": "archive/0020366/2025-07-28_complaint_sod.pdf"
     },
     "exit_date": "2025-07-28",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0020366",
@@ -1636,7 +1636,7 @@
       "sod": "archive/0020366/2025-09-24_complaint_sod.pdf"
     },
     "exit_date": "2025-09-24",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0020366",
@@ -1647,7 +1647,7 @@
       "sod": "archive/0020366/2026-01-27_survey-complaint-vv_sod.pdf"
     },
     "exit_date": "2026-01-27",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0020366",
@@ -1659,7 +1659,7 @@
       "sod": "archive/0020445/2024-10-01_survey-complaint_sod.pdf"
     },
     "exit_date": "2024-10-01",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0020445",
@@ -1670,7 +1670,7 @@
       "sod": "archive/0020445/2024-12-04_complaint_sod.pdf"
     },
     "exit_date": "2024-12-04",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0020445",
@@ -1682,7 +1682,7 @@
       "sod": "archive/0020445/2025-06-19_complaint-vv_sod.pdf"
     },
     "exit_date": "2025-06-19",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "0020445",
@@ -1694,7 +1694,7 @@
       "sod": "archive/610201/2024-05-28_survey-complaint_sod.pdf"
     },
     "exit_date": "2024-05-28",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "610201",
@@ -1706,7 +1706,7 @@
       "sod": "archive/611026/2023-11-02_survey-complaint_sod.pdf"
     },
     "exit_date": "2023-11-02",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "611026",
@@ -1717,7 +1717,7 @@
       "sod": "archive/611026/2024-02-27_verification-visit_sod.pdf"
     },
     "exit_date": "2024-02-27",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "611026",
@@ -1728,7 +1728,7 @@
       "sod": "archive/611026/2025-05-07_survey-complaint_sod.pdf"
     },
     "exit_date": "2025-05-07",
-    "expired_from_state": false,
+    "expired_from_state": true,
     "first_seen": "2026-07-12",
     "last_seen": "2026-07-12",
     "license": "611026",
