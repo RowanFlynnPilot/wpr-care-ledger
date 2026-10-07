@@ -97,10 +97,19 @@ path; kinds: `enforcement`, `sod`, `poc`), `first_seen`, `last_seen`,
 `expired_from_state`, `documents_first_seen` (kind → run date the document
 was archived; a Notice & Order often posts weeks after its SOD, onto a
 row that is no longer new — absent on documents archived before
-2026-10), and `expired_on` (the run date that flagged it;
+2026-10), `expired_on` (the run date that flagged it;
 absent on the 7 rows that aged off during the 2026-07/10 outage, whose
 exact dates are unknowable — never backfill a guess; removed if a record
-reappears). **Append-only.** A row that vanishes from DQA flips
+reappears), and `document_urls` (kind → the address the state published
+the document at, `https://www.forwardhealth.wi.gov/kw/dqa/` + the survey's
+event ID + `SODS`/`ENFS`/`POCS` + `.PDF`; first seen wins, like the file;
+provenance, and what the Internet Archive copies from). The infix follows
+the state's grid column, swap included — 0019331's `OBDO11ENFS.PDF` is an
+SOD — so a document's kind comes from enrichment, never from its address.
+Recorded since
+2026-10-07; the 7 rows already aged off by then got theirs from the event
+ID each of their documents prints, every one proven by a byte-identical
+download from the state that day — derived, not guessed. **Append-only.** A row that vanishes from DQA flips
 `expired_from_state: true` and stays forever. That flag is the product —
 so it is guarded twice in `fetch.py`: every detail page must prove its
 identity (License Number field matches, Survey History section present
@@ -142,6 +151,24 @@ immutable so each parses once; `--rebuild` reparses all after parser
 changes. Deleting the file and rerunning is always safe; never hand-edit.
 Per-document parse gaps warn loudly but never fail the weekly run.
 
+`data/wayback.json` — the Internet Archive's independent copies, written
+by `pipeline/seed_wayback.py`: `documents` (archive path → Wayback URL of
+a capture of the document's `document_urls` address) and `pages` (license
+→ captures of the facility's state detail page, each `{copy,
+fingerprint}`; the fingerprint hashes what the page showed — license
+status, owner, survey rows and their documents — so a page is captured
+again only when that changes, never just because its key rotated). Save
+Page Now fetches from the state's own server, which is the point: nobody
+has to take WPR's word for what the state published. A copy is recorded
+when Save Page Now reports success; a page capture that touched the
+portal's `UnexpectedError` page never is (a stale key "succeeds" there).
+A document the Wayback Machine already holds byte for byte is recorded
+without a new capture. Each run audits every document copy against the
+Wayback index — the state serves PDFs as static files, so the copy's
+digest must equal the base32 SHA-1 of the ledger's file — and reports
+identical / differs / not yet indexed. Never hand-edit; deleting it and
+rerunning is safe (documents are re-found in the index, pages recaptured).
+
 ## Known migration event — READ THIS WHEN THE SCRAPER DIES
 
 DHS announced the **Wisconsin Provider Finder** (planned spring 2026, not
@@ -150,7 +177,11 @@ old page "will redirect once it launches." When that happens the fetcher's
 structural assertions will fail loudly. That is correct behavior. Rewrite
 `run_search`/`harvest_keys`/`fetch_detail` against the new tool; the ledger
 and archive carry forward untouched — that's the point. Whatever history
-the state drops in the migration, we already have.
+the state drops in the migration, we already have — and so does the
+Internet Archive, at the state's own addresses (`data/wayback.json`).
+`seed_wayback.py` captures pages by their detail key, so its page half
+needs the same rewrite; its document half keeps working as long as new
+documents carry a `document_urls` address.
 
 ## Editorial angles encoded in the data
 
@@ -176,6 +207,12 @@ the state drops in the migration, we already have.
   ask DQA.
 - Enforcement density: 32 of 93 facilities have enforcement actions within
   the 3-year visible window alone.
+- Aged-off records are delisted, not deleted: on 2026-10-07 all 10 PDFs of
+  the 7 held records were still served at their state addresses,
+  byte-identical to the archive. "No longer shown by the state" means the
+  Provider Search stopped listing them — a family can't find them, but the
+  files exist for anyone who knows the address. Never write that the state
+  deleted records.
 
 ## Widget
 
@@ -322,6 +359,13 @@ then bundles them into `dist/`, so **the Pages artifact is just
   exists because commits pushed with the default `GITHUB_TOKEN` (the fetch
   bot) never trigger other workflows — a plain push trigger would leave the
   live widget silently stale.
+- `wayback.yml` — after each successful fetch (`workflow_run`), or Run
+  workflow: `seed_wayback.py`, then commits `data/wayback.json`, even after
+  a partial failure (every recorded copy is real). Its own workflow so the
+  deploy never waits on archive.org. Needs repository secrets
+  `IA_ACCESS_KEY` / `IA_SECRET_KEY`, an archive.org account's S3 keys —
+  Save Page Now stopped taking anonymous captures in 2026-10. A failed run
+  is red in Actions and touches neither the ledger nor the deploy.
 - Repo settings: Pages source must be set to "GitHub Actions" once.
 
 ## Commands
@@ -350,6 +394,11 @@ then bundles them into `dist/`, so **the Pages artifact is just
   block the deploy. `alert-test.yml` (Run workflow) posts a `[TEST]` issue
   to confirm delivery. Alert issues are public, like the repo — public
   records only.
+- Internet Archive copies: `python pipeline/seed_wayback.py` (needs
+  `IA_ACCESS_KEY` / `IA_SECRET_KEY`; idempotent). Paces itself under Save
+  Page Now's 7 captures a minute, at most six in flight; stops submitting
+  after four hours and leaves the rest for the next run. A first run (or a
+  deleted wayback.json) takes about three hours.
 - Wayback recovery (rarely; idempotent): `python pipeline/backfill_wayback.py`,
   then rerun enrich.py. Empirical result 2026-07: the Internet Archive
   holds zero Marathon County assisted-living items (attribution verified

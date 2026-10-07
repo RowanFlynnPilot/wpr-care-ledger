@@ -99,5 +99,22 @@ class ArchivePaths(unittest.TestCase):
         self.assertEqual(rel, "archive/0013424/2026-08-05_complaint-vv_sod.pdf")
 
 
+class DocumentProvenance(unittest.TestCase):
+    def test_the_state_url_is_recorded_and_first_seen_wins(self):
+        first = "https://www.forwardhealth.wi.gov/kw/dqa/8F3914ENFS.PDF"
+        history = [{"survey_type": "SURVEY/VV", "exit_date": "2026-03-12",
+                    "docs": {"enforcement": first}}]
+        detail = {"licensure_status": "REGULAR", "ownership_type": "", "owner_name": ""}
+        roster = {"0013424": {"license": "0013424"}}
+        facilities, surveys = {}, {}
+        with mock.patch.object(fetch, "fetch_detail", return_value=(detail, history)), \
+                mock.patch.object(fetch, "archive_pdf", return_value="archive/0013424/x.pdf"):
+            fetch.fetch_county(None, roster, {"0013424": "k"}, facilities, surveys, "2026-10-07")
+            history[0]["docs"]["enforcement"] = "https://www.forwardhealth.wi.gov/kw/dqa/OTHERENFS.PDF"
+            fetch.fetch_county(None, roster, {"0013424": "k"}, facilities, surveys, "2026-10-14")
+        self.assertEqual(surveys["0013424|2026-03-12|survey-vv"]["document_urls"],
+                         {"enforcement": first})
+
+
 if __name__ == "__main__":
     unittest.main()

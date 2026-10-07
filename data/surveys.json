@@ -1,5 +1,9 @@
 {
   "0008499|2025-03-11|survey-complaint-self-report": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/89WN11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/89WN11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0008499/2025-03-11_survey-complaint-self-report_enforcement.pdf",
       "sod": "archive/0008499/2025-03-11_survey-complaint-self-report_sod.pdf"
@@ -16,6 +20,9 @@
     "survey_type": "SURVEY/COMPLAINT/SELF REPORT"
   },
   "0008499|2025-08-26|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/89WN12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0008499/2025-08-26_verification-visit_sod.pdf"
     },
@@ -30,6 +37,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0008655|2023-08-08|complaint-self-report": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/LEGN11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0008655/2023-08-08_complaint-self-report_sod.pdf"
     },
@@ -41,6 +51,10 @@
     "survey_type": "COMPLAINT/SELF REPORT"
   },
   "0008655|2025-01-02|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/RQF811ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/RQF811SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0008655/2025-01-02_survey-complaint_enforcement.pdf",
       "sod": "archive/0008655/2025-01-02_survey-complaint_sod.pdf"
@@ -53,6 +67,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0008655|2025-06-12|self-report-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/RQF812SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0008655/2025-06-12_self-report-vv_sod.pdf"
     },
@@ -64,6 +81,10 @@
     "survey_type": "SELF REPORT/VV"
   },
   "0008822|2025-05-13|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/BLHO11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/BLHO11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0008822/2025-05-13_survey-complaint_enforcement.pdf",
       "sod": "archive/0008822/2025-05-13_survey-complaint_sod.pdf"
@@ -80,6 +101,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0008822|2025-09-22|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/BLHO12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0008822/2025-09-22_verification-visit_sod.pdf"
     },
@@ -94,6 +118,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0008890|2024-02-27|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/IFDQ11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0008890/2024-02-27_survey_sod.pdf"
     },
@@ -108,6 +135,10 @@
     "survey_type": "SURVEY"
   },
   "0009074|2023-11-02|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/KWP311ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/KWP311SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0009074/2023-11-02_survey-complaint_enforcement.pdf",
       "sod": "archive/0009074/2023-11-02_survey-complaint_sod.pdf"
@@ -120,6 +151,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0009118|2023-12-26|desk-review": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/5G1Y12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0009118/2023-12-26_desk-review_sod.pdf"
     },
@@ -131,6 +165,9 @@
     "survey_type": "DESK REVIEW"
   },
   "0009118|2024-01-22|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/864V11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0009118/2024-01-22_survey_sod.pdf"
     },
@@ -142,6 +179,10 @@
     "survey_type": "SURVEY"
   },
   "0009226|2024-05-22|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/4BLT11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/4BLT11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0009226/2024-05-22_complaint_enforcement.pdf",
       "sod": "archive/0009226/2024-05-22_complaint_sod.pdf"
@@ -154,6 +195,9 @@
     "survey_type": "COMPLAINT"
   },
   "0009226|2024-12-03|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/4BLT12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0009226/2024-12-03_verification-visit_sod.pdf"
     },
@@ -165,6 +209,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0009226|2025-08-05|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/QEH711SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0009226/2025-08-05_complaint_sod.pdf"
     },
@@ -176,6 +223,10 @@
     "survey_type": "COMPLAINT"
   },
   "0009226|2026-02-17|desk-review": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/076T11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/076T11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0009226/2026-02-17_desk-review_enforcement.pdf",
       "sod": "archive/0009226/2026-02-17_desk-review_sod.pdf"
@@ -188,6 +239,9 @@
     "survey_type": "DESK REVIEW"
   },
   "0009226|2026-03-20|desk-review": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/076T12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0009226/2026-03-20_desk-review_sod.pdf"
     },
@@ -199,6 +253,10 @@
     "survey_type": "DESK REVIEW"
   },
   "0009393|2024-06-25|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/BBM811ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/BBM811SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0009393/2024-06-25_survey-complaint_enforcement.pdf",
       "sod": "archive/0009393/2024-06-25_survey-complaint_sod.pdf"
@@ -215,6 +273,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0009393|2025-05-08|verification-visit": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/BBM812ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/BBM812SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0009393/2025-05-08_verification-visit_enforcement.pdf",
       "sod": "archive/0009393/2025-05-08_verification-visit_sod.pdf"
@@ -231,6 +293,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0009393|2025-08-27|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/BBM813SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0009393/2025-08-27_verification-visit_sod.pdf"
     },
@@ -245,6 +310,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0009720|2025-04-08|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/SRBW11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0009720/2025-04-08_complaint_sod.pdf"
     },
@@ -259,6 +327,10 @@
     "survey_type": "COMPLAINT"
   },
   "0009722|2023-12-11|survey-complaint-self-report": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/1BMU11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/1BMU11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0009722/2023-12-11_survey-complaint-self-report_enforcement.pdf",
       "sod": "archive/0009722/2023-12-11_survey-complaint-self-report_sod.pdf"
@@ -275,6 +347,9 @@
     "survey_type": "SURVEY/COMPLAINT/SELF REPORT"
   },
   "0009722|2024-03-13|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/1BMU12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0009722/2024-03-13_verification-visit_sod.pdf"
     },
@@ -289,6 +364,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0009722|2024-07-24|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/Z0RQ11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0009722/2024-07-24_complaint_sod.pdf"
     },
@@ -303,6 +381,9 @@
     "survey_type": "COMPLAINT"
   },
   "0009724|2024-07-23|complaint-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/OE9115SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0009724/2024-07-23_complaint-vv_sod.pdf"
     },
@@ -317,6 +398,10 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0009724|2025-02-05|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/315C11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/315C11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0009724/2025-02-05_complaint_enforcement.pdf",
       "sod": "archive/0009724/2025-02-05_complaint_sod.pdf"
@@ -333,6 +418,9 @@
     "survey_type": "COMPLAINT"
   },
   "0009724|2025-05-06|complaint-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/315C12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0009724/2025-05-06_complaint-vv_sod.pdf"
     },
@@ -347,6 +435,9 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0009754|2024-07-11|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/543F11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0009754/2024-07-11_complaint_sod.pdf"
     },
@@ -361,6 +452,9 @@
     "survey_type": "COMPLAINT"
   },
   "0009754|2026-05-12|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/VWP911SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0009754/2026-05-12_survey_sod.pdf"
     },
@@ -375,6 +469,10 @@
     "survey_type": "SURVEY"
   },
   "0009806|2025-07-31|survey": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/FTP511ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/FTP511SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0009806/2025-07-31_survey_enforcement.pdf",
       "sod": "archive/0009806/2025-07-31_survey_sod.pdf"
@@ -391,6 +489,9 @@
     "survey_type": "SURVEY"
   },
   "0009806|2025-11-04|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/FTPS12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0009806/2025-11-04_verification-visit_sod.pdf"
     },
@@ -405,6 +506,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0010105|2024-10-02|complaint-self-report-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/9S8813ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/9S8813SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0010105/2024-10-02_complaint-self-report-vv_enforcement.pdf",
       "sod": "archive/0010105/2024-10-02_complaint-self-report-vv_sod.pdf"
@@ -421,6 +526,9 @@
     "survey_type": "COMPLAINT/SELF REPORT/VV"
   },
   "0010153|2025-01-24|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/0KCD11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0010153/2025-01-24_survey_sod.pdf"
     },
@@ -432,6 +540,9 @@
     "survey_type": "SURVEY"
   },
   "0010446|2024-08-07|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/31R311SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0010446/2024-08-07_survey_sod.pdf"
     },
@@ -443,6 +554,9 @@
     "survey_type": "SURVEY"
   },
   "0010521|2024-07-10|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/0Y4Z11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0010521/2024-07-10_survey_sod.pdf"
     },
@@ -457,6 +571,10 @@
     "survey_type": "SURVEY"
   },
   "0010689|2023-10-19|verification-visit": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/K0ZR13ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/K0ZR13SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0010689/2023-10-19_verification-visit_enforcement.pdf",
       "sod": "archive/0010689/2023-10-19_verification-visit_sod.pdf"
@@ -469,6 +587,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0010753|2026-03-09|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/VE1B11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0010753/2026-03-09_survey_sod.pdf"
     },
@@ -483,6 +604,9 @@
     "survey_type": "SURVEY"
   },
   "0011239|2026-07-14|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/MZZZ11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0011239/2026-07-14_survey_sod.pdf"
     },
@@ -497,6 +621,10 @@
     "survey_type": "SURVEY"
   },
   "0011240|2024-05-28|survey": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/GDFP11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/GDFP11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0011240/2024-05-28_survey_enforcement.pdf",
       "sod": "archive/0011240/2024-05-28_survey_sod.pdf"
@@ -513,6 +641,9 @@
     "survey_type": "SURVEY"
   },
   "0011255|2024-10-07|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/C0Q111SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0011255/2024-10-07_survey-complaint_sod.pdf"
     },
@@ -527,6 +658,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0011268|2025-10-22|survey": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/Y2YY11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/Y2YY11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0011268/2025-10-22_survey_enforcement.pdf",
       "sod": "archive/0011268/2025-10-22_survey_sod.pdf"
@@ -543,6 +678,9 @@
     "survey_type": "SURVEY"
   },
   "0011268|2026-07-21|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/Y2YY12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0011268/2026-07-21_verification-visit_sod.pdf"
     },
@@ -557,6 +695,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0011313|2025-07-23|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/Z08P11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/Z08P11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0011313/2025-07-23_survey-complaint_enforcement.pdf",
       "sod": "archive/0011313/2025-07-23_survey-complaint_sod.pdf"
@@ -569,6 +711,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0011313|2025-12-03|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/5WA611ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/5WA611SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0011313/2025-12-03_complaint_enforcement.pdf",
       "sod": "archive/0011313/2025-12-03_complaint_sod.pdf"
@@ -581,6 +727,9 @@
     "survey_type": "COMPLAINT"
   },
   "0011326|2024-08-05|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/RB6L12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0011326/2024-08-05_verification-visit_sod.pdf"
     },
@@ -595,6 +744,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0011326|2025-04-09|survey-complaint-self-report": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/POTJ11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/POTJ11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0011326/2025-04-09_survey-complaint-self-report_enforcement.pdf",
       "sod": "archive/0011326/2025-04-09_survey-complaint-self-report_sod.pdf"
@@ -611,6 +764,10 @@
     "survey_type": "SURVEY/COMPLAINT/SELF REPORT"
   },
   "0011326|2025-09-05|verification-visit": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/POTJ12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/POTJ12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0011326/2025-09-05_verification-visit_enforcement.pdf",
       "sod": "archive/0011326/2025-09-05_verification-visit_sod.pdf"
@@ -627,6 +784,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0011326|2026-02-24|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/POTJ13SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0011326/2026-02-24_verification-visit_sod.pdf"
     },
@@ -641,6 +801,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0011326|2026-07-09|other": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/HWRQ11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0011326/2026-07-09_other_sod.pdf"
     },
@@ -655,6 +818,9 @@
     "survey_type": "OTHER"
   },
   "0011326|2026-07-28|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/K2B611SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0011326/2026-07-28_complaint_sod.pdf"
     },
@@ -669,6 +835,9 @@
     "survey_type": "COMPLAINT"
   },
   "0011326|2026-09-10|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/SCGQ11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0011326/2026-09-10_complaint_sod.pdf"
     },
@@ -683,6 +852,9 @@
     "survey_type": "COMPLAINT"
   },
   "0011327|2024-02-23|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/LQN212SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0011327/2024-02-23_verification-visit_sod.pdf"
     },
@@ -697,6 +869,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0011417|2025-04-03|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/S4QW11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0011417/2025-04-03_survey-complaint_sod.pdf"
     },
@@ -711,6 +886,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0011469|2025-02-11|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/G07K11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0011469/2025-02-11_survey-complaint_sod.pdf"
     },
@@ -725,6 +903,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0011469|2025-11-03|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/0UOG11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0011469/2025-11-03_complaint_sod.pdf"
     },
@@ -739,6 +920,9 @@
     "survey_type": "COMPLAINT"
   },
   "0011469|2026-07-08|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/YC8E11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0011469/2026-07-08_complaint_sod.pdf"
     },
@@ -753,6 +937,10 @@
     "survey_type": "COMPLAINT"
   },
   "0011718|2025-08-25|survey": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/DTDJ11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/DTDJ11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0011718/2025-08-25_survey_enforcement.pdf",
       "sod": "archive/0011718/2025-08-25_survey_sod.pdf"
@@ -769,6 +957,9 @@
     "survey_type": "SURVEY"
   },
   "0011718|2026-01-22|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/DTDJ12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0011718/2026-01-22_verification-visit_sod.pdf"
     },
@@ -783,6 +974,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0011754|2023-12-06|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/SRD611SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0011754/2023-12-06_complaint_sod.pdf"
     },
@@ -797,6 +991,10 @@
     "survey_type": "COMPLAINT"
   },
   "0011754|2025-07-03|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/MVYU11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/MVYU11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0011754/2025-07-03_complaint_enforcement.pdf",
       "sod": "archive/0011754/2025-07-03_complaint_sod.pdf"
@@ -813,6 +1011,9 @@
     "survey_type": "COMPLAINT"
   },
   "0011754|2025-10-06|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/MVYU12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0011754/2025-10-06_verification-visit_sod.pdf"
     },
@@ -827,6 +1028,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0011887|2023-12-07|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/05J211SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0011887/2023-12-07_survey-complaint_sod.pdf"
     },
@@ -838,6 +1042,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0011888|2026-06-16|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/S3DJ11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0011888/2026-06-16_survey_sod.pdf"
     },
@@ -849,6 +1056,9 @@
     "survey_type": "SURVEY"
   },
   "0011937|2024-07-15|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/UOM011SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0011937/2024-07-15_survey_sod.pdf"
     },
@@ -860,6 +1070,10 @@
     "survey_type": "SURVEY"
   },
   "0011953|2024-03-14|complaint-self-report-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/5MV216ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/5MV216SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0011953/2024-03-14_complaint-self-report-vv_enforcement.pdf",
       "sod": "archive/0011953/2024-03-14_complaint-self-report-vv_sod.pdf"
@@ -876,6 +1090,10 @@
     "survey_type": "COMPLAINT/SELF REPORT/VV"
   },
   "0011953|2024-06-10|complaint-self-report": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/BBRH11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/BBRH11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0011953/2024-06-10_complaint-self-report_enforcement.pdf",
       "sod": "archive/0011953/2024-06-10_complaint-self-report_sod.pdf"
@@ -892,6 +1110,10 @@
     "survey_type": "COMPLAINT/SELF REPORT"
   },
   "0011953|2024-11-04|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/BBRH12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/BBRH12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0011953/2024-11-04_complaint-vv_enforcement.pdf",
       "sod": "archive/0011953/2024-11-04_complaint-vv_sod.pdf"
@@ -908,6 +1130,9 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0011953|2025-09-15|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/5MV217SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0011953/2025-09-15_verification-visit_sod.pdf"
     },
@@ -922,6 +1147,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0011954|2024-04-30|complaint-self-report-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/YU9Z15ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/YU9Z15SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0011954/2024-04-30_complaint-self-report-vv_enforcement.pdf",
       "sod": "archive/0011954/2024-04-30_complaint-self-report-vv_sod.pdf"
@@ -938,6 +1167,10 @@
     "survey_type": "COMPLAINT/SELF REPORT/VV"
   },
   "0011954|2024-06-10|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/NCQ011ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/NCQ011SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0011954/2024-06-10_complaint_enforcement.pdf",
       "sod": "archive/0011954/2024-06-10_complaint_sod.pdf"
@@ -954,6 +1187,10 @@
     "survey_type": "COMPLAINT"
   },
   "0011954|2024-11-06|complaint-self-report-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/YU9Z16ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/YU9Z16SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0011954/2024-11-06_complaint-self-report-vv_enforcement.pdf",
       "sod": "archive/0011954/2024-11-06_complaint-self-report-vv_sod.pdf"
@@ -970,6 +1207,9 @@
     "survey_type": "COMPLAINT/SELF REPORT/VV"
   },
   "0011954|2025-09-15|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/YU9Z17SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0011954/2025-09-15_verification-visit_sod.pdf"
     },
@@ -984,6 +1224,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0011989|2025-01-15|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/OBYC11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/OBYC11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0011989/2025-01-15_survey-complaint_enforcement.pdf",
       "sod": "archive/0011989/2025-01-15_survey-complaint_sod.pdf"
@@ -1000,6 +1244,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0011989|2025-06-25|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/OBYC12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0011989/2025-06-25_verification-visit_sod.pdf"
     },
@@ -1014,6 +1261,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0012036|2024-02-05|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/EWRY11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012036/2024-02-05_survey_sod.pdf"
     },
@@ -1028,6 +1278,10 @@
     "survey_type": "SURVEY"
   },
   "0012042|2023-12-07|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/11X711ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/11X711SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0012042/2023-12-07_complaint_enforcement.pdf",
       "sod": "archive/0012042/2023-12-07_complaint_sod.pdf"
@@ -1044,6 +1298,10 @@
     "survey_type": "COMPLAINT"
   },
   "0012042|2024-05-06|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/E21611ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/E21611SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0012042/2024-05-06_complaint_enforcement.pdf",
       "sod": "archive/0012042/2024-05-06_complaint_sod.pdf"
@@ -1060,6 +1318,10 @@
     "survey_type": "COMPLAINT"
   },
   "0012042|2025-04-29|survey-complaint-self-report": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/V31R11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/V31R11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0012042/2025-04-29_survey-complaint-self-report_enforcement.pdf",
       "sod": "archive/0012042/2025-04-29_survey-complaint-self-report_sod.pdf"
@@ -1076,6 +1338,9 @@
     "survey_type": "SURVEY/COMPLAINT/SELF REPORT"
   },
   "0012042|2025-07-16|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/92Y611SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012042/2025-07-16_complaint_sod.pdf"
     },
@@ -1090,6 +1355,10 @@
     "survey_type": "COMPLAINT"
   },
   "0012042|2025-11-10|verification-visit": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/V31R12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/V31R12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0012042/2025-11-10_verification-visit_enforcement.pdf",
       "sod": "archive/0012042/2025-11-10_verification-visit_sod.pdf"
@@ -1106,6 +1375,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0012042|2026-06-30|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/V31R13SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012042/2026-06-30_verification-visit_sod.pdf"
     },
@@ -1120,6 +1392,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0012043|2024-05-24|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/F04S11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012043/2024-05-24_complaint_sod.pdf"
     },
@@ -1134,6 +1409,10 @@
     "survey_type": "COMPLAINT"
   },
   "0012043|2024-07-11|survey-self-report": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/MC7511ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/MC7511SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0012043/2024-07-11_survey-self-report_enforcement.pdf",
       "sod": "archive/0012043/2024-07-11_survey-self-report_sod.pdf"
@@ -1150,6 +1429,9 @@
     "survey_type": "SURVEY/SELF REPORT"
   },
   "0012043|2025-04-16|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/MC7512SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012043/2025-04-16_verification-visit_sod.pdf"
     },
@@ -1164,6 +1446,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0012043|2025-04-24|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/HU8C11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012043/2025-04-24_complaint_sod.pdf"
     },
@@ -1178,6 +1463,9 @@
     "survey_type": "COMPLAINT"
   },
   "0012043|2025-11-10|self-report": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/9WM811SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012043/2025-11-10_self-report_sod.pdf"
     },
@@ -1192,6 +1480,10 @@
     "survey_type": "SELF REPORT"
   },
   "0012110|2024-09-11|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/KZEG11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/KZEG11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0012110/2024-09-11_survey-complaint_enforcement.pdf",
       "sod": "archive/0012110/2024-09-11_survey-complaint_sod.pdf"
@@ -1204,6 +1496,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0012110|2025-01-22|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/KZEG12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012110/2025-01-22_verification-visit_sod.pdf"
     },
@@ -1215,6 +1510,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0012111|2024-03-05|survey-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/YGTK12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012111/2024-03-05_survey-vv_sod.pdf"
     },
@@ -1226,6 +1524,9 @@
     "survey_type": "SURVEY/VV"
   },
   "0012111|2024-09-11|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/GLEY11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012111/2024-09-11_complaint_sod.pdf"
     },
@@ -1237,6 +1538,10 @@
     "survey_type": "COMPLAINT"
   },
   "0012115|2024-11-25|survey": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/TW2W11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/TW2W11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0012115/2024-11-25_survey_enforcement.pdf",
       "sod": "archive/0012115/2024-11-25_survey_sod.pdf"
@@ -1253,6 +1558,9 @@
     "survey_type": "SURVEY"
   },
   "0012115|2025-06-20|complaint-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/TW2W12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012115/2025-06-20_complaint-vv_sod.pdf"
     },
@@ -1267,6 +1575,11 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0012240|2023-11-22|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/N3L512ENFS.PDF",
+      "poc": "https://www.forwardhealth.wi.gov/kw/dqa/N3L512POCS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/N3L512SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0012240/2023-11-22_complaint-vv_enforcement.pdf",
       "poc": "archive/0012240/2023-11-22_complaint-vv_poc.pdf",
@@ -1285,6 +1598,9 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0012240|2024-06-20|complaint-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/N3L513SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012240/2024-06-20_complaint-vv_sod.pdf"
     },
@@ -1299,6 +1615,9 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0012240|2025-05-13|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/B2XD11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012240/2025-05-13_survey-complaint_sod.pdf"
     },
@@ -1313,6 +1632,11 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0012240|2025-06-16|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/82QC11ENFS.PDF",
+      "poc": "https://www.forwardhealth.wi.gov/kw/dqa/82QC11POCS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/82QC11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0012240/2025-06-16_complaint_enforcement.pdf",
       "poc": "archive/0012240/2025-06-16_complaint_poc.pdf",
@@ -1331,6 +1655,9 @@
     "survey_type": "COMPLAINT"
   },
   "0012240|2026-04-27|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/6NT111SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012240/2026-04-27_complaint_sod.pdf"
     },
@@ -1345,6 +1672,9 @@
     "survey_type": "COMPLAINT"
   },
   "0012331|2023-10-11|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/1C1612SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012331/2023-10-11_verification-visit_sod.pdf"
     },
@@ -1359,6 +1689,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0012331|2026-06-16|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/2WN911ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/2WN911SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0012331/2026-06-16_survey-complaint_enforcement.pdf",
       "sod": "archive/0012331/2026-06-16_survey-complaint_sod.pdf"
@@ -1375,6 +1709,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0012338|2025-10-02|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/1KJE11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012338/2025-10-02_survey_sod.pdf"
     },
@@ -1386,6 +1723,9 @@
     "survey_type": "SURVEY"
   },
   "0012339|2025-12-04|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/SZC511SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012339/2025-12-04_survey_sod.pdf"
     },
@@ -1397,6 +1737,10 @@
     "survey_type": "SURVEY"
   },
   "0012366|2025-04-28|survey-complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/G00F11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/G00F11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0012366/2025-04-28_survey-complaint-vv_enforcement.pdf",
       "sod": "archive/0012366/2025-04-28_survey-complaint-vv_sod.pdf"
@@ -1413,6 +1757,9 @@
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
   "0012366|2025-10-29|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/COV011SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012366/2025-10-29_complaint_sod.pdf"
     },
@@ -1427,6 +1774,9 @@
     "survey_type": "COMPLAINT"
   },
   "0012370|2026-06-09|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/VPGT11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012370/2026-06-09_survey-complaint_sod.pdf"
     },
@@ -1438,6 +1788,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0012520|2025-07-23|self-report": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/7COX11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012520/2025-07-23_self-report_sod.pdf"
     },
@@ -1452,6 +1805,9 @@
     "survey_type": "SELF REPORT"
   },
   "0012659|2024-03-26|complaint-self-report": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/34VJ11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012659/2024-03-26_complaint-self-report_sod.pdf"
     },
@@ -1466,6 +1822,9 @@
     "survey_type": "COMPLAINT/SELF REPORT"
   },
   "0012659|2026-06-02|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/QEXG11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012659/2026-06-02_survey-complaint_sod.pdf"
     },
@@ -1480,6 +1839,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0012689|2025-10-03|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/2O2611SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012689/2025-10-03_survey_sod.pdf"
     },
@@ -1491,6 +1853,9 @@
     "survey_type": "SURVEY"
   },
   "0012897|2024-01-22|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/41CT12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012897/2024-01-22_verification-visit_sod.pdf"
     },
@@ -1502,6 +1867,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0012915|2026-04-14|survey": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/I6TW11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/I6TW11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0012915/2026-04-14_survey_enforcement.pdf",
       "sod": "archive/0012915/2026-04-14_survey_sod.pdf"
@@ -1518,6 +1887,9 @@
     "survey_type": "SURVEY"
   },
   "0012930|2025-11-04|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/MEJS11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012930/2025-11-04_complaint_sod.pdf"
     },
@@ -1529,6 +1901,10 @@
     "survey_type": "COMPLAINT"
   },
   "0012930|2026-06-10|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/36TG11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/36TG11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0012930/2026-06-10_survey-complaint_enforcement.pdf",
       "sod": "archive/0012930/2026-06-10_survey-complaint_sod.pdf"
@@ -1541,6 +1917,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0012930|2026-09-01|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/36TG12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0012930/2026-09-01_verification-visit_sod.pdf"
     },
@@ -1552,6 +1931,11 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0013025|2024-01-18|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/DMOR11ENFS.PDF",
+      "poc": "https://www.forwardhealth.wi.gov/kw/dqa/DMOR11POCS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/DMOR11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0013025/2024-01-18_survey-complaint_enforcement.pdf",
       "poc": "archive/0013025/2024-01-18_survey-complaint_poc.pdf",
@@ -1565,6 +1949,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0013025|2025-03-24|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/7JEI11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013025/2025-03-24_complaint_sod.pdf"
     },
@@ -1576,6 +1963,9 @@
     "survey_type": "COMPLAINT"
   },
   "0013025|2026-02-26|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/JJ8J11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013025/2026-02-26_survey-complaint_sod.pdf"
     },
@@ -1587,6 +1977,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0013040|2023-10-09|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/VGC511ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/VGC511SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0013040/2023-10-09_complaint_enforcement.pdf",
       "sod": "archive/0013040/2023-10-09_complaint_sod.pdf"
@@ -1603,6 +1997,10 @@
     "survey_type": "COMPLAINT"
   },
   "0013040|2024-01-26|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/702S12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/702S12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0013040/2024-01-26_complaint-vv_enforcement.pdf",
       "sod": "archive/0013040/2024-01-26_complaint-vv_sod.pdf"
@@ -1619,6 +2017,9 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0013040|2024-11-07|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/702S13SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013040/2024-11-07_verification-visit_sod.pdf"
     },
@@ -1633,6 +2034,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0013045|2024-04-11|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/9UVY12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013045/2024-04-11_verification-visit_sod.pdf"
     },
@@ -1647,6 +2051,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0013051|2026-04-28|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/LMOR11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013051/2026-04-28_survey_sod.pdf"
     },
@@ -1661,6 +2068,9 @@
     "survey_type": "SURVEY"
   },
   "0013051|2026-08-20|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/8HR111SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013051/2026-08-20_complaint_sod.pdf"
     },
@@ -1675,6 +2085,9 @@
     "survey_type": "COMPLAINT"
   },
   "0013089|2026-07-01|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/95I911SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013089/2026-07-01_survey_sod.pdf"
     },
@@ -1689,6 +2102,10 @@
     "survey_type": "SURVEY"
   },
   "0013143|2024-08-15|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/CPHC11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/CPHC11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0013143/2024-08-15_complaint_enforcement.pdf",
       "sod": "archive/0013143/2024-08-15_complaint_sod.pdf"
@@ -1705,6 +2122,10 @@
     "survey_type": "COMPLAINT"
   },
   "0013143|2025-06-10|survey-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/CPHC12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/CPHC12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0013143/2025-06-10_survey-vv_enforcement.pdf",
       "sod": "archive/0013143/2025-06-10_survey-vv_sod.pdf"
@@ -1721,6 +2142,9 @@
     "survey_type": "SURVEY/VV"
   },
   "0013143|2025-09-25|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/CPHC13SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013143/2025-09-25_verification-visit_sod.pdf"
     },
@@ -1735,6 +2159,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0013145|2024-08-09|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/QN0V11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013145/2024-08-09_complaint_sod.pdf"
     },
@@ -1749,6 +2176,10 @@
     "survey_type": "COMPLAINT"
   },
   "0013145|2025-06-23|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/SUZ511ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/SUZ511SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0013145/2025-06-23_survey-complaint_enforcement.pdf",
       "sod": "archive/0013145/2025-06-23_survey-complaint_sod.pdf"
@@ -1765,6 +2196,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0013145|2026-06-04|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/SUZ512SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013145/2026-06-04_verification-visit_sod.pdf"
     },
@@ -1779,6 +2213,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0013278|2025-03-21|survey-complaint-self-report": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/1RDE11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/1RDE11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0013278/2025-03-21_survey-complaint-self-report_enforcement.pdf",
       "sod": "archive/0013278/2025-03-21_survey-complaint-self-report_sod.pdf"
@@ -1795,6 +2233,9 @@
     "survey_type": "SURVEY/COMPLAINT/SELF REPORT"
   },
   "0013295|2025-04-22|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/B9US11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013295/2025-04-22_survey_sod.pdf"
     },
@@ -1809,6 +2250,9 @@
     "survey_type": "SURVEY"
   },
   "0013296|2025-04-17|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/EZWI11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013296/2025-04-17_survey_sod.pdf"
     },
@@ -1823,6 +2267,10 @@
     "survey_type": "SURVEY"
   },
   "0013373|2026-02-18|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/ZQR511ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/ZQR511SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0013373/2026-02-18_survey-complaint_enforcement.pdf",
       "sod": "archive/0013373/2026-02-18_survey-complaint_sod.pdf"
@@ -1839,6 +2287,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0013395|2024-06-24|other": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/I9TU11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013395/2024-06-24_other_sod.pdf"
     },
@@ -1853,6 +2304,9 @@
     "survey_type": "OTHER"
   },
   "0013395|2025-03-18|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/CF9V11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013395/2025-03-18_survey_sod.pdf"
     },
@@ -1867,6 +2321,10 @@
     "survey_type": "SURVEY"
   },
   "0013397|2024-12-20|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/8G9J11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/8G9J11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0013397/2024-12-20_survey-complaint_enforcement.pdf",
       "sod": "archive/0013397/2024-12-20_survey-complaint_sod.pdf"
@@ -1883,6 +2341,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0013397|2025-08-20|verification-visit": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/8G9J12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/8G9J12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0013397/2025-08-20_verification-visit_enforcement.pdf",
       "sod": "archive/0013397/2025-08-20_verification-visit_sod.pdf"
@@ -1899,6 +2361,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0013397|2026-03-03|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/0DO011SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013397/2026-03-03_complaint_sod.pdf"
     },
@@ -1913,6 +2378,10 @@
     "survey_type": "COMPLAINT"
   },
   "0013419|2026-03-18|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/GJFV11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/GJFV11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0013419/2026-03-18_survey-complaint_enforcement.pdf",
       "sod": "archive/0013419/2026-03-18_survey-complaint_sod.pdf"
@@ -1925,6 +2394,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0013419|2026-06-04|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/GJFV12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013419/2026-06-04_verification-visit_sod.pdf"
     },
@@ -1936,6 +2408,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0013422|2023-12-11|survey-complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/G3TG12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/G3TG12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0013422/2023-12-11_survey-complaint-vv_enforcement.pdf",
       "sod": "archive/0013422/2023-12-11_survey-complaint-vv_sod.pdf"
@@ -1948,6 +2424,9 @@
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
   "0013422|2024-11-26|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/8K4L11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013422/2024-11-26_complaint_sod.pdf"
     },
@@ -1959,6 +2438,10 @@
     "survey_type": "COMPLAINT"
   },
   "0013422|2025-12-02|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/IG3D11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/IG3D11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0013422/2025-12-02_survey-complaint_enforcement.pdf",
       "sod": "archive/0013422/2025-12-02_survey-complaint_sod.pdf"
@@ -1971,6 +2454,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0013424|2023-09-25|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/8F3911ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/8F3911SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0013424/2023-09-25_survey-complaint_enforcement.pdf",
       "sod": "archive/0013424/2023-09-25_survey-complaint_sod.pdf"
@@ -1983,6 +2470,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0013424|2023-12-11|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/Z9VC11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013424/2023-12-11_complaint_sod.pdf"
     },
@@ -1994,6 +2484,10 @@
     "survey_type": "COMPLAINT"
   },
   "0013424|2024-03-05|verification-visit": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/8F3912ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/8F3912SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0013424/2024-03-05_verification-visit_enforcement.pdf",
       "sod": "archive/0013424/2024-03-05_verification-visit_sod.pdf"
@@ -2006,6 +2500,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0013424|2024-11-26|verification-visit": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/8F3913ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/8F3913SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0013424/2024-11-26_verification-visit_enforcement.pdf",
       "sod": "archive/0013424/2024-11-26_verification-visit_sod.pdf"
@@ -2018,6 +2516,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0013424|2026-03-12|survey-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/8F3914ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/8F3914SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0013424/2026-03-12_survey-vv_enforcement.pdf",
       "sod": "archive/0013424/2026-03-12_survey-vv_sod.pdf"
@@ -2030,6 +2532,9 @@
     "survey_type": "SURVEY/VV"
   },
   "0013424|2026-08-05|complaint-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/8F3915SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013424/2026-08-05_complaint-vv_sod.pdf"
     },
@@ -2041,6 +2546,10 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0013429|2023-12-07|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/3XSB11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/3XSB11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0013429/2023-12-07_survey-complaint_enforcement.pdf",
       "sod": "archive/0013429/2023-12-07_survey-complaint_sod.pdf"
@@ -2057,6 +2566,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0013429|2024-09-12|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/3XSB12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013429/2024-09-12_verification-visit_sod.pdf"
     },
@@ -2071,6 +2583,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0013441|2023-07-12|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/ENU611SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013441/2023-07-12_survey_sod.pdf"
     },
@@ -2082,6 +2597,10 @@
     "survey_type": "SURVEY"
   },
   "0013444|2024-05-14|complaint-self-report": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/TS8K11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/TS8K11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0013444/2024-05-14_complaint-self-report_enforcement.pdf",
       "sod": "archive/0013444/2024-05-14_complaint-self-report_sod.pdf"
@@ -2098,6 +2617,9 @@
     "survey_type": "COMPLAINT/SELF REPORT"
   },
   "0013444|2025-04-02|survey-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/TS8K12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013444/2025-04-02_survey-vv_sod.pdf"
     },
@@ -2112,6 +2634,9 @@
     "survey_type": "SURVEY/VV"
   },
   "0013445|2025-09-02|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/IEI811SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013445/2025-09-02_survey-complaint_sod.pdf"
     },
@@ -2126,6 +2651,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0013445|2026-06-02|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/PSKG11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013445/2026-06-02_complaint_sod.pdf"
     },
@@ -2140,6 +2668,9 @@
     "survey_type": "COMPLAINT"
   },
   "0013700|2024-07-15|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/IF0711SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013700/2024-07-15_survey_sod.pdf"
     },
@@ -2151,6 +2682,10 @@
     "survey_type": "SURVEY"
   },
   "0013774|2024-08-08|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/4L0R11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/4L0R11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0013774/2024-08-08_survey-complaint_enforcement.pdf",
       "sod": "archive/0013774/2024-08-08_survey-complaint_sod.pdf"
@@ -2167,6 +2702,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0013785|2024-06-19|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/CPVT11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013785/2024-06-19_complaint_sod.pdf"
     },
@@ -2181,6 +2719,9 @@
     "survey_type": "COMPLAINT"
   },
   "0013785|2025-04-03|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/0FLG11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013785/2025-04-03_survey-complaint_sod.pdf"
     },
@@ -2195,6 +2736,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0013785|2026-02-16|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/V2Z511SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013785/2026-02-16_complaint_sod.pdf"
     },
@@ -2209,6 +2753,10 @@
     "survey_type": "COMPLAINT"
   },
   "0013949|2025-11-11|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/FWQC11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/FWQC11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0013949/2025-11-11_survey-complaint_enforcement.pdf",
       "sod": "archive/0013949/2025-11-11_survey-complaint_sod.pdf"
@@ -2221,6 +2769,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0013949|2026-04-07|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/FWQC12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0013949/2026-04-07_verification-visit_sod.pdf"
     },
@@ -2232,6 +2783,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0014104|2023-11-08|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/53UC11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014104/2023-11-08_survey-complaint_sod.pdf"
     },
@@ -2246,6 +2800,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0014104|2024-09-30|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/JWKW11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014104/2024-09-30_complaint_sod.pdf"
     },
@@ -2260,6 +2817,9 @@
     "survey_type": "COMPLAINT"
   },
   "0014104|2025-01-27|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/27YM11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014104/2025-01-27_complaint_sod.pdf"
     },
@@ -2274,6 +2834,9 @@
     "survey_type": "COMPLAINT"
   },
   "0014104|2025-12-04|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/T9YI11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014104/2025-12-04_complaint_sod.pdf"
     },
@@ -2288,6 +2851,9 @@
     "survey_type": "COMPLAINT"
   },
   "0014167|2024-04-11|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/ZME912SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014167/2024-04-11_verification-visit_sod.pdf"
     },
@@ -2302,6 +2868,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0014168|2024-01-05|complaint-self-report": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/UNKO11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014168/2024-01-05_complaint-self-report_sod.pdf"
     },
@@ -2316,6 +2885,9 @@
     "survey_type": "COMPLAINT/SELF REPORT"
   },
   "0014168|2024-09-04|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/TP5J11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014168/2024-09-04_complaint_sod.pdf"
     },
@@ -2330,6 +2902,10 @@
     "survey_type": "COMPLAINT"
   },
   "0014318|2025-10-13|survey": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/WFRB11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/WFRB11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0014318/2025-10-13_survey_enforcement.pdf",
       "sod": "archive/0014318/2025-10-13_survey_sod.pdf"
@@ -2346,6 +2922,9 @@
     "survey_type": "SURVEY"
   },
   "0014362|2025-02-13|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/573J11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014362/2025-02-13_survey_sod.pdf"
     },
@@ -2360,6 +2939,9 @@
     "survey_type": "SURVEY"
   },
   "0014369|2023-10-19|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/VLU011SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014369/2023-10-19_complaint_sod.pdf"
     },
@@ -2374,6 +2956,9 @@
     "survey_type": "COMPLAINT"
   },
   "0014369|2025-09-03|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/LXKJ11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014369/2025-09-03_survey_sod.pdf"
     },
@@ -2388,6 +2973,9 @@
     "survey_type": "SURVEY"
   },
   "0014480|2025-01-24|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/IS2811SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014480/2025-01-24_survey_sod.pdf"
     },
@@ -2399,6 +2987,9 @@
     "survey_type": "SURVEY"
   },
   "0014496|2024-07-23|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/4PD311SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014496/2024-07-23_survey-complaint_sod.pdf"
     },
@@ -2413,6 +3004,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0014496|2026-08-19|other": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/7R2811SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014496/2026-08-19_other_sod.pdf"
     },
@@ -2427,6 +3021,9 @@
     "survey_type": "OTHER"
   },
   "0014504|2025-06-24|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/Z5S311SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014504/2025-06-24_survey-complaint_sod.pdf"
     },
@@ -2438,6 +3035,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0014504|2025-10-29|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/9RSH11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014504/2025-10-29_complaint_sod.pdf"
     },
@@ -2449,6 +3049,10 @@
     "survey_type": "COMPLAINT"
   },
   "0014504|2026-06-30|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/QLCP11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/QLCP11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0014504/2026-06-30_complaint_enforcement.pdf",
       "sod": "archive/0014504/2026-06-30_complaint_sod.pdf"
@@ -2461,6 +3065,9 @@
     "survey_type": "COMPLAINT"
   },
   "0014626|2024-02-23|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/LAQ411SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014626/2024-02-23_survey-complaint_sod.pdf"
     },
@@ -2475,6 +3082,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0014626|2025-04-29|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/SURX11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014626/2025-04-29_survey-complaint_sod.pdf"
     },
@@ -2489,6 +3099,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0014626|2026-01-28|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/M9NZ11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014626/2026-01-28_complaint_sod.pdf"
     },
@@ -2503,6 +3116,9 @@
     "survey_type": "COMPLAINT"
   },
   "0014663|2024-02-28|complaint-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/230012SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014663/2024-02-28_complaint-vv_sod.pdf"
     },
@@ -2517,6 +3133,10 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0014663|2024-06-26|complaint-self-report": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/M9WS11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/M9WS11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0014663/2024-06-26_complaint-self-report_enforcement.pdf",
       "sod": "archive/0014663/2024-06-26_complaint-self-report_sod.pdf"
@@ -2533,6 +3153,10 @@
     "survey_type": "COMPLAINT/SELF REPORT"
   },
   "0014663|2025-05-29|survey-self-report-complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/M9WS12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/M9WS12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0014663/2025-05-29_survey-self-report-complaint-vv_enforcement.pdf",
       "sod": "archive/0014663/2025-05-29_survey-self-report-complaint-vv_sod.pdf"
@@ -2549,6 +3173,10 @@
     "survey_type": "SURVEY/SELF REPORT/COMPLAINT/VV"
   },
   "0014663|2025-12-10|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/M9WS13ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/M9WS13SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0014663/2025-12-10_complaint-vv_enforcement.pdf",
       "sod": "archive/0014663/2025-12-10_complaint-vv_sod.pdf"
@@ -2565,6 +3193,9 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0014663|2026-03-31|complaint-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/M9WS14SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014663/2026-03-31_complaint-vv_sod.pdf"
     },
@@ -2579,6 +3210,9 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0014746|2025-08-04|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/2PRG11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014746/2025-08-04_survey_sod.pdf"
     },
@@ -2593,6 +3227,9 @@
     "survey_type": "SURVEY"
   },
   "0014835|2026-06-01|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/GN6D11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014835/2026-06-01_survey-complaint_sod.pdf"
     },
@@ -2607,6 +3244,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0014864|2023-10-18|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/5QU011SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014864/2023-10-18_survey_sod.pdf"
     },
@@ -2621,6 +3261,9 @@
     "survey_type": "SURVEY"
   },
   "0014864|2026-03-18|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/EDET11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014864/2026-03-18_survey_sod.pdf"
     },
@@ -2635,6 +3278,9 @@
     "survey_type": "SURVEY"
   },
   "0014921|2025-10-08|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/FKHT11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014921/2025-10-08_survey-complaint_sod.pdf"
     },
@@ -2649,6 +3295,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0014921|2026-02-12|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/KW7M11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014921/2026-02-12_complaint_sod.pdf"
     },
@@ -2663,6 +3312,10 @@
     "survey_type": "COMPLAINT"
   },
   "0014921|2026-06-24|self-report": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/XX9111ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/XX9111SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0014921/2026-06-24_self-report_enforcement.pdf",
       "sod": "archive/0014921/2026-06-24_self-report_sod.pdf"
@@ -2679,6 +3332,10 @@
     "survey_type": "SELF REPORT"
   },
   "0014923|2024-03-06|survey": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/TZ9E11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/TZ9E11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0014923/2024-03-06_survey_enforcement.pdf",
       "sod": "archive/0014923/2024-03-06_survey_sod.pdf"
@@ -2695,6 +3352,9 @@
     "survey_type": "SURVEY"
   },
   "0014923|2024-08-12|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/TZ9E12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0014923/2024-08-12_verification-visit_sod.pdf"
     },
@@ -2709,6 +3369,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0015200|2024-04-05|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/C93H11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015200/2024-04-05_complaint_sod.pdf"
     },
@@ -2723,6 +3386,9 @@
     "survey_type": "COMPLAINT"
   },
   "0015200|2025-07-24|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/2L1V11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015200/2025-07-24_survey_sod.pdf"
     },
@@ -2737,6 +3403,9 @@
     "survey_type": "SURVEY"
   },
   "0015200|2026-02-23|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/BH1011SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015200/2026-02-23_complaint_sod.pdf"
     },
@@ -2751,6 +3420,9 @@
     "survey_type": "COMPLAINT"
   },
   "0015223|2024-04-30|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/0F9316SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015223/2024-04-30_verification-visit_sod.pdf"
     },
@@ -2762,6 +3434,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0015224|2025-10-03|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/S8SP11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015224/2025-10-03_survey_sod.pdf"
     },
@@ -2773,6 +3448,10 @@
     "survey_type": "SURVEY"
   },
   "0015263|2024-02-08|complaint-self-report-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/ERU212ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/ERU212SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015263/2024-02-08_complaint-self-report-vv_enforcement.pdf",
       "sod": "archive/0015263/2024-02-08_complaint-self-report-vv_sod.pdf"
@@ -2789,6 +3468,10 @@
     "survey_type": "COMPLAINT/SELF REPORT/VV"
   },
   "0015263|2024-03-19|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/5HN211ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/5HN211SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015263/2024-03-19_complaint_enforcement.pdf",
       "sod": "archive/0015263/2024-03-19_complaint_sod.pdf"
@@ -2805,6 +3488,10 @@
     "survey_type": "COMPLAINT"
   },
   "0015263|2024-06-10|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/5HN212ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/5HN212SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015263/2024-06-10_complaint-vv_enforcement.pdf",
       "sod": "archive/0015263/2024-06-10_complaint-vv_sod.pdf"
@@ -2821,6 +3508,10 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0015263|2024-08-07|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/PT3611ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/PT3611SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015263/2024-08-07_complaint_enforcement.pdf",
       "sod": "archive/0015263/2024-08-07_complaint_sod.pdf"
@@ -2837,6 +3528,10 @@
     "survey_type": "COMPLAINT"
   },
   "0015263|2025-01-06|complaint-self-report-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/PT3612ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/PT3612SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015263/2025-01-06_complaint-self-report-vv_enforcement.pdf",
       "sod": "archive/0015263/2025-01-06_complaint-self-report-vv_sod.pdf"
@@ -2853,6 +3548,10 @@
     "survey_type": "COMPLAINT/SELF REPORT/VV"
   },
   "0015263|2025-02-04|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/120111ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/120111SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015263/2025-02-04_complaint_enforcement.pdf",
       "sod": "archive/0015263/2025-02-04_complaint_sod.pdf"
@@ -2869,6 +3568,9 @@
     "survey_type": "COMPLAINT"
   },
   "0015263|2025-06-09|survey-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/PT3613SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015263/2025-06-09_survey-vv_sod.pdf"
     },
@@ -2883,6 +3585,9 @@
     "survey_type": "SURVEY/VV"
   },
   "0015263|2026-06-02|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/UDQ211SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015263/2026-06-02_complaint_sod.pdf"
     },
@@ -2897,6 +3602,9 @@
     "survey_type": "COMPLAINT"
   },
   "0015337|2023-10-18|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/W3QC11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015337/2023-10-18_complaint_sod.pdf"
     },
@@ -2911,6 +3619,9 @@
     "survey_type": "COMPLAINT"
   },
   "0015337|2024-08-15|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/EGFN11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015337/2024-08-15_survey-complaint_sod.pdf"
     },
@@ -2925,6 +3636,11 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0015337|2025-05-12|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/ERII11ENFS.PDF",
+      "poc": "https://www.forwardhealth.wi.gov/kw/dqa/ERII11POCS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/ERII11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015337/2025-05-12_complaint_enforcement.pdf",
       "poc": "archive/0015337/2025-05-12_complaint_poc.pdf",
@@ -2943,6 +3659,9 @@
     "survey_type": "COMPLAINT"
   },
   "0015337|2025-08-14|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/ERII12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015337/2025-08-14_verification-visit_sod.pdf"
     },
@@ -2957,6 +3676,11 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0015337|2026-02-04|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/42GT11ENFS.PDF",
+      "poc": "https://www.forwardhealth.wi.gov/kw/dqa/42GT11POCS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/42GT11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015337/2026-02-04_survey-complaint_enforcement.pdf",
       "poc": "archive/0015337/2026-02-04_survey-complaint_poc.pdf",
@@ -2975,6 +3699,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0015337|2026-06-29|complaint-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/42GT12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015337/2026-06-29_complaint-vv_sod.pdf"
     },
@@ -2989,6 +3716,9 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0015376|2026-01-26|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/Z5KD11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015376/2026-01-26_survey_sod.pdf"
     },
@@ -3000,6 +3730,9 @@
     "survey_type": "SURVEY"
   },
   "0015395|2023-10-18|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/N9G011SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015395/2023-10-18_survey_sod.pdf"
     },
@@ -3014,6 +3747,9 @@
     "survey_type": "SURVEY"
   },
   "0015395|2025-04-07|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/6MGV11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015395/2025-04-07_complaint_sod.pdf"
     },
@@ -3028,6 +3764,9 @@
     "survey_type": "COMPLAINT"
   },
   "0015395|2026-03-18|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/F8KH11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015395/2026-03-18_survey_sod.pdf"
     },
@@ -3042,6 +3781,10 @@
     "survey_type": "SURVEY"
   },
   "0015404|2024-07-19|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/JZXY11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/JZXY11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015404/2024-07-19_complaint_enforcement.pdf",
       "sod": "archive/0015404/2024-07-19_complaint_sod.pdf"
@@ -3058,6 +3801,9 @@
     "survey_type": "COMPLAINT"
   },
   "0015404|2025-01-15|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/JZXY12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015404/2025-01-15_verification-visit_sod.pdf"
     },
@@ -3072,6 +3818,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0015404|2026-04-23|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/LMR011ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/LMR011SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015404/2026-04-23_survey-complaint_enforcement.pdf",
       "sod": "archive/0015404/2026-04-23_survey-complaint_sod.pdf"
@@ -3088,6 +3838,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0015437|2024-01-24|survey-complaint-self-report": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/XNV211ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/XNV211SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015437/2024-01-24_survey-complaint-self-report_enforcement.pdf",
       "sod": "archive/0015437/2024-01-24_survey-complaint-self-report_sod.pdf"
@@ -3104,6 +3858,9 @@
     "survey_type": "SURVEY/COMPLAINT/SELF REPORT"
   },
   "0015437|2025-06-02|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/31NU11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015437/2025-06-02_complaint_sod.pdf"
     },
@@ -3118,6 +3875,9 @@
     "survey_type": "COMPLAINT"
   },
   "0015437|2026-02-12|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/2TDG11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015437/2026-02-12_survey_sod.pdf"
     },
@@ -3132,6 +3892,10 @@
     "survey_type": "SURVEY"
   },
   "0015448|2025-02-07|survey": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/EXDO11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/EXDO11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015448/2025-02-07_survey_enforcement.pdf",
       "sod": "archive/0015448/2025-02-07_survey_sod.pdf"
@@ -3148,6 +3912,10 @@
     "survey_type": "SURVEY"
   },
   "0015448|2026-02-25|verification-visit": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/EXDO12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/EXDO12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015448/2026-02-25_verification-visit_enforcement.pdf",
       "sod": "archive/0015448/2026-02-25_verification-visit_sod.pdf"
@@ -3164,6 +3932,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0015453|2024-03-25|survey-complaint-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/R26013SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015453/2024-03-25_survey-complaint-vv_sod.pdf"
     },
@@ -3178,6 +3949,9 @@
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
   "0015453|2025-03-20|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/CCVQ11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015453/2025-03-20_complaint_sod.pdf"
     },
@@ -3192,6 +3966,10 @@
     "survey_type": "COMPLAINT"
   },
   "0015453|2025-10-28|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/YHF011ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/YHF011SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015453/2025-10-28_complaint_enforcement.pdf",
       "sod": "archive/0015453/2025-10-28_complaint_sod.pdf"
@@ -3208,6 +3986,10 @@
     "survey_type": "COMPLAINT"
   },
   "0015454|2024-03-25|survey-complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/1F5113ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/1F5113SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015454/2024-03-25_survey-complaint-vv_enforcement.pdf",
       "sod": "archive/0015454/2024-03-25_survey-complaint-vv_sod.pdf"
@@ -3224,6 +4006,10 @@
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
   "0015454|2024-11-29|other": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/NLSC11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/NLSC11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015454/2024-11-29_other_enforcement.pdf",
       "sod": "archive/0015454/2024-11-29_other_sod.pdf"
@@ -3240,6 +4026,9 @@
     "survey_type": "OTHER"
   },
   "0015454|2025-06-12|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/NLSC12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015454/2025-06-12_verification-visit_sod.pdf"
     },
@@ -3254,6 +4043,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0015454|2025-10-28|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/N7GT11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/N7GT11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015454/2025-10-28_complaint_enforcement.pdf",
       "sod": "archive/0015454/2025-10-28_complaint_sod.pdf"
@@ -3270,6 +4063,9 @@
     "survey_type": "COMPLAINT"
   },
   "0015624|2024-03-05|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/IL7G11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015624/2024-03-05_survey-complaint_sod.pdf"
     },
@@ -3284,6 +4080,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0015624|2024-08-21|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/YUEM11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015624/2024-08-21_complaint_sod.pdf"
     },
@@ -3298,6 +4097,9 @@
     "survey_type": "COMPLAINT"
   },
   "0015624|2025-04-02|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/SM8V11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015624/2025-04-02_complaint_sod.pdf"
     },
@@ -3312,6 +4114,10 @@
     "survey_type": "COMPLAINT"
   },
   "0015624|2025-12-12|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/WU9V11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/WU9V11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015624/2025-12-12_complaint_enforcement.pdf",
       "sod": "archive/0015624/2025-12-12_complaint_sod.pdf"
@@ -3328,6 +4134,10 @@
     "survey_type": "COMPLAINT"
   },
   "0015624|2026-05-26|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/CG0P11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/CG0P11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015624/2026-05-26_survey-complaint_enforcement.pdf",
       "sod": "archive/0015624/2026-05-26_survey-complaint_sod.pdf"
@@ -3344,6 +4154,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0015628|2023-10-24|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/CTZQ11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/CTZQ11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015628/2023-10-24_survey-complaint_enforcement.pdf",
       "sod": "archive/0015628/2023-10-24_survey-complaint_sod.pdf"
@@ -3356,6 +4170,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0015628|2024-03-11|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/CTZQ12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015628/2024-03-11_verification-visit_sod.pdf"
     },
@@ -3367,6 +4184,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0015628|2024-07-10|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/MP7711SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015628/2024-07-10_complaint_sod.pdf"
     },
@@ -3378,6 +4198,10 @@
     "survey_type": "COMPLAINT"
   },
   "0015628|2025-08-29|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/V2PA11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/V2PA11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015628/2025-08-29_survey-complaint_enforcement.pdf",
       "sod": "archive/0015628/2025-08-29_survey-complaint_sod.pdf"
@@ -3390,6 +4214,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0015628|2025-12-10|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/V2PA12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/V2PA12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015628/2025-12-10_complaint-vv_enforcement.pdf",
       "sod": "archive/0015628/2025-12-10_complaint-vv_sod.pdf"
@@ -3402,6 +4230,9 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0015628|2026-03-10|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/YXD211SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015628/2026-03-10_complaint_sod.pdf"
     },
@@ -3413,6 +4244,9 @@
     "survey_type": "COMPLAINT"
   },
   "0015631|2024-06-25|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/74CT11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015631/2024-06-25_complaint_sod.pdf"
     },
@@ -3427,6 +4261,10 @@
     "survey_type": "COMPLAINT"
   },
   "0015631|2025-03-03|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/BXO511ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/BXO511SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015631/2025-03-03_survey-complaint_enforcement.pdf",
       "sod": "archive/0015631/2025-03-03_survey-complaint_sod.pdf"
@@ -3443,6 +4281,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0015631|2026-06-10|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/BXO512ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/BXO512SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015631/2026-06-10_complaint-vv_enforcement.pdf",
       "sod": "archive/0015631/2026-06-10_complaint-vv_sod.pdf"
@@ -3459,6 +4301,9 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0015632|2024-02-09|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/KSYV11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015632/2024-02-09_complaint_sod.pdf"
     },
@@ -3473,6 +4318,10 @@
     "survey_type": "COMPLAINT"
   },
   "0015632|2024-06-21|survey-complaint-self-report": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/LMER11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/LMER11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015632/2024-06-21_survey-complaint-self-report_enforcement.pdf",
       "sod": "archive/0015632/2024-06-21_survey-complaint-self-report_sod.pdf"
@@ -3489,6 +4338,10 @@
     "survey_type": "SURVEY/COMPLAINT/SELF REPORT"
   },
   "0015632|2025-03-03|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/LMER12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/LMER12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015632/2025-03-03_complaint-vv_enforcement.pdf",
       "sod": "archive/0015632/2025-03-03_complaint-vv_sod.pdf"
@@ -3505,6 +4358,10 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0015632|2025-10-02|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/LMER13ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/LMER13SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015632/2025-10-02_complaint-vv_enforcement.pdf",
       "sod": "archive/0015632/2025-10-02_complaint-vv_sod.pdf"
@@ -3521,6 +4378,9 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0015632|2026-06-10|survey-complaint-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/LMER14SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015632/2026-06-10_survey-complaint-vv_sod.pdf"
     },
@@ -3535,6 +4395,9 @@
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
   "0015632|2026-08-19|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/EP1F11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015632/2026-08-19_complaint_sod.pdf"
     },
@@ -3549,6 +4412,9 @@
     "survey_type": "COMPLAINT"
   },
   "0015633|2024-03-05|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/8S7X11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015633/2024-03-05_complaint_sod.pdf"
     },
@@ -3563,6 +4429,10 @@
     "survey_type": "COMPLAINT"
   },
   "0015633|2025-06-24|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/DN0F11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/DN0F11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015633/2025-06-24_complaint_enforcement.pdf",
       "sod": "archive/0015633/2025-06-24_complaint_sod.pdf"
@@ -3579,6 +4449,11 @@
     "survey_type": "COMPLAINT"
   },
   "0015633|2026-05-26|survey-complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/DN0F12ENFS.PDF",
+      "poc": "https://www.forwardhealth.wi.gov/kw/dqa/DN0F12POCS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/DN0F12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015633/2026-05-26_survey-complaint-vv_enforcement.pdf",
       "poc": "archive/0015633/2026-05-26_survey-complaint-vv_poc.pdf",
@@ -3597,6 +4472,9 @@
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
   "0015634|2024-01-02|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/7W8911SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015634/2024-01-02_complaint_sod.pdf"
     },
@@ -3608,6 +4486,9 @@
     "survey_type": "COMPLAINT"
   },
   "0015634|2024-07-09|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/WPUZ11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015634/2024-07-09_complaint_sod.pdf"
     },
@@ -3619,6 +4500,9 @@
     "survey_type": "COMPLAINT"
   },
   "0015634|2025-07-11|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/UPJG11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015634/2025-07-11_complaint_sod.pdf"
     },
@@ -3630,6 +4514,9 @@
     "survey_type": "COMPLAINT"
   },
   "0015844|2024-12-23|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/VCY511SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015844/2024-12-23_survey_sod.pdf"
     },
@@ -3641,6 +4528,10 @@
     "survey_type": "SURVEY"
   },
   "0015844|2026-03-11|complaint-self-report": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/XQIT11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/XQIT11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015844/2026-03-11_complaint-self-report_enforcement.pdf",
       "sod": "archive/0015844/2026-03-11_complaint-self-report_sod.pdf"
@@ -3653,6 +4544,9 @@
     "survey_type": "COMPLAINT/SELF REPORT"
   },
   "0015844|2026-07-16|survey-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/XQIT12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015844/2026-07-16_survey-vv_sod.pdf"
     },
@@ -3664,6 +4558,10 @@
     "survey_type": "SURVEY/VV"
   },
   "0015955|2024-03-19|complaint-self-report": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/MPCX11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/MPCX11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015955/2024-03-19_complaint-self-report_enforcement.pdf",
       "sod": "archive/0015955/2024-03-19_complaint-self-report_sod.pdf"
@@ -3676,6 +4574,9 @@
     "survey_type": "COMPLAINT/SELF REPORT"
   },
   "0015955|2024-11-27|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/IMIC11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015955/2024-11-27_complaint_sod.pdf"
     },
@@ -3687,6 +4588,9 @@
     "survey_type": "COMPLAINT"
   },
   "0015955|2025-04-10|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/B8B211SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015955/2025-04-10_survey-complaint_sod.pdf"
     },
@@ -3698,6 +4602,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0015955|2025-05-15|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/IHS911SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015955/2025-05-15_complaint_sod.pdf"
     },
@@ -3709,6 +4616,9 @@
     "survey_type": "COMPLAINT"
   },
   "0015955|2025-10-02|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/CJY311SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015955/2025-10-02_complaint_sod.pdf"
     },
@@ -3720,6 +4630,10 @@
     "survey_type": "COMPLAINT"
   },
   "0015955|2026-02-18|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/UB3G11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/UB3G11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015955/2026-02-18_complaint_enforcement.pdf",
       "sod": "archive/0015955/2026-02-18_complaint_sod.pdf"
@@ -3732,6 +4646,9 @@
     "survey_type": "COMPLAINT"
   },
   "0015955|2026-06-08|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/GQB011SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015955/2026-06-08_complaint_sod.pdf"
     },
@@ -3743,6 +4660,10 @@
     "survey_type": "COMPLAINT"
   },
   "0015957|2024-05-20|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/FMFT15ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/FMFT15SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015957/2024-05-20_complaint-vv_enforcement.pdf",
       "sod": "archive/0015957/2024-05-20_complaint-vv_sod.pdf"
@@ -3759,6 +4680,10 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0015957|2024-08-08|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/BK4Y11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/BK4Y11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015957/2024-08-08_complaint_enforcement.pdf",
       "sod": "archive/0015957/2024-08-08_complaint_sod.pdf"
@@ -3775,6 +4700,9 @@
     "survey_type": "COMPLAINT"
   },
   "0015957|2025-05-21|complaint-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/FMFT16SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015957/2025-05-21_complaint-vv_sod.pdf"
     },
@@ -3789,6 +4717,10 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0015957|2026-01-22|survey": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/GTY811ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/GTY811SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0015957/2026-01-22_survey_enforcement.pdf",
       "sod": "archive/0015957/2026-01-22_survey_sod.pdf"
@@ -3805,6 +4737,9 @@
     "survey_type": "SURVEY"
   },
   "0015957|2026-08-12|complaint-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/GTY812SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0015957/2026-08-12_complaint-vv_sod.pdf"
     },
@@ -3819,6 +4754,10 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0016033|2024-01-30|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/IPTE11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/IPTE11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0016033/2024-01-30_complaint_enforcement.pdf",
       "sod": "archive/0016033/2024-01-30_complaint_sod.pdf"
@@ -3835,6 +4774,10 @@
     "survey_type": "COMPLAINT"
   },
   "0016033|2024-08-05|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/HVDX11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/HVDX11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0016033/2024-08-05_complaint_enforcement.pdf",
       "sod": "archive/0016033/2024-08-05_complaint_sod.pdf"
@@ -3851,6 +4794,10 @@
     "survey_type": "COMPLAINT"
   },
   "0016033|2026-01-22|survey-complaint-self-report": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/LEEP11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/LEEP11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0016033/2026-01-22_survey-complaint-self-report_enforcement.pdf",
       "sod": "archive/0016033/2026-01-22_survey-complaint-self-report_sod.pdf"
@@ -3867,6 +4814,9 @@
     "survey_type": "SURVEY/COMPLAINT/SELF REPORT"
   },
   "0016033|2026-07-02|complaint-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/LEEP12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016033/2026-07-02_complaint-vv_sod.pdf"
     },
@@ -3881,6 +4831,9 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0016208|2024-04-25|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/KZ9O12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016208/2024-04-25_verification-visit_sod.pdf"
     },
@@ -3895,6 +4848,11 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0016344|2023-09-12|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/OONJ11ENFS.PDF",
+      "poc": "https://www.forwardhealth.wi.gov/kw/dqa/OONJ11POCS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/OONJ11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0016344/2023-09-12_complaint_enforcement.pdf",
       "poc": "archive/0016344/2023-09-12_complaint_poc.pdf",
@@ -3908,6 +4866,11 @@
     "survey_type": "COMPLAINT"
   },
   "0016344|2023-12-14|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/OONJ12ENFS.PDF",
+      "poc": "https://www.forwardhealth.wi.gov/kw/dqa/OONJ12POCS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/OONJ12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0016344/2023-12-14_complaint-vv_enforcement.pdf",
       "poc": "archive/0016344/2023-12-14_complaint-vv_poc.pdf",
@@ -3921,6 +4884,9 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0016344|2024-01-09|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/W1KF11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016344/2024-01-09_complaint_sod.pdf"
     },
@@ -3932,6 +4898,11 @@
     "survey_type": "COMPLAINT"
   },
   "0016344|2024-05-15|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/OONJ13ENFS.PDF",
+      "poc": "https://www.forwardhealth.wi.gov/kw/dqa/OONJ13POCS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/OONJ13SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0016344/2024-05-15_complaint-vv_enforcement.pdf",
       "poc": "archive/0016344/2024-05-15_complaint-vv_poc.pdf",
@@ -3945,6 +4916,9 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0016344|2024-10-31|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/OONJ14SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016344/2024-10-31_verification-visit_sod.pdf"
     },
@@ -3956,6 +4930,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0016344|2024-12-04|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/WF2811SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016344/2024-12-04_complaint_sod.pdf"
     },
@@ -3967,6 +4944,10 @@
     "survey_type": "COMPLAINT"
   },
   "0016379|2023-10-26|survey-self-report": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/MWSE11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/MWSE11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0016379/2023-10-26_survey-self-report_enforcement.pdf",
       "sod": "archive/0016379/2023-10-26_survey-self-report_sod.pdf"
@@ -3983,6 +4964,9 @@
     "survey_type": "SURVEY/SELF REPORT"
   },
   "0016379|2024-04-05|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/R0KS11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016379/2024-04-05_complaint_sod.pdf"
     },
@@ -3997,6 +4981,9 @@
     "survey_type": "COMPLAINT"
   },
   "0016379|2024-04-11|self-report": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/QLSZ11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016379/2024-04-11_self-report_sod.pdf"
     },
@@ -4011,6 +4998,10 @@
     "survey_type": "SELF REPORT"
   },
   "0016379|2026-05-28|survey": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/XT3X11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/XT3X11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0016379/2026-05-28_survey_enforcement.pdf",
       "sod": "archive/0016379/2026-05-28_survey_sod.pdf"
@@ -4027,6 +5018,9 @@
     "survey_type": "SURVEY"
   },
   "0016379|2026-09-21|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/XT3X12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016379/2026-09-21_verification-visit_sod.pdf"
     },
@@ -4041,6 +5035,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0016456|2024-06-19|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/KH3X11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016456/2024-06-19_survey_sod.pdf"
     },
@@ -4052,6 +5049,9 @@
     "survey_type": "SURVEY"
   },
   "0016488|2024-01-11|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/JGP713SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016488/2024-01-11_verification-visit_sod.pdf"
     },
@@ -4066,6 +5066,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0016488|2026-01-28|desk-review": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/NUTF11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/NUTF11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0016488/2026-01-28_desk-review_enforcement.pdf",
       "sod": "archive/0016488/2026-01-28_desk-review_sod.pdf"
@@ -4082,6 +5086,9 @@
     "survey_type": "DESK REVIEW"
   },
   "0016488|2026-07-17|desk-review": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/NUTF12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016488/2026-07-17_desk-review_sod.pdf"
     },
@@ -4096,6 +5103,9 @@
     "survey_type": "DESK REVIEW"
   },
   "0016514|2024-06-19|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/KMKQ11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016514/2024-06-19_survey_sod.pdf"
     },
@@ -4107,6 +5117,9 @@
     "survey_type": "SURVEY"
   },
   "0016520|2024-06-20|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/L4DO11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016520/2024-06-20_survey-complaint_sod.pdf"
     },
@@ -4118,6 +5131,11 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0016627|2024-07-12|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/6RJV11ENFS.PDF",
+      "poc": "https://www.forwardhealth.wi.gov/kw/dqa/6RJV11POCS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/6RJV11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0016627/2024-07-12_survey-complaint_enforcement.pdf",
       "poc": "archive/0016627/2024-07-12_survey-complaint_poc.pdf",
@@ -4136,6 +5154,11 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0016627|2025-05-06|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/6RJV12ENFS.PDF",
+      "poc": "https://www.forwardhealth.wi.gov/kw/dqa/6RJV12POCS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/6RJV12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0016627/2025-05-06_complaint-vv_enforcement.pdf",
       "poc": "archive/0016627/2025-05-06_complaint-vv_poc.pdf",
@@ -4154,6 +5177,9 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0016627|2025-12-16|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/6RJV13SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016627/2025-12-16_verification-visit_sod.pdf"
     },
@@ -4168,6 +5194,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0016627|2026-02-16|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/XBVH11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016627/2026-02-16_survey-complaint_sod.pdf"
     },
@@ -4182,6 +5211,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0016658|2024-07-31|survey": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/TCKZ11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/TCKZ11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0016658/2024-07-31_survey_enforcement.pdf",
       "sod": "archive/0016658/2024-07-31_survey_sod.pdf"
@@ -4198,6 +5231,9 @@
     "survey_type": "SURVEY"
   },
   "0016736|2023-10-10|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/8S3V14SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016736/2023-10-10_verification-visit_sod.pdf"
     },
@@ -4209,6 +5245,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0016736|2024-12-09|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/5GJP11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/5GJP11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0016736/2024-12-09_complaint_enforcement.pdf",
       "sod": "archive/0016736/2024-12-09_complaint_sod.pdf"
@@ -4221,6 +5261,9 @@
     "survey_type": "COMPLAINT"
   },
   "0016736|2025-11-18|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/5GJP12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016736/2025-11-18_verification-visit_sod.pdf"
     },
@@ -4232,6 +5275,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0016736|2026-04-27|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/3LD711ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/3LD711SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0016736/2026-04-27_survey-complaint_enforcement.pdf",
       "sod": "archive/0016736/2026-04-27_survey-complaint_sod.pdf"
@@ -4244,6 +5291,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0016736|2026-08-19|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/3LD712ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/3LD712SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0016736/2026-08-19_complaint-vv_enforcement.pdf",
       "sod": "archive/0016736/2026-08-19_complaint-vv_sod.pdf"
@@ -4256,6 +5307,10 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0016757|2024-10-29|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/WB4211ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/WB4211SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0016757/2024-10-29_survey-complaint_enforcement.pdf",
       "sod": "archive/0016757/2024-10-29_survey-complaint_sod.pdf"
@@ -4272,6 +5327,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0016757|2026-02-24|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/WB4212SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016757/2026-02-24_verification-visit_sod.pdf"
     },
@@ -4286,6 +5344,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0016838|2026-04-07|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/ZT9X11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016838/2026-04-07_survey_sod.pdf"
     },
@@ -4297,6 +5358,9 @@
     "survey_type": "SURVEY"
   },
   "0016877|2024-01-08|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/Y24E11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016877/2024-01-08_complaint_sod.pdf"
     },
@@ -4311,6 +5375,9 @@
     "survey_type": "COMPLAINT"
   },
   "0016877|2024-06-05|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/K7F411SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016877/2024-06-05_complaint_sod.pdf"
     },
@@ -4325,6 +5392,9 @@
     "survey_type": "COMPLAINT"
   },
   "0016877|2026-01-21|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/9Q0N11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016877/2026-01-21_survey-complaint_sod.pdf"
     },
@@ -4339,6 +5409,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0016880|2026-03-24|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/IIT911SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016880/2026-03-24_complaint_sod.pdf"
     },
@@ -4350,6 +5423,9 @@
     "survey_type": "COMPLAINT"
   },
   "0016883|2023-08-08|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/060E14SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016883/2023-08-08_verification-visit_sod.pdf"
     },
@@ -4361,6 +5437,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0016883|2025-06-19|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/9VYP11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016883/2025-06-19_survey-complaint_sod.pdf"
     },
@@ -4372,6 +5451,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0016894|2024-01-04|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/RHIC11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/RHIC11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0016894/2024-01-04_survey-complaint_enforcement.pdf",
       "sod": "archive/0016894/2024-01-04_survey-complaint_sod.pdf"
@@ -4384,6 +5467,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0016894|2025-04-21|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/RHIC12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016894/2025-04-21_verification-visit_sod.pdf"
     },
@@ -4395,6 +5481,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0016894|2025-08-25|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/0TBF11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016894/2025-08-25_complaint_sod.pdf"
     },
@@ -4406,6 +5495,9 @@
     "survey_type": "COMPLAINT"
   },
   "0016895|2025-08-14|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/2DD711SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016895/2025-08-14_survey_sod.pdf"
     },
@@ -4417,6 +5509,9 @@
     "survey_type": "SURVEY"
   },
   "0016944|2025-12-18|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/Y2FS11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016944/2025-12-18_survey_sod.pdf"
     },
@@ -4431,6 +5526,9 @@
     "survey_type": "SURVEY"
   },
   "0016965|2023-12-22|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/GIW812SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0016965/2023-12-22_verification-visit_sod.pdf"
     },
@@ -4445,6 +5543,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0016965|2025-12-03|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/72NJ11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/72NJ11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0016965/2025-12-03_survey-complaint_enforcement.pdf",
       "sod": "archive/0016965/2025-12-03_survey-complaint_sod.pdf"
@@ -4461,6 +5563,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0016965|2026-04-15|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/72NJ12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/72NJ12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0016965/2026-04-15_complaint-vv_enforcement.pdf",
       "sod": "archive/0016965/2026-04-15_complaint-vv_sod.pdf"
@@ -4477,6 +5583,9 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0017035|2024-01-30|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/7WL311SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017035/2024-01-30_survey_sod.pdf"
     },
@@ -4491,6 +5600,10 @@
     "survey_type": "SURVEY"
   },
   "0017059|2023-10-11|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/KY5J11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/KY5J11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0017059/2023-10-11_survey-complaint_enforcement.pdf",
       "sod": "archive/0017059/2023-10-11_survey-complaint_sod.pdf"
@@ -4507,6 +5620,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0017059|2024-02-08|verification-visit": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/KY5J12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/KY5J12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0017059/2024-02-08_verification-visit_enforcement.pdf",
       "sod": "archive/0017059/2024-02-08_verification-visit_sod.pdf"
@@ -4523,6 +5640,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0017059|2024-09-16|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/KY5J13SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017059/2024-09-16_verification-visit_sod.pdf"
     },
@@ -4537,6 +5657,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0017059|2025-05-12|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/43UD11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/43UD11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0017059/2025-05-12_survey-complaint_enforcement.pdf",
       "sod": "archive/0017059/2025-05-12_survey-complaint_sod.pdf"
@@ -4553,6 +5677,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0017059|2025-11-06|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/43UD12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017059/2025-11-06_verification-visit_sod.pdf"
     },
@@ -4567,6 +5694,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0017059|2026-09-23|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/MP6J11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017059/2026-09-23_complaint_sod.pdf"
     },
@@ -4581,6 +5711,9 @@
     "survey_type": "COMPLAINT"
   },
   "0017080|2025-07-30|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/0VCM11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017080/2025-07-30_survey_sod.pdf"
     },
@@ -4595,6 +5728,10 @@
     "survey_type": "SURVEY"
   },
   "0017080|2025-10-30|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/TSNU11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/TSNU11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0017080/2025-10-30_complaint_enforcement.pdf",
       "sod": "archive/0017080/2025-10-30_complaint_sod.pdf"
@@ -4611,6 +5748,9 @@
     "survey_type": "COMPLAINT"
   },
   "0017129|2024-01-19|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/FOX611SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017129/2024-01-19_complaint_sod.pdf"
     },
@@ -4625,6 +5765,11 @@
     "survey_type": "COMPLAINT"
   },
   "0017129|2024-03-06|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/235X11ENFS.PDF",
+      "poc": "https://www.forwardhealth.wi.gov/kw/dqa/235X11POCS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/235X11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0017129/2024-03-06_complaint_enforcement.pdf",
       "poc": "archive/0017129/2024-03-06_complaint_poc.pdf",
@@ -4643,6 +5788,9 @@
     "survey_type": "COMPLAINT"
   },
   "0017129|2024-09-04|survey-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/235X12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017129/2024-09-04_survey-vv_sod.pdf"
     },
@@ -4657,6 +5805,9 @@
     "survey_type": "SURVEY/VV"
   },
   "0017129|2025-02-18|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/GUCG11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017129/2025-02-18_complaint_sod.pdf"
     },
@@ -4671,6 +5822,9 @@
     "survey_type": "COMPLAINT"
   },
   "0017129|2025-11-04|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/UR4K11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017129/2025-11-04_complaint_sod.pdf"
     },
@@ -4685,6 +5839,10 @@
     "survey_type": "COMPLAINT"
   },
   "0017129|2025-12-16|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/Q97R11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/Q97R11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0017129/2025-12-16_complaint_enforcement.pdf",
       "sod": "archive/0017129/2025-12-16_complaint_sod.pdf"
@@ -4701,6 +5859,10 @@
     "survey_type": "COMPLAINT"
   },
   "0017158|2024-07-01|survey-self-report-complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/UK3M12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/UK3M12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0017158/2024-07-01_survey-self-report-complaint-vv_enforcement.pdf",
       "sod": "archive/0017158/2024-07-01_survey-self-report-complaint-vv_sod.pdf"
@@ -4717,6 +5879,10 @@
     "survey_type": "SURVEY/SELF REPORT/COMPLAINT/VV"
   },
   "0017158|2025-07-25|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/UK3M13ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/UK3M13SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0017158/2025-07-25_complaint-vv_enforcement.pdf",
       "sod": "archive/0017158/2025-07-25_complaint-vv_sod.pdf"
@@ -4733,6 +5899,10 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0017158|2026-07-16|survey-complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/UK3M14ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/UK3M14SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0017158/2026-07-16_survey-complaint-vv_enforcement.pdf",
       "sod": "archive/0017158/2026-07-16_survey-complaint-vv_sod.pdf"
@@ -4749,6 +5919,9 @@
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
   "0017192|2026-04-07|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/3I4I11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017192/2026-04-07_survey_sod.pdf"
     },
@@ -4763,6 +5936,9 @@
     "survey_type": "SURVEY"
   },
   "0017202|2024-02-09|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/OZFI11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017202/2024-02-09_complaint_sod.pdf"
     },
@@ -4777,6 +5953,9 @@
     "survey_type": "COMPLAINT"
   },
   "0017202|2025-05-28|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/39DI11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017202/2025-05-28_survey_sod.pdf"
     },
@@ -4791,6 +5970,10 @@
     "survey_type": "SURVEY"
   },
   "0017202|2025-09-03|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/7YV611ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/7YV611SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0017202/2025-09-03_complaint_enforcement.pdf",
       "sod": "archive/0017202/2025-09-03_complaint_sod.pdf"
@@ -4807,6 +5990,9 @@
     "survey_type": "COMPLAINT"
   },
   "0017202|2026-04-06|complaint-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/7YV612SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017202/2026-04-06_complaint-vv_sod.pdf"
     },
@@ -4821,6 +6007,10 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0017303|2025-08-11|survey": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/YIQ111ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/YIQ111SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0017303/2025-08-11_survey_enforcement.pdf",
       "sod": "archive/0017303/2025-08-11_survey_sod.pdf"
@@ -4837,6 +6027,9 @@
     "survey_type": "SURVEY"
   },
   "0017303|2026-06-18|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/YIQ112SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017303/2026-06-18_verification-visit_sod.pdf"
     },
@@ -4851,6 +6044,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0017335|2023-11-13|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/X5XK11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017335/2023-11-13_survey_sod.pdf"
     },
@@ -4865,6 +6061,9 @@
     "survey_type": "SURVEY"
   },
   "0017335|2026-04-08|survey-complaint-self-report": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/MALB11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017335/2026-04-08_survey-complaint-self-report_sod.pdf"
     },
@@ -4879,6 +6078,9 @@
     "survey_type": "SURVEY/COMPLAINT/SELF REPORT"
   },
   "0017343|2025-05-05|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/ZID511SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017343/2025-05-05_survey_sod.pdf"
     },
@@ -4893,6 +6095,9 @@
     "survey_type": "SURVEY"
   },
   "0017386|2023-11-09|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/V7Q611SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017386/2023-11-09_survey_sod.pdf"
     },
@@ -4907,6 +6112,9 @@
     "survey_type": "SURVEY"
   },
   "0017393|2023-11-27|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/1Y7W11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017393/2023-11-27_survey_sod.pdf"
     },
@@ -4921,6 +6129,9 @@
     "survey_type": "SURVEY"
   },
   "0017393|2025-08-13|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/MMC511SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017393/2025-08-13_survey-complaint_sod.pdf"
     },
@@ -4935,6 +6146,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0017437|2025-12-02|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/E03R11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/E03R11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0017437/2025-12-02_survey-complaint_enforcement.pdf",
       "sod": "archive/0017437/2025-12-02_survey-complaint_sod.pdf"
@@ -4951,6 +6166,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0017437|2026-06-29|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/E03R12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017437/2026-06-29_verification-visit_sod.pdf"
     },
@@ -4965,6 +6183,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0017439|2023-10-31|complaint-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/F9O313SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017439/2023-10-31_complaint-vv_sod.pdf"
     },
@@ -4979,6 +6200,10 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0017439|2024-02-06|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/4O8811ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/4O8811SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0017439/2024-02-06_complaint_enforcement.pdf",
       "sod": "archive/0017439/2024-02-06_complaint_sod.pdf"
@@ -4995,6 +6220,9 @@
     "survey_type": "COMPLAINT"
   },
   "0017439|2024-04-25|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/EC2R11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017439/2024-04-25_complaint_sod.pdf"
     },
@@ -5009,6 +6237,10 @@
     "survey_type": "COMPLAINT"
   },
   "0017439|2025-02-13|survey-complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/4O8812ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/4O8812SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0017439/2025-02-13_survey-complaint-vv_enforcement.pdf",
       "sod": "archive/0017439/2025-02-13_survey-complaint-vv_sod.pdf"
@@ -5025,6 +6257,9 @@
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
   "0017439|2026-06-04|complaint-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/4O8813SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017439/2026-06-04_complaint-vv_sod.pdf"
     },
@@ -5039,6 +6274,9 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0017493|2024-11-13|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/NJ8C11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017493/2024-11-13_survey-complaint_sod.pdf"
     },
@@ -5053,6 +6291,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0017493|2025-09-24|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/WIIS11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017493/2025-09-24_complaint_sod.pdf"
     },
@@ -5067,6 +6308,9 @@
     "survey_type": "COMPLAINT"
   },
   "0017493|2026-03-03|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/UDXR11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017493/2026-03-03_complaint_sod.pdf"
     },
@@ -5081,6 +6325,9 @@
     "survey_type": "COMPLAINT"
   },
   "0017493|2026-05-20|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/GFQK11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017493/2026-05-20_complaint_sod.pdf"
     },
@@ -5095,6 +6342,10 @@
     "survey_type": "COMPLAINT"
   },
   "0017545|2023-11-17|survey-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/ZN7J12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/ZN7J12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0017545/2023-11-17_survey-vv_enforcement.pdf",
       "sod": "archive/0017545/2023-11-17_survey-vv_sod.pdf"
@@ -5111,6 +6362,9 @@
     "survey_type": "SURVEY/VV"
   },
   "0017545|2025-06-24|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/TSLB11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017545/2025-06-24_complaint_sod.pdf"
     },
@@ -5125,6 +6379,10 @@
     "survey_type": "COMPLAINT"
   },
   "0017545|2026-05-27|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/TPZ211ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/TPZ211SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0017545/2026-05-27_survey-complaint_enforcement.pdf",
       "sod": "archive/0017545/2026-05-27_survey-complaint_sod.pdf"
@@ -5141,6 +6399,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0017579|2024-05-22|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/GXTT11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017579/2024-05-22_survey_sod.pdf"
     },
@@ -5155,6 +6416,9 @@
     "survey_type": "SURVEY"
   },
   "0017579|2026-08-10|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/ZK6411SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017579/2026-08-10_survey_sod.pdf"
     },
@@ -5169,6 +6433,10 @@
     "survey_type": "SURVEY"
   },
   "0017638|2024-01-18|survey": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/TR2N11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/TR2N11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0017638/2024-01-18_survey_enforcement.pdf",
       "sod": "archive/0017638/2024-01-18_survey_sod.pdf"
@@ -5185,6 +6453,9 @@
     "survey_type": "SURVEY"
   },
   "0017638|2024-04-30|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/TR2N12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017638/2024-04-30_verification-visit_sod.pdf"
     },
@@ -5199,6 +6470,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0017638|2025-02-06|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/547X11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017638/2025-02-06_complaint_sod.pdf"
     },
@@ -5213,6 +6487,9 @@
     "survey_type": "COMPLAINT"
   },
   "0017638|2026-08-06|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/XOR311SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017638/2026-08-06_survey-complaint_sod.pdf"
     },
@@ -5227,6 +6504,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0017857|2024-01-22|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/X31711ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/X31711SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0017857/2024-01-22_survey-complaint_enforcement.pdf",
       "sod": "archive/0017857/2024-01-22_survey-complaint_sod.pdf"
@@ -5243,6 +6524,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0017857|2024-07-31|self-report": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/G0DH11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017857/2024-07-31_self-report_sod.pdf"
     },
@@ -5257,6 +6541,9 @@
     "survey_type": "SELF REPORT"
   },
   "0017857|2026-02-16|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/C31I11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017857/2026-02-16_survey-complaint_sod.pdf"
     },
@@ -5271,6 +6558,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0017958|2024-01-19|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/GIIP11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017958/2024-01-19_complaint_sod.pdf"
     },
@@ -5285,6 +6575,9 @@
     "survey_type": "COMPLAINT"
   },
   "0017958|2024-05-11|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/MYMC11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017958/2024-05-11_survey-complaint_sod.pdf"
     },
@@ -5299,6 +6592,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0017960|2024-01-19|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/KBOU11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/KBOU11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0017960/2024-01-19_complaint_enforcement.pdf",
       "sod": "archive/0017960/2024-01-19_complaint_sod.pdf"
@@ -5315,6 +6612,10 @@
     "survey_type": "COMPLAINT"
   },
   "0017960|2024-05-13|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/XJ9311ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/XJ9311SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0017960/2024-05-13_complaint_enforcement.pdf",
       "sod": "archive/0017960/2024-05-13_complaint_sod.pdf"
@@ -5331,6 +6632,10 @@
     "survey_type": "COMPLAINT"
   },
   "0017960|2025-01-30|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/T0GU11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/T0GU11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0017960/2025-01-30_survey-complaint_enforcement.pdf",
       "sod": "archive/0017960/2025-01-30_survey-complaint_sod.pdf"
@@ -5347,6 +6652,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0017960|2025-07-02|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/F78O11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017960/2025-07-02_complaint_sod.pdf"
     },
@@ -5361,6 +6669,9 @@
     "survey_type": "COMPLAINT"
   },
   "0017960|2025-11-13|complaint-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/T0GU12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017960/2025-11-13_complaint-vv_sod.pdf"
     },
@@ -5375,6 +6686,10 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0017994|2024-06-26|survey": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/2KOS11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/2KOS11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0017994/2024-06-26_survey_enforcement.pdf",
       "sod": "archive/0017994/2024-06-26_survey_sod.pdf"
@@ -5391,6 +6706,9 @@
     "survey_type": "SURVEY"
   },
   "0017994|2025-04-23|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/XUYJ11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017994/2025-04-23_complaint_sod.pdf"
     },
@@ -5405,6 +6723,9 @@
     "survey_type": "COMPLAINT"
   },
   "0017995|2025-07-29|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/QVN111SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017995/2025-07-29_survey_sod.pdf"
     },
@@ -5416,6 +6737,9 @@
     "survey_type": "SURVEY"
   },
   "0017996|2025-08-05|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/XQF011SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017996/2025-08-05_survey_sod.pdf"
     },
@@ -5427,6 +6751,10 @@
     "survey_type": "SURVEY"
   },
   "0017997|2024-04-09|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/Z7O111ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/Z7O111SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0017997/2024-04-09_survey-complaint_enforcement.pdf",
       "sod": "archive/0017997/2024-04-09_survey-complaint_sod.pdf"
@@ -5443,6 +6771,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0017997|2024-12-05|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/Z7O112SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0017997/2024-12-05_verification-visit_sod.pdf"
     },
@@ -5457,6 +6788,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0018018|2025-07-03|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/QIEI11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0018018/2025-07-03_survey_sod.pdf"
     },
@@ -5468,6 +6802,9 @@
     "survey_type": "SURVEY"
   },
   "0018238|2025-05-05|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/YX6B11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0018238/2025-05-05_survey_sod.pdf"
     },
@@ -5482,6 +6819,9 @@
     "survey_type": "SURVEY"
   },
   "0018239|2025-10-07|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/DFPI11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0018239/2025-10-07_survey_sod.pdf"
     },
@@ -5496,6 +6836,9 @@
     "survey_type": "SURVEY"
   },
   "0018266|2024-01-22|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/Z33T12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0018266/2024-01-22_verification-visit_sod.pdf"
     },
@@ -5507,6 +6850,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0018276|2023-07-17|survey-complaint-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/QG8H11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0018276/2023-07-17_survey-complaint-vv_sod.pdf"
     },
@@ -5518,6 +6864,10 @@
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
   "0018276|2024-06-17|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/31KJ11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/31KJ11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018276/2024-06-17_complaint_enforcement.pdf",
       "sod": "archive/0018276/2024-06-17_complaint_sod.pdf"
@@ -5530,6 +6880,9 @@
     "survey_type": "COMPLAINT"
   },
   "0018276|2025-03-12|survey-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/31KJ12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0018276/2025-03-12_survey-vv_sod.pdf"
     },
@@ -5541,6 +6894,10 @@
     "survey_type": "SURVEY/VV"
   },
   "0018276|2025-11-03|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/C4OJ11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/C4OJ11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018276/2025-11-03_complaint_enforcement.pdf",
       "sod": "archive/0018276/2025-11-03_complaint_sod.pdf"
@@ -5553,6 +6910,9 @@
     "survey_type": "COMPLAINT"
   },
   "0018300|2024-12-11|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/E0NR11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0018300/2024-12-11_survey-complaint_sod.pdf"
     },
@@ -5564,6 +6924,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0018300|2025-03-17|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/H54911ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/H54911SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018300/2025-03-17_complaint_enforcement.pdf",
       "sod": "archive/0018300/2025-03-17_complaint_sod.pdf"
@@ -5576,6 +6940,10 @@
     "survey_type": "COMPLAINT"
   },
   "0018302|2024-01-29|survey-complaint-self-report": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/JBS011ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/JBS011SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018302/2024-01-29_survey-complaint-self-report_enforcement.pdf",
       "sod": "archive/0018302/2024-01-29_survey-complaint-self-report_sod.pdf"
@@ -5588,6 +6956,10 @@
     "survey_type": "SURVEY/COMPLAINT/SELF REPORT"
   },
   "0018302|2024-02-29|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/WUGI11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/WUGI11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018302/2024-02-29_complaint_enforcement.pdf",
       "sod": "archive/0018302/2024-02-29_complaint_sod.pdf"
@@ -5600,6 +6972,10 @@
     "survey_type": "COMPLAINT"
   },
   "0018302|2024-11-11|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/WUGI12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/WUGI12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018302/2024-11-11_complaint_enforcement.pdf",
       "sod": "archive/0018302/2024-11-11_complaint_sod.pdf"
@@ -5612,6 +6988,10 @@
     "survey_type": "COMPLAINT"
   },
   "0018302|2025-01-22|complaint-self-report": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/P3E311ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/P3E311SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018302/2025-01-22_complaint-self-report_enforcement.pdf",
       "sod": "archive/0018302/2025-01-22_complaint-self-report_sod.pdf"
@@ -5624,6 +7004,10 @@
     "survey_type": "COMPLAINT/SELF REPORT"
   },
   "0018302|2025-06-18|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/WUGI13ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/WUGI13SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018302/2025-06-18_complaint-vv_enforcement.pdf",
       "sod": "archive/0018302/2025-06-18_complaint-vv_sod.pdf"
@@ -5636,6 +7020,10 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0018302|2026-07-14|survey-complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/WUGI14ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/WUGI14SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018302/2026-07-14_survey-complaint-vv_enforcement.pdf",
       "sod": "archive/0018302/2026-07-14_survey-complaint-vv_sod.pdf"
@@ -5648,6 +7036,10 @@
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
   "0018302|2026-08-25|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/WTNG11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/WTNG11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018302/2026-08-25_complaint_enforcement.pdf",
       "sod": "archive/0018302/2026-08-25_complaint_sod.pdf"
@@ -5660,6 +7052,10 @@
     "survey_type": "COMPLAINT"
   },
   "0018366|2024-11-04|survey": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/SBLM11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/SBLM11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018366/2024-11-04_survey_enforcement.pdf",
       "sod": "archive/0018366/2024-11-04_survey_sod.pdf"
@@ -5676,6 +7072,9 @@
     "survey_type": "SURVEY"
   },
   "0018366|2025-06-04|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/SBLM12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0018366/2025-06-04_verification-visit_sod.pdf"
     },
@@ -5690,6 +7089,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0018376|2024-01-24|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/3TF811ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/3TF811SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018376/2024-01-24_survey-complaint_enforcement.pdf",
       "sod": "archive/0018376/2024-01-24_survey-complaint_sod.pdf"
@@ -5706,6 +7109,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0018400|2025-06-13|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/FKPU11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0018400/2025-06-13_survey-complaint_sod.pdf"
     },
@@ -5720,6 +7126,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0018401|2025-04-24|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/LQHI11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0018401/2025-04-24_survey_sod.pdf"
     },
@@ -5734,6 +7143,10 @@
     "survey_type": "SURVEY"
   },
   "0018402|2023-10-25|survey": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/SQYY11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/SQYY11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018402/2023-10-25_survey_enforcement.pdf",
       "sod": "archive/0018402/2023-10-25_survey_sod.pdf"
@@ -5750,6 +7163,9 @@
     "survey_type": "SURVEY"
   },
   "0018402|2024-11-04|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/SQYY12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0018402/2024-11-04_verification-visit_sod.pdf"
     },
@@ -5764,6 +7180,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0018403|2025-01-16|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/NYYJ11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/NYYJ11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018403/2025-01-16_complaint_enforcement.pdf",
       "sod": "archive/0018403/2025-01-16_complaint_sod.pdf"
@@ -5780,6 +7200,9 @@
     "survey_type": "COMPLAINT"
   },
   "0018403|2025-06-24|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/NYYJ12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0018403/2025-06-24_verification-visit_sod.pdf"
     },
@@ -5794,6 +7217,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0018526|2025-08-26|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/5DJ511SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0018526/2025-08-26_survey-complaint_sod.pdf"
     },
@@ -5805,6 +7231,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0018636|2024-09-25|survey-complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/CPWC12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/CPWC12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018636/2024-09-25_survey-complaint-vv_enforcement.pdf",
       "sod": "archive/0018636/2024-09-25_survey-complaint-vv_sod.pdf"
@@ -5821,6 +7251,10 @@
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
   "0018636|2024-12-12|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/TMIL11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/TMIL11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018636/2024-12-12_complaint_enforcement.pdf",
       "sod": "archive/0018636/2024-12-12_complaint_sod.pdf"
@@ -5837,6 +7271,9 @@
     "survey_type": "COMPLAINT"
   },
   "0018636|2026-02-24|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/CPWC13SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0018636/2026-02-24_verification-visit_sod.pdf"
     },
@@ -5851,6 +7288,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0018719|2026-08-10|survey": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/IRK111ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/IRK111SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018719/2026-08-10_survey_enforcement.pdf",
       "sod": "archive/0018719/2026-08-10_survey_sod.pdf"
@@ -5867,6 +7308,10 @@
     "survey_type": "SURVEY"
   },
   "0018754|2024-12-10|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/4TLG11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/4TLG11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018754/2024-12-10_survey-complaint_enforcement.pdf",
       "sod": "archive/0018754/2024-12-10_survey-complaint_sod.pdf"
@@ -5883,6 +7328,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0018754|2025-08-29|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/S3HD11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/S3HD11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018754/2025-08-29_complaint_enforcement.pdf",
       "sod": "archive/0018754/2025-08-29_complaint_sod.pdf"
@@ -5899,6 +7348,10 @@
     "survey_type": "COMPLAINT"
   },
   "0018754|2025-11-18|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/4TLG12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/4TLG12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018754/2025-11-18_complaint-vv_enforcement.pdf",
       "sod": "archive/0018754/2025-11-18_complaint-vv_sod.pdf"
@@ -5915,6 +7368,10 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0018754|2026-08-20|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/4TLG13ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/4TLG13SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018754/2026-08-20_complaint-vv_enforcement.pdf",
       "sod": "archive/0018754/2026-08-20_complaint-vv_sod.pdf"
@@ -5931,6 +7388,10 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0018759|2024-05-28|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/G7KO11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/G7KO11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018759/2024-05-28_complaint_enforcement.pdf",
       "sod": "archive/0018759/2024-05-28_complaint_sod.pdf"
@@ -5947,6 +7408,10 @@
     "survey_type": "COMPLAINT"
   },
   "0018759|2025-11-26|survey-complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/G7KO12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/G7KO12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018759/2025-11-26_survey-complaint-vv_enforcement.pdf",
       "sod": "archive/0018759/2025-11-26_survey-complaint-vv_sod.pdf"
@@ -5963,6 +7428,10 @@
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
   "0018759|2026-06-25|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/G7KO13ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/G7KO13SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018759/2026-06-25_complaint-vv_enforcement.pdf",
       "sod": "archive/0018759/2026-06-25_complaint-vv_sod.pdf"
@@ -5979,6 +7448,10 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0018760|2024-06-03|survey-complaint-self-report": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/X5MU11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/X5MU11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018760/2024-06-03_survey-complaint-self-report_enforcement.pdf",
       "sod": "archive/0018760/2024-06-03_survey-complaint-self-report_sod.pdf"
@@ -5991,6 +7464,9 @@
     "survey_type": "SURVEY/COMPLAINT/SELF REPORT"
   },
   "0018760|2025-01-22|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/X5MU12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0018760/2025-01-22_verification-visit_sod.pdf"
     },
@@ -6002,6 +7478,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0018760|2025-04-29|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/XWD311ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/XWD311SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018760/2025-04-29_complaint_enforcement.pdf",
       "sod": "archive/0018760/2025-04-29_complaint_sod.pdf"
@@ -6014,6 +7494,10 @@
     "survey_type": "COMPLAINT"
   },
   "0018760|2025-07-23|desk-review": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/C7KC11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/C7KC11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018760/2025-07-23_desk-review_enforcement.pdf",
       "sod": "archive/0018760/2025-07-23_desk-review_sod.pdf"
@@ -6026,6 +7510,9 @@
     "survey_type": "DESK REVIEW"
   },
   "0018760|2025-08-13|desk-review": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/C7KC12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0018760/2025-08-13_desk-review_sod.pdf"
     },
@@ -6037,6 +7524,10 @@
     "survey_type": "DESK REVIEW"
   },
   "0018760|2025-11-06|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/XWD312ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/XWD312SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018760/2025-11-06_complaint-vv_enforcement.pdf",
       "sod": "archive/0018760/2025-11-06_complaint-vv_sod.pdf"
@@ -6049,6 +7540,10 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0018760|2026-06-30|survey-complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/XWD313ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/XWD313SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018760/2026-06-30_survey-complaint-vv_enforcement.pdf",
       "sod": "archive/0018760/2026-06-30_survey-complaint-vv_sod.pdf"
@@ -6061,6 +7556,9 @@
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
   "0018783|2023-10-12|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/YZN211SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0018783/2023-10-12_survey_sod.pdf"
     },
@@ -6075,6 +7573,10 @@
     "survey_type": "SURVEY"
   },
   "0018848|2023-12-19|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/3IT311ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/3IT311SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018848/2023-12-19_complaint_enforcement.pdf",
       "sod": "archive/0018848/2023-12-19_complaint_sod.pdf"
@@ -6091,6 +7593,10 @@
     "survey_type": "COMPLAINT"
   },
   "0018848|2024-07-29|survey-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/3IT312ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/3IT312SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018848/2024-07-29_survey-vv_enforcement.pdf",
       "sod": "archive/0018848/2024-07-29_survey-vv_sod.pdf"
@@ -6107,6 +7613,9 @@
     "survey_type": "SURVEY/VV"
   },
   "0018940|2025-04-23|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/EB3L11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0018940/2025-04-23_survey_sod.pdf"
     },
@@ -6118,6 +7627,10 @@
     "survey_type": "SURVEY"
   },
   "0018940|2025-12-17|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/9P7O11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/9P7O11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018940/2025-12-17_complaint_enforcement.pdf",
       "sod": "archive/0018940/2025-12-17_complaint_sod.pdf"
@@ -6130,6 +7643,10 @@
     "survey_type": "COMPLAINT"
   },
   "0018940|2026-03-30|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/9P7O12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/9P7O12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0018940/2026-03-30_complaint-vv_enforcement.pdf",
       "sod": "archive/0018940/2026-03-30_complaint-vv_sod.pdf"
@@ -6142,6 +7659,9 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0018966|2024-04-16|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/9B0G11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0018966/2024-04-16_survey-complaint_sod.pdf"
     },
@@ -6156,6 +7676,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0019084|2026-05-06|survey": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/MV4B11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/MV4B11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0019084/2026-05-06_survey_enforcement.pdf",
       "sod": "archive/0019084/2026-05-06_survey_sod.pdf"
@@ -6172,6 +7696,9 @@
     "survey_type": "SURVEY"
   },
   "0019222|2023-08-16|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/173I11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0019222/2023-08-16_complaint_sod.pdf"
     },
@@ -6183,6 +7710,9 @@
     "survey_type": "COMPLAINT"
   },
   "0019222|2024-06-11|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/W7PF11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0019222/2024-06-11_survey-complaint_sod.pdf"
     },
@@ -6194,6 +7724,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0019326|2023-12-21|survey-self-report": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/7HPV11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0019326/2023-12-21_survey-self-report_sod.pdf"
     },
@@ -6205,6 +7738,10 @@
     "survey_type": "SURVEY/SELF REPORT"
   },
   "0019326|2025-04-16|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/26NO11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/26NO11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0019326/2025-04-16_complaint_enforcement.pdf",
       "sod": "archive/0019326/2025-04-16_complaint_sod.pdf"
@@ -6217,6 +7754,10 @@
     "survey_type": "COMPLAINT"
   },
   "0019326|2025-09-23|survey-complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/26NO12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/26NO12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0019326/2025-09-23_survey-complaint-vv_enforcement.pdf",
       "sod": "archive/0019326/2025-09-23_survey-complaint-vv_sod.pdf"
@@ -6229,6 +7770,10 @@
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
   "0019328|2023-11-08|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/CCZ611ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/CCZ611SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0019328/2023-11-08_survey-complaint_enforcement.pdf",
       "sod": "archive/0019328/2023-11-08_survey-complaint_sod.pdf"
@@ -6241,6 +7786,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0019328|2024-01-31|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/CCZ612SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0019328/2024-01-31_verification-visit_sod.pdf"
     },
@@ -6252,6 +7800,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0019328|2024-12-19|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/1TFT11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/1TFT11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0019328/2024-12-19_complaint_enforcement.pdf",
       "sod": "archive/0019328/2024-12-19_complaint_sod.pdf"
@@ -6264,6 +7816,10 @@
     "survey_type": "COMPLAINT"
   },
   "0019328|2025-09-12|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/P02N11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/P02N11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0019328/2025-09-12_complaint_enforcement.pdf",
       "sod": "archive/0019328/2025-09-12_complaint_sod.pdf"
@@ -6276,6 +7832,10 @@
     "survey_type": "COMPLAINT"
   },
   "0019328|2025-10-22|survey-complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/1TFT12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/1TFT12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0019328/2025-10-22_survey-complaint-vv_enforcement.pdf",
       "sod": "archive/0019328/2025-10-22_survey-complaint-vv_sod.pdf"
@@ -6288,6 +7848,10 @@
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
   "0019329|2023-11-30|survey-complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/M3J812ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/M3J812SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0019329/2023-11-30_survey-complaint-vv_enforcement.pdf",
       "sod": "archive/0019329/2023-11-30_survey-complaint-vv_sod.pdf"
@@ -6300,6 +7864,9 @@
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
   "0019329|2024-02-26|complaint-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/M3J813SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0019329/2024-02-26_complaint-vv_sod.pdf"
     },
@@ -6311,6 +7878,10 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0019329|2026-04-01|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/F89G11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/F89G11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0019329/2026-04-01_survey-complaint_enforcement.pdf",
       "sod": "archive/0019329/2026-04-01_survey-complaint_sod.pdf"
@@ -6323,6 +7894,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0019331|2023-12-21|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/TFI511SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0019331/2023-12-21_survey_sod.pdf"
     },
@@ -6334,6 +7908,10 @@
     "survey_type": "SURVEY"
   },
   "0019331|2025-10-20|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/OBDO11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/OBDO11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0019331/2025-10-20_survey-complaint_enforcement.pdf",
       "sod": "archive/0019331/2025-10-20_survey-complaint_sod.pdf"
@@ -6346,6 +7924,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0019578|2026-01-12|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/UO1Y11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0019578/2026-01-12_survey-complaint_sod.pdf"
     },
@@ -6360,6 +7941,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0019578|2026-02-19|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/7KP611ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/7KP611SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0019578/2026-02-19_complaint_enforcement.pdf",
       "sod": "archive/0019578/2026-02-19_complaint_sod.pdf"
@@ -6376,6 +7961,10 @@
     "survey_type": "COMPLAINT"
   },
   "0019609|2024-06-18|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/O3LU11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/O3LU11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0019609/2024-06-18_survey-complaint_enforcement.pdf",
       "sod": "archive/0019609/2024-06-18_survey-complaint_sod.pdf"
@@ -6392,6 +7981,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0019609|2024-09-19|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/O3LU12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0019609/2024-09-19_verification-visit_sod.pdf"
     },
@@ -6406,6 +7998,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0019609|2026-06-02|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/BR3Q11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/BR3Q11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0019609/2026-06-02_survey-complaint_enforcement.pdf",
       "sod": "archive/0019609/2026-06-02_survey-complaint_sod.pdf"
@@ -6422,6 +8018,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0019651|2024-08-15|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/BOM311SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0019651/2024-08-15_complaint_sod.pdf"
     },
@@ -6436,6 +8035,9 @@
     "survey_type": "COMPLAINT"
   },
   "0019733|2024-07-22|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/9CLV11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0019733/2024-07-22_survey_sod.pdf"
     },
@@ -6447,6 +8049,9 @@
     "survey_type": "SURVEY"
   },
   "0019733|2025-02-27|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/4CLL11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0019733/2025-02-27_complaint_sod.pdf"
     },
@@ -6458,6 +8063,10 @@
     "survey_type": "COMPLAINT"
   },
   "0019733|2025-08-11|self-report": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/2VGE11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/2VGE11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0019733/2025-08-11_self-report_enforcement.pdf",
       "sod": "archive/0019733/2025-08-11_self-report_sod.pdf"
@@ -6470,6 +8079,9 @@
     "survey_type": "SELF REPORT"
   },
   "0019741|2024-01-16|other": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/0LSL11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0019741/2024-01-16_other_sod.pdf"
     },
@@ -6484,6 +8096,9 @@
     "survey_type": "OTHER"
   },
   "0019741|2024-04-23|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/L6OW11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0019741/2024-04-23_survey-complaint_sod.pdf"
     },
@@ -6498,6 +8113,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0019818|2024-08-15|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/4QDR11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0019818/2024-08-15_complaint_sod.pdf"
     },
@@ -6512,6 +8130,9 @@
     "survey_type": "COMPLAINT"
   },
   "0019818|2025-11-05|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/H01811SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0019818/2025-11-05_survey-complaint_sod.pdf"
     },
@@ -6526,6 +8147,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0019823|2025-05-19|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/E42R11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/E42R11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0019823/2025-05-19_complaint_enforcement.pdf",
       "sod": "archive/0019823/2025-05-19_complaint_sod.pdf"
@@ -6542,6 +8167,9 @@
     "survey_type": "COMPLAINT"
   },
   "0019823|2025-11-04|survey-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/E42R12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0019823/2025-11-04_survey-vv_sod.pdf"
     },
@@ -6556,6 +8184,9 @@
     "survey_type": "SURVEY/VV"
   },
   "0019893|2025-06-04|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/BQRY11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0019893/2025-06-04_complaint_sod.pdf"
     },
@@ -6570,6 +8201,9 @@
     "survey_type": "COMPLAINT"
   },
   "0019894|2025-06-04|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/71P811SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0019894/2025-06-04_complaint_sod.pdf"
     },
@@ -6584,6 +8218,9 @@
     "survey_type": "COMPLAINT"
   },
   "0019937|2024-08-15|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/VSI911SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0019937/2024-08-15_survey_sod.pdf"
     },
@@ -6595,6 +8232,9 @@
     "survey_type": "SURVEY"
   },
   "0019937|2025-07-02|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/2MAU11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0019937/2025-07-02_complaint_sod.pdf"
     },
@@ -6606,6 +8246,9 @@
     "survey_type": "COMPLAINT"
   },
   "0019940|2024-09-12|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/BYUJ11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0019940/2024-09-12_survey_sod.pdf"
     },
@@ -6617,6 +8260,10 @@
     "survey_type": "SURVEY"
   },
   "0019940|2025-11-13|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/K5V811ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/K5V811SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0019940/2025-11-13_complaint_enforcement.pdf",
       "sod": "archive/0019940/2025-11-13_complaint_sod.pdf"
@@ -6629,6 +8276,9 @@
     "survey_type": "COMPLAINT"
   },
   "0020028|2025-05-23|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/1J8W11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0020028/2025-05-23_complaint_sod.pdf"
     },
@@ -6643,6 +8293,9 @@
     "survey_type": "COMPLAINT"
   },
   "0020143|2025-04-09|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/M9NJ11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0020143/2025-04-09_complaint_sod.pdf"
     },
@@ -6657,6 +8310,9 @@
     "survey_type": "COMPLAINT"
   },
   "0020143|2025-11-11|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/Q0VV11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0020143/2025-11-11_complaint_sod.pdf"
     },
@@ -6671,6 +8327,9 @@
     "survey_type": "COMPLAINT"
   },
   "0020362|2025-10-08|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/L9O411SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0020362/2025-10-08_complaint_sod.pdf"
     },
@@ -6685,6 +8344,9 @@
     "survey_type": "COMPLAINT"
   },
   "0020362|2026-02-16|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/GPI411SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0020362/2026-02-16_survey-complaint_sod.pdf"
     },
@@ -6699,6 +8361,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0020363|2024-11-27|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/51IY11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0020363/2024-11-27_complaint_sod.pdf"
     },
@@ -6710,6 +8375,9 @@
     "survey_type": "COMPLAINT"
   },
   "0020363|2025-08-07|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/O7UU11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0020363/2025-08-07_complaint_sod.pdf"
     },
@@ -6721,6 +8389,9 @@
     "survey_type": "COMPLAINT"
   },
   "0020363|2026-09-09|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/P9WV11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0020363/2026-09-09_survey-complaint_sod.pdf"
     },
@@ -6732,6 +8403,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0020366|2024-11-13|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/90RM11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0020366/2024-11-13_survey-complaint_sod.pdf"
     },
@@ -6743,6 +8417,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0020366|2025-04-03|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/E4OS11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0020366/2025-04-03_complaint_sod.pdf"
     },
@@ -6754,6 +8431,10 @@
     "survey_type": "COMPLAINT"
   },
   "0020366|2025-07-28|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/5K7M11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/5K7M11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0020366/2025-07-28_complaint_enforcement.pdf",
       "sod": "archive/0020366/2025-07-28_complaint_sod.pdf"
@@ -6766,6 +8447,9 @@
     "survey_type": "COMPLAINT"
   },
   "0020366|2025-09-24|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/U9NE11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0020366/2025-09-24_complaint_sod.pdf"
     },
@@ -6777,6 +8461,9 @@
     "survey_type": "COMPLAINT"
   },
   "0020366|2026-01-27|survey-complaint-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/5K7M12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0020366/2026-01-27_survey-complaint-vv_sod.pdf"
     },
@@ -6788,6 +8475,9 @@
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
   "0020366|2026-07-21|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/ZHFF11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0020366/2026-07-21_complaint_sod.pdf"
     },
@@ -6799,6 +8489,10 @@
     "survey_type": "COMPLAINT"
   },
   "0020445|2024-10-01|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/2GNJ11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/2GNJ11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0020445/2024-10-01_survey-complaint_enforcement.pdf",
       "sod": "archive/0020445/2024-10-01_survey-complaint_sod.pdf"
@@ -6811,6 +8505,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0020445|2024-12-04|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/7QS211SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0020445/2024-12-04_complaint_sod.pdf"
     },
@@ -6822,6 +8519,10 @@
     "survey_type": "COMPLAINT"
   },
   "0020445|2025-06-19|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/2GNJ12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/2GNJ12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0020445/2025-06-19_complaint-vv_enforcement.pdf",
       "sod": "archive/0020445/2025-06-19_complaint-vv_sod.pdf"
@@ -6834,6 +8535,9 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0020445|2026-08-19|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/2GNJ13SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0020445/2026-08-19_verification-visit_sod.pdf"
     },
@@ -6845,6 +8549,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0020446|2025-06-11|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/X0QI11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0020446/2025-06-11_complaint_sod.pdf"
     },
@@ -6859,6 +8566,10 @@
     "survey_type": "COMPLAINT"
   },
   "0020446|2026-03-09|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/R5QV11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/R5QV11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0020446/2026-03-09_survey-complaint_enforcement.pdf",
       "sod": "archive/0020446/2026-03-09_survey-complaint_sod.pdf"
@@ -6875,6 +8586,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "0020446|2026-06-30|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/R5QV12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0020446/2026-06-30_verification-visit_sod.pdf"
     },
@@ -6889,6 +8603,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "0020447|2024-07-08|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/26RK11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/26RK11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0020447/2024-07-08_complaint_enforcement.pdf",
       "sod": "archive/0020447/2024-07-08_complaint_sod.pdf"
@@ -6905,6 +8623,9 @@
     "survey_type": "COMPLAINT"
   },
   "0020447|2025-05-19|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/7F3O11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0020447/2025-05-19_complaint_sod.pdf"
     },
@@ -6919,6 +8640,9 @@
     "survey_type": "COMPLAINT"
   },
   "0020447|2025-08-27|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/QL8S11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0020447/2025-08-27_complaint_sod.pdf"
     },
@@ -6933,6 +8657,9 @@
     "survey_type": "COMPLAINT"
   },
   "0020447|2025-11-25|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/QMKZ11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0020447/2025-11-25_complaint_sod.pdf"
     },
@@ -6947,6 +8674,10 @@
     "survey_type": "COMPLAINT"
   },
   "0020448|2025-03-13|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/4KPI11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/4KPI11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0020448/2025-03-13_complaint_enforcement.pdf",
       "sod": "archive/0020448/2025-03-13_complaint_sod.pdf"
@@ -6963,6 +8694,10 @@
     "survey_type": "COMPLAINT"
   },
   "0020448|2026-01-13|survey-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/4KPI12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/4KPI12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0020448/2026-01-13_survey-vv_enforcement.pdf",
       "sod": "archive/0020448/2026-01-13_survey-vv_sod.pdf"
@@ -6979,6 +8714,10 @@
     "survey_type": "SURVEY/VV"
   },
   "0020448|2026-07-23|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/4KPI13ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/4KPI13SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0020448/2026-07-23_complaint-vv_enforcement.pdf",
       "sod": "archive/0020448/2026-07-23_complaint-vv_sod.pdf"
@@ -6995,6 +8734,9 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0020450|2025-10-08|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/KIXM11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0020450/2025-10-08_complaint_sod.pdf"
     },
@@ -7009,6 +8751,10 @@
     "survey_type": "COMPLAINT"
   },
   "0020659|2025-08-05|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/FI9811ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/FI9811SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0020659/2025-08-05_complaint_enforcement.pdf",
       "sod": "archive/0020659/2025-08-05_complaint_sod.pdf"
@@ -7025,6 +8771,9 @@
     "survey_type": "COMPLAINT"
   },
   "0020661|2026-06-29|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/LHAE11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0020661/2026-06-29_complaint_sod.pdf"
     },
@@ -7039,6 +8788,10 @@
     "survey_type": "COMPLAINT"
   },
   "0020893|2026-01-26|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/6D4111ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/6D4111SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0020893/2026-01-26_complaint_enforcement.pdf",
       "sod": "archive/0020893/2026-01-26_complaint_sod.pdf"
@@ -7055,6 +8808,10 @@
     "survey_type": "COMPLAINT"
   },
   "0020893|2026-06-18|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/6D4112ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/6D4112SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0020893/2026-06-18_complaint-vv_enforcement.pdf",
       "sod": "archive/0020893/2026-06-18_complaint-vv_sod.pdf"
@@ -7071,6 +8828,10 @@
     "survey_type": "COMPLAINT/VV"
   },
   "0020912|2026-07-29|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/7XQ511ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/7XQ511SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/0020912/2026-07-29_complaint_enforcement.pdf",
       "sod": "archive/0020912/2026-07-29_complaint_sod.pdf"
@@ -7083,6 +8844,9 @@
     "survey_type": "COMPLAINT"
   },
   "0021417|2026-02-12|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/H3TY11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0021417/2026-02-12_survey_sod.pdf"
     },
@@ -7097,6 +8861,9 @@
     "survey_type": "SURVEY"
   },
   "0021417|2026-08-03|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/5Q8C11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0021417/2026-08-03_complaint_sod.pdf"
     },
@@ -7111,6 +8878,9 @@
     "survey_type": "COMPLAINT"
   },
   "0021437|2026-02-16|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/K89811SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0021437/2026-02-16_survey_sod.pdf"
     },
@@ -7125,6 +8895,9 @@
     "survey_type": "SURVEY"
   },
   "0021437|2026-08-03|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/5FE711SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0021437/2026-08-03_complaint_sod.pdf"
     },
@@ -7139,6 +8912,9 @@
     "survey_type": "COMPLAINT"
   },
   "0021468|2026-08-19|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/MC9411SODS.PDF"
+    },
     "documents": {
       "sod": "archive/0021468/2026-08-19_complaint_sod.pdf"
     },
@@ -7153,6 +8929,9 @@
     "survey_type": "COMPLAINT"
   },
   "410032|2024-07-09|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/JLKP11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/410032/2024-07-09_survey_sod.pdf"
     },
@@ -7167,6 +8946,10 @@
     "survey_type": "SURVEY"
   },
   "410107|2024-02-27|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/Y5HZ11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/Y5HZ11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/410107/2024-02-27_survey-complaint_enforcement.pdf",
       "sod": "archive/410107/2024-02-27_survey-complaint_sod.pdf"
@@ -7183,6 +8966,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "410107|2025-03-04|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/Y5HZ12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/Y5HZ12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/410107/2025-03-04_complaint-vv_enforcement.pdf",
       "sod": "archive/410107/2025-03-04_complaint-vv_sod.pdf"
@@ -7199,6 +8986,10 @@
     "survey_type": "COMPLAINT/VV"
   },
   "410107|2025-08-27|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/NKEG11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/NKEG11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/410107/2025-08-27_complaint_enforcement.pdf",
       "sod": "archive/410107/2025-08-27_complaint_sod.pdf"
@@ -7215,6 +9006,10 @@
     "survey_type": "COMPLAINT"
   },
   "410107|2025-10-08|verification-visit": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/Y5HZ13ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/Y5HZ13SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/410107/2025-10-08_verification-visit_enforcement.pdf",
       "sod": "archive/410107/2025-10-08_verification-visit_sod.pdf"
@@ -7231,6 +9026,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "410107|2026-06-01|complaint-self-report-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/Y5HZ14ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/Y5HZ14SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/410107/2026-06-01_complaint-self-report-vv_enforcement.pdf",
       "sod": "archive/410107/2026-06-01_complaint-self-report-vv_sod.pdf"
@@ -7247,6 +9046,9 @@
     "survey_type": "COMPLAINT/SELF REPORT/VV"
   },
   "410107|2026-06-01|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/NKEG12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/410107/2026-06-01_verification-visit_sod.pdf"
     },
@@ -7261,6 +9063,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "410133|2024-04-05|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/CBLW11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/CBLW11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/410133/2024-04-05_survey-complaint_enforcement.pdf",
       "sod": "archive/410133/2024-04-05_survey-complaint_sod.pdf"
@@ -7277,6 +9083,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "410133|2024-12-23|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/CBLW12ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/CBLW12SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/410133/2024-12-23_complaint-vv_enforcement.pdf",
       "sod": "archive/410133/2024-12-23_complaint-vv_sod.pdf"
@@ -7293,6 +9103,10 @@
     "survey_type": "COMPLAINT/VV"
   },
   "410133|2025-06-04|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/CBLW13ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/CBLW13SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/410133/2025-06-04_complaint-vv_enforcement.pdf",
       "sod": "archive/410133/2025-06-04_complaint-vv_sod.pdf"
@@ -7309,6 +9123,10 @@
     "survey_type": "COMPLAINT/VV"
   },
   "410133|2025-10-09|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/CBLW14ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/CBLW14SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/410133/2025-10-09_complaint-vv_enforcement.pdf",
       "sod": "archive/410133/2025-10-09_complaint-vv_sod.pdf"
@@ -7325,6 +9143,10 @@
     "survey_type": "COMPLAINT/VV"
   },
   "410133|2026-05-20|complaint-vv": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/CBLW15ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/CBLW15SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/410133/2026-05-20_complaint-vv_enforcement.pdf",
       "sod": "archive/410133/2026-05-20_complaint-vv_sod.pdf"
@@ -7341,6 +9163,9 @@
     "survey_type": "COMPLAINT/VV"
   },
   "410429|2025-03-13|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/LRMR11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/410429/2025-03-13_survey_sod.pdf"
     },
@@ -7355,6 +9180,9 @@
     "survey_type": "SURVEY"
   },
   "410429|2025-08-13|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/7DHR11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/410429/2025-08-13_complaint_sod.pdf"
     },
@@ -7369,6 +9197,9 @@
     "survey_type": "COMPLAINT"
   },
   "590164|2025-03-17|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/0D5G11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/590164/2025-03-17_survey_sod.pdf"
     },
@@ -7383,6 +9214,10 @@
     "survey_type": "SURVEY"
   },
   "610004|2024-02-06|survey": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/UWG811ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/UWG811SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/610004/2024-02-06_survey_enforcement.pdf",
       "sod": "archive/610004/2024-02-06_survey_sod.pdf"
@@ -7399,6 +9234,9 @@
     "survey_type": "SURVEY"
   },
   "610071|2024-09-12|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/PGPV11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/610071/2024-09-12_survey_sod.pdf"
     },
@@ -7413,6 +9251,10 @@
     "survey_type": "SURVEY"
   },
   "610201|2024-05-28|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/CDH511ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/CDH511SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/610201/2024-05-28_survey-complaint_enforcement.pdf",
       "sod": "archive/610201/2024-05-28_survey-complaint_sod.pdf"
@@ -7425,6 +9267,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "610269|2025-05-01|survey": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/4MGN11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/4MGN11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/610269/2025-05-01_survey_enforcement.pdf",
       "sod": "archive/610269/2025-05-01_survey_sod.pdf"
@@ -7441,6 +9287,9 @@
     "survey_type": "SURVEY"
   },
   "610269|2025-08-27|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/4MGN12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/610269/2025-08-27_verification-visit_sod.pdf"
     },
@@ -7455,6 +9304,10 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "611026|2023-11-02|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/D3BZ11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/D3BZ11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/611026/2023-11-02_survey-complaint_enforcement.pdf",
       "sod": "archive/611026/2023-11-02_survey-complaint_sod.pdf"
@@ -7467,6 +9320,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "611026|2024-02-27|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/D3BZ12SODS.PDF"
+    },
     "documents": {
       "sod": "archive/611026/2024-02-27_verification-visit_sod.pdf"
     },
@@ -7478,6 +9334,9 @@
     "survey_type": "VERIFICATION VISIT"
   },
   "611026|2025-05-07|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/ECSN11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/611026/2025-05-07_survey-complaint_sod.pdf"
     },
@@ -7489,6 +9348,10 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "611047|2025-05-22|survey": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/5EZF11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/5EZF11SODS.PDF"
+    },
     "documents": {
       "enforcement": "archive/611047/2025-05-22_survey_enforcement.pdf",
       "sod": "archive/611047/2025-05-22_survey_sod.pdf"
@@ -7505,6 +9368,9 @@
     "survey_type": "SURVEY"
   },
   "611048|2025-02-11|survey-complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/G7VK11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/611048/2025-02-11_survey-complaint_sod.pdf"
     },
@@ -7519,6 +9385,9 @@
     "survey_type": "SURVEY/COMPLAINT"
   },
   "690022|2025-09-08|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/YIUG11SODS.PDF"
+    },
     "documents": {
       "sod": "archive/690022/2025-09-08_survey_sod.pdf"
     },

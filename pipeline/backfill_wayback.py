@@ -217,6 +217,12 @@ def parse_detail_snapshot(html, facilities):
     return license_no, rows
 
 
+def state_url(href):
+    """The state's own address for a document, however a snapshot spelled
+    it (http, :80, relative) -- what surveys.json records in document_urls."""
+    return "https://www.forwardhealth.wi.gov/kw/dqa/" + href.rsplit("/", 1)[-1]
+
+
 def save_doc(license_no, exit_date, survey_type, kind, content):
     name = f"{exit_date}_{slug(survey_type)}_{kind}.pdf"
     path = ARCHIVE_DIR / license_no / name
@@ -311,6 +317,7 @@ def main():
                     rel, created_file = save_doc(
                         license_no, r["exit_date"], row["survey_type"], kind, content)
                     row["documents"][kind] = rel
+                    row.setdefault("document_urls", {})[kind] = state_url(url)
                     new_docs += created_file
                     attached += 1
 
@@ -350,6 +357,7 @@ def main():
                 ident["license"], ident["exit_date"], row["survey_type"],
                 kind, content)
             row["documents"][kind] = rel
+            row.setdefault("document_urls", {})[kind] = state_url(snap["original"])
             new_docs += created_file
             attached += 1
             print(f"  saved {rel}")

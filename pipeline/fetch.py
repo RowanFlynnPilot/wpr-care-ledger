@@ -74,6 +74,7 @@ ARCHIVE_DIR = ROOT / "archive"
 
 REQUEST_DELAY = 0.5  # seconds between requests; be a polite citizen
 TIMEOUT = 30
+USER_AGENT = "Mozilla/5.0 (compatible; WausauPilotCareLedger/1.0; +https://wausaupilotandreview.com)"
 
 # DQA shows three years of survey history. A record may only be treated as
 # aged off if its exit date is at least this old; anything newer vanishing
@@ -365,10 +366,7 @@ def main():
         # A fresh session per county: the export and the grid's viewstate
         # belong to the session's latest search.
         session = requests.Session()
-        session.headers["User-Agent"] = (
-            "Mozilla/5.0 (compatible; WausauPilotCareLedger/1.0; "
-            "+https://wausaupilotandreview.com)"
-        )
+        session.headers["User-Agent"] = USER_AGENT
         print(f"{county.title()} County: searching (AFH + CBRF + RCAC, incl. closed)")
         results_soup = run_search(session, code)
         roster = download_roster(session)
@@ -450,7 +448,12 @@ def fetch_county(session, roster, keys, facilities, surveys, today):
                 "expired_from_state": False,
             })
             archived = entry.get("documents", {})
+            urls = entry.setdefault("document_urls", {})
             for kind, url in s["docs"].items():
+                # Where the state published it: provenance, and the address
+                # the Internet Archive copies from (seed_wayback.py). First
+                # seen wins, like the file itself.
+                urls.setdefault(kind, url)
                 if kind not in archived:
                     archived[kind] = archive_pdf(
                         session, url, license_no, s["exit_date"], s["survey_type"], kind

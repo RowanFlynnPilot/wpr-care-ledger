@@ -12,8 +12,9 @@ three years of survey history; this repo never forgets.
 - Run the fetcher, then the document miner:
   `python pipeline/fetch.py` · `python pipeline/enrich.py`
 - Run the widget: `cd widget; npm install; npm run dev`
-- Data: `data/facilities.json`, `data/surveys.json`, and the derived
-  `data/enrichment.json` (fines, sanctions, citations read from the PDFs)
+- Data: `data/facilities.json`, `data/surveys.json`, the derived
+  `data/enrichment.json` (fines, sanctions, citations read from the PDFs),
+  and `data/wayback.json` (the Internet Archive's copies)
 - Document archive: `archive/{license}/`
 
 ## Every Monday
@@ -40,6 +41,27 @@ GitHub emails everyone the issue @mentions.
   "Participating, @mentions and custom": Email).
 - **Test it:** Actions → alert-test → Run workflow posts a `[TEST]` alert.
 - No action is ever emailed twice, even if the fetch reruns.
+
+## Copies at the Internet Archive
+
+After each fetch, the `wayback` workflow has the Internet Archive's Wayback
+Machine capture every new document and every facility page whose contents
+changed, straight from the state's server. That puts a second, timestamped
+copy with an institution that has no stake in the records, so anyone can
+check what the state published without taking WPR's word for it. Every
+run checks each document's copy against the ledger's file byte for byte
+and reports on its summary page (Actions → wayback → latest run).
+
+- **One-time setup:** Save Page Now no longer accepts anonymous captures.
+  Sign in to archive.org with a newsroom account (so the keys don't hang on
+  one person), open <https://archive.org/account/s3.php>, and add the two
+  keys as repository secrets (Settings → Secrets and variables → Actions →
+  Secrets): `IA_ACCESS_KEY` and `IA_SECRET_KEY`.
+- **First run:** Actions → wayback → Run workflow. It copies everything,
+  about 1,100 captures at Save Page Now's limit of 7 a minute: roughly
+  three hours. Later weeks take minutes.
+- **Finding a copy:** `data/wayback.json` maps each archived PDF to its
+  Wayback URL, and each license to the captures of its state page.
 
 ## Embedding on wausaupilotandreview.com
 
