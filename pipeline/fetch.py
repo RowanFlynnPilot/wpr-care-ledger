@@ -399,6 +399,9 @@ def main():
                     archived[kind] = archive_pdf(
                         session, url, license_no, s["exit_date"], s["survey_type"], kind
                     )
+                    # A Notice & Order often posts weeks after its SOD, onto
+                    # a row that is no longer new; date each document too.
+                    entry.setdefault("documents_first_seen", {})[kind] = today
             entry["documents"] = archived
             if sid not in surveys:
                 new_surveys += 1

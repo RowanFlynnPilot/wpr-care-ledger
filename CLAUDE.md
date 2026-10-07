@@ -76,7 +76,10 @@ WI DHS Division of Quality Assurance (DQA) Provider Search:
 `data/surveys.json` — dict keyed by `license|exit_date|survey-type-slug`.
 Fields: `license`, `survey_type`, `exit_date`, `documents` (kind → archive
 path; kinds: `enforcement`, `sod`, `poc`), `first_seen`, `last_seen`,
-`expired_from_state`, and `expired_on` (the run date that flagged it;
+`expired_from_state`, `documents_first_seen` (kind → run date the document
+was archived; a Notice & Order often posts weeks after its SOD, onto a
+row that is no longer new — absent on documents archived before
+2026-10), and `expired_on` (the run date that flagged it;
 absent on the 7 rows that aged off during the 2026-07/10 outage, whose
 exact dates are unknowable — never backfill a guess; removed if a record
 reappears). **Append-only.** A row that vanishes from DQA flips
@@ -102,10 +105,19 @@ permanent document archive.
 the archived PDFs by `pipeline/enrich.py`, keyed by archive path (the same
 path `surveys.json` stores in `documents`, which is the widget's join key).
 Enforcement letters yield `sanctions` (line-anchored ALL-CAPS notice
-headers; the same phrases appear lowercase in boilerplate) and `fine`
-("Total Forfeiture Due"). SODs (state 2567 form) yield `census`,
-`deficiencies`, complaint outcomes, and `citations` (tag + rule code +
-title; repeat violations brace the tag; prefixes N=CBRF, M=AFH, U=RCAC).
+headers; the same phrases appear lowercase in boilerplate; includes
+"Admissions ban" and "Accruing forfeiture" — an accruing letter's `fine`
+is the amount so far, not final) and `fine` ("Total Forfeiture Due";
+audited 2026-10 against all 36 forfeiture letters: every value matches).
+SODs (state 2567 form) yield `census`, `deficiencies`, complaint outcomes
+("Two of 8 complaints" = 2; "Both" = 2), and `citations` (tag + full rule
+code including suffixes like `2.c` or `-(3)` + title; titles wrap in
+lowercase, ALL CAPS, and Title Case — see `continues_title()`; repeat
+violations brace the tag; the newer layout's first-page index repeats
+every tag as `N0283`, so tags normalize to 3+ digits and the fullest
+title wins; prefixes N=CBRF, M=AFH, U=RCAC, Y/Z=ch. 50). Every ledger
+document path must exist on disk in POSIX form and be mined, or
+enrich.py fails the run.
 Kind is detected from document *structure* — the state has served
 letters and SODs in swapped grid columns (see license 0019331). Docs are
 immutable so each parses once; `--rebuild` reparses all after parser
@@ -228,9 +240,14 @@ then bundles them into `dist/`, so **the Pages artifact is just
 
 ## Deploy
 
-- `fetch.yml` — Mondays 09:00 UTC, commits `data/` + `archive/` updates.
-  On failure it opens a `fetch-failure` issue (one at a time) so a dead
-  scraper is loud — expected to fire at the Provider Finder migration.
+- `fetch.yml` — Mondays 09:00 UTC: tests → fetch → **commit the ledger
+  and archive** → enrich → digest → commit `enrichment.json`. The archive
+  commits before any derived step can fail, so a parser problem never
+  costs a week of records. One run at a time (concurrency group), 30-min
+  timeout, `pull --rebase` before each push. On failure it opens a
+  `fetch-failure` issue (one at a time) so a dead scraper is loud —
+  expected to fire at the Provider Finder migration. Parse warnings go to
+  the run's summary page beside the tip sheet.
 - `deploy.yml` — builds the widget and publishes `widget/dist` to GitHub
   Pages. Triggers: pushes to main, successful completion of the fetch
   workflow (`workflow_run`), or manual dispatch. The `workflow_run` chain

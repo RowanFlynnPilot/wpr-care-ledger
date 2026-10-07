@@ -94,7 +94,7 @@
       {
         "code": "83.35(3)(a)",
         "tag": "N 386",
-        "title": "Comprehensive Individualized"
+        "title": "Comprehensive Individualized Service Plan"
       }
     ],
     "complaints_substantiated": 0,
@@ -122,6 +122,8 @@
     "fine": 500,
     "kind": "enforcement",
     "sanctions": [
+      "Admissions ban",
+      "Accruing forfeiture",
       "Forfeiture",
       "Order to comply"
     ],
@@ -169,6 +171,7 @@
     "fine": null,
     "kind": "enforcement",
     "sanctions": [
+      "Admissions ban",
       "Special orders",
       "Order to comply",
       "Revisit fee"
@@ -322,7 +325,7 @@
     "citations": [],
     "complaints_substantiated": 0,
     "complaints_unsubstantiated": 0,
-    "deficiencies": null,
+    "deficiencies": 0,
     "kind": "sod"
   },
   "archive/0012370/2026-06-09_survey-complaint_sod.pdf": {
@@ -370,9 +373,9 @@
     "census": 10,
     "citations": [
       {
-        "code": "83.20(2)(a)",
+        "code": "83.20(2)(a)-(d)",
         "tag": "N 239",
-        "title": "-(d) Department-approved training courses."
+        "title": "Department-approved training courses."
       },
       {
         "code": "83.36(1)(b)",
@@ -454,7 +457,12 @@
     "kind": "sod"
   },
   "archive/0013419/2026-06-04_verification-visit_sod.pdf": {
-    "kind": "unreadable"
+    "census": 14,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
   },
   "archive/0013422/2023-12-11_survey-complaint-vv_enforcement.pdf": {
     "fine": null,
@@ -481,7 +489,7 @@
       {
         "code": "83.48(1)(b)",
         "tag": "N 535",
-        "title": "Smoke and heat detectors per NFPA"
+        "title": "Smoke and heat detectors per NFPA 72."
       }
     ],
     "complaints_substantiated": 1,
@@ -494,7 +502,7 @@
     "citations": [],
     "complaints_substantiated": 0,
     "complaints_unsubstantiated": 1,
-    "deficiencies": null,
+    "deficiencies": 0,
     "kind": "sod"
   },
   "archive/0013422/2025-12-02_survey-complaint_enforcement.pdf": {
@@ -564,7 +572,7 @@
         "title": "Bath and toilet areas: water temperature"
       }
     ],
-    "complaints_substantiated": 2,
+    "complaints_substantiated": 1,
     "complaints_unsubstantiated": 0,
     "deficiencies": 5,
     "kind": "sod"
@@ -599,7 +607,7 @@
     ],
     "complaints_substantiated": 0,
     "complaints_unsubstantiated": 0,
-    "deficiencies": null,
+    "deficiencies": 1,
     "kind": "sod"
   },
   "archive/0013424/2024-11-26_verification-visit_enforcement.pdf": {
@@ -762,9 +770,9 @@
         "title": "Qualified staff in charge, on duty and awake."
       }
     ],
-    "complaints_substantiated": 5,
+    "complaints_substantiated": 1,
     "complaints_unsubstantiated": 0,
-    "deficiencies": null,
+    "deficiencies": 2,
     "kind": "sod"
   },
   "archive/0015223/2024-04-30_verification-visit_sod.pdf": {
@@ -890,7 +898,7 @@
       {
         "code": "83.35(3)(a)",
         "tag": "N 386",
-        "title": "Comprehensive Individualized"
+        "title": "Comprehensive Individualized Service Plan"
       },
       {
         "code": "83.35(3)(c)",
@@ -900,7 +908,7 @@
       {
         "code": "83.44(2)(a)",
         "tag": "N 489",
-        "title": "Rooms clean and free from odors.  N 489"
+        "title": "Rooms clean and free from odors."
       }
     ],
     "complaints_substantiated": 3,
@@ -1056,9 +1064,9 @@
         "title": "Service plans updated annually or on changes"
       },
       {
-        "code": "50.09(1)(a)",
+        "code": "50.09(1)(a)1.",
         "tag": "Y 3229",
-        "title": "1. Mail"
+        "title": "Mail"
       },
       {
         "code": "50.09(1)(i)",
@@ -1066,7 +1074,7 @@
         "title": "Personal Possessions"
       }
     ],
-    "complaints_substantiated": 2,
+    "complaints_substantiated": 1,
     "complaints_unsubstantiated": 0,
     "deficiencies": 4,
     "kind": "sod"
@@ -1096,7 +1104,7 @@
         "title": "Tenant rights"
       }
     ],
-    "complaints_substantiated": 3,
+    "complaints_substantiated": 1,
     "complaints_unsubstantiated": 0,
     "deficiencies": 1,
     "kind": "sod"
@@ -1115,14 +1123,14 @@
     "census": null,
     "citations": [
       {
-        "code": "89.23(2)(a)",
+        "code": "89.23(2)(a)2.c",
         "tag": "U 118",
-        "title": "2.c SERVICES"
+        "title": "Services"
       },
       {
-        "code": "89.23(4)(a)",
+        "code": "89.23(4)(a)2.",
         "tag": "U 129",
-        "title": "2. services"
+        "title": "Services"
       },
       {
         "code": "89.34(16)",
@@ -1130,7 +1138,7 @@
         "title": "Tenant rights"
       }
     ],
-    "complaints_substantiated": 8,
+    "complaints_substantiated": 2,
     "complaints_unsubstantiated": 0,
     "deficiencies": 3,
     "kind": "sod"
@@ -1173,7 +1181,7 @@
     "citations": [],
     "complaints_substantiated": 0,
     "complaints_unsubstantiated": 0,
-    "deficiencies": null,
+    "deficiencies": 0,
     "kind": "sod"
   },
   "archive/0016344/2024-12-04_complaint_sod.pdf": {
@@ -1181,7 +1189,7 @@
     "citations": [],
     "complaints_substantiated": 0,
     "complaints_unsubstantiated": 1,
-    "deficiencies": null,
+    "deficiencies": 0,
     "kind": "sod"
   },
   "archive/0016456/2024-06-19_survey_sod.pdf": {
@@ -1266,9 +1274,9 @@
         "title": "Employees screened for communicable disease."
       },
       {
-        "code": "83.20(2)(a)",
+        "code": "83.20(2)(a)-(d)",
         "tag": "N 239",
-        "title": "-(d) Department-approved training courses."
+        "title": "Department-approved training courses."
       },
       {
         "code": "83.35(3)(d)",
@@ -1359,7 +1367,7 @@
     "citations": [],
     "complaints_substantiated": 0,
     "complaints_unsubstantiated": 1,
-    "deficiencies": null,
+    "deficiencies": 0,
     "kind": "sod"
   },
   "archive/0016894/2024-01-04_survey-complaint_enforcement.pdf": {
@@ -1377,7 +1385,7 @@
       {
         "code": "88.04(2)(h)",
         "tag": "M 235",
-        "title": "Comply with osha"
+        "title": "Comply with OSHA"
       },
       {
         "code": "88.04(5)(b)",
@@ -1385,24 +1393,24 @@
         "title": "Training-8 hours annually"
       },
       {
-        "code": "88.05(4)(d)",
+        "code": "88.05(4)(d)2.b",
         "tag": "M 346",
-        "title": "2.b FIRE EVACUATION ANNUAL"
+        "title": "Fire evacuation annual evaluation"
       },
       {
-        "code": "88.06(2)(c)",
+        "code": "88.06(2)(c)8",
         "tag": "M 402",
-        "title": "8 resident rights and"
+        "title": "Resident rights and grievance"
       },
       {
-        "code": "88.07(3)(e)",
+        "code": "88.07(3)(e)1",
         "tag": "M 466",
-        "title": "1 medication- record keeping"
+        "title": "Medication- record keeping"
       },
       {
         "code": "50.065(6)(am)",
         "tag": "Z 019",
-        "title": "Four Year Caregiver Background"
+        "title": "Four Year Caregiver Background Requirement"
       }
     ],
     "complaints_substantiated": 1,
@@ -1415,7 +1423,7 @@
     "citations": [],
     "complaints_substantiated": 0,
     "complaints_unsubstantiated": 0,
-    "deficiencies": null,
+    "deficiencies": 0,
     "kind": "sod"
   },
   "archive/0016894/2025-08-25_complaint_sod.pdf": {
@@ -1455,7 +1463,7 @@
     "citations": [],
     "complaints_substantiated": 0,
     "complaints_unsubstantiated": 0,
-    "deficiencies": null,
+    "deficiencies": 0,
     "kind": "sod"
   },
   "archive/0018266/2024-01-22_verification-visit_sod.pdf": {
@@ -1479,6 +1487,7 @@
     "kind": "enforcement",
     "sanctions": [
       "Forfeiture",
+      "Plan of correction ordered",
       "Order to comply"
     ],
     "sod_ref": "31KJ11"
@@ -1529,7 +1538,7 @@
         "title": "Health monitoring."
       }
     ],
-    "complaints_substantiated": 3,
+    "complaints_substantiated": 2,
     "complaints_unsubstantiated": 0,
     "deficiencies": 2,
     "kind": "sod"
@@ -1589,14 +1598,14 @@
     "census": 24,
     "citations": [
       {
-        "code": "83.21(1)",
+        "code": "83.21(1)-(3)",
         "tag": "N 243",
-        "title": "-(3) All employee training."
+        "title": "All employee training."
       },
       {
-        "code": "83.22(1)",
+        "code": "83.22(1)-(4)",
         "tag": "N 247",
-        "title": "-(4) Task specific training."
+        "title": "Task specific training."
       },
       {
         "code": "83.35(2)",
@@ -1670,14 +1679,14 @@
         "title": "Notify within 7 days of administrator change"
       },
       {
-        "code": "83.21(1)",
+        "code": "83.21(1)-(3)",
         "tag": "N 243",
-        "title": "-(3) All employee training."
+        "title": "All employee training."
       },
       {
-        "code": "83.22(1)",
+        "code": "83.22(1)-(4)",
         "tag": "N 247",
-        "title": "-(4) Task specific training."
+        "title": "Task specific training."
       },
       {
         "code": "83.39(3)",
@@ -1687,10 +1696,10 @@
       {
         "code": "83.44(2)(a)",
         "tag": "N 489",
-        "title": "Rooms clean and free from odors.  N 489"
+        "title": "Rooms clean and free from odors."
       }
     ],
-    "complaints_substantiated": 3,
+    "complaints_substantiated": 1,
     "complaints_unsubstantiated": 0,
     "deficiencies": 5,
     "kind": "sod"
@@ -1714,7 +1723,7 @@
         "title": "Supervision."
       }
     ],
-    "complaints_substantiated": 2,
+    "complaints_substantiated": 1,
     "complaints_unsubstantiated": 0,
     "deficiencies": 1,
     "kind": "sod"
@@ -1848,36 +1857,6 @@
       },
       {
         "code": "83.26(1)",
-        "tag": "N 0283",
-        "title": "Documentation Of Required"
-      },
-      {
-        "code": "83.35(1)(b)",
-        "tag": "N 0382",
-        "title": "Sources Used For"
-      },
-      {
-        "code": "83.35(2)",
-        "tag": "N 0385",
-        "title": "Temporary Service Plan"
-      },
-      {
-        "code": "83.35(3)(d)",
-        "tag": "N 0389",
-        "title": "Service Plans Updated"
-      },
-      {
-        "code": "83.37(2)(d)",
-        "tag": "N 0415",
-        "title": "Documentation Of Medication"
-      },
-      {
-        "code": "50.09(1)(L)",
-        "tag": "Y 3244",
-        "title": "Care"
-      },
-      {
-        "code": "83.26(1)",
         "tag": "N 283",
         "title": "Documentation of required employee training"
       },
@@ -1900,9 +1879,14 @@
         "code": "83.37(2)(d)",
         "tag": "N 415",
         "title": "Documentation of medication administration."
+      },
+      {
+        "code": "50.09(1)(L)",
+        "tag": "Y 3244",
+        "title": "Care"
       }
     ],
-    "complaints_substantiated": 2,
+    "complaints_substantiated": 1,
     "complaints_unsubstantiated": 0,
     "deficiencies": 7,
     "kind": "sod"
@@ -1966,10 +1950,10 @@
       {
         "code": "83.32(3)(k)",
         "tag": "N 355",
-        "title": "Rights of Residents:"
+        "title": "Rights of Residents: Self-determination"
       }
     ],
-    "complaints_substantiated": 2,
+    "complaints_substantiated": 1,
     "complaints_unsubstantiated": 0,
     "deficiencies": 1,
     "kind": "sod"
@@ -1978,6 +1962,7 @@
     "fine": 500,
     "kind": "enforcement",
     "sanctions": [
+      "Admissions ban",
       "Forfeiture",
       "Order to comply"
     ],
@@ -2022,7 +2007,7 @@
       {
         "code": "83.35(3)(a)",
         "tag": "N 386",
-        "title": "Comprehensive Individualized"
+        "title": "Comprehensive Individualized Service Plan"
       },
       {
         "code": "83.35(3)(c)",
@@ -2094,7 +2079,7 @@
         "title": "Adequate staff to meet resident needs."
       }
     ],
-    "complaints_substantiated": 2,
+    "complaints_substantiated": 1,
     "complaints_unsubstantiated": 0,
     "deficiencies": 1,
     "kind": "sod"
@@ -2185,7 +2170,7 @@
         "title": "Combustibles."
       }
     ],
-    "complaints_substantiated": 2,
+    "complaints_substantiated": 1,
     "complaints_unsubstantiated": 0,
     "deficiencies": 3,
     "kind": "sod"
@@ -2232,14 +2217,14 @@
     "census": 9,
     "citations": [
       {
-        "code": "83.21(1)",
+        "code": "83.21(1)-(3)",
         "tag": "N 243",
-        "title": "-(3) All employee training."
+        "title": "All employee training."
       },
       {
-        "code": "83.22(1)",
+        "code": "83.22(1)-(4)",
         "tag": "N 247",
-        "title": "-(4) Task specific training."
+        "title": "Task specific training."
       },
       {
         "code": "83.37(1)(h)",
@@ -2264,7 +2249,7 @@
       {
         "code": "83.47(2)(d)",
         "tag": "N 525",
-        "title": "Fire drills.  N 525"
+        "title": "Fire drills."
       },
       {
         "code": "83.47(2)(e)",
@@ -2282,7 +2267,7 @@
         "title": "Smoke detection system."
       }
     ],
-    "complaints_substantiated": 0,
+    "complaints_substantiated": 2,
     "complaints_unsubstantiated": 0,
     "deficiencies": 10,
     "kind": "sod"
@@ -2327,6 +2312,7 @@
     "fine": 950,
     "kind": "enforcement",
     "sanctions": [
+      "Accruing forfeiture",
       "Forfeiture",
       "Order to comply"
     ],
@@ -2338,7 +2324,7 @@
       {
         "code": "83.35(3)(a)",
         "tag": "N 386",
-        "title": "Comprehensive Individualized"
+        "title": "Comprehensive Individualized Service Plan"
       },
       {
         "code": "83.36(1)(a)",
@@ -2447,7 +2433,7 @@
         "title": "Infection control program policies/training"
       }
     ],
-    "complaints_substantiated": 0,
+    "complaints_substantiated": 2,
     "complaints_unsubstantiated": 0,
     "deficiencies": 8,
     "kind": "sod"
@@ -2536,12 +2522,12 @@
       {
         "code": "83.48(1)(b)",
         "tag": "N 535",
-        "title": "Smoke and heat detectors per NFPA"
+        "title": "Smoke and heat detectors per NFPA 72."
       }
     ],
     "complaints_substantiated": 2,
     "complaints_unsubstantiated": 0,
-    "deficiencies": null,
+    "deficiencies": 13,
     "kind": "sod"
   },
   "archive/0019331/2023-12-21_survey_sod.pdf": {
@@ -2568,7 +2554,7 @@
       {
         "code": "83.38(1)(h)",
         "tag": "N 432",
-        "title": "Medication administration.  N 432"
+        "title": "Medication administration."
       }
     ],
     "complaints_substantiated": 0,
@@ -2599,7 +2585,7 @@
     "citations": [],
     "complaints_substantiated": 0,
     "complaints_unsubstantiated": 1,
-    "deficiencies": null,
+    "deficiencies": 0,
     "kind": "sod"
   },
   "archive/0019733/2025-08-11_self-report_enforcement.pdf": {
@@ -2638,7 +2624,7 @@
     "citations": [],
     "complaints_substantiated": 0,
     "complaints_unsubstantiated": 1,
-    "deficiencies": null,
+    "deficiencies": 0,
     "kind": "sod"
   },
   "archive/0019940/2024-09-12_survey_sod.pdf": {
@@ -2676,7 +2662,7 @@
     "citations": [],
     "complaints_substantiated": 0,
     "complaints_unsubstantiated": 1,
-    "deficiencies": null,
+    "deficiencies": 0,
     "kind": "sod"
   },
   "archive/0020363/2025-08-07_complaint_sod.pdf": {
@@ -2784,7 +2770,7 @@
         "title": "Rights of Residents: Receive medication"
       }
     ],
-    "complaints_substantiated": 3,
+    "complaints_substantiated": 1,
     "complaints_unsubstantiated": 0,
     "deficiencies": 2,
     "kind": "sod"
@@ -2794,7 +2780,7 @@
     "citations": [],
     "complaints_substantiated": 0,
     "complaints_unsubstantiated": 1,
-    "deficiencies": null,
+    "deficiencies": 0,
     "kind": "sod"
   },
   "archive/0020445/2025-06-19_complaint-vv_enforcement.pdf": {
@@ -2876,7 +2862,7 @@
         "title": "PRN psychotropic medication."
       }
     ],
-    "complaints_substantiated": 2,
+    "complaints_substantiated": 1,
     "complaints_unsubstantiated": 0,
     "deficiencies": 4,
     "kind": "sod"
@@ -2953,7 +2939,7 @@
     "citations": [],
     "complaints_substantiated": 0,
     "complaints_unsubstantiated": 1,
-    "deficiencies": null,
+    "deficiencies": 0,
     "kind": "sod"
   }
 }

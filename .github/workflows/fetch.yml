@@ -9,9 +9,16 @@ permissions:
   contents: write
   issues: write
 
+# One fetch at a time; an overlapping manual run waits rather than racing
+# the push.
+concurrency:
+  group: fetch
+  cancel-in-progress: false
+
 jobs:
   fetch:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
@@ -20,14 +27,23 @@ jobs:
       - run: python -m pip install -r pipeline/requirements.txt
       - run: python -m unittest discover -s pipeline/tests   # guards first, data second
       - run: python pipeline/fetch.py
-      - run: python pipeline/enrich.py
-      - run: python pipeline/digest.py   # weekly tip sheet on the run's summary page
-      - name: Commit ledger updates
+      # The archive is the product: commit it before any derived step can
+      # fail, so a parser problem never costs a week of records.
+      - name: Commit ledger and archive
         run: |
           git config user.name "care-ledger-bot"
           git config user.email "actions@github.com"
-          git add data archive
+          git add data/facilities.json data/surveys.json archive
           git diff --cached --quiet || git commit -m "Weekly ledger update $(date -u +%F)"
+          git pull --rebase
+          git push
+      - run: python pipeline/enrich.py
+      - run: python pipeline/digest.py   # weekly tip sheet on the run's summary page
+      - name: Commit mined document facts
+        run: |
+          git add data/enrichment.json
+          git diff --cached --quiet || git commit -m "Mine new documents $(date -u +%F)"
+          git pull --rebase
           git push
       # Fail loud: a red run nobody opens isn't loud. One open issue, not one
       # per week. Expected to fire when the state launches the Wisconsin
@@ -44,7 +60,7 @@ jobs:
               --label fetch-failure \
               --body "The scheduled DQA fetch failed: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
-          Nothing was committed; the live widget keeps last week's data and tells readers when it goes stale. The run log's final RuntimeError names the cause: a portal error page, a detail page failing its identity check, a changed export or grid, or survey records inside the state's three-year window vanishing (see CLAUDE.md, data contract).
+          If the failure is in fetch.py, nothing was committed; if it is in enrich.py, the week's records and documents were committed first and only the mined facts are behind. Either way the live widget keeps the last deployed data and tells readers when it goes stale. The run log's final RuntimeError names the cause: a portal error page, a detail page failing its identity check, a changed export, grid or survey table, survey records inside the state's three-year window vanishing, or ledger documents that don't join to the archive (see CLAUDE.md, data contract).
 
           If the state's DQA Provider Search has been replaced by the Wisconsin Provider Finder, this is the migration event described in CLAUDE.md — rewrite the fetcher against the new tool; the ledger and archive carry forward untouched."
           fi

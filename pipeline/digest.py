@@ -53,6 +53,13 @@ def main():
         (s for s in surveys.values() if s["first_seen"] == run and run != first_pull),
         key=lambda s: s["exit_date"],
     )
+    # Documents that arrived this run on rows first seen earlier — usually an
+    # enforcement letter catching up with its statement of deficiency.
+    late_docs = sorted(
+        ((s, kind) for s in surveys.values() if s["first_seen"] != run
+         for kind, seen in s.get("documents_first_seen", {}).items() if seen == run),
+        key=lambda sk: sk[0]["exit_date"],
+    )
     # expired_on is stamped by fetch.py when it flags a record; rows flagged
     # before that field existed have none and are never credited to a run.
     aged_off = sorted(
@@ -78,6 +85,13 @@ def main():
     if other:
         lines += ["", "### Other new surveys", ""]
         lines += [f"- {name(s)} — {s['exit_date']}, {s['survey_type']}" for s in other]
+    if late_docs:
+        labels = {"enforcement": "**enforcement letter**", "sod": "statement of deficiency",
+                  "poc": "plan of correction"}
+        lines += ["", "### New documents on earlier surveys", ""]
+        lines += [f"- {name(s)} — {s['exit_date']} {s['survey_type']}: {labels[kind]}"
+                  + (f" (${fine(s):,} forfeiture)" if kind == "enforcement" and fine(s) else "")
+                  for s, kind in late_docs]
     if aged_off:
         lines += ["", "### No longer on the state site (now held only here)", ""]
         lines += [

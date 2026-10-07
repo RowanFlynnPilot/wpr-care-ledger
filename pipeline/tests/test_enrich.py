@@ -85,6 +85,97 @@ This Rule  is not met as evidenced by:
 """
 
 
+# archive/0016344/2023-12-14_complaint-vv_sod.pdf and
+# archive/0016894/2024-01-04_survey-complaint_sod.pdf: code suffixes, ALL-CAPS
+# titles that wrap, and an ALL-CAPS rule subheading that must NOT be joined.
+CAPS_SOD = """\
+STATEMENT OF DEFICIENCIES
+Two of 8 complaints were substantiated.
+Three deficiencies were identified.
+U 118 89.23(2)(a)2.c SERVICES
+SUFFICIENT SERVICES.
+Minimum required services.
+M 235 88.04(2)(h) COMPLY WITH OSHA
+The licensee and all service providers
+M 346 88.05(4)(d)2.b FIRE EVACUATION ANNUAL
+EVALUATION
+Each resident shall be evaluated
+Z 019 50.065(6)(am) Four Year Caregiver Background
+Requirement
+Every 4 years an entity shall require its caregivers
+"""
+
+# archive/0015628/2025-12-10 and archive/0018302/2026-08-25: Title Case wrap,
+# the next column's tag glued to a title, and the newer layout's first-page
+# index repeating each tag zero-padded and truncated.
+LAYOUT_SOD = """\
+STATEMENT OF DEFICIENCIES
+Both complaints were substantiated.
+One repeat deficiency was identifed.
+N0283 83.26(1) Documentation Of Required
+Employee Training
+N0385 83.35(2) Temporary Service Plan
+N 386 83.35(3)(a) Comprehensive Individualized
+Service Plan
+Comprehensive individual service plan.  Scope.
+N 489 83.44(2)(a) Rooms clean and free from odors.  N 489
+If continuation sheet  13 of 156899STATE FORM V2PA12
+N 283 83.26(1) Documentation of required employee
+training
+"""
+
+# archive/0009226/2026-02-17 and archive/0010689/2023-10-19 headers,
+# including the state's own "REQUIRMENTS" typo.
+SANCTIONS_LETTER = """\
+NOTICE and ORDER
+NOTICE OF VIOLATION
+ORDER TO COMPLY WITH REQUIRMENTS
+ORDER NOT TO ADMIT NEW OR ADDITIONAL RESIDENTS - EXTENDED
+NOTICE OF ACCRUING FORFEITURE
+NOTICE OF IMPOSED FORFEITURE
+Total Forfeiture Due:  $500
+"""
+
+
+class CitationLayouts(unittest.TestCase):
+    def citations(self, text):
+        return {c["tag"]: (c["code"], c["title"]) for c in enrich.parse_sod(text)[0]["citations"]}
+
+    def test_code_suffixes_and_caps_wrapping(self):
+        c = self.citations(CAPS_SOD)
+        self.assertEqual(c["U 118"], ("89.23(2)(a)2.c", "Services"))  # subheading not joined
+        self.assertEqual(c["M 235"], ("88.04(2)(h)", "Comply with OSHA"))
+        self.assertEqual(c["M 346"], ("88.05(4)(d)2.b", "Fire evacuation annual evaluation"))
+        self.assertEqual(c["Z 019"], ("50.065(6)(am)", "Four Year Caregiver Background Requirement"))
+
+    def test_title_case_wrap_glued_tag_and_index_duplicates(self):
+        c = self.citations(LAYOUT_SOD)
+        self.assertEqual(c["N 386"][1], "Comprehensive Individualized Service Plan")
+        self.assertEqual(c["N 489"][1], "Rooms clean and free from odors.")
+        self.assertEqual(c["N 385"][1], "Temporary Service Plan")
+        self.assertEqual(c["N 283"], ("83.26(1)", "Documentation of required employee training"))
+        self.assertEqual(sorted(c), ["N 283", "N 385", "N 386", "N 489"])  # index merged, not doubled
+
+    def test_complaint_and_deficiency_counts(self):
+        caps, _ = enrich.parse_sod(CAPS_SOD)
+        self.assertEqual(caps["complaints_substantiated"], 2)  # "Two of 8", not 8
+        self.assertEqual(caps["deficiencies"], 3)
+        layout, _ = enrich.parse_sod(LAYOUT_SOD)
+        self.assertEqual(layout["complaints_substantiated"], 2)  # "Both"
+        self.assertEqual(layout["deficiencies"], 1)  # "One repeat … identifed"
+
+
+class Sanctions(unittest.TestCase):
+    def test_admissions_ban_accruing_forfeiture_and_typo(self):
+        entry, warn = enrich.parse_enforcement(SANCTIONS_LETTER)
+        self.assertEqual(
+            entry["sanctions"],
+            ["Admissions ban", "Accruing forfeiture", "Forfeiture", "Order to comply"],
+        )
+        self.assertEqual(entry["fine"], 500)
+        self.assertIsNone(warn)
+
+
 class Forfeitures(unittest.TestCase):
     def test_total_forfeiture_not_fee_range_or_reduced_amount(self):
         entry, warn = enrich.parse_enforcement(FORFEITURE_LETTER)
