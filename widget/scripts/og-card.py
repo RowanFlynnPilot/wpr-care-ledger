@@ -92,9 +92,9 @@ def main():
 
     dek = font(merri_i, 31, 400)
     lines = [
-        "Every state inspection and enforcement record for",
+        "State inspection and enforcement records for",
         "Marathon County’s assisted living facilities —",
-        "kept after the state stops showing it.",
+        "kept after the state stops showing them.",
     ]
     for i, line in enumerate(lines):
         d.text((M, 330 + i * 50), line, font=dek, fill=INK)

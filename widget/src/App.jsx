@@ -50,6 +50,33 @@ const LENS_LABELS = {
    and readers are told so rather than left to assume it is current. */
 const STALE_AFTER_DAYS = 10;
 
+/* Inside the WordPress iframe the page has no scroller of its own, and
+   scrolling into view would yank the reader's article instead. */
+const EMBEDDED = window.parent !== window;
+
+/* Sanctions worth a reader's eye on the timeline (enrich.py's labels). */
+const SANCTION_LABELS = {
+  Revocation: "License revocation",
+  "Summary suspension": "Summary suspension",
+  Nonrenewal: "License nonrenewal",
+  "Admissions ban": "Order not to admit new residents",
+};
+
+const DOC_ORDER = ["enforcement", "sod", "poc"];
+
+/* Fixed locale: a German browser would otherwise print "$39.640". */
+function fmtNum(n) {
+  return n.toLocaleString("en-US");
+}
+
+/* Street-suffix spellings differ between licenses at one address
+   ("226446 HUMMINGBIRD RD" / "226446 Hummingbird Road"). */
+const STREET_ABBR = {
+  ROAD: "RD", DRIVE: "DR", STREET: "ST", AVENUE: "AVE", LANE: "LN", COURT: "CT",
+  BOULEVARD: "BLVD", PLACE: "PL", CIRCLE: "CIR", PARKWAY: "PKWY", HIGHWAY: "HWY",
+  TRAIL: "TRL", TERRACE: "TER", NORTH: "N", SOUTH: "S", EAST: "E", WEST: "W",
+};
+
 function surveyLabel(raw) {
   return raw
     .split("/")
@@ -135,7 +162,12 @@ function safeDecode(s) {
 }
 
 function addressKey(f) {
-  return (f.address + f.city).toUpperCase().replace(/[^A-Z0-9]/g, "");
+  return `${f.address} ${f.city}`
+    .toUpperCase()
+    .split(/[^A-Z0-9]+/)
+    .filter(Boolean)
+    .map((w) => STREET_ABBR[w] || w)
+    .join("");
 }
 
 function quarterOf(iso) {
@@ -162,7 +194,7 @@ function bucketQuarters(surveys) {
     const k = quarterOf(s.exit_date);
     const b = at[`${k.y}-${k.q}`];
     b.total += 1;
-    if ("enforcement" in s.documents) b.enforcement += 1;
+    if (s.hasEnforcement) b.enforcement += 1;
     if (s.expired_from_state) b.held += 1;
   }
   return { quarters, max: Math.max(...quarters.map((b) => b.total)) };
@@ -181,6 +213,13 @@ export default function App() {
   const [open, setOpen] = useState(null);
 
   const searchRef = useRef(null);
+  const briefRef = useRef(null);
+  const openRef = useRef(null);
+  openRef.current = open;
+
+  // Move keyboard focus to a facility's header once React has rendered it.
+  const focusHeader = (license) =>
+    requestAnimationFrame(() => document.getElementById(`head-${license}`)?.focus());
 
   const load = useCallback(() => {
     setError(null);
@@ -208,8 +247,11 @@ export default function App() {
       if (e.key === "/" && !typing) {
         e.preventDefault();
         searchRef.current?.focus();
-      } else if (e.key === "Escape" && !typing) {
+      } else if (e.key === "Escape" && !typing && openRef.current) {
+        // Closing makes the panel inert; focus would be stranded inside it.
+        const lic = openRef.current;
         setOpen(null);
+        focusHeader(lic);
       }
     };
     window.addEventListener("keydown", onKey);
@@ -217,16 +259,19 @@ export default function App() {
   }, []);
 
   // Report content height to the WordPress page embedding this widget so
-  // the iframe can grow and shrink with searches and expanded rows.
+  // the iframe can grow and shrink with searches and expanded rows. Measure
+  // the app root, not documentElement.scrollHeight — that never drops below
+  // the iframe's current height, so the frame could grow but never shrink.
   useEffect(() => {
-    if (window.parent === window) return;
+    if (!EMBEDDED) return;
+    const root = document.getElementById("root");
     const post = () =>
       window.parent.postMessage(
-        { type: "wpr-care-ledger:height", height: document.documentElement.scrollHeight },
+        { type: "wpr-care-ledger:height", height: Math.ceil(root.getBoundingClientRect().height) },
         "*"
       );
     const ro = new ResizeObserver(post);
-    ro.observe(document.body);
+    ro.observe(root);
     post();
     return () => ro.disconnect();
   }, []);
@@ -240,17 +285,25 @@ export default function App() {
     const apply = () => {
       const m = window.location.hash.match(/^#(?:lic=([0-9A-Za-z]+)|q=(.+))$/);
       if (!m) return;
-      if (m[1] && db.byLicense[m[1]]) {
+      setLens("all");
+      setType("ALL");
+      if (m[1]) {
+        // An unknown license (or one missing its leading zeros) becomes a
+        // search, so the reader sees a match or an honest "no match".
         setShowClosed(true);
         setQuery(m[1]);
-        setOpen(m[1]);
-        setTimeout(() => {
-          document
-            .getElementById(`panel-${m[1]}`)
-            ?.scrollIntoView({ block: "nearest", behavior: "auto" });
-        }, 120);
-      } else if (m[2]) {
-        setQuery(safeDecode(m[2]));
+        if (db.byLicense[m[1]]) {
+          setOpen(m[1]);
+          if (!EMBEDDED) {
+            setTimeout(() => {
+              document
+                .getElementById(`panel-${m[1]}`)
+                ?.scrollIntoView({ block: "nearest", behavior: "auto" });
+            }, 120);
+          }
+        }
+      } else {
+        setQuery(safeDecode(m[2].replace(/\+/g, " ")));
       }
     };
     apply();
@@ -352,8 +405,8 @@ export default function App() {
 
   const revealRow = (license) => {
     setOpen(license);
-    // Standalone view: bring the record into view once it renders. Inside
-    // the auto-height iframe there is no inner scroller, so this no-ops.
+    focusHeader(license);
+    if (EMBEDDED) return;
     setTimeout(() => {
       document.getElementById(`panel-${license}`)?.scrollIntoView({
         block: "nearest",
@@ -364,8 +417,12 @@ export default function App() {
     }, 80);
   };
 
+  // Every filter that could hide the target is reset, or the link opens a
+  // record nobody can see.
   const crossLink = (license) => {
     setShowClosed(true);
+    setLens("all");
+    setType("ALL");
     setQuery(license);
     revealRow(license);
   };
@@ -373,8 +430,10 @@ export default function App() {
   const showOperator = (name) => {
     setShowClosed(true);
     setLens("all");
+    setType("ALL");
     setQuery(name);
     setOpen(null);
+    requestAnimationFrame(() => briefRef.current?.focus());
   };
 
   const clearFilters = () => {
@@ -426,9 +485,9 @@ export default function App() {
           </a>
           <h1>The Care Ledger</h1>
           <p className="dek">
-            Every state inspection and enforcement record for Marathon
-            County&rsquo;s assisted living facilities — including the history
-            Wisconsin stops showing after three years.
+            Inspection and enforcement records for every state-licensed
+            assisted living facility in Marathon County since mid-2023 —
+            kept after Wisconsin stops showing them.
           </p>
           <p className="fresh">Updated {fmtDate(db.stats.lastUpdated, "long")}</p>
         </div>
@@ -447,7 +506,7 @@ export default function App() {
         <Stat n={db.stats.openFacilities} label="facilities operating" />
         {db.stats.finesTotal > 0 ? (
           <Stat
-            n={`$${db.stats.finesTotal.toLocaleString()}`}
+            n={`$${fmtNum(db.stats.finesTotal)}`}
             label="in forfeitures assessed"
             tone="fine"
           />
@@ -475,7 +534,11 @@ export default function App() {
         )}
       </dl>
 
-      <ActivityChart surveys={db.surveysFlat} lastUpdated={db.stats.lastUpdated} />
+      <ActivityChart
+        surveys={db.surveysAll}
+        lastUpdated={db.stats.lastUpdated}
+        firstPull={db.stats.firstPull}
+      />
 
       <div className="controls">
         <input
@@ -530,7 +593,7 @@ export default function App() {
       </div>
 
       {operatorBrief && (
-        <aside className="operator-brief">
+        <aside className="operator-brief" ref={briefRef} tabIndex={-1}>
           <p className="op-kicker">Operator</p>
           <p className="op-name">{smartTitle(operatorBrief.name)}</p>
           <p className="op-stats">
@@ -542,13 +605,14 @@ export default function App() {
             {operatorBrief.fines > 0 && (
               <>
                 {" "}
-                · <strong>${operatorBrief.fines.toLocaleString()} assessed</strong>
+                · <strong>${fmtNum(operatorBrief.fines)} assessed</strong>
               </>
             )}
           </p>
         </aside>
       )}
 
+      <h2 className="sr-only">Facilities</h2>
       <p className="result-count" role="status">
         {list.length} {list.length === 1 ? "facility" : "facilities"}
       </p>
@@ -566,6 +630,15 @@ export default function App() {
             onOperator={showOperator}
           />
         ))}
+        {list.length > 0 && hiddenClosedMatches > 0 && (
+          <li className="closed-hint">
+            {hiddenClosedMatches} closed{" "}
+            {hiddenClosedMatches === 1 ? "facility also matches" : "facilities also match"}.{" "}
+            <button className="clear-filters" onClick={() => setShowClosed(true)}>
+              Show {hiddenClosedMatches === 1 ? "it" : "them"}
+            </button>
+          </li>
+        )}
         {list.length === 0 && (
           <li className="empty">
             No facilities match.{" "}
@@ -604,14 +677,15 @@ export default function App() {
             archives every statement of deficiency, enforcement action, and
             plan of correction, and keeps records after the state stops
             showing them — those entries are marked{" "}
-            <span className="held-inline">held in the ledger</span>. A
-            facility with no records listed has none in the state&rsquo;s
-            current three-year window; that is not a statement about its
-            earlier history. Forfeiture amounts and rule citations are
-            machine-read from the archived documents; forfeitures shown are
-            the amounts assessed in enforcement letters, before any reduction
-            for waived appeals. Last updated{" "}
-            {fmtDate(db.stats.lastUpdated, "long")}.
+            <span className="held-inline">held in the ledger</span>. The
+            archive starts with everything the state showed in July 2026 —
+            records back to July 2023 — and grows every week. Earlier history
+            is not included, so a facility with no records listed has none
+            since mid-2023. Forfeiture amounts and rule citations are machine-read from
+            the archived documents; forfeitures shown are the amounts assessed
+            in enforcement letters, before any reduction for waived appeals,
+            and an accruing forfeiture shows the amount assessed so far. Last
+            updated {fmtDate(db.stats.lastUpdated, "long")}.
           </p>
           <p>
             Not affiliated with or endorsed by the Wisconsin Department of
@@ -638,7 +712,7 @@ export default function App() {
 }
 
 function Stat({ n, label, tone, action, pressed, onClick }) {
-  const value = typeof n === "number" ? n.toLocaleString() : n;
+  const value = typeof n === "number" ? fmtNum(n) : n;
   return (
     <div className={tone ? `stat stat-${tone}` : "stat"}>
       <dt>{label}</dt>
@@ -665,7 +739,7 @@ function Stat({ n, label, tone, action, pressed, onClick }) {
 
 const CHART = { TOP: 22, PLOT: 150, BASE: 172, Q_Y: 187, YEAR_Y: 204, H: 210 };
 
-function ActivityChart({ surveys, lastUpdated }) {
+function ActivityChart({ surveys, lastUpdated, firstPull }) {
   const [hover, setHover] = useState(null);
   const { quarters, max } = useMemo(() => bucketQuarters(surveys), [surveys]);
   if (quarters.length < 2) return null;
@@ -677,10 +751,20 @@ function ActivityChart({ surveys, lastUpdated }) {
   const hOf = (v) => (v / max) * CHART.PLOT;
   const center = (i) => `${i * slot + slot / 2}%`;
 
-  // The ledger updates weekly, so the newest quarter is usually mid-flight.
-  const nowQ = quarterOf(lastUpdated);
-  const lastQ = quarters[n - 1];
-  const partial = lastQ.y === nowQ.y && lastQ.q === nowQ.q;
+  // Recent quarters are still filling in: the state posts a survey weeks
+  // after it closes (June 2026 exits first appeared in October), so a
+  // quarter that ended within ~90 days of the latest refresh is marked
+  // rather than drawn as a decline.
+  const lagCutoff = isoMinusDays(lastUpdated, 90);
+  const filling = quarters.map(
+    (b) => new Date(Date.UTC(b.y, b.q * 3, 1) - 86400e3).toISOString().slice(0, 10) >= lagCutoff
+  );
+  // The archive starts at the state's window on the first pull, which can
+  // fall partway through the first quarter.
+  const archiveStart = windowStartOf(firstPull);
+  const cutFirst =
+    archiveStart > `${quarters[0].y}-${String((quarters[0].q - 1) * 3 + 1).padStart(2, "0")}-01`;
+  const qMark = (i) => (filling[i] ? "*" : i === 0 && cutFirst ? "†" : "");
 
   const gridStep = max > 12 ? 5 : max > 6 ? 3 : 2;
   const gridLines = [];
@@ -778,9 +862,8 @@ function ActivityChart({ surveys, lastUpdated }) {
             const plainH = hOf(b.total - b.enforcement);
             const gap = b.enforcement > 0 && b.total > b.enforcement ? 2 : 0;
             const top = CHART.BASE - enfH - gap - plainH;
-            const dim = partial && i === n - 1 ? 0.5 : 1;
             return (
-              <g key={`${b.y}q${b.q}`} fillOpacity={dim}>
+              <g key={`${b.y}q${b.q}`}>
                 {b.enforcement > 0 && (
                   <rect
                     x={x}
@@ -794,8 +877,8 @@ function ActivityChart({ surveys, lastUpdated }) {
                 {b.total - b.enforcement > 0 && (
                   <rect x={x} width={w} y={top} height={plainH} rx="2" fill="#767676" />
                 )}
-                <text className="bar-label" x={center(i)} y={top - 6} textAnchor="middle" fillOpacity="1">
-                  {b.total}
+                <text className="bar-label" x={center(i)} y={top - 6} textAnchor="middle">
+                  {`${b.total}${qMark(i)}`}
                 </text>
                 {b.enforcement > 0 && enfH >= 15 && (
                   <text
@@ -840,7 +923,7 @@ function ActivityChart({ surveys, lastUpdated }) {
               y={CHART.Q_Y}
               textAnchor="middle"
             >
-              {`Q${b.q}${partial && i === n - 1 ? "*" : ""}`}
+              {`Q${b.q}`}
             </text>
           ))}
           {years.map(
@@ -896,8 +979,18 @@ function ActivityChart({ surveys, lastUpdated }) {
           </div>
         )}
       </div>
-      {partial && (
-        <p className="chart-note">* Latest quarter still in progress</p>
+      {(filling.some(Boolean) || cutFirst) && (
+        <p className="chart-note">
+          {filling.some(Boolean) && (
+            <span>* Still filling in: the state posts surveys weeks after they close.</span>
+          )}
+          {cutFirst && (
+            <span>
+              † The archive begins {fmtDate(archiveStart, "long")}, partway through this
+              quarter.
+            </span>
+          )}
+        </p>
       )}
       <table className="sr-only">
         <caption>Survey events per quarter</caption>
@@ -930,6 +1023,14 @@ function ActivityChart({ surveys, lastUpdated }) {
 function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) {
   const panelId = `panel-${f.license}`;
   const [copied, setCopied] = useState(false);
+  const panelRef = useRef(null);
+
+  // Closed panels stay mounted (for the reveal animation) but must leave
+  // the tab order and the accessibility tree. Set as a DOM property: React
+  // 19 reads inert="" as false.
+  useEffect(() => {
+    if (panelRef.current) panelRef.current.inert = !open;
+  }, [open]);
 
   // When the search hit lives in a field the row doesn't show (operator,
   // licensee, address), say so — otherwise the result looks arbitrary.
@@ -962,7 +1063,9 @@ function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) 
 
   return (
     <li className={open ? "row is-open" : "row"}>
+      <h3 className="row-heading">
       <button
+        id={`head-${f.license}`}
         className="row-head"
         aria-expanded={open}
         aria-controls={panelId}
@@ -989,19 +1092,27 @@ function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) 
           {f.enforcementCount > 0 && (
             <span className="chip chip-enforcement">
               {f.enforcementCount} enforcement
-              {f.fineTotal > 0 && ` · $${f.fineTotal.toLocaleString()}`}
+              {f.fineTotal > 0 && ` · $${fmtNum(f.fineTotal)}`}
             </span>
           )}
           {f.newCount > 0 && <span className="chip chip-new">New</span>}
-          {f.probationary && <span className="chip chip-probation">Probationary</span>}
+          {f.probationary && (
+            <span
+              className="chip chip-probation"
+              title="Wisconsin issues a probationary license for a facility's first year of licensure; it is not a disciplinary status."
+            >
+              Probationary license
+            </span>
+          )}
           {f.heldCount > 0 && <span className="chip chip-held">{f.heldCount} held</span>}
           {f.closed && <span className="chip chip-closed">Closed</span>}
           <span className="row-caret" aria-hidden="true">+</span>
         </span>
       </button>
+      </h3>
 
       <div className={open ? "row-reveal is-open" : "row-reveal"}>
-        <div className="row-panel" id={panelId} inert={open ? undefined : ""}>
+        <div className="row-panel" id={panelId} ref={panelRef}>
           {f.surveys.length > 0 && (
             <p className="panel-summary">
               <span>
@@ -1012,15 +1123,13 @@ function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) 
                 <span className="sum-enf">{f.enforcementCount} enforcement</span>
               )}
               {f.fineTotal > 0 && (
-                <span className="sum-enf">
-                  ${f.fineTotal.toLocaleString()} assessed
-                </span>
+                <span className="sum-enf">${fmtNum(f.fineTotal)} assessed</span>
               )}
-              {f.latest && <span>last visit {fmtDate(f.latest)}</span>}
+              {f.latest && <span>latest survey {fmtDate(f.latest)}</span>}
             </p>
           )}
           <div className="panel-grid">
-          <div className="facts">
+          <dl className="facts">
             <Fact k="Facility type" v={TYPE_FULL[f.typeAbbr]} />
             <Fact k="Address" v={`${titleCase(f.address)}, ${titleCase(f.city)} ${f.zip}`} />
             <Fact k="License" v={f.license} mono />
@@ -1043,7 +1152,9 @@ function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) 
               <Fact k="Operator" v={f.corporate_name ? smartTitle(f.corporate_name) : "—"} />
             )}
             <Fact k="Ownership" v={f.ownership_type || "—"} />
-            {f.date_regular && <Fact k="Licensed" v={fmtDate(f.date_regular)} mono />}
+            {(f.date_regular || f.date_probationary) && (
+              <Fact k="Licensed" v={fmtDate(f.date_regular || f.date_probationary)} mono />
+            )}
             {f.date_closed && <Fact k="Closed" v={fmtDate(f.date_closed)} mono />}
             <Fact k="Serves" v={f.client_groups ? smartTitle(f.client_groups) : "—"} wide />
             {f.siblings.length > 0 && (
@@ -1052,13 +1163,18 @@ function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) 
                 <dd>
                   {f.siblings.map((lic) => {
                     const s = db.byLicense[lic];
+                    // Closed status first: one closed license has no
+                    // closure date and must not read as "licensed".
+                    const licensed = s.date_regular || s.date_probationary;
                     return (
                       <button key={lic} className="sibling" onClick={() => onCrossLink(lic)}>
                         {smartTitle(s.name)}
-                        {s.date_closed
-                          ? ` (closed ${fmtDate(s.date_closed)})`
-                          : s.date_regular
-                          ? ` (licensed ${fmtDate(s.date_regular)})`
+                        {s.closed
+                          ? s.date_closed
+                            ? ` (closed ${fmtDate(s.date_closed)})`
+                            : " (closed)"
+                          : licensed
+                          ? ` (licensed ${fmtDate(licensed)})`
                           : ""}
                       </button>
                     );
@@ -1066,14 +1182,19 @@ function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) 
                 </dd>
               </div>
             )}
-          </div>
+          </dl>
 
           <div className="history">
-            <h2>Survey history</h2>
+            <h4>
+              Survey history<span className="sr-only"> for {smartTitle(f.name)}</span>
+            </h4>
             {f.surveys.length === 0 ? (
               <p className="no-surveys">
-                No survey records in the state&rsquo;s current three-year
-                window{f.date_regular ? ` — licensed ${fmtDate(f.date_regular)}` : ""}.
+                No survey records since mid-2023
+                {f.date_regular || f.date_probationary
+                  ? ` — licensed ${fmtDate(f.date_regular || f.date_probationary)}`
+                  : ""}
+                .
               </p>
             ) : (
               <ol className="timeline">
@@ -1084,12 +1205,28 @@ function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) 
                       <span className="event-type">
                         {surveyLabel(s.survey_type)}
                         {s.enr.fine && (
-                          <span className="event-fine">
-                            ${s.enr.fine.toLocaleString()} forfeiture
-                          </span>
+                          <>
+                            {" "}
+                            <span className="event-fine">
+                              ${fmtNum(s.enr.fine)} forfeiture
+                              {s.enr.sanctions.includes("Accruing forfeiture") && " (accruing)"}
+                            </span>
+                          </>
                         )}
-                        {s.isNew && <span className="new-stamp">New this week</span>}
+                        {s.isNew && (
+                          <>
+                            {" "}
+                            <span className="new-stamp">New this week</span>
+                          </>
+                        )}
                       </span>
+                      {s.enr.sanctions
+                        .filter((x) => SANCTION_LABELS[x])
+                        .map((x) => (
+                          <span key={x} className="event-sanction">
+                            {SANCTION_LABELS[x]}
+                          </span>
+                        ))}
                       {(s.enr.substantiated > 0 || s.enr.citations.length > 0) && (
                         <span className="event-cites">
                           {s.enr.substantiated > 0 && (
@@ -1098,17 +1235,7 @@ function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) 
                               {s.enr.citations.length > 0 && " · "}
                             </strong>
                           )}
-                          {s.enr.citations.length > 0 && (
-                            <>
-                              Cited:{" "}
-                              {s.enr.citations
-                                .slice(0, 3)
-                                .map((c) => c.title.replace(/[.:]\s*$/, ""))
-                                .join(" · ")}
-                              {s.enr.citations.length > 3 &&
-                                ` · +${s.enr.citations.length - 3} more`}
-                            </>
-                          )}
+                          {s.enr.citations.length > 0 && <>Cited: {citeSummary(s.enr.citations)}</>}
                         </span>
                       )}
                       {s.expired_from_state && (
@@ -1122,15 +1249,15 @@ function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) 
                         </>
                       )}
                       <span className="event-docs">
-                        {Object.entries(s.documents).map(([kind, path]) => (
+                        {s.docs.map((d) => (
                           <a
-                            key={kind}
-                            className={`doc doc-${kind}`}
-                            href={path}
+                            key={d.path}
+                            className={`doc doc-${d.kind}`}
+                            href={d.path}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            {DOC_LABELS[kind]} (PDF)
+                            {DOC_LABELS[d.kind]} (PDF)
                           </a>
                         ))}
                       </span>
@@ -1160,6 +1287,18 @@ function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) 
       </div>
     </li>
   );
+}
+
+/* Different rules can share a title (DHS 89 has two "Services" rules), so
+   repeats are grouped: "Services ×2 · Tenant rights". */
+function citeSummary(citations) {
+  const counts = new Map();
+  for (const c of citations) {
+    const t = c.title.replace(/[.:]\s*$/, "");
+    counts.set(t, (counts.get(t) || 0) + 1);
+  }
+  const titles = [...counts].map(([t, n]) => (n > 1 ? `${t} ×${n}` : t));
+  return titles.slice(0, 3).join(" · ") + (titles.length > 3 ? ` · +${titles.length - 3} more` : "");
 }
 
 function Fact({ k, v, mono, wide }) {
@@ -1203,26 +1342,50 @@ function shape(facilitiesObj, surveysObj, enrichmentObj) {
     return { fine, sanctions, citations, substantiated };
   };
 
-  const allSurveys = Object.values(surveysObj);
-  const lastUpdated = allSurveys.reduce((m, s) => (s.last_seen > m ? s.last_seen : m), "");
-  const firstPull = allSurveys.reduce(
+  // Each document's kind comes from its parsed structure where the miner
+  // read it; the state's column is only the fallback (plans of correction,
+  // which aren't mined). One survey, 0019331, has its two links swapped.
+  const docsOf = (s) =>
+    Object.entries(s.documents)
+      .map(([column, path]) => {
+        const k = enrichmentObj[path]?.kind;
+        return { kind: k === "enforcement" || k === "sod" ? k : column, path };
+      })
+      .sort((a, b) => DOC_ORDER.indexOf(a.kind) - DOC_ORDER.indexOf(b.kind));
+
+  const rawSurveys = Object.values(surveysObj);
+  const lastUpdated = rawSurveys.reduce((m, s) => (s.last_seen > m ? s.last_seen : m), "");
+  const firstPull = rawSurveys.reduce(
     (m, s) => (m === "" || s.first_seen < m ? s.first_seen : m),
     ""
   );
-  // "New this week": first seen within 8 days of the latest refresh (weekly
-  // cadence plus timezone slack), so a mid-week manual run doesn't wipe the
-  // marker. The initial pull is never "new".
-  const newSince = isoMinusDays(lastUpdated, 8);
-  const isNew = (s) => s.first_seen !== firstPull && s.first_seen >= newSince;
+  // "New this week": the record, or a document added to it later (a Notice
+  // & Order often follows its SOD by weeks), was first seen after the
+  // previous weekly run — strictly within 7 days of the latest refresh, so
+  // last Monday's run doesn't count and a mid-week rerun doesn't erase the
+  // marker. Never for the initial pull, and never while the ledger is
+  // stale: then there is no "this week".
+  const stale = lastUpdated && (Date.now() - isoUTC(lastUpdated)) / 86400e3 > STALE_AFTER_DAYS;
+  const newSince = lastUpdated ? isoMinusDays(lastUpdated, 7) : "";
+  const recent = (d) => d && d !== firstPull && d > newSince;
+  const isNew = (s) =>
+    !stale &&
+    (recent(s.first_seen) || Object.values(s.documents_first_seen || {}).some(recent));
 
+  const surveysAll = [];
   const surveysByLicense = {};
   for (const [id, s] of Object.entries(surveysObj)) {
-    (surveysByLicense[s.license] ||= []).push({
+    const docs = docsOf(s);
+    const row = {
       ...s,
       id,
+      docs,
+      hasEnforcement: docs.some((d) => d.kind === "enforcement"),
       enr: enrich(s),
       isNew: isNew(s),
-    });
+    };
+    surveysAll.push(row);
+    (surveysByLicense[s.license] ||= []).push(row);
   }
   for (const rows of Object.values(surveysByLicense)) {
     rows.sort((a, b) => b.exit_date.localeCompare(a.exit_date));
@@ -1243,7 +1406,7 @@ function shape(facilitiesObj, surveysObj, enrichmentObj) {
       closed,
       probationary: f.licensure_status === "PROBATIONARY",
       typeAbbr: TYPE_ABBR[f.provider_type.trim()] || f.provider_type.trim(),
-      enforcementCount: surveys.filter((s) => "enforcement" in s.documents).length,
+      enforcementCount: surveys.filter((s) => s.hasEnforcement).length,
       fineTotal: surveys.reduce((n, s) => n + (s.enr.fine || 0), 0),
       heldCount: surveys.filter((s) => s.expired_from_state).length,
       newCount: surveys.filter((s) => s.isNew).length,
@@ -1265,19 +1428,20 @@ function shape(facilitiesObj, surveysObj, enrichmentObj) {
   return {
     facilities,
     byLicense: Object.fromEntries(facilities.map((f) => [f.license, f])),
-    surveysFlat: allSurveys,
+    surveysAll,
     operatorCounts,
     stats: {
       openFacilities: openFacilities.length,
-      surveyEvents: allSurveys.length,
+      surveyEvents: surveysAll.length,
       withEnforcement: new Set(
-        allSurveys.filter((s) => "enforcement" in s.documents).map((s) => s.license)
+        surveysAll.filter((s) => s.hasEnforcement).map((s) => s.license)
       ).size,
-      held: allSurveys.filter((s) => s.expired_from_state).length,
-      documents: allSurveys.reduce((n, s) => n + Object.keys(s.documents).length, 0),
+      held: surveysAll.filter((s) => s.expired_from_state).length,
+      documents: surveysAll.reduce((n, s) => n + s.docs.length, 0),
       finesTotal: facilities.reduce((n, f) => n + f.fineTotal, 0),
-      newRecords: allSurveys.filter(isNew).length,
+      newRecords: surveysAll.filter((s) => s.isNew).length,
       lastUpdated,
+      firstPull,
     },
   };
 }

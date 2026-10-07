@@ -142,8 +142,20 @@ the state drops in the migration, we already have.
   same capacity, same day (see Acorn Hill, 430 Orbiting Dr, Mosinee —
   Wisteria Assisted Living LLC closed 2025-02-17 after 3 enforcement
   actions; Mosinee Senior LLC licensed same day, clean record).
+  A second flip, found by the 2026-10 audit: 226446 Hummingbird Rd,
+  Wausau — Azura Wausau LLC (0013419, closed, enforcement 2026-03-18) and
+  VOP Wausau LLC (0021269, probationary since 2026-06-08), same name, same
+  19 beds.
+- Admissions bans ("Order not to admit new residents") — Stone Crest
+  2026-02-17 (with an accruing forfeiture), 0010689 2023-10-19
+  (extended), 0018760 2025-07-23.
 - Corporate operator comparison via `corporate_name` (e.g., Cedar Ridge
   Holdings LLC: 4 facilities, 9 enforcement events).
+- Verify before quoting: accruing forfeitures (Stone Crest 2026-02-17
+  $500, Pine Meadows 2 2025-09-12 $950) show the amount so far, not the
+  final total; Pine Meadows 4's 2026-04-01 letter states $2,900 (its
+  reduced amount matches) but its itemized rows add to $2,500 or $3,000 —
+  ask DQA.
 - Enforcement density: 32 of 93 facilities have enforcement actions within
   the 3-year visible window alone.
 
@@ -173,19 +185,32 @@ narrowing): All · Enforcement actions · Held in the ledger · New this week
 (the last two appear only when the ledger has any). Four stats (slot 2 =
 total forfeitures assessed, red; slot 4 = held count, sepia, once records
 age off); the enforcement and held stats are buttons that set showClosed
-and the matching lens, because stats count closed facilities too. "New
-this week" = first seen within 8 days of the latest refresh (not "equal
-to it" — a mid-week manual run once hid every new stamp). If the data is
-over 10 days old, a notice tells readers the ledger is behind instead of
-letting stale data pass as current. Survey timeline events show the
-assessed forfeiture, "Complaint substantiated", and up to three
-cited-rule titles from `enrichment.json`; held records show "Held in the
-ledger" plus when the state site last showed them. Below the masthead, a
-quarterly survey-activity chart (gray = no enforcement, red =
-enforcement; every bar value-labeled, enforcement counts printed inside
-tall red segments, quarter + year axis, hover tooltips + sr-only table;
-quarter labels hide on mobile; an in-progress quarter renders dimmed
-with a footnote). A sepia field marks history older than the state's
+and the matching lens, because stats count closed facilities too; when a
+lens or search hides matching closed facilities, a row offers "N closed
+facilities also match — Show them". "New this week" = the record, or a
+document added to it later (`documents_first_seen`), was first seen
+strictly within 7 days of the latest refresh — last Monday's run excluded,
+a mid-week rerun harmless — and never while the ledger is stale. If the
+data is over 10 days old, a notice tells readers the ledger is behind
+instead of letting stale data pass as current. Document kinds, labels,
+enforcement counts, and the chart all come from each PDF's parsed
+structure (`enrichment.json` `kind`), the state's column only as fallback
+— 0019331's links are swapped at the source. Survey timeline events show
+the assessed forfeiture ("(accruing)" when still running), serious
+sanctions ("Order not to admit new residents", revocation, suspension,
+nonrenewal), "Complaint substantiated", and up to three distinct
+cited-rule titles (repeats grouped "Services ×2"); held records show
+"Held in the ledger" plus when the state site last showed them. A
+probationary license gets a neutral chip with a tooltip — it is
+Wisconsin's standard first-year license, never styled as discipline.
+Below the masthead, a quarterly survey-activity chart (gray = no
+enforcement, red = enforcement; every bar value-labeled, enforcement
+counts printed inside tall red segments, quarter + year axis, hover
+tooltips + sr-only table; quarter labels hide on mobile; footnote marks
+on bar labels: `*` for quarters ended within ~90 days of the refresh,
+still filling in because the state posts surveys weeks after they close,
+and `†` when the archive starts partway through the first quarter — no
+opacity dimming, which failed contrast). A sepia field marks history older than the state's
 three-year window, bounded by a dashed line placed to the day — it
 advances every week, so the chart itself shows the archive outliving
 the state's public record.
@@ -193,14 +218,18 @@ Expandable ledger rows: license facts + survey timeline
 linking to archived PDFs, "View on state site" link built from the current
 week's detail key (known gap: it can 404 to the portal error page between
 DQA's weekly refresh, which rotates keys, and the next Monday fetch — a
-stable deep link to the state's record doesn't exist), same-address cross-links (neutral copy — the dates tell the
-Acorn Hill story on their own), and operator cross-links when a
-`corporate_name` runs 2+ facilities. Survey events first seen by the most
-recent fetch get a "New this update" stamp (suppressed for the initial
-pull). Deep links for stories: `#lic=<license>` opens one facility,
-`#q=<text>` presets the search (documented in README); the URL reflects
-the open record or current search, and malformed `%` escapes are
-tolerated rather than crashing the page.
+stable deep link to the state's record doesn't exist), same-address
+cross-links (addresses compare with street suffixes normalized — "RD" vs
+"Road" once hid the Azura/VOP Wausau flip; neutral copy, the dates tell
+the story; a closed sibling reads "(closed)" even without a closure date),
+and operator cross-links when a `corporate_name` runs 2+ facilities. Deep
+links for stories: `#lic=<license>` opens one facility (an unknown
+license, or one missing its leading zeros, becomes a search),
+`#q=<text>` presets the search (`+` decodes as a space; documented in
+README); every deep link and cross-link resets the lens and type filters
+so it can't hide its own target; the URL reflects the open record or
+current search, and malformed `%` escapes are tolerated rather than
+crashing the page.
 
 Signature element: the sepia **held in the ledger** treatment on survey
 records with `expired_from_state: true`, plus the masthead stat that counts
@@ -211,6 +240,21 @@ State names arrive ALL CAPS; `smartTitle()` title-cases them for print,
 preserving acronyms (LLC, CBRF, HCBS, …) and never capitalizing after an
 apostrophe (Alzheimer's).
 
+Embedding: the widget posts its height to the parent page measured from
+`#root` — never `documentElement.scrollHeight`, which can't drop below
+the iframe's own height, so the frame could grow but never shrink. When
+embedded it never calls `scrollIntoView` (that would scroll the reader's
+article). Numbers format with a fixed `en-US` locale ("$39,640" on a
+German browser too).
+
+Accessibility: each facility's header button sits inside an `h3` (sr-only
+`h2` "Facilities" above the list; each panel's "Survey history" is an
+`h4` naming the facility for screen readers); facts are a real `<dl>`;
+closing a record (Escape) or following a cross-link returns focus to a
+row header, and the operator link focuses the operator brief, so focus
+is never stranded in an inert panel. `inert` is set as a DOM property
+from an effect, not as `inert=""` — React 19 reads that as false.
+
 UX details: rows expand with an animated grid-rows reveal (caret rotates
 + to ×; closed panels are `inert`; the reduced-motion media query kills
 all transitions and animations). Search covers name, city, operator,
@@ -218,7 +262,7 @@ licensee, license, and street address; matches highlight in names and
 cities (highlighter-yellow `<mark>`), and when the hit is in a field the
 row doesn't show, the meta line explains it ("· operator: …"). Expanded
 panels lead with a summary band (surveys · enforcement · $ assessed ·
-last visit) and offer "Copy link to this record" (deep-link URL;
+latest survey) and offer "Copy link to this record" (deep-link URL;
 aria-live feedback; the WordPress iframe needs `allow="clipboard-write"`,
 already in the README snippet). A search that exactly matches a corporate
 name — which the operator cross-link produces — renders a boxed operator
@@ -226,9 +270,7 @@ brief above the results. Empty results offer a one-click filter reset, or
 "Show N closed facilities that match" when the closed toggle is what's
 hiding them. Keyboard: "/" focuses search, Escape closes the open record.
 Cross-links and deep links scroll the opened record into view
-(standalone only — the iframe has no inner scroller). The masthead's
-eyebrow carries an "Updated <date>" folio and closes with an Oxford rule
-(thick-thin). A print stylesheet hides interactive chrome and keeps
+(standalone only). A print stylesheet hides interactive chrome and keeps
 records intact across page breaks.
 
 Build plumbing: `predev`/`prebuild` run `scripts/dev-sync.mjs`, which copies
