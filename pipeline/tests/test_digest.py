@@ -4,6 +4,8 @@ gets emailed twice.
 Run: python -m unittest discover -s pipeline/tests
 """
 
+import contextlib
+import io
 import sys
 import unittest
 from pathlib import Path
@@ -112,7 +114,9 @@ class NoDuplicateEmail(unittest.TestCase):
                 created.append((args, stdin))
             return sent_before if args[:2] == ("issue", "list") else "https://x/issues/9\n"
 
-        with mock.patch.object(digest, "gh", side_effect=fake_gh):
+        # Quiet: a fake "alert posted" line in CI logs reads like a real one.
+        with mock.patch.object(digest, "gh", side_effect=fake_gh), \
+                contextlib.redirect_stdout(io.StringIO()):
             digest.alert(L)
         self.assertEqual(len(created), 1)
         args, body = created[0]
@@ -122,7 +126,8 @@ class NoDuplicateEmail(unittest.TestCase):
     def test_nothing_new_means_no_issue(self):
         L = ledger(SURVEYS, ENRICHMENT)
         everything = "\n".join(f"<!-- {digest.ITEM_MARK} {sid} -->" for sid in SURVEYS)
-        with mock.patch.object(digest, "gh", return_value=everything) as gh:
+        with mock.patch.object(digest, "gh", return_value=everything) as gh, \
+                contextlib.redirect_stdout(io.StringIO()):
             digest.alert(L)
         self.assertFalse(any(c.args[:2] == ("issue", "create") for c in gh.call_args_list))
 
