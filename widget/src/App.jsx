@@ -32,6 +32,24 @@ const TYPE_FULL = {
 const STATE_DETAIL_URL =
   "https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx";
 
+/* Lenses: one-click slices of the ledger. Labels in display order. */
+const LENS_TEST = {
+  all: () => true,
+  enforcement: (f) => f.enforcementCount > 0,
+  held: (f) => f.heldCount > 0,
+  new: (f) => f.newCount > 0,
+};
+const LENS_LABELS = {
+  all: "All facilities",
+  enforcement: "Enforcement actions",
+  held: "Held in the ledger",
+  new: "New this week",
+};
+
+/* The ledger refreshes every Monday; past this many days the data is stale
+   and readers are told so rather than left to assume it is current. */
+const STALE_AFTER_DAYS = 10;
+
 function surveyLabel(raw) {
   return raw
     .split("/")
@@ -82,14 +100,38 @@ function Highlight({ text, q }) {
   );
 }
 
-function fmtDate(iso) {
+function fmtDate(iso, month = "short") {
   if (!iso) return "";
   const [y, m, d] = iso.split("-").map(Number);
   return new Date(y, m - 1, d).toLocaleDateString("en-US", {
-    month: "short",
+    month,
     day: "numeric",
     year: "numeric",
   });
+}
+
+function isoUTC(iso) {
+  const [y, m, d] = iso.split("-").map(Number);
+  return Date.UTC(y, m - 1, d);
+}
+
+function isoMinusDays(iso, days) {
+  return new Date(isoUTC(iso) - days * 86400e3).toISOString().slice(0, 10);
+}
+
+/* Start of the state's three-year public window, as of a given date. */
+function windowStartOf(iso) {
+  const [y, m, d] = iso.split("-").map(Number);
+  const day = m === 2 && d === 29 ? 28 : d;
+  return `${y - 3}-${String(m).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+}
+
+function safeDecode(s) {
+  try {
+    return decodeURIComponent(s);
+  } catch {
+    return s; // a stray "%" in a hand-typed link must not blank the widget
+  }
 }
 
 function addressKey(f) {
@@ -113,7 +155,7 @@ function bucketQuarters(surveys) {
     y < last.y || (y === last.y && q <= last.q);
     q === 4 ? ((q = 1), y++) : q++
   ) {
-    quarters.push({ y, q, total: 0, enforcement: 0 });
+    quarters.push({ y, q, total: 0, enforcement: 0, held: 0 });
   }
   const at = Object.fromEntries(quarters.map((b) => [`${b.y}-${b.q}`, b]));
   for (const s of dated) {
@@ -121,6 +163,7 @@ function bucketQuarters(surveys) {
     const b = at[`${k.y}-${k.q}`];
     b.total += 1;
     if ("enforcement" in s.documents) b.enforcement += 1;
+    if (s.expired_from_state) b.held += 1;
   }
   return { quarters, max: Math.max(...quarters.map((b) => b.total)) };
 }
@@ -134,7 +177,7 @@ export default function App() {
   const [type, setType] = useState("ALL");
   const [sort, setSort] = useState("name");
   const [showClosed, setShowClosed] = useState(false);
-  const [enfOnly, setEnfOnly] = useState(false);
+  const [lens, setLens] = useState("all");
   const [open, setOpen] = useState(null);
 
   const searchRef = useRef(null);
@@ -207,7 +250,7 @@ export default function App() {
             ?.scrollIntoView({ block: "nearest", behavior: "auto" });
         }, 120);
       } else if (m[2]) {
-        setQuery(decodeURIComponent(m[2]));
+        setQuery(safeDecode(m[2]));
       }
     };
     apply();
@@ -215,34 +258,45 @@ export default function App() {
     return () => window.removeEventListener("hashchange", apply);
   }, [db]);
 
-  // Keep the standalone URL shareable: reflect the open row in the hash.
+  // Keep the standalone URL shareable: the open record, else the search.
   useEffect(() => {
     if (!db) return;
+    const q = query.trim();
     window.history.replaceState(
       null,
       "",
-      open ? `#lic=${open}` : window.location.pathname + window.location.search
+      open
+        ? `#lic=${open}`
+        : q
+        ? `#q=${encodeURIComponent(q)}`
+        : window.location.pathname + window.location.search
     );
-  }, [open, db]);
+  }, [open, query, db]);
 
-  const list = useMemo(() => {
-    if (!db) return [];
+  // Search, type, and the closed toggle narrow everything; a lens then picks
+  // a slice. Lens counts are computed under the same narrowing so each
+  // button says exactly how many rows it will show.
+  const { list, lensCounts } = useMemo(() => {
+    if (!db) return { list: [], lensCounts: {} };
     const q = query.trim().toLowerCase();
-    let rows = db.facilities.filter((f) => {
-      if (!showClosed && f.closed) return false;
-      if (enfOnly && f.enforcementCount === 0) return false;
-      if (type !== "ALL" && f.typeAbbr !== type) return false;
-      if (!q) return true;
-      return f.haystack.includes(q);
-    });
+    const base = db.facilities.filter(
+      (f) =>
+        (showClosed || !f.closed) &&
+        (type === "ALL" || f.typeAbbr === type) &&
+        (!q || f.haystack.includes(q))
+    );
+    const lensCounts = Object.fromEntries(
+      Object.entries(LENS_TEST).map(([id, test]) => [id, base.filter(test).length])
+    );
     const bySort = {
       name: (a, b) => a.name.localeCompare(b.name),
       recent: (a, b) => (b.latest || "").localeCompare(a.latest || ""),
       enforcement: (a, b) =>
         b.enforcementCount - a.enforcementCount || a.name.localeCompare(b.name),
+      fines: (a, b) => b.fineTotal - a.fineTotal || a.name.localeCompare(b.name),
     };
-    return rows.sort(bySort[sort]);
-  }, [db, query, type, sort, showClosed, enfOnly]);
+    return { list: base.filter(LENS_TEST[lens]).sort(bySort[sort]), lensCounts };
+  }, [db, query, type, sort, showClosed, lens]);
 
   // When the search is exactly an operator's corporate name (the operator
   // cross-link does this), lead the results with an operator brief.
@@ -271,11 +325,11 @@ export default function App() {
     return db.facilities.filter(
       (f) =>
         f.closed &&
-        (!enfOnly || f.enforcementCount > 0) &&
+        LENS_TEST[lens](f) &&
         (type === "ALL" || f.typeAbbr === type) &&
         (!q || f.haystack.includes(q))
     ).length;
-  }, [db, query, type, enfOnly, showClosed]);
+  }, [db, query, type, lens, showClosed]);
 
   if (error)
     return (
@@ -318,7 +372,7 @@ export default function App() {
 
   const showOperator = (name) => {
     setShowClosed(true);
-    setEnfOnly(false);
+    setLens("all");
     setQuery(name);
     setOpen(null);
   };
@@ -326,60 +380,100 @@ export default function App() {
   const clearFilters = () => {
     setQuery("");
     setType("ALL");
-    setEnfOnly(false);
+    setLens("all");
     setShowClosed(false);
     setOpen(null);
   };
 
+  // Headline stats count everything on record, closed facilities included,
+  // so clicking one shows everything it counted.
+  const showLensFromStat = (id) => {
+    setQuery("");
+    setType("ALL");
+    setShowClosed(true);
+    setLens(lens === id ? "all" : id);
+    setOpen(null);
+  };
+
+  const staleDays = Math.floor(
+    (Date.now() - isoUTC(db.stats.lastUpdated)) / 86400e3
+  );
+
   return (
     <div className="ledger">
       <header className="masthead">
-        <div className="masthead-brand">
-          <img
-            className="badge"
-            src="brand/wpr-typewriter.png"
-            alt="Wausau Pilot &amp; Review — More News. Less Fluff. All Local."
-            width="84"
-            height="84"
-          />
-          <div className="masthead-text">
-            <p className="eyebrow">
-              <span>
-                Wausau Pilot &amp; Review <span className="sep">·</span>{" "}
-                Marathon County
-              </span>
-              <span className="eyebrow-date">
-                Updated {fmtDate(db.stats.lastUpdated)}
-              </span>
-            </p>
-            <h1>The Care Ledger</h1>
-          </div>
-        </div>
-        <p className="dek">
-          Every state-licensed assisted living facility in Marathon County,
-          with its complete inspection and enforcement record. Wisconsin only
-          shows the public three years of history — this ledger keeps all of
-          it, permanently.
-        </p>
-        <dl className="stats" aria-label="Ledger totals">
-          <Stat n={db.stats.openFacilities} label="facilities operating" />
-          {db.stats.finesTotal > 0 ? (
-            <Stat
-              n={`$${db.stats.finesTotal.toLocaleString()}`}
-              label="in forfeitures assessed"
-              fine
+        <img
+          className="badge"
+          src="brand/wpr-typewriter.png"
+          alt=""
+          width="84"
+          height="84"
+        />
+        <div className="masthead-text">
+          <a
+            className="wordmark-link"
+            href="https://wausaupilotandreview.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              className="wordmark"
+              src="brand/wpr-wordmark.png"
+              alt="Wausau Pilot &amp; Review"
+              width="133"
+              height="17"
             />
-          ) : (
-            <Stat n={db.stats.surveyEvents} label="survey events on record" />
-          )}
-          <Stat n={db.stats.withEnforcement} label="facilities with enforcement" />
-          {db.stats.held > 0 ? (
-            <Stat n={db.stats.held} label="records the state no longer shows" held />
-          ) : (
-            <Stat n={db.stats.documents} label="documents archived" />
-          )}
-        </dl>
+          </a>
+          <h1>The Care Ledger</h1>
+          <p className="dek">
+            Every state inspection and enforcement record for Marathon
+            County&rsquo;s assisted living facilities — including the history
+            Wisconsin stops showing after three years.
+          </p>
+          <p className="fresh">Updated {fmtDate(db.stats.lastUpdated, "long")}</p>
+        </div>
       </header>
+      <div className="flag-rule" />
+
+      {staleDays > STALE_AFTER_DAYS && (
+        <p className="stale-notice" role="note">
+          <strong>This ledger is behind.</strong> It was last refreshed{" "}
+          {fmtDate(db.stats.lastUpdated, "long")}. Records the state has posted
+          since then may not appear here yet.
+        </p>
+      )}
+
+      <dl className="stats" aria-label="Ledger totals">
+        <Stat n={db.stats.openFacilities} label="facilities operating" />
+        {db.stats.finesTotal > 0 ? (
+          <Stat
+            n={`$${db.stats.finesTotal.toLocaleString()}`}
+            label="in forfeitures assessed"
+            tone="fine"
+          />
+        ) : (
+          <Stat n={db.stats.surveyEvents} label="survey events on record" />
+        )}
+        <Stat
+          n={db.stats.withEnforcement}
+          label="facilities with enforcement"
+          action="Show facilities with enforcement actions"
+          pressed={lens === "enforcement"}
+          onClick={() => showLensFromStat("enforcement")}
+        />
+        {db.stats.held > 0 ? (
+          <Stat
+            n={db.stats.held}
+            label="records the state no longer shows"
+            tone="held"
+            action="Show facilities with records the state no longer shows"
+            pressed={lens === "held"}
+            onClick={() => showLensFromStat("held")}
+          />
+        ) : (
+          <Stat n={db.stats.documents} label="documents archived" />
+        )}
+      </dl>
 
       <ActivityChart surveys={db.surveysFlat} lastUpdated={db.stats.lastUpdated} />
 
@@ -402,6 +496,7 @@ export default function App() {
           <option value="name">A to Z</option>
           <option value="recent">Latest activity</option>
           <option value="enforcement">Most enforcement</option>
+          <option value="fines">Most forfeitures</option>
         </select>
         <label className="closed-toggle">
           <input
@@ -411,14 +506,27 @@ export default function App() {
           />
           Include closed
         </label>
-        <label className="closed-toggle">
-          <input
-            type="checkbox"
-            checked={enfOnly}
-            onChange={(e) => setEnfOnly(e.target.checked)}
-          />
-          Enforcement only
-        </label>
+      </div>
+
+      <div className="lenses" role="group" aria-label="Show">
+        {Object.keys(LENS_TEST)
+          .filter(
+            (id) =>
+              (id !== "held" || db.stats.held > 0) &&
+              (id !== "new" || db.stats.newRecords > 0)
+          )
+          .map((id) => (
+            <button
+              key={id}
+              type="button"
+              className={`lens lens-${id}`}
+              aria-pressed={lens === id}
+              onClick={() => setLens(id)}
+            >
+              {LENS_LABELS[id]}
+              <span className="lens-count">{lensCounts[id]}</span>
+            </button>
+          ))}
       </div>
 
       {operatorBrief && (
@@ -479,56 +587,76 @@ export default function App() {
         )}
       </ol>
 
-      <footer className="methodology">
-        <p>
-          <strong>About this data.</strong> Compiled from the Wisconsin
-          Department of Health Services Division of Quality Assurance (DQA)
-          Provider Search, which shows only the past three years of survey
-          history. The Care Ledger checks the state record weekly, archives
-          every statement of deficiency, enforcement action, and plan of
-          correction, and retains records after the state stops showing them
-          — those entries are marked{" "}
-          <span className="held-inline">held in the ledger</span>, as are
-          older records recovered from Internet Archive crawls of the state
-          site. A facility with no records listed has none in the
-          state&rsquo;s current three-year window; that is not a statement
-          about its earlier history. Forfeiture amounts and rule citations are machine-read
-          from the archived documents; forfeitures shown are the amounts
-          assessed in enforcement letters, before any reduction for waived
-          appeals. Last updated {fmtDate(db.stats.lastUpdated)}.
-        </p>
-        <p>
-          Questions or corrections:{" "}
-          <a href="mailto:editor@wausaupilotandreview.com">
-            editor@wausaupilotandreview.com
-          </a>
-          .
-        </p>
-        <p className="credit">
-          <img src="brand/wpr-typewriter-192.png" alt="" width="28" height="28" />
-          <span>
-            A{" "}
+      <footer className="site-footer">
+        <img
+          className="footer-seal"
+          src="brand/wpr-typewriter-192.png"
+          alt=""
+          width="44"
+          height="44"
+        />
+        <div className="methodology">
+          <p>
+            <strong>About this data.</strong> Compiled from the Wisconsin
+            Department of Health Services Division of Quality Assurance (DQA)
+            Provider Search, which shows only the past three years of survey
+            history. The Care Ledger checks the state record every Monday,
+            archives every statement of deficiency, enforcement action, and
+            plan of correction, and keeps records after the state stops
+            showing them — those entries are marked{" "}
+            <span className="held-inline">held in the ledger</span>. A
+            facility with no records listed has none in the state&rsquo;s
+            current three-year window; that is not a statement about its
+            earlier history. Forfeiture amounts and rule citations are
+            machine-read from the archived documents; forfeitures shown are
+            the amounts assessed in enforcement letters, before any reduction
+            for waived appeals. Last updated{" "}
+            {fmtDate(db.stats.lastUpdated, "long")}.
+          </p>
+          <p>
+            Not affiliated with or endorsed by the Wisconsin Department of
+            Health Services. Questions or corrections:{" "}
+            <a href="mailto:editor@wausaupilotandreview.com">
+              editor@wausaupilotandreview.com
+            </a>
+            .
+          </p>
+          <p className="footer-line">
             <a
-              href="https://wausaupilotandreview.com"
+              href="https://wausaupilotandreview.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
               Wausau Pilot &amp; Review
             </a>{" "}
-            watchdog project
-          </span>
-        </p>
+            · 715-301-5539
+          </p>
+        </div>
       </footer>
     </div>
   );
 }
 
-function Stat({ n, label, held, fine }) {
-  const cls = held ? "stat stat-held" : fine ? "stat stat-fine" : "stat";
+function Stat({ n, label, tone, action, pressed, onClick }) {
+  const value = typeof n === "number" ? n.toLocaleString() : n;
   return (
-    <div className={cls}>
+    <div className={tone ? `stat stat-${tone}` : "stat"}>
       <dt>{label}</dt>
-      <dd>{typeof n === "number" ? n.toLocaleString() : n}</dd>
+      <dd>
+        {onClick ? (
+          <button
+            type="button"
+            className="stat-button"
+            aria-label={`${value} ${label}. ${action}`}
+            aria-pressed={pressed}
+            onClick={onClick}
+          >
+            {value}
+          </button>
+        ) : (
+          value
+        )}
+      </dd>
     </div>
   );
 }
@@ -565,6 +693,20 @@ function ActivityChart({ surveys, lastUpdated }) {
     else cur.to = i;
   });
 
+  // Where the state's three-year window begins, placed to the day within its
+  // quarter. Left of the line is history only this ledger still shows; the
+  // line advances every week as more records age off the state site.
+  const ws = windowStartOf(lastUpdated);
+  const wq = quarterOf(ws);
+  const wi = quarters.findIndex((b) => b.y === wq.y && b.q === wq.q);
+  let boundary = null;
+  if (wi >= 0) {
+    const qStart = Date.UTC(wq.y, (wq.q - 1) * 3, 1);
+    const qEnd = Date.UTC(wq.y, wq.q * 3, 1);
+    boundary = (wi + (isoUTC(ws) - qStart) / (qEnd - qStart)) * slot;
+  }
+  const anyHeld = quarters.some((b) => b.held > 0);
+
   const tip = hover === null ? null : quarters[hover];
 
   return (
@@ -578,6 +720,11 @@ function ActivityChart({ surveys, lastUpdated }) {
           <li>
             <span className="swatch swatch-plain" /> No enforcement
           </li>
+          {boundary !== null && anyHeld && (
+            <li>
+              <span className="swatch swatch-held" /> No longer on the state site
+            </li>
+          )}
         </ul>
       </div>
       <div className="chart-wrap">
@@ -590,8 +737,21 @@ function ActivityChart({ surveys, lastUpdated }) {
           onMouseLeave={() => setHover(null)}
         >
           <desc id="activity-desc">
-            {`Survey events per quarter from ${quarters[0].y} through ${quarters[n - 1].y}, with the number that carried an enforcement action shown in red. Full figures in the table that follows.`}
+            {`Survey events per quarter from ${quarters[0].y} through ${quarters[n - 1].y}, with the number that carried an enforcement action shown in red.${
+              boundary !== null && anyHeld
+                ? ` A shaded area marks surveys older than the state's three-year window, which the state no longer shows and this ledger keeps.`
+                : ""
+            } Full figures in the table that follows.`}
           </desc>
+          {boundary !== null && anyHeld && (
+            <rect
+              className="held-wash"
+              x="0"
+              y={CHART.TOP - 16}
+              width={`${boundary}%`}
+              height={CHART.BASE - CHART.TOP + 16}
+            />
+          )}
           {gridLines.map((v) => (
             <line
               key={`grid-${v}`}
@@ -650,6 +810,20 @@ function ActivityChart({ surveys, lastUpdated }) {
               </g>
             );
           })}
+          {boundary !== null && anyHeld && (
+            <>
+              <line
+                className="window-line"
+                x1={`${boundary}%`}
+                x2={`${boundary}%`}
+                y1={CHART.TOP - 16}
+                y2={CHART.BASE}
+              />
+              <text className="window-label" x={`${boundary}%`} dx="5" y={CHART.TOP - 7}>
+                State&rsquo;s 3-year window ▸
+              </text>
+            </>
+          )}
           <line
             x1="0"
             x2="100%"
@@ -718,6 +892,7 @@ function ActivityChart({ surveys, lastUpdated }) {
             </strong>{" "}
             · {tip.total} {tip.total === 1 ? "survey" : "surveys"} ·{" "}
             {tip.enforcement} enforcement
+            {tip.held > 0 && ` · ${tip.held} held in the ledger`}
           </div>
         )}
       </div>
@@ -731,6 +906,7 @@ function ActivityChart({ surveys, lastUpdated }) {
             <th scope="col">Quarter</th>
             <th scope="col">Surveys</th>
             <th scope="col">With enforcement action</th>
+            <th scope="col">No longer on the state site</th>
           </tr>
         </thead>
         <tbody>
@@ -739,6 +915,7 @@ function ActivityChart({ surveys, lastUpdated }) {
               <th scope="row">{`Q${b.q} ${b.y}`}</th>
               <td>{b.total}</td>
               <td>{b.enforcement}</td>
+              <td>{b.held}</td>
             </tr>
           ))}
         </tbody>
@@ -815,6 +992,7 @@ function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) 
               {f.fineTotal > 0 && ` · $${f.fineTotal.toLocaleString()}`}
             </span>
           )}
+          {f.newCount > 0 && <span className="chip chip-new">New</span>}
           {f.probationary && <span className="chip chip-probation">Probationary</span>}
           {f.heldCount > 0 && <span className="chip chip-held">{f.heldCount} held</span>}
           {f.closed && <span className="chip chip-closed">Closed</span>}
@@ -910,10 +1088,7 @@ function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) 
                             ${s.enr.fine.toLocaleString()} forfeiture
                           </span>
                         )}
-                        {s.first_seen === db.stats.lastUpdated &&
-                          s.first_seen !== db.stats.firstPull && (
-                            <span className="new-stamp">New this update</span>
-                          )}
+                        {s.isNew && <span className="new-stamp">New this week</span>}
                       </span>
                       {(s.enr.substantiated > 0 || s.enr.citations.length > 0) && (
                         <span className="event-cites">
@@ -937,11 +1112,14 @@ function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) 
                         </span>
                       )}
                       {s.expired_from_state && (
-                        <span className="held-stamp">
-                          {s.source && s.source.startsWith("wayback")
-                            ? "Recovered via the Internet Archive · held in the ledger"
-                            : "No longer shown by the state · held in the ledger"}
-                        </span>
+                        <>
+                          <span className="held-stamp">Held in the ledger</span>
+                          <span className="held-note">
+                            {s.source && s.source.startsWith("wayback")
+                              ? `Recovered from an Internet Archive copy of the state site (${fmtDate(s.last_seen)}).`
+                              : `No longer on the state site — last seen there ${fmtDate(s.last_seen)}.`}
+                          </span>
+                        </>
                       )}
                       <span className="event-docs">
                         {Object.entries(s.documents).map(([kind, path]) => (
@@ -969,9 +1147,12 @@ function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) 
               >
                 View this facility on the state site
               </a>
-              <button className="copy-link" aria-live="polite" onClick={copyLink}>
+              <button className="copy-link" onClick={copyLink}>
                 {copied ? "Link copied ✓" : "Copy link to this record"}
               </button>
+              <span className="sr-only" role="status">
+                {copied ? "Link to this record copied" : ""}
+              </span>
             </p>
           </div>
           </div>
@@ -1022,9 +1203,26 @@ function shape(facilitiesObj, surveysObj, enrichmentObj) {
     return { fine, sanctions, citations, substantiated };
   };
 
+  const allSurveys = Object.values(surveysObj);
+  const lastUpdated = allSurveys.reduce((m, s) => (s.last_seen > m ? s.last_seen : m), "");
+  const firstPull = allSurveys.reduce(
+    (m, s) => (m === "" || s.first_seen < m ? s.first_seen : m),
+    ""
+  );
+  // "New this week": first seen within 8 days of the latest refresh (weekly
+  // cadence plus timezone slack), so a mid-week manual run doesn't wipe the
+  // marker. The initial pull is never "new".
+  const newSince = isoMinusDays(lastUpdated, 8);
+  const isNew = (s) => s.first_seen !== firstPull && s.first_seen >= newSince;
+
   const surveysByLicense = {};
   for (const [id, s] of Object.entries(surveysObj)) {
-    (surveysByLicense[s.license] ||= []).push({ ...s, id, enr: enrich(s) });
+    (surveysByLicense[s.license] ||= []).push({
+      ...s,
+      id,
+      enr: enrich(s),
+      isNew: isNew(s),
+    });
   }
   for (const rows of Object.values(surveysByLicense)) {
     rows.sort((a, b) => b.exit_date.localeCompare(a.exit_date));
@@ -1048,6 +1246,7 @@ function shape(facilitiesObj, surveysObj, enrichmentObj) {
       enforcementCount: surveys.filter((s) => "enforcement" in s.documents).length,
       fineTotal: surveys.reduce((n, s) => n + (s.enr.fine || 0), 0),
       heldCount: surveys.filter((s) => s.expired_from_state).length,
+      newCount: surveys.filter((s) => s.isNew).length,
       latest: surveys[0]?.exit_date || "",
       siblings: addressGroups[addressKey(f)].filter((l) => l !== license),
       haystack: [f.name, f.city, f.corporate_name, f.licensee, license, f.address]
@@ -1057,7 +1256,6 @@ function shape(facilitiesObj, surveysObj, enrichmentObj) {
   });
 
   const openFacilities = facilities.filter((f) => !f.closed);
-  const allSurveys = Object.values(surveysObj);
   const operatorCounts = {};
   for (const f of facilities) {
     if (f.corporate_name) {
@@ -1078,11 +1276,8 @@ function shape(facilitiesObj, surveysObj, enrichmentObj) {
       held: allSurveys.filter((s) => s.expired_from_state).length,
       documents: allSurveys.reduce((n, s) => n + Object.keys(s.documents).length, 0),
       finesTotal: facilities.reduce((n, f) => n + f.fineTotal, 0),
-      lastUpdated: allSurveys.reduce((m, s) => (s.last_seen > m ? s.last_seen : m), ""),
-      firstPull: allSurveys.reduce(
-        (m, s) => (m === "" || s.first_seen < m ? s.first_seen : m),
-        ""
-      ),
+      newRecords: allSurveys.filter(isNew).length,
+      lastUpdated,
     },
   };
 }
