@@ -45,6 +45,18 @@ jobs:
           git diff --cached --quiet || git commit -m "Mine new documents $(date -u +%F)"
           git pull --rebase
           git push
+      # Newsroom alert: one issue listing enforcement actions new this run,
+      # @mentioning the ALERT_MENTIONS repository variable; GitHub emails
+      # everyone it notifies. continue-on-error: the deploy only follows a
+      # successful run, and a notification hiccup must never keep new records
+      # off the site (the tip sheet still lists them).
+      - name: Alert on new enforcement actions
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          ALERT_MENTIONS: ${{ vars.ALERT_MENTIONS }}
+        run: python pipeline/digest.py --alert
       # Fail loud: a red run nobody opens isn't loud. One open issue, not one
       # per week. Expected to fire when the state launches the Wisconsin
       # Provider Finder and retires DQA Provider Search (see CLAUDE.md).

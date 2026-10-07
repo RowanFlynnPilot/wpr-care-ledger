@@ -312,6 +312,18 @@ then bundles them into `dist/`, so **the Pages artifact is just
 - Weekly tip sheet: `python pipeline/digest.py` (read-only; in Actions it
   also lands on each run's summary page — new surveys, new enforcement
   actions with forfeitures, records that aged off that run)
+- Email alerts: `digest.py --alert` (last step of fetch.yml) opens one
+  `new-enforcement` issue per run listing enforcement actions new that run
+  — new surveys carrying a letter, and letters that arrived later on older
+  surveys (structural kind, so swapped columns can't hide one). The issue
+  @mentions the `ALERT_MENTIONS` repository variable (space-separated
+  GitHub usernames; currently `@RowanFlynnPilot`), and GitHub emails
+  whoever it notifies — mentions notify even non-watchers. A hidden marker
+  per action means nothing is ever emailed twice, however often the fetch
+  reruns. The step is `continue-on-error` so a notification hiccup can't
+  block the deploy. `alert-test.yml` (Run workflow) posts a `[TEST]` issue
+  to confirm delivery. Alert issues are public, like the repo — public
+  records only.
 - Wayback recovery (rarely; idempotent): `python pipeline/backfill_wayback.py`,
   then rerun enrich.py. Empirical result 2026-07: the Internet Archive
   holds zero Marathon County assisted-living items (attribution verified

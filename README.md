@@ -25,6 +25,21 @@ run). If a run fails, nothing is committed, a `fetch-failure` issue opens,
 and the widget keeps last week's data — telling readers it is behind if a
 failure lasts past ten days.
 
+## Email alerts for new enforcement actions
+
+When a run finds a new enforcement action, it opens one GitHub issue
+(label `new-enforcement`) per run: the facility, survey, forfeiture,
+serious orders, cited rules, and links to the record and the letter.
+GitHub emails everyone the issue @mentions.
+
+- **Who gets it:** the `ALERT_MENTIONS` repository variable — Settings →
+  Secrets and variables → Actions → Variables, space-separated GitHub
+  usernames (e.g. `@RowanFlynnPilot @someeditor`). Each person needs a
+  GitHub account with email notifications on (Settings → Notifications →
+  "Participating, @mentions and custom": Email).
+- **Test it:** Actions → alert-test → Run workflow posts a `[TEST]` alert.
+- No action is ever emailed twice, even if the fetch reruns.
+
 ## Embedding on wausaupilotandreview.com
 
 Paste this into a **Custom HTML** block in WordPress. The widget reports its

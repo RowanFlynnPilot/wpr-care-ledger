@@ -1,0 +1,28 @@
+name: alert-test
+
+# Actions → alert-test → Run workflow: posts a [TEST] new-enforcement issue
+# built from the three most recent enforcement actions, so recipients can
+# confirm the email arrives — e.g. after adding someone to the
+# ALERT_MENTIONS repository variable.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  test-alert:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Post a test alert
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          ALERT_MENTIONS: ${{ vars.ALERT_MENTIONS }}
+        run: python pipeline/digest.py --test-alert
