@@ -18,7 +18,7 @@ W, H, M = 1200, 630, 72
 BLACK = (17, 17, 17)
 INK = (49, 49, 49)
 SOFT = (102, 102, 102)
-SEPIA = (138, 97, 52)
+SEPIA = (125, 88, 47)  # #7d582f, the widget's --sepia
 
 FONTS = "https://raw.githubusercontent.com/google/fonts/main/ofl/"
 OSWALD = FONTS + "oswald/Oswald%5Bwght%5D.ttf"

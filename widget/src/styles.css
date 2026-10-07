@@ -19,7 +19,7 @@
   --teal-deep: #2a655d;
   --red: #b32d2e; /* enforcement */
   --red-wash: #f8e8e7;
-  --sepia: #8a6134;
+  --sepia: #7d582f; /* small text on --sepia-wash: keep >= 4.5:1 (this is 5.2:1) */
   --sepia-wash: #f1e8d8;
   --heading: "Oswald Variable", "Oswald", "Helvetica Neue", Arial, sans-serif;
   --body: "Merriweather", Georgia, serif;

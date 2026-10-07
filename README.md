@@ -6,10 +6,24 @@ repo never forgets.
 
 - Live widget: <https://rowanflynnpilot.github.io/wpr-care-ledger/>
 - Architecture and data contract: `CLAUDE.md`
-- Run the fetcher: `python pipeline/fetch.py`
+- Setup: `python -m pip install -r pipeline/requirements.txt` (pinned)
+- Tests: `python -m unittest discover -s pipeline/tests`
+- Run the fetcher, then the document miner:
+  `python pipeline/fetch.py` · `python pipeline/enrich.py`
 - Run the widget: `cd widget; npm install; npm run dev`
-- Data: `data/facilities.json`, `data/surveys.json`
+- Data: `data/facilities.json`, `data/surveys.json`, and the derived
+  `data/enrichment.json` (fines, sanctions, citations read from the PDFs)
 - Document archive: `archive/{license}/`
+
+## Every Monday
+
+GitHub Actions runs the tests, then the fetch, then the miner, commits what
+changed, and redeploys the widget. Each run's summary page carries a **tip
+sheet**: new surveys, new enforcement actions with their forfeitures, and
+records that aged off the state site that week (Actions → fetch → latest
+run). If a run fails, nothing is committed, a `fetch-failure` issue opens,
+and the widget keeps last week's data — telling readers it is behind if a
+failure lasts past ten days.
 
 ## Embedding on wausaupilotandreview.com
 
