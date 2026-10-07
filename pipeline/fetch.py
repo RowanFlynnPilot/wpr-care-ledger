@@ -359,6 +359,7 @@ def main():
             sid = f"{license_no}|{s['exit_date']}|{slug(s['survey_type'])}"
             entry = surveys.get(sid, {"first_seen": today})
             reappeared += entry.get("expired_from_state", False)
+            entry.pop("expired_on", None)
             entry.update({
                 "license": license_no,
                 "survey_type": s["survey_type"],
@@ -408,6 +409,7 @@ def main():
     for sid, s in surveys.items():
         if s["last_seen"] != today and not s["expired_from_state"]:
             s["expired_from_state"] = True
+            s["expired_on"] = today
             expired += 1
 
     save(FACILITIES_PATH, facilities)

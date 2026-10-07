@@ -76,7 +76,10 @@ WI DHS Division of Quality Assurance (DQA) Provider Search:
 `data/surveys.json` — dict keyed by `license|exit_date|survey-type-slug`.
 Fields: `license`, `survey_type`, `exit_date`, `documents` (kind → archive
 path; kinds: `enforcement`, `sod`, `poc`), `first_seen`, `last_seen`,
-`expired_from_state`. **Append-only.** A row that vanishes from DQA flips
+`expired_from_state`, and `expired_on` (the run date that flagged it;
+absent on the 7 rows that aged off during the 2026-07/10 outage, whose
+exact dates are unknowable — never backfill a guess; removed if a record
+reappears). **Append-only.** A row that vanishes from DQA flips
 `expired_from_state: true` and stays forever. That flag is the product —
 so it is guarded twice in `fetch.py`: every detail page must prove its
 identity (License Number field matches, Survey History section present
@@ -239,11 +242,16 @@ then bundles them into `dist/`, so **the Pages artifact is just
 - Fetch: `python pipeline/fetch.py` (idempotent; safe to re-run)
 - Mine documents: `python pipeline/enrich.py` (new docs only; `--rebuild`
   reparses everything — run after parser changes)
+- Weekly tip sheet: `python pipeline/digest.py` (read-only; in Actions it
+  also lands on each run's summary page — new surveys, new enforcement
+  actions with forfeitures, records that aged off that run)
 - Wayback recovery (rarely; idempotent): `python pipeline/backfill_wayback.py`,
   then rerun enrich.py. Empirical result 2026-07: the Internet Archive
   holds zero Marathon County assisted-living items (attribution verified
   against foreign-county documents), so the ledger's own weekly fetch is
   the only archive this county has. Re-run only if IA coverage grows.
 - Widget dev: `cd widget; npm install; npm run dev`
-- Windows local: `python -m pip install requests beautifulsoup4 lxml openpyxl pypdf`
+- Deps are pinned: `python -m pip install -r pipeline/requirements.txt`
+  (upgrade deliberately: bump, run fetch + `enrich.py --rebuild`, diff
+  data/ before committing)
 - Chain with `;` not `&&` in PowerShell 5.1
