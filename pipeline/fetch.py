@@ -304,6 +304,27 @@ def archive_pdf(session, url, license_no, exit_date, survey_type, kind):
 
 # -------------------------------------------------------------------- merge
 
+def vanished_in_window(surveys, facilities, today_date):
+    """Records not seen today that the state should still be showing.
+
+    A record of a facility still on the roster may only age off if it is
+    older than the state's three-year window. Checked across every unseen
+    row, including ones already flagged, so a past bad run gets caught too.
+    """
+    today = today_date.isoformat()
+    try:
+        window_start = today_date.replace(year=today_date.year - 3)
+    except ValueError:  # Feb 29
+        window_start = today_date.replace(year=today_date.year - 3, day=28)
+    must_still_show = (window_start + WINDOW_SLACK).isoformat()
+    return sorted(
+        sid for sid, s in surveys.items()
+        if s["last_seen"] != today
+        and facilities[s["license"]]["last_seen"] == today
+        and s["exit_date"] > must_still_show
+    )
+
+
 def load(path):
     return json.loads(path.read_text()) if path.exists() else {}
 
@@ -383,20 +404,7 @@ def main():
         if f["last_seen"] != today:
             f["on_state_roster"] = False
 
-    # A record of a facility still on the roster may only age off if it is
-    # older than the state's three-year window. Checked across every unseen
-    # row, including ones already flagged, so a past bad run gets caught too.
-    try:
-        window_start = today_date.replace(year=today_date.year - 3)
-    except ValueError:  # Feb 29
-        window_start = today_date.replace(year=today_date.year - 3, day=28)
-    must_still_show = (window_start + WINDOW_SLACK).isoformat()
-    vanished = sorted(
-        sid for sid, s in surveys.items()
-        if s["last_seen"] != today
-        and facilities[s["license"]]["last_seen"] == today
-        and s["exit_date"] > must_still_show
-    )
+    vanished = vanished_in_window(surveys, facilities, today_date)
     if vanished:
         raise RuntimeError(
             f"{len(vanished)} survey records inside the state's three-year window "

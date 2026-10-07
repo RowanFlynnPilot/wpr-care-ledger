@@ -239,6 +239,12 @@ then bundles them into `dist/`, so **the Pages artifact is just
 
 ## Commands
 
+- Tests: `python -m unittest discover -s pipeline/tests` (stdlib only; run
+  in CI before every fetch). Pins the guards that make a silent failure
+  impossible — real portal error page and wrong-facility pages must raise,
+  in-window records vanishing must be caught — plus forfeiture/citation
+  parsing against excerpts with the known traps. Fixtures are real portal
+  pages in `pipeline/tests/fixtures/`.
 - Fetch: `python pipeline/fetch.py` (idempotent; safe to re-run)
 - Mine documents: `python pipeline/enrich.py` (new docs only; `--rebuild`
   reparses everything — run after parser changes)
