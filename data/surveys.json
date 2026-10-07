@@ -328,8 +328,8 @@
   },
   "0012930|2026-06-10|survey-complaint": {
     "documents": {
-      "enforcement": "archive\\0012930\\2026-06-10_survey-complaint_enforcement.pdf",
-      "sod": "archive\\0012930\\2026-06-10_survey-complaint_sod.pdf"
+      "enforcement": "archive/0012930/2026-06-10_survey-complaint_enforcement.pdf",
+      "sod": "archive/0012930/2026-06-10_survey-complaint_sod.pdf"
     },
     "exit_date": "2026-06-10",
     "expired_from_state": false,
@@ -340,7 +340,7 @@
   },
   "0012930|2026-09-01|verification-visit": {
     "documents": {
-      "sod": "archive\\0012930\\2026-09-01_verification-visit_sod.pdf"
+      "sod": "archive/0012930/2026-09-01_verification-visit_sod.pdf"
     },
     "exit_date": "2026-09-01",
     "expired_from_state": false,
@@ -503,7 +503,7 @@
   },
   "0013424|2026-08-05|complaint-vv": {
     "documents": {
-      "sod": "archive\\0013424\\2026-08-05_complaint-vv_sod.pdf"
+      "sod": "archive/0013424/2026-08-05_complaint-vv_sod.pdf"
     },
     "exit_date": "2026-08-05",
     "expired_from_state": false,
@@ -592,8 +592,8 @@
   },
   "0014504|2026-06-30|complaint": {
     "documents": {
-      "enforcement": "archive\\0014504\\2026-06-30_complaint_enforcement.pdf",
-      "sod": "archive\\0014504\\2026-06-30_complaint_sod.pdf"
+      "enforcement": "archive/0014504/2026-06-30_complaint_enforcement.pdf",
+      "sod": "archive/0014504/2026-06-30_complaint_sod.pdf"
     },
     "exit_date": "2026-06-30",
     "expired_from_state": false,
@@ -762,7 +762,7 @@
   },
   "0015844|2026-07-16|survey-vv": {
     "documents": {
-      "sod": "archive\\0015844\\2026-07-16_survey-vv_sod.pdf"
+      "sod": "archive/0015844/2026-07-16_survey-vv_sod.pdf"
     },
     "exit_date": "2026-07-16",
     "expired_from_state": false,
@@ -1003,8 +1003,8 @@
   },
   "0016736|2026-08-19|complaint-vv": {
     "documents": {
-      "enforcement": "archive\\0016736\\2026-08-19_complaint-vv_enforcement.pdf",
-      "sod": "archive\\0016736\\2026-08-19_complaint-vv_sod.pdf"
+      "enforcement": "archive/0016736/2026-08-19_complaint-vv_enforcement.pdf",
+      "sod": "archive/0016736/2026-08-19_complaint-vv_sod.pdf"
     },
     "exit_date": "2026-08-19",
     "expired_from_state": false,
@@ -1277,8 +1277,8 @@
   },
   "0018302|2026-07-14|survey-complaint-vv": {
     "documents": {
-      "enforcement": "archive\\0018302\\2026-07-14_survey-complaint-vv_enforcement.pdf",
-      "sod": "archive\\0018302\\2026-07-14_survey-complaint-vv_sod.pdf"
+      "enforcement": "archive/0018302/2026-07-14_survey-complaint-vv_enforcement.pdf",
+      "sod": "archive/0018302/2026-07-14_survey-complaint-vv_sod.pdf"
     },
     "exit_date": "2026-07-14",
     "expired_from_state": false,
@@ -1289,8 +1289,8 @@
   },
   "0018302|2026-08-25|complaint": {
     "documents": {
-      "enforcement": "archive\\0018302\\2026-08-25_complaint_enforcement.pdf",
-      "sod": "archive\\0018302\\2026-08-25_complaint_sod.pdf"
+      "enforcement": "archive/0018302/2026-08-25_complaint_enforcement.pdf",
+      "sod": "archive/0018302/2026-08-25_complaint_sod.pdf"
     },
     "exit_date": "2026-08-25",
     "expired_from_state": false,
@@ -1382,8 +1382,8 @@
   },
   "0018760|2026-06-30|survey-complaint-vv": {
     "documents": {
-      "enforcement": "archive\\0018760\\2026-06-30_survey-complaint-vv_enforcement.pdf",
-      "sod": "archive\\0018760\\2026-06-30_survey-complaint-vv_sod.pdf"
+      "enforcement": "archive/0018760/2026-06-30_survey-complaint-vv_enforcement.pdf",
+      "sod": "archive/0018760/2026-06-30_survey-complaint-vv_sod.pdf"
     },
     "exit_date": "2026-06-30",
     "expired_from_state": false,
@@ -1704,7 +1704,7 @@
   },
   "0020363|2026-09-09|survey-complaint": {
     "documents": {
-      "sod": "archive\\0020363\\2026-09-09_survey-complaint_sod.pdf"
+      "sod": "archive/0020363/2026-09-09_survey-complaint_sod.pdf"
     },
     "exit_date": "2026-09-09",
     "expired_from_state": false,
@@ -1771,7 +1771,7 @@
   },
   "0020366|2026-07-21|complaint": {
     "documents": {
-      "sod": "archive\\0020366\\2026-07-21_complaint_sod.pdf"
+      "sod": "archive/0020366/2026-07-21_complaint_sod.pdf"
     },
     "exit_date": "2026-07-21",
     "expired_from_state": false,
@@ -1817,7 +1817,7 @@
   },
   "0020445|2026-08-19|verification-visit": {
     "documents": {
-      "sod": "archive\\0020445\\2026-08-19_verification-visit_sod.pdf"
+      "sod": "archive/0020445/2026-08-19_verification-visit_sod.pdf"
     },
     "exit_date": "2026-08-19",
     "expired_from_state": false,
@@ -1828,8 +1828,8 @@
   },
   "0020912|2026-07-29|complaint": {
     "documents": {
-      "enforcement": "archive\\0020912\\2026-07-29_complaint_enforcement.pdf",
-      "sod": "archive\\0020912\\2026-07-29_complaint_sod.pdf"
+      "enforcement": "archive/0020912/2026-07-29_complaint_enforcement.pdf",
+      "sod": "archive/0020912/2026-07-29_complaint_sod.pdf"
     },
     "exit_date": "2026-07-29",
     "expired_from_state": false,

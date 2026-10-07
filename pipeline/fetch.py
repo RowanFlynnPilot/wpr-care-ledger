@@ -288,7 +288,9 @@ def archive_pdf(session, url, license_no, exit_date, survey_type, kind):
     if the file already exists, it is never re-fetched."""
     name = f"{exit_date}_{slug(survey_type)}_{kind}.pdf"
     path = ARCHIVE_DIR / license_no / name
-    rel = str(path.relative_to(ROOT))
+    # POSIX form on every OS: this string is a URL in the widget and the join
+    # key into enrichment.json.
+    rel = path.relative_to(ROOT).as_posix()
     if path.exists():
         return rel
     r = get(session, url)
