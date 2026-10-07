@@ -1,0 +1,9 @@
+# Pinned: this pipeline runs unattended for years, and a new pypdf or lxml
+# can silently change what gets extracted from published documents.
+# Versions are the set CI ran green on 2026-10-07. Upgrade deliberately:
+# bump, run fetch.py and `enrich.py --rebuild`, diff data/ before committing.
+beautifulsoup4==4.15.0
+lxml==6.1.3
+openpyxl==3.1.5
+pypdf==6.19.0
+requests==2.34.2

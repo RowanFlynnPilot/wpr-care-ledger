@@ -13,11 +13,11 @@ jobs:
   fetch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      - run: python -m pip install requests beautifulsoup4 lxml openpyxl pypdf
+      - run: python -m pip install -r pipeline/requirements.txt
       - run: python pipeline/fetch.py
       - run: python pipeline/enrich.py
       - name: Commit ledger updates
@@ -41,6 +41,8 @@ jobs:
             gh issue create --title "Weekly fetch failed — $(date -u +%F)" \
               --label fetch-failure \
               --body "The scheduled DQA fetch failed: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+          Nothing was committed; the live widget keeps last week's data and tells readers when it goes stale. The run log's final RuntimeError names the cause: a portal error page, a detail page failing its identity check, a changed export or grid, or survey records inside the state's three-year window vanishing (see CLAUDE.md, data contract).
 
           If the state's DQA Provider Search has been replaced by the Wisconsin Provider Finder, this is the migration event described in CLAUDE.md — rewrite the fetcher against the new tool; the ledger and archive carry forward untouched."
           fi
