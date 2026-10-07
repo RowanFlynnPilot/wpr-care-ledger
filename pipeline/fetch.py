@@ -18,7 +18,7 @@ import json
 import re
 import sys
 import time
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from io import BytesIO
 from pathlib import Path
 
@@ -58,6 +58,13 @@ ARCHIVE_DIR = ROOT / "archive"
 
 REQUEST_DELAY = 0.5  # seconds between requests; be a polite citizen
 TIMEOUT = 30
+
+# DQA shows three years of survey history. A record may only be treated as
+# aged off if its exit date is at least this old; anything newer vanishing
+# means the scrape or the state's data broke, and the run must fail rather
+# than publish "no longer shown by the state". The slack absorbs the
+# state's own window arithmetic and the weekly cadence.
+WINDOW_SLACK = timedelta(days=30)
 
 EXPORT_HEADER = (
     "License or Certification Number",
@@ -113,18 +120,23 @@ def slug(text):
     return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
 
 
+def check_portal(r):
+    # The portal answers failures with a 302 to a 200 "Unexpected Error"
+    # page, which raise_for_status() cannot see.
+    r.raise_for_status()
+    if "UnexpectedError" in r.url or "UnexpectedError" in r.headers.get("Location", ""):
+        raise RuntimeError(f"Portal error page for {r.request.url}")
+    return r
+
+
 def get(session, url, **kw):
     time.sleep(REQUEST_DELAY)
-    r = session.get(url, timeout=TIMEOUT, **kw)
-    r.raise_for_status()
-    return r
+    return check_portal(session.get(url, timeout=TIMEOUT, **kw))
 
 
 def post(session, url, data, **kw):
     time.sleep(REQUEST_DELAY)
-    r = session.post(url, data=data, timeout=TIMEOUT, **kw)
-    r.raise_for_status()
-    return r
+    return check_portal(session.post(url, data=data, timeout=TIMEOUT, **kw))
 
 
 # ------------------------------------------------------------------- scrape
@@ -187,12 +199,16 @@ def download_roster(session):
     return roster
 
 
-def harvest_keys(session, results_soup, known_keys):
-    """Map license number -> DqaProviderDetails key.
+def harvest_keys(session, results_soup):
+    """Map license number -> DqaProviderDetails key, freshly, every run.
+
+    Keys are NOT stable: DQA reloads its provider table on each weekly
+    refresh and every facility gets a new key (15226164 on 2026-07-12 was
+    15570764 by October). A stale key redirects to the portal error page.
 
     Each grid row's facility link is a WebForms postback that 302s to the
     detail URL with the key in the Location header. The results viewstate is
-    reusable, so this is one lightweight POST per unknown facility.
+    reusable, so this is one lightweight POST per facility.
     """
     hf = hidden_fields(results_soup)
     keys = {}
@@ -204,10 +220,6 @@ def harvest_keys(session, results_soup, known_keys):
             raise RuntimeError(f"Grid row structure changed near: {anchor.get_text(strip=True)}")
         license_no = lic_span.get_text(strip=True)
 
-        if license_no in known_keys:
-            keys[license_no] = known_keys[license_no]
-            continue
-
         d = dict(hf)
         d["__EVENTTARGET"] = f"{P}GridViewResults${ctl.group(1)}$LinkSakDqa"
         r = post(session, RESULTS_URL, d, allow_redirects=False)
@@ -215,12 +227,17 @@ def harvest_keys(session, results_soup, known_keys):
         if not m:
             raise RuntimeError(f"No detail key for {license_no}: {r.status_code} {r.headers.get('Location')}")
         keys[license_no] = m.group(1)
-        print(f"  key {m.group(1)} <- {license_no} {anchor.get_text(strip=True)}")
     return keys
 
 
-def fetch_detail(session, key):
-    """Parse a facility detail page: labeled fields + survey history rows."""
+def fetch_detail(session, key, license_no):
+    """Parse a facility detail page: labeled fields + survey history rows.
+
+    The page must prove it is this facility's record — its License Number
+    field matches and its Survey History section holds either the survey
+    table or the state's explicit "No survey information available." Any
+    other page (error, redirect, redesign) raises; silently parsing it as an
+    empty history is how every record once got marked expired."""
     soup = BeautifulSoup(get(session, DETAIL_URL, params={"key": key, "keyb": "-1"}).text, "lxml")
 
     fields = {}
@@ -228,12 +245,21 @@ def fetch_detail(session, key):
         divs = row.find_all("div", recursive=False)
         if len(divs) == 2:
             fields[divs[0].get_text(strip=True)] = divs[1].get_text(" ", strip=True)
+    if fields.get("License Number") != license_no:
+        raise RuntimeError(
+            f"Detail page for key {key} is not license {license_no} "
+            f"(License Number field: {fields.get('License Number')!r})"
+        )
+    if not fields.get("Licensure Status"):
+        raise RuntimeError(f"Detail page for {license_no} has no Licensure Status field")
 
     surveys = []
+    found_table = False
     for table in soup.find_all("table"):
         header = [th.get_text(strip=True) for th in table.find_all("th")]
         if header[:2] != ["Survey Type", "Exit Date"]:
             continue
+        found_table = True
         for tr in table.find_all("tr")[1:]:
             cells = tr.find_all("td")
             if len(cells) != 5:
@@ -248,6 +274,8 @@ def fetch_detail(session, key):
                 "exit_date": iso(cells[1].get_text(strip=True)),
                 "docs": docs,
             })
+    if not found_table and "No survey information available" not in soup.get_text(" "):
+        raise RuntimeError(f"Detail page for {license_no} has no recognizable Survey History section")
     return {
         "licensure_status": fields.get("Licensure Status", ""),
         "ownership_type": fields.get("Ownership Type", ""),
@@ -284,10 +312,10 @@ def save(path, obj):
 
 
 def main():
-    today = date.today().isoformat()
+    today_date = date.today()
+    today = today_date.isoformat()
     facilities = load(FACILITIES_PATH)
     surveys = load(SURVEYS_PATH)
-    known_keys = {lic: f["key"] for lic, f in facilities.items() if f.get("key")}
 
     session = requests.Session()
     session.headers["User-Agent"] = (
@@ -303,18 +331,19 @@ def main():
     print(f"  {len(roster)} facilities on the state roster")
 
     print("[3/4] Harvesting detail keys")
-    keys = harvest_keys(session, results_soup, known_keys)
+    keys = harvest_keys(session, results_soup)
     missing = set(keys) - set(roster)
     if missing:
         raise RuntimeError(f"Grid facilities absent from export: {missing}")
 
     print("[4/4] Fetching details, survey history, and documents")
     new_surveys = 0
+    reappeared = 0
     for license_no, facility in sorted(roster.items()):
         key = keys.get(license_no)
         if not key:
             raise RuntimeError(f"{license_no} {facility['name']} has no detail key")
-        detail, history = fetch_detail(session, key)
+        detail, history = fetch_detail(session, key, license_no)
 
         record = facilities.get(license_no, {"first_seen": today})
         record.update(facility)
@@ -327,6 +356,7 @@ def main():
         for s in history:
             sid = f"{license_no}|{s['exit_date']}|{slug(s['survey_type'])}"
             entry = surveys.get(sid, {"first_seen": today})
+            reappeared += entry.get("expired_from_state", False)
             entry.update({
                 "license": license_no,
                 "survey_type": s["survey_type"],
@@ -349,6 +379,29 @@ def main():
     for lic, f in facilities.items():
         if f["last_seen"] != today:
             f["on_state_roster"] = False
+
+    # A record of a facility still on the roster may only age off if it is
+    # older than the state's three-year window. Checked across every unseen
+    # row, including ones already flagged, so a past bad run gets caught too.
+    try:
+        window_start = today_date.replace(year=today_date.year - 3)
+    except ValueError:  # Feb 29
+        window_start = today_date.replace(year=today_date.year - 3, day=28)
+    must_still_show = (window_start + WINDOW_SLACK).isoformat()
+    vanished = sorted(
+        sid for sid, s in surveys.items()
+        if s["last_seen"] != today
+        and facilities[s["license"]]["last_seen"] == today
+        and s["exit_date"] > must_still_show
+    )
+    if vanished:
+        raise RuntimeError(
+            f"{len(vanished)} survey records inside the state's three-year window "
+            f"vanished from facilities still on the roster — not a normal age-off. "
+            f"Investigate (relabeled survey type? corrected date? deletion?) before "
+            f"anything is marked as no longer shown: {vanished}"
+        )
+
     expired = 0
     for sid, s in surveys.items():
         if s["last_seen"] != today and not s["expired_from_state"]:
@@ -362,7 +415,8 @@ def main():
     print(
         f"\nDone. {len(facilities)} facilities in ledger "
         f"({sum(1 for f in facilities.values() if f['on_state_roster'])} on state roster), "
-        f"{len(surveys)} survey records ({new_surveys} new, {expired} newly expired from state), "
+        f"{len(surveys)} survey records ({new_surveys} new, {expired} newly expired from state, "
+        f"{reappeared} previously flagged expired seen again), "
         f"{docs} documents archived."
     )
 

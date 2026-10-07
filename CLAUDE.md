@@ -51,10 +51,18 @@ WI DHS Division of Quality Assurance (DQA) Provider Search:
    results-page viewstate 302s to `DqaProviderDetails.aspx?key=NNNNNNNN`.
    The key is read from the **Location header** — no need to follow. The
    results viewstate is reusable across all row clicks.
-5. Detail keys are stable system identifiers, cached per facility in
-   `facilities.json`. Detail pages are then plain GETs
-   (`?key=N&keyb=-1`) — the postback dance only happens for facilities
-   without a cached key.
+5. **Detail keys rotate every weekly refresh** — DQA reloads its provider
+   table and every facility gets a new key (Our House: 15226164 on
+   2026-07-12, 15570764 by October). A stale key 302s to
+   `UnexpectedError.aspx`, a 200 page that `raise_for_status()` can't see.
+   So keys are harvested fresh on every run (~93 POSTs, under a minute)
+   and never reused. `facilities.json` stores the current week's `key`
+   only for the widget's "view on state site" link; detail pages work
+   without a session given a current key. Lesson paid for in full: an
+   earlier version cached keys, broke on the first weekly run, and for 12
+   weeks parsed error pages as empty histories — flagging every record
+   "no longer shown by the state" on the live site while every run
+   reported success.
 6. Survey document PDFs are direct URLs
    (`https://www.forwardhealth.wi.gov/kw/dqa/XXXXXXSODS.PDF`). Immutable
    legal documents: archived once, never re-fetched.
@@ -69,7 +77,14 @@ WI DHS Division of Quality Assurance (DQA) Provider Search:
 Fields: `license`, `survey_type`, `exit_date`, `documents` (kind → archive
 path; kinds: `enforcement`, `sod`, `poc`), `first_seen`, `last_seen`,
 `expired_from_state`. **Append-only.** A row that vanishes from DQA flips
-`expired_from_state: true` and stays forever. That flag is the product.
+`expired_from_state: true` and stays forever. That flag is the product —
+so it is guarded twice in `fetch.py`: every detail page must prove its
+identity (License Number field matches, Survey History section present
+as a table or the state's explicit "No survey information available."),
+and a record of a facility still on the roster may only age off if its
+exit date is older than the three-year window plus 30 days' slack.
+Anything newer vanishing fails the run (opening a `fetch-failure` issue)
+instead of being published as "no longer shown by the state".
 Rows recovered by `pipeline/backfill_wayback.py` (one-time Internet
 Archive recovery of history the state already dropped; survey type
 reconstructed from the documents' own prose) additionally carry

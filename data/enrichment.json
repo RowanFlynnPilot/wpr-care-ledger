@@ -357,6 +357,42 @@
     "deficiencies": 0,
     "kind": "sod"
   },
+  "archive/0012930/2026-06-10_survey-complaint_enforcement.pdf": {
+    "fine": 950,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Order to comply"
+    ],
+    "sod_ref": "36TG11"
+  },
+  "archive/0012930/2026-06-10_survey-complaint_sod.pdf": {
+    "census": 10,
+    "citations": [
+      {
+        "code": "83.20(2)(a)",
+        "tag": "N 239",
+        "title": "-(d) Department-approved training courses."
+      },
+      {
+        "code": "83.36(1)(b)",
+        "tag": "N 397",
+        "title": "Qualified staff in charge, on duty and awake."
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 2,
+    "kind": "sod"
+  },
+  "archive/0012930/2026-09-01_verification-visit_sod.pdf": {
+    "census": 9,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
   "archive/0013025/2024-01-18_survey-complaint_enforcement.pdf": {
     "fine": null,
     "kind": "enforcement",
@@ -621,6 +657,14 @@
     "deficiencies": 2,
     "kind": "sod"
   },
+  "archive/0013424/2026-08-05_complaint-vv_sod.pdf": {
+    "census": 15,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
   "archive/0013441/2023-07-12_survey_sod.pdf": {
     "census": 4,
     "citations": [],
@@ -694,6 +738,33 @@
     "complaints_substantiated": 0,
     "complaints_unsubstantiated": 1,
     "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0014504/2026-06-30_complaint_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply"
+    ],
+    "sod_ref": "QLCP11"
+  },
+  "archive/0014504/2026-06-30_complaint_sod.pdf": {
+    "census": 52,
+    "citations": [
+      {
+        "code": "83.12(4)(a)",
+        "tag": "N 163",
+        "title": "Reporting when resident's whereabouts unknown"
+      },
+      {
+        "code": "83.36(1)(b)",
+        "tag": "N 397",
+        "title": "Qualified staff in charge, on duty and awake."
+      }
+    ],
+    "complaints_substantiated": 5,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": null,
     "kind": "sod"
   },
   "archive/0015223/2024-04-30_verification-visit_sod.pdf": {
@@ -898,6 +969,14 @@
     "complaints_substantiated": 1,
     "complaints_unsubstantiated": 0,
     "deficiencies": 1,
+    "kind": "sod"
+  },
+  "archive/0015844/2026-07-16_survey-vv_sod.pdf": {
+    "census": 2,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": null,
     "kind": "sod"
   },
   "archive/0015955/2024-03-19_complaint-self-report_enforcement.pdf": {
@@ -1225,6 +1304,30 @@
     "complaints_substantiated": 0,
     "complaints_unsubstantiated": 1,
     "deficiencies": 8,
+    "kind": "sod"
+  },
+  "archive/0016736/2026-08-19_complaint-vv_enforcement.pdf": {
+    "fine": 200,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Order to comply",
+      "Revisit fee"
+    ],
+    "sod_ref": "3LD712"
+  },
+  "archive/0016736/2026-08-19_complaint-vv_sod.pdf": {
+    "census": 25,
+    "citations": [
+      {
+        "code": "83.37(1)(i)",
+        "tag": "N 408",
+        "title": "PRN psychotropic medication."
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 1,
     "kind": "sod"
   },
   "archive/0016838/2026-04-07_survey_sod.pdf": {
@@ -1645,6 +1748,165 @@
     "deficiencies": 2,
     "kind": "sod"
   },
+  "archive/0018302/2026-07-14_survey-complaint-vv_enforcement.pdf": {
+    "fine": 3900,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Special orders",
+      "Order to comply",
+      "Revisit fee"
+    ],
+    "sod_ref": "WUGI14"
+  },
+  "archive/0018302/2026-07-14_survey-complaint-vv_sod.pdf": {
+    "census": 24,
+    "citations": [
+      {
+        "code": "83.12(3)(a)",
+        "tag": "N 161",
+        "title": "Investigate injuries of unknown source."
+      },
+      {
+        "code": "83.12(4)(a)",
+        "tag": "N 163",
+        "title": "Reporting when resident's whereabouts unknown"
+      },
+      {
+        "code": "83.12(4)(c)",
+        "tag": "N 165",
+        "title": "Reporting incidents with serious injury"
+      },
+      {
+        "code": "83.14(2)(e)",
+        "tag": "N 200",
+        "title": "Notify within 7 days of administrator change"
+      },
+      {
+        "code": "83.29(2)",
+        "tag": "N 310",
+        "title": "Admission agreement include services, charges"
+      },
+      {
+        "code": "83.35(3)(b)",
+        "tag": "N 387",
+        "title": "Service plan development: parties involved"
+      },
+      {
+        "code": "83.35(3)(d)",
+        "tag": "N 389",
+        "title": "Service plans updated annually or on changes"
+      },
+      {
+        "code": "83.37(1)(i)",
+        "tag": "N 408",
+        "title": "PRN psychotropic medication."
+      },
+      {
+        "code": "83.38(1)(h)",
+        "tag": "N 432",
+        "title": "Medication administration."
+      },
+      {
+        "code": "83.44(1)(c)",
+        "tag": "N 488",
+        "title": "Clothes dryers enclosed and vented"
+      },
+      {
+        "code": "83.44(2)(b)",
+        "tag": "N 490",
+        "title": "Toilet and bathing area."
+      },
+      {
+        "code": "83.45(3)",
+        "tag": "N 499",
+        "title": "Toxic substances."
+      }
+    ],
+    "complaints_substantiated": 3,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 12,
+    "kind": "sod"
+  },
+  "archive/0018302/2026-08-25_complaint_enforcement.pdf": {
+    "fine": 1700,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Special orders",
+      "Order to comply"
+    ],
+    "sod_ref": "WTNG11"
+  },
+  "archive/0018302/2026-08-25_complaint_sod.pdf": {
+    "census": 21,
+    "citations": [
+      {
+        "code": "83.15(3)(a)",
+        "tag": "N 214",
+        "title": "Administrator shall supervise daily operation"
+      },
+      {
+        "code": "83.26(1)",
+        "tag": "N 0283",
+        "title": "Documentation Of Required"
+      },
+      {
+        "code": "83.35(1)(b)",
+        "tag": "N 0382",
+        "title": "Sources Used For"
+      },
+      {
+        "code": "83.35(2)",
+        "tag": "N 0385",
+        "title": "Temporary Service Plan"
+      },
+      {
+        "code": "83.35(3)(d)",
+        "tag": "N 0389",
+        "title": "Service Plans Updated"
+      },
+      {
+        "code": "83.37(2)(d)",
+        "tag": "N 0415",
+        "title": "Documentation Of Medication"
+      },
+      {
+        "code": "50.09(1)(L)",
+        "tag": "Y 3244",
+        "title": "Care"
+      },
+      {
+        "code": "83.26(1)",
+        "tag": "N 283",
+        "title": "Documentation of required employee training"
+      },
+      {
+        "code": "83.35(1)(b)",
+        "tag": "N 382",
+        "title": "Sources used for assessment information."
+      },
+      {
+        "code": "83.35(2)",
+        "tag": "N 385",
+        "title": "Temporary Service Plan."
+      },
+      {
+        "code": "83.35(3)(d)",
+        "tag": "N 389",
+        "title": "Service plans updated annually or on changes"
+      },
+      {
+        "code": "83.37(2)(d)",
+        "tag": "N 415",
+        "title": "Documentation of medication administration."
+      }
+    ],
+    "complaints_substantiated": 2,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 7,
+    "kind": "sod"
+  },
   "archive/0018526/2025-08-26_survey-complaint_sod.pdf": {
     "census": 7,
     "citations": [],
@@ -1781,6 +2043,29 @@
     "complaints_substantiated": 1,
     "complaints_unsubstantiated": 0,
     "deficiencies": 4,
+    "kind": "sod"
+  },
+  "archive/0018760/2026-06-30_survey-complaint-vv_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply",
+      "Revisit fee"
+    ],
+    "sod_ref": "XWD313"
+  },
+  "archive/0018760/2026-06-30_survey-complaint-vv_sod.pdf": {
+    "census": 13,
+    "citations": [
+      {
+        "code": "83.35(3)(d)",
+        "tag": "N 389",
+        "title": "Service plans updated annually or on changes"
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 1,
     "kind": "sod"
   },
   "archive/0018940/2025-04-23_survey_sod.pdf": {
@@ -2402,6 +2687,14 @@
     "deficiencies": 0,
     "kind": "sod"
   },
+  "archive/0020363/2026-09-09_survey-complaint_sod.pdf": {
+    "census": 20,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
   "archive/0020366/2024-11-13_survey-complaint_sod.pdf": {
     "census": 22,
     "citations": [],
@@ -2458,6 +2751,14 @@
     "citations": [],
     "complaints_substantiated": 0,
     "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0020366/2026-07-21_complaint_sod.pdf": {
+    "census": 22,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 2,
     "deficiencies": 0,
     "kind": "sod"
   },
@@ -2530,6 +2831,52 @@
       }
     ],
     "complaints_substantiated": 1,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 4,
+    "kind": "sod"
+  },
+  "archive/0020445/2026-08-19_verification-visit_sod.pdf": {
+    "census": 22,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0020912/2026-07-29_complaint_enforcement.pdf": {
+    "fine": 800,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Order to comply"
+    ],
+    "sod_ref": "7XQ511"
+  },
+  "archive/0020912/2026-07-29_complaint_sod.pdf": {
+    "census": 57,
+    "citations": [
+      {
+        "code": "83.33(1)(d)",
+        "tag": "N 362",
+        "title": "Grievance procedure: written summary"
+      },
+      {
+        "code": "83.35(3)(c)",
+        "tag": "N 388",
+        "title": "Implement, follow the individual service plan"
+      },
+      {
+        "code": "83.35(3)(d)",
+        "tag": "N 389",
+        "title": "Service plans updated annually or on changes"
+      },
+      {
+        "code": "83.37(1)(i)",
+        "tag": "N 408",
+        "title": "PRN psychotropic medication."
+      }
+    ],
+    "complaints_substantiated": 2,
     "complaints_unsubstantiated": 0,
     "deficiencies": 4,
     "kind": "sod"
