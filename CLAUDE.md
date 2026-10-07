@@ -178,8 +178,10 @@ three-year window, bounded by a dashed line placed to the day — it
 advances every week, so the chart itself shows the archive outliving
 the state's public record.
 Expandable ledger rows: license facts + survey timeline
-linking to archived PDFs, "View on state site" link built from the cached
-detail key, same-address cross-links (neutral copy — the dates tell the
+linking to archived PDFs, "View on state site" link built from the current
+week's detail key (known gap: it can 404 to the portal error page between
+DQA's weekly refresh, which rotates keys, and the next Monday fetch — a
+stable deep link to the state's record doesn't exist), same-address cross-links (neutral copy — the dates tell the
 Acorn Hill story on their own), and operator cross-links when a
 `corporate_name` runs 2+ facilities. Survey events first seen by the most
 recent fetch get a "New this update" stamp (suppressed for the initial

@@ -49,7 +49,10 @@ SEARCH_FIELDS = {
     P + "ResultsSortOrder": "NAM_LEGAL",
 }
 
-DOC_COLUMNS = {2: "enforcement", 3: "sod", 4: "poc"}  # survey table layout
+SURVEY_HEADER = [
+    "Survey Type", "Exit Date", "Enforcement", "Statement of Deficiency", "Plan of Correction",
+]
+DOC_COLUMNS = {2: "enforcement", 3: "sod", 4: "poc"}  # positions within SURVEY_HEADER
 
 ROOT = Path(__file__).resolve().parent.parent
 FACILITIES_PATH = ROOT / "data" / "facilities.json"
@@ -259,6 +262,8 @@ def fetch_detail(session, key, license_no):
         header = [th.get_text(strip=True) for th in table.find_all("th")]
         if header[:2] != ["Survey Type", "Exit Date"]:
             continue
+        if header != SURVEY_HEADER:
+            raise RuntimeError(f"Survey table columns changed for {license_no}: {header}")
         found_table = True
         for tr in table.find_all("tr")[1:]:
             cells = tr.find_all("td")
