@@ -1,10 +1,10 @@
 """The Care Ledger fetcher.
 
 Scrapes the WI DHS Division of Quality Assurance (DQA) Provider Search for
-every assisted living facility in Marathon County (AFH, CBRF, RCAC), archives
-statements of deficiency / enforcement / plan-of-correction PDFs permanently,
-and maintains an append-only survey ledger. DQA only shows the past three
-years; this ledger never forgets.
+every assisted living facility (AFH, CBRF, RCAC) in Marathon County and the
+eight counties around it, archives statements of deficiency / enforcement /
+plan-of-correction PDFs permanently, and maintains an append-only survey
+ledger. DQA only shows the past three years; this ledger never forgets.
 
 One correct path: ASP.NET WebForms postback replay with plain requests.
 Fails loud on any structural surprise -- the state is replacing this tool
@@ -28,8 +28,22 @@ from bs4 import BeautifulSoup
 
 # ---------------------------------------------------------------- constants
 
-COUNTY_NAME = "Marathon"
-COUNTY_CODE = "2744"  # value of the Marathon option in the County dropdown
+# County as the roster export spells it -> value of its option in the search
+# form's County dropdown. Marathon since 2026-07-12; its eight neighbors since
+# 2026-10-06, each archive starting at the state's window that week. Never
+# drop a county from this list: its facilities would read as off the roster
+# and its records as aged off, when only the ledger stopped looking.
+COUNTIES = {
+    "MARATHON": "2744",
+    "CLARK": "2717",
+    "LANGLADE": "2741",
+    "LINCOLN": "2742",
+    "PORTAGE": "2757",
+    "SHAWANO": "2766",
+    "TAYLOR": "2768",
+    "WAUPACA": "2776",
+    "WOOD": "2779",
+}
 
 BASE = "https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/"
 SEARCH_URL = BASE + "DQAProviderSearch.aspx"
@@ -40,7 +54,6 @@ DETAIL_URL = BASE + "DqaProviderDetails.aspx"
 P = "ctl00$MainContent$GenericPageCtrl1$"  # WebForms control name prefix
 
 SEARCH_FIELDS = {
-    P + "County": COUNTY_CODE,
     P + "IndAdultFamilyHome": "on",
     P + "IndCommunityBased": "on",
     P + "IndResidentialCare": "on",
@@ -144,17 +157,18 @@ def post(session, url, data, **kw):
 
 # ------------------------------------------------------------------- scrape
 
-def run_search(session):
-    """Perform the county search. Returns the results page soup."""
+def run_search(session, county_code):
+    """Perform one county's search. Returns the results page soup."""
     soup = BeautifulSoup(get(session, SEARCH_URL).text, "lxml")
 
     # County selection is a server-side postback (populates the city list).
     d = hidden_fields(soup)
-    d[P + "County"] = COUNTY_CODE
+    d[P + "County"] = county_code
     d["__EVENTTARGET"] = P + "County"
     soup = BeautifulSoup(post(session, SEARCH_URL, d).text, "lxml")
 
     d = hidden_fields(soup) | SEARCH_FIELDS
+    d[P + "County"] = county_code
     d["__EVENTTARGET"] = P + "ButtonSearch"
     r = post(session, SEARCH_URL, d)
     if "DqaProviderSearchResults" not in r.url:
@@ -345,26 +359,68 @@ def main():
     facilities = load(FACILITIES_PATH)
     surveys = load(SURVEYS_PATH)
 
-    session = requests.Session()
-    session.headers["User-Agent"] = (
-        "Mozilla/5.0 (compatible; WausauPilotCareLedger/1.0; "
-        "+https://wausaupilotandreview.com)"
+    new_surveys = 0
+    reappeared = 0
+    for county, code in COUNTIES.items():
+        # A fresh session per county: the export and the grid's viewstate
+        # belong to the session's latest search.
+        session = requests.Session()
+        session.headers["User-Agent"] = (
+            "Mozilla/5.0 (compatible; WausauPilotCareLedger/1.0; "
+            "+https://wausaupilotandreview.com)"
+        )
+        print(f"{county.title()} County: searching (AFH + CBRF + RCAC, incl. closed)")
+        results_soup = run_search(session, code)
+        roster = download_roster(session)
+        wrong = {f["county"] for f in roster.values()} - {county}
+        if wrong:
+            raise RuntimeError(f"{county} search returned facilities from {wrong} -- county code changed?")
+        keys = harvest_keys(session, results_soup)
+        missing = set(keys) - set(roster)
+        if missing:
+            raise RuntimeError(f"Grid facilities absent from export: {missing}")
+        print(f"  {len(roster)} facilities; fetching details, survey history, documents")
+        n, r = fetch_county(session, roster, keys, facilities, surveys, today)
+        new_surveys += n
+        reappeared += r
+
+    # Anything we've seen before that the state no longer shows.
+    for lic, f in facilities.items():
+        if f["last_seen"] != today:
+            f["on_state_roster"] = False
+
+    vanished = vanished_in_window(surveys, facilities, today_date)
+    if vanished:
+        raise RuntimeError(
+            f"{len(vanished)} survey records inside the state's three-year window "
+            f"vanished from facilities still on the roster — not a normal age-off. "
+            f"Investigate (relabeled survey type? corrected date? deletion?) before "
+            f"anything is marked as no longer shown: {vanished}"
+        )
+
+    expired = 0
+    for sid, s in surveys.items():
+        if s["last_seen"] != today and not s["expired_from_state"]:
+            s["expired_from_state"] = True
+            s["expired_on"] = today
+            expired += 1
+
+    save(FACILITIES_PATH, facilities)
+    save(SURVEYS_PATH, surveys)
+
+    docs = sum(len(s["documents"]) for s in surveys.values())
+    print(
+        f"\nDone. {len(facilities)} facilities in ledger "
+        f"({sum(1 for f in facilities.values() if f['on_state_roster'])} on state roster), "
+        f"{len(surveys)} survey records ({new_surveys} new, {expired} newly expired from state, "
+        f"{reappeared} previously flagged expired seen again), "
+        f"{docs} documents archived."
     )
 
-    print(f"[1/4] Searching {COUNTY_NAME} County (AFH + CBRF + RCAC, incl. closed)")
-    results_soup = run_search(session)
 
-    print("[2/4] Downloading roster export")
-    roster = download_roster(session)
-    print(f"  {len(roster)} facilities on the state roster")
-
-    print("[3/4] Harvesting detail keys")
-    keys = harvest_keys(session, results_soup)
-    missing = set(keys) - set(roster)
-    if missing:
-        raise RuntimeError(f"Grid facilities absent from export: {missing}")
-
-    print("[4/4] Fetching details, survey history, and documents")
+def fetch_county(session, roster, keys, facilities, surveys, today):
+    """Merge one county's roster, detail pages, and documents into the
+    ledger. Returns (new survey rows, previously expired rows seen again)."""
     new_surveys = 0
     reappeared = 0
     for license_no, facility in sorted(roster.items()):
@@ -406,39 +462,7 @@ def main():
             if sid not in surveys:
                 new_surveys += 1
             surveys[sid] = entry
-
-    # Anything we've seen before that the state no longer shows.
-    for lic, f in facilities.items():
-        if f["last_seen"] != today:
-            f["on_state_roster"] = False
-
-    vanished = vanished_in_window(surveys, facilities, today_date)
-    if vanished:
-        raise RuntimeError(
-            f"{len(vanished)} survey records inside the state's three-year window "
-            f"vanished from facilities still on the roster — not a normal age-off. "
-            f"Investigate (relabeled survey type? corrected date? deletion?) before "
-            f"anything is marked as no longer shown: {vanished}"
-        )
-
-    expired = 0
-    for sid, s in surveys.items():
-        if s["last_seen"] != today and not s["expired_from_state"]:
-            s["expired_from_state"] = True
-            s["expired_on"] = today
-            expired += 1
-
-    save(FACILITIES_PATH, facilities)
-    save(SURVEYS_PATH, surveys)
-
-    docs = sum(len(s["documents"]) for s in surveys.values())
-    print(
-        f"\nDone. {len(facilities)} facilities in ledger "
-        f"({sum(1 for f in facilities.values() if f['on_state_roster'])} on state roster), "
-        f"{len(surveys)} survey records ({new_surveys} new, {expired} newly expired from state, "
-        f"{reappeared} previously flagged expired seen again), "
-        f"{docs} documents archived."
-    )
+    return new_surveys, reappeared
 
 
 if __name__ == "__main__":

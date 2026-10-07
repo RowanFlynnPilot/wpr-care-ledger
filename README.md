@@ -1,8 +1,9 @@
 # wpr-care-ledger
 
-The Care Ledger — assisted living oversight in Marathon County, permanently
-archived. Wisconsin's DQA only shows three years of survey history; this
-repo never forgets.
+The Care Ledger — assisted living oversight in Marathon County and the
+eight counties around it (Clark, Langlade, Lincoln, Portage, Shawano,
+Taylor, Waupaca, Wood), permanently archived. Wisconsin's DQA only shows
+three years of survey history; this repo never forgets.
 
 - Live widget: <https://rowanflynnpilot.github.io/wpr-care-ledger/>
 - Architecture and data contract: `CLAUDE.md`
@@ -50,7 +51,7 @@ expanded rows — no inner scrollbar.
 <iframe
   id="care-ledger"
   src="https://rowanflynnpilot.github.io/wpr-care-ledger/"
-  title="The Care Ledger — assisted living oversight in Marathon County"
+  title="The Care Ledger — assisted living oversight in central Wisconsin"
   style="width:100%;border:0;display:block;"
   height="1200"
   loading="lazy"
@@ -77,5 +78,7 @@ Add a hash to the iframe `src` (or to the standalone URL):
   facilities included.
 - `…/wpr-care-ledger/#q=cedar%20ridge` — presets the search box (works for
   operator names too).
+- `…/wpr-care-ledger/#county=Wood` — opens on one county (stats, chart, and
+  list all follow), for stories about a neighboring county.
 
 A [Wausau Pilot & Review](https://wausaupilotandreview.com) project.

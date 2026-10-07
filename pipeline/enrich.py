@@ -114,6 +114,25 @@ def continues_title(title, frag):
     return len(frag) <= 30 and title_case_fragment(frag)
 
 
+def classify(first_page, rel):
+    """'sod' or 'enforcement', from page one: the 2567 form header or the DHS
+    letterhead. Ambiguity raises — guessing would mislabel a public record."""
+    sod_form = "STATEMENT OF DEFICIENCIES" in first_page
+    letterhead = any(m in first_page for m in (
+        "NOTICE and ORDER", "NOTICE AND ORDER", "DIVISION OF QUALITY ASSURANCE"))
+    if sod_form != letterhead:
+        return "sod" if sod_form else "enforcement"
+    raise RuntimeError(f"Can't tell letter from SOD by page one of {rel}")
+
+
+def recover_font(text):
+    # Some PDFs map an ordinary font into the Unicode private-use area
+    # (U+F020..U+F0FF); shifting back by 0xF000 recovers the text.
+    if sum(0xF020 <= ord(c) <= 0xF0FF for c in text) > 50:
+        return "".join(chr(ord(c) - 0xF000) if 0xF020 <= ord(c) <= 0xF0FF else c for c in text)
+    return text
+
+
 def num(word):
     w = word.lower().strip()
     return WORD_NUM.get(w, int(w) if w.isdigit() else None)
@@ -237,23 +256,21 @@ def main():
         if rel in enrichment:
             skipped += 1
             continue
-        text = "\n".join(p.extract_text() or "" for p in PdfReader(pdf).pages)
-        # Some PDFs map an ordinary font into the Unicode private-use area
-        # (U+F020..U+F0FF); shifting back by 0xF000 recovers the text.
-        if sum(0xF020 <= ord(c) <= 0xF0FF for c in text) > 100:
-            text = "".join(chr(ord(c) - 0xF000) if 0xF020 <= ord(c) <= 0xF0FF else c
-                           for c in text)
-        # Classify by structure, not by the state's grid column: the state
-        # occasionally serves a 2567 SOD form under the enforcement link.
+        pages = [recover_font(p.extract_text() or "") for p in PdfReader(pdf).pages]
+        text = "\n".join(pages)
+        # Classify by structure, not by the state's grid column (it has
+        # served letters and SODs swapped) — and by the FIRST PAGE, not the
+        # whole text: SODs can quote or enclose a Notice and Order, and
+        # letters cite their SOD. Page one is the 2567 form header for an
+        # SOD and the DHS letterhead for a letter, cleanly, across all 767
+        # documents tested 2026-10.
         if sum(c.isalpha() for c in text) < 200:
             # Scanned page or broken font mapping — nothing minable.
             entry, warn = {"kind": "unreadable"}, "no readable text extracted"
-        elif "NOTICE and ORDER" in text or re.search(r"NOTICE OF VIOLATION", text):
-            entry, warn = parse_enforcement(text)
-        elif "STATEMENT OF DEFICIENCIES" in text:
+        elif classify(pages[0], rel) == "sod":
             entry, warn = parse_sod(text)
         else:
-            raise RuntimeError(f"Unrecognized document structure in {rel}")
+            entry, warn = parse_enforcement(text)
         if entry["kind"] not in (kind, "unreadable"):
             warnings.append(f"{rel}: filed as {kind}, structurally a {entry['kind']}")
         enrichment[rel] = entry

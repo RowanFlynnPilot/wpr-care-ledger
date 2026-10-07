@@ -176,6 +176,24 @@ class Sanctions(unittest.TestCase):
         self.assertIsNone(warn)
 
 
+class Classification(unittest.TestCase):
+    # Page one decides. archive/0011953/2024-11-04 is an SOD whose later
+    # pages quote a Notice and Order; whole-text matching filed it as a letter.
+    def test_sod_that_quotes_a_notice_and_order_is_an_sod(self):
+        page_one = "A. BUILDING: ____\nSTATEMENT OF DEFICIENCIES\nAND PLAN OF CORRECTION\n"
+        self.assertEqual(enrich.classify(page_one, "x"), "sod")
+
+    def test_letter_page_one_is_a_letter(self):
+        page_one = "Tony Evers\nGovernor\nDIVISION OF QUALITY ASSURANCE\nNOTICE and ORDER\n"
+        self.assertEqual(enrich.classify(page_one, "x"), "enforcement")
+
+    def test_ambiguous_page_one_fails_loudly(self):
+        with self.assertRaises(RuntimeError):
+            enrich.classify("STATEMENT OF DEFICIENCIES\nNOTICE and ORDER\n", "x")
+        with self.assertRaises(RuntimeError):
+            enrich.classify("an unfamiliar cover page", "x")
+
+
 class Forfeitures(unittest.TestCase):
     def test_total_forfeiture_not_fee_range_or_reduced_amount(self):
         entry, warn = enrich.parse_enforcement(FORFEITURE_LETTER)

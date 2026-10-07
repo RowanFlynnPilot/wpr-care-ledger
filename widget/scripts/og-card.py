@@ -93,7 +93,7 @@ def main():
     dek = font(merri_i, 31, 400)
     lines = [
         "State inspection and enforcement records for",
-        "Marathon County’s assisted living facilities —",
+        "assisted living in Marathon County and its neighbors —",
         "kept after the state stops showing them.",
     ]
     for i, line in enumerate(lines):

@@ -207,6 +207,7 @@ export default function App() {
   const [error, setError] = useState(null);
   const [query, setQuery] = useState("");
   const [type, setType] = useState("ALL");
+  const [county, setCounty] = useState("ALL");
   const [sort, setSort] = useState("name");
   const [showClosed, setShowClosed] = useState(false);
   const [lens, setLens] = useState("all");
@@ -283,10 +284,18 @@ export default function App() {
   useEffect(() => {
     if (!db) return;
     const apply = () => {
-      const m = window.location.hash.match(/^#(?:lic=([0-9A-Za-z]+)|q=(.+))$/);
+      const m = window.location.hash.match(
+        /^#(?:lic=([0-9A-Za-z]+)|q=(.+)|county=([A-Za-z]+))$/
+      );
       if (!m) return;
       setLens("all");
       setType("ALL");
+      if (m[3]) {
+        const c = db.counties.find((x) => x === m[3].toUpperCase());
+        setCounty(c || "ALL");
+        return;
+      }
+      setCounty("ALL");
       if (m[1]) {
         // An unknown license (or one missing its leading zeros) becomes a
         // search, so the reader sees a match or an honest "no match".
@@ -311,7 +320,8 @@ export default function App() {
     return () => window.removeEventListener("hashchange", apply);
   }, [db]);
 
-  // Keep the standalone URL shareable: the open record, else the search.
+  // Keep the standalone URL shareable: the open record, else the search,
+  // else the county.
   useEffect(() => {
     if (!db) return;
     const q = query.trim();
@@ -322,9 +332,29 @@ export default function App() {
         ? `#lic=${open}`
         : q
         ? `#q=${encodeURIComponent(q)}`
+        : county !== "ALL"
+        ? `#county=${titleCase(county)}`
         : window.location.pathname + window.location.search
     );
-  }, [open, query, db]);
+  }, [open, query, county, db]);
+
+  // The county filter scopes everything: stats, chart, list. The rest of
+  // the narrowing (search, type, closed toggle, lens) applies to the list.
+  const scoped = useMemo(
+    () => (!db ? [] : county === "ALL" ? db.facilities : db.facilities.filter((f) => f.county === county)),
+    [db, county]
+  );
+  const stats = useMemo(() => statsFor(scoped), [scoped]);
+  const scopedSurveys = useMemo(() => scoped.flatMap((f) => f.surveys), [scoped]);
+  const coverage = useMemo(
+    () =>
+      !db
+        ? []
+        : db.counties
+            .filter((c) => county === "ALL" || c === county)
+            .map((c) => ({ county: c, start: windowStartOf(db.countyStart[c]) })),
+    [db, county]
+  );
 
   // Search, type, and the closed toggle narrow everything; a lens then picks
   // a slice. Lens counts are computed under the same narrowing so each
@@ -332,7 +362,7 @@ export default function App() {
   const { list, lensCounts } = useMemo(() => {
     if (!db) return { list: [], lensCounts: {} };
     const q = query.trim().toLowerCase();
-    const base = db.facilities.filter(
+    const base = scoped.filter(
       (f) =>
         (showClosed || !f.closed) &&
         (type === "ALL" || f.typeAbbr === type) &&
@@ -349,7 +379,7 @@ export default function App() {
       fines: (a, b) => b.fineTotal - a.fineTotal || a.name.localeCompare(b.name),
     };
     return { list: base.filter(LENS_TEST[lens]).sort(bySort[sort]), lensCounts };
-  }, [db, query, type, sort, showClosed, lens]);
+  }, [db, scoped, query, type, sort, showClosed, lens]);
 
   // When the search is exactly an operator's corporate name (the operator
   // cross-link does this), lead the results with an operator brief.
@@ -375,14 +405,14 @@ export default function App() {
   const hiddenClosedMatches = useMemo(() => {
     if (!db || showClosed) return 0;
     const q = query.trim().toLowerCase();
-    return db.facilities.filter(
+    return scoped.filter(
       (f) =>
         f.closed &&
         LENS_TEST[lens](f) &&
         (type === "ALL" || f.typeAbbr === type) &&
         (!q || f.haystack.includes(q))
     ).length;
-  }, [db, query, type, lens, showClosed]);
+  }, [db, scoped, query, type, lens, showClosed]);
 
   if (error)
     return (
@@ -423,14 +453,17 @@ export default function App() {
     setShowClosed(true);
     setLens("all");
     setType("ALL");
+    setCounty("ALL");
     setQuery(license);
     revealRow(license);
   };
 
+  // Operators run facilities across county lines; show all of them.
   const showOperator = (name) => {
     setShowClosed(true);
     setLens("all");
     setType("ALL");
+    setCounty("ALL");
     setQuery(name);
     setOpen(null);
     requestAnimationFrame(() => briefRef.current?.focus());
@@ -439,6 +472,7 @@ export default function App() {
   const clearFilters = () => {
     setQuery("");
     setType("ALL");
+    setCounty("ALL");
     setLens("all");
     setShowClosed(false);
     setOpen(null);
@@ -455,7 +489,7 @@ export default function App() {
   };
 
   const staleDays = Math.floor(
-    (Date.now() - isoUTC(db.stats.lastUpdated)) / 86400e3
+    (Date.now() - isoUTC(db.lastUpdated)) / 86400e3
   );
 
   return (
@@ -485,11 +519,11 @@ export default function App() {
           </a>
           <h1>The Care Ledger</h1>
           <p className="dek">
-            Inspection and enforcement records for every state-licensed
-            assisted living facility in Marathon County since mid-2023 —
-            kept after Wisconsin stops showing them.
+            Inspection and enforcement records since 2023 for every
+            state-licensed assisted living facility in Marathon County and the
+            eight counties around it — kept after Wisconsin stops showing them.
           </p>
-          <p className="fresh">Updated {fmtDate(db.stats.lastUpdated, "long")}</p>
+          <p className="fresh">Updated {fmtDate(db.lastUpdated, "long")}</p>
         </div>
       </header>
       <div className="flag-rule" />
@@ -497,32 +531,32 @@ export default function App() {
       {staleDays > STALE_AFTER_DAYS && (
         <p className="stale-notice" role="note">
           <strong>This ledger is behind.</strong> It was last refreshed{" "}
-          {fmtDate(db.stats.lastUpdated, "long")}. Records the state has posted
+          {fmtDate(db.lastUpdated, "long")}. Records the state has posted
           since then may not appear here yet.
         </p>
       )}
 
       <dl className="stats" aria-label="Ledger totals">
-        <Stat n={db.stats.openFacilities} label="facilities operating" />
-        {db.stats.finesTotal > 0 ? (
+        <Stat n={stats.openFacilities} label="facilities operating" />
+        {stats.finesTotal > 0 ? (
           <Stat
-            n={`$${fmtNum(db.stats.finesTotal)}`}
+            n={`$${fmtNum(stats.finesTotal)}`}
             label="in forfeitures assessed"
             tone="fine"
           />
         ) : (
-          <Stat n={db.stats.surveyEvents} label="survey events on record" />
+          <Stat n={stats.surveyEvents} label="survey events on record" />
         )}
         <Stat
-          n={db.stats.withEnforcement}
+          n={stats.withEnforcement}
           label="facilities with enforcement"
           action="Show facilities with enforcement actions"
           pressed={lens === "enforcement"}
           onClick={() => showLensFromStat("enforcement")}
         />
-        {db.stats.held > 0 ? (
+        {stats.held > 0 ? (
           <Stat
-            n={db.stats.held}
+            n={stats.held}
             label="records the state no longer shows"
             tone="held"
             action="Show facilities with records the state no longer shows"
@@ -530,15 +564,11 @@ export default function App() {
             onClick={() => showLensFromStat("held")}
           />
         ) : (
-          <Stat n={db.stats.documents} label="documents archived" />
+          <Stat n={stats.documents} label="documents archived" />
         )}
       </dl>
 
-      <ActivityChart
-        surveys={db.surveysAll}
-        lastUpdated={db.stats.lastUpdated}
-        firstPull={db.stats.firstPull}
-      />
+      <ActivityChart surveys={scopedSurveys} lastUpdated={db.lastUpdated} coverage={coverage} />
 
       <div className="controls">
         <input
@@ -549,6 +579,14 @@ export default function App() {
           aria-label="Search facilities"
           onChange={(e) => setQuery(e.target.value)}
         />
+        <select value={county} aria-label="County" onChange={(e) => setCounty(e.target.value)}>
+          <option value="ALL">All counties</option>
+          {db.counties.map((c) => (
+            <option key={c} value={c}>
+              {titleCase(c)} County
+            </option>
+          ))}
+        </select>
         <select value={type} aria-label="Facility type" onChange={(e) => setType(e.target.value)}>
           <option value="ALL">All types</option>
           <option value="CBRF">CBRF — community-based</option>
@@ -575,8 +613,8 @@ export default function App() {
         {Object.keys(LENS_TEST)
           .filter(
             (id) =>
-              (id !== "held" || db.stats.held > 0) &&
-              (id !== "new" || db.stats.newRecords > 0)
+              id === lens ||
+              ((id !== "held" || stats.held > 0) && (id !== "new" || stats.newRecords > 0))
           )
           .map((id) => (
             <button
@@ -677,15 +715,18 @@ export default function App() {
             archives every statement of deficiency, enforcement action, and
             plan of correction, and keeps records after the state stops
             showing them — those entries are marked{" "}
-            <span className="held-inline">held in the ledger</span>. The
-            archive starts with everything the state showed in July 2026 —
-            records back to July 2023 — and grows every week. Earlier history
+            <span className="held-inline">held in the ledger</span>. Covers
+            Marathon County and its neighbors: {db.counties
+              .filter((c) => c !== "MARATHON")
+              .map(titleCase)
+              .join(", ")}
+            . {coverageText(db)} Each archive grows every week; earlier history
             is not included, so a facility with no records listed has none
-            since mid-2023. Forfeiture amounts and rule citations are machine-read from
+            since its county&rsquo;s archive begins. Forfeiture amounts and rule citations are machine-read from
             the archived documents; forfeitures shown are the amounts assessed
             in enforcement letters, before any reduction for waived appeals,
             and an accruing forfeiture shows the amount assessed so far. Last
-            updated {fmtDate(db.stats.lastUpdated, "long")}.
+            updated {fmtDate(db.lastUpdated, "long")}.
           </p>
           <p>
             Not affiliated with or endorsed by the Wisconsin Department of
@@ -739,7 +780,7 @@ function Stat({ n, label, tone, action, pressed, onClick }) {
 
 const CHART = { TOP: 22, PLOT: 150, BASE: 172, Q_Y: 187, YEAR_Y: 204, H: 210 };
 
-function ActivityChart({ surveys, lastUpdated, firstPull }) {
+function ActivityChart({ surveys, lastUpdated, coverage }) {
   const [hover, setHover] = useState(null);
   const { quarters, max } = useMemo(() => bucketQuarters(surveys), [surveys]);
   if (quarters.length < 2) return null;
@@ -759,12 +800,29 @@ function ActivityChart({ surveys, lastUpdated, firstPull }) {
   const filling = quarters.map(
     (b) => new Date(Date.UTC(b.y, b.q * 3, 1) - 86400e3).toISOString().slice(0, 10) >= lagCutoff
   );
-  // The archive starts at the state's window on the first pull, which can
-  // fall partway through the first quarter.
-  const archiveStart = windowStartOf(firstPull);
-  const cutFirst =
-    archiveStart > `${quarters[0].y}-${String((quarters[0].q - 1) * 3 + 1).padStart(2, "0")}-01`;
-  const qMark = (i) => (filling[i] ? "*" : i === 0 && cutFirst ? "†" : "");
+  // Each county's archive starts at the state's window on its first capture
+  // (Marathon's in July 2023, its neighbors' in October 2023). A quarter
+  // that begins before the latest start in view is only partly covered —
+  // in the all-counties view, its bar is Marathon-heavy, not a dip.
+  const latestStart = coverage.reduce((m, c) => (c.start > m ? c.start : m), "");
+  const partial = quarters.map(
+    (b) => `${b.y}-${String((b.q - 1) * 3 + 1).padStart(2, "0")}-01` < latestStart
+  );
+  const qMark = (i) => (filling[i] ? "*" : partial[i] ? "†" : "");
+  const startGroups = Object.entries(
+    coverage.reduce((g, c) => ((g[c.start] ||= []).push(c.county), g), {})
+  ).sort();
+  const partialNote =
+    startGroups.length === 1
+      ? `† The archive begins ${fmtDate(startGroups[0][0], "long")}, partway through this quarter.`
+      : `† Partly covered: the archive begins ${startGroups
+          .map(
+            ([d, cs]) =>
+              `${fmtDate(d, "long")} for ${
+                cs.length === 1 ? `${titleCase(cs[0])} County` : `the other ${cs.length} counties`
+              }`
+          )
+          .join(" and ")}.`;
 
   const gridStep = max > 12 ? 5 : max > 6 ? 3 : 2;
   const gridLines = [];
@@ -979,17 +1037,12 @@ function ActivityChart({ surveys, lastUpdated, firstPull }) {
           </div>
         )}
       </div>
-      {(filling.some(Boolean) || cutFirst) && (
+      {(filling.some(Boolean) || partial.some(Boolean)) && (
         <p className="chart-note">
           {filling.some(Boolean) && (
             <span>* Still filling in: the state posts surveys weeks after they close.</span>
           )}
-          {cutFirst && (
-            <span>
-              † The archive begins {fmtDate(archiveStart, "long")}, partway through this
-              quarter.
-            </span>
-          )}
+          {partial.some(Boolean) && <span>{partialNote}</span>}
         </p>
       )}
       <table className="sr-only">
@@ -1024,6 +1077,11 @@ function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) 
   const panelId = `panel-${f.license}`;
   const [copied, setCopied] = useState(false);
   const panelRef = useRef(null);
+  // Render a record's panel on first open, then keep it mounted so the
+  // reveal can animate both ways: 300+ hidden timelines on load would cost
+  // phones tens of thousands of DOM nodes.
+  const everOpened = useRef(false);
+  if (open) everOpened.current = true;
 
   // Closed panels stay mounted (for the reveal animation) but must leave
   // the tab order and the accessibility tree. Set as a DOM property: React
@@ -1113,6 +1171,7 @@ function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) 
 
       <div className={open ? "row-reveal is-open" : "row-reveal"}>
         <div className="row-panel" id={panelId} ref={panelRef}>
+          {everOpened.current && (<>
           {f.surveys.length > 0 && (
             <p className="panel-summary">
               <span>
@@ -1132,6 +1191,7 @@ function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) 
           <dl className="facts">
             <Fact k="Facility type" v={TYPE_FULL[f.typeAbbr]} />
             <Fact k="Address" v={`${titleCase(f.address)}, ${titleCase(f.city)} ${f.zip}`} />
+            <Fact k="County" v={titleCase(f.county)} />
             <Fact k="License" v={f.license} mono />
             <Fact k="Status" v={titleCase(f.licensure_status || "")} />
             {f.corporate_name && db.operatorCounts[f.corporate_name] > 1 ? (
@@ -1283,6 +1343,7 @@ function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) 
             </p>
           </div>
           </div>
+          </>)}
         </div>
       </div>
     </li>
@@ -1355,24 +1416,30 @@ function shape(facilitiesObj, surveysObj, enrichmentObj) {
 
   const rawSurveys = Object.values(surveysObj);
   const lastUpdated = rawSurveys.reduce((m, s) => (s.last_seen > m ? s.last_seen : m), "");
-  const firstPull = rawSurveys.reduce(
-    (m, s) => (m === "" || s.first_seen < m ? s.first_seen : m),
-    ""
-  );
+  // Each county's first capture is its starting archive, not news (Marathon
+  // began 2026-07-12, its eight neighbors 2026-10-07).
+  const countyStart = {};
+  for (const f of Object.values(facilitiesObj)) {
+    const c = f.county;
+    if (!countyStart[c] || f.first_seen < countyStart[c]) countyStart[c] = f.first_seen;
+  }
   // "New this week": the record, or a document added to it later (a Notice
   // & Order often follows its SOD by weeks), was first seen after the
   // previous weekly run — strictly within 7 days of the latest refresh, so
   // last Monday's run doesn't count and a mid-week rerun doesn't erase the
-  // marker. Never for the initial pull, and never while the ledger is
+  // marker. Never a county's first capture, and never while the ledger is
   // stale: then there is no "this week".
   const stale = lastUpdated && (Date.now() - isoUTC(lastUpdated)) / 86400e3 > STALE_AFTER_DAYS;
   const newSince = lastUpdated ? isoMinusDays(lastUpdated, 7) : "";
-  const recent = (d) => d && d !== firstPull && d > newSince;
-  const isNew = (s) =>
-    !stale &&
-    (recent(s.first_seen) || Object.values(s.documents_first_seen || {}).some(recent));
+  const isNew = (s) => {
+    const start = countyStart[facilitiesObj[s.license].county];
+    const recent = (d) => d && d > start && d > newSince;
+    return (
+      !stale &&
+      (recent(s.first_seen) || Object.values(s.documents_first_seen || {}).some(recent))
+    );
+  };
 
-  const surveysAll = [];
   const surveysByLicense = {};
   for (const [id, s] of Object.entries(surveysObj)) {
     const docs = docsOf(s);
@@ -1384,7 +1451,6 @@ function shape(facilitiesObj, surveysObj, enrichmentObj) {
       enr: enrich(s),
       isNew: isNew(s),
     };
-    surveysAll.push(row);
     (surveysByLicense[s.license] ||= []).push(row);
   }
   for (const rows of Object.values(surveysByLicense)) {
@@ -1418,7 +1484,6 @@ function shape(facilitiesObj, surveysObj, enrichmentObj) {
     };
   });
 
-  const openFacilities = facilities.filter((f) => !f.closed);
   const operatorCounts = {};
   for (const f of facilities) {
     if (f.corporate_name) {
@@ -1428,20 +1493,44 @@ function shape(facilitiesObj, surveysObj, enrichmentObj) {
   return {
     facilities,
     byLicense: Object.fromEntries(facilities.map((f) => [f.license, f])),
-    surveysAll,
+    counties: Object.keys(countyStart).sort(),
+    countyStart,
     operatorCounts,
-    stats: {
-      openFacilities: openFacilities.length,
-      surveyEvents: surveysAll.length,
-      withEnforcement: new Set(
-        surveysAll.filter((s) => s.hasEnforcement).map((s) => s.license)
-      ).size,
-      held: surveysAll.filter((s) => s.expired_from_state).length,
-      documents: surveysAll.reduce((n, s) => n + s.docs.length, 0),
-      finesTotal: facilities.reduce((n, f) => n + f.fineTotal, 0),
-      newRecords: surveysAll.filter((s) => s.isNew).length,
-      lastUpdated,
-      firstPull,
-    },
+    lastUpdated,
+  };
+}
+
+/* "Marathon County's archive starts with what the state showed on July 12,
+   2026 — records back to July 12, 2023; the other 8 counties' …". Built from
+   the data so it stays true as counties are added. */
+function coverageText(db) {
+  const groups = Object.entries(
+    db.counties.reduce((g, c) => ((g[db.countyStart[c]] ||= []).push(c), g), {})
+  ).sort();
+  return (
+    groups
+      .map(
+        ([d, cs]) =>
+          `${cs.length === 1 ? `${titleCase(cs[0])} County's` : `the other ${cs.length} counties'`}
+          archive starts with what the state showed on ${fmtDate(d, "long")} — records back
+          to ${fmtDate(windowStartOf(d), "long")}`
+      )
+      .join("; ")
+      .replace(/\s+/g, " ")
+      .replace(/^./, (c) => c.toUpperCase()) + "."
+  );
+}
+
+/* Headline numbers for whichever counties are in view. */
+function statsFor(facilities) {
+  const surveys = facilities.flatMap((f) => f.surveys);
+  return {
+    openFacilities: facilities.filter((f) => !f.closed).length,
+    surveyEvents: surveys.length,
+    withEnforcement: facilities.filter((f) => f.enforcementCount > 0).length,
+    held: surveys.filter((s) => s.expired_from_state).length,
+    documents: surveys.reduce((n, s) => n + s.docs.length, 0),
+    finesTotal: facilities.reduce((n, f) => n + f.fineTotal, 0),
+    newRecords: surveys.filter((s) => s.isNew).length,
   };
 }

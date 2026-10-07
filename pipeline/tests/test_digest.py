@@ -15,15 +15,16 @@ import digest  # noqa: E402
 RUN, FIRST_PULL = "2026-10-12", "2026-07-12"
 
 
-def ledger(surveys, enrichment):
+def ledger(surveys, enrichment, county_start=None):
     L = object.__new__(digest.Ledger)
     L.facilities = {
         "1": {"name": "WELLINGTON PLACE AT RIB MOUNTAIN", "city": "WAUSAU",
-              "provider_type": "Community Based Residential Facility"},
+              "county": "MARATHON", "provider_type": "Community Based Residential Facility"},
         "2": {"name": "PINE MEADOWS 3", "city": "SCHOFIELD",
-              "provider_type": "Community Based Residential Facility"},
+              "county": "MARATHON", "provider_type": "Community Based Residential Facility"},
     }
-    L.surveys, L.enrichment, L.run, L.first_pull = surveys, enrichment, RUN, FIRST_PULL
+    L.surveys, L.enrichment, L.run = surveys, enrichment, RUN
+    L.county_start = county_start or {"MARATHON": FIRST_PULL}
     return L
 
 
@@ -76,11 +77,17 @@ class Selection(unittest.TestCase):
             ("2|2026-09-15|complaint", "archive/2/c_sod.pdf", False),
         })
 
-    def test_initial_pull_never_alerts(self):
-        L = ledger(SURVEYS, ENRICHMENT)
-        L.first_pull = RUN
-        late_only = [it for it in L.new_enforcement() if not it[3]]
-        self.assertEqual(late_only, [])
+    def test_a_countys_first_capture_never_alerts(self):
+        # Adding a county loads its whole three-year window at once, and
+        # fetch.py stamps every one of those documents with this run's date.
+        # None of it is news: the first real nine-county capture would have
+        # emailed 156 "new" actions before this was caught.
+        first_capture = {
+            sid: dict(s, first_seen=RUN, documents_first_seen={k: RUN for k in s["documents"]})
+            for sid, s in SURVEYS.items()
+        }
+        L = ledger(first_capture, ENRICHMENT, county_start={"MARATHON": RUN})
+        self.assertEqual(L.new_enforcement(), [])
 
 
 class Message(unittest.TestCase):

@@ -87,7 +87,17 @@ class Ledger:
         self.surveys = json.loads((DATA / "surveys.json").read_text())
         self.enrichment = json.loads((DATA / "enrichment.json").read_text())
         self.run = max(s["last_seen"] for s in self.surveys.values())
-        self.first_pull = min(s["first_seen"] for s in self.surveys.values())
+        # Each county's first capture is its starting archive, not news:
+        # Marathon began 2026-07-12, its neighbors 2026-10-06.
+        self.county_start = {}
+        for f in self.facilities.values():
+            c = f["county"]
+            self.county_start[c] = min(self.county_start.get(c, f["first_seen"]), f["first_seen"])
+
+    def is_new(self, s):
+        """First seen this run, in a county the ledger already covered."""
+        county = self.facilities[s["license"]]["county"]
+        return s["first_seen"] == self.run and self.county_start[county] < self.run
 
     def kind(self, column, path):
         # Parsed structure wins over the state's column (0019331 is swapped).
@@ -114,9 +124,14 @@ class Ledger:
             if not found:
                 continue
             column, path = found
-            if s["first_seen"] == self.run and self.run != self.first_pull:
+            if self.is_new(s):
                 items.append((sid, s, path, False))
-            elif s.get("documents_first_seen", {}).get(column) == self.run:
+            elif (s["first_seen"] < self.run
+                  and s.get("documents_first_seen", {}).get(column) == self.run):
+                # A letter arriving on a survey seen in an earlier run. Every
+                # document of a county's first capture is stamped this run
+                # too; without the row check, adding eight counties would
+                # have emailed 156 "new" actions.
                 items.append((sid, s, path, True))
         return sorted(items, key=lambda it: it[1]["exit_date"])
 
@@ -129,10 +144,8 @@ class Ledger:
 # --------------------------------------------------------------- tip sheet
 
 def tip_sheet(L):
-    new = sorted(
-        (s for s in L.surveys.values() if s["first_seen"] == L.run and L.run != L.first_pull),
-        key=lambda s: s["exit_date"],
-    )
+    new = sorted((s for s in L.surveys.values() if L.is_new(s)), key=lambda s: s["exit_date"])
+    started = sorted(c.title() for c, d in L.county_start.items() if d == L.run)
     # Documents that arrived this run on rows first seen earlier — usually an
     # enforcement letter catching up with its statement of deficiency.
     late_docs = sorted(
@@ -154,6 +167,9 @@ def tip_sheet(L):
         f"**{len(new)}** new survey records · **{len(aged_off)}** aged off the state site "
         f"this run · **{held}** held in the ledger in all"
     )
+    if started:
+        lines += ["", f"First capture (archive starts here, not counted as new): "
+                      f"{', '.join(started)} {'County' if len(started) == 1 else 'counties'}."]
     enf = [s for s in new if L.doc(s, "enforcement")]
     if enf:
         lines += ["", "### New enforcement actions", "",
@@ -199,7 +215,8 @@ def render_item(L, sid, s, path, late, mark):
     repo = os.environ.get("GITHUB_REPOSITORY", "RowanFlynnPilot/wpr-care-ledger")
     server = os.environ.get("GITHUB_SERVER_URL", "https://github.com")
 
-    lines = [f"### {smart_title(f['name'])} — {f['city'].title()} ({abbr})", ""]
+    lines = [f"### {smart_title(f['name'])} — {f['city'].title()}, "
+             f"{f['county'].title()} County ({abbr})", ""]
     lines.append(f"- **Survey:** {survey_label(s['survey_type'])}, closed {long_date(s['exit_date'])}"
                  + (" — the enforcement letter was posted after the survey first appeared"
                     if late else ""))
