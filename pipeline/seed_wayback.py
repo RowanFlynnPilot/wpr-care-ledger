@@ -64,6 +64,9 @@ MAX_JOBS = 6  # captures in flight at once
 JOB_TIMEOUT = 600  # a capture still pending after 10 minutes is given up on
 BUDGET = timedelta(minutes=240)  # then stop submitting; the workflow step allows 280
 TIMEOUT = 60
+# A prefix query over every capture under the state's path; it timed out at
+# 60 seconds at the end of the first full run.
+CDX_TIMEOUT = 300
 RATE_LIMITED = {"error:too-many-requests", "error:user-session-limit"}
 
 # PDFs need no browser (or the HEAD request that picks one); detail pages
@@ -92,7 +95,7 @@ def split_copy(copy):
     return timestamp, url
 
 
-def ia(session, method, url, **kw):
+def ia(session, method, url, timeout=TIMEOUT, **kw):
     """One archive.org request. Timeouts, resets and 5xx are routine there,
     so three tries with backoff (fetch.py, by contrast, treats any surprise
     from the state as fatal)."""
@@ -100,7 +103,7 @@ def ia(session, method, url, **kw):
     for pause in (0, 30, 90):
         time.sleep(pause)
         try:
-            r = session.request(method, url, timeout=TIMEOUT, **kw)
+            r = session.request(method, url, timeout=timeout, **kw)
         except (requests.Timeout, requests.ConnectionError) as e:
             problem = type(e).__name__
             continue
@@ -113,7 +116,7 @@ def ia(session, method, url, **kw):
 def cdx_index(session, pattern, key):
     """The Wayback Machine's 200 captures under a URL prefix:
     {key(original): [(timestamp, digest), ...]}."""
-    r = ia(session, "GET", CDX, params={
+    r = ia(session, "GET", CDX, timeout=CDX_TIMEOUT, params={
         "url": pattern, "output": "json", "filter": "statuscode:200",
         "fl": "original,timestamp,digest",
     })
@@ -206,6 +209,7 @@ def submit(session, url, options):
         if body.get("job_id"):
             return body["job_id"], None
         if r.status_code == 429 or body.get("status_ext") in RATE_LIMITED:
+            print(f"  Save Page Now says wait ({body.get('status_ext') or 'HTTP 429'}); pausing a minute")
             time.sleep(60)
             continue
         return None, body.get("status_ext") or body.get("message") or f"HTTP {r.status_code}"
@@ -221,10 +225,16 @@ def capture(session, items, deadline):
         tick = time.monotonic()
         for job_id, (url, tag, started) in list(jobs.items()):
             r = ia(session, "GET", STATUS + job_id)
-            try:
-                status = r.json() if r.ok else {"status": "error", "status_ext": f"HTTP {r.status_code}"}
-            except ValueError:
+            if r.status_code == 429:
+                # The status check itself was rate limited -- says nothing
+                # about the capture (the first full run counted 7 as failed).
+                # Ask again next tick; JOB_TIMEOUT still bounds the wait.
                 status = {"status": "pending"}
+            else:
+                try:
+                    status = r.json() if r.ok else {"status": "error", "status_ext": f"HTTP {r.status_code}"}
+                except ValueError:
+                    status = {"status": "pending"}
             if status.get("status") == "pending" and time.monotonic() - started < JOB_TIMEOUT:
                 continue
             del jobs[job_id]
@@ -331,11 +341,18 @@ def main():
         fetch.save(WAYBACK_PATH, wayback)
         print(f"  [{n}/{len(items)}] {copy}")
 
-    identical, differ, unindexed, pages_indexed, pages_unindexed = audit(
-        wayback,
-        cdx_index(session, DOCUMENTS, document_name),
-        cdx_index(session, PAGES, page_key),
-    )
+    # The check is a report: the copies above are already recorded and
+    # saved, so an index that won't answer is said, not raised.
+    try:
+        identical, differ, unindexed, pages_indexed, pages_unindexed = audit(
+            wayback,
+            cdx_index(session, DOCUMENTS, document_name),
+            cdx_index(session, PAGES, page_key),
+        )
+        checked = True
+    except (RuntimeError, requests.RequestException) as e:
+        print(f"Wayback index unavailable for the check: {e}")
+        checked, differ = False, []
     roster = [lic for lic, f in facilities.items() if f["last_seen"] == run]
     current = sum(
         1 for lic in roster
@@ -346,12 +363,17 @@ def main():
     lines = [
         "## Internet Archive copies",
         f"- Facility pages: {current} of {len(roster)} facilities on the state's roster have "
-        f"their current page on file ({copied['page']} captured this run); "
-        f"{pages_indexed} page copies confirmed in the Wayback index, {pages_unindexed} not yet indexed.",
+        f"their current page on file ({copied['page']} captured this run)"
+        + (f"; {pages_indexed} page copies confirmed in the Wayback index, "
+           f"{pages_unindexed} not yet indexed." if checked else "."),
         f"- Documents: {len(wayback['documents'])} of {total} have a copy ({copied['document']} "
-        f"captured this run); {len(identical)} confirmed byte-identical to the ledger's file, "
-        f"{len(unindexed)} not yet indexed.",
+        f"captured this run)"
+        + (f"; {len(identical)} confirmed byte-identical to the ledger's file, "
+           f"{len(unindexed)} not yet indexed." if checked else "."),
     ]
+    if not checked:
+        lines.append("- The Wayback index didn't answer, so copies weren't checked against the "
+                     "ledger's files this run; the next run checks them all.")
     if differ:
         lines.append(f"- **WARNING: {len(differ)} Wayback copies differ from the ledger's file** "
                      f"-- did the state replace the document? {', '.join(differ)}")

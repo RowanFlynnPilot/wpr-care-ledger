@@ -166,6 +166,19 @@ class SavePageNow(unittest.TestCase):
         self.assertEqual([(tag[1], status["status"]) for tag, _, status in done],
                          [("pb", "error"), ("pa", "success")])
 
+    def test_a_rate_limited_status_check_is_not_a_failed_capture(self):
+        # The first full run counted 7 captures failed on a 429 from the
+        # status endpoint, which says nothing about the capture itself.
+        replies = iter([
+            response(200, {"url": "a", "job_id": "spn2-a"}),       # submit
+            response(429, {}),                                      # status: rate limited
+            response(200, {"status": "success", "timestamp": "20261015040000"}),
+        ])
+        with mock.patch.object(sw, "ia", side_effect=lambda *a, **k: next(replies)), \
+                mock.patch.object(sw.time, "sleep"):
+            done = list(sw.capture(None, [("a", {}, ("document", "pa"))], datetime.max))
+        self.assertEqual([status["status"] for _, _, status in done], ["success"])
+
     def test_a_spent_budget_leaves_the_rest_for_the_next_run(self):
         with mock.patch.object(sw, "ia") as ia, mock.patch.object(sw.time, "sleep"), \
                 contextlib.redirect_stdout(io.StringIO()):
