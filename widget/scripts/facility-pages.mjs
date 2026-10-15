@@ -10,7 +10,7 @@ import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
-  DOC_LABELS, SANCTION_LABELS, TYPE_FULL, citeSummary, facilitySlug as slug, fmtDate, fmtNum, shape,
+  DOC_LABELS, SANCTION_LABELS, SUPPORT_URL, TYPE_FULL, citeSummary, facilitySlug as slug, fmtDate, fmtNum, shape,
   smartTitle, surveyLabel, titleCase, waybackDate,
 } from "../src/ledger.js";
 
@@ -66,6 +66,7 @@ ol.timeline li.held{border-left:3px solid var(--sepia);padding-left:10px;backgro
 .cites{font-size:13px;color:var(--soft)}
 .docs{font-size:13px}.docs a{margin-right:12px}
 footer{margin-top:32px;border-top:1px solid var(--ink);padding-top:12px;font-size:12.5px;color:var(--soft)}
+footer a.support{font-weight:700}
 @media (max-width:560px){ol.timeline li{grid-template-columns:1fr}}`;
 
 function page({ title, description, path, body }) {
@@ -101,6 +102,7 @@ function page({ title, description, path, body }) {
 ${body}
 <footer>
   <p>Records from the Wisconsin Department of Health Services Division of Quality Assurance, which shows only three years of inspection history. The Care Ledger checks the state's records every Monday and keeps them after the state stops showing them. Updated ${esc(fmtDate(db.lastUpdated, "long"))}. Not affiliated with or endorsed by DHS. Questions or corrections: <a href="mailto:editor@wausaupilotandreview.com">editor@wausaupilotandreview.com</a>.</p>
+  <p>The Care Ledger is free, with no paywall, because readers support Wausau Pilot &amp; Review's reporting. <a class="support" href="${esc(SUPPORT_URL)}">Support this work</a></p>
   <p><a href="https://wausaupilotandreview.com/">Wausau Pilot &amp; Review</a> · 715-301-5539</p>
 </footer>
 </main>

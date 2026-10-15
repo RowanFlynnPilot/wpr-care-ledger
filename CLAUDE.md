@@ -234,6 +234,13 @@ Fonts request; renders offline and in headless screenshots). Teal
 (`widget/public/brand/`: seal, committed wordmark copy, favicons).
 Enforcement reads newspaper red `#b32d2e`.
 
+Support ask: one quiet line — "The Care Ledger is free, with no paywall,
+because readers support Wausau Pilot & Review's reporting. Support this
+work" — in the footer, the single-facility embed's foot and every
+facility page, linking `SUPPORT_URL` in src/ledger.js (the support page
+wausaupilotandreview.com itself links, tagged `utm_source=care-ledger`
+so WPR can count it). No tax-deduction claim; never a popup or overlay.
+
 House invariants, from the brand skill: the masthead is WPR's flag — seal
 (alt="") left, linked wordmark above the tool's name, italic one-line
 dek, "Updated <date>" line — closed by the thick-over-thin `.flag-rule`;

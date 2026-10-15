@@ -1384,6 +1384,12 @@ mark {
   color: var(--teal-deep);
 }
 
+/* The ask: quiet, one line, the link in the brand's teal. */
+.methodology .support a {
+  color: var(--teal-deep);
+  font-weight: 700;
+}
+
 .footer-line {
   font-family: var(--heading);
   font-size: 11.5px;

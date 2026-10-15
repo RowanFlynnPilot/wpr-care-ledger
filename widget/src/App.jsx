@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   DOC_LABELS,
+  SUPPORT_URL,
   facilitySlug,
   TYPE_FULL,
   STALE_AFTER_DAYS,
@@ -786,6 +787,13 @@ export default function App() {
             (&ldquo;archive.org copy&rdquo;). Last updated{" "}
             {fmtDate(db.lastUpdated, "long")}.
           </p>
+          <p className="support">
+            The Care Ledger is free, with no paywall, because readers support
+            Wausau Pilot &amp; Review&rsquo;s reporting.{" "}
+            <a href={SUPPORT_URL} target="_blank" rel="noopener noreferrer">
+              Support this work
+            </a>
+          </p>
           <p>
             Not affiliated with or endorsed by the Wisconsin Department of
             Health Services. Questions or corrections:{" "}
@@ -1254,7 +1262,10 @@ function FacilityEmbed({ db, license, staleDays }) {
           See all {db.facilities.length} facilities in The Care Ledger
         </a>{" "}
         · Records from the Wisconsin DHS Division of Quality Assurance, kept after the state stops
-        showing them. Not affiliated with DHS. Wausau Pilot &amp; Review · 715-301-5539
+        showing them. Not affiliated with DHS. Wausau Pilot &amp; Review · 715-301-5539 ·{" "}
+        <a href={SUPPORT_URL} target="_blank" rel="noopener noreferrer">
+          Support this work
+        </a>
       </p>
     </div>
   );

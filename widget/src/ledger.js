@@ -291,3 +291,9 @@ export function facilitySlug(f) {
   const name = smartTitle(f.name).toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, "-");
   return `${name.replace(/^-|-$/g, "")}-${f.license}`;
 }
+
+/* Where "Support this work" goes: the page wausaupilotandreview.com itself
+   links as its support page. utm_source lets WPR count what the ledger
+   brings in. */
+export const SUPPORT_URL =
+  "https://wausaupilotandreview.com/support-our-publication/?utm_source=care-ledger&utm_medium=referral";
