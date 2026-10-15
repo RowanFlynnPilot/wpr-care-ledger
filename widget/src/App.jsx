@@ -53,6 +53,10 @@ const STALE_AFTER_DAYS = 10;
 /* Inside the WordPress iframe the page has no scroller of its own, and
    scrolling into view would yank the reader's article instead. */
 const EMBEDDED = window.parent !== window;
+// ?facility=<license>: one facility's record alone, for a story about it.
+const FACILITY = new URLSearchParams(window.location.search).get("facility");
+// The full ledger, for links out of the single-facility view.
+const LEDGER_URL = `${window.location.origin}${window.location.pathname}`;
 
 /* Sanctions worth a reader's eye on the timeline (enrich.py's labels). */
 const SANCTION_LABELS = {
@@ -566,6 +570,8 @@ export default function App() {
   const staleDays = Math.floor(
     (Date.now() - isoUTC(db.lastUpdated)) / 86400e3
   );
+
+  if (FACILITY) return <FacilityEmbed db={db} license={FACILITY} staleDays={staleDays} />;
 
   return (
     <div className="ledger">
@@ -1228,9 +1234,86 @@ function CitationChart({ surveys }) {
   );
 }
 
+/* ------------------------------------------------- single-facility embed */
+
+/* ?facility=<license>: one record, open, under a compact WPR flag — for a
+   story about one facility. Links to other facilities or an operator open
+   the full ledger in a new tab rather than navigating the small frame. */
+function FacilityEmbed({ db, license, staleDays }) {
+  // Licenses are 6 or 7 digits; a link that dropped leading zeros still works.
+  const f = db.byLicense[license] || db.byLicense[license.padStart(7, "0")];
+  const openLedger = (hash) => window.open(`${LEDGER_URL}${hash}`, "_blank", "noopener");
+
+  return (
+    <div className="ledger ledger-single">
+      <header className="masthead masthead-single">
+        <img className="badge" src="brand/wpr-typewriter.png" alt="" width="44" height="44" />
+        <div className="masthead-text">
+          <a
+            className="wordmark-link"
+            href="https://wausaupilotandreview.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              className="wordmark"
+              src="brand/wpr-wordmark.png"
+              alt="Wausau Pilot &amp; Review"
+              width="133"
+              height="17"
+            />
+          </a>
+          <p className="single-title">
+            The Care Ledger <span className="fresh">· updated {fmtDate(db.lastUpdated, "long")}</span>
+          </p>
+        </div>
+      </header>
+      <div className="flag-rule" />
+
+      {staleDays > STALE_AFTER_DAYS && (
+        <p className="stale-notice" role="note">
+          <strong>This ledger is behind.</strong> It was last refreshed{" "}
+          {fmtDate(db.lastUpdated, "long")}.
+        </p>
+      )}
+
+      {f ? (
+        <ol className="rows">
+          <FacilityRow
+            f={f}
+            db={db}
+            query=""
+            open
+            single
+            onToggle={() => {}}
+            onCrossLink={(lic) => openLedger(`#lic=${lic}`)}
+            onOperator={(name) => openLedger(`#q=${encodeURIComponent(name)}`)}
+          />
+        </ol>
+      ) : (
+        <p className="empty">
+          No facility with license {license} is in the ledger.{" "}
+          <a href={LEDGER_URL} target="_blank" rel="noopener noreferrer">
+            Search The Care Ledger
+          </a>
+          .
+        </p>
+      )}
+
+      <p className="single-foot">
+        <a href={f ? `${LEDGER_URL}#lic=${f.license}` : LEDGER_URL} target="_blank" rel="noopener noreferrer">
+          See all {db.facilities.length} facilities in The Care Ledger
+        </a>{" "}
+        · Records from the Wisconsin DHS Division of Quality Assurance, kept after the state stops
+        showing them. Not affiliated with DHS. Wausau Pilot &amp; Review · 715-301-5539
+      </p>
+    </div>
+  );
+}
+
 /* ------------------------------------------------------------ facility row */
 
-function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) {
+function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOperator }) {
   const panelId = `panel-${f.license}`;
   const [copied, setCopied] = useState(false);
   const panelRef = useRef(null);
@@ -1276,16 +1359,8 @@ function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) 
     }
   };
 
-  return (
-    <li className={open ? "row is-open" : "row"}>
-      <h3 className="row-heading">
-      <button
-        id={`head-${f.license}`}
-        className="row-head"
-        aria-expanded={open}
-        aria-controls={panelId}
-        onClick={onToggle}
-      >
+  const head = (
+    <>
         <span className="row-main">
           <span className="row-name">
             <Highlight text={smartTitle(f.name)} q={query} />
@@ -1321,10 +1396,33 @@ function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) 
           )}
           {f.heldCount > 0 && <span className="chip chip-held">{f.heldCount} held</span>}
           {f.closed && <span className="chip chip-closed">Closed</span>}
-          <span className="row-caret" aria-hidden="true">+</span>
+          {!single && <span className="row-caret" aria-hidden="true">+</span>}
         </span>
-      </button>
-      </h3>
+    </>
+  );
+
+  return (
+    <li className={open ? "row is-open" : "row"}>
+      {single ? (
+        // One record alone: it is the page's subject, always open.
+        <h2 className="row-heading">
+          <span id={`head-${f.license}`} className="row-head row-head-static">
+            {head}
+          </span>
+        </h2>
+      ) : (
+        <h3 className="row-heading">
+          <button
+            id={`head-${f.license}`}
+            className="row-head"
+            aria-expanded={open}
+            aria-controls={panelId}
+            onClick={onToggle}
+          >
+            {head}
+          </button>
+        </h3>
+      )}
 
       <div className={open ? "row-reveal is-open" : "row-reveal"}>
         <div className="row-panel" id={panelId} ref={panelRef}>

@@ -305,7 +305,13 @@ and operator cross-links when a `corporate_name` runs 2+ facilities. Deep
 links for stories: `#lic=<license>` opens one facility (an unknown
 license, or one missing its leading zeros, becomes a search),
 `#q=<text>` presets the search (`+` decodes as a space; documented in
-README); every deep link and cross-link resets the lens and type filters
+README); `?facility=<license>` is the single-facility embed — that one
+record alone, open, under a compact flag (44px seal, wordmark, "The Care
+Ledger · updated"), its header a static `h2` instead of the accordion
+button, cross-links and the operator link opening the full ledger in a
+new tab, leading zeros optional, an unknown license an honest "not in the
+ledger" (README has a snippet whose resize script matches each message to
+its frame, so several embeds can share an article); every deep link and cross-link resets the lens and type filters
 so it can't hide its own target; the URL reflects the open record or
 current search, and malformed `%` escapes are tolerated rather than
 crashing the page.

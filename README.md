@@ -103,6 +103,37 @@ Add a hash to the iframe `src` (or to the standalone URL):
 - `…/wpr-care-ledger/#county=Wood` — opens on one county (stats, chart, and
   list all follow), for stories about a neighboring county.
 
+### Embedding one facility in a story
+
+`?facility=<license>` shows that facility's record alone, already open,
+under a compact WPR flag, with a link to the full ledger. Leading zeros may
+be dropped (`?facility=13424`). Paste into a **Custom HTML** block:
+
+```html
+<iframe
+  class="care-ledger"
+  src="https://rowanflynnpilot.github.io/wpr-care-ledger/?facility=0013424"
+  title="The Care Ledger: inspection record for one facility"
+  style="width:100%;border:0;display:block;"
+  height="900"
+  loading="lazy"
+  allow="clipboard-write"
+></iframe>
+<script>
+  // Sizes every Care Ledger frame on the page by the frame that sent the
+  // message, so several embeds (and the full ledger) can share an article.
+  window.addEventListener("message", function (e) {
+    if (e.origin !== "https://rowanflynnpilot.github.io") return;
+    if (!e.data || e.data.type !== "wpr-care-ledger:height") return;
+    document.querySelectorAll("iframe.care-ledger").forEach(function (f) {
+      if (f.contentWindow === e.source) f.style.height = e.data.height + "px";
+    });
+  });
+</script>
+```
+
+Links to other facilities or the operator open the full ledger in a new tab.
+
 ### Getting the data
 
 Above the facility list, **Download as CSV** exports whatever is in view
