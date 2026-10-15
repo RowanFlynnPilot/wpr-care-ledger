@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
   workflow_run:
-    workflows: [fetch]
+    workflows: [fetch, wayback]  # wayback: its copies show in the widget
     types: [completed]
   workflow_dispatch:
 
