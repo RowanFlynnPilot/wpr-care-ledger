@@ -134,6 +134,14 @@ be dropped (`?facility=13424`). Paste into a **Custom HTML** block:
 
 Links to other facilities or the operator open the full ledger in a new tab.
 
+### A page for every facility
+
+Each facility also has its own plain page, built every deploy for search
+engines and for sharing: `…/wpr-care-ledger/facility/our-house-wausau-assisted-care-0013424/`.
+All of them are listed at `…/wpr-care-ledger/facility/`, and in
+`sitemap.xml` (submit it in Google Search Console once). The widget's
+"Page for this facility" link and the facilities CSV give each address.
+
 ### Getting the data
 
 Above the facility list, **Download as CSV** exports whatever is in view

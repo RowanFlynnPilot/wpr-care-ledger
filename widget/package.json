@@ -8,6 +8,7 @@
     "dev": "vite",
     "prebuild": "node scripts/dev-sync.mjs",
     "build": "vite build",
+    "postbuild": "node scripts/facility-pages.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

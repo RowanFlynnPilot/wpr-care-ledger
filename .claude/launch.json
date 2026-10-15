@@ -7,6 +7,13 @@
       "runtimeArgs": ["run", "dev"],
       "cwd": "widget",
       "port": 5173
+    },
+    {
+      "name": "care-ledger-dist",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "preview", "--", "--port", "4173", "--strictPort"],
+      "cwd": "widget",
+      "port": 4173
     }
   ]
 }

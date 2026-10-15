@@ -1,33 +1,24 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+  DOC_LABELS,
+  facilitySlug,
+  TYPE_FULL,
+  STALE_AFTER_DAYS,
+  SANCTION_LABELS,
+  fmtNum,
+  surveyLabel,
+  titleCase,
+  smartTitle,
+  fmtDate,
+  waybackDate,
+  isoUTC,
+  isoMinusDays,
+  windowStartOf,
+  citeSummary,
+  shape,
+} from "./ledger.js";
 
 /* ------------------------------------------------------------- vocabulary */
-
-const SURVEY_PART_LABELS = {
-  SURVEY: "Standard survey",
-  COMPLAINT: "Complaint investigation",
-  VV: "Follow-up visit",
-  "VERIFICATION VISIT": "Verification visit",
-  "SELF REPORT": "Self-report investigation",
-  "DESK REVIEW": "Desk review",
-};
-
-const DOC_LABELS = {
-  enforcement: "Enforcement action",
-  sod: "Statement of deficiency",
-  poc: "Plan of correction",
-};
-
-const TYPE_ABBR = {
-  "Adult Family Home": "AFH",
-  "Community Based Residential Facility": "CBRF",
-  "Residential Care Apartment Complex": "RCAC",
-};
-
-const TYPE_FULL = {
-  AFH: "Adult family home",
-  CBRF: "Community-based residential facility",
-  RCAC: "Residential care apartment complex",
-};
 
 const STATE_DETAIL_URL =
   "https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx";
@@ -46,10 +37,6 @@ const LENS_LABELS = {
   new: "New this week",
 };
 
-/* The ledger refreshes every Monday; past this many days the data is stale
-   and readers are told so rather than left to assume it is current. */
-const STALE_AFTER_DAYS = 10;
-
 /* Inside the WordPress iframe the page has no scroller of its own, and
    scrolling into view would yank the reader's article instead. */
 const EMBEDDED = window.parent !== window;
@@ -57,16 +44,6 @@ const EMBEDDED = window.parent !== window;
 const FACILITY = new URLSearchParams(window.location.search).get("facility");
 // The full ledger, for links out of the single-facility view.
 const LEDGER_URL = `${window.location.origin}${window.location.pathname}`;
-
-/* Sanctions worth a reader's eye on the timeline (enrich.py's labels). */
-const SANCTION_LABELS = {
-  Revocation: "License revocation",
-  "Summary suspension": "Summary suspension",
-  Nonrenewal: "License nonrenewal",
-  "Admissions ban": "Order not to admit new residents",
-};
-
-const DOC_ORDER = ["enforcement", "sod", "poc"];
 
 /* The terms the ledger prints, in plain English, grouped as a reader meets
    them. Labels match SURVEY_PART_LABELS, DOC_LABELS and SANCTION_LABELS. */
@@ -127,55 +104,6 @@ function Glossary() {
   );
 }
 
-/* Fixed locale: a German browser would otherwise print "$39.640". */
-function fmtNum(n) {
-  return n.toLocaleString("en-US");
-}
-
-/* Street-suffix spellings differ between licenses at one address
-   ("226446 HUMMINGBIRD RD" / "226446 Hummingbird Road"). */
-const STREET_ABBR = {
-  ROAD: "RD", DRIVE: "DR", STREET: "ST", AVENUE: "AVE", LANE: "LN", COURT: "CT",
-  BOULEVARD: "BLVD", PLACE: "PL", CIRCLE: "CIR", PARKWAY: "PKWY", HIGHWAY: "HWY",
-  TRAIL: "TRL", TERRACE: "TER", NORTH: "N", SOUTH: "S", EAST: "E", WEST: "W",
-};
-
-function surveyLabel(raw) {
-  return raw
-    .split("/")
-    .map((p) => SURVEY_PART_LABELS[p.trim()] || titleCase(p.trim()))
-    .join(" + ");
-}
-
-function titleCase(s) {
-  return s.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
-}
-
-/* Facility and operator names arrive from the state in ALL CAPS. Title-case
-   them for print, preserving corporate and licensing acronyms. */
-const KEEP_UPPER = new Set([
-  "LLC", "LLP", "INC", "CO", "II", "III", "IV", "AFH", "CBRF", "RCAC",
-  "AF", "ALF", "WI", "USA", "SLF", "HCBS",
-]);
-const KEEP_LOWER = new Set(["of", "and", "the", "at", "by", "for", "on", "in"]);
-
-function smartTitle(s) {
-  if (!s) return s;
-  return s
-    .trim()
-    .split(/\s+/)
-    .map((w, i) => {
-      const bare = w.replace(/[^A-Za-z0-9]/g, "");
-      if (KEEP_UPPER.has(bare.toUpperCase())) return w.toUpperCase();
-      const lower = w.toLowerCase();
-      if (i > 0 && KEEP_LOWER.has(bare.toLowerCase())) return lower;
-      // Capitalize after hyphens, slashes, parens — but not apostrophes
-      // (Alzheimer's, not Alzheimer'S).
-      return lower.replace(/(^|[-/(])([a-z])/g, (m, p, c) => p + c.toUpperCase());
-    })
-    .join(" ");
-}
-
 /* Newspaper highlighter: mark the search match inside a displayed name. */
 function Highlight({ text, q }) {
   if (!q) return text;
@@ -188,16 +116,6 @@ function Highlight({ text, q }) {
       {text.slice(i + q.length)}
     </>
   );
-}
-
-function fmtDate(iso, month = "short") {
-  if (!iso) return "";
-  const [y, m, d] = iso.split("-").map(Number);
-  return new Date(y, m - 1, d).toLocaleDateString("en-US", {
-    month,
-    day: "numeric",
-    year: "numeric",
-  });
 }
 
 /* CSV for reporters: RFC 4180 quoting, a BOM so Excel reads UTF-8, and a
@@ -229,12 +147,12 @@ function facilitiesCsv(list, filename) {
     ["license", "facility", "type", "address", "city", "zip", "county", "license_status",
      "closed", "date_closed", "operator", "licensee", "capacity", "surveys",
      "enforcement_actions", "fines_assessed", "records_state_no_longer_shows",
-     "latest_survey", "ledger_record", "state_page_archived"],
+     "latest_survey", "ledger_record", "facility_page", "state_page_archived"],
     list.map((f) => [
       f.license, f.name, TYPE_FULL[f.typeAbbr], f.address, f.city, f.zip, f.county,
       f.licensure_status, yesNo(f.closed), f.date_closed, f.corporate_name, f.licensee,
       f.capacity, f.surveys.length, f.enforcementCount, f.fineTotal, f.heldCount,
-      f.latest, record + f.license, f.pageCopy,
+      f.latest, record + f.license, `${LEDGER_URL}facility/${facilitySlug(f)}/`, f.pageCopy,
     ])
   );
 }
@@ -265,43 +183,12 @@ function surveysCsv(list, filename) {
   );
 }
 
-/* "https://web.archive.org/web/20261015004022/…" -> "2026-10-15" (UTC). */
-function waybackDate(copy) {
-  const ts = copy.match(/\/web\/(\d{8})/)[1];
-  return `${ts.slice(0, 4)}-${ts.slice(4, 6)}-${ts.slice(6, 8)}`;
-}
-
-function isoUTC(iso) {
-  const [y, m, d] = iso.split("-").map(Number);
-  return Date.UTC(y, m - 1, d);
-}
-
-function isoMinusDays(iso, days) {
-  return new Date(isoUTC(iso) - days * 86400e3).toISOString().slice(0, 10);
-}
-
-/* Start of the state's three-year public window, as of a given date. */
-function windowStartOf(iso) {
-  const [y, m, d] = iso.split("-").map(Number);
-  const day = m === 2 && d === 29 ? 28 : d;
-  return `${y - 3}-${String(m).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
-}
-
 function safeDecode(s) {
   try {
     return decodeURIComponent(s);
   } catch {
     return s; // a stray "%" in a hand-typed link must not blank the widget
   }
-}
-
-function addressKey(f) {
-  return `${f.address} ${f.city}`
-    .toUpperCase()
-    .split(/[^A-Z0-9]+/)
-    .filter(Boolean)
-    .map((w) => STREET_ABBR[w] || w)
-    .join("");
 }
 
 function quarterOf(iso) {
@@ -1241,7 +1128,6 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
   );
 }
 
-
 /* What inspectors cite: facilities cited at least once in each area, from
    the categories enrich.py gives every cited rule. One measure across
    categories, sorted, every bar labeled -- so plain rows, not a plot. */
@@ -1665,6 +1551,15 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
               >
                 View this facility on the state site
               </a>
+              <a
+                className="page-copy"
+                href={`${LEDGER_URL}facility/${facilitySlug(f)}/`}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="A permanent page for this facility, to share or bookmark"
+              >
+                Page for this facility
+              </a>
               {f.pageCopy && (
                 <a
                   className="page-copy"
@@ -1692,18 +1587,6 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
   );
 }
 
-/* Different rules can share a title (DHS 89 has two "Services" rules), so
-   repeats are grouped: "Services ×2 · Tenant rights". */
-function citeSummary(citations) {
-  const counts = new Map();
-  for (const c of citations) {
-    const t = c.title.replace(/[.:]\s*$/, "");
-    counts.set(t, (counts.get(t) || 0) + 1);
-  }
-  const titles = [...counts].map(([t, n]) => (n > 1 ? `${t} ×${n}` : t));
-  return titles.slice(0, 3).join(" · ") + (titles.length > 3 ? ` · +${titles.length - 3} more` : "");
-}
-
 function Fact({ k, v, mono, wide }) {
   return (
     <div className={wide ? "fact fact-wide" : "fact"}>
@@ -1711,144 +1594,6 @@ function Fact({ k, v, mono, wide }) {
       <dd className={mono ? "mono" : undefined}>{v}</dd>
     </div>
   );
-}
-
-/* ----------------------------------------------------------------- shaping */
-
-function shape(facilitiesObj, surveysObj, enrichmentObj, waybackObj) {
-  // Join machine-read document facts onto each survey event. A survey's
-  // documents map kind -> archive path; enrichment.json is keyed by that
-  // same path. Kinds come from the parsed structure, not the state's grid
-  // column (the state has served letters and SODs in swapped columns).
-  const enrich = (s) => {
-    let fine = null;
-    const sanctions = [];
-    const citations = [];
-    let substantiated = 0;
-    const seen = new Set();
-    for (const path of Object.values(s.documents)) {
-      const e = enrichmentObj[path];
-      if (!e) continue;
-      if (e.fine) fine = (fine || 0) + e.fine;
-      for (const label of e.sanctions || []) {
-        if (!sanctions.includes(label)) sanctions.push(label);
-      }
-      substantiated += e.complaints_substantiated || 0;
-      for (const c of e.citations || []) {
-        const key = c.tag + c.code;
-        if (!seen.has(key)) {
-          seen.add(key);
-          citations.push(c);
-        }
-      }
-    }
-    return { fine, sanctions, citations, substantiated };
-  };
-
-  // Each document's kind comes from its parsed structure where the miner
-  // read it; the state's column is only the fallback (plans of correction,
-  // which aren't mined). One survey, 0019331, has its two links swapped.
-  const docsOf = (s) =>
-    Object.entries(s.documents)
-      .map(([column, path]) => {
-        const k = enrichmentObj[path]?.kind;
-        return {
-          kind: k === "enforcement" || k === "sod" ? k : column,
-          path,
-          // The Internet Archive's copy, fetched from the state's server.
-          copy: waybackObj.documents[path],
-        };
-      })
-      .sort((a, b) => DOC_ORDER.indexOf(a.kind) - DOC_ORDER.indexOf(b.kind));
-
-  const rawSurveys = Object.values(surveysObj);
-  const lastUpdated = rawSurveys.reduce((m, s) => (s.last_seen > m ? s.last_seen : m), "");
-  // Each county's first capture is its starting archive, not news (Marathon
-  // began 2026-07-12, its eight neighbors 2026-10-07).
-  const countyStart = {};
-  for (const f of Object.values(facilitiesObj)) {
-    const c = f.county;
-    if (!countyStart[c] || f.first_seen < countyStart[c]) countyStart[c] = f.first_seen;
-  }
-  // "New this week": the record, or a document added to it later (a Notice
-  // & Order often follows its SOD by weeks), was first seen after the
-  // previous weekly run — strictly within 7 days of the latest refresh, so
-  // last Monday's run doesn't count and a mid-week rerun doesn't erase the
-  // marker. Never a county's first capture, and never while the ledger is
-  // stale: then there is no "this week".
-  const stale = lastUpdated && (Date.now() - isoUTC(lastUpdated)) / 86400e3 > STALE_AFTER_DAYS;
-  const newSince = lastUpdated ? isoMinusDays(lastUpdated, 7) : "";
-  const isNew = (s) => {
-    const start = countyStart[facilitiesObj[s.license].county];
-    const recent = (d) => d && d > start && d > newSince;
-    return (
-      !stale &&
-      (recent(s.first_seen) || Object.values(s.documents_first_seen || {}).some(recent))
-    );
-  };
-
-  const surveysByLicense = {};
-  for (const [id, s] of Object.entries(surveysObj)) {
-    const docs = docsOf(s);
-    const row = {
-      ...s,
-      id,
-      docs,
-      hasEnforcement: docs.some((d) => d.kind === "enforcement"),
-      enr: enrich(s),
-      isNew: isNew(s),
-    };
-    (surveysByLicense[s.license] ||= []).push(row);
-  }
-  for (const rows of Object.values(surveysByLicense)) {
-    rows.sort((a, b) => b.exit_date.localeCompare(a.exit_date));
-  }
-
-  const addressGroups = {};
-  for (const [lic, f] of Object.entries(facilitiesObj)) {
-    (addressGroups[addressKey(f)] ||= []).push(lic);
-  }
-
-  const facilities = Object.entries(facilitiesObj).map(([license, f]) => {
-    const surveys = surveysByLicense[license] || [];
-    const closed = Boolean(f.date_closed) || f.licensure_status === "CLOSED";
-    // Latest Internet Archive capture of the state's page: unlike the
-    // state link, it survives the weekly key rotation.
-    const pageCopy = (waybackObj.pages[license] || []).at(-1)?.copy || "";
-    return {
-      ...f,
-      license,
-      pageCopy,
-      surveys,
-      closed,
-      probationary: f.licensure_status === "PROBATIONARY",
-      typeAbbr: TYPE_ABBR[f.provider_type.trim()] || f.provider_type.trim(),
-      enforcementCount: surveys.filter((s) => s.hasEnforcement).length,
-      fineTotal: surveys.reduce((n, s) => n + (s.enr.fine || 0), 0),
-      heldCount: surveys.filter((s) => s.expired_from_state).length,
-      newCount: surveys.filter((s) => s.isNew).length,
-      latest: surveys[0]?.exit_date || "",
-      siblings: addressGroups[addressKey(f)].filter((l) => l !== license),
-      haystack: [f.name, f.city, f.corporate_name, f.licensee, license, f.address]
-        .join(" ")
-        .toLowerCase(),
-    };
-  });
-
-  const operatorCounts = {};
-  for (const f of facilities) {
-    if (f.corporate_name) {
-      operatorCounts[f.corporate_name] = (operatorCounts[f.corporate_name] || 0) + 1;
-    }
-  }
-  return {
-    facilities,
-    byLicense: Object.fromEntries(facilities.map((f) => [f.license, f])),
-    counties: Object.keys(countyStart).sort(),
-    countyStart,
-    operatorCounts,
-    lastUpdated,
-  };
 }
 
 /* "Marathon County's archive starts with what the state showed on July 12,

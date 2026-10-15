@@ -371,6 +371,23 @@ Cross-links and deep links scroll the opened record into view
 (standalone only). A print stylesheet hides interactive chrome and keeps
 records intact across page breaks.
 
+Static facility pages, for search and sharing (the widget is one
+script-built page a search engine can't see into): `postbuild` runs
+`scripts/facility-pages.mjs`, which writes `dist/facility/<name>-<license>/`
+for every facility (plain HTML: title and description built from the
+record, canonical URL, share tags, facts, the full inspection history
+with PDF and archive.org links, a button into the interactive ledger),
+`dist/facility/` (every facility by county), and `dist/sitemap.xml`. It
+imports `src/ledger.js` — the vocabulary, formatters, `shape()` and
+`facilitySlug()` the widget itself uses — so a page can never disagree
+with the ledger; keep that module free of React and browser APIs. The
+widget links each record's page ("Page for this facility"; the
+facilities CSV has it too), and index.html's root holds a plain link to
+`facility/` until the app replaces it. No robots.txt: a GitHub project
+site can't serve one at the domain root, where crawlers look. `SITE` in
+the script is the published address — change it there if the ledger
+moves to a custom domain.
+
 Build plumbing: `predev`/`prebuild` run `scripts/dev-sync.mjs`, which copies
 `data/` (overwriting) and `archive/` (new files only — PDFs are immutable)
 into `widget/public/` — Vite
