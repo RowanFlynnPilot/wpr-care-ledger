@@ -360,6 +360,89 @@ body {
   stroke-width: 1;
 }
 
+/* what inspectors cite: labeled rows, one bar each */
+
+.cites {
+  margin: 0 0 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.cites-sub {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.cites-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cites-row {
+  display: grid;
+  grid-template-columns: minmax(150px, 15rem) 1fr minmax(170px, auto);
+  align-items: center;
+  gap: 4px 12px;
+  padding: 3px 0;
+}
+
+.cites-row:hover {
+  background: var(--paper-shade);
+}
+
+.cites-cat {
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.cites-track {
+  height: 12px;
+}
+
+.cites-bar {
+  display: block;
+  height: 100%;
+  min-width: 2px;
+  background: var(--teal);
+  border-radius: 0 3px 3px 0;
+}
+
+.cites-val {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.cites-n {
+  color: var(--muted);
+}
+
+/* phones: the label takes its own line above the bar */
+@media (max-width: 560px) {
+  .cites-row {
+    grid-template-columns: 1fr auto;
+    padding: 5px 0;
+  }
+
+  .cites-cat {
+    grid-column: 1 / -1;
+  }
+
+  /* room for the bar: the citation count stays in the text for screen
+     readers, off screen here */
+  .cites-n {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+}
+
 .chart-note {
   font-family: var(--mono);
   font-size: 10px;

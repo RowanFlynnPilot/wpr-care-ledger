@@ -577,6 +577,8 @@ export default function App() {
 
       <ActivityChart surveys={scopedSurveys} lastUpdated={db.lastUpdated} coverage={coverage} />
 
+      <CitationChart surveys={scopedSurveys} />
+
       <div className="controls">
         <input
           ref={searchRef}
@@ -1080,6 +1082,59 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
   );
 }
 
+
+/* What inspectors cite: facilities cited at least once in each area, from
+   the categories enrich.py gives every cited rule. One measure across
+   categories, sorted, every bar labeled -- so plain rows, not a plot. */
+function CitationChart({ surveys }) {
+  const rows = useMemo(() => {
+    const by = {};
+    for (const s of surveys) {
+      for (const c of s.enr.citations) {
+        const r = (by[c.category] ||= { category: c.category, facilities: new Set(), citations: 0 });
+        r.facilities.add(s.license);
+        r.citations += 1;
+      }
+    }
+    return Object.values(by)
+      .map((r) => ({ ...r, facilities: r.facilities.size }))
+      .sort((a, b) => b.facilities - a.facilities || b.citations - a.citations);
+  }, [surveys]);
+  if (rows.length < 2) return null;
+  const max = rows[0].facilities;
+
+  return (
+    <figure className="cites">
+      <div className="activity-head">
+        <h2 id="cites-title">What inspectors cite</h2>
+        <p className="cites-sub">Facilities cited at least once in each area</p>
+      </div>
+      <ol className="cites-list" aria-labelledby="cites-title">
+        {rows.map((r) => (
+          <li key={r.category} className="cites-row">
+            <span className="cites-cat">{r.category}</span>
+            <span className="cites-track" aria-hidden="true">
+              <span className="cites-bar" style={{ width: `${(r.facilities / max) * 100}%` }} />
+            </span>
+            <span className="cites-val">
+              {fmtNum(r.facilities)} {r.facilities === 1 ? "facility" : "facilities"}
+              <span className="cites-n">
+                {" "}
+                · {fmtNum(r.citations)} {r.citations === 1 ? "citation" : "citations"}
+              </span>
+            </span>
+          </li>
+        ))}
+      </ol>
+      <p className="chart-note">
+        <span>
+          From the rules cited in statements of deficiency since each county&rsquo;s archive
+          began. A facility counts once per area however often it was cited.
+        </span>
+      </p>
+    </figure>
+  );
+}
 
 /* ------------------------------------------------------------ facility row */
 

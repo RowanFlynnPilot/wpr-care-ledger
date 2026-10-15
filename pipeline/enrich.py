@@ -82,6 +82,45 @@ ACRONYMS = {"OSHA", "CBRF", "RCAC", "AFH", "RN", "LPN", "PRN", "TB", "CPR", "AED
             "DHS", "DQA", "ISP", "HIV", "ID", "OTC"}
 
 
+# Plain-English category for each cited rule, for readers who don't know
+# DHS 83.35 from 83.47. A few title words decide first, because some
+# sections mix topics (83.38 holds both medication administration and
+# leisure activities; 83.32's most-cited resident right is "receive
+# medication"); otherwise the code's section decides. A section missing
+# here comes out "Other" with a warning -- add it.
+CATEGORY_WORDS = [
+    (r"medicat|psychotropic|\bprn\b|prescription|pharmac", "Medications"),
+    (r"\bfire\b|smoke|evacuat|\bexits?\b|egress|sprinkler", "Fire safety and evacuation"),
+    (r"abuse|neglect|misappropriat", "Abuse, neglect and incident reporting"),
+    (r"background check|criminal record", "Staff training and background checks"),
+]
+CATEGORY_SECTIONS = {
+    "Medications": ["83.37"],
+    "Care and service plans": ["83.28", "83.35", "83.38", "88.06", "88.07",
+                               "89.23", "89.26", "89.27", "89.28"],
+    "Abuse, neglect and incident reporting": ["83.12"],
+    "Resident rights": ["50.09", "83.27", "83.29", "83.31", "83.32", "83.33",
+                        "88.10", "89.29", "89.34", "89.35"],
+    "Staffing and supervision": ["83.15", "83.16", "83.36"],
+    "Staff training and background checks": ["50.065", "83.17", "83.19", "83.20",
+                                             "83.21", "83.22", "83.25", "83.26", "88.04"],
+    "Fire safety and evacuation": ["83.47", "83.48", "83.59", "83.64"],
+    "Building, cleanliness and food": ["83.39", "83.41", "83.43", "83.44", "83.45",
+                                       "83.46", "83.55", "83.60", "88.05"],
+    "Records and administration": ["83.09", "83.14", "83.18", "83.42", "88.03"],
+}
+SECTION_CATEGORY = {sec: cat for cat, secs in CATEGORY_SECTIONS.items() for sec in secs}
+
+
+def category(citation):
+    """A citation's plain-English category ("Other" if its section is unmapped)."""
+    for pattern, cat in CATEGORY_WORDS:
+        if re.search(pattern, citation["title"], re.I):
+            return cat
+    section = re.match(r"\d+\.\d+", citation["code"]).group(0)
+    return SECTION_CATEGORY.get(section, "Other")
+
+
 def sentence_case(title):
     words = title.capitalize().split(" ")
     return " ".join(
@@ -277,6 +316,14 @@ def main():
         parsed += 1
         if warn:
             warnings.append(f"{rel}: {warn}")
+
+    # Categories come from a table, not the document, so every run reapplies
+    # it to every citation: a mapping change needs no --rebuild.
+    for rel, entry in sorted(enrichment.items()):
+        for c in entry.get("citations", []):
+            c["category"] = category(c)
+            if c["category"] == "Other":
+                warnings.append(f"{rel}: no category for {c['code']} ({c['title']}) -- add its section to CATEGORY_SECTIONS")
 
     ENRICHMENT_PATH.write_text(
         json.dumps(enrichment, indent=2, sort_keys=True) + "\n"

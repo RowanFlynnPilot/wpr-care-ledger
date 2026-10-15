@@ -13,11 +13,13 @@
     "census": 34,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(b)",
         "tag": "N 426",
         "title": "Supervision."
       },
       {
+        "category": "Medications",
         "code": "83.38(1)(h)",
         "tag": "N 432",
         "title": "Medication administration."
@@ -56,11 +58,13 @@
     "census": 18,
     "citations": [
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(d)",
         "tag": "N 525",
         "title": "Fire drills."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(e)",
         "tag": "N 526",
         "title": "Other evacuation drills."
@@ -91,11 +95,13 @@
     "census": 4,
     "citations": [
       {
+        "category": "Medications",
         "code": "88.07(3)(a)",
         "tag": "M 458",
         "title": "Prescription medications"
       },
       {
+        "category": "Resident rights",
         "code": "88.10(3)(a)",
         "tag": "M 548",
         "title": "Fair Treatment"
@@ -134,6 +140,7 @@
     "census": 15,
     "citations": [
       {
+        "category": "Medications",
         "code": "83.37(1)(e)",
         "tag": "N 404",
         "title": "Medication regimen, administration review."
@@ -172,6 +179,7 @@
     "census": 13,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(a)",
         "tag": "N 386",
         "title": "Comprehensive Individualized Service Plan"
@@ -213,6 +221,7 @@
     "census": null,
     "citations": [
       {
+        "category": "Records and administration",
         "code": "83.09",
         "tag": "N 141",
         "title": "Biennial report and fees."
@@ -243,21 +252,25 @@
     "census": 20,
     "citations": [
       {
+        "category": "Medications",
         "code": "83.37(3)(c)",
         "tag": "N 419",
         "title": "Medication storage: locked cabinet."
       },
       {
+        "category": "Medications",
         "code": "83.38(1)(h)",
         "tag": "N 432",
         "title": "Medication administration."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.45(3)",
         "tag": "N 499",
         "title": "Toxic substances."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.55(6)(b)",
         "tag": "N 617",
         "title": "Bath and toilet areas: water temperature"
@@ -281,11 +294,13 @@
     "census": 18,
     "citations": [
       {
+        "category": "Building, cleanliness and food",
         "code": "83.45(3)",
         "tag": "N 499",
         "title": "Toxic substances."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.55(6)(b)",
         "tag": "N 617",
         "title": "Bath and toilet areas: water temperature"
@@ -324,21 +339,25 @@
     "census": 10,
     "citations": [
       {
+        "category": "Building, cleanliness and food",
         "code": "83.44(2)(c)",
         "tag": "N 491",
         "title": "Interior floors, walls and ceilings."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.45(1)(a)",
         "tag": "N 492",
         "title": "Exterior areas."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.55(6)(b)",
         "tag": "N 617",
         "title": "Bath and toilet areas: water temperature"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.59(1)(a)",
         "tag": "N 631",
         "title": "Class AS, ANA, CS, CNA 2 grade level exits"
@@ -385,11 +404,13 @@
     "census": 17,
     "citations": [
       {
+        "category": "Building, cleanliness and food",
         "code": "83.39(1)",
         "tag": "N 439",
         "title": "Infection control program."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.43(1)",
         "tag": "N 481",
         "title": "Environment safe, clean, and comfortable"
@@ -437,21 +458,25 @@
     "census": 2,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "88.04(5)(b)",
         "tag": "M 246",
         "title": "Training-8 hours annually"
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "88.05(3)(e)2.b",
         "tag": "M 290",
         "title": "Inspections-gas furnace"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "88.05(4)(b)1",
         "tag": "M 334",
         "title": "Fire safety-smoke detectors"
       },
       {
+        "category": "Staff training and background checks",
         "code": "50.065(3)(b)",
         "tag": "Z 022",
         "title": "Complete background check process"
@@ -482,6 +507,7 @@
     "census": 0,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
@@ -531,11 +557,13 @@
     "census": 2,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "88.04(2)(a)",
         "tag": "M 216",
         "title": "Responsibilities"
       },
       {
+        "category": "Staff training and background checks",
         "code": "88.04(5)(b)",
         "tag": "M 246",
         "title": "Training-8 hours annually"
@@ -574,6 +602,7 @@
     "census": 4,
     "citations": [
       {
+        "category": "Fire safety and evacuation",
         "code": "88.05(4)(b)1",
         "tag": "M 334",
         "title": "Fire safety-smoke detectors"
@@ -604,21 +633,25 @@
     "census": 3,
     "citations": [
       {
+        "category": "Building, cleanliness and food",
         "code": "88.05(3)(a)",
         "tag": "M 276",
         "title": "Homelike Environment"
       },
       {
+        "category": "Care and service plans",
         "code": "88.06(3)(f)",
         "tag": "M 424",
         "title": "Review of ISP"
       },
       {
+        "category": "Medications",
         "code": "88.07(3)(a)",
         "tag": "M 458",
         "title": "Prescription medications"
       },
       {
+        "category": "Medications",
         "code": "88.10(3)(q)",
         "tag": "M 582",
         "title": "Medications"
@@ -649,6 +682,7 @@
     "census": 13,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(c)",
         "tag": "N 427",
         "title": "Leisure time activities."
@@ -671,6 +705,7 @@
     "census": 13,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(4)(c)",
         "tag": "N 165",
         "title": "Reporting incidents with serious injury"
@@ -702,16 +737,19 @@
     "census": 4,
     "citations": [
       {
+        "category": "Staffing and supervision",
         "code": "83.15(3)(a)",
         "tag": "N 214",
         "title": "Administrator shall supervise daily operation"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(a)",
         "tag": "N 386",
         "title": "Comprehensive Individualized Service Plan"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(b)",
         "tag": "N 387",
         "title": "Service plan development: parties involved"
@@ -736,6 +774,7 @@
     "census": 4,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(a)",
         "tag": "N 386",
         "title": "Comprehensive Individualized Service Plan"
@@ -830,6 +869,7 @@
     "census": 4,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "88.07(2)(a)",
         "tag": "M 436",
         "title": "Services"
@@ -868,6 +908,7 @@
     "census": 4,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "88.06(3)(d)",
         "tag": "M 410",
         "title": "Individual service plan"
@@ -923,66 +964,79 @@
     "census": 11,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(2)(a)",
         "tag": "N 158",
         "title": "Caregiver: Investigating abuse & neglect"
       },
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(3)(a)",
         "tag": "N 161",
         "title": "Investigate injuries of unknown source."
       },
       {
+        "category": "Records and administration",
         "code": "83.14(2)(a)",
         "tag": "N 196",
         "title": "Licensee ensures facility complies with laws"
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.15(3)(a)",
         "tag": "N 214",
         "title": "Administrator shall supervise daily operation"
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.25",
         "tag": "N 277",
         "title": "Continuing education"
       },
       {
+        "category": "Resident rights",
         "code": "83.32(3)(d)",
         "tag": "N 348",
         "title": "Rights of Residents: Free from mistreatment"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.36(2)",
         "tag": "N 399",
         "title": "Maintain current written staffing schedule"
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(c)",
         "tag": "N 427",
         "title": "Leisure time activities."
       },
       {
+        "category": "Medications",
         "code": "83.38(1)(h)",
         "tag": "N 432",
         "title": "Medication administration."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.44(2)(a)",
         "tag": "N 489",
         "title": "Rooms clean and free from odors."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.44(2)(c)",
         "tag": "N 491",
         "title": "Interior floors, walls and ceilings."
       },
       {
+        "category": "Resident rights",
         "code": "50.09(1)(L)",
         "tag": "Y 3244",
         "title": "Care"
@@ -1007,21 +1061,25 @@
     "census": 7,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(2)(a)",
         "tag": "N 158",
         "title": "Caregiver: Investigating abuse & neglect"
       },
       {
+        "category": "Resident rights",
         "code": "83.32(3)(d)",
         "tag": "N 348",
         "title": "Rights of Residents: Free from mistreatment"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(c)",
         "tag": "N 388",
         "title": "Implement, follow the individual service plan"
       },
       {
+        "category": "Medications",
         "code": "83.37(2)(d)",
         "tag": "N 415",
         "title": "Documentation of medication administration."
@@ -1047,36 +1105,43 @@
     "census": 1,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(2)(a)",
         "tag": "N 158",
         "title": "Caregiver: Investigating abuse & neglect"
       },
       {
+        "category": "Records and administration",
         "code": "83.14(2)(a)",
         "tag": "N 196",
         "title": "Licensee ensures facility complies with laws"
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.15(3)(a)",
         "tag": "N 214",
         "title": "Administrator shall supervise daily operation"
       },
       {
+        "category": "Resident rights",
         "code": "83.31(4)(b)",
         "tag": "N 327",
         "title": "Allowable reasons for involuntary discharge."
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(c)",
         "tag": "N 388",
         "title": "Implement, follow the individual service plan"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Medications",
         "code": "83.37(2)(d)",
         "tag": "N 415",
         "title": "Documentation of medication administration."
@@ -1111,56 +1176,67 @@
     "census": 10,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(2)(a)",
         "tag": "N 158",
         "title": "Caregiver: Investigating abuse & neglect"
       },
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(3)(a)",
         "tag": "N 161",
         "title": "Investigate injuries of unknown source."
       },
       {
+        "category": "Records and administration",
         "code": "83.14(2)(a)",
         "tag": "N 196",
         "title": "Licensee ensures facility complies with laws"
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.15(3)(a)",
         "tag": "N 214",
         "title": "Administrator shall supervise daily operation"
       },
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Medications",
         "code": "83.37(1)(a)",
         "tag": "N 400",
         "title": "Written order for medications, supplements."
       },
       {
+        "category": "Medications",
         "code": "83.37(2)(d)",
         "tag": "N 415",
         "title": "Documentation of medication administration."
       },
       {
+        "category": "Medications",
         "code": "83.37(2)(e)",
         "tag": "N 416",
         "title": "Other administration given or delegated by RN"
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(c)",
         "tag": "N 427",
         "title": "Leisure time activities."
       },
       {
+        "category": "Resident rights",
         "code": "50.09(1)(L)",
         "tag": "Y 3244",
         "title": "Care"
@@ -1184,6 +1260,7 @@
     "census": 10,
     "citations": [
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(b)",
         "tag": "N 397",
         "title": "Qualified staff in charge, on duty and awake."
@@ -1208,56 +1285,67 @@
     "census": 1,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(2)(a)",
         "tag": "N 158",
         "title": "Caregiver: Investigating abuse & neglect"
       },
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(3)(a)",
         "tag": "N 161",
         "title": "Investigate injuries of unknown source."
       },
       {
+        "category": "Records and administration",
         "code": "83.14(2)(a)",
         "tag": "N 196",
         "title": "Licensee ensures facility complies with laws"
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.15(3)(a)",
         "tag": "N 214",
         "title": "Administrator shall supervise daily operation"
       },
       {
+        "category": "Resident rights",
         "code": "83.31(4)(b)",
         "tag": "N 327",
         "title": "Allowable reasons for involuntary discharge."
       },
       {
+        "category": "Resident rights",
         "code": "83.32(3)(d)",
         "tag": "N 348",
         "title": "Rights of Residents: Free from mistreatment"
       },
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(b)",
         "tag": "N 397",
         "title": "Qualified staff in charge, on duty and awake."
       },
       {
+        "category": "Medications",
         "code": "83.37(1)(i)",
         "tag": "N 408",
         "title": "PRN psychotropic medication."
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(c)",
         "tag": "N 427",
         "title": "Leisure time activities."
@@ -1288,36 +1376,43 @@
     "census": 8,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "83.17(1)",
         "tag": "N 219",
         "title": "Licensee conduct caregiver background check"
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.20(2)(a)-(d)",
         "tag": "N 239",
         "title": "Department-approved training courses."
       },
       {
+        "category": "Resident rights",
         "code": "83.31(4)(c)",
         "tag": "N 328",
         "title": "Involuntary discharge notice requirements."
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(b)",
         "tag": "N 397",
         "title": "Qualified staff in charge, on duty and awake."
       },
       {
+        "category": "Medications",
         "code": "83.37(1)(e)",
         "tag": "N 404",
         "title": "Medication regimen, administration review."
       },
       {
+        "category": "Medications",
         "code": "83.37(1)(g)",
         "tag": "N 406",
         "title": "Disposition of medications."
       },
       {
+        "category": "Medications",
         "code": "83.37(1)(h)",
         "tag": "N 407",
         "title": "Scheduled psychotropic medications."
@@ -1356,11 +1451,13 @@
     "census": 16,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Medications",
         "code": "83.37(2)(d)",
         "tag": "N 415",
         "title": "Documentation of medication administration."
@@ -1383,16 +1480,19 @@
     "census": null,
     "citations": [
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
       },
       {
+        "category": "Resident rights",
         "code": "83.32(3)(k)",
         "tag": "N 355",
         "title": "Rights of Residents: Self-determination"
       },
       {
+        "category": "Medications",
         "code": "83.37(3)(a)",
         "tag": "N 417",
         "title": "Medication storage: original containers."
@@ -1417,16 +1517,19 @@
     "census": 16,
     "citations": [
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
       },
       {
+        "category": "Resident rights",
         "code": "83.32(3)(i)",
         "tag": "N 353",
         "title": "Rights of Residents: Adequate treatment"
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.55(6)(b)",
         "tag": "N 617",
         "title": "Bath and toilet areas: water temperature"
@@ -1460,11 +1563,13 @@
     "census": 16,
     "citations": [
       {
+        "category": "Medications",
         "code": "83.38(1)(h)",
         "tag": "N 432",
         "title": "Medication administration."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.55(6)(b)",
         "tag": "N 617",
         "title": "Bath and toilet areas: water temperature"
@@ -1505,11 +1610,13 @@
     "census": 20,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "83.20(2)(a)-(d)",
         "tag": "N 239",
         "title": "Department-approved training courses."
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
@@ -1557,6 +1664,7 @@
     "census": 4,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "88.04(2)(a)",
         "tag": "M 216",
         "title": "Responsibilities"
@@ -1603,6 +1711,7 @@
     "census": 4,
     "citations": [
       {
+        "category": "Building, cleanliness and food",
         "code": "88.05(3)(a)",
         "tag": "M 276",
         "title": "Home environment"
@@ -1636,36 +1745,43 @@
     "census": 52,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "89.23(2)(a)2.b",
         "tag": "U 117",
         "title": "Services"
       },
       {
+        "category": "Care and service plans",
         "code": "89.23(2)(a)2.c",
         "tag": "U 118",
         "title": "Services"
       },
       {
+        "category": "Care and service plans",
         "code": "89.23(4)(b)1.",
         "tag": "U 131",
         "title": "Services"
       },
       {
+        "category": "Care and service plans",
         "code": "89.27(4)",
         "tag": "U 188",
         "title": "Service agreement"
       },
       {
+        "category": "Care and service plans",
         "code": "89.28(2)(a)1.",
         "tag": "U 200",
         "title": "Risk agreement"
       },
       {
+        "category": "Resident rights",
         "code": "89.29(3)(b)",
         "tag": "U 237",
         "title": "Admission & retention of tenants"
       },
       {
+        "category": "Resident rights",
         "code": "89.35(3)",
         "tag": "U 272",
         "title": "Grievances"
@@ -1704,6 +1820,7 @@
     "census": 61,
     "citations": [
       {
+        "category": "Resident rights",
         "code": "89.35(3)",
         "tag": "U 272",
         "title": "Grievances"
@@ -1742,16 +1859,19 @@
     "census": 39,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Medications",
         "code": "83.37(2)(d)",
         "tag": "N 415",
         "title": "Documentation of medication administration."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.46(1)(a)",
         "tag": "N 502",
         "title": "Comfortable and safe temperatures"
@@ -1790,6 +1910,7 @@
     "census": 10,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "83.17(1)",
         "tag": "N 219",
         "title": "Licensee conduct caregiver background check"
@@ -1868,26 +1989,31 @@
     "census": 3,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "88.03(3)(b)",
         "tag": "M 114",
         "title": "Criminal records check"
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "88.05(3)(a)",
         "tag": "M 276",
         "title": "Homelike Environment"
       },
       {
+        "category": "Care and service plans",
         "code": "88.06(2)(a)",
         "tag": "M 380",
         "title": "Admission-health exam"
       },
       {
+        "category": "Care and service plans",
         "code": "88.06(2)(b)",
         "tag": "M 384",
         "title": "Service agreement except respite"
       },
       {
+        "category": "Medications",
         "code": "88.07(3)(d)",
         "tag": "M 464",
         "title": "Medication- written order"
@@ -1919,11 +2045,13 @@
     "census": 10,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "83.20(2)(a)-(d)",
         "tag": "N 239",
         "title": "Department-approved training courses."
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(b)",
         "tag": "N 397",
         "title": "Qualified staff in charge, on duty and awake."
@@ -1954,6 +2082,7 @@
     "census": 80,
     "citations": [
       {
+        "category": "Resident rights",
         "code": "89.35(3)",
         "tag": "U 272",
         "title": "Grievances"
@@ -1992,11 +2121,13 @@
     "census": 12,
     "citations": [
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(a)",
         "tag": "N 386",
         "title": "Comprehensive Individualized Service Plan"
@@ -2022,11 +2153,13 @@
     "census": 13,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(a)",
         "tag": "N 386",
         "title": "Comprehensive Individualized Service Plan"
       },
       {
+        "category": "Medications",
         "code": "83.38(1)(h)",
         "tag": "N 432",
         "title": "Medication administration."
@@ -2091,31 +2224,37 @@
     "census": 5,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(2)(a)",
         "tag": "N 158",
         "title": "Caregiver: Investigating abuse & neglect"
       },
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
       },
       {
+        "category": "Resident rights",
         "code": "83.33(1)(d)",
         "tag": "N 362",
         "title": "Grievance procedure: written summary"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(c)",
         "tag": "N 427",
         "title": "Leisure time activities."
       },
       {
+        "category": "Staff training and background checks",
         "code": "50.065(4m)",
         "tag": "Z 023",
         "title": "(b) intro CAREGIVER HIRING AND CONTRACTING PROCESS"
@@ -2139,6 +2278,7 @@
     "census": 4,
     "citations": [
       {
+        "category": "Building, cleanliness and food",
         "code": "83.43(1)",
         "tag": "N 481",
         "title": "Environment safe, clean, and comfortable"
@@ -2179,6 +2319,7 @@
     "census": 5,
     "citations": [
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(a)",
         "tag": "N 396",
         "title": "Adequate staff to meet resident needs."
@@ -2210,16 +2351,19 @@
     "census": 8,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "83.19",
         "tag": "N 230",
         "title": "Orientation"
       },
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
       },
       {
+        "category": "Resident rights",
         "code": "83.32(3)(n)",
         "tag": "N 358",
         "title": "Rights of Residents: Safe environment"
@@ -2258,6 +2402,7 @@
     "census": 50,
     "citations": [
       {
+        "category": "Building, cleanliness and food",
         "code": "83.46(1)(c)",
         "tag": "N 504",
         "title": "Heating system maintenance."
@@ -2298,11 +2443,13 @@
     "census": 8,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(2)(a)",
         "tag": "N 158",
         "title": "Caregiver: Investigating abuse & neglect"
       },
       {
+        "category": "Resident rights",
         "code": "50.09(1)(e)",
         "tag": "Y 3234",
         "title": "Treatment"
@@ -2326,6 +2473,7 @@
     "census": 7,
     "citations": [
       {
+        "category": "Fire safety and evacuation",
         "code": "83.48(4)(d)",
         "tag": "N 544",
         "title": "Smoke detector in common use rooms"
@@ -2356,6 +2504,7 @@
     "census": 13,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
@@ -2387,16 +2536,19 @@
     "census": 20,
     "citations": [
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(d)",
         "tag": "N 525",
         "title": "Fire drills."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(e)",
         "tag": "N 526",
         "title": "Other evacuation drills."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.48(1)(b)",
         "tag": "N 535",
         "title": "Smoke and heat detectors per NFPA 72."
@@ -2429,11 +2581,13 @@
     "census": 15,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.46(1)(f)",
         "tag": "N 507",
         "title": "Combustibles."
@@ -2457,26 +2611,31 @@
     "census": 15,
     "citations": [
       {
+        "category": "Resident rights",
         "code": "83.33(4)",
         "tag": "N 365",
         "title": "Posting of long term care ombudsman program"
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.44(1)(c)",
         "tag": "N 488",
         "title": "Clothes dryers enclosed and vented"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(d)",
         "tag": "N 525",
         "title": "Fire drills."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(e)",
         "tag": "N 526",
         "title": "Other evacuation drills."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.55(6)(b)",
         "tag": "N 617",
         "title": "Bath and toilet areas: water temperature"
@@ -2510,6 +2669,7 @@
     "census": 16,
     "citations": [
       {
+        "category": "Building, cleanliness and food",
         "code": "83.55(6)(b)",
         "tag": "N 617",
         "title": "Bath and toilet areas: water temperature"
@@ -2535,6 +2695,7 @@
     "census": 16,
     "citations": [
       {
+        "category": "Building, cleanliness and food",
         "code": "83.55(6)(b)",
         "tag": "N 617",
         "title": "Bath and toilet areas: water temperature"
@@ -2560,11 +2721,13 @@
     "census": 14,
     "citations": [
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(a)",
         "tag": "N 396",
         "title": "Adequate staff to meet resident needs."
       },
       {
+        "category": "Medications",
         "code": "83.37(3)(c)",
         "tag": "N 419",
         "title": "Medication storage: locked cabinet."
@@ -2596,16 +2759,19 @@
     "census": 14,
     "citations": [
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(d)",
         "tag": "N 525",
         "title": "Fire drills."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(e)",
         "tag": "N 526",
         "title": "Other evacuation drills."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.48(1)(b)",
         "tag": "N 535",
         "title": "Smoke and heat detectors per NFPA 72."
@@ -2646,6 +2812,7 @@
     "census": 14,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(b)",
         "tag": "N 426",
         "title": "Supervision."
@@ -2700,21 +2867,25 @@
     "census": 4,
     "citations": [
       {
+        "category": "Records and administration",
         "code": "88.03(5)(e)1",
         "tag": "M 134",
         "title": "Significant change to the resident"
       },
       {
+        "category": "Staff training and background checks",
         "code": "88.04(2)(f)",
         "tag": "M 230",
         "title": "Condition which represents risk or harm"
       },
       {
+        "category": "Care and service plans",
         "code": "88.06(3)(f)",
         "tag": "M 424",
         "title": "Review of ISP"
       },
       {
+        "category": "Care and service plans",
         "code": "88.07(2)(b)6",
         "tag": "M 450",
         "title": "Notification of changes"
@@ -2761,11 +2932,13 @@
     "census": 17,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "83.20(1)(b)",
         "tag": "N 238",
         "title": "Training documentation requirements."
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(c)",
         "tag": "N 427",
         "title": "Leisure time activities."
@@ -2852,6 +3025,7 @@
     "census": 4,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "88.07(2)(a)",
         "tag": "M 436",
         "title": "Services"
@@ -2946,11 +3120,13 @@
     "census": 52,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(4)(a)",
         "tag": "N 163",
         "title": "Reporting when resident's whereabouts unknown"
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(b)",
         "tag": "N 397",
         "title": "Qualified staff in charge, on duty and awake."
@@ -3005,11 +3181,13 @@
     "census": 12,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.35(2)",
         "tag": "N 385",
         "title": "Temporary Service Plan."
       },
       {
+        "category": "Medications",
         "code": "83.38(1)(h)",
         "tag": "N 432",
         "title": "Medication administration."
@@ -3034,11 +3212,13 @@
     "census": 12,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(4)(c)",
         "tag": "N 165",
         "title": "Reporting incidents with serious injury"
       },
       {
+        "category": "Medications",
         "code": "83.38(1)(h)",
         "tag": "N 432",
         "title": "Medication administration."
@@ -3063,6 +3243,7 @@
     "census": 15,
     "citations": [
       {
+        "category": "Medications",
         "code": "83.37(2)(e)",
         "tag": "N 416",
         "title": "Other administration given or delegated by RN"
@@ -3142,6 +3323,7 @@
     "census": 13,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(b)",
         "tag": "N 426",
         "title": "Supervision."
@@ -3164,6 +3346,7 @@
     "census": 4,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "50.065(3)(b)",
         "tag": "Z 022",
         "title": "Complete background check process"
@@ -3235,11 +3418,13 @@
     "census": 27,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(5)(a)",
         "tag": "N 169",
         "title": "Notification: incident, injury, changes."
       },
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
@@ -3264,6 +3449,7 @@
     "census": 23,
     "citations": [
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(a)",
         "tag": "N 396",
         "title": "Adequate staff to meet resident needs."
@@ -3289,11 +3475,13 @@
     "census": 19,
     "citations": [
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(c)",
         "tag": "N 388",
         "title": "Implement, follow the individual service plan"
@@ -3316,11 +3504,13 @@
     "census": 20,
     "citations": [
       {
+        "category": "Building, cleanliness and food",
         "code": "83.41(1)(a)",
         "tag": "N 445",
         "title": "Food supply."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.44(2)(a)",
         "tag": "N 489",
         "title": "Rooms clean and free from odors."
@@ -3347,46 +3537,55 @@
     "census": 22,
     "citations": [
       {
+        "category": "Staffing and supervision",
         "code": "83.15(3)(a)",
         "tag": "N 214",
         "title": "Administrator shall supervise daily operation"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(a)",
         "tag": "N 386",
         "title": "Comprehensive Individualized Service Plan"
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(a)",
         "tag": "N 396",
         "title": "Adequate staff to meet resident needs."
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(b)",
         "tag": "N 426",
         "title": "Supervision."
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(c)",
         "tag": "N 427",
         "title": "Leisure time activities."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.41(2)(c)",
         "tag": "N 450",
         "title": "Nutrition: menus."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.44(2)(a)",
         "tag": "N 489",
         "title": "Rooms clean and free from odors."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.45(3)",
         "tag": "N 499",
         "title": "Toxic substances."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.45(4)",
         "tag": "N 500",
         "title": "Pest control."
@@ -3410,16 +3609,19 @@
     "census": 24,
     "citations": [
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
       },
       {
+        "category": "Resident rights",
         "code": "83.32(3)(i)",
         "tag": "N 353",
         "title": "Rights of Residents: Adequate treatment"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(a)",
         "tag": "N 386",
         "title": "Comprehensive Individualized Service Plan"
@@ -3474,11 +3676,13 @@
     "census": 64,
     "citations": [
       {
+        "category": "Resident rights",
         "code": "89.34(16)",
         "tag": "U 267",
         "title": "Tenant rights"
       },
       {
+        "category": "Resident rights",
         "code": "89.35(3)",
         "tag": "U 272",
         "title": "Grievances"
@@ -3510,6 +3714,7 @@
     "census": 64,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "89.23(4)(d)1.",
         "tag": "U 134",
         "title": "Services"
@@ -3574,36 +3779,43 @@
     "census": 13,
     "citations": [
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(c)",
         "tag": "N 427",
         "title": "Leisure time activities."
       },
       {
+        "category": "Records and administration",
         "code": "83.42(1)",
         "tag": "N 454",
         "title": "Resident record maintained."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.43(1)",
         "tag": "N 481",
         "title": "Environment safe, clean, and comfortable"
       },
       {
+        "category": "Resident rights",
         "code": "50.09(1)(f)",
         "tag": "Y 3235",
         "title": "Privacy"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(d)",
         "tag": "N 525",
         "title": "Fire drills."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(e)",
         "tag": "N 526",
         "title": "Other evacuation drills."
@@ -3636,51 +3848,61 @@
     "census": 12,
     "citations": [
       {
+        "category": "Staffing and supervision",
         "code": "83.15(3)(a)",
         "tag": "N 214",
         "title": "Administrator shall supervise daily operation"
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.17(1)",
         "tag": "N 219",
         "title": "Licensee conduct caregiver background check"
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.17(2)(a)",
         "tag": "N 220",
         "title": "Employees screened for communicable disease."
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.25",
         "tag": "N 277",
         "title": "Continuing education"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.35(5)(b)",
         "tag": "N 394",
         "title": "Annual evaluation of evacuation limits"
       },
       {
+        "category": "Medications",
         "code": "83.37(2)(e)",
         "tag": "N 416",
         "title": "Other administration given or delegated by RN"
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(b)",
         "tag": "N 426",
         "title": "Supervision."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(d)",
         "tag": "N 525",
         "title": "Fire drills."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(e)",
         "tag": "N 526",
         "title": "Other evacuation drills."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.48(3)(a)",
         "tag": "N 538",
         "title": "Fire detection systems inspected annually."
@@ -3703,6 +3925,7 @@
     "census": 16,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(5)(a)",
         "tag": "N 169",
         "title": "Notification: incident, injury, changes."
@@ -3741,21 +3964,25 @@
     "census": 4,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "88.04(2)(g)2",
         "tag": "M 234",
         "title": "Communicable disease"
       },
       {
+        "category": "Staff training and background checks",
         "code": "88.04(5)(b)",
         "tag": "M 246",
         "title": "Training-8 hours annually"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "88.05(4)(d)2.c",
         "tag": "M 348",
         "title": "Semi-annual fire drills"
       },
       {
+        "category": "Resident rights",
         "code": "88.10(3)(l)",
         "tag": "M 570",
         "title": "Safe Physical Environment"
@@ -3779,21 +4006,25 @@
     "census": 4,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "88.04(2)(g)2",
         "tag": "M 234",
         "title": "Communicable disease"
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "88.05(3)(a)",
         "tag": "M 276",
         "title": "Homelike Environment"
       },
       {
+        "category": "Medications",
         "code": "88.07(3)(a)",
         "tag": "M 458",
         "title": "Prescription medications"
       },
       {
+        "category": "Resident rights",
         "code": "88.10(3)(l)",
         "tag": "M 570",
         "title": "Safe Physical Environment"
@@ -3832,6 +4063,7 @@
     "census": 14,
     "citations": [
       {
+        "category": "Staffing and supervision",
         "code": "83.16(2)",
         "tag": "N 218",
         "title": "Resident care staff at least 18 years old"
@@ -3855,11 +4087,13 @@
     "census": 4,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(2)(a)",
         "tag": "N 158",
         "title": "Caregiver: Investigating abuse & neglect"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
@@ -3883,11 +4117,13 @@
     "census": 7,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.35(1)(a)",
         "tag": "N 381",
         "title": "Pre-admission and ongoing assessments."
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(b)",
         "tag": "N 397",
         "title": "Qualified staff in charge, on duty and awake."
@@ -3918,6 +4154,7 @@
     "census": 6,
     "citations": [
       {
+        "category": "Staffing and supervision",
         "code": "83.16(2)",
         "tag": "N 218",
         "title": "Resident care staff at least 18 years old"
@@ -3964,11 +4201,13 @@
     "census": 44,
     "citations": [
       {
+        "category": "Medications",
         "code": "83.37(1)(j)",
         "tag": "N 409",
         "title": "Proof-of-use record."
       },
       {
+        "category": "Medications",
         "code": "83.37(2)(d)",
         "tag": "N 415",
         "title": "Documentation of medication administration."
@@ -3993,51 +4232,61 @@
     "census": 37,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(2)(a)",
         "tag": "N 158",
         "title": "Caregiver: Investigating abuse & neglect"
       },
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(4)(b)",
         "tag": "N 164",
         "title": "Reporting when law enforcement is called."
       },
       {
+        "category": "Resident rights",
         "code": "83.31(4)(c)",
         "tag": "N 328",
         "title": "Involuntary discharge notice requirements."
       },
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
       },
       {
+        "category": "Resident rights",
         "code": "83.32(3)(k)",
         "tag": "N 355",
         "title": "Rights of Residents: Self-determination"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(1)(a)",
         "tag": "N 381",
         "title": "Pre-admission and ongoing assessments."
       },
       {
+        "category": "Medications",
         "code": "83.37(1)(g)",
         "tag": "N 406",
         "title": "Disposition of medications."
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(a)",
         "tag": "N 425",
         "title": "Personal care."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.41(3)(b)",
         "tag": "N 452",
         "title": "Food safety."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(e)",
         "tag": "N 526",
         "title": "Other evacuation drills."
@@ -4062,11 +4311,13 @@
     "census": 28,
     "citations": [
       {
+        "category": "Resident rights",
         "code": "83.32(3)(n)",
         "tag": "N 358",
         "title": "Rights of Residents: Safe environment"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(d)",
         "tag": "N 525",
         "title": "Fire drills."
@@ -4105,11 +4356,13 @@
     "census": 34,
     "citations": [
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
       },
       {
+        "category": "Resident rights",
         "code": "50.09(1)(e)",
         "tag": "Y 3234",
         "title": "Treatment"
@@ -4135,26 +4388,31 @@
     "census": 33,
     "citations": [
       {
+        "category": "Resident rights",
         "code": "83.31(4)(a)",
         "tag": "N 326",
         "title": "Notice of facility initiated discharges"
       },
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(a)",
         "tag": "N 386",
         "title": "Comprehensive Individualized Service Plan"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(c)",
         "tag": "N 388",
         "title": "Implement, follow the individual service plan"
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.44(2)(a)",
         "tag": "N 489",
         "title": "Rooms clean and free from odors."
@@ -4195,46 +4453,55 @@
     "census": 18,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(2)(a)",
         "tag": "N 158",
         "title": "Caregiver: Investigating abuse & neglect"
       },
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(a)",
         "tag": "N 425",
         "title": "Personal care."
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(c)",
         "tag": "N 427",
         "title": "Leisure time activities."
       },
       {
+        "category": "Medications",
         "code": "83.38(1)(h)",
         "tag": "N 432",
         "title": "Medication administration."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.39(1)",
         "tag": "N 439",
         "title": "Infection control program."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.44(2)(a)",
         "tag": "N 489",
         "title": "Rooms clean and free from odors."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.46(1)(a)",
         "tag": "N 502",
         "title": "Comfortable and safe temperatures"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.59(1)(g)",
         "tag": "N 637",
         "title": "Proper exit locations, sidewalks, driveways."
@@ -4259,6 +4526,7 @@
     "census": 19,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.35(1)(a)",
         "tag": "N 381",
         "title": "Pre-admission and ongoing assessments."
@@ -4291,46 +4559,55 @@
     "census": 19,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "83.20(2)(a)-(d)",
         "tag": "N 239",
         "title": "Department-approved training courses."
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(a)",
         "tag": "N 386",
         "title": "Comprehensive Individualized Service Plan"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(c)",
         "tag": "N 388",
         "title": "Implement, follow the individual service plan"
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(a)",
         "tag": "N 396",
         "title": "Adequate staff to meet resident needs."
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(b)",
         "tag": "N 397",
         "title": "Qualified staff in charge, on duty and awake."
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(b)",
         "tag": "N 426",
         "title": "Supervision."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.44(2)(a)",
         "tag": "N 489",
         "title": "Rooms clean and free from odors."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(d)",
         "tag": "N 525",
         "title": "Fire drills."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.55(6)(b)",
         "tag": "N 617",
         "title": "Bath and toilet areas: water temperature"
@@ -4356,16 +4633,19 @@
     "census": 14,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Medications",
         "code": "83.38(1)(h)",
         "tag": "N 432",
         "title": "Medication administration."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.39(1)",
         "tag": "N 439",
         "title": "Infection control program."
@@ -4391,6 +4671,7 @@
     "census": 15,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(g)",
         "tag": "N 431",
         "title": "Health monitoring."
@@ -4438,6 +4719,7 @@
     "census": 35,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "89.28(6)",
         "tag": "U 211",
         "title": "Risk agreement"
@@ -4462,11 +4744,13 @@
     "census": null,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "89.23(2)(a)2.c",
         "tag": "U 118",
         "title": "Services"
       },
       {
+        "category": "Care and service plans",
         "code": "89.28(6)",
         "tag": "U 211",
         "title": "Risk agreement"
@@ -4522,6 +4806,7 @@
     "census": 2,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "88.07(2)(a)",
         "tag": "M 436",
         "title": "Services"
@@ -4552,6 +4837,7 @@
     "census": 42,
     "citations": [
       {
+        "category": "Medications",
         "code": "83.37(1)(g)",
         "tag": "N 406",
         "title": "Disposition of medications."
@@ -4607,21 +4893,25 @@
     "census": 44,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(c)",
         "tag": "N 388",
         "title": "Implement, follow the individual service plan"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Resident rights",
         "code": "50.09(1)(a)1.",
         "tag": "Y 3229",
         "title": "Mail"
       },
       {
+        "category": "Resident rights",
         "code": "50.09(1)(i)",
         "tag": "Y 3241",
         "title": "Personal Possessions"
@@ -4654,21 +4944,25 @@
     "census": null,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "83.19",
         "tag": "N 230",
         "title": "Orientation"
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.22(1)-(4)",
         "tag": "N 247",
         "title": "Task specific training."
       },
       {
+        "category": "Medications",
         "code": "83.37(2)(d)",
         "tag": "N 415",
         "title": "Documentation of medication administration."
       },
       {
+        "category": "Staff training and background checks",
         "code": "50.065(6)(am)",
         "tag": "Z 019",
         "title": "Four Year Caregiver Background Requirement"
@@ -4691,46 +4985,55 @@
     "census": 38,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(5)(a)",
         "tag": "N 169",
         "title": "Notification: incident, injury, changes."
       },
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(1)(a)",
         "tag": "N 381",
         "title": "Pre-admission and ongoing assessments."
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(c)",
         "tag": "N 388",
         "title": "Implement, follow the individual service plan"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Medications",
         "code": "83.37(2)(d)",
         "tag": "N 415",
         "title": "Documentation of medication administration."
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(a)",
         "tag": "N 425",
         "title": "Personal care."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.43(2)(d)",
         "tag": "N 485",
         "title": "Clean sheets, pillowcases, and towels"
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.44(2)(a)",
         "tag": "N 489",
         "title": "Rooms clean and free from odors."
@@ -4762,6 +5065,7 @@
     "census": 39,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "83.21(1)-(3)",
         "tag": "N 243",
         "title": "All employee training."
@@ -4792,6 +5096,7 @@
     "census": 17,
     "citations": [
       {
+        "category": "Resident rights",
         "code": "83.29(3)(a)",
         "tag": "N 318",
         "title": "Refunds returned within 30 days of discharge"
@@ -4814,16 +5119,19 @@
     "census": 18,
     "citations": [
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
       },
       {
+        "category": "Medications",
         "code": "83.37(2)(d)",
         "tag": "N 415",
         "title": "Documentation of medication administration."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.44(2)(a)",
         "tag": "N 489",
         "title": "Rooms clean and free from odors."
@@ -4847,11 +5155,13 @@
     "census": 13,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "83.20(2)(a)-(d)",
         "tag": "N 239",
         "title": "Department-approved training courses."
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.21(1)-(3)",
         "tag": "N 243",
         "title": "All employee training."
@@ -4890,6 +5200,7 @@
     "census": 30,
     "citations": [
       {
+        "category": "Resident rights",
         "code": "89.34(18)",
         "tag": "U 269",
         "title": "Tenant rights"
@@ -4914,16 +5225,19 @@
     "census": null,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "89.23(2)(a)2.c",
         "tag": "U 118",
         "title": "Services"
       },
       {
+        "category": "Care and service plans",
         "code": "89.23(4)(a)2.",
         "tag": "U 129",
         "title": "Services"
       },
       {
+        "category": "Resident rights",
         "code": "89.34(16)",
         "tag": "U 267",
         "title": "Tenant rights"
@@ -4957,6 +5271,7 @@
     "census": 26,
     "citations": [
       {
+        "category": "Resident rights",
         "code": "89.34(16)",
         "tag": "U 267",
         "title": "Tenant rights"
@@ -4995,6 +5310,7 @@
     "census": 22,
     "citations": [
       {
+        "category": "Building, cleanliness and food",
         "code": "83.46(1)(c)",
         "tag": "N 504",
         "title": "Heating system maintenance."
@@ -5033,6 +5349,7 @@
     "census": 21,
     "citations": [
       {
+        "category": "Fire safety and evacuation",
         "code": "83.59(4)(e)",
         "tag": "N 653",
         "title": "Delayed egress: irreversible process release"
@@ -5080,6 +5397,7 @@
     "census": 4,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "88.04(2)(a)",
         "tag": "M 216",
         "title": "Responsibilities"
@@ -5128,21 +5446,25 @@
     "census": 41,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "89.23(2)(a)2.c",
         "tag": "U 118",
         "title": "Services"
       },
       {
+        "category": "Care and service plans",
         "code": "89.23(4)(a)2.",
         "tag": "U 129",
         "title": "Services"
       },
       {
+        "category": "Care and service plans",
         "code": "89.23(4)(d)1.",
         "tag": "U 134",
         "title": "Services"
       },
       {
+        "category": "Resident rights",
         "code": "89.29(2)(b)",
         "tag": "U 225",
         "title": "2. admission & retention of tenants"
@@ -5168,11 +5490,13 @@
     "census": 36,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "89.23(4)(a)2.",
         "tag": "U 129",
         "title": "Services"
       },
       {
+        "category": "Resident rights",
         "code": "89.29(2)(b)",
         "tag": "U 225",
         "title": "2. admission & retention of tenants"
@@ -5211,6 +5535,7 @@
     "census": 4,
     "citations": [
       {
+        "category": "Building, cleanliness and food",
         "code": "88.05(3)(d)",
         "tag": "M 282",
         "title": "Annual well water inspections"
@@ -5243,6 +5568,7 @@
     "census": 23,
     "citations": [
       {
+        "category": "Resident rights",
         "code": "50.09(1)(L)",
         "tag": "Y 3244",
         "title": "Care"
@@ -5274,41 +5600,49 @@
     "census": 23,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "83.17(2)(a)",
         "tag": "N 220",
         "title": "Employees screened for communicable disease."
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.20(2)(a)-(d)",
         "tag": "N 239",
         "title": "Department-approved training courses."
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(4)",
         "tag": "N 392",
         "title": "Resident satisfaction evaluation."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.35(5)(b)",
         "tag": "N 394",
         "title": "Annual evaluation of evacuation limits"
       },
       {
+        "category": "Medications",
         "code": "83.37(1)(i)",
         "tag": "N 408",
         "title": "PRN psychotropic medication."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.46(1)(c)",
         "tag": "N 504",
         "title": "Heating system maintenance."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(d)",
         "tag": "N 525",
         "title": "Fire drills."
@@ -5333,6 +5667,7 @@
     "census": 25,
     "citations": [
       {
+        "category": "Medications",
         "code": "83.37(1)(i)",
         "tag": "N 408",
         "title": "PRN psychotropic medication."
@@ -5356,6 +5691,7 @@
     "census": 22,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(b)",
         "tag": "N 426",
         "title": "Supervision."
@@ -5443,31 +5779,37 @@
     "census": 4,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "88.04(2)(h)",
         "tag": "M 235",
         "title": "Comply with OSHA"
       },
       {
+        "category": "Staff training and background checks",
         "code": "88.04(5)(b)",
         "tag": "M 246",
         "title": "Training-8 hours annually"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "88.05(4)(d)2.b",
         "tag": "M 346",
         "title": "Fire evacuation annual evaluation"
       },
       {
+        "category": "Care and service plans",
         "code": "88.06(2)(c)8",
         "tag": "M 402",
         "title": "Resident rights and grievance"
       },
       {
+        "category": "Medications",
         "code": "88.07(3)(e)1",
         "tag": "M 466",
         "title": "Medication- record keeping"
       },
       {
+        "category": "Staff training and background checks",
         "code": "50.065(6)(am)",
         "tag": "Z 019",
         "title": "Four Year Caregiver Background Requirement"
@@ -5531,31 +5873,37 @@
     "census": 26,
     "citations": [
       {
+        "category": "Resident rights",
         "code": "83.32(3)(l)",
         "tag": "N 356",
         "title": "Rights of Residents: Least restrictive env"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.35(5)(b)",
         "tag": "N 394",
         "title": "Annual evaluation of evacuation limits"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(f)",
         "tag": "N 527",
         "title": "Horizontal evacuation."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.48(4)(f)",
         "tag": "N 546",
         "title": "Smoke detector in non-resident living areas"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.48(4)(g)",
         "tag": "N 547",
         "title": "Smoke detector where lintels exceed"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.48(7)(a)",
         "tag": "N 555",
         "title": "Equipment for hearing or vision impaired"
@@ -5581,31 +5929,37 @@
     "census": 26,
     "citations": [
       {
+        "category": "Resident rights",
         "code": "83.33(1)(d)",
         "tag": "N 362",
         "title": "Grievance procedure: written summary"
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(g)",
         "tag": "N 431",
         "title": "Health monitoring."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(f)",
         "tag": "N 527",
         "title": "Horizontal evacuation."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.48(4)(f)",
         "tag": "N 546",
         "title": "Smoke detector in non-resident living areas"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.48(4)(g)",
         "tag": "N 547",
         "title": "Smoke detector where lintels exceed"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.48(7)(a)",
         "tag": "N 555",
         "title": "Equipment for hearing or vision impaired"
@@ -5637,31 +5991,37 @@
     "census": 14,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "83.17(1)",
         "tag": "N 219",
         "title": "Licensee conduct caregiver background check"
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.17(2)(a)",
         "tag": "N 220",
         "title": "Employees screened for communicable disease."
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.20(2)(a)-(d)",
         "tag": "N 239",
         "title": "Department-approved training courses."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.44(2)(c)",
         "tag": "N 491",
         "title": "Interior floors, walls and ceilings."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(d)",
         "tag": "N 525",
         "title": "Fire drills."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(e)",
         "tag": "N 526",
         "title": "Other evacuation drills."
@@ -5686,6 +6046,7 @@
     "census": 13,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "83.20(2)(a)-(d)",
         "tag": "N 239",
         "title": "Department-approved training courses."
@@ -5719,86 +6080,103 @@
     "census": 15,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(3)(a)",
         "tag": "N 161",
         "title": "Investigate injuries of unknown source."
       },
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(4)(c)",
         "tag": "N 165",
         "title": "Reporting incidents with serious injury"
       },
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(5)(a)",
         "tag": "N 169",
         "title": "Notification: incident, injury, changes."
       },
       {
+        "category": "Records and administration",
         "code": "83.14(2)(a)",
         "tag": "N 196",
         "title": "Licensee ensures facility complies with laws"
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.17(1)",
         "tag": "N 219",
         "title": "Licensee conduct caregiver background check"
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.17(2)(a)",
         "tag": "N 220",
         "title": "Employees screened for communicable disease."
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.19",
         "tag": "N 230",
         "title": "Orientation"
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.20(2)(a)-(d)",
         "tag": "N 239",
         "title": "Department-approved training courses."
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.21(1)-(3)",
         "tag": "N 243",
         "title": "All employee training."
       },
       {
+        "category": "Care and service plans",
         "code": "83.28(4)(a)",
         "tag": "N 302",
         "title": "Resident health screening and documentation"
       },
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(c)",
         "tag": "N 388",
         "title": "Implement, follow the individual service plan"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(a)",
         "tag": "N 396",
         "title": "Adequate staff to meet resident needs."
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(g)",
         "tag": "N 431",
         "title": "Health monitoring."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(d)",
         "tag": "N 525",
         "title": "Fire drills."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(e)",
         "tag": "N 526",
         "title": "Other evacuation drills."
@@ -5845,6 +6223,7 @@
     "census": 41,
     "citations": [
       {
+        "category": "Building, cleanliness and food",
         "code": "83.43(1)",
         "tag": "N 481",
         "title": "Environment safe, clean, and comfortable"
@@ -5876,16 +6255,19 @@
     "census": 22,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "89.26(4)",
         "tag": "U 171",
         "title": "Annual review"
       },
       {
+        "category": "Care and service plans",
         "code": "89.28(2)(a)1.",
         "tag": "U 200",
         "title": "Risk agreement"
       },
       {
+        "category": "Resident rights",
         "code": "89.34(16)",
         "tag": "U 267",
         "title": "Tenant rights"
@@ -5933,26 +6315,31 @@
     "census": 18,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "89.23(2)(b)1.",
         "tag": "U 120",
         "title": "Services"
       },
       {
+        "category": "Care and service plans",
         "code": "89.23(3)(f)",
         "tag": "U 127",
         "title": "Services"
       },
       {
+        "category": "Care and service plans",
         "code": "89.28(1)",
         "tag": "U 189",
         "title": "Risk Agreement (1) REQUIREMENT"
       },
       {
+        "category": "Care and service plans",
         "code": "89.28(6)",
         "tag": "U 211",
         "title": "Risk agreement"
       },
       {
+        "category": "Resident rights",
         "code": "89.29(2)(b)",
         "tag": "U 226",
         "title": "3. admission & retention of tenants"
@@ -5977,91 +6364,109 @@
     "census": 7,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(4)(c)",
         "tag": "N 165",
         "title": "Reporting incidents with serious injury"
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.20(2)(a)-(d)",
         "tag": "N 239",
         "title": "Department-approved training courses."
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.25",
         "tag": "N 277",
         "title": "Continuing education"
       },
       {
+        "category": "Care and service plans",
         "code": "83.28(4)(a)",
         "tag": "N 302",
         "title": "Resident health screening and documentation"
       },
       {
+        "category": "Resident rights",
         "code": "83.29(2)",
         "tag": "N 310",
         "title": "Admission agreement include services, charges"
       },
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
       },
       {
+        "category": "Resident rights",
         "code": "83.32(3)(k)",
         "tag": "N 355",
         "title": "Rights of Residents: Self-determination"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(1)(a)",
         "tag": "N 381",
         "title": "Pre-admission and ongoing assessments."
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(2)",
         "tag": "N 385",
         "title": "Temporary Service Plan."
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(a)",
         "tag": "N 386",
         "title": "Comprehensive Individualized Service Plan"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(b)",
         "tag": "N 387",
         "title": "Service plan development: parties involved"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Medications",
         "code": "83.37(1)(e)",
         "tag": "N 404",
         "title": "Medication regimen, administration review."
       },
       {
+        "category": "Medications",
         "code": "83.37(2)(d)",
         "tag": "N 415",
         "title": "Documentation of medication administration."
       },
       {
+        "category": "Medications",
         "code": "83.37(2)(e)",
         "tag": "N 416",
         "title": "Other administration given or delegated by RN"
       },
       {
+        "category": "Records and administration",
         "code": "83.42(1)",
         "tag": "N 454",
         "title": "Resident record maintained."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.48(3)(a)",
         "tag": "N 538",
         "title": "Fire detection systems inspected annually."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.48(3)(b)",
         "tag": "N 539",
         "title": "Sensitivity testing performed"
@@ -6087,71 +6492,85 @@
     "census": 5,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "83.20(2)(a)-(d)",
         "tag": "N 239",
         "title": "Department-approved training courses."
       },
       {
+        "category": "Resident rights",
         "code": "83.31(4)(c)",
         "tag": "N 328",
         "title": "Involuntary discharge notice requirements."
       },
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
       },
       {
+        "category": "Resident rights",
         "code": "83.32(3)(k)",
         "tag": "N 355",
         "title": "Rights of Residents: Self-determination"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(1)(a)",
         "tag": "N 381",
         "title": "Pre-admission and ongoing assessments."
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(2)",
         "tag": "N 385",
         "title": "Temporary Service Plan."
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(a)",
         "tag": "N 386",
         "title": "Comprehensive Individualized Service Plan"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(b)",
         "tag": "N 387",
         "title": "Service plan development: parties involved"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(b)",
         "tag": "N 397",
         "title": "Qualified staff in charge, on duty and awake."
       },
       {
+        "category": "Medications",
         "code": "83.37(1)(j)",
         "tag": "N 409",
         "title": "Proof-of-use record."
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(g)",
         "tag": "N 431",
         "title": "Health monitoring."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.41(2)(c)",
         "tag": "N 450",
         "title": "Nutrition: menus."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.43(1)",
         "tag": "N 481",
         "title": "Environment safe, clean, and comfortable"
@@ -6177,76 +6596,91 @@
     "census": 6,
     "citations": [
       {
+        "category": "Records and administration",
         "code": "83.14(2)(a)",
         "tag": "N 196",
         "title": "Licensee ensures facility complies with laws"
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.17(2)(a)",
         "tag": "N 220",
         "title": "Employees screened for communicable disease."
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.19",
         "tag": "N 230",
         "title": "Orientation"
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.21(1)-(3)",
         "tag": "N 243",
         "title": "All employee training."
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.22(1)-(4)",
         "tag": "N 247",
         "title": "Task specific training."
       },
       {
+        "category": "Resident rights",
         "code": "83.31(4)(b)",
         "tag": "N 327",
         "title": "Allowable reasons for involuntary discharge."
       },
       {
+        "category": "Resident rights",
         "code": "83.31(4)(c)",
         "tag": "N 328",
         "title": "Involuntary discharge notice requirements."
       },
       {
+        "category": "Resident rights",
         "code": "83.32(3)(d)",
         "tag": "N 348",
         "title": "Rights of Residents: Free from mistreatment"
       },
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
       },
       {
+        "category": "Resident rights",
         "code": "83.32(3)(k)",
         "tag": "N 355",
         "title": "Rights of Residents: Self-determination"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(1)(a)",
         "tag": "N 381",
         "title": "Pre-admission and ongoing assessments."
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(2)",
         "tag": "N 385",
         "title": "Temporary Service Plan."
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(b)",
         "tag": "N 387",
         "title": "Service plan development: parties involved"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(g)",
         "tag": "N 431",
         "title": "Health monitoring."
@@ -6294,6 +6728,7 @@
     "census": 28,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
@@ -6325,16 +6760,19 @@
     "census": 3,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "88.04(2)(b)",
         "tag": "M 218",
         "title": "Awake staff for continuous care"
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "88.05(3)(a)",
         "tag": "M 276",
         "title": "Homelike Environment"
       },
       {
+        "category": "Care and service plans",
         "code": "88.07(2)(a)",
         "tag": "M 436",
         "title": "Services"
@@ -6415,21 +6853,25 @@
     "census": 23,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(2)(a)",
         "tag": "N 158",
         "title": "Caregiver: Investigating abuse & neglect"
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.19",
         "tag": "N 230",
         "title": "Orientation"
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.21(1)-(3)",
         "tag": "N 243",
         "title": "All employee training."
       },
       {
+        "category": "Staff training and background checks",
         "code": "50.065(2)(bm)",
         "tag": "Z 012",
         "title": "Out of state background checks"
@@ -6469,16 +6911,19 @@
     "census": 25,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.35(2)",
         "tag": "N 385",
         "title": "Temporary Service Plan."
       },
       {
+        "category": "Medications",
         "code": "83.37(1)(g)",
         "tag": "N 406",
         "title": "Disposition of medications."
       },
       {
+        "category": "Medications",
         "code": "83.37(2)(d)",
         "tag": "N 415",
         "title": "Documentation of medication administration."
@@ -6512,81 +6957,97 @@
     "census": 22,
     "citations": [
       {
+        "category": "Records and administration",
         "code": "83.14(2)(a)",
         "tag": "N 196",
         "title": "Licensee ensures facility complies with laws"
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.17(2)(a)",
         "tag": "N 220",
         "title": "Employees screened for communicable disease."
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.22(1)-(4)",
         "tag": "N 247",
         "title": "Task specific training."
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.25",
         "tag": "N 277",
         "title": "Continuing education"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(b)",
         "tag": "N 387",
         "title": "Service plan development: parties involved"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(g)",
         "tag": "N 431",
         "title": "Health monitoring."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.41(3)(b)",
         "tag": "N 452",
         "title": "Food safety."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.44(1)(b)",
         "tag": "N 487",
         "title": "Separate laundry storage areas or containers"
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.44(2)(a)",
         "tag": "N 489",
         "title": "Rooms clean and free from odors."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.45(2)",
         "tag": "N 498",
         "title": "Storage areas."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.45(3)",
         "tag": "N 499",
         "title": "Toxic substances."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.46(1)(c)",
         "tag": "N 504",
         "title": "Heating system maintenance."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(d)",
         "tag": "N 525",
         "title": "Fire drills."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(e)",
         "tag": "N 526",
         "title": "Other evacuation drills."
       },
       {
+        "category": "Staff training and background checks",
         "code": "50.065(2)(bm)",
         "tag": "Z 012",
         "title": "Out of state background checks"
@@ -6650,6 +7111,7 @@
     "census": 14,
     "citations": [
       {
+        "category": "Fire safety and evacuation",
         "code": "83.59(1)(a)",
         "tag": "N 631",
         "title": "Class AS, ANA, CS, CNA 2 grade level exits"
@@ -6682,6 +7144,7 @@
     "census": 12,
     "citations": [
       {
+        "category": "Fire safety and evacuation",
         "code": "83.59(1)(a)",
         "tag": "N 631",
         "title": "Class AS, ANA, CS, CNA 2 grade level exits"
@@ -6720,6 +7183,7 @@
     "census": 77,
     "citations": [
       {
+        "category": "Resident rights",
         "code": "50.09(1)(f)",
         "tag": "Y 3100",
         "title": "Resident's rights in certain facilities"
@@ -6766,6 +7230,7 @@
     "census": 24,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(2)(a)",
         "tag": "N 158",
         "title": "Caregiver: Investigating abuse & neglect"
@@ -6820,6 +7285,7 @@
     "census": null,
     "citations": [
       {
+        "category": "Building, cleanliness and food",
         "code": "83.43(1)",
         "tag": "N 481",
         "title": "Environment safe, clean, and comfortable"
@@ -6842,6 +7308,7 @@
     "census": null,
     "citations": [
       {
+        "category": "Medications",
         "code": "83.37(2)(d)",
         "tag": "N 415",
         "title": "Documentation of medication administration."
@@ -6866,26 +7333,31 @@
     "census": 22,
     "citations": [
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(b)",
         "tag": "N 387",
         "title": "Service plan development: parties involved"
       },
       {
+        "category": "Medications",
         "code": "83.37(1)(e)",
         "tag": "N 404",
         "title": "Medication regimen, administration review."
       },
       {
+        "category": "Medications",
         "code": "83.37(1)(h)",
         "tag": "N 407",
         "title": "Scheduled psychotropic medications."
       },
       {
+        "category": "Records and administration",
         "code": "83.42(1)",
         "tag": "N 454",
         "title": "Resident record maintained."
@@ -6924,6 +7396,7 @@
     "census": 16,
     "citations": [
       {
+        "category": "Building, cleanliness and food",
         "code": "83.43(1)",
         "tag": "N 481",
         "title": "Environment safe, clean, and comfortable"
@@ -6972,21 +7445,25 @@
     "census": 16,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(2)(a)",
         "tag": "N 158",
         "title": "Caregiver: Investigating abuse & neglect"
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.45(1)(d)",
         "tag": "N 495",
         "title": "Hazards."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.45(4)",
         "tag": "N 500",
         "title": "Pest control."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(e)",
         "tag": "N 526",
         "title": "Other evacuation drills."
@@ -7059,6 +7536,7 @@
     "census": 8,
     "citations": [
       {
+        "category": "Resident rights",
         "code": "83.32(3)(l)",
         "tag": "N 356",
         "title": "Rights of Residents: Least restrictive env"
@@ -7091,11 +7569,13 @@
     "census": 8,
     "citations": [
       {
+        "category": "Resident rights",
         "code": "83.32(3)(i)",
         "tag": "N 353",
         "title": "Rights of Residents: Adequate treatment"
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(g)",
         "tag": "N 431",
         "title": "Health monitoring."
@@ -7128,16 +7608,19 @@
     "census": 8,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(2)(a)",
         "tag": "N 158",
         "title": "Caregiver: Investigating abuse & neglect"
       },
       {
+        "category": "Resident rights",
         "code": "83.32(3)(d)",
         "tag": "N 348",
         "title": "Rights of Residents: Free from mistreatment"
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.43(1)",
         "tag": "N 481",
         "title": "Environment safe, clean, and comfortable"
@@ -7161,31 +7644,37 @@
     "census": 24,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "83.21(1)-(3)",
         "tag": "N 243",
         "title": "All employee training."
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.22(1)-(4)",
         "tag": "N 247",
         "title": "Task specific training."
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(2)",
         "tag": "N 385",
         "title": "Temporary Service Plan."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.35(5)(a)",
         "tag": "N 393",
         "title": "Initial evaluation of evacuation limitations."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.35(5)(b)",
         "tag": "N 394",
         "title": "Annual evaluation of evacuation limits"
       },
       {
+        "category": "Medications",
         "code": "83.37(3)(c)",
         "tag": "N 419",
         "title": "Medication storage: locked cabinet."
@@ -7208,11 +7697,13 @@
     "census": 21,
     "citations": [
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.39(3)",
         "tag": "N 441",
         "title": "Hand washing."
@@ -7237,26 +7728,31 @@
     "census": 22,
     "citations": [
       {
+        "category": "Records and administration",
         "code": "83.14(2)(e)",
         "tag": "N 200",
         "title": "Notify within 7 days of administrator change"
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.21(1)-(3)",
         "tag": "N 243",
         "title": "All employee training."
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.22(1)-(4)",
         "tag": "N 247",
         "title": "Task specific training."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.39(3)",
         "tag": "N 441",
         "title": "Hand washing."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.44(2)(a)",
         "tag": "N 489",
         "title": "Rooms clean and free from odors."
@@ -7281,6 +7777,7 @@
     "census": 24,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(b)",
         "tag": "N 426",
         "title": "Supervision."
@@ -7305,11 +7802,13 @@
     "census": 24,
     "citations": [
       {
+        "category": "Records and administration",
         "code": "83.14(2)(e)",
         "tag": "N 200",
         "title": "Notify within 7 days of administrator change"
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.41(3)(b)",
         "tag": "N 452",
         "title": "Food safety."
@@ -7335,61 +7834,73 @@
     "census": 24,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(3)(a)",
         "tag": "N 161",
         "title": "Investigate injuries of unknown source."
       },
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(4)(a)",
         "tag": "N 163",
         "title": "Reporting when resident's whereabouts unknown"
       },
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(4)(c)",
         "tag": "N 165",
         "title": "Reporting incidents with serious injury"
       },
       {
+        "category": "Records and administration",
         "code": "83.14(2)(e)",
         "tag": "N 200",
         "title": "Notify within 7 days of administrator change"
       },
       {
+        "category": "Resident rights",
         "code": "83.29(2)",
         "tag": "N 310",
         "title": "Admission agreement include services, charges"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(b)",
         "tag": "N 387",
         "title": "Service plan development: parties involved"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Medications",
         "code": "83.37(1)(i)",
         "tag": "N 408",
         "title": "PRN psychotropic medication."
       },
       {
+        "category": "Medications",
         "code": "83.38(1)(h)",
         "tag": "N 432",
         "title": "Medication administration."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.44(1)(c)",
         "tag": "N 488",
         "title": "Clothes dryers enclosed and vented"
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.44(2)(b)",
         "tag": "N 490",
         "title": "Toilet and bathing area."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.45(3)",
         "tag": "N 499",
         "title": "Toxic substances."
@@ -7414,36 +7925,43 @@
     "census": 21,
     "citations": [
       {
+        "category": "Staffing and supervision",
         "code": "83.15(3)(a)",
         "tag": "N 214",
         "title": "Administrator shall supervise daily operation"
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.26(1)",
         "tag": "N 283",
         "title": "Documentation of required employee training"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(1)(b)",
         "tag": "N 382",
         "title": "Sources used for assessment information."
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(2)",
         "tag": "N 385",
         "title": "Temporary Service Plan."
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Medications",
         "code": "83.37(2)(d)",
         "tag": "N 415",
         "title": "Documentation of medication administration."
       },
       {
+        "category": "Resident rights",
         "code": "50.09(1)(L)",
         "tag": "Y 3244",
         "title": "Care"
@@ -7466,6 +7984,7 @@
     "census": 4,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "88.04(2)(a)",
         "tag": "M 216",
         "title": "Responsibilities"
@@ -7496,6 +8015,7 @@
     "census": 6,
     "citations": [
       {
+        "category": "Medications",
         "code": "83.37(1)(g)",
         "tag": "N 406",
         "title": "Disposition of medications."
@@ -7534,11 +8054,13 @@
     "census": 8,
     "citations": [
       {
+        "category": "Building, cleanliness and food",
         "code": "83.45(1)(e)",
         "tag": "N 496",
         "title": "Electrical, mechanical, water supply"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.48(6)(d)",
         "tag": "N 553",
         "title": "Integrated heat detector in furnace room."
@@ -7571,11 +8093,13 @@
     "census": 8,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(2)(a)",
         "tag": "N 158",
         "title": "Caregiver: Investigating abuse & neglect"
       },
       {
+        "category": "Staff training and background checks",
         "code": "50.065(2)(bb)",
         "tag": "Z 010",
         "title": "Determine final disposition of charge"
@@ -7617,31 +8141,37 @@
     "census": 7,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(4)(a)",
         "tag": "N 163",
         "title": "Reporting when resident's whereabouts unknown"
       },
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(5)(a)",
         "tag": "N 169",
         "title": "Notification: incident, injury, changes."
       },
       {
+        "category": "Records and administration",
         "code": "83.14(2)(e)",
         "tag": "N 200",
         "title": "Notify within 7 days of administrator change"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(b)",
         "tag": "N 397",
         "title": "Qualified staff in charge, on duty and awake."
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(b)",
         "tag": "N 426",
         "title": "Supervision."
@@ -7664,6 +8194,7 @@
     "census": 6,
     "citations": [
       {
+        "category": "Resident rights",
         "code": "83.32(3)(k)",
         "tag": "N 355",
         "title": "Rights of Residents: Self-determination"
@@ -7694,11 +8225,13 @@
     "census": 2,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "88.04(2)(g)2",
         "tag": "M 234",
         "title": "Communicable disease"
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "88.05(3)(e)2.b",
         "tag": "M 290",
         "title": "Inspections-gas furnace"
@@ -7723,76 +8256,91 @@
     "census": 16,
     "citations": [
       {
+        "category": "Records and administration",
         "code": "83.14(2)(a)",
         "tag": "N 196",
         "title": "Licensee ensures facility complies with laws"
       },
       {
+        "category": "Records and administration",
         "code": "83.14(2)(e)",
         "tag": "N 200",
         "title": "Notify within 7 days of administrator change"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(4)",
         "tag": "N 392",
         "title": "Resident satisfaction evaluation."
       },
       {
+        "category": "Medications",
         "code": "83.37(1)(h)",
         "tag": "N 407",
         "title": "Scheduled psychotropic medications."
       },
       {
+        "category": "Medications",
         "code": "83.37(1)(i)",
         "tag": "N 408",
         "title": "PRN psychotropic medication."
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(c)",
         "tag": "N 427",
         "title": "Leisure time activities."
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(g)",
         "tag": "N 431",
         "title": "Health monitoring."
       },
       {
+        "category": "Medications",
         "code": "83.38(1)(h)",
         "tag": "N 432",
         "title": "Medication administration."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.41(3)(b)",
         "tag": "N 452",
         "title": "Food safety."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.44(2)(b)",
         "tag": "N 490",
         "title": "Toilet and bathing area."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.45(1)(f)",
         "tag": "N 497",
         "title": "Furnishings clean, safe, and maintained"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(e)",
         "tag": "N 526",
         "title": "Other evacuation drills."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.55(6)(a)",
         "tag": "N 616",
         "title": "Bath and toilet areas: water supply."
       },
       {
+        "category": "Staff training and background checks",
         "code": "50.065(2)(bm)",
         "tag": "Z 012",
         "title": "Out of state background checks"
@@ -7815,6 +8363,7 @@
     "census": 17,
     "citations": [
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(a)",
         "tag": "N 396",
         "title": "Adequate staff to meet resident needs."
@@ -7840,51 +8389,61 @@
     "census": 16,
     "citations": [
       {
+        "category": "Records and administration",
         "code": "83.14(2)(a)",
         "tag": "N 196",
         "title": "Licensee ensures facility complies with laws"
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.16(2)",
         "tag": "N 218",
         "title": "Resident care staff at least 18 years old"
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.17(1)",
         "tag": "N 219",
         "title": "Licensee conduct caregiver background check"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(c)",
         "tag": "N 427",
         "title": "Leisure time activities."
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(g)",
         "tag": "N 431",
         "title": "Health monitoring."
       },
       {
+        "category": "Medications",
         "code": "83.38(1)(h)",
         "tag": "N 432",
         "title": "Medication administration."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.44(2)(b)",
         "tag": "N 490",
         "title": "Toilet and bathing area."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.46(1)(b)",
         "tag": "N 503",
         "title": "Portable space heaters prohibited."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.46(1)(c)",
         "tag": "N 504",
         "title": "Heating system maintenance."
@@ -7910,11 +8469,13 @@
     "census": 17,
     "citations": [
       {
+        "category": "Resident rights",
         "code": "83.32(3)(n)",
         "tag": "N 358",
         "title": "Rights of Residents: Safe environment"
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(c)",
         "tag": "N 427",
         "title": "Leisure time activities."
@@ -7939,11 +8500,13 @@
     "census": 9,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "83.20(2)(a)-(d)",
         "tag": "N 239",
         "title": "Department-approved training courses."
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(b)",
         "tag": "N 397",
         "title": "Qualified staff in charge, on duty and awake."
@@ -7969,106 +8532,127 @@
     "census": 9,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(5)(a)",
         "tag": "N 169",
         "title": "Notification: incident, injury, changes."
       },
       {
+        "category": "Records and administration",
         "code": "83.14(2)(a)",
         "tag": "N 196",
         "title": "Licensee ensures facility complies with laws"
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.15(3)(a)",
         "tag": "N 214",
         "title": "Administrator shall supervise daily operation"
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.17(2)(a)",
         "tag": "N 220",
         "title": "Employees screened for communicable disease."
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.19",
         "tag": "N 230",
         "title": "Orientation"
       },
       {
+        "category": "Care and service plans",
         "code": "83.28(4)(a)",
         "tag": "N 302",
         "title": "Resident health screening and documentation"
       },
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(a)",
         "tag": "N 386",
         "title": "Comprehensive Individualized Service Plan"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(4)",
         "tag": "N 392",
         "title": "Resident satisfaction evaluation."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.35(5)(a)",
         "tag": "N 393",
         "title": "Initial evaluation of evacuation limitations."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.35(5)(b)",
         "tag": "N 394",
         "title": "Annual evaluation of evacuation limits"
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.36(2)",
         "tag": "N 399",
         "title": "Maintain current written staffing schedule"
       },
       {
+        "category": "Medications",
         "code": "83.37(2)(e)",
         "tag": "N 416",
         "title": "Other administration given or delegated by RN"
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(a)",
         "tag": "N 425",
         "title": "Personal care."
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(c)",
         "tag": "N 427",
         "title": "Leisure time activities."
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(g)",
         "tag": "N 431",
         "title": "Health monitoring."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.44(1)(c)",
         "tag": "N 488",
         "title": "Clothes dryers enclosed and vented"
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.45(3)",
         "tag": "N 499",
         "title": "Toxic substances."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(d)",
         "tag": "N 525",
         "title": "Fire drills."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(e)",
         "tag": "N 526",
         "title": "Other evacuation drills."
@@ -8094,26 +8678,31 @@
     "census": 15,
     "citations": [
       {
+        "category": "Records and administration",
         "code": "83.14(2)(a)",
         "tag": "N 196",
         "title": "Licensee ensures facility complies with laws"
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.17(2)(a)",
         "tag": "N 220",
         "title": "Employees screened for communicable disease."
       },
       {
+        "category": "Care and service plans",
         "code": "83.28(4)(a)",
         "tag": "N 302",
         "title": "Resident health screening and documentation"
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.44(1)(c)",
         "tag": "N 488",
         "title": "Clothes dryers enclosed and vented"
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.45(3)",
         "tag": "N 499",
         "title": "Toxic substances."
@@ -8136,11 +8725,13 @@
     "census": 11,
     "citations": [
       {
+        "category": "Resident rights",
         "code": "83.32(3)(n)",
         "tag": "N 358",
         "title": "Rights of Residents: Safe environment"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(c)",
         "tag": "N 388",
         "title": "Implement, follow the individual service plan"
@@ -8173,6 +8764,7 @@
     "census": 13,
     "citations": [
       {
+        "category": "Resident rights",
         "code": "83.32(3)(k)",
         "tag": "N 355",
         "title": "Rights of Residents: Self-determination"
@@ -8197,6 +8789,7 @@
     "census": null,
     "citations": [
       {
+        "category": "Records and administration",
         "code": "83.09",
         "tag": "N 141",
         "title": "Biennial report and fees."
@@ -8230,21 +8823,25 @@
     "census": 12,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(a)",
         "tag": "N 386",
         "title": "Comprehensive Individualized Service Plan"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(c)",
         "tag": "N 388",
         "title": "Implement, follow the individual service plan"
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(a)",
         "tag": "N 396",
         "title": "Adequate staff to meet resident needs."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.39(3)",
         "tag": "N 441",
         "title": "Hand washing."
@@ -8268,6 +8865,7 @@
     "census": 13,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
@@ -8300,31 +8898,37 @@
     "census": 4,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "88.04(2)(b)",
         "tag": "M 218",
         "title": "Awake staff for continuous care"
       },
       {
+        "category": "Staff training and background checks",
         "code": "88.04(2)(f)",
         "tag": "M 230",
         "title": "Condition which represents risk or harm"
       },
       {
+        "category": "Staff training and background checks",
         "code": "88.04(5)(a)",
         "tag": "M 244",
         "title": "Training-15 hours within 6 months"
       },
       {
+        "category": "Care and service plans",
         "code": "88.06(3)(f)",
         "tag": "M 424",
         "title": "Review of ISP"
       },
       {
+        "category": "Resident rights",
         "code": "88.10(3)(a)",
         "tag": "M 548",
         "title": "Fair Treatment"
       },
       {
+        "category": "Resident rights",
         "code": "88.10(3)(e)",
         "tag": "M 556",
         "title": "Self-Direction"
@@ -8348,11 +8952,13 @@
     "census": 3,
     "citations": [
       {
+        "category": "Medications",
         "code": "88.07(3)(a)",
         "tag": "M 458",
         "title": "Prescription medications"
       },
       {
+        "category": "Medications",
         "code": "88.07(3)(e)1",
         "tag": "M 466",
         "title": "Medication- record keeping"
@@ -8384,6 +8990,7 @@
     "census": 8,
     "citations": [
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(a)",
         "tag": "N 396",
         "title": "Adequate staff to meet resident needs."
@@ -8409,16 +9016,19 @@
     "census": 5,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(5)(a)",
         "tag": "N 169",
         "title": "Notification: incident, injury, changes."
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(a)",
         "tag": "N 396",
         "title": "Adequate staff to meet resident needs."
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(g)",
         "tag": "N 431",
         "title": "Health monitoring."
@@ -8449,6 +9059,7 @@
     "census": 4,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "88.07(2)(a)",
         "tag": "M 436",
         "title": "Services"
@@ -8495,16 +9106,19 @@
     "census": 12,
     "citations": [
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(b)",
         "tag": "N 397",
         "title": "Qualified staff in charge, on duty and awake."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.45(3)",
         "tag": "N 499",
         "title": "Toxic substances."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.46(1)(f)",
         "tag": "N 507",
         "title": "Combustibles."
@@ -8528,11 +9142,13 @@
     "census": 11,
     "citations": [
       {
+        "category": "Medications",
         "code": "83.37(3)(a)",
         "tag": "N 417",
         "title": "Medication storage: original containers."
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(c)",
         "tag": "N 427",
         "title": "Leisure time activities."
@@ -8557,51 +9173,61 @@
     "census": 9,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "83.21(1)-(3)",
         "tag": "N 243",
         "title": "All employee training."
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.22(1)-(4)",
         "tag": "N 247",
         "title": "Task specific training."
       },
       {
+        "category": "Medications",
         "code": "83.37(1)(h)",
         "tag": "N 407",
         "title": "Scheduled psychotropic medications."
       },
       {
+        "category": "Medications",
         "code": "83.37(1)(i)",
         "tag": "N 408",
         "title": "PRN psychotropic medication."
       },
       {
+        "category": "Medications",
         "code": "83.37(2)(e)",
         "tag": "N 416",
         "title": "Other administration given or delegated by RN"
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.44(2)(c)",
         "tag": "N 491",
         "title": "Interior floors, walls and ceilings."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(d)",
         "tag": "N 525",
         "title": "Fire drills."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(e)",
         "tag": "N 526",
         "title": "Other evacuation drills."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(3)",
         "tag": "N 530",
         "title": "Fire inspection."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.48(1)(a)",
         "tag": "N 534",
         "title": "Smoke detection system."
@@ -8633,11 +9259,13 @@
     "census": 13,
     "citations": [
       {
+        "category": "Resident rights",
         "code": "83.32(3)(i)",
         "tag": "N 353",
         "title": "Rights of Residents: Adequate treatment"
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(a)",
         "tag": "N 425",
         "title": "Personal care."
@@ -8662,11 +9290,13 @@
     "census": 13,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(a)",
         "tag": "N 386",
         "title": "Comprehensive Individualized Service Plan"
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(a)",
         "tag": "N 396",
         "title": "Adequate staff to meet resident needs."
@@ -8690,26 +9320,31 @@
     "census": 13,
     "citations": [
       {
+        "category": "Building, cleanliness and food",
         "code": "83.39(1)",
         "tag": "N 439",
         "title": "Infection control program."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.41(3)(b)",
         "tag": "N 452",
         "title": "Food safety."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.44(2)(c)",
         "tag": "N 491",
         "title": "Interior floors, walls and ceilings."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.45(5)",
         "tag": "N 501",
         "title": "Garbage & refuse."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.60(2)",
         "tag": "N 669",
         "title": "Insect-proof screens on openable windows"
@@ -8733,41 +9368,49 @@
     "census": 11,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(3)(a)",
         "tag": "N 161",
         "title": "Investigate injuries of unknown source."
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.25",
         "tag": "N 277",
         "title": "Continuing education"
       },
       {
+        "category": "Care and service plans",
         "code": "83.28(4)(a)",
         "tag": "N 302",
         "title": "Resident health screening and documentation"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(2)",
         "tag": "N 385",
         "title": "Temporary Service Plan."
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(4)",
         "tag": "N 392",
         "title": "Resident satisfaction evaluation."
       },
       {
+        "category": "Medications",
         "code": "83.37(1)(e)",
         "tag": "N 404",
         "title": "Medication regimen, administration review."
       },
       {
+        "category": "Medications",
         "code": "83.37(1)(h)",
         "tag": "N 407",
         "title": "Scheduled psychotropic medications."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.39(2)",
         "tag": "N 440",
         "title": "Infection control program policies/training"
@@ -8800,66 +9443,79 @@
     "census": 12,
     "citations": [
       {
+        "category": "Records and administration",
         "code": "83.14(2)(a)",
         "tag": "N 196",
         "title": "Licensee ensures facility complies with laws"
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.17(2)(a)",
         "tag": "N 220",
         "title": "Employees screened for communicable disease."
       },
       {
+        "category": "Records and administration",
         "code": "83.18(1)",
         "tag": "N 223",
         "title": "Employee records maintained and current."
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(2)",
         "tag": "N 385",
         "title": "Temporary Service Plan."
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.35(5)(a)",
         "tag": "N 393",
         "title": "Initial evaluation of evacuation limitations."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.35(5)(b)",
         "tag": "N 394",
         "title": "Annual evaluation of evacuation limits"
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(a)",
         "tag": "N 396",
         "title": "Adequate staff to meet resident needs."
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.36(2)",
         "tag": "N 399",
         "title": "Maintain current written staffing schedule"
       },
       {
+        "category": "Records and administration",
         "code": "83.42(1)",
         "tag": "N 454",
         "title": "Resident record maintained."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.45(3)",
         "tag": "N 499",
         "title": "Toxic substances."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.46(1)(b)",
         "tag": "N 503",
         "title": "Portable space heaters prohibited."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.48(1)(b)",
         "tag": "N 535",
         "title": "Smoke and heat detectors per NFPA 72."
@@ -8882,16 +9538,19 @@
     "census": 9,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(a)",
         "tag": "N 396",
         "title": "Adequate staff to meet resident needs."
       },
       {
+        "category": "Medications",
         "code": "83.38(1)(h)",
         "tag": "N 432",
         "title": "Medication administration."
@@ -8932,6 +9591,7 @@
     "census": 4,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "88.06(3)(f)",
         "tag": "M 424",
         "title": "Review of ISP"
@@ -8954,31 +9614,37 @@
     "census": 6,
     "citations": [
       {
+        "category": "Records and administration",
         "code": "83.18(2)",
         "tag": "N 229",
         "title": "Employee records available upon request"
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.26(1)",
         "tag": "N 283",
         "title": "Documentation of required employee training"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(a)",
         "tag": "N 386",
         "title": "Comprehensive Individualized Service Plan"
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(b)",
         "tag": "N 397",
         "title": "Qualified staff in charge, on duty and awake."
       },
       {
+        "category": "Medications",
         "code": "83.37(2)(e)",
         "tag": "N 416",
         "title": "Other administration given or delegated by RN"
       },
       {
+        "category": "Records and administration",
         "code": "83.42(3)",
         "tag": "N 480",
         "title": "Access to resident records."
@@ -9011,51 +9677,61 @@
     "census": 6,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "83.17(2)(a)",
         "tag": "N 220",
         "title": "Employees screened for communicable disease."
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.19",
         "tag": "N 230",
         "title": "Orientation"
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.21(1)-(3)",
         "tag": "N 243",
         "title": "All employee training."
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.22(1)-(4)",
         "tag": "N 247",
         "title": "Task specific training."
       },
       {
+        "category": "Staff training and background checks",
         "code": "83.25",
         "tag": "N 277",
         "title": "Continuing education"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(1)(a)",
         "tag": "N 381",
         "title": "Pre-admission and ongoing assessments."
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(b)",
         "tag": "N 387",
         "title": "Service plan development: parties involved"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.35(5)(b)",
         "tag": "N 394",
         "title": "Annual evaluation of evacuation limits"
       },
       {
+        "category": "Medications",
         "code": "83.37(2)(e)",
         "tag": "N 416",
         "title": "Other administration given or delegated by RN"
@@ -9103,6 +9779,7 @@
     "census": 10,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(b)",
         "tag": "N 426",
         "title": "Supervision."
@@ -9157,6 +9834,7 @@
     "census": 8,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(c)",
         "tag": "N 388",
         "title": "Implement, follow the individual service plan"
@@ -9227,6 +9905,7 @@
     "census": 7,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(4)(c)",
         "tag": "N 165",
         "title": "Reporting incidents with serious injury"
@@ -9329,11 +10008,13 @@
     "census": 23,
     "citations": [
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(a)",
         "tag": "N 396",
         "title": "Adequate staff to meet resident needs."
       },
       {
+        "category": "Medications",
         "code": "83.38(1)(h)",
         "tag": "N 432",
         "title": "Medication administration."
@@ -9380,11 +10061,13 @@
     "census": 18,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(4)(c)",
         "tag": "N 165",
         "title": "Reporting incidents with serious injury"
       },
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
@@ -9416,21 +10099,25 @@
     "census": 20,
     "citations": [
       {
+        "category": "Staffing and supervision",
         "code": "83.36(1)(a)",
         "tag": "N 396",
         "title": "Adequate staff to meet resident needs."
       },
       {
+        "category": "Staffing and supervision",
         "code": "83.36(2)",
         "tag": "N 399",
         "title": "Maintain current written staffing schedule"
       },
       {
+        "category": "Records and administration",
         "code": "83.42(3)",
         "tag": "N 480",
         "title": "Access to resident records."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.45(3)",
         "tag": "N 499",
         "title": "Toxic substances."
@@ -9470,6 +10157,7 @@
     "census": 20,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
@@ -9500,6 +10188,7 @@
     "census": 19,
     "citations": [
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(c)",
         "tag": "N 388",
         "title": "Implement, follow the individual service plan"
@@ -9547,6 +10236,7 @@
     "census": 23,
     "citations": [
       {
+        "category": "Resident rights",
         "code": "83.31(4)(a)",
         "tag": "N 326",
         "title": "Notice of facility initiated discharges"
@@ -9570,6 +10260,7 @@
     "census": 22,
     "citations": [
       {
+        "category": "Medications",
         "code": "83.38(1)(h)",
         "tag": "N 432",
         "title": "Medication administration."
@@ -9593,6 +10284,7 @@
     "census": 22,
     "citations": [
       {
+        "category": "Medications",
         "code": "83.32(3)(h)",
         "tag": "N 352",
         "title": "Rights of Residents: Receive medication"
@@ -9623,6 +10315,7 @@
     "census": 16,
     "citations": [
       {
+        "category": "Fire safety and evacuation",
         "code": "83.59(2)(f)",
         "tag": "N 644",
         "title": "Staff in charge can open all locks"
@@ -9653,21 +10346,25 @@
     "census": 3,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "88.04(2)(g)1",
         "tag": "M 232",
         "title": "Health screening for staff"
       },
       {
+        "category": "Care and service plans",
         "code": "88.06(2)(b)",
         "tag": "M 384",
         "title": "Service agreement except respite"
       },
       {
+        "category": "Care and service plans",
         "code": "88.06(3)(f)",
         "tag": "M 424",
         "title": "Review of ISP"
       },
       {
+        "category": "Medications",
         "code": "88.07(3)(d)",
         "tag": "M 464",
         "title": "Medication- written order"
@@ -9693,71 +10390,85 @@
     "census": 3,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "88.04(2)(g)1",
         "tag": "M 232",
         "title": "Health screening for staff"
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "88.05(2)(a)",
         "tag": "M 262",
         "title": "Difficulty walking"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "88.05(4)(d)2.a",
         "tag": "M 344",
         "title": "Fire safety evacuation plan review"
       },
       {
+        "category": "Care and service plans",
         "code": "88.06(2)(a)",
         "tag": "M 380",
         "title": "Admission-health exam"
       },
       {
+        "category": "Care and service plans",
         "code": "88.06(3)(a)",
         "tag": "M 404",
         "title": "Individual service plan & assessment"
       },
       {
+        "category": "Care and service plans",
         "code": "88.06(3)(d)5",
         "tag": "M 420",
         "title": "Signed statement of agreement"
       },
       {
+        "category": "Care and service plans",
         "code": "88.06(3)(f)",
         "tag": "M 424",
         "title": "Review of ISP"
       },
       {
+        "category": "Care and service plans",
         "code": "88.07(2)(a)",
         "tag": "M 436",
         "title": "Services"
       },
       {
+        "category": "Care and service plans",
         "code": "88.07(2)(b)1",
         "tag": "M 440",
         "title": "Supervisng & assisting with adls"
       },
       {
+        "category": "Care and service plans",
         "code": "88.07(2)(b)4",
         "tag": "M 446",
         "title": "Record of medical visits and reports"
       },
       {
+        "category": "Medications",
         "code": "88.07(3)(c)",
         "tag": "M 462",
         "title": "Medication assistance"
       },
       {
+        "category": "Medications",
         "code": "88.07(3)(d)",
         "tag": "M 464",
         "title": "Medication- written order"
       },
       {
+        "category": "Resident rights",
         "code": "88.10(3)(e)",
         "tag": "M 556",
         "title": "Self-Direction"
       },
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "88.10(3)(m)",
         "tag": "M 572",
         "title": "Freedom from Abuse"
@@ -9781,21 +10492,25 @@
     "census": 57,
     "citations": [
       {
+        "category": "Resident rights",
         "code": "83.33(1)(d)",
         "tag": "N 362",
         "title": "Grievance procedure: written summary"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(c)",
         "tag": "N 388",
         "title": "Implement, follow the individual service plan"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Medications",
         "code": "83.37(1)(i)",
         "tag": "N 408",
         "title": "PRN psychotropic medication."
@@ -9869,61 +10584,73 @@
     "census": 53,
     "citations": [
       {
+        "category": "Resident rights",
         "code": "83.32(3)(n)",
         "tag": "N 358",
         "title": "Rights of Residents: Safe environment"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.35(5)(a)",
         "tag": "N 393",
         "title": "Initial evaluation of evacuation limitations."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.44(2)(c)",
         "tag": "N 491",
         "title": "Interior floors, walls and ceilings."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.46(1)(f)",
         "tag": "N 507",
         "title": "Combustibles."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(d)",
         "tag": "N 525",
         "title": "Fire drills."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(f)",
         "tag": "N 527",
         "title": "Horizontal evacuation."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.48(4)(f)",
         "tag": "N 546",
         "title": "Smoke detector in non-resident living areas"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.48(6)(e)",
         "tag": "N 554",
         "title": "Integrated heat detector in laundry room."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.59(1)(g)",
         "tag": "N 637",
         "title": "Proper exit locations, sidewalks, driveways."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.59(4)(a)",
         "tag": "N 649",
         "title": "Delayed egress: only one device permitted"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.59(7)(a)",
         "tag": "N 666",
         "title": "Emergency egress lighting provided"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.64(5)",
         "tag": "N 700",
         "title": "Smoke compartments formed by smoke barriers"
@@ -9950,46 +10677,55 @@
     "census": 38,
     "citations": [
       {
+        "category": "Records and administration",
         "code": "83.14(2)(a)",
         "tag": "N 196",
         "title": "Licensee ensures facility complies with laws"
       },
       {
+        "category": "Resident rights",
         "code": "83.29(4)",
         "tag": "N 320",
         "title": "Admission agreement not in conflict"
       },
       {
+        "category": "Resident rights",
         "code": "83.32(3)(n)",
         "tag": "N 358",
         "title": "Rights of Residents: Safe environment"
       },
       {
+        "category": "Records and administration",
         "code": "83.42(1)",
         "tag": "N 454",
         "title": "Resident record maintained."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.44(2)(c)",
         "tag": "N 491",
         "title": "Interior floors, walls and ceilings."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(2)(f)",
         "tag": "N 527",
         "title": "Horizontal evacuation."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.48(4)(g)",
         "tag": "N 547",
         "title": "Smoke detector where lintels exceed"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.59(1)(g)",
         "tag": "N 637",
         "title": "Proper exit locations, sidewalks, driveways."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.59(4)(a)",
         "tag": "N 649",
         "title": "Delayed egress: only one device permitted"
@@ -10013,6 +10749,7 @@
     "census": 32,
     "citations": [
       {
+        "category": "Resident rights",
         "code": "50.09(1)(L)",
         "tag": "Y 3244",
         "title": "Care"
@@ -10036,26 +10773,31 @@
     "census": 31,
     "citations": [
       {
+        "category": "Records and administration",
         "code": "83.14(2)(a)",
         "tag": "N 196",
         "title": "Licensee ensures facility complies with laws"
       },
       {
+        "category": "Resident rights",
         "code": "83.32(3)(n)",
         "tag": "N 358",
         "title": "Rights of Residents: Safe environment"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.48(4)(f)",
         "tag": "N 546",
         "title": "Smoke detector in non-resident living areas"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.48(4)(g)",
         "tag": "N 547",
         "title": "Smoke detector where lintels exceed"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.59(4)(a)",
         "tag": "N 649",
         "title": "Delayed egress: only one device permitted"
@@ -10080,11 +10822,13 @@
     "census": 28,
     "citations": [
       {
+        "category": "Records and administration",
         "code": "83.14(2)(a)",
         "tag": "N 196",
         "title": "Licensee ensures facility complies with laws"
       },
       {
+        "category": "Resident rights",
         "code": "83.32(3)(n)",
         "tag": "N 358",
         "title": "Rights of Residents: Safe environment"
@@ -10117,16 +10861,19 @@
     "census": null,
     "citations": [
       {
+        "category": "Building, cleanliness and food",
         "code": "83.43(1)",
         "tag": "N 481",
         "title": "Environment safe, clean, and comfortable"
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.45(3)",
         "tag": "N 499",
         "title": "Toxic substances."
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.47(3)",
         "tag": "N 530",
         "title": "Fire inspection."
@@ -10153,26 +10900,31 @@
     "census": 13,
     "citations": [
       {
+        "category": "Records and administration",
         "code": "83.14(2)(j)",
         "tag": "N 205",
         "title": "Not permit a condition of substantial risk."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.43(1)",
         "tag": "N 481",
         "title": "Environment safe, clean, and comfortable"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.59(1)(a)",
         "tag": "N 631",
         "title": "Class AS, ANA, CS, CNA 2 grade level exits"
       },
       {
+        "category": "Fire safety and evacuation",
         "code": "83.59(2)(a)",
         "tag": "N 639",
         "title": "One-hand, one-motion door operation"
       },
       {
+        "category": "Staff training and background checks",
         "code": "50.065(4m)",
         "tag": "Z 023",
         "title": "(b) intro CAREGIVER HIRING AND CONTRACTING PROCESS"
@@ -10197,16 +10949,19 @@
     "census": 10,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "83.21(1)-(3)",
         "tag": "N 243",
         "title": "All employee training."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.45(1)(a)",
         "tag": "N 492",
         "title": "Exterior areas."
       },
       {
+        "category": "Resident rights",
         "code": "50.09(1)(e)",
         "tag": "Y 3234",
         "title": "Treatment"
@@ -10232,31 +10987,37 @@
     "census": 11,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(2)(a)",
         "tag": "N 158",
         "title": "Caregiver: Investigating abuse & neglect"
       },
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(4)(c)",
         "tag": "N 165",
         "title": "Reporting incidents with serious injury"
       },
       {
+        "category": "Resident rights",
         "code": "83.27(2)(a)",
         "tag": "N 287",
         "title": "Admissions compatible with the license class"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.43(1)",
         "tag": "N 481",
         "title": "Environment safe, clean, and comfortable"
       },
       {
+        "category": "Resident rights",
         "code": "50.09(1)(e)",
         "tag": "Y 3234",
         "title": "Treatment"
@@ -10282,31 +11043,37 @@
     "census": 7,
     "citations": [
       {
+        "category": "Abuse, neglect and incident reporting",
         "code": "83.12(2)(a)",
         "tag": "N 158",
         "title": "Caregiver: Investigating abuse & neglect"
       },
       {
+        "category": "Records and administration",
         "code": "83.14(2)(a)",
         "tag": "N 196",
         "title": "Licensee ensures facility complies with laws"
       },
       {
+        "category": "Resident rights",
         "code": "83.32(3)(b)",
         "tag": "N 346",
         "title": "Rights of Residents: Confidentiality"
       },
       {
+        "category": "Care and service plans",
         "code": "83.35(3)(d)",
         "tag": "N 389",
         "title": "Service plans updated annually or on changes"
       },
       {
+        "category": "Medications",
         "code": "83.37(2)(d)",
         "tag": "N 415",
         "title": "Documentation of medication administration."
       },
       {
+        "category": "Care and service plans",
         "code": "83.38(1)(c)",
         "tag": "N 427",
         "title": "Leisure time activities."
@@ -10353,6 +11120,7 @@
     "census": 12,
     "citations": [
       {
+        "category": "Building, cleanliness and food",
         "code": "83.46(1)(c)",
         "tag": "N 504",
         "title": "Heating system maintenance."
@@ -10383,6 +11151,7 @@
     "census": 5,
     "citations": [
       {
+        "category": "Medications",
         "code": "83.37(1)(e)",
         "tag": "N 404",
         "title": "Medication regimen, administration review."
@@ -10406,16 +11175,19 @@
     "census": 17,
     "citations": [
       {
+        "category": "Records and administration",
         "code": "83.18(1)",
         "tag": "N 223",
         "title": "Employee records maintained and current."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.45(3)",
         "tag": "N 499",
         "title": "Toxic substances."
       },
       {
+        "category": "Building, cleanliness and food",
         "code": "83.46(1)(f)",
         "tag": "N 507",
         "title": "Combustibles."
@@ -10446,21 +11218,25 @@
     "census": 11,
     "citations": [
       {
+        "category": "Staff training and background checks",
         "code": "83.17(1)",
         "tag": "N 219",
         "title": "Licensee conduct caregiver background check"
       },
       {
+        "category": "Medications",
         "code": "83.37(1)(e)",
         "tag": "N 404",
         "title": "Medication regimen, administration review."
       },
       {
+        "category": "Medications",
         "code": "83.37(1)(h)",
         "tag": "N 407",
         "title": "Scheduled psychotropic medications."
       },
       {
+        "category": "Medications",
         "code": "83.37(1)(i)",
         "tag": "N 408",
         "title": "PRN psychotropic medication."
@@ -10499,6 +11275,7 @@
     "census": 15,
     "citations": [
       {
+        "category": "Building, cleanliness and food",
         "code": "83.60(2)",
         "tag": "N 669",
         "title": "Insect-proof screens on openable windows"

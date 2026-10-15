@@ -142,7 +142,16 @@ code including suffixes like `2.c` or `-(3)` + title; titles wrap in
 lowercase, ALL CAPS, and Title Case — see `continues_title()`; repeat
 violations brace the tag; the newer layout's first-page index repeats
 every tag as `N0283`, so tags normalize to 3+ digits and the fullest
-title wins; prefixes N=CBRF, M=AFH, U=RCAC, Y/Z=ch. 50). Every ledger
+title wins; prefixes N=CBRF, M=AFH, U=RCAC, Y/Z=ch. 50). Each citation
+also carries a plain-English `category` (nine: Care and service plans,
+Medications, Building, cleanliness and food, Fire safety and evacuation,
+Resident rights, Staff training and background checks, Staffing and
+supervision, Abuse, neglect and incident reporting, Records and
+administration): a few title words decide first, because sections mix
+topics (83.38 = medication administration and leisure time), then the
+code's section (`CATEGORY_SECTIONS` in enrich.py). Reapplied to every
+citation each run, so a mapping change needs no `--rebuild`; an unmapped
+section comes out "Other" with a warning — add it. Every ledger
 document path must exist on disk in POSIX form and be mined, or
 enrich.py fails the run.
 Kind is detected from document *structure* — the state has served
@@ -276,7 +285,10 @@ and `†` when the archive starts partway through the first quarter — no
 opacity dimming, which failed contrast). A sepia field marks history older than the state's
 three-year window, bounded by a dashed line placed to the day — it
 advances every week, so the chart itself shows the archive outliving
-the state's public record.
+the state's public record. Under it, "What inspectors cite": facilities
+cited at least once in each citation category (a facility counts once
+per category), sorted, plain labeled rows rather than a plot, following
+the county filter; phones drop the citation count to give the bar room.
 Expandable ledger rows: license facts + survey timeline
 linking to archived PDFs, "View on state site" link built from the current
 week's detail key (known gap: it can 404 to the portal error page between

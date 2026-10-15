@@ -194,6 +194,28 @@ class Classification(unittest.TestCase):
             enrich.classify("an unfamiliar cover page", "x")
 
 
+class Categories(unittest.TestCase):
+    def cat(self, code, title):
+        return enrich.category({"code": code, "title": title})
+
+    def test_mixed_sections_split_by_title(self):
+        # 83.38 holds medication administration and leisure time; 83.32's
+        # most-cited resident right is receiving medication.
+        self.assertEqual(self.cat("83.38(1)(c)", "Medication administration."), "Medications")
+        self.assertEqual(self.cat("83.38(1)(f)", "Leisure time activities."), "Care and service plans")
+        self.assertEqual(self.cat("83.32(3)(i)", "Rights of Residents: Receive medication"), "Medications")
+        self.assertEqual(self.cat("83.32(3)(m)", "Rights of Residents: Safe environment"), "Resident rights")
+        self.assertEqual(self.cat("83.35(1)(c)", "Annual evaluation of evacuation limits"),
+                         "Fire safety and evacuation")
+
+    def test_section_decides_otherwise_and_unknown_is_other(self):
+        self.assertEqual(self.cat("83.12(3)(a)", "Reporting incidents with serious injury"),
+                         "Abuse, neglect and incident reporting")
+        self.assertEqual(self.cat("50.065(6)(am)", "Four Year Caregiver Background Requirement"),
+                         "Staff training and background checks")
+        self.assertEqual(self.cat("83.99(1)", "A section nobody mapped"), "Other")
+
+
 class Forfeitures(unittest.TestCase):
     def test_total_forfeiture_not_fee_range_or_reduced_amount(self):
         entry, warn = enrich.parse_enforcement(FORFEITURE_LETTER)
