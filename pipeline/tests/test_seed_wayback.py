@@ -145,7 +145,9 @@ class SavePageNow(unittest.TestCase):
             response(200, {"status": "error", "status_ext": "error:user-session-limit"}),
             response(200, {"url": "u", "job_id": "spn2-1"}),
         ]
-        with mock.patch.object(sw, "ia", side_effect=replies), mock.patch.object(sw.time, "sleep"):
+        # Quiet: a fake "pausing" line in CI logs reads like a real one.
+        with mock.patch.object(sw, "ia", side_effect=replies), mock.patch.object(sw.time, "sleep"), \
+                contextlib.redirect_stdout(io.StringIO()):
             self.assertEqual(sw.submit(None, "u", {}), ("spn2-1", None))
 
     def test_each_capture_is_followed_to_its_end(self):
