@@ -103,4 +103,11 @@ Add a hash to the iframe `src` (or to the standalone URL):
 - `…/wpr-care-ledger/#county=Wood` — opens on one county (stats, chart, and
   list all follow), for stories about a neighboring county.
 
+### Getting the data
+
+Above the facility list, **Download as CSV** exports whatever is in view
+(county, search, filters): one row per facility, or one per survey record
+with fines, sanctions, cited rules and links to every document. Or take
+the raw files: `data/*.json` in this repo.
+
 A [Wausau Pilot & Review](https://wausaupilotandreview.com) project.

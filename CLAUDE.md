@@ -348,6 +348,14 @@ name — which the operator cross-link produces — renders a boxed operator
 brief above the results. Empty results offer a one-click filter reset, or
 "Show N closed facilities that match" when the closed toggle is what's
 hiding them. Keyboard: "/" focuses search, Escape closes the open record.
+Beside the result count, "Download as CSV: facilities · survey records"
+exports exactly the rows in view (county, search, type, closed toggle,
+lens): one row per facility, or per survey record with its fine,
+sanctions, citation categories, cited rules, held status and absolute
+links to the archived PDFs and their archive.org copies. Built in the
+browser (no server): UTF-8 BOM for Excel, and a cell starting `= + - @`
+gets a leading apostrophe so a spreadsheet can't run it as a formula.
+Filenames carry the county and the ledger's update date.
 Cross-links and deep links scroll the opened record into view
 (standalone only). A print stylesheet hides interactive chrome and keeps
 records intact across page breaks.

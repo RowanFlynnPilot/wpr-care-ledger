@@ -548,13 +548,44 @@ a:focus-visible {
   height: 15px;
 }
 
+.result-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2px 16px;
+  margin: 12px 0 6px;
+}
+
 .result-count {
   font-family: var(--mono);
   font-size: 11.5px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
-  margin: 12px 0 6px;
+  margin: 0;
+}
+
+.downloads {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.download {
+  font: inherit;
+  color: var(--teal-deep);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.download:hover {
+  color: var(--ink);
 }
 
 /* ---------------------------------------------------------------- lenses */
@@ -1295,6 +1326,7 @@ mark {
   .controls,
   .lenses,
   .result-count,
+  .downloads,
   .row-caret,
   .copy-link,
   .clear-filters,

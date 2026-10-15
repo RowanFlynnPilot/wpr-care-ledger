@@ -137,6 +137,71 @@ function fmtDate(iso, month = "short") {
   });
 }
 
+/* CSV for reporters: RFC 4180 quoting, a BOM so Excel reads UTF-8, and a
+   leading apostrophe on any cell a spreadsheet would run as a formula. */
+function downloadCsv(filename, header, rows) {
+  const cell = (v) => {
+    let s = v === null || v === undefined ? "" : String(v);
+    if (/^[=+\-@]/.test(s)) s = `'${s}`;
+    return /[",\r\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+  };
+  const text = [header, ...rows].map((r) => r.map(cell).join(",")).join("\r\n");
+  const url = URL.createObjectURL(new Blob(["﻿", text], { type: "text/csv;charset=utf-8" }));
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.append(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 0);
+}
+
+const yesNo = (b) => (b ? "yes" : "no");
+const absolute = (path) => new URL(path, document.baseURI).href;
+
+function facilitiesCsv(list, filename) {
+  const record = `${location.origin}${location.pathname}#lic=`;
+  downloadCsv(
+    filename,
+    ["license", "facility", "type", "address", "city", "zip", "county", "license_status",
+     "closed", "date_closed", "operator", "licensee", "capacity", "surveys",
+     "enforcement_actions", "fines_assessed", "records_state_no_longer_shows",
+     "latest_survey", "ledger_record", "state_page_archived"],
+    list.map((f) => [
+      f.license, f.name, TYPE_FULL[f.typeAbbr], f.address, f.city, f.zip, f.county,
+      f.licensure_status, yesNo(f.closed), f.date_closed, f.corporate_name, f.licensee,
+      f.capacity, f.surveys.length, f.enforcementCount, f.fineTotal, f.heldCount,
+      f.latest, record + f.license, f.pageCopy,
+    ])
+  );
+}
+
+function surveysCsv(list, filename) {
+  const rows = [];
+  for (const f of list) {
+    for (const s of f.surveys) {
+      rows.push([
+        f.license, f.name, f.county, s.exit_date, s.survey_type, yesNo(s.hasEnforcement),
+        s.enr.fine ?? "", yesNo(s.enr.sanctions.includes("Accruing forfeiture")),
+        s.enr.sanctions.join("; "), s.enr.substantiated || "",
+        [...new Set(s.enr.citations.map((c) => c.category))].join("; "),
+        s.enr.citations.map((c) => `${c.code} ${c.title}`).join("; "),
+        yesNo(s.expired_from_state), s.expired_from_state ? s.last_seen : "",
+        s.docs.map((d) => `${DOC_LABELS[d.kind]}: ${absolute(d.path)}`).join(" | "),
+        s.docs.filter((d) => d.copy).map((d) => d.copy).join(" | "),
+      ]);
+    }
+  }
+  downloadCsv(
+    filename,
+    ["license", "facility", "county", "exit_date", "survey_type", "enforcement_action",
+     "fine_assessed", "fine_accruing", "sanctions", "complaints_substantiated",
+     "citation_categories", "cited_rules", "no_longer_on_state_site", "state_last_showed",
+     "documents", "archive_org_copies"],
+    rows
+  );
+}
+
 /* "https://web.archive.org/web/20261015004022/…" -> "2026-10-15" (UTC). */
 function waybackDate(copy) {
   const ts = copy.match(/\/web\/(\d{8})/)[1];
@@ -408,6 +473,9 @@ export default function App() {
     };
   }, [db, query]);
 
+  // Download filenames name the county in view, so two files don't collide.
+  const csvScope = county === "ALL" ? "all-counties" : county.toLowerCase();
+
   // A dead-end search may only be hiding closed facilities — offer them.
   const hiddenClosedMatches = useMemo(() => {
     if (!db || showClosed) return 0;
@@ -660,9 +728,33 @@ export default function App() {
       )}
 
       <h2 className="sr-only">Facilities</h2>
-      <p className="result-count" role="status">
-        {list.length} {list.length === 1 ? "facility" : "facilities"}
-      </p>
+      <div className="result-bar">
+        <p className="result-count" role="status">
+          {list.length} {list.length === 1 ? "facility" : "facilities"}
+        </p>
+        {list.length > 0 && (
+          <p className="downloads">
+            Download as CSV:{" "}
+            <button
+              className="download"
+              onClick={() =>
+                facilitiesCsv(list, `care-ledger-facilities-${csvScope}-${db.lastUpdated}.csv`)
+              }
+            >
+              {list.length === 1 ? "facility" : "facilities"}
+            </button>
+            {" · "}
+            <button
+              className="download"
+              onClick={() =>
+                surveysCsv(list, `care-ledger-surveys-${csvScope}-${db.lastUpdated}.csv`)
+              }
+            >
+              survey records
+            </button>
+          </p>
+        )}
+      </div>
 
       <ol className="rows">
         {list.map((f) => (
