@@ -137,6 +137,12 @@ function fmtDate(iso, month = "short") {
   });
 }
 
+/* "https://web.archive.org/web/20261015004022/…" -> "2026-10-15" (UTC). */
+function waybackDate(copy) {
+  const ts = copy.match(/\/web\/(\d{8})/)[1];
+  return `${ts.slice(0, 4)}-${ts.slice(4, 6)}-${ts.slice(6, 8)}`;
+}
+
 function isoUTC(iso) {
   const [y, m, d] = iso.split("-").map(Number);
   return Date.UTC(y, m - 1, d);
@@ -225,15 +231,16 @@ export default function App() {
   const load = useCallback(() => {
     setError(null);
     Promise.all(
-      ["data/facilities.json", "data/surveys.json", "data/enrichment.json"].map((p) =>
-        fetch(p).then((r) => {
-          if (!r.ok) throw new Error(`${p}: HTTP ${r.status}`);
-          return r.json();
-        })
+      ["data/facilities.json", "data/surveys.json", "data/enrichment.json", "data/wayback.json"].map(
+        (p) =>
+          fetch(p).then((r) => {
+            if (!r.ok) throw new Error(`${p}: HTTP ${r.status}`);
+            return r.json();
+          })
       )
     )
-      .then(([facilities, surveys, enrichment]) =>
-        setDb(shape(facilities, surveys, enrichment))
+      .then(([facilities, surveys, enrichment, wayback]) =>
+        setDb(shape(facilities, surveys, enrichment, wayback))
       )
       .catch((e) => setError(e.message));
   }, []);
@@ -725,8 +732,11 @@ export default function App() {
             since its county&rsquo;s archive begins. Forfeiture amounts and rule citations are machine-read from
             the archived documents; forfeitures shown are the amounts assessed
             in enforcement letters, before any reduction for waived appeals,
-            and an accruing forfeiture shows the amount assessed so far. Last
-            updated {fmtDate(db.lastUpdated, "long")}.
+            and an accruing forfeiture shows the amount assessed so far. An
+            independent copy of each document and facility page is kept at
+            the Internet Archive, captured from the state&rsquo;s own server
+            (&ldquo;archive.org copy&rdquo;). Last updated{" "}
+            {fmtDate(db.lastUpdated, "long")}.
           </p>
           <p>
             Not affiliated with or endorsed by the Wisconsin Department of
@@ -1310,15 +1320,28 @@ function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) 
                       )}
                       <span className="event-docs">
                         {s.docs.map((d) => (
-                          <a
-                            key={d.path}
-                            className={`doc doc-${d.kind}`}
-                            href={d.path}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            {DOC_LABELS[d.kind]} (PDF)
-                          </a>
+                          <span key={d.path} className="doc-pair">
+                            <a
+                              className={`doc doc-${d.kind}`}
+                              href={d.path}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {DOC_LABELS[d.kind]} (PDF)
+                            </a>
+                            {d.copy && (
+                              <a
+                                className="doc-copy"
+                                href={d.copy}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title={`Independent copy the Internet Archive fetched from the state's server on ${fmtDate(waybackDate(d.copy))}`}
+                              >
+                                archive.org copy
+                                <span className="sr-only"> of the {DOC_LABELS[d.kind].toLowerCase()}</span>
+                              </a>
+                            )}
+                          </span>
                         ))}
                       </span>
                     </span>
@@ -1334,6 +1357,17 @@ function FacilityRow({ f, db, query, open, onToggle, onCrossLink, onOperator }) 
               >
                 View this facility on the state site
               </a>
+              {f.pageCopy && (
+                <a
+                  className="page-copy"
+                  href={f.pageCopy}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="The Internet Archive's copy of the state's page, fetched from the state's server"
+                >
+                  State page as archived {fmtDate(waybackDate(f.pageCopy))}
+                </a>
+              )}
               <button className="copy-link" onClick={copyLink}>
                 {copied ? "Link copied ✓" : "Copy link to this record"}
               </button>
@@ -1373,7 +1407,7 @@ function Fact({ k, v, mono, wide }) {
 
 /* ----------------------------------------------------------------- shaping */
 
-function shape(facilitiesObj, surveysObj, enrichmentObj) {
+function shape(facilitiesObj, surveysObj, enrichmentObj, waybackObj) {
   // Join machine-read document facts onto each survey event. A survey's
   // documents map kind -> archive path; enrichment.json is keyed by that
   // same path. Kinds come from the parsed structure, not the state's grid
@@ -1410,7 +1444,12 @@ function shape(facilitiesObj, surveysObj, enrichmentObj) {
     Object.entries(s.documents)
       .map(([column, path]) => {
         const k = enrichmentObj[path]?.kind;
-        return { kind: k === "enforcement" || k === "sod" ? k : column, path };
+        return {
+          kind: k === "enforcement" || k === "sod" ? k : column,
+          path,
+          // The Internet Archive's copy, fetched from the state's server.
+          copy: waybackObj.documents[path],
+        };
       })
       .sort((a, b) => DOC_ORDER.indexOf(a.kind) - DOC_ORDER.indexOf(b.kind));
 
@@ -1465,9 +1504,13 @@ function shape(facilitiesObj, surveysObj, enrichmentObj) {
   const facilities = Object.entries(facilitiesObj).map(([license, f]) => {
     const surveys = surveysByLicense[license] || [];
     const closed = Boolean(f.date_closed) || f.licensure_status === "CLOSED";
+    // Latest Internet Archive capture of the state's page: unlike the
+    // state link, it survives the weekly key rotation.
+    const pageCopy = (waybackObj.pages[license] || []).at(-1)?.copy || "";
     return {
       ...f,
       license,
+      pageCopy,
       surveys,
       closed,
       probationary: f.licensure_status === "PROBATIONARY",

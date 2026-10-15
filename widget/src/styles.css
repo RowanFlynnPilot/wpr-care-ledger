@@ -987,6 +987,35 @@ mark {
   font-weight: 700;
 }
 
+/* The independent copy rides beside its document, quieter than it. */
+.doc-pair {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 6px;
+}
+
+.doc-copy {
+  white-space: nowrap;
+}
+
+.doc-copy,
+.page-copy {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--ink-soft);
+  text-underline-offset: 2px;
+}
+
+.doc-copy:hover,
+.page-copy:hover {
+  color: var(--teal-deep);
+}
+
+.page-copy {
+  font-size: 11.5px;
+}
+
 /* the signature: records the state no longer shows */
 
 .event.is-held {
@@ -1033,6 +1062,14 @@ mark {
 
 .state-link {
   margin: 12px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 16px;
+}
+
+.state-link > * {
+  white-space: nowrap;
 }
 
 .state-link a {
@@ -1053,7 +1090,6 @@ mark {
   background: none;
   border: none;
   padding: 0;
-  margin-left: 16px;
   cursor: pointer;
   text-decoration: underline dotted;
   text-underline-offset: 2px;

@@ -281,7 +281,11 @@ Expandable ledger rows: license facts + survey timeline
 linking to archived PDFs, "View on state site" link built from the current
 week's detail key (known gap: it can 404 to the portal error page between
 DQA's weekly refresh, which rotates keys, and the next Monday fetch — a
-stable deep link to the state's record doesn't exist), same-address
+stable deep link to the state's record doesn't exist; beside it, "State
+page as archived <date>" links the latest Internet Archive capture from
+`wayback.json`, which never breaks), an "archive.org copy" link beside
+each PDF that has one (quiet mono; drops under its document on phones),
+same-address
 cross-links (addresses compare with street suffixes normalized — "RD" vs
 "Road" once hid the Azura/VOP Wausau flip; neutral copy, the dates tell
 the story; a closed sibling reads "(closed)" even without a closure date),
