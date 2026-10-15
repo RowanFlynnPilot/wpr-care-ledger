@@ -741,6 +741,83 @@ mark {
   min-width: 0;
 }
 
+/* --------------------------------------------------------------- glossary */
+
+.glossary {
+  margin: 22px 0 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.glossary summary {
+  font-family: var(--heading);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 12px 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.glossary summary::-webkit-details-marker {
+  display: none;
+}
+
+.glossary summary::after {
+  content: "+";
+  margin-left: 8px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.glossary[open] summary::after {
+  content: "\2212"; /* minus */
+}
+
+.glossary summary:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
+.glossary-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 6px 32px;
+  padding-bottom: 14px;
+}
+
+.glossary h3 {
+  font-family: var(--heading);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 6px 0 6px;
+}
+
+.glossary dl {
+  margin: 0;
+}
+
+.glossary dl > div {
+  margin: 0 0 9px;
+}
+
+.glossary dt {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.glossary dd {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 1px 0 0;
+}
+
 /* ---------------------------------------------- single-facility embed */
 
 .masthead-single {

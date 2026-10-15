@@ -354,6 +354,11 @@ name — which the operator cross-link produces — renders a boxed operator
 brief above the results. Empty results offer a one-click filter reset, or
 "Show N closed facilities that match" when the closed toggle is what's
 hiding them. Keyboard: "/" focuses search, Escape closes the open record.
+Above the footer (and in the single-facility embed), a collapsed "What
+these terms mean" glossary: 23 terms in four groups (inspections,
+documents, enforcement, facilities and licenses), from `GLOSSARY` in
+App.jsx, worded to match the labels the ledger prints. Verify a
+definition with DQA before changing its substance.
 Beside the result count, "Download as CSV: facilities · survey records"
 exports exactly the rows in view (county, search, type, closed toggle,
 lens): one row per facility, or per survey record with its fine,

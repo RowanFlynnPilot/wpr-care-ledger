@@ -68,6 +68,65 @@ const SANCTION_LABELS = {
 
 const DOC_ORDER = ["enforcement", "sod", "poc"];
 
+/* The terms the ledger prints, in plain English, grouped as a reader meets
+   them. Labels match SURVEY_PART_LABELS, DOC_LABELS and SANCTION_LABELS. */
+const GLOSSARY = [
+  ["Inspections", [
+    ["Survey", "An inspection by the state Division of Quality Assurance. The date shown is the exit date, the last day inspectors were on site."],
+    ["Standard survey", "A routine licensing inspection of the whole facility."],
+    ["Complaint investigation", "An inspection prompted by a complaint from a resident, family member, employee or anyone else."],
+    ["Self-report investigation", "An inspection of an incident the facility itself reported to the state, as it is required to."],
+    ["Verification visit / Follow-up visit", "A return inspection to check whether the facility fixed what it was cited for."],
+    ["Desk review", "A review of records the state does without visiting."],
+    ["Substantiated complaint", "Inspectors found evidence that what the complaint described happened."],
+  ]],
+  ["Documents", [
+    ["Statement of deficiency", "The state's report of an inspection: each rule the facility was found to break, with the evidence."],
+    ["Citation", "One rule cited in a statement of deficiency. Categories such as Medications group the rules by subject."],
+    ["Plan of correction", "The facility's written response, describing how it will fix each problem cited."],
+    ["Enforcement action", "A Notice and Order letter in which the state imposes penalties or orders after an inspection."],
+  ]],
+  ["Enforcement", [
+    ["Forfeiture", "A fine. The ledger shows the amount assessed; a facility that pays within 10 days and doesn't appeal may pay a reduced amount."],
+    ["Accruing forfeiture", "A fine that grows each day until the facility complies. The ledger shows the amount assessed so far."],
+    ["Order to comply", "An order to correct the violations cited."],
+    ["Order not to admit new residents", "A ban on taking new residents until the state lifts it — among the most serious steps short of closing a facility."],
+    ["License revocation", "The state moving to take away the facility's license. A facility can appeal."],
+    ["Revisit fee", "A fee the facility pays for the inspection that checks its corrections."],
+  ]],
+  ["Facilities and licenses", [
+    ["Adult family home (AFH)", "A home where three or four adults not related to the operator live and receive care. The ledger covers these 3–4 bed homes."],
+    ["Community-based residential facility (CBRF)", "A residence for five or more adults that provides care and supervision, including limited nursing care."],
+    ["Residential care apartment complex (RCAC)", "Independent apartments for five or more residents, with limited personal, supportive and nursing services."],
+    ["Probationary license", "The license Wisconsin issues for a facility's first year. It is not a penalty."],
+    ["Held in the ledger", "A record the state's online search no longer lists, usually because it is more than three years old. The Care Ledger keeps it."],
+    ["archive.org copy", "A copy of the state's own document or page captured by the Internet Archive, a nonprofit library, so anyone can check it independently."],
+  ]],
+];
+
+function Glossary() {
+  return (
+    <details className="glossary" id="glossary">
+      <summary>What these terms mean</summary>
+      <div className="glossary-groups">
+        {GLOSSARY.map(([group, terms]) => (
+          <section key={group}>
+            <h3>{group}</h3>
+            <dl>
+              {terms.map(([term, def]) => (
+                <div key={term}>
+                  <dt>{term}</dt>
+                  <dd>{def}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        ))}
+      </div>
+    </details>
+  );
+}
+
 /* Fixed locale: a German browser would otherwise print "$39.640". */
 function fmtNum(n) {
   return n.toLocaleString("en-US");
@@ -805,6 +864,8 @@ export default function App() {
         )}
       </ol>
 
+      <Glossary />
+
       <footer className="site-footer">
         <img
           className="footer-seal"
@@ -1299,6 +1360,8 @@ function FacilityEmbed({ db, license, staleDays }) {
           .
         </p>
       )}
+
+      <Glossary />
 
       <p className="single-foot">
         <a href={f ? `${LEDGER_URL}#lic=${f.license}` : LEDGER_URL} target="_blank" rel="noopener noreferrer">
