@@ -251,6 +251,13 @@ class SavePageNow(unittest.TestCase):
             done = list(sw.capture(None, [("a", {}, ("document", "pa"))], datetime.max))
         self.assertEqual([status["status"] for _, _, status in done], ["success"])
 
+    def test_archive_org_not_answering_fails_one_item_not_the_run(self):
+        # The third full run died on a timeout submitting one capture.
+        with mock.patch.object(sw, "ia", side_effect=RuntimeError("archive.org keeps failing")), \
+                mock.patch.object(sw.time, "sleep"):
+            done = list(sw.capture(None, [("a", {}, ("document", "pa"))], datetime.max))
+        self.assertEqual([(tag[1], status["status"]) for tag, _, status in done], [("pa", "error")])
+
     def test_a_spent_budget_leaves_the_rest_for_the_next_run(self):
         with mock.patch.object(sw, "ia") as ia, mock.patch.object(sw.time, "sleep"), \
                 contextlib.redirect_stdout(io.StringIO()):

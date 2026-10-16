@@ -44,6 +44,7 @@ import os
 import sys
 import time
 from datetime import datetime, timedelta, timezone
+from types import SimpleNamespace
 
 import requests
 
@@ -186,7 +187,12 @@ def submit(session, url, options):
     """Start one capture: (job id, None), or (None, reason) if Save Page Now
     refuses the URL. Rate limits are waited out; bad credentials raise."""
     for _ in range(10):
-        r = ia(session, "POST", SAVE, data={"url": url, **options})
+        try:
+            r = ia(session, "POST", SAVE, data={"url": url, **options})
+        except RuntimeError as e:
+            # One URL archive.org won't take right now; the next run retries
+            # it. (The third full run died here, with four items left.)
+            return None, str(e)
         if r.status_code == 401:
             raise RuntimeError(f"archive.org refused the credentials: {r.text[:200]}")
         try:
@@ -211,7 +217,10 @@ def capture(session, items, deadline):
     while queue or jobs:
         tick = time.monotonic()
         for job_id, (url, tag, started) in list(jobs.items()):
-            r = ia(session, "GET", STATUS + job_id)
+            try:
+                r = ia(session, "GET", STATUS + job_id)
+            except RuntimeError:
+                r = SimpleNamespace(status_code=429)  # no answer yet: ask again next tick
             if r.status_code == 429:
                 # The status check itself was rate limited -- says nothing
                 # about the capture (the first full run counted 7 as failed).
