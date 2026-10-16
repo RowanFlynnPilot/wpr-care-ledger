@@ -168,15 +168,21 @@ fingerprint}`; the fingerprint hashes what the page showed — license
 status, owner, survey rows and their documents — so a page is captured
 again only when that changes, never just because its key rotated). Save
 Page Now fetches from the state's own server, which is the point: nobody
-has to take WPR's word for what the state published. A copy is recorded
-when Save Page Now reports success; a page capture that touched the
-portal's `UnexpectedError` page never is (a stale key "succeeds" there).
-A document the Wayback Machine already holds byte for byte is recorded
-without a new capture. Each run audits every document copy against the
-Wayback index — the state serves PDFs as static files, so the copy's
-digest must equal the base32 SHA-1 of the ledger's file — and reports
-identical / differs / not yet indexed. Never hand-edit; deleting it and
-rerunning is safe (documents are re-found in the index, pages recaptured).
+has to take WPR's word for what the state published. **Only proven copies
+are listed** — `documents` and `pages` are what the widget and facility
+pages link. Save Page Now's "success" is not proof: in the first full
+run (2026-10-15), 108 of 621 captures it reported done never opened. So
+a capture waits in `pending` until a run downloads its raw bytes back
+(`id_` replay): a document must equal the ledger's file byte for byte
+(the state serves PDFs as static files); a page must open on its own
+license and not on the portal's `UnexpectedError` page (a stale key
+"succeeds" there, and such a capture is refused even before proof). A
+copy that opens as something else is dropped and warned about; one still
+missing 48 hours after capture is dropped and captured again. Each run
+proves pending captures first, captures, then proves again. The
+Wayback CDX index is not used: it lagged hours behind replay and its
+prefix queries timed out. Never hand-edit; deleting the file and
+rerunning recaptures everything (two runs).
 
 ## Known migration event — READ THIS WHEN THE SCRAPER DIES
 
@@ -455,9 +461,10 @@ then bundles them into `dist/`, so **the Pages artifact is just
   records only.
 - Internet Archive copies: `python pipeline/seed_wayback.py` (needs
   `IA_ACCESS_KEY` / `IA_SECRET_KEY`; idempotent). Paces itself under Save
-  Page Now's 7 captures a minute, at most six in flight; stops submitting
-  after four hours and leaves the rest for the next run. A first run (or a
-  deleted wayback.json) takes about three hours.
+  Page Now's documented 7 captures a minute, at most six in flight —
+  archive.org actually delivered ~2.5 a minute on the first full run —
+  and stops submitting after four hours, leaving the rest for the next
+  run, so a full copy (or a deleted wayback.json) takes two runs.
 - Wayback recovery (rarely; idempotent): `python pipeline/backfill_wayback.py`,
   then rerun enrich.py. Empirical result 2026-07: the Internet Archive
   holds zero Marathon County assisted-living items (attribution verified

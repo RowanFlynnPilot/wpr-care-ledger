@@ -9,11 +9,7 @@ it -- and the copies outlive the state's three-year window and its move to
 the Wisconsin Provider Finder.
 
 Documents: every PDF in the archive, once, from the address the state
-published it at (surveys.json `document_urls`). The state serves them as
-static files, so a faithful copy's digest equals the SHA-1 of the ledger's
-file; every run checks that for every copy and reports any that differ.
-A document the Wayback Machine already holds byte for byte is recorded,
-not captured again.
+published it at (surveys.json `document_urls`).
 
 Facility pages: each facility's detail page when the ledger first sees it,
 and again whenever what it shows changes (license status, owner, a survey
@@ -22,25 +18,32 @@ refresh, so this runs right after each fetch (.github/workflows/
 wayback.yml), and first proves with fetch.py's own identity check that
 the keys still open their facilities.
 
-Records go to data/wayback.json: archive path -> Wayback URL for
-documents; license -> captures (Wayback URL + fingerprint of what the page
-showed) for pages. Idempotent; a failed capture is retried next run.
+Nothing is listed until it is proven. Save Page Now's "success" is not:
+in the first full run, 108 of 621 captures it reported done never opened
+in the Wayback Machine. So a capture waits in `pending` until a run
+downloads its raw bytes back: a document must match the ledger's file
+byte for byte (the state serves PDFs as static files), a page must open
+on the right license and not on the portal's error page. A capture still
+missing after RETRY_AFTER is dropped and captured again.
+
+Records go to data/wayback.json: `documents` (archive path -> Wayback URL)
+and `pages` (license -> captures, each Wayback URL + fingerprint of what
+the page showed) hold verified copies only -- what the widget links;
+`pending` holds captures awaiting proof. Idempotent.
 
 Save Page Now stopped taking anonymous captures (2026-10): it needs an
 archive.org account's S3 keys (https://archive.org/account/s3.php) in
-IA_ACCESS_KEY and IA_SECRET_KEY. At its limit of 7 captures a minute the
-first run (~1,100 items) takes about three hours; a normal week, minutes.
+IA_ACCESS_KEY and IA_SECRET_KEY. It managed ~2.5 captures a minute on the
+first full run, so a full copy takes two runs; a normal week, minutes.
 
 Run: python pipeline/seed_wayback.py
 """
 
-import base64
 import hashlib
 import os
-import re
 import sys
 import time
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 import requests
 
@@ -50,10 +53,7 @@ WAYBACK_PATH = fetch.ROOT / "data" / "wayback.json"
 
 SAVE = "https://web.archive.org/save"
 STATUS = "https://web.archive.org/save/status/"
-CDX = "https://web.archive.org/cdx/search/cdx"
 WEB = "https://web.archive.org/web/"
-DOCUMENTS = "forwardhealth.wi.gov/kw/dqa/*"
-PAGES = "forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx*"
 
 USER_AGENT = "WausauPilotCareLedger-seed/1.0 (+https://wausaupilotandreview.com)"
 
@@ -64,10 +64,10 @@ MAX_JOBS = 6  # captures in flight at once
 JOB_TIMEOUT = 600  # a capture still pending after 10 minutes is given up on
 BUDGET = timedelta(minutes=240)  # then stop submitting; the workflow step allows 280
 TIMEOUT = 60
-# A prefix query over every capture under the state's path; it timed out at
-# 60 seconds at the end of the first full run.
-CDX_TIMEOUT = 300
 RATE_LIMITED = {"error:too-many-requests", "error:user-session-limit"}
+# A capture that still won't open this long after Save Page Now reported it
+# is treated as lost and captured again.
+RETRY_AFTER = timedelta(hours=48)
 
 # PDFs need no browser (or the HEAD request that picks one); detail pages
 # are server-rendered, so no time for scripted scrolling.
@@ -75,24 +75,14 @@ DOCUMENT_OPTIONS = {"force_get": "1", "skip_first_archive": "1"}
 PAGE_OPTIONS = {"js_behavior_timeout": "0", "skip_first_archive": "1"}
 
 
-def sha1_b32(path):
-    """The Wayback Machine's payload digest: base32 of the SHA-1."""
-    return base64.b32encode(hashlib.sha1(path.read_bytes()).digest()).decode()
-
-
-def document_name(url):
-    return url.rsplit("/", 1)[-1].upper()  # 8F3914ENFS.PDF
-
-
-def page_key(url):
-    m = re.search(r"[?&]key=(\d+)", url)
-    return m.group(1) if m else None
-
-
 def split_copy(copy):
     """Wayback URL -> (timestamp, original URL)."""
     timestamp, url = copy.removeprefix(WEB).split("/", 1)
     return timestamp, url
+
+
+def captured_at(copy):
+    return datetime.strptime(split_copy(copy)[0], "%Y%m%d%H%M%S").replace(tzinfo=timezone.utc)
 
 
 def ia(session, method, url, timeout=TIMEOUT, **kw):
@@ -113,43 +103,38 @@ def ia(session, method, url, timeout=TIMEOUT, **kw):
     raise RuntimeError(f"archive.org keeps failing ({problem}): {method} {url}")
 
 
-def cdx_index(session, pattern, key):
-    """The Wayback Machine's 200 captures under a URL prefix:
-    {key(original): [(timestamp, digest), ...]}."""
-    r = ia(session, "GET", CDX, timeout=CDX_TIMEOUT, params={
-        "url": pattern, "output": "json", "filter": "statuscode:200",
-        "fl": "original,timestamp,digest",
-    })
-    r.raise_for_status()
-    index = {}
-    for original, timestamp, digest in (r.json() if r.text.strip() else [])[1:]:
-        index.setdefault(key(original), []).append((timestamp, digest))
-    return index
+def load_wayback():
+    """data/wayback.json, moving records from before verification existed
+    (2026-10-15) into `pending`, where they are proven like any capture."""
+    wayback = fetch.load(WAYBACK_PATH) or {"documents": {}, "pages": {}}
+    if "pending" not in wayback:
+        wayback = {
+            "documents": {},
+            "pages": {},
+            "pending": {
+                "documents": wayback["documents"],
+                "pages": {lic: copies[-1] for lic, copies in wayback["pages"].items()},
+            },
+        }
+    return wayback
 
 
 # --------------------------------------------------------------- what to copy
 
-def plan_documents(surveys, wayback, index):
-    """Ledger documents not yet recorded, split three ways: copies the
-    Wayback Machine already holds byte for byte ({path: Wayback URL},
-    recorded without capturing again), documents to capture
-    ([(path, url)]), and documents missing their state URL."""
-    found, todo, no_url = {}, [], []
+def plan_documents(surveys, wayback):
+    """Documents with no copy, verified or pending: ([(path, url)] to
+    capture, [paths missing their state URL])."""
+    todo, no_url = [], []
     for s in surveys.values():
         for kind, path in sorted(s["documents"].items()):
-            if path in wayback["documents"]:
+            if path in wayback["documents"] or path in wayback["pending"]["documents"]:
                 continue
             url = s.get("document_urls", {}).get(kind)
-            if not url:
-                no_url.append(path)
-                continue
-            digest = sha1_b32(fetch.ROOT / path)
-            same = sorted(ts for ts, d in index.get(document_name(url), []) if d == digest)
-            if same:
-                found[path] = f"{WEB}{same[0]}/{url}"
-            else:
+            if url:
                 todo.append((path, url))
-    return found, todo, no_url
+            else:
+                no_url.append(path)
+    return todo, no_url
 
 
 def fingerprint(license_no, facility, surveys, run):
@@ -165,17 +150,19 @@ def fingerprint(license_no, facility, surveys, run):
 
 
 def plan_pages(facilities, surveys, wayback, run):
-    """Facilities whose page was never copied, or shows something new since
-    its last copy: [(license, page URL, fingerprint)]. Only this run's
-    roster has current keys."""
+    """Facilities whose page as it is now has no copy, verified or pending:
+    [(license, page URL, fingerprint)]. Only this run's roster has current
+    keys."""
     todo = []
     for license_no, f in sorted(facilities.items()):
         if f["last_seen"] != run:
             continue
         fp = fingerprint(license_no, f, surveys, run)
-        copies = wayback["pages"].get(license_no)
-        if not copies or copies[-1]["fingerprint"] != fp:
-            todo.append((license_no, f"{fetch.DETAIL_URL}?key={f['key']}&keyb=-1", fp))
+        verified = wayback["pages"].get(license_no)
+        pending = wayback["pending"]["pages"].get(license_no)
+        if (verified and verified[-1]["fingerprint"] == fp) or (pending and pending["fingerprint"] == fp):
+            continue
+        todo.append((license_no, f"{fetch.DETAIL_URL}?key={f['key']}&keyb=-1", fp))
     return todo
 
 
@@ -254,7 +241,7 @@ def capture(session, items, deadline):
 
 
 def rejected(tag, status):
-    """Why a finished capture can't be recorded, or None if it can."""
+    """Why a finished capture can't even wait for proof, or None."""
     if status.get("status") != "success":
         return status.get("status_ext") or status.get("message") or status.get("status")
     if not status.get("timestamp"):
@@ -268,26 +255,58 @@ def rejected(tag, status):
     return None
 
 
-# ------------------------------------------------------------------ checking
+# ------------------------------------------------------------------ proving
 
-def audit(wayback, documents_index, pages_index):
-    """Check every recorded copy against the Wayback Machine's index (a
-    fresh capture can take a while to reach it). Returns document paths
-    split (identical, differ, unindexed) and page copies (indexed,
-    unindexed)."""
-    identical, differ, unindexed = [], [], []
-    for path, copy in sorted(wayback["documents"].items()):
+def proven(kind, ref, copy, body_of):
+    """Does this capture open as what it claims? True, False (it opens as
+    something else), or None (it doesn't open yet). body_of(copy) returns
+    the raw archived bytes, or None if the Wayback Machine has nothing."""
+    body = body_of(copy)
+    if body is None:
+        return None
+    if kind == "document":
+        return body == (fetch.ROOT / ref).read_bytes()
+    text = body.decode("utf-8", "replace")
+    return ref in text and "UnexpectedError" not in text
+
+
+def verify(wayback, body_of, now):
+    """Graduate pending captures that prove out; drop the ones that open as
+    the wrong thing, or are still missing after RETRY_AFTER, so they are
+    captured again. Returns {"verified": n, "differ": [...], "lost": n,
+    "waiting": n}."""
+    out = {"verified": 0, "differ": [], "lost": 0, "waiting": 0}
+    pending = wayback["pending"]
+    for kind, store in (("document", pending["documents"]), ("page", pending["pages"])):
+        for ref in sorted(store):
+            entry = store[ref]
+            copy = entry if kind == "document" else entry["copy"]
+            ok = proven(kind, ref, copy, body_of)
+            if ok:
+                if kind == "document":
+                    wayback["documents"][ref] = copy
+                else:
+                    wayback["pages"].setdefault(ref, []).append(entry)
+                del store[ref]
+                out["verified"] += 1
+            elif ok is False:
+                out["differ"].append(f"{ref} ({copy})")
+                del store[ref]
+            elif now - captured_at(copy) > RETRY_AFTER:
+                del store[ref]
+                out["lost"] += 1
+            else:
+                out["waiting"] += 1
+    return out
+
+
+def archived_bytes(session):
+    def body_of(copy):
         timestamp, url = split_copy(copy)
-        captures = documents_index.get(document_name(url), [])
-        if any(d == sha1_b32(fetch.ROOT / path) for _, d in captures):
-            identical.append(path)
-        elif any(ts == timestamp for ts, _ in captures):
-            differ.append(path)
-        else:
-            unindexed.append(path)
-    pages = [split_copy(c["copy"])[1] for copies in wayback["pages"].values() for c in copies]
-    indexed = sum(1 for url in pages if page_key(url) in pages_index)
-    return identical, differ, unindexed, indexed, len(pages) - indexed
+        r = ia(session, "GET", f"{WEB}{timestamp}id_/{url}")
+        time.sleep(0.3)  # replay is archive.org's busiest service; be gentle
+        return r.content if r.status_code == 200 else None
+    return body_of
 
 
 def main():
@@ -300,7 +319,7 @@ def main():
         )
     facilities = fetch.load(fetch.FACILITIES_PATH)
     surveys = fetch.load(fetch.SURVEYS_PATH)
-    wayback = fetch.load(WAYBACK_PATH) or {"documents": {}, "pages": {}}
+    wayback = load_wayback()
     run = max(f["last_seen"] for f in facilities.values())
 
     session = requests.Session()
@@ -309,11 +328,16 @@ def main():
         "Accept": "application/json",
         "Authorization": f"LOW {access}:{secret}",
     })
+    replay = requests.Session()  # reading copies back needs no credentials
+    replay.headers["User-Agent"] = USER_AGENT
+    body_of = archived_bytes(replay)
 
-    found, documents, no_url = plan_documents(
-        surveys, wayback, cdx_index(session, DOCUMENTS, document_name))
-    wayback["documents"].update(found)
+    before = verify(wayback, body_of, datetime.now(timezone.utc))
     fetch.save(WAYBACK_PATH, wayback)
+    print(f"Proved {before['verified']} waiting captures; {before['waiting']} still waiting, "
+          f"{before['lost']} lost (captured again below), {len(before['differ'])} open as something else")
+
+    documents, no_url = plan_documents(surveys, wayback)
     pages = plan_pages(facilities, surveys, wayback, run)
     if pages and not keys_current(pages[0][0], facilities[pages[0][0]]["key"]):
         pages = []
@@ -321,11 +345,8 @@ def main():
     # Pages first: their keys expire at the state's next weekly refresh.
     items = [(url, PAGE_OPTIONS, ("page", lic, fp)) for lic, url, fp in pages]
     items += [(url, DOCUMENT_OPTIONS, ("document", path)) for path, url in documents]
-    print(f"Ledger of {run}: copying {len(pages)} facility pages and {len(documents)} "
-          f"documents to the Wayback Machine ({len(found)} more documents it already "
-          f"holds byte for byte)")
-    copied = {"page": 0, "document": 0}
-    failed = []
+    print(f"Ledger of {run}: capturing {len(pages)} facility pages and {len(documents)} documents")
+    captured, failed = 0, []
     for n, (tag, url, status) in enumerate(capture(session, items, datetime.now() + BUDGET), 1):
         reason = rejected(tag, status)
         if reason:
@@ -334,25 +355,18 @@ def main():
             continue
         copy = f"{WEB}{status['timestamp']}/{url}"
         if tag[0] == "document":
-            wayback["documents"][tag[1]] = copy
+            wayback["pending"]["documents"][tag[1]] = copy
         else:
-            wayback["pages"].setdefault(tag[1], []).append({"copy": copy, "fingerprint": tag[2]})
-        copied[tag[0]] += 1
+            wayback["pending"]["pages"][tag[1]] = {"copy": copy, "fingerprint": tag[2]}
+        captured += 1
         fetch.save(WAYBACK_PATH, wayback)
         print(f"  [{n}/{len(items)}] {copy}")
 
-    # The check is a report: the copies above are already recorded and
-    # saved, so an index that won't answer is said, not raised.
-    try:
-        identical, differ, unindexed, pages_indexed, pages_unindexed = audit(
-            wayback,
-            cdx_index(session, DOCUMENTS, document_name),
-            cdx_index(session, PAGES, page_key),
-        )
-        checked = True
-    except (RuntimeError, requests.RequestException) as e:
-        print(f"Wayback index unavailable for the check: {e}")
-        checked, differ = False, []
+    # Captures from early in the run have usually reached the Wayback
+    # Machine by now; the rest are proven next run.
+    after = verify(wayback, body_of, datetime.now(timezone.utc))
+    fetch.save(WAYBACK_PATH, wayback)
+
     roster = [lic for lic, f in facilities.items() if f["last_seen"] == run]
     current = sum(
         1 for lic in roster
@@ -360,23 +374,18 @@ def main():
         and wayback["pages"][lic][-1]["fingerprint"] == fingerprint(lic, facilities[lic], surveys, run)
     )
     total = sum(len(s["documents"]) for s in surveys.values())
+    differ = before["differ"] + after["differ"]
     lines = [
         "## Internet Archive copies",
-        f"- Facility pages: {current} of {len(roster)} facilities on the state's roster have "
-        f"their current page on file ({copied['page']} captured this run)"
-        + (f"; {pages_indexed} page copies confirmed in the Wayback index, "
-           f"{pages_unindexed} not yet indexed." if checked else "."),
-        f"- Documents: {len(wayback['documents'])} of {total} have a copy ({copied['document']} "
-        f"captured this run)"
-        + (f"; {len(identical)} confirmed byte-identical to the ledger's file, "
-           f"{len(unindexed)} not yet indexed." if checked else "."),
+        f"- Verified copies: {len(wayback['documents'])} of {total} documents (byte-identical to the "
+        f"ledger's files) and the current page of {current} of {len(roster)} facilities on the state's roster.",
+        f"- This run: {captured} captured, {before['verified'] + after['verified']} proven, "
+        f"{after['waiting']} waiting to open in the Wayback Machine, "
+        f"{before['lost'] + after['lost']} lost and captured again.",
     ]
-    if not checked:
-        lines.append("- The Wayback index didn't answer, so copies weren't checked against the "
-                     "ledger's files this run; the next run checks them all.")
     if differ:
-        lines.append(f"- **WARNING: {len(differ)} Wayback copies differ from the ledger's file** "
-                     f"-- did the state replace the document? {', '.join(differ)}")
+        lines.append(f"- **WARNING: {len(differ)} copies opened as something else** -- for a document, "
+                     f"did the state replace it? Each is captured again: " + "; ".join(differ[:20]))
     if no_url:
         lines.append(f"- **{len(no_url)} documents have no state URL in surveys.json** and "
                      f"can't be copied: {', '.join(no_url)}")

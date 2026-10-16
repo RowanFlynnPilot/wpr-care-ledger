@@ -1,5 +1,5 @@
 """Tests for the Internet Archive step: what gets captured, what gets
-recorded, and the capture that must never be recorded.
+listed, and the copies that must never be listed.
 
 Run: python -m unittest discover -s pipeline/tests
 """
@@ -9,7 +9,7 @@ import io
 import json
 import sys
 import unittest
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from types import SimpleNamespace
 from unittest import mock
@@ -21,6 +21,14 @@ RUN = "2026-10-07"
 DQA = "https://www.forwardhealth.wi.gov/kw/dqa/"
 PAGE_URL = ("https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/"
             "DqaProviderDetails.aspx?key=15570764&keyb=-1")
+# A real archived document, so a copy can be compared byte for byte.
+DOC = "archive/0013424/2026-03-12_survey-vv_enforcement.pdf"
+DOC_BYTES = (Path(__file__).resolve().parents[2] / DOC).read_bytes()
+CAPTURED = datetime(2026, 10, 15, 3, 0, tzinfo=timezone.utc)
+
+
+def copy_of(url, when=CAPTURED):
+    return f"{sw.WEB}{when:%Y%m%d%H%M%S}/{url}"
 
 
 def survey(license, exit_date, docs, last_seen=RUN):
@@ -37,43 +45,34 @@ def facility(last_seen=RUN):
             "ownership_type": "Corporation", "owner_name": "OUR HOUSE INC"}
 
 
+def empty():
+    return {"documents": {}, "pages": {}, "pending": {"documents": {}, "pages": {}}}
+
+
 def response(code, body):
     return SimpleNamespace(status_code=code, ok=code < 400, text=json.dumps(body),
                            json=lambda: body)
 
 
 class Documents(unittest.TestCase):
-    def test_a_copy_already_held_byte_for_byte_is_recorded_not_recaptured(self):
+    def test_only_documents_with_no_copy_verified_or_pending_are_captured(self):
         surveys = {
-            # The Wayback Machine holds this exact file: record its earliest copy.
-            "a": survey("1", "2026-09-30", {"sod": "AAAA11SODS.PDF"}),
-            # It holds a different file at that address: capture ours.
-            "b": survey("1", "2026-08-25", {"sod": "BBBB11SODS.PDF"}),
-            # Never captured.
-            "c": survey("2", "2026-07-01", {"enforcement": "CCCC11ENFS.PDF"}),
-            # Already recorded.
-            "d": survey("2", "2026-06-01", {"sod": "DDDD11SODS.PDF"}),
+            "a": survey("1", "2026-09-30", {"sod": "AAAA11SODS.PDF"}),   # verified
+            "b": survey("1", "2026-08-25", {"sod": "BBBB11SODS.PDF"}),   # pending
+            "c": survey("2", "2026-07-01", {"enforcement": "CCCC11ENFS.PDF"}),  # none
         }
-        wayback = {"documents": {"archive/2/2026-06-01_complaint_sod.pdf": "x"}, "pages": {}}
-        index = {
-            "AAAA11SODS.PDF": [("20250101000000", "OURS"), ("20240101000000", "OURS")],
-            "BBBB11SODS.PDF": [("20240101000000", "THEIRS")],
-        }
-        with mock.patch.object(sw, "sha1_b32", return_value="OURS"):
-            found, todo, no_url = sw.plan_documents(surveys, wayback, index)
-        self.assertEqual(found, {"archive/1/2026-09-30_complaint_sod.pdf":
-                                 sw.WEB + "20240101000000/" + DQA + "AAAA11SODS.PDF"})
-        self.assertEqual(todo, [
-            ("archive/1/2026-08-25_complaint_sod.pdf", DQA + "BBBB11SODS.PDF"),
-            ("archive/2/2026-07-01_complaint_enforcement.pdf", DQA + "CCCC11ENFS.PDF"),
-        ])
+        wayback = empty()
+        wayback["documents"]["archive/1/2026-09-30_complaint_sod.pdf"] = "x"
+        wayback["pending"]["documents"]["archive/1/2026-08-25_complaint_sod.pdf"] = "y"
+        todo, no_url = sw.plan_documents(surveys, wayback)
+        self.assertEqual(todo, [("archive/2/2026-07-01_complaint_enforcement.pdf", DQA + "CCCC11ENFS.PDF")])
         self.assertEqual(no_url, [])
 
     def test_a_document_without_its_state_url_is_reported(self):
         s = survey("1", "2026-09-30", {"sod": "AAAA11SODS.PDF"})
         del s["document_urls"]
-        found, todo, no_url = sw.plan_documents({"a": s}, {"documents": {}, "pages": {}}, {})
-        self.assertEqual((found, todo, no_url), ({}, [], ["archive/1/2026-09-30_complaint_sod.pdf"]))
+        self.assertEqual(sw.plan_documents({"a": s}, empty()),
+                         ([], ["archive/1/2026-09-30_complaint_sod.pdf"]))
 
 
 class Pages(unittest.TestCase):
@@ -85,12 +84,19 @@ class Pages(unittest.TestCase):
         return sw.plan_pages(self.facilities, self.surveys, wayback, RUN)
 
     def test_first_sight_captures_and_a_facility_off_the_roster_has_no_page(self):
-        todo = self.plan({"documents": {}, "pages": {}})
+        todo = self.plan(empty())
         self.assertEqual([(lic, url) for lic, url, _ in todo], [("1", PAGE_URL)])
 
+    def test_a_pending_capture_of_the_same_page_is_not_repeated(self):
+        (_, _, fp), = self.plan(empty())
+        wayback = empty()
+        wayback["pending"]["pages"]["1"] = {"copy": "x", "fingerprint": fp}
+        self.assertEqual(self.plan(wayback), [])
+
     def test_recaptured_exactly_when_what_the_page_shows_changes(self):
-        (_, _, fp), = self.plan({"documents": {}, "pages": {}})
-        wayback = {"documents": {}, "pages": {"1": [{"copy": "x", "fingerprint": fp}]}}
+        (_, _, fp), = self.plan(empty())
+        wayback = empty()
+        wayback["pages"]["1"] = [{"copy": "x", "fingerprint": fp}]
         self.assertEqual(self.plan(wayback), [])
         self.facilities["1"]["key"] = "15999999"  # next week's key, same page
         self.assertEqual(self.plan(wayback), [])
@@ -110,6 +116,70 @@ class Pages(unittest.TestCase):
             (_, _, new_fp), = self.plan(wayback)
             wayback["pages"]["1"].append({"copy": "x", "fingerprint": new_fp})
             self.assertEqual(self.plan(wayback), [])
+
+
+class Proving(unittest.TestCase):
+    """Save Page Now's "success" is not proof: in the first full run, 108
+    of 621 reported captures never opened. Only proven copies are listed."""
+
+    def verify(self, wayback, bodies, hours_later=1):
+        now = CAPTURED + timedelta(hours=hours_later)
+        return sw.verify(wayback, lambda copy: bodies.get(copy), now)
+
+    def test_a_byte_identical_document_is_listed(self):
+        wayback = empty()
+        copy = copy_of(DQA + "8F3914ENFS.PDF")
+        wayback["pending"]["documents"][DOC] = copy
+        out = self.verify(wayback, {copy: DOC_BYTES})
+        self.assertEqual(wayback["documents"], {DOC: copy})
+        self.assertEqual(wayback["pending"]["documents"], {})
+        self.assertEqual(out["verified"], 1)
+
+    def test_a_copy_that_does_not_open_waits_then_is_dropped_for_recapture(self):
+        wayback = empty()
+        wayback["pending"]["documents"][DOC] = copy_of(DQA + "8F3914ENFS.PDF")
+        self.assertEqual(self.verify(wayback, {}, hours_later=19)["waiting"], 1)
+        self.assertIn(DOC, wayback["pending"]["documents"])
+        self.assertEqual(self.verify(wayback, {}, hours_later=49)["lost"], 1)
+        self.assertEqual(wayback["pending"]["documents"], {})
+        self.assertEqual(wayback["documents"], {})
+        self.assertEqual(sw.plan_documents(
+            {"s": {"documents": {"enforcement": DOC},
+                   "document_urls": {"enforcement": DQA + "8F3914ENFS.PDF"}}}, wayback)[0],
+            [(DOC, DQA + "8F3914ENFS.PDF")])  # captured again
+
+    def test_a_document_that_differs_is_never_listed(self):
+        wayback = empty()
+        copy = copy_of(DQA + "8F3914ENFS.PDF")
+        wayback["pending"]["documents"][DOC] = copy
+        out = self.verify(wayback, {copy: DOC_BYTES + b"changed"})
+        self.assertEqual(wayback["documents"], {})
+        self.assertEqual(len(out["differ"]), 1)
+
+    def test_a_page_must_open_on_its_own_license_and_not_the_error_page(self):
+        wayback = empty()
+        right, wrong, error = (copy_of(PAGE_URL, CAPTURED + timedelta(minutes=m)) for m in (0, 1, 2))
+        wayback["pending"]["pages"] = {
+            "0013424": {"copy": right, "fingerprint": "f1"},
+            "0015844": {"copy": wrong, "fingerprint": "f2"},
+            "0016344": {"copy": error, "fingerprint": "f3"},
+        }
+        out = self.verify(wayback, {
+            right: b"<span>License Number</span><div>0013424</div>",
+            wrong: b"<div>0013424</div>",  # another facility's page
+            error: b"0016344 ... UnexpectedError.aspx",
+        })
+        self.assertEqual(wayback["pages"], {"0013424": [{"copy": right, "fingerprint": "f1"}]})
+        self.assertEqual(len(out["differ"]), 2)
+
+    def test_records_from_before_proving_wait_to_be_proven(self):
+        old = {"documents": {DOC: "d"}, "pages": {"1": [{"copy": "p", "fingerprint": "f"}]}}
+        with mock.patch.object(sw.fetch, "load", return_value=old):
+            wayback = sw.load_wayback()
+        self.assertEqual(wayback, {
+            "documents": {}, "pages": {},
+            "pending": {"documents": {DOC: "d"}, "pages": {"1": {"copy": "p", "fingerprint": "f"}}},
+        })
 
 
 class Recording(unittest.TestCase):
@@ -187,28 +257,6 @@ class SavePageNow(unittest.TestCase):
             done = list(sw.capture(None, [("a", {}, ("document", "pa"))], datetime.min))
         self.assertEqual(done, [])
         ia.assert_not_called()
-
-
-class Audit(unittest.TestCase):
-    def test_every_copy_is_checked_byte_for_byte(self):
-        wayback = {
-            "documents": {
-                "archive/1/a.pdf": sw.WEB + "20261007040000/" + DQA + "AAAA11SODS.PDF",
-                "archive/1/b.pdf": sw.WEB + "20261007040100/" + DQA + "BBBB11SODS.PDF",
-                "archive/1/c.pdf": sw.WEB + "20261007040200/" + DQA + "CCCC11SODS.PDF",
-            },
-            "pages": {"1": [{"copy": sw.WEB + "20261007040300/" + PAGE_URL, "fingerprint": "f"}]},
-        }
-        documents_index = {
-            "AAAA11SODS.PDF": [("20261007040000", "OURS")],    # identical
-            "BBBB11SODS.PDF": [("20261007040100", "THEIRS")],  # differs
-        }                                                      # c: not indexed yet
-        with mock.patch.object(sw, "sha1_b32", return_value="OURS"):
-            identical, differ, unindexed, indexed, pages_unindexed = sw.audit(
-                wayback, documents_index, {"15570764": [("20261007040300", "X")]})
-        self.assertEqual((identical, differ, unindexed),
-                         (["archive/1/a.pdf"], ["archive/1/b.pdf"], ["archive/1/c.pdf"]))
-        self.assertEqual((indexed, pages_unindexed), (1, 0))
 
 
 if __name__ == "__main__":
