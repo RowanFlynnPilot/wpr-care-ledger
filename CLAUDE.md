@@ -372,7 +372,9 @@ Embedding: the widget posts its height to the parent page measured from
 the iframe's own height, so the frame could grow but never shrink. When
 embedded it never calls `scrollIntoView` (that would scroll the reader's
 article). Numbers format with a fixed `en-US` locale ("$39,640" on a
-German browser too).
+German browser too); dates are AP style from `fmtDate()` in ledger.js
+("Sept. 21, 2026", "March 27, 2026"; "long" spells the month), never the
+browser's locale.
 
 Accessibility: each facility's header button sits inside an `h3` (sr-only
 `h2` "Facilities" above the list; each panel's "Survey history" is an
@@ -397,7 +399,7 @@ brief above the results. Empty results offer a one-click filter reset, or
 "Show N closed facilities that match" when the closed toggle is what's
 hiding them. Keyboard: "/" focuses search, Escape closes the open record.
 Above the footer (and in the single-facility embed), a collapsed "What
-these terms mean" glossary: 23 terms in four groups (inspections,
+these terms mean" glossary: 24 terms in four groups (inspections,
 documents, enforcement, facilities and licenses), from `GLOSSARY` in
 App.jsx, worded to match the labels the ledger prints. Verify a
 definition with DQA before changing its substance.

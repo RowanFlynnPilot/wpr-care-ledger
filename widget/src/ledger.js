@@ -97,14 +97,16 @@ export function smartTitle(s) {
     .join(" ");
 }
 
+/* AP style, as the newsroom prints dates: "Sept. 21, 2026", "March 27,
+   2026" ("long" spells every month: "September 21, 2026"). */
+const AP_MONTHS = ["Jan.", "Feb.", "March", "April", "May", "June", "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."];
+const LONG_MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August",
+  "September", "October", "November", "December"];
+
 export function fmtDate(iso, month = "short") {
   if (!iso) return "";
   const [y, m, d] = iso.split("-").map(Number);
-  return new Date(y, m - 1, d).toLocaleDateString("en-US", {
-    month,
-    day: "numeric",
-    year: "numeric",
-  });
+  return `${(month === "long" ? LONG_MONTHS : AP_MONTHS)[m - 1]} ${d}, ${y}`;
 }
 
 /* "https://web.archive.org/web/20261015004022/…" -> "2026-10-15" (UTC). */

@@ -79,6 +79,7 @@ const GLOSSARY = [
     ["Residential care apartment complex (RCAC)", "Independent apartments for five or more residents, with limited personal, supportive and nursing services."],
     ["Probationary license", "The license Wisconsin issues for a facility's first year. It is not a penalty."],
     ["Held in the ledger", "A record the state's online search no longer lists, usually because it is more than three years old. The Care Ledger keeps it."],
+    ["Revised by the state", "The state replaced a document on its site with a new version. The ledger shows the new version's figures and keeps the original, with what changed."],
     ["archive.org copy", "A copy of the state's own document or page captured by the Internet Archive, a nonprofit library, so anyone can check it independently."],
   ]],
 ];
@@ -784,7 +785,9 @@ export default function App() {
             since its county&rsquo;s archive begins. Forfeiture amounts and rule citations are machine-read from
             the archived documents; forfeitures shown are the amounts assessed
             in enforcement letters, before any reduction for waived appeals,
-            and an accruing forfeiture shows the amount assessed so far. An
+            and an accruing forfeiture shows the amount assessed so far. If the
+            state replaces a document on its site, the ledger shows the new
+            version&rsquo;s figures, keeps the original and says what changed. An
             independent copy of each document and facility page is kept at
             the Internet Archive, captured from the state&rsquo;s own server
             (&ldquo;archive.org copy&rdquo;). Last updated{" "}
