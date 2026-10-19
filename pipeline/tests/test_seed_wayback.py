@@ -68,6 +68,13 @@ class Documents(unittest.TestCase):
         self.assertEqual(todo, [("archive/2/2026-07-01_complaint_enforcement.pdf", DQA + "CCCC11ENFS.PDF")])
         self.assertEqual(no_url, [])
 
+    def test_a_replaced_original_is_not_chased_its_revision_is(self):
+        s = survey("1", "2026-02-18", {"sod": "UB3G11SODS.PDF"})
+        s["revisions"] = {"sod": [{"path": "archive/1/2026-02-18_complaint_rev2_sod.pdf",
+                                   "first_seen": "2026-10-26", "last_modified": "x"}]}
+        self.assertEqual(sw.plan_documents({"a": s}, empty())[0],
+                         [("archive/1/2026-02-18_complaint_rev2_sod.pdf", DQA + "UB3G11SODS.PDF")])
+
     def test_a_document_without_its_state_url_is_reported(self):
         s = survey("1", "2026-09-30", {"sod": "AAAA11SODS.PDF"})
         del s["document_urls"]

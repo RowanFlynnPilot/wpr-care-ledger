@@ -20,6 +20,7 @@ never alerted again, so reruns don't send duplicate email.
 
 import json
 import os
+import re
 import subprocess
 import sys
 from datetime import date
@@ -32,6 +33,7 @@ SITE = "https://rowanflynnpilot.github.io/wpr-care-ledger/"
 LABEL = "new-enforcement"
 ITEM_MARK = "care-ledger-alert-item:"
 TEST_MARK = "care-ledger-test-item:"
+REVISION_MARK = "care-ledger-revision:"
 
 # Same print rules as the widget's smartTitle(): state names arrive in
 # ALL CAPS; keep licensing acronyms, lowercase the small words.
@@ -60,6 +62,10 @@ ORDER_TEXT = {
 
 
 def smart_title(s):
+    # "WATERFORD AT COLBY (THE)" -> "The Waterford at Colby", as the widget prints it.
+    filed = re.match(r"^(.*?)\s*(?:\(THE\)|,\s*THE)$", s.strip(), re.I)
+    if filed:
+        s = f"The {filed.group(1)}"
     words = []
     for i, w in enumerate(s.split()):
         bare = "".join(c for c in w if c.isalnum())
@@ -104,12 +110,30 @@ class Ledger:
         k = self.enrichment.get(path, {}).get("kind")
         return k if k in ("enforcement", "sod") else column
 
+    @staticmethod
+    def current(s):
+        """column -> path of each document's latest version (a revision the
+        state posted over the original, else the original)."""
+        return {c: (s.get("revisions", {}).get(c) or [{"path": p}])[-1]["path"]
+                for c, p in s["documents"].items()}
+
     def doc(self, s, kind):
         """(column, path) of the survey's document of a structural kind."""
-        return next(((c, p) for c, p in s["documents"].items() if self.kind(c, p) == kind), None)
+        return next(((c, p) for c, p in self.current(s).items() if self.kind(c, p) == kind), None)
 
-    def fine(self, s):
-        return sum(self.enrichment.get(p, {}).get("fine") or 0 for p in s["documents"].values())
+    def fine(self, s, paths=None):
+        paths = self.current(s).values() if paths is None else paths
+        return sum(self.enrichment.get(p, {}).get("fine") or 0 for p in paths)
+
+    def revised(self):
+        """(survey, column, original path, revision) for each document the
+        state replaced, found this run."""
+        return sorted(
+            ((s, c, s["documents"][c], revs[-1])
+             for s in self.surveys.values()
+             for c, revs in s.get("revisions", {}).items() if revs[-1]["first_seen"] == self.run),
+            key=lambda x: x[0]["exit_date"],
+        )
 
     def name(self, s):
         return smart_title(self.facilities[s["license"]]["name"])
@@ -139,6 +163,17 @@ class Ledger:
         items = [(sid, s, self.doc(s, "enforcement")[1], False)
                  for sid, s in self.surveys.items() if self.doc(s, "enforcement")]
         return sorted(items, key=lambda it: it[1]["exit_date"])[-n:]
+
+
+def revision_changes(L, original, revised):
+    """What the ledger's figures did between two versions of a document."""
+    was, now = L.enrichment.get(original, {}), L.enrichment.get(revised, {})
+    changes = []
+    if (was.get("fine") or 0) != (now.get("fine") or 0):
+        changes.append(f"forfeiture ${was.get('fine') or 0:,} → ${now.get('fine') or 0:,}")
+    if was.get("deficiencies") != now.get("deficiencies"):
+        changes.append(f"deficiencies {was.get('deficiencies')} → {now.get('deficiencies')}")
+    return changes
 
 
 # --------------------------------------------------------------- tip sheet
@@ -189,6 +224,16 @@ def tip_sheet(L):
         lines += [f"- {L.name(s)} — {s['exit_date']} {s['survey_type']}: {labels[kind]}"
                   + (f" (${L.fine(s):,} forfeiture)" if kind == "enforcement" and L.fine(s) else "")
                   for s, kind in late_docs]
+    revised = L.revised()
+    if revised:
+        labels = {"enforcement": "enforcement letter", "sod": "statement of deficiency",
+                  "poc": "plan of correction"}
+        lines += ["", "### Documents the state replaced (originals kept here)", ""]
+        for s, column, original, rev in revised:
+            changes = revision_changes(L, original, rev["path"])
+            lines.append(f"- **{L.name(s)}** — {s['exit_date']} {s['survey_type']}: "
+                         f"{labels[L.kind(column, original)]} replaced (state's file dated "
+                         f"{rev['last_modified']})" + (f"; {', '.join(changes)}" if changes else ""))
     if aged_off:
         lines += ["", "### No longer on the state site (now held only here)", ""]
         lines += [
@@ -289,18 +334,59 @@ def post(title, body):
     print(f"alert posted: {url}")
 
 
+def compose_revisions(L, items):
+    """One alert for documents the state replaced at their addresses."""
+    names = list(dict.fromkeys(L.name(s) for s, *_ in items))
+    repo = os.environ.get("GITHUB_REPOSITORY", "RowanFlynnPilot/wpr-care-ledger")
+    server = os.environ.get("GITHUB_SERVER_URL", "https://github.com")
+    labels = {"enforcement": "enforcement letter", "sod": "statement of deficiency",
+              "poc": "plan of correction"}
+    title = (f"State revised records: {', '.join(names[:2])}"
+             + (f" and {len(names) - 2} more" if len(names) > 2 else ""))
+    parts = [f"**The state replaced {len(items)} document{'s' if len(items) > 1 else ''}** "
+             f"at {'their addresses' if len(items) > 1 else 'its address'}, found in the Care "
+             f"Ledger's run of {long_date(L.run)}. The originals are kept in the ledger; the "
+             f"state's site now shows only the new versions. Ask DQA why before reporting it."]
+    for s, column, original, rev in items:
+        f = L.facilities[s["license"]]
+        changes = revision_changes(L, original, rev["path"])
+        parts.append("\n".join([
+            f"### {smart_title(f['name'])} — {f['city'].title()}, {f['county'].title()} County",
+            "",
+            f"- **Survey:** {survey_label(s['survey_type'])}, closed {long_date(s['exit_date'])}",
+            f"- **Replaced:** the {labels[L.kind(column, original)]} (state's new file dated "
+            f"{rev['last_modified']})",
+            *([f"- **Changed:** {'; '.join(changes)}"] if changes else []),
+            f"- [Open in the Care Ledger]({SITE}#lic={s['license']}) · "
+            f"[Original (PDF)]({server}/{repo}/blob/main/{original}) · "
+            f"[New version (PDF)]({server}/{repo}/blob/main/{rev['path']})",
+            f"<!-- {REVISION_MARK} {s['license']}|{s['exit_date']}|{rev['path']} -->",
+        ]))
+    body = "\n\n".join(parts + ["---\nSent automatically by the Care Ledger's weekly fetch. "
+                                "Close this issue once reviewed."])
+    mentions = os.environ.get("ALERT_MENTIONS", "").strip()
+    if mentions:
+        body += f"\n\nNotifying: {mentions}"
+    return title, body + "\n"
+
+
 def alert(L):
     items = L.new_enforcement()
-    if items:
+    revised = L.revised()
+    if items or revised:
         ensure_label()
-        # Markers of every action already alerted; reruns send nothing twice.
+        # Markers of everything already alerted; reruns send nothing twice.
         sent = gh("issue", "list", "--label", LABEL, "--state", "all", "--limit", "200",
                   "--json", "body", "--jq", ".[].body")
         items = [it for it in items if f"{ITEM_MARK} {it[0]} " not in sent]
-    if not items:
+        revised = [r for r in revised
+                   if f"{REVISION_MARK} {r[0]['license']}|{r[0]['exit_date']}|{r[3]['path']} " not in sent]
+    if items:
+        post(*compose(L, items, ITEM_MARK, test=False))
+    else:
         print("no new enforcement actions to alert")
-        return
-    post(*compose(L, items, ITEM_MARK, test=False))
+    if revised:
+        post(*compose_revisions(L, revised))
 
 
 def main():

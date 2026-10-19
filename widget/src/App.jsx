@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import {
   DOC_LABELS,
   SUPPORT_URL,
+  revisionChanges,
   facilitySlug,
   TYPE_FULL,
   STALE_AFTER_DAYS,
@@ -171,6 +172,8 @@ function surveysCsv(list, filename) {
         yesNo(s.expired_from_state), s.expired_from_state ? s.last_seen : "",
         s.docs.map((d) => `${DOC_LABELS[d.kind]}: ${absolute(d.path)}`).join(" | "),
         s.docs.filter((d) => d.copy).map((d) => d.copy).join(" | "),
+        s.revision ? s.revision.posted : "",
+        s.revision ? s.revision.was.fine ?? "" : "",
       ]);
     }
   }
@@ -179,7 +182,7 @@ function surveysCsv(list, filename) {
     ["license", "facility", "county", "exit_date", "survey_type", "enforcement_action",
      "fine_assessed", "fine_accruing", "sanctions", "complaints_substantiated",
      "citation_categories", "cited_rules", "no_longer_on_state_site", "state_last_showed",
-     "documents", "archive_org_copies"],
+     "documents", "archive_org_copies", "revised_by_state_on", "original_fine"],
     rows
   );
 }
@@ -1520,6 +1523,28 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
                             {s.source && s.source.startsWith("wayback")
                               ? `Recovered from an Internet Archive copy of the state site (${fmtDate(s.last_seen)}).`
                               : `No longer on the state site — last seen there ${fmtDate(s.last_seen)}.`}
+                          </span>
+                        </>
+                      )}
+                      {s.revision && (
+                        <>
+                          <span className="revised-stamp">Revised by the state</span>
+                          <span className="revised-note">
+                            The state replaced{" "}
+                            {s.docs.filter((d) => d.original).length > 1 ? "these documents" : "this document"}{" "}
+                            on its site on {fmtDate(s.revision.posted)}
+                            {revisionChanges(s.revision) && `: ${revisionChanges(s.revision)}`}. The
+                            figures above are from the current version. Originals, kept here:{" "}
+                            {s.docs
+                              .filter((d) => d.original)
+                              .map((d, i) => (
+                                <React.Fragment key={d.original}>
+                                  {i > 0 && " · "}
+                                  <a href={d.original} target="_blank" rel="noopener noreferrer">
+                                    original {DOC_LABELS[d.kind].toLowerCase()} (PDF)
+                                  </a>
+                                </React.Fragment>
+                              ))}
                           </span>
                         </>
                       )}

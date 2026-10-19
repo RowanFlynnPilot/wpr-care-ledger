@@ -124,10 +124,13 @@ def load_wayback():
 
 def plan_documents(surveys, wayback):
     """Documents with no copy, verified or pending: ([(path, url)] to
-    capture, [paths missing their state URL])."""
+    capture, [paths missing their state URL]). Only each document's current
+    version: an original the state replaced is no longer served at its
+    address, so the ledger holds the only copy of it."""
     todo, no_url = [], []
     for s in surveys.values():
-        for kind, path in sorted(s["documents"].items()):
+        for kind in sorted(s["documents"]):
+            path = fetch.current_path(s, kind)
             if path in wayback["documents"] or path in wayback["pending"]["documents"]:
                 continue
             url = s.get("document_urls", {}).get(kind)

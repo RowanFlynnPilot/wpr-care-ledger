@@ -10,7 +10,7 @@ import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
-  DOC_LABELS, SANCTION_LABELS, SUPPORT_URL, TYPE_FULL, citeSummary, facilitySlug as slug, fmtDate, fmtNum, shape,
+  DOC_LABELS, SANCTION_LABELS, SUPPORT_URL, TYPE_FULL, revisionChanges, citeSummary, facilitySlug as slug, fmtDate, fmtNum, shape,
   smartTitle, surveyLabel, titleCase, waybackDate,
 } from "../src/ledger.js";
 
@@ -63,6 +63,7 @@ ol.timeline li.held{border-left:3px solid var(--sepia);padding-left:10px;backgro
 .type{font:600 15px/1.35 Oswald,"Helvetica Neue",Arial,sans-serif}
 .fine,.sanction,.enf{color:var(--red);font-weight:700}
 .held-note{color:var(--sepia);font-size:13px}
+.revised{font-size:13px;color:var(--soft);border-left:2px dashed var(--ink);padding-left:8px;margin:4px 0}
 .cites{font-size:13px;color:var(--soft)}
 .docs{font-size:13px}.docs a{margin-right:12px}
 footer{margin-top:32px;border-top:1px solid var(--ink);padding-top:12px;font-size:12.5px;color:var(--soft)}
@@ -139,6 +140,7 @@ function facilityPage(f) {
     ${sanctions.length ? `<div class="sanction">${esc(sanctions.join(" · "))}</div>` : ""}
     ${s.enr.substantiated || s.enr.citations.length ? `<div class="cites">${s.enr.substantiated ? "<strong>Complaint substantiated</strong>" : ""}${s.enr.substantiated && s.enr.citations.length ? " · " : ""}${s.enr.citations.length ? `Cited: ${esc(citeSummary(s.enr.citations))}` : ""}</div>` : ""}
     ${s.expired_from_state ? `<div class="held-note">Held in the ledger — no longer on the state site; last seen there ${esc(fmtDate(s.last_seen))}.</div>` : ""}
+    ${s.revision ? `<div class="revised"><strong>Revised by the state</strong> on ${esc(fmtDate(s.revision.posted))}${revisionChanges(s.revision) ? `: ${esc(revisionChanges(s.revision))}` : ""}. Figures shown are from the current version. Originals, kept here: ${s.docs.filter((d) => d.original).map((d) => `<a href="../../${esc(d.original)}">original ${esc(DOC_LABELS[d.kind].toLowerCase())} (PDF)</a>`).join(" · ")}</div>` : ""}
     ${docs ? `<div class="docs">${docs}</div>` : ""}
   </div>
 </li>`;

@@ -78,6 +78,10 @@ export const KEEP_LOWER = new Set(["of", "and", "the", "at", "by", "for", "on", 
 
 export function smartTitle(s) {
   if (!s) return s;
+  // The roster files names by their main word: "WATERFORD AT COLBY (THE)"
+  // (11 facilities) reads "The Waterford at Colby" in print.
+  const filed = s.trim().match(/^(.*?)\s*(?:\(THE\)|,\s*THE)$/i);
+  if (filed) s = `The ${filed[1]}`;
   return s
     .trim()
     .split(/\s+/)
@@ -153,16 +157,25 @@ export function shape(facilitiesObj, surveysObj, enrichmentObj, waybackObj) {
   // documents map kind -> archive path; enrichment.json is keyed by that
   // same path. Kinds come from the parsed structure, not the state's grid
   // column (the state has served letters and SODs in swapped columns).
-  const enrich = (s) => {
+  //
+  // A document the state replaced at its address (The Waterford at Colby,
+  // 2026-09-21: 4 deficiencies -> 1, $1,000 -> $400) is read from its
+  // latest version, so fines and citations match what the state says now;
+  // the original stays linked, with what changed.
+  const original = (s, column) => s.documents[column];
+  const latest = (s, column) => s.revisions?.[column]?.at(-1)?.path || s.documents[column];
+  const enrich = (s, pick = latest) => {
     let fine = null;
+    let deficiencies = null;
     const sanctions = [];
     const citations = [];
     let substantiated = 0;
     const seen = new Set();
-    for (const path of Object.values(s.documents)) {
-      const e = enrichmentObj[path];
+    for (const column of Object.keys(s.documents)) {
+      const e = enrichmentObj[pick(s, column)];
       if (!e) continue;
       if (e.fine) fine = (fine || 0) + e.fine;
+      if (e.deficiencies != null) deficiencies = (deficiencies || 0) + e.deficiencies;
       for (const label of e.sanctions || []) {
         if (!sanctions.includes(label)) sanctions.push(label);
       }
@@ -175,21 +188,42 @@ export function shape(facilitiesObj, surveysObj, enrichmentObj, waybackObj) {
         }
       }
     }
-    return { fine, sanctions, citations, substantiated };
+    return { fine, deficiencies, sanctions, citations, substantiated };
+  };
+
+  // When the state replaced any of a survey's documents: the date its new
+  // file carries, and the figures before and after.
+  const revisionOf = (s, enr) => {
+    const revs = Object.values(s.revisions || {}).map((list) => list.at(-1));
+    if (revs.length === 0) return null;
+    const was = enrich(s, original);
+    const posted = revs
+      .map((r) => (r.last_modified ? new Date(r.last_modified).toISOString().slice(0, 10) : r.first_seen))
+      .sort()
+      .at(-1);
+    return {
+      posted,
+      firstSeen: revs.map((r) => r.first_seen).sort().at(-1),
+      was: { fine: was.fine, deficiencies: was.deficiencies },
+      now: { fine: enr.fine, deficiencies: enr.deficiencies },
+    };
   };
 
   // Each document's kind comes from its parsed structure where the miner
   // read it; the state's column is only the fallback (plans of correction,
   // which aren't mined). One survey, 0019331, has its two links swapped.
   const docsOf = (s) =>
-    Object.entries(s.documents)
-      .map(([column, path]) => {
+    Object.keys(s.documents)
+      .map((column) => {
+        const path = latest(s, column);
         const k = enrichmentObj[path]?.kind;
         return {
           kind: k === "enforcement" || k === "sod" ? k : column,
           path,
           // The Internet Archive's copy, fetched from the state's server.
           copy: waybackObj.documents[path],
+          // The version the state replaced, kept here only.
+          original: path !== original(s, column) ? original(s, column) : null,
         };
       })
       .sort((a, b) => DOC_ORDER.indexOf(a.kind) - DOC_ORDER.indexOf(b.kind));
@@ -216,19 +250,23 @@ export function shape(facilitiesObj, surveysObj, enrichmentObj, waybackObj) {
     const recent = (d) => d && d > start && d > newSince;
     return (
       !stale &&
-      (recent(s.first_seen) || Object.values(s.documents_first_seen || {}).some(recent))
+      (recent(s.first_seen) ||
+        Object.values(s.documents_first_seen || {}).some(recent) ||
+        Object.values(s.revisions || {}).some((list) => recent(list.at(-1).first_seen)))
     );
   };
 
   const surveysByLicense = {};
   for (const [id, s] of Object.entries(surveysObj)) {
     const docs = docsOf(s);
+    const enr = enrich(s);
     const row = {
       ...s,
       id,
       docs,
       hasEnforcement: docs.some((d) => d.kind === "enforcement"),
-      enr: enrich(s),
+      enr,
+      revision: revisionOf(s, enr),
       isNew: isNew(s),
     };
     (surveysByLicense[s.license] ||= []).push(row);
@@ -297,3 +335,19 @@ export function facilitySlug(f) {
    brings in. */
 export const SUPPORT_URL =
   "https://wausaupilotandreview.com/support-our-publication/?utm_source=care-ledger&utm_medium=referral";
+
+/* What a state revision changed, in words: "forfeiture reduced from
+   $1,000 to $400; deficiencies cited from 4 to 1". Empty when the figures
+   the ledger reads didn't move (the wording or a date changed). */
+export function revisionChanges(rev) {
+  const money = (n) => `$${fmtNum(n || 0)}`;
+  const parts = [];
+  if ((rev.was.fine || 0) !== (rev.now.fine || 0)) {
+    const verb = (rev.now.fine || 0) < (rev.was.fine || 0) ? "reduced" : "raised";
+    parts.push(`forfeiture ${verb} from ${money(rev.was.fine)} to ${money(rev.now.fine)}`);
+  }
+  if (rev.was.deficiencies != null && rev.now.deficiencies != null && rev.was.deficiencies !== rev.now.deficiencies) {
+    parts.push(`deficiencies cited from ${rev.was.deficiencies} to ${rev.now.deficiencies}`);
+  }
+  return parts.join("; ");
+}

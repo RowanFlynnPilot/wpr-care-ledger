@@ -12,6 +12,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 12 May 2025 21:57:19 GMT",
+      "sod": "Mon, 12 May 2025 21:57:19 GMT"
+    },
     "exit_date": "2025-03-11",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -29,6 +33,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Tue, 02 Sep 2025 22:13:28 GMT"
+    },
     "exit_date": "2025-08-26",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -42,6 +49,9 @@
     },
     "documents": {
       "sod": "archive/0008655/2023-08-08_complaint-self-report_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 14 Aug 2023 11:38:01 GMT"
     },
     "exit_date": "2023-08-08",
     "expired_from_state": true,
@@ -59,6 +69,10 @@
       "enforcement": "archive/0008655/2025-01-02_survey-complaint_enforcement.pdf",
       "sod": "archive/0008655/2025-01-02_survey-complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 06 Jan 2025 21:33:59 GMT",
+      "sod": "Mon, 06 Jan 2025 21:33:59 GMT"
+    },
     "exit_date": "2025-01-02",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -72,6 +86,9 @@
     },
     "documents": {
       "sod": "archive/0008655/2025-06-12_self-report-vv_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 16 Jun 2025 20:51:55 GMT"
     },
     "exit_date": "2025-06-12",
     "expired_from_state": false,
@@ -93,6 +110,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 16 Jun 2025 20:51:51 GMT",
+      "sod": "Mon, 16 Jun 2025 20:51:51 GMT"
+    },
     "exit_date": "2025-05-13",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -109,6 +130,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 29 Sep 2025 18:18:30 GMT"
     },
     "exit_date": "2025-09-22",
     "expired_from_state": false,
@@ -127,6 +151,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 04 Mar 2024 13:39:03 GMT"
+    },
     "exit_date": "2024-02-27",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -143,6 +170,10 @@
       "enforcement": "archive/0009074/2023-11-02_survey-complaint_enforcement.pdf",
       "sod": "archive/0009074/2023-11-02_survey-complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 13 Nov 2023 14:14:48 GMT",
+      "sod": "Mon, 13 Nov 2023 14:14:48 GMT"
+    },
     "exit_date": "2023-11-02",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -157,6 +188,9 @@
     "documents": {
       "sod": "archive/0009118/2023-12-26_desk-review_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Tue, 02 Jan 2024 13:56:46 GMT"
+    },
     "exit_date": "2023-12-26",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -170,6 +204,9 @@
     },
     "documents": {
       "sod": "archive/0009118/2024-01-22_survey_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 29 Jan 2024 13:00:38 GMT"
     },
     "exit_date": "2024-01-22",
     "expired_from_state": false,
@@ -187,6 +224,10 @@
       "enforcement": "archive/0009226/2024-05-22_complaint_enforcement.pdf",
       "sod": "archive/0009226/2024-05-22_complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Tue, 28 May 2024 21:30:25 GMT",
+      "sod": "Tue, 28 May 2024 21:30:25 GMT"
+    },
     "exit_date": "2024-05-22",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -201,6 +242,9 @@
     "documents": {
       "sod": "archive/0009226/2024-12-03_verification-visit_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 09 Dec 2024 22:07:26 GMT"
+    },
     "exit_date": "2024-12-03",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -214,6 +258,9 @@
     },
     "documents": {
       "sod": "archive/0009226/2025-08-05_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 11 Aug 2025 21:53:02 GMT"
     },
     "exit_date": "2025-08-05",
     "expired_from_state": false,
@@ -231,6 +278,10 @@
       "enforcement": "archive/0009226/2026-02-17_desk-review_enforcement.pdf",
       "sod": "archive/0009226/2026-02-17_desk-review_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Tue, 17 Mar 2026 16:53:46 GMT",
+      "sod": "Tue, 17 Mar 2026 16:53:46 GMT"
+    },
     "exit_date": "2026-02-17",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -244,6 +295,9 @@
     },
     "documents": {
       "sod": "archive/0009226/2026-03-20_desk-review_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 23 Mar 2026 21:52:27 GMT"
     },
     "exit_date": "2026-03-20",
     "expired_from_state": false,
@@ -265,6 +319,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 15 Jul 2024 17:51:20 GMT",
+      "sod": "Mon, 15 Jul 2024 17:51:20 GMT"
+    },
     "exit_date": "2024-06-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -285,6 +343,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 16 Jun 2025 20:51:51 GMT",
+      "sod": "Mon, 16 Jun 2025 20:51:51 GMT"
+    },
     "exit_date": "2025-05-08",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -302,6 +364,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Tue, 02 Sep 2025 22:13:28 GMT"
+    },
     "exit_date": "2025-08-27",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -318,6 +383,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 14 Apr 2025 19:08:36 GMT"
     },
     "exit_date": "2025-04-08",
     "expired_from_state": false,
@@ -339,6 +407,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Tue, 16 Jan 2024 14:44:52 GMT",
+      "sod": "Tue, 16 Jan 2024 14:44:53 GMT"
+    },
     "exit_date": "2023-12-11",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -355,6 +427,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 18 Mar 2024 15:31:57 GMT"
     },
     "exit_date": "2024-03-13",
     "expired_from_state": false,
@@ -373,6 +448,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 29 Jul 2024 19:24:41 GMT"
+    },
     "exit_date": "2024-07-24",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -389,6 +467,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 29 Jul 2024 19:24:37 GMT"
     },
     "exit_date": "2024-07-23",
     "expired_from_state": false,
@@ -410,6 +491,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 31 Mar 2025 20:57:44 GMT",
+      "sod": "Mon, 31 Mar 2025 20:57:44 GMT"
+    },
     "exit_date": "2025-02-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -426,6 +511,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 12 May 2025 21:57:19 GMT"
     },
     "exit_date": "2025-05-06",
     "expired_from_state": false,
@@ -444,6 +532,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 15 Jul 2024 17:51:20 GMT"
+    },
     "exit_date": "2024-07-11",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -460,6 +551,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 18 May 2026 19:36:30 GMT"
     },
     "exit_date": "2026-05-12",
     "expired_from_state": false,
@@ -481,6 +575,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 11 Aug 2025 21:52:57 GMT",
+      "sod": "Mon, 11 Aug 2025 21:52:57 GMT"
+    },
     "exit_date": "2025-07-31",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -497,6 +595,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 17 Nov 2025 19:01:10 GMT"
     },
     "exit_date": "2025-11-04",
     "expired_from_state": false,
@@ -518,6 +619,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 18 Nov 2024 18:18:13 GMT",
+      "sod": "Mon, 18 Nov 2024 18:18:14 GMT"
+    },
     "exit_date": "2024-10-02",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -532,6 +637,9 @@
     "documents": {
       "sod": "archive/0010153/2025-01-24_survey_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 27 Jan 2025 21:50:36 GMT"
+    },
     "exit_date": "2025-01-24",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -545,6 +653,9 @@
     },
     "documents": {
       "sod": "archive/0010446/2024-08-07_survey_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 12 Aug 2024 21:36:22 GMT"
     },
     "exit_date": "2024-08-07",
     "expired_from_state": false,
@@ -563,6 +674,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 15 Jul 2024 17:51:17 GMT"
+    },
     "exit_date": "2024-07-10",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -578,6 +692,10 @@
     "documents": {
       "enforcement": "archive/0010689/2023-10-19_verification-visit_enforcement.pdf",
       "sod": "archive/0010689/2023-10-19_verification-visit_sod.pdf"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 08 Jan 2024 13:24:02 GMT",
+      "sod": "Mon, 08 Jan 2024 13:24:02 GMT"
     },
     "exit_date": "2023-10-19",
     "expired_from_state": false,
@@ -596,6 +714,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Tue, 17 Mar 2026 16:53:48 GMT"
+    },
     "exit_date": "2026-03-09",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -612,6 +733,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 20 Jul 2026 22:12:27 GMT"
     },
     "exit_date": "2026-07-14",
     "expired_from_state": false,
@@ -633,6 +757,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 22 Jul 2024 21:10:23 GMT",
+      "sod": "Mon, 22 Jul 2024 21:10:24 GMT"
+    },
     "exit_date": "2024-05-28",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -649,6 +777,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 14 Oct 2024 20:12:04 GMT"
     },
     "exit_date": "2024-10-07",
     "expired_from_state": false,
@@ -670,6 +801,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 15 Dec 2025 19:29:16 GMT",
+      "sod": "Mon, 15 Dec 2025 19:29:16 GMT"
+    },
     "exit_date": "2025-10-22",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -687,6 +822,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 03 Aug 2026 20:22:35 GMT"
+    },
     "exit_date": "2026-07-21",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -702,6 +840,10 @@
     "documents": {
       "enforcement": "archive/0011313/2025-07-23_survey-complaint_enforcement.pdf",
       "sod": "archive/0011313/2025-07-23_survey-complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 28 Jul 2025 20:29:51 GMT",
+      "sod": "Mon, 28 Jul 2025 20:29:51 GMT"
     },
     "exit_date": "2025-07-23",
     "expired_from_state": false,
@@ -719,6 +861,10 @@
       "enforcement": "archive/0011313/2025-12-03_complaint_enforcement.pdf",
       "sod": "archive/0011313/2025-12-03_complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 15 Dec 2025 19:29:06 GMT",
+      "sod": "Mon, 15 Dec 2025 19:29:06 GMT"
+    },
     "exit_date": "2025-12-03",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -735,6 +881,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 12 Aug 2024 21:36:28 GMT"
     },
     "exit_date": "2024-08-05",
     "expired_from_state": false,
@@ -756,6 +905,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 30 Jun 2025 20:27:14 GMT",
+      "sod": "Mon, 30 Jun 2025 20:27:14 GMT"
+    },
     "exit_date": "2025-04-09",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -776,6 +929,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 22 Dec 2025 20:51:01 GMT",
+      "sod": "Mon, 22 Dec 2025 20:51:01 GMT"
+    },
     "exit_date": "2025-09-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -792,6 +949,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 09 Mar 2026 20:01:10 GMT"
     },
     "exit_date": "2026-02-24",
     "expired_from_state": false,
@@ -810,6 +970,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 20 Jul 2026 22:12:27 GMT"
+    },
     "exit_date": "2026-07-09",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -826,6 +989,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Tue, 18 Aug 2026 21:15:06 GMT"
     },
     "exit_date": "2026-07-28",
     "expired_from_state": false,
@@ -844,6 +1010,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 21 Sep 2026 22:04:42 GMT"
+    },
     "exit_date": "2026-09-10",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -860,6 +1029,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 04 Mar 2024 13:39:03 GMT"
     },
     "exit_date": "2024-02-23",
     "expired_from_state": false,
@@ -878,6 +1050,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 07 Apr 2025 21:15:42 GMT"
+    },
     "exit_date": "2025-04-03",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -894,6 +1069,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 17 Feb 2025 22:49:18 GMT"
     },
     "exit_date": "2025-02-11",
     "expired_from_state": false,
@@ -912,6 +1090,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 17 Nov 2025 19:01:03 GMT"
+    },
     "exit_date": "2025-11-03",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -928,6 +1109,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 20 Jul 2026 22:12:28 GMT"
     },
     "exit_date": "2026-07-08",
     "expired_from_state": false,
@@ -949,6 +1133,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 13 Oct 2025 18:52:21 GMT",
+      "sod": "Mon, 13 Oct 2025 18:52:21 GMT"
+    },
     "exit_date": "2025-08-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -966,6 +1154,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 09 Feb 2026 19:43:47 GMT"
+    },
     "exit_date": "2026-01-22",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -982,6 +1173,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 18 Dec 2023 12:35:01 GMT"
     },
     "exit_date": "2023-12-06",
     "expired_from_state": false,
@@ -1003,6 +1197,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 28 Jul 2025 20:29:45 GMT",
+      "sod": "Mon, 28 Jul 2025 20:29:45 GMT"
+    },
     "exit_date": "2025-07-03",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1020,6 +1218,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 13 Oct 2025 18:52:25 GMT"
+    },
     "exit_date": "2025-10-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1033,6 +1234,9 @@
     },
     "documents": {
       "sod": "archive/0011887/2023-12-07_survey-complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 11 Dec 2023 13:39:06 GMT"
     },
     "exit_date": "2023-12-07",
     "expired_from_state": false,
@@ -1048,6 +1252,9 @@
     "documents": {
       "sod": "archive/0011888/2026-06-16_survey_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 22 Jun 2026 21:11:44 GMT"
+    },
     "exit_date": "2026-06-16",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -1061,6 +1268,9 @@
     },
     "documents": {
       "sod": "archive/0011937/2024-07-15_survey_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 05 Aug 2024 20:52:15 GMT"
     },
     "exit_date": "2024-07-15",
     "expired_from_state": false,
@@ -1082,6 +1292,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 31 Mar 2025 20:57:43 GMT",
+      "sod": "Mon, 17 Jun 2024 20:04:51 GMT"
+    },
     "exit_date": "2024-03-14",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1101,6 +1315,10 @@
     "documents_first_seen": {
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 15 Jul 2024 17:51:21 GMT",
+      "sod": "Mon, 15 Jul 2024 17:51:21 GMT"
     },
     "exit_date": "2024-06-10",
     "expired_from_state": false,
@@ -1122,6 +1340,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 30 Dec 2024 20:53:59 GMT",
+      "sod": "Mon, 30 Dec 2024 20:53:59 GMT"
+    },
     "exit_date": "2024-11-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1138,6 +1360,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 22 Sep 2025 18:58:46 GMT"
     },
     "exit_date": "2025-09-15",
     "expired_from_state": false,
@@ -1159,6 +1384,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 17 Jun 2024 20:04:59 GMT",
+      "sod": "Mon, 17 Jun 2024 20:04:59 GMT"
+    },
     "exit_date": "2024-04-30",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1178,6 +1407,10 @@
     "documents_first_seen": {
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 15 Jul 2024 17:51:24 GMT",
+      "sod": "Mon, 15 Jul 2024 17:51:25 GMT"
     },
     "exit_date": "2024-06-10",
     "expired_from_state": false,
@@ -1199,6 +1432,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 31 Mar 2025 20:57:51 GMT",
+      "sod": "Mon, 10 Feb 2025 22:13:11 GMT"
+    },
     "exit_date": "2024-11-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1215,6 +1452,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 22 Sep 2025 18:58:52 GMT"
     },
     "exit_date": "2025-09-15",
     "expired_from_state": false,
@@ -1236,6 +1476,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Tue, 22 Apr 2025 21:27:35 GMT",
+      "sod": "Tue, 22 Apr 2025 21:27:35 GMT"
+    },
     "exit_date": "2025-01-15",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1253,6 +1497,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 30 Jun 2025 20:27:13 GMT"
+    },
     "exit_date": "2025-06-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1269,6 +1516,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 12 Feb 2024 13:54:44 GMT"
     },
     "exit_date": "2024-02-05",
     "expired_from_state": false,
@@ -1290,6 +1540,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Tue, 02 Jan 2024 13:56:47 GMT",
+      "sod": "Tue, 02 Jan 2024 13:56:47 GMT"
+    },
     "exit_date": "2023-12-07",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1309,6 +1563,10 @@
     "documents_first_seen": {
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 08 Jul 2024 20:59:31 GMT",
+      "sod": "Mon, 08 Jul 2024 20:59:31 GMT"
     },
     "exit_date": "2024-05-06",
     "expired_from_state": false,
@@ -1330,6 +1588,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 30 Jun 2025 20:27:16 GMT",
+      "sod": "Mon, 30 Jun 2025 20:27:16 GMT"
+    },
     "exit_date": "2025-04-29",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1346,6 +1608,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 21 Jul 2025 17:02:06 GMT"
     },
     "exit_date": "2025-07-16",
     "expired_from_state": false,
@@ -1367,6 +1632,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Tue, 20 Jan 2026 23:01:43 GMT",
+      "sod": "Tue, 20 Jan 2026 23:01:43 GMT"
+    },
     "exit_date": "2025-11-10",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1384,6 +1653,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 13 Jul 2026 21:38:41 GMT"
+    },
     "exit_date": "2026-06-30",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1400,6 +1672,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 03 Jun 2024 22:04:51 GMT"
     },
     "exit_date": "2024-05-24",
     "expired_from_state": false,
@@ -1421,6 +1696,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 28 Oct 2024 20:33:30 GMT",
+      "sod": "Mon, 28 Oct 2024 20:33:30 GMT"
+    },
     "exit_date": "2024-07-11",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1437,6 +1716,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Tue, 22 Apr 2025 21:27:35 GMT"
     },
     "exit_date": "2025-04-16",
     "expired_from_state": false,
@@ -1455,6 +1737,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 05 May 2025 16:07:24 GMT"
+    },
     "exit_date": "2025-04-24",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1472,6 +1757,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 17 Nov 2025 19:01:07 GMT"
+    },
     "exit_date": "2025-11-10",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1488,6 +1776,10 @@
       "enforcement": "archive/0012110/2024-09-11_survey-complaint_enforcement.pdf",
       "sod": "archive/0012110/2024-09-11_survey-complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 14 Oct 2024 20:12:06 GMT",
+      "sod": "Mon, 14 Oct 2024 20:12:06 GMT"
+    },
     "exit_date": "2024-09-11",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -1501,6 +1793,9 @@
     },
     "documents": {
       "sod": "archive/0012110/2025-01-22_verification-visit_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 27 Jan 2025 21:50:40 GMT"
     },
     "exit_date": "2025-01-22",
     "expired_from_state": false,
@@ -1516,6 +1811,9 @@
     "documents": {
       "sod": "archive/0012111/2024-03-05_survey-vv_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 11 Mar 2024 19:39:25 GMT"
+    },
     "exit_date": "2024-03-05",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -1529,6 +1827,9 @@
     },
     "documents": {
       "sod": "archive/0012111/2024-09-11_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 16 Sep 2024 17:34:24 GMT"
     },
     "exit_date": "2024-09-11",
     "expired_from_state": false,
@@ -1550,6 +1851,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 13 Jan 2025 22:50:23 GMT",
+      "sod": "Mon, 13 Jan 2025 22:50:23 GMT"
+    },
     "exit_date": "2024-11-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1566,6 +1871,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 30 Jun 2025 20:27:15 GMT"
     },
     "exit_date": "2025-06-20",
     "expired_from_state": false,
@@ -1590,6 +1898,11 @@
       "poc": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 05 Feb 2024 14:30:17 GMT",
+      "poc": "Mon, 12 Feb 2024 13:54:47 GMT",
+      "sod": "Mon, 05 Feb 2024 14:30:17 GMT"
+    },
     "exit_date": "2023-11-22",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1607,6 +1920,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 24 Jun 2024 21:39:13 GMT"
+    },
     "exit_date": "2024-06-20",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1623,6 +1939,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 19 May 2025 21:29:05 GMT"
     },
     "exit_date": "2025-05-13",
     "expired_from_state": false,
@@ -1647,6 +1966,11 @@
       "poc": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 14 Jul 2025 18:58:45 GMT",
+      "poc": "Mon, 28 Jul 2025 20:29:38 GMT",
+      "sod": "Mon, 14 Jul 2025 18:58:45 GMT"
+    },
     "exit_date": "2025-06-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1664,6 +1988,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 04 May 2026 17:16:16 GMT"
+    },
     "exit_date": "2026-04-27",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1680,6 +2007,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 16 Oct 2023 12:28:50 GMT"
     },
     "exit_date": "2023-10-11",
     "expired_from_state": true,
@@ -1702,6 +2032,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Tue, 25 Aug 2026 19:45:37 GMT",
+      "sod": "Tue, 25 Aug 2026 19:45:37 GMT"
+    },
     "exit_date": "2026-06-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1716,6 +2050,9 @@
     "documents": {
       "sod": "archive/0012338/2025-10-02_survey_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 06 Oct 2025 21:08:50 GMT"
+    },
     "exit_date": "2025-10-02",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -1729,6 +2066,9 @@
     },
     "documents": {
       "sod": "archive/0012339/2025-12-04_survey_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 08 Dec 2025 20:32:22 GMT"
     },
     "exit_date": "2025-12-04",
     "expired_from_state": false,
@@ -1750,6 +2090,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 09 Jun 2025 20:36:29 GMT",
+      "sod": "Mon, 09 Jun 2025 20:36:30 GMT"
+    },
     "exit_date": "2025-04-28",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1767,6 +2111,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 17 Nov 2025 19:01:09 GMT"
+    },
     "exit_date": "2025-10-29",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1780,6 +2127,9 @@
     },
     "documents": {
       "sod": "archive/0012370/2026-06-09_survey-complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 22 Jun 2026 21:11:44 GMT"
     },
     "exit_date": "2026-06-09",
     "expired_from_state": false,
@@ -1798,6 +2148,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 04 Aug 2025 19:39:02 GMT"
+    },
     "exit_date": "2025-07-23",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1814,6 +2167,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Tue, 23 Apr 2024 20:45:19 GMT"
     },
     "exit_date": "2024-03-26",
     "expired_from_state": false,
@@ -1832,6 +2188,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 08 Jun 2026 20:47:53 GMT"
+    },
     "exit_date": "2026-06-02",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1846,6 +2205,9 @@
     "documents": {
       "sod": "archive/0012689/2025-10-03_survey_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 13 Oct 2025 18:52:14 GMT"
+    },
     "exit_date": "2025-10-03",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -1859,6 +2221,9 @@
     },
     "documents": {
       "sod": "archive/0012897/2024-01-22_verification-visit_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 29 Jan 2024 13:00:37 GMT"
     },
     "exit_date": "2024-01-22",
     "expired_from_state": false,
@@ -1880,6 +2245,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 29 Jun 2026 17:47:22 GMT",
+      "sod": "Mon, 29 Jun 2026 17:47:22 GMT"
+    },
     "exit_date": "2026-04-14",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -1893,6 +2262,9 @@
     },
     "documents": {
       "sod": "archive/0012930/2025-11-04_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 17 Nov 2025 19:01:15 GMT"
     },
     "exit_date": "2025-11-04",
     "expired_from_state": false,
@@ -1910,6 +2282,10 @@
       "enforcement": "archive/0012930/2026-06-10_survey-complaint_enforcement.pdf",
       "sod": "archive/0012930/2026-06-10_survey-complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 21 Sep 2026 22:04:40 GMT",
+      "sod": "Mon, 21 Sep 2026 22:04:40 GMT"
+    },
     "exit_date": "2026-06-10",
     "expired_from_state": false,
     "first_seen": "2026-10-06",
@@ -1923,6 +2299,9 @@
     },
     "documents": {
       "sod": "archive/0012930/2026-09-01_verification-visit_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Tue, 08 Sep 2026 17:00:45 GMT"
     },
     "exit_date": "2026-09-01",
     "expired_from_state": false,
@@ -1942,6 +2321,11 @@
       "poc": "archive/0013025/2024-01-18_survey-complaint_poc.pdf",
       "sod": "archive/0013025/2024-01-18_survey-complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 29 Jan 2024 13:00:38 GMT",
+      "poc": "Mon, 12 Feb 2024 13:54:44 GMT",
+      "sod": "Mon, 29 Jan 2024 13:00:38 GMT"
+    },
     "exit_date": "2024-01-18",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -1956,6 +2340,9 @@
     "documents": {
       "sod": "archive/0013025/2025-03-24_complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 31 Mar 2025 20:57:43 GMT"
+    },
     "exit_date": "2025-03-24",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -1969,6 +2356,9 @@
     },
     "documents": {
       "sod": "archive/0013025/2026-02-26_survey-complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 02 Mar 2026 20:40:09 GMT"
     },
     "exit_date": "2026-02-26",
     "expired_from_state": false,
@@ -1989,6 +2379,10 @@
     "documents_first_seen": {
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 16 Oct 2023 12:29:02 GMT",
+      "sod": "Mon, 16 Oct 2023 12:29:02 GMT"
     },
     "exit_date": "2023-10-09",
     "expired_from_state": true,
@@ -2011,6 +2405,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 18 Mar 2024 15:31:59 GMT",
+      "sod": "Mon, 18 Mar 2024 15:31:59 GMT"
+    },
     "exit_date": "2024-01-26",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2027,6 +2425,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 02 Dec 2024 21:18:11 GMT"
     },
     "exit_date": "2024-11-07",
     "expired_from_state": false,
@@ -2045,6 +2446,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Tue, 23 Apr 2024 20:45:19 GMT"
+    },
     "exit_date": "2024-04-11",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2061,6 +2465,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 11 May 2026 22:16:41 GMT"
     },
     "exit_date": "2026-04-28",
     "expired_from_state": false,
@@ -2079,6 +2486,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 31 Aug 2026 20:00:31 GMT"
+    },
     "exit_date": "2026-08-20",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2095,6 +2505,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 13 Jul 2026 21:38:39 GMT"
     },
     "exit_date": "2026-07-01",
     "expired_from_state": false,
@@ -2116,6 +2529,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 14 Oct 2024 20:12:05 GMT",
+      "sod": "Mon, 14 Oct 2024 20:12:05 GMT"
+    },
     "exit_date": "2024-08-15",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2136,6 +2553,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 14 Jul 2025 18:58:46 GMT",
+      "sod": "Mon, 14 Jul 2025 18:58:46 GMT"
+    },
     "exit_date": "2025-06-10",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2153,6 +2574,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 06 Oct 2025 21:08:53 GMT"
+    },
     "exit_date": "2025-09-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2169,6 +2593,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 19 Aug 2024 21:07:40 GMT"
     },
     "exit_date": "2024-08-09",
     "expired_from_state": false,
@@ -2190,6 +2617,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 28 Jul 2025 20:29:48 GMT",
+      "sod": "Mon, 28 Jul 2025 20:29:48 GMT"
+    },
     "exit_date": "2025-06-23",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2206,6 +2637,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 15 Jun 2026 21:47:45 GMT"
     },
     "exit_date": "2026-06-04",
     "expired_from_state": false,
@@ -2227,6 +2661,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 19 May 2025 21:29:02 GMT",
+      "sod": "Mon, 19 May 2025 21:29:02 GMT"
+    },
     "exit_date": "2025-03-21",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2244,6 +2682,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Tue, 22 Apr 2025 21:27:30 GMT"
+    },
     "exit_date": "2025-04-22",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2260,6 +2701,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Tue, 22 Apr 2025 21:27:31 GMT"
     },
     "exit_date": "2025-04-17",
     "expired_from_state": false,
@@ -2281,6 +2725,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 11 May 2026 22:16:43 GMT",
+      "sod": "Mon, 11 May 2026 22:16:43 GMT"
+    },
     "exit_date": "2026-02-18",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2298,6 +2746,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 15 Jul 2024 17:51:22 GMT"
+    },
     "exit_date": "2024-06-24",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2314,6 +2765,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 31 Mar 2025 20:57:45 GMT"
     },
     "exit_date": "2025-03-18",
     "expired_from_state": false,
@@ -2335,6 +2789,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 12 May 2025 21:57:18 GMT",
+      "sod": "Mon, 12 May 2025 21:57:18 GMT"
+    },
     "exit_date": "2024-12-20",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2355,6 +2813,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 13 Oct 2025 18:52:16 GMT",
+      "sod": "Mon, 13 Oct 2025 18:52:16 GMT"
+    },
     "exit_date": "2025-08-20",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2372,6 +2834,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Tue, 17 Mar 2026 16:53:45 GMT"
+    },
     "exit_date": "2026-03-03",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2388,6 +2853,10 @@
       "enforcement": "archive/0013419/2026-03-18_survey-complaint_enforcement.pdf",
       "sod": "archive/0013419/2026-03-18_survey-complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 20 Apr 2026 21:20:07 GMT",
+      "sod": "Mon, 20 Apr 2026 21:20:07 GMT"
+    },
     "exit_date": "2026-03-18",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -2401,6 +2870,9 @@
     },
     "documents": {
       "sod": "archive/0013419/2026-06-04_verification-visit_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 15 Jun 2026 21:47:44 GMT"
     },
     "exit_date": "2026-06-04",
     "expired_from_state": false,
@@ -2418,6 +2890,10 @@
       "enforcement": "archive/0013422/2023-12-11_survey-complaint-vv_enforcement.pdf",
       "sod": "archive/0013422/2023-12-11_survey-complaint-vv_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Tue, 26 Dec 2023 14:26:45 GMT",
+      "sod": "Tue, 26 Dec 2023 14:26:45 GMT"
+    },
     "exit_date": "2023-12-11",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -2431,6 +2907,9 @@
     },
     "documents": {
       "sod": "archive/0013422/2024-11-26_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 09 Dec 2024 22:07:27 GMT"
     },
     "exit_date": "2024-11-26",
     "expired_from_state": false,
@@ -2448,6 +2927,10 @@
       "enforcement": "archive/0013422/2025-12-02_survey-complaint_enforcement.pdf",
       "sod": "archive/0013422/2025-12-02_survey-complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 02 Feb 2026 19:09:54 GMT",
+      "sod": "Mon, 02 Feb 2026 19:09:54 GMT"
+    },
     "exit_date": "2025-12-02",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -2464,6 +2947,10 @@
       "enforcement": "archive/0013424/2023-09-25_survey-complaint_enforcement.pdf",
       "sod": "archive/0013424/2023-09-25_survey-complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 06 Nov 2023 00:43:35 GMT",
+      "sod": "Mon, 06 Nov 2023 00:43:35 GMT"
+    },
     "exit_date": "2023-09-25",
     "expired_from_state": true,
     "first_seen": "2026-07-12",
@@ -2477,6 +2964,9 @@
     },
     "documents": {
       "sod": "archive/0013424/2023-12-11_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 18 Dec 2023 12:35:03 GMT"
     },
     "exit_date": "2023-12-11",
     "expired_from_state": false,
@@ -2494,6 +2984,10 @@
       "enforcement": "archive/0013424/2024-03-05_verification-visit_enforcement.pdf",
       "sod": "archive/0013424/2024-03-05_verification-visit_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 01 Apr 2024 17:14:29 GMT",
+      "sod": "Mon, 01 Apr 2024 17:14:29 GMT"
+    },
     "exit_date": "2024-03-05",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -2509,6 +3003,10 @@
     "documents": {
       "enforcement": "archive/0013424/2024-11-26_verification-visit_enforcement.pdf",
       "sod": "archive/0013424/2024-11-26_verification-visit_sod.pdf"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 27 Jan 2025 21:50:38 GMT",
+      "sod": "Mon, 27 Jan 2025 21:50:38 GMT"
     },
     "exit_date": "2024-11-26",
     "expired_from_state": false,
@@ -2526,6 +3024,10 @@
       "enforcement": "archive/0013424/2026-03-12_survey-vv_enforcement.pdf",
       "sod": "archive/0013424/2026-03-12_survey-vv_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 20 Apr 2026 21:20:05 GMT",
+      "sod": "Mon, 20 Apr 2026 21:20:05 GMT"
+    },
     "exit_date": "2026-03-12",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -2539,6 +3041,9 @@
     },
     "documents": {
       "sod": "archive/0013424/2026-08-05_complaint-vv_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 10 Aug 2026 22:06:21 GMT"
     },
     "exit_date": "2026-08-05",
     "expired_from_state": false,
@@ -2560,6 +3065,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 19 Feb 2024 12:09:46 GMT",
+      "sod": "Mon, 19 Feb 2024 12:09:46 GMT"
+    },
     "exit_date": "2023-12-07",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2577,6 +3086,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 16 Sep 2024 17:34:21 GMT"
+    },
     "exit_date": "2024-09-12",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2590,6 +3102,9 @@
     },
     "documents": {
       "sod": "archive/0013441/2023-07-12_survey_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 17 Jul 2023 12:47:44 GMT"
     },
     "exit_date": "2023-07-12",
     "expired_from_state": true,
@@ -2611,6 +3126,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 10 Jun 2024 19:52:33 GMT",
+      "sod": "Mon, 10 Jun 2024 19:52:34 GMT"
+    },
     "exit_date": "2024-05-14",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2627,6 +3146,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 07 Apr 2025 21:15:43 GMT"
     },
     "exit_date": "2025-04-02",
     "expired_from_state": false,
@@ -2645,6 +3167,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 08 Sep 2025 18:16:37 GMT"
+    },
     "exit_date": "2025-09-02",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2662,6 +3187,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 08 Jun 2026 20:47:52 GMT"
+    },
     "exit_date": "2026-06-02",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2675,6 +3203,9 @@
     },
     "documents": {
       "sod": "archive/0013700/2024-07-15_survey_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 22 Jul 2024 21:10:24 GMT"
     },
     "exit_date": "2024-07-15",
     "expired_from_state": false,
@@ -2696,6 +3227,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 18 Nov 2024 18:18:13 GMT",
+      "sod": "Mon, 18 Nov 2024 18:18:13 GMT"
+    },
     "exit_date": "2024-08-08",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2712,6 +3247,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 24 Jun 2024 21:39:12 GMT"
     },
     "exit_date": "2024-06-19",
     "expired_from_state": false,
@@ -2730,6 +3268,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 07 Apr 2025 21:15:36 GMT"
+    },
     "exit_date": "2025-04-03",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2747,6 +3288,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 23 Feb 2026 19:27:37 GMT"
+    },
     "exit_date": "2026-02-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2763,6 +3307,10 @@
       "enforcement": "archive/0013949/2025-11-11_survey-complaint_enforcement.pdf",
       "sod": "archive/0013949/2025-11-11_survey-complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 08 Dec 2025 20:32:19 GMT",
+      "sod": "Mon, 08 Dec 2025 20:32:20 GMT"
+    },
     "exit_date": "2025-11-11",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -2776,6 +3324,9 @@
     },
     "documents": {
       "sod": "archive/0013949/2026-04-07_verification-visit_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 20 Apr 2026 21:20:07 GMT"
     },
     "exit_date": "2026-04-07",
     "expired_from_state": false,
@@ -2794,6 +3345,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 13 Nov 2023 14:14:43 GMT"
+    },
     "exit_date": "2023-11-08",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2810,6 +3364,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 07 Oct 2024 22:08:13 GMT"
     },
     "exit_date": "2024-09-30",
     "expired_from_state": false,
@@ -2828,6 +3385,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 03 Feb 2025 21:44:21 GMT"
+    },
     "exit_date": "2025-01-27",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2844,6 +3404,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 08 Dec 2025 20:32:23 GMT"
     },
     "exit_date": "2025-12-04",
     "expired_from_state": false,
@@ -2862,6 +3425,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Tue, 23 Apr 2024 20:45:36 GMT"
+    },
     "exit_date": "2024-04-11",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2879,6 +3445,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Tue, 16 Jan 2024 14:44:59 GMT"
+    },
     "exit_date": "2024-01-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2895,6 +3464,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 09 Sep 2024 12:27:43 GMT"
     },
     "exit_date": "2024-09-04",
     "expired_from_state": false,
@@ -2916,6 +3488,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 17 Nov 2025 19:01:20 GMT",
+      "sod": "Mon, 17 Nov 2025 19:01:20 GMT"
+    },
     "exit_date": "2025-10-13",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2932,6 +3508,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 17 Feb 2025 22:49:17 GMT"
     },
     "exit_date": "2025-02-13",
     "expired_from_state": false,
@@ -2950,6 +3529,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 30 Oct 2023 12:21:56 GMT"
+    },
     "exit_date": "2023-10-19",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2967,6 +3549,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 08 Sep 2025 18:16:38 GMT"
+    },
     "exit_date": "2025-09-03",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -2980,6 +3565,9 @@
     },
     "documents": {
       "sod": "archive/0014480/2025-01-24_survey_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 27 Jan 2025 21:50:40 GMT"
     },
     "exit_date": "2025-01-24",
     "expired_from_state": false,
@@ -2998,6 +3586,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 29 Jul 2024 19:24:30 GMT"
+    },
     "exit_date": "2024-07-23",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3014,6 +3605,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-12"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 15 Jun 2026 21:47:43 GMT"
     },
     "exit_date": "2026-06-04",
     "expired_from_state": false,
@@ -3032,6 +3626,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Tue, 15 Sep 2026 19:47:18 GMT"
+    },
     "exit_date": "2026-08-19",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3046,6 +3643,9 @@
     "documents": {
       "sod": "archive/0014504/2025-06-24_survey-complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 30 Jun 2025 20:27:17 GMT"
+    },
     "exit_date": "2025-06-24",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -3059,6 +3659,9 @@
     },
     "documents": {
       "sod": "archive/0014504/2025-10-29_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Tue, 04 Nov 2025 21:04:42 GMT"
     },
     "exit_date": "2025-10-29",
     "expired_from_state": false,
@@ -3075,6 +3678,10 @@
     "documents": {
       "enforcement": "archive/0014504/2026-06-30_complaint_enforcement.pdf",
       "sod": "archive/0014504/2026-06-30_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 20 Jul 2026 22:12:27 GMT",
+      "sod": "Mon, 20 Jul 2026 22:12:27 GMT"
     },
     "exit_date": "2026-06-30",
     "expired_from_state": false,
@@ -3093,6 +3700,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 04 Mar 2024 13:39:03 GMT"
+    },
     "exit_date": "2024-02-23",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3109,6 +3719,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 12 May 2025 21:57:26 GMT"
     },
     "exit_date": "2025-04-29",
     "expired_from_state": false,
@@ -3127,6 +3740,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 16 Feb 2026 20:52:53 GMT"
+    },
     "exit_date": "2026-01-28",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3143,6 +3759,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 04 Mar 2024 13:39:02 GMT"
     },
     "exit_date": "2024-02-28",
     "expired_from_state": false,
@@ -3164,6 +3783,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 01 Jul 2024 19:24:30 GMT",
+      "sod": "Mon, 01 Jul 2024 19:24:30 GMT"
+    },
     "exit_date": "2024-06-26",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3183,6 +3806,10 @@
     "documents_first_seen": {
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 21 Jul 2025 17:02:10 GMT",
+      "sod": "Mon, 21 Jul 2025 17:02:10 GMT"
     },
     "exit_date": "2025-05-29",
     "expired_from_state": false,
@@ -3204,6 +3831,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 09 Feb 2026 19:43:49 GMT",
+      "sod": "Mon, 09 Feb 2026 19:43:49 GMT"
+    },
     "exit_date": "2025-12-10",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3220,6 +3851,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 20 Apr 2026 21:20:08 GMT"
     },
     "exit_date": "2026-03-31",
     "expired_from_state": false,
@@ -3238,6 +3872,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 11 Aug 2025 21:52:55 GMT"
+    },
     "exit_date": "2025-08-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3255,6 +3892,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 08 Jun 2026 20:47:52 GMT"
+    },
     "exit_date": "2026-06-01",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3271,6 +3911,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 23 Oct 2023 12:25:24 GMT"
     },
     "exit_date": "2023-10-18",
     "expired_from_state": true,
@@ -3290,6 +3933,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 23 Mar 2026 21:52:27 GMT"
+    },
     "exit_date": "2026-03-18",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3307,6 +3953,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 13 Oct 2025 18:52:22 GMT"
+    },
     "exit_date": "2025-10-08",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3323,6 +3972,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 16 Feb 2026 20:52:52 GMT"
     },
     "exit_date": "2026-02-12",
     "expired_from_state": false,
@@ -3344,6 +3996,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 10 Aug 2026 22:06:24 GMT",
+      "sod": "Mon, 10 Aug 2026 22:06:24 GMT"
+    },
     "exit_date": "2026-06-24",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3364,6 +4020,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 18 Mar 2024 15:32:03 GMT",
+      "sod": "Mon, 18 Mar 2024 15:32:03 GMT"
+    },
     "exit_date": "2024-03-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3380,6 +4040,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 19 Aug 2024 21:07:41 GMT"
     },
     "exit_date": "2024-08-12",
     "expired_from_state": false,
@@ -3398,6 +4061,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Tue, 23 Apr 2024 20:45:21 GMT"
+    },
     "exit_date": "2024-04-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3414,6 +4080,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 04 Aug 2025 19:39:01 GMT"
     },
     "exit_date": "2025-07-24",
     "expired_from_state": false,
@@ -3432,6 +4101,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 09 Mar 2026 20:01:04 GMT"
+    },
     "exit_date": "2026-02-23",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3446,6 +4118,9 @@
     "documents": {
       "sod": "archive/0015223/2024-04-30_verification-visit_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 06 May 2024 19:17:45 GMT"
+    },
     "exit_date": "2024-04-30",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -3459,6 +4134,9 @@
     },
     "documents": {
       "sod": "archive/0015224/2025-10-03_survey_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 13 Oct 2025 18:52:27 GMT"
     },
     "exit_date": "2025-10-03",
     "expired_from_state": false,
@@ -3480,6 +4158,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 26 Feb 2024 12:58:26 GMT",
+      "sod": "Mon, 26 Feb 2024 12:58:26 GMT"
+    },
     "exit_date": "2024-02-08",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3499,6 +4181,10 @@
     "documents_first_seen": {
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "enforcement": "Tue, 23 Apr 2024 20:45:17 GMT",
+      "sod": "Tue, 23 Apr 2024 20:45:18 GMT"
     },
     "exit_date": "2024-03-19",
     "expired_from_state": false,
@@ -3520,6 +4206,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 29 Jul 2024 19:24:31 GMT",
+      "sod": "Mon, 29 Jul 2024 19:24:31 GMT"
+    },
     "exit_date": "2024-06-10",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3539,6 +4229,10 @@
     "documents_first_seen": {
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 12 Aug 2024 21:36:28 GMT",
+      "sod": "Mon, 12 Aug 2024 21:36:28 GMT"
     },
     "exit_date": "2024-08-07",
     "expired_from_state": false,
@@ -3560,6 +4254,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 31 Mar 2025 20:57:49 GMT",
+      "sod": "Mon, 31 Mar 2025 20:57:49 GMT"
+    },
     "exit_date": "2025-01-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3580,6 +4278,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 10 Mar 2025 18:38:49 GMT",
+      "sod": "Mon, 10 Mar 2025 18:38:49 GMT"
+    },
     "exit_date": "2025-02-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3597,6 +4299,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 14 Jul 2025 18:58:50 GMT"
+    },
     "exit_date": "2025-06-09",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3613,6 +4318,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 22 Jun 2026 21:11:44 GMT"
     },
     "exit_date": "2026-06-02",
     "expired_from_state": false,
@@ -3634,6 +4342,10 @@
       "enforcement": "2026-10-19",
       "sod": "2026-10-19"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 12 Oct 2026 21:13:48 GMT",
+      "sod": "Mon, 12 Oct 2026 21:13:48 GMT"
+    },
     "exit_date": "2026-08-31",
     "expired_from_state": false,
     "first_seen": "2026-10-19",
@@ -3650,6 +4362,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 30 Oct 2023 12:21:56 GMT"
     },
     "exit_date": "2023-10-18",
     "expired_from_state": true,
@@ -3668,6 +4383,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 19 Aug 2024 21:07:37 GMT"
     },
     "exit_date": "2024-08-15",
     "expired_from_state": false,
@@ -3692,6 +4410,11 @@
       "poc": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Tue, 03 Jun 2025 16:36:30 GMT",
+      "poc": "Mon, 09 Jun 2025 20:36:29 GMT",
+      "sod": "Tue, 03 Jun 2025 16:36:30 GMT"
+    },
     "exit_date": "2025-05-12",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3708,6 +4431,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 25 Aug 2025 21:44:10 GMT"
     },
     "exit_date": "2025-08-14",
     "expired_from_state": false,
@@ -3732,6 +4458,11 @@
       "poc": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 11 May 2026 22:16:39 GMT",
+      "poc": "Mon, 11 May 2026 22:16:39 GMT",
+      "sod": "Mon, 11 May 2026 22:16:39 GMT"
+    },
     "exit_date": "2026-02-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3749,6 +4480,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 06 Jul 2026 20:38:59 GMT"
+    },
     "exit_date": "2026-06-29",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3762,6 +4496,9 @@
     },
     "documents": {
       "sod": "archive/0015376/2026-01-26_survey_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 02 Feb 2026 19:09:59 GMT"
     },
     "exit_date": "2026-01-26",
     "expired_from_state": false,
@@ -3779,6 +4516,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 23 Oct 2023 12:31:15 GMT"
     },
     "exit_date": "2023-10-18",
     "expired_from_state": true,
@@ -3798,6 +4538,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Tue, 22 Apr 2025 21:27:27 GMT"
+    },
     "exit_date": "2025-04-07",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3814,6 +4557,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 23 Mar 2026 21:52:27 GMT"
     },
     "exit_date": "2026-03-18",
     "expired_from_state": false,
@@ -3835,6 +4581,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 11 Nov 2024 21:47:12 GMT",
+      "sod": "Mon, 11 Nov 2024 21:47:12 GMT"
+    },
     "exit_date": "2024-07-19",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3851,6 +4601,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Tue, 21 Jan 2025 19:33:02 GMT"
     },
     "exit_date": "2025-01-15",
     "expired_from_state": false,
@@ -3872,6 +4625,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 27 Jul 2026 21:31:17 GMT",
+      "sod": "Mon, 27 Jul 2026 21:31:17 GMT"
+    },
     "exit_date": "2026-04-23",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3892,6 +4649,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 29 Apr 2024 20:33:44 GMT",
+      "sod": "Mon, 29 Apr 2024 20:33:44 GMT"
+    },
     "exit_date": "2024-01-24",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3909,6 +4670,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 09 Jun 2025 20:36:27 GMT"
+    },
     "exit_date": "2025-06-02",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3925,6 +4689,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 23 Feb 2026 19:27:31 GMT"
     },
     "exit_date": "2026-02-12",
     "expired_from_state": false,
@@ -3946,6 +4713,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Tue, 27 May 2025 20:56:56 GMT",
+      "sod": "Tue, 27 May 2025 20:56:56 GMT"
+    },
     "exit_date": "2025-02-07",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3966,6 +4737,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 11 May 2026 22:16:40 GMT",
+      "sod": "Mon, 11 May 2026 22:16:40 GMT"
+    },
     "exit_date": "2026-02-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3983,6 +4758,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 08 Apr 2024 19:06:15 GMT"
+    },
     "exit_date": "2024-03-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -3999,6 +4777,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 31 Mar 2025 20:57:44 GMT"
     },
     "exit_date": "2025-03-20",
     "expired_from_state": false,
@@ -4020,6 +4801,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 15 Dec 2025 19:29:16 GMT",
+      "sod": "Mon, 15 Dec 2025 19:29:17 GMT"
+    },
     "exit_date": "2025-10-28",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -4039,6 +4824,10 @@
     "documents_first_seen": {
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 10 Jun 2024 19:52:25 GMT",
+      "sod": "Mon, 06 May 2024 19:17:46 GMT"
     },
     "exit_date": "2024-03-25",
     "expired_from_state": false,
@@ -4060,6 +4849,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 03 Mar 2025 22:11:47 GMT",
+      "sod": "Mon, 03 Mar 2025 22:11:47 GMT"
+    },
     "exit_date": "2024-11-29",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -4076,6 +4869,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 16 Jun 2025 20:51:54 GMT"
     },
     "exit_date": "2025-06-12",
     "expired_from_state": false,
@@ -4097,6 +4893,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 15 Dec 2025 19:29:12 GMT",
+      "sod": "Mon, 15 Dec 2025 19:29:12 GMT"
+    },
     "exit_date": "2025-10-28",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -4113,6 +4913,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 11 Mar 2024 19:39:22 GMT"
     },
     "exit_date": "2024-03-05",
     "expired_from_state": false,
@@ -4131,6 +4934,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Tue, 03 Sep 2024 20:15:02 GMT"
+    },
     "exit_date": "2024-08-21",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -4147,6 +4953,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 07 Apr 2025 21:15:42 GMT"
     },
     "exit_date": "2025-04-02",
     "expired_from_state": false,
@@ -4168,6 +4977,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Tue, 30 Dec 2025 21:46:39 GMT",
+      "sod": "Tue, 30 Dec 2025 21:46:39 GMT"
+    },
     "exit_date": "2025-12-12",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -4188,6 +5001,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 03 Aug 2026 20:22:31 GMT",
+      "sod": "Mon, 03 Aug 2026 20:22:31 GMT"
+    },
     "exit_date": "2026-05-26",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -4204,6 +5021,10 @@
       "enforcement": "archive/0015628/2023-10-24_survey-complaint_enforcement.pdf",
       "sod": "archive/0015628/2023-10-24_survey-complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 08 Jan 2024 13:24:00 GMT",
+      "sod": "Mon, 08 Jan 2024 13:24:00 GMT"
+    },
     "exit_date": "2023-10-24",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -4218,6 +5039,9 @@
     "documents": {
       "sod": "archive/0015628/2024-03-11_verification-visit_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 18 Mar 2024 15:31:59 GMT"
+    },
     "exit_date": "2024-03-11",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -4231,6 +5055,9 @@
     },
     "documents": {
       "sod": "archive/0015628/2024-07-10_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 15 Jul 2024 17:51:24 GMT"
     },
     "exit_date": "2024-07-10",
     "expired_from_state": false,
@@ -4248,6 +5075,10 @@
       "enforcement": "archive/0015628/2025-08-29_survey-complaint_enforcement.pdf",
       "sod": "archive/0015628/2025-08-29_survey-complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 08 Sep 2025 18:16:39 GMT",
+      "sod": "Mon, 08 Sep 2025 18:16:40 GMT"
+    },
     "exit_date": "2025-08-29",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -4264,6 +5095,10 @@
       "enforcement": "archive/0015628/2025-12-10_complaint-vv_enforcement.pdf",
       "sod": "archive/0015628/2025-12-10_complaint-vv_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 09 Feb 2026 19:43:52 GMT",
+      "sod": "Mon, 09 Feb 2026 19:43:52 GMT"
+    },
     "exit_date": "2025-12-10",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -4277,6 +5112,9 @@
     },
     "documents": {
       "sod": "archive/0015628/2026-03-10_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Tue, 17 Mar 2026 16:53:49 GMT"
     },
     "exit_date": "2026-03-10",
     "expired_from_state": false,
@@ -4294,6 +5132,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 01 Jul 2024 19:24:27 GMT"
     },
     "exit_date": "2024-06-25",
     "expired_from_state": false,
@@ -4315,6 +5156,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Tue, 27 May 2025 20:56:54 GMT",
+      "sod": "Tue, 27 May 2025 20:56:54 GMT"
+    },
     "exit_date": "2025-03-03",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -4335,6 +5180,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Tue, 18 Aug 2026 21:15:04 GMT",
+      "sod": "Tue, 18 Aug 2026 21:15:04 GMT"
+    },
     "exit_date": "2026-06-10",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -4351,6 +5200,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 19 Feb 2024 12:09:51 GMT"
     },
     "exit_date": "2024-02-09",
     "expired_from_state": false,
@@ -4372,6 +5224,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 05 Aug 2024 20:52:13 GMT",
+      "sod": "Mon, 05 Aug 2024 20:52:13 GMT"
+    },
     "exit_date": "2024-06-21",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -4391,6 +5247,10 @@
     "documents_first_seen": {
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 16 Jun 2025 20:51:53 GMT",
+      "sod": "Mon, 16 Jun 2025 20:51:53 GMT"
     },
     "exit_date": "2025-03-03",
     "expired_from_state": false,
@@ -4412,6 +5272,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 08 Dec 2025 20:32:21 GMT",
+      "sod": "Mon, 08 Dec 2025 20:32:21 GMT"
+    },
     "exit_date": "2025-10-02",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -4428,6 +5292,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 15 Jun 2026 21:47:45 GMT"
     },
     "exit_date": "2026-06-10",
     "expired_from_state": false,
@@ -4446,6 +5313,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Tue, 25 Aug 2026 19:45:39 GMT"
+    },
     "exit_date": "2026-08-19",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -4462,6 +5332,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 11 Mar 2024 19:39:19 GMT"
     },
     "exit_date": "2024-03-05",
     "expired_from_state": false,
@@ -4482,6 +5355,10 @@
     "documents_first_seen": {
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 28 Jul 2025 20:29:40 GMT",
+      "sod": "Mon, 28 Jul 2025 20:29:40 GMT"
     },
     "exit_date": "2025-06-24",
     "expired_from_state": false,
@@ -4506,6 +5383,11 @@
       "poc": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 27 Jul 2026 21:31:17 GMT",
+      "poc": "Mon, 31 Aug 2026 20:00:31 GMT",
+      "sod": "Mon, 27 Jul 2026 21:31:17 GMT"
+    },
     "exit_date": "2026-05-26",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -4519,6 +5401,9 @@
     },
     "documents": {
       "sod": "archive/0015634/2024-01-02_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Tue, 16 Jan 2024 14:44:54 GMT"
     },
     "exit_date": "2024-01-02",
     "expired_from_state": false,
@@ -4534,6 +5419,9 @@
     "documents": {
       "sod": "archive/0015634/2024-07-09_complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 15 Jul 2024 17:51:28 GMT"
+    },
     "exit_date": "2024-07-09",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -4548,6 +5436,9 @@
     "documents": {
       "sod": "archive/0015634/2025-07-11_complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 21 Jul 2025 17:02:13 GMT"
+    },
     "exit_date": "2025-07-11",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -4561,6 +5452,9 @@
     },
     "documents": {
       "sod": "archive/0015844/2024-12-23_survey_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 06 Jan 2025 21:34:00 GMT"
     },
     "exit_date": "2024-12-23",
     "expired_from_state": false,
@@ -4578,6 +5472,10 @@
       "enforcement": "archive/0015844/2026-03-11_complaint-self-report_enforcement.pdf",
       "sod": "archive/0015844/2026-03-11_complaint-self-report_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 06 Apr 2026 21:02:43 GMT",
+      "sod": "Mon, 06 Apr 2026 21:02:43 GMT"
+    },
     "exit_date": "2026-03-11",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -4591,6 +5489,9 @@
     },
     "documents": {
       "sod": "archive/0015844/2026-07-16_survey-vv_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 20 Jul 2026 22:12:27 GMT"
     },
     "exit_date": "2026-07-16",
     "expired_from_state": false,
@@ -4608,6 +5509,10 @@
       "enforcement": "archive/0015955/2024-03-19_complaint-self-report_enforcement.pdf",
       "sod": "archive/0015955/2024-03-19_complaint-self-report_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 01 Apr 2024 17:14:33 GMT",
+      "sod": "Mon, 01 Apr 2024 17:14:33 GMT"
+    },
     "exit_date": "2024-03-19",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -4621,6 +5526,9 @@
     },
     "documents": {
       "sod": "archive/0015955/2024-11-27_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 02 Dec 2024 21:18:12 GMT"
     },
     "exit_date": "2024-11-27",
     "expired_from_state": false,
@@ -4636,6 +5544,9 @@
     "documents": {
       "sod": "archive/0015955/2025-04-10_survey-complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 05 May 2025 16:07:20 GMT"
+    },
     "exit_date": "2025-04-10",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -4650,6 +5561,9 @@
     "documents": {
       "sod": "archive/0015955/2025-05-15_complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Tue, 27 May 2025 20:56:57 GMT"
+    },
     "exit_date": "2025-05-15",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -4663,6 +5577,9 @@
     },
     "documents": {
       "sod": "archive/0015955/2025-10-02_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 27 Oct 2025 18:33:54 GMT"
     },
     "exit_date": "2025-10-02",
     "expired_from_state": false,
@@ -4680,11 +5597,31 @@
       "enforcement": "archive/0015955/2026-02-18_complaint_enforcement.pdf",
       "sod": "archive/0015955/2026-02-18_complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 21 Sep 2026 22:04:43 GMT",
+      "sod": "Mon, 21 Sep 2026 22:04:43 GMT"
+    },
     "exit_date": "2026-02-18",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
     "last_seen": "2026-10-19",
     "license": "0015955",
+    "revisions": {
+      "enforcement": [
+        {
+          "first_seen": "2026-10-19",
+          "last_modified": "Mon, 21 Sep 2026 22:04:43 GMT",
+          "path": "archive/0015955/2026-02-18_complaint_rev2_enforcement.pdf"
+        }
+      ],
+      "sod": [
+        {
+          "first_seen": "2026-10-19",
+          "last_modified": "Mon, 21 Sep 2026 22:04:43 GMT",
+          "path": "archive/0015955/2026-02-18_complaint_rev2_sod.pdf"
+        }
+      ]
+    },
     "survey_type": "COMPLAINT"
   },
   "0015955|2026-06-08|complaint": {
@@ -4693,6 +5630,9 @@
     },
     "documents": {
       "sod": "archive/0015955/2026-06-08_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 22 Jun 2026 21:11:42 GMT"
     },
     "exit_date": "2026-06-08",
     "expired_from_state": false,
@@ -4714,6 +5654,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 16 Sep 2024 17:34:23 GMT",
+      "sod": "Mon, 16 Sep 2024 17:34:23 GMT"
+    },
     "exit_date": "2024-05-20",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -4734,6 +5678,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 21 Oct 2024 15:45:53 GMT",
+      "sod": "Mon, 21 Oct 2024 15:45:54 GMT"
+    },
     "exit_date": "2024-08-08",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -4750,6 +5698,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Tue, 27 May 2025 20:56:56 GMT"
     },
     "exit_date": "2025-05-21",
     "expired_from_state": false,
@@ -4771,6 +5722,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 09 Mar 2026 20:01:07 GMT",
+      "sod": "Mon, 09 Mar 2026 20:01:07 GMT"
+    },
     "exit_date": "2026-01-22",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -4787,6 +5742,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Tue, 25 Aug 2026 19:45:39 GMT"
     },
     "exit_date": "2026-08-12",
     "expired_from_state": false,
@@ -4808,6 +5766,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 06 May 2024 19:17:48 GMT",
+      "sod": "Mon, 06 May 2024 19:17:48 GMT"
+    },
     "exit_date": "2024-01-30",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -4827,6 +5789,10 @@
     "documents_first_seen": {
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 21 Oct 2024 15:45:56 GMT",
+      "sod": "Mon, 21 Oct 2024 15:45:56 GMT"
     },
     "exit_date": "2024-08-05",
     "expired_from_state": false,
@@ -4848,6 +5814,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 09 Mar 2026 20:01:08 GMT",
+      "sod": "Mon, 09 Mar 2026 20:01:09 GMT"
+    },
     "exit_date": "2026-01-22",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -4865,6 +5835,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 13 Jul 2026 21:38:40 GMT"
+    },
     "exit_date": "2026-07-02",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -4881,6 +5854,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 06 May 2024 19:17:50 GMT"
     },
     "exit_date": "2024-04-25",
     "expired_from_state": false,
@@ -4900,6 +5876,11 @@
       "poc": "archive/0016344/2023-09-12_complaint_poc.pdf",
       "sod": "archive/0016344/2023-09-12_complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 25 Sep 2023 11:53:12 GMT",
+      "poc": "Mon, 30 Oct 2023 12:21:54 GMT",
+      "sod": "Mon, 25 Sep 2023 11:53:12 GMT"
+    },
     "exit_date": "2023-09-12",
     "expired_from_state": true,
     "first_seen": "2026-07-12",
@@ -4918,6 +5899,11 @@
       "poc": "archive/0016344/2023-12-14_complaint-vv_poc.pdf",
       "sod": "archive/0016344/2023-12-14_complaint-vv_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 12 Feb 2024 13:54:48 GMT",
+      "poc": "Mon, 01 Apr 2024 17:14:33 GMT",
+      "sod": "Mon, 12 Feb 2024 13:54:48 GMT"
+    },
     "exit_date": "2023-12-14",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -4931,6 +5917,9 @@
     },
     "documents": {
       "sod": "archive/0016344/2024-01-09_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Tue, 16 Jan 2024 14:45:00 GMT"
     },
     "exit_date": "2024-01-09",
     "expired_from_state": false,
@@ -4950,6 +5939,11 @@
       "poc": "archive/0016344/2024-05-15_complaint-vv_poc.pdf",
       "sod": "archive/0016344/2024-05-15_complaint-vv_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 17 Jun 2024 20:04:55 GMT",
+      "poc": "Mon, 01 Jul 2024 19:24:31 GMT",
+      "sod": "Mon, 17 Jun 2024 20:04:55 GMT"
+    },
     "exit_date": "2024-05-15",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -4964,6 +5958,9 @@
     "documents": {
       "sod": "archive/0016344/2024-10-31_verification-visit_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 04 Nov 2024 21:47:52 GMT"
+    },
     "exit_date": "2024-10-31",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -4977,6 +5974,9 @@
     },
     "documents": {
       "sod": "archive/0016344/2024-12-04_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 09 Dec 2024 22:07:33 GMT"
     },
     "exit_date": "2024-12-04",
     "expired_from_state": false,
@@ -4998,6 +5998,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Tue, 02 Jan 2024 13:56:49 GMT",
+      "sod": "Tue, 02 Jan 2024 13:56:49 GMT"
+    },
     "exit_date": "2023-10-26",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5015,6 +6019,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Tue, 23 Apr 2024 20:45:31 GMT"
+    },
     "exit_date": "2024-04-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5031,6 +6038,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Tue, 23 Apr 2024 20:45:31 GMT"
     },
     "exit_date": "2024-04-11",
     "expired_from_state": false,
@@ -5052,6 +6062,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 20 Jul 2026 22:12:27 GMT",
+      "sod": "Mon, 20 Jul 2026 22:12:28 GMT"
+    },
     "exit_date": "2026-05-28",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5069,6 +6083,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 28 Sep 2026 22:21:30 GMT"
+    },
     "exit_date": "2026-09-21",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5082,6 +6099,9 @@
     },
     "documents": {
       "sod": "archive/0016456/2024-06-19_survey_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 24 Jun 2024 21:39:13 GMT"
     },
     "exit_date": "2024-06-19",
     "expired_from_state": false,
@@ -5099,6 +6119,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 22 Jan 2024 12:18:35 GMT"
     },
     "exit_date": "2024-01-11",
     "expired_from_state": false,
@@ -5120,6 +6143,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 09 Mar 2026 20:01:09 GMT",
+      "sod": "Mon, 09 Mar 2026 20:01:09 GMT"
+    },
     "exit_date": "2026-01-28",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5137,6 +6164,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 20 Jul 2026 22:12:27 GMT"
+    },
     "exit_date": "2026-07-17",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5151,6 +6181,9 @@
     "documents": {
       "sod": "archive/0016514/2024-06-19_survey_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 24 Jun 2024 21:39:13 GMT"
+    },
     "exit_date": "2024-06-19",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -5164,6 +6197,9 @@
     },
     "documents": {
       "sod": "archive/0016520/2024-06-20_survey-complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 24 Jun 2024 21:39:13 GMT"
     },
     "exit_date": "2024-06-20",
     "expired_from_state": false,
@@ -5188,6 +6224,11 @@
       "poc": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 12 Aug 2024 21:36:21 GMT",
+      "poc": "Mon, 19 Aug 2024 21:07:35 GMT",
+      "sod": "Mon, 12 Aug 2024 21:36:21 GMT"
+    },
     "exit_date": "2024-07-12",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5211,6 +6252,11 @@
       "poc": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 14 Jul 2025 18:58:43 GMT",
+      "poc": "Mon, 28 Jul 2025 20:29:37 GMT",
+      "sod": "Mon, 14 Jul 2025 18:58:43 GMT"
+    },
     "exit_date": "2025-05-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5228,6 +6274,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 22 Dec 2025 20:50:55 GMT"
+    },
     "exit_date": "2025-12-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5244,6 +6293,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 23 Feb 2026 19:27:38 GMT"
     },
     "exit_date": "2026-02-16",
     "expired_from_state": false,
@@ -5265,6 +6317,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 05 Aug 2024 20:52:14 GMT",
+      "sod": "Mon, 05 Aug 2024 20:52:14 GMT"
+    },
     "exit_date": "2024-07-31",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5278,6 +6334,9 @@
     },
     "documents": {
       "sod": "archive/0016736/2023-10-10_verification-visit_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 16 Oct 2023 12:28:52 GMT"
     },
     "exit_date": "2023-10-10",
     "expired_from_state": true,
@@ -5296,6 +6355,10 @@
       "enforcement": "archive/0016736/2024-12-09_complaint_enforcement.pdf",
       "sod": "archive/0016736/2024-12-09_complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 24 Feb 2025 21:02:27 GMT",
+      "sod": "Mon, 24 Feb 2025 21:02:27 GMT"
+    },
     "exit_date": "2024-12-09",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -5309,6 +6372,9 @@
     },
     "documents": {
       "sod": "archive/0016736/2025-11-18_verification-visit_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 08 Dec 2025 20:32:17 GMT"
     },
     "exit_date": "2025-11-18",
     "expired_from_state": false,
@@ -5326,6 +6392,10 @@
       "enforcement": "archive/0016736/2026-04-27_survey-complaint_enforcement.pdf",
       "sod": "archive/0016736/2026-04-27_survey-complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 22 Jun 2026 21:11:40 GMT",
+      "sod": "Mon, 22 Jun 2026 21:11:41 GMT"
+    },
     "exit_date": "2026-04-27",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -5341,6 +6411,10 @@
     "documents": {
       "enforcement": "archive/0016736/2026-08-19_complaint-vv_enforcement.pdf",
       "sod": "archive/0016736/2026-08-19_complaint-vv_sod.pdf"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 28 Sep 2026 22:21:28 GMT",
+      "sod": "Mon, 28 Sep 2026 22:21:28 GMT"
     },
     "exit_date": "2026-08-19",
     "expired_from_state": false,
@@ -5362,6 +6436,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 23 Dec 2024 17:53:27 GMT",
+      "sod": "Mon, 23 Dec 2024 17:53:28 GMT"
+    },
     "exit_date": "2024-10-29",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5379,6 +6457,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 02 Mar 2026 20:40:11 GMT"
+    },
     "exit_date": "2026-02-24",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5392,6 +6473,9 @@
     },
     "documents": {
       "sod": "archive/0016838/2026-04-07_survey_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 20 Apr 2026 21:20:10 GMT"
     },
     "exit_date": "2026-04-07",
     "expired_from_state": false,
@@ -5410,6 +6494,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Tue, 16 Jan 2024 14:45:00 GMT"
+    },
     "exit_date": "2024-01-08",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5426,6 +6513,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 10 Jun 2024 19:52:31 GMT"
     },
     "exit_date": "2024-06-05",
     "expired_from_state": false,
@@ -5444,6 +6534,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 02 Feb 2026 19:09:52 GMT"
+    },
     "exit_date": "2026-01-21",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5457,6 +6550,9 @@
     },
     "documents": {
       "sod": "archive/0016880/2026-03-24_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 06 Apr 2026 21:02:40 GMT"
     },
     "exit_date": "2026-03-24",
     "expired_from_state": false,
@@ -5472,6 +6568,9 @@
     "documents": {
       "sod": "archive/0016883/2023-08-08_verification-visit_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 14 Aug 2023 11:37:59 GMT"
+    },
     "exit_date": "2023-08-08",
     "expired_from_state": true,
     "first_seen": "2026-07-12",
@@ -5485,6 +6584,9 @@
     },
     "documents": {
       "sod": "archive/0016883/2025-06-19_survey-complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 30 Jun 2025 20:27:10 GMT"
     },
     "exit_date": "2025-06-19",
     "expired_from_state": false,
@@ -5502,6 +6604,10 @@
       "enforcement": "archive/0016894/2024-01-04_survey-complaint_enforcement.pdf",
       "sod": "archive/0016894/2024-01-04_survey-complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 12 Feb 2024 13:54:48 GMT",
+      "sod": "Mon, 12 Feb 2024 13:54:48 GMT"
+    },
     "exit_date": "2024-01-04",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -5515,6 +6621,9 @@
     },
     "documents": {
       "sod": "archive/0016894/2025-04-21_verification-visit_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 05 May 2025 16:07:28 GMT"
     },
     "exit_date": "2025-04-21",
     "expired_from_state": false,
@@ -5530,6 +6639,9 @@
     "documents": {
       "sod": "archive/0016894/2025-08-25_complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Tue, 02 Sep 2025 22:13:25 GMT"
+    },
     "exit_date": "2025-08-25",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -5543,6 +6655,9 @@
     },
     "documents": {
       "sod": "archive/0016895/2025-08-14_survey_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 25 Aug 2025 21:44:08 GMT"
     },
     "exit_date": "2025-08-14",
     "expired_from_state": false,
@@ -5561,6 +6676,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Tue, 30 Dec 2025 21:46:39 GMT"
+    },
     "exit_date": "2025-12-18",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5577,6 +6695,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 08 Jan 2024 13:24:01 GMT"
     },
     "exit_date": "2023-12-22",
     "expired_from_state": false,
@@ -5598,6 +6719,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 09 Feb 2026 19:43:46 GMT",
+      "sod": "Mon, 09 Feb 2026 19:43:46 GMT"
+    },
     "exit_date": "2025-12-03",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5618,6 +6743,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 06 Jul 2026 20:38:59 GMT",
+      "sod": "Mon, 06 Jul 2026 20:38:59 GMT"
+    },
     "exit_date": "2026-04-15",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5634,6 +6763,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 05 Feb 2024 14:30:12 GMT"
     },
     "exit_date": "2024-01-30",
     "expired_from_state": false,
@@ -5654,6 +6786,10 @@
     "documents_first_seen": {
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 11 Dec 2023 13:39:09 GMT",
+      "sod": "Mon, 11 Dec 2023 13:39:09 GMT"
     },
     "exit_date": "2023-10-11",
     "expired_from_state": true,
@@ -5676,6 +6812,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 18 Mar 2024 15:32:02 GMT",
+      "sod": "Mon, 18 Mar 2024 15:32:02 GMT"
+    },
     "exit_date": "2024-02-08",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5692,6 +6832,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 23 Sep 2024 12:14:45 GMT"
     },
     "exit_date": "2024-09-16",
     "expired_from_state": false,
@@ -5713,6 +6856,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 14 Jul 2025 18:58:44 GMT",
+      "sod": "Mon, 14 Jul 2025 18:58:45 GMT"
+    },
     "exit_date": "2025-05-12",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5729,6 +6876,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 17 Nov 2025 19:01:08 GMT"
     },
     "exit_date": "2025-11-06",
     "expired_from_state": false,
@@ -5747,6 +6897,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 28 Sep 2026 22:21:30 GMT"
+    },
     "exit_date": "2026-09-23",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5763,6 +6916,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 04 Aug 2025 19:39:00 GMT"
     },
     "exit_date": "2025-07-30",
     "expired_from_state": false,
@@ -5784,6 +6940,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 22 Dec 2025 20:51:02 GMT",
+      "sod": "Mon, 22 Dec 2025 20:51:02 GMT"
+    },
     "exit_date": "2025-10-30",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5800,6 +6960,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 22 Jan 2024 12:18:34 GMT"
     },
     "exit_date": "2024-01-19",
     "expired_from_state": false,
@@ -5824,6 +6987,11 @@
       "poc": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 08 Apr 2024 19:06:12 GMT",
+      "poc": "Tue, 23 Apr 2024 20:45:20 GMT",
+      "sod": "Mon, 08 Apr 2024 19:06:12 GMT"
+    },
     "exit_date": "2024-03-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5840,6 +7008,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 16 Sep 2024 17:34:22 GMT"
     },
     "exit_date": "2024-09-04",
     "expired_from_state": false,
@@ -5858,6 +7029,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 24 Feb 2025 21:02:30 GMT"
+    },
     "exit_date": "2025-02-18",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5874,6 +7048,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 17 Nov 2025 19:01:19 GMT"
     },
     "exit_date": "2025-11-04",
     "expired_from_state": false,
@@ -5895,6 +7072,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 23 Feb 2026 19:27:37 GMT",
+      "sod": "Mon, 23 Feb 2026 19:27:37 GMT"
+    },
     "exit_date": "2025-12-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5914,6 +7095,10 @@
     "documents_first_seen": {
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 30 Sep 2024 21:41:04 GMT",
+      "sod": "Mon, 30 Sep 2024 21:41:04 GMT"
     },
     "exit_date": "2024-07-01",
     "expired_from_state": false,
@@ -5935,6 +7120,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 11 Aug 2025 21:53:03 GMT",
+      "sod": "Mon, 11 Aug 2025 21:53:03 GMT"
+    },
     "exit_date": "2025-07-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5955,6 +7144,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Tue, 15 Sep 2026 19:47:21 GMT",
+      "sod": "Tue, 15 Sep 2026 19:47:21 GMT"
+    },
     "exit_date": "2026-07-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -5971,6 +7164,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 13 Apr 2026 18:46:14 GMT"
     },
     "exit_date": "2026-04-07",
     "expired_from_state": false,
@@ -5989,6 +7185,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 19 Feb 2024 12:09:52 GMT"
+    },
     "exit_date": "2024-02-09",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6005,6 +7204,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 09 Jun 2025 20:36:27 GMT"
     },
     "exit_date": "2025-05-28",
     "expired_from_state": false,
@@ -6026,6 +7228,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 17 Nov 2025 19:01:06 GMT",
+      "sod": "Mon, 17 Nov 2025 19:01:06 GMT"
+    },
     "exit_date": "2025-09-03",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6042,6 +7248,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 13 Apr 2026 18:46:15 GMT"
     },
     "exit_date": "2026-04-06",
     "expired_from_state": false,
@@ -6063,6 +7272,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 13 Oct 2025 18:52:31 GMT",
+      "sod": "Mon, 13 Oct 2025 18:52:31 GMT"
+    },
     "exit_date": "2025-08-11",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6079,6 +7292,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 29 Jun 2026 17:47:24 GMT"
     },
     "exit_date": "2026-06-18",
     "expired_from_state": false,
@@ -6097,6 +7313,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 20 Nov 2023 14:22:25 GMT"
+    },
     "exit_date": "2023-11-13",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6113,6 +7332,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 20 Apr 2026 21:20:08 GMT"
     },
     "exit_date": "2026-04-08",
     "expired_from_state": false,
@@ -6131,6 +7353,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 12 May 2025 21:57:28 GMT"
+    },
     "exit_date": "2025-05-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6147,6 +7372,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 27 Nov 2023 07:12:43 GMT"
     },
     "exit_date": "2023-11-09",
     "expired_from_state": false,
@@ -6165,6 +7393,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Tue, 05 Dec 2023 03:46:17 GMT"
+    },
     "exit_date": "2023-11-27",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6181,6 +7412,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 18 Aug 2025 21:38:57 GMT"
     },
     "exit_date": "2025-08-13",
     "expired_from_state": false,
@@ -6202,6 +7436,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 12 Jan 2026 19:39:15 GMT",
+      "sod": "Mon, 12 Jan 2026 19:39:15 GMT"
+    },
     "exit_date": "2025-12-02",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6219,6 +7457,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 06 Jul 2026 20:39:00 GMT"
+    },
     "exit_date": "2026-06-29",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6235,6 +7476,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 06 Nov 2023 00:43:37 GMT"
     },
     "exit_date": "2023-10-31",
     "expired_from_state": false,
@@ -6256,6 +7500,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 13 May 2024 17:28:10 GMT",
+      "sod": "Mon, 13 May 2024 17:28:10 GMT"
+    },
     "exit_date": "2024-02-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6272,6 +7520,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 13 May 2024 17:28:13 GMT"
     },
     "exit_date": "2024-04-25",
     "expired_from_state": false,
@@ -6293,6 +7544,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 19 May 2025 21:29:02 GMT",
+      "sod": "Mon, 19 May 2025 21:29:03 GMT"
+    },
     "exit_date": "2025-02-13",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6309,6 +7564,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 15 Jun 2026 21:47:43 GMT"
     },
     "exit_date": "2026-06-04",
     "expired_from_state": false,
@@ -6327,6 +7585,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 18 Nov 2024 18:18:18 GMT"
+    },
     "exit_date": "2024-11-13",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6343,6 +7604,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 06 Oct 2025 21:08:57 GMT"
     },
     "exit_date": "2025-09-24",
     "expired_from_state": false,
@@ -6361,6 +7625,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 09 Mar 2026 20:01:11 GMT"
+    },
     "exit_date": "2026-03-03",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6377,6 +7644,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 22 Jun 2026 21:11:42 GMT"
     },
     "exit_date": "2026-05-20",
     "expired_from_state": false,
@@ -6398,6 +7668,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Tue, 02 Jan 2024 13:56:49 GMT",
+      "sod": "Tue, 02 Jan 2024 13:56:50 GMT"
+    },
     "exit_date": "2023-11-17",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6414,6 +7688,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 14 Jul 2025 18:58:51 GMT"
     },
     "exit_date": "2025-06-24",
     "expired_from_state": false,
@@ -6435,6 +7712,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 03 Aug 2026 20:22:34 GMT",
+      "sod": "Mon, 03 Aug 2026 20:22:34 GMT"
+    },
     "exit_date": "2026-05-27",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6452,6 +7733,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Tue, 28 May 2024 21:30:31 GMT"
+    },
     "exit_date": "2024-05-22",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6468,6 +7752,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Tue, 18 Aug 2026 21:15:07 GMT"
     },
     "exit_date": "2026-08-10",
     "expired_from_state": false,
@@ -6489,6 +7776,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 29 Jan 2024 13:00:43 GMT",
+      "sod": "Mon, 29 Jan 2024 13:00:43 GMT"
+    },
     "exit_date": "2024-01-18",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6505,6 +7796,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 06 May 2024 19:17:50 GMT"
     },
     "exit_date": "2024-04-30",
     "expired_from_state": false,
@@ -6523,6 +7817,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 10 Feb 2025 22:13:05 GMT"
+    },
     "exit_date": "2025-02-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6539,6 +7836,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 10 Aug 2026 22:06:24 GMT"
     },
     "exit_date": "2026-08-06",
     "expired_from_state": false,
@@ -6560,6 +7860,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 29 Apr 2024 20:33:44 GMT",
+      "sod": "Mon, 29 Apr 2024 20:33:44 GMT"
+    },
     "exit_date": "2024-01-22",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6576,6 +7880,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 05 Aug 2024 20:52:11 GMT"
     },
     "exit_date": "2024-07-31",
     "expired_from_state": false,
@@ -6594,6 +7901,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 23 Feb 2026 19:27:34 GMT"
+    },
     "exit_date": "2026-02-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6611,6 +7921,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 08 Apr 2024 19:06:13 GMT"
+    },
     "exit_date": "2024-01-19",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6627,6 +7940,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Tue, 28 May 2024 21:30:32 GMT"
     },
     "exit_date": "2024-05-11",
     "expired_from_state": false,
@@ -6648,6 +7964,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 29 Apr 2024 20:33:41 GMT",
+      "sod": "Mon, 29 Apr 2024 20:33:41 GMT"
+    },
     "exit_date": "2024-01-19",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6667,6 +7987,10 @@
     "documents_first_seen": {
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 08 Jul 2024 20:59:34 GMT",
+      "sod": "Mon, 08 Jul 2024 20:59:34 GMT"
     },
     "exit_date": "2024-05-13",
     "expired_from_state": false,
@@ -6688,6 +8012,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 19 May 2025 21:29:09 GMT",
+      "sod": "Mon, 19 May 2025 21:29:09 GMT"
+    },
     "exit_date": "2025-01-30",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6705,6 +8033,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 14 Jul 2025 18:58:47 GMT"
+    },
     "exit_date": "2025-07-02",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6721,6 +8052,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 01 Dec 2025 19:07:26 GMT"
     },
     "exit_date": "2025-11-13",
     "expired_from_state": false,
@@ -6742,6 +8076,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 05 Aug 2024 20:52:07 GMT",
+      "sod": "Mon, 05 Aug 2024 20:52:07 GMT"
+    },
     "exit_date": "2024-06-26",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6759,6 +8097,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 05 May 2025 16:07:32 GMT"
+    },
     "exit_date": "2025-04-23",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6773,6 +8114,9 @@
     "documents": {
       "sod": "archive/0017995/2025-07-29_survey_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 04 Aug 2025 19:39:06 GMT"
+    },
     "exit_date": "2025-07-29",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -6786,6 +8130,9 @@
     },
     "documents": {
       "sod": "archive/0017996/2025-08-05_survey_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 08 Sep 2025 18:16:41 GMT"
     },
     "exit_date": "2025-08-05",
     "expired_from_state": false,
@@ -6807,6 +8154,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 01 Jul 2024 19:24:32 GMT",
+      "sod": "Mon, 01 Jul 2024 19:24:32 GMT"
+    },
     "exit_date": "2024-04-09",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6824,6 +8175,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 09 Dec 2024 22:07:34 GMT"
+    },
     "exit_date": "2024-12-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6837,6 +8191,9 @@
     },
     "documents": {
       "sod": "archive/0018018/2025-07-03_survey_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 14 Jul 2025 18:58:50 GMT"
     },
     "exit_date": "2025-07-03",
     "expired_from_state": false,
@@ -6855,6 +8212,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 12 May 2025 21:57:28 GMT"
+    },
     "exit_date": "2025-05-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6872,6 +8232,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 13 Oct 2025 18:52:20 GMT"
+    },
     "exit_date": "2025-10-07",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -6886,6 +8249,9 @@
     "documents": {
       "sod": "archive/0018266/2024-01-22_verification-visit_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 29 Jan 2024 13:00:44 GMT"
+    },
     "exit_date": "2024-01-22",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -6899,6 +8265,9 @@
     },
     "documents": {
       "sod": "archive/0018276/2023-07-17_survey-complaint-vv_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 24 Jul 2023 13:02:32 GMT"
     },
     "exit_date": "2023-07-17",
     "expired_from_state": true,
@@ -6916,6 +8285,10 @@
       "enforcement": "archive/0018276/2024-06-17_complaint_enforcement.pdf",
       "sod": "archive/0018276/2024-06-17_complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 29 Jul 2024 19:24:32 GMT",
+      "sod": "Mon, 29 Jul 2024 19:24:32 GMT"
+    },
     "exit_date": "2024-06-17",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -6929,6 +8302,9 @@
     },
     "documents": {
       "sod": "archive/0018276/2025-03-12_survey-vv_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Tue, 18 Mar 2025 14:49:07 GMT"
     },
     "exit_date": "2025-03-12",
     "expired_from_state": false,
@@ -6946,6 +8322,10 @@
       "enforcement": "archive/0018276/2025-11-03_complaint_enforcement.pdf",
       "sod": "archive/0018276/2025-11-03_complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 12 Jan 2026 19:39:13 GMT",
+      "sod": "Mon, 12 Jan 2026 19:39:13 GMT"
+    },
     "exit_date": "2025-11-03",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -6959,6 +8339,9 @@
     },
     "documents": {
       "sod": "archive/0018300/2024-12-11_survey-complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 23 Dec 2024 17:53:25 GMT"
     },
     "exit_date": "2024-12-11",
     "expired_from_state": false,
@@ -6976,6 +8359,10 @@
       "enforcement": "archive/0018300/2025-03-17_complaint_enforcement.pdf",
       "sod": "archive/0018300/2025-03-17_complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Tue, 27 May 2025 20:56:56 GMT",
+      "sod": "Tue, 27 May 2025 20:56:57 GMT"
+    },
     "exit_date": "2025-03-17",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -6991,6 +8378,10 @@
     "documents": {
       "enforcement": "archive/0018302/2024-01-29_survey-complaint-self-report_enforcement.pdf",
       "sod": "archive/0018302/2024-01-29_survey-complaint-self-report_sod.pdf"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 04 Mar 2024 13:39:03 GMT",
+      "sod": "Mon, 04 Mar 2024 13:39:03 GMT"
     },
     "exit_date": "2024-01-29",
     "expired_from_state": false,
@@ -7008,6 +8399,10 @@
       "enforcement": "archive/0018302/2024-02-29_complaint_enforcement.pdf",
       "sod": "archive/0018302/2024-02-29_complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 11 Mar 2024 19:39:25 GMT",
+      "sod": "Mon, 11 Mar 2024 19:39:25 GMT"
+    },
     "exit_date": "2024-02-29",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -7023,6 +8418,10 @@
     "documents": {
       "enforcement": "archive/0018302/2024-11-11_complaint_enforcement.pdf",
       "sod": "archive/0018302/2024-11-11_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "enforcement": "Tue, 21 Jan 2025 19:33:04 GMT",
+      "sod": "Tue, 21 Jan 2025 19:33:04 GMT"
     },
     "exit_date": "2024-11-11",
     "expired_from_state": false,
@@ -7040,6 +8439,10 @@
       "enforcement": "archive/0018302/2025-01-22_complaint-self-report_enforcement.pdf",
       "sod": "archive/0018302/2025-01-22_complaint-self-report_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 31 Mar 2025 20:57:48 GMT",
+      "sod": "Mon, 31 Mar 2025 20:57:48 GMT"
+    },
     "exit_date": "2025-01-22",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -7055,6 +8458,10 @@
     "documents": {
       "enforcement": "archive/0018302/2025-06-18_complaint-vv_enforcement.pdf",
       "sod": "archive/0018302/2025-06-18_complaint-vv_sod.pdf"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 21 Jul 2025 17:02:15 GMT",
+      "sod": "Mon, 21 Jul 2025 17:02:15 GMT"
     },
     "exit_date": "2025-06-18",
     "expired_from_state": false,
@@ -7072,6 +8479,10 @@
       "enforcement": "archive/0018302/2026-07-14_survey-complaint-vv_enforcement.pdf",
       "sod": "archive/0018302/2026-07-14_survey-complaint-vv_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 31 Aug 2026 20:00:33 GMT",
+      "sod": "Mon, 31 Aug 2026 20:00:34 GMT"
+    },
     "exit_date": "2026-07-14",
     "expired_from_state": false,
     "first_seen": "2026-10-06",
@@ -7087,6 +8498,10 @@
     "documents": {
       "enforcement": "archive/0018302/2026-08-25_complaint_enforcement.pdf",
       "sod": "archive/0018302/2026-08-25_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 05 Oct 2026 19:06:52 GMT",
+      "sod": "Mon, 05 Oct 2026 19:06:52 GMT"
     },
     "exit_date": "2026-08-25",
     "expired_from_state": false,
@@ -7108,6 +8523,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 13 Jan 2025 22:50:23 GMT",
+      "sod": "Mon, 13 Jan 2025 22:50:23 GMT"
+    },
     "exit_date": "2024-11-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -7124,6 +8543,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 16 Jun 2025 20:51:55 GMT"
     },
     "exit_date": "2025-06-04",
     "expired_from_state": false,
@@ -7145,6 +8567,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Tue, 23 Apr 2024 20:45:16 GMT",
+      "sod": "Tue, 23 Apr 2024 20:45:16 GMT"
+    },
     "exit_date": "2024-01-24",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -7162,6 +8588,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 23 Jun 2025 20:26:16 GMT"
+    },
     "exit_date": "2025-06-13",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -7178,6 +8607,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 05 May 2025 16:07:25 GMT"
     },
     "exit_date": "2025-04-24",
     "expired_from_state": false,
@@ -7199,6 +8631,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 29 Jan 2024 13:00:43 GMT",
+      "sod": "Mon, 29 Jan 2024 13:00:43 GMT"
+    },
     "exit_date": "2023-10-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -7215,6 +8651,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 11 Nov 2024 21:47:14 GMT"
     },
     "exit_date": "2024-11-04",
     "expired_from_state": false,
@@ -7236,6 +8675,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 05 May 2025 16:07:26 GMT",
+      "sod": "Mon, 05 May 2025 16:07:26 GMT"
+    },
     "exit_date": "2025-01-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -7253,6 +8696,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 14 Jul 2025 18:58:49 GMT"
+    },
     "exit_date": "2025-06-24",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -7266,6 +8712,9 @@
     },
     "documents": {
       "sod": "archive/0018526/2025-08-26_survey-complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 08 Sep 2025 18:16:35 GMT"
     },
     "exit_date": "2025-08-26",
     "expired_from_state": false,
@@ -7287,6 +8736,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 18 Nov 2024 18:18:14 GMT",
+      "sod": "Mon, 18 Nov 2024 18:18:15 GMT"
+    },
     "exit_date": "2024-09-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -7307,6 +8760,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 23 Dec 2024 17:53:27 GMT",
+      "sod": "Mon, 23 Dec 2024 17:53:27 GMT"
+    },
     "exit_date": "2024-12-12",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -7323,6 +8780,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 02 Mar 2026 20:40:07 GMT"
     },
     "exit_date": "2026-02-24",
     "expired_from_state": false,
@@ -7344,6 +8804,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 05 Oct 2026 19:06:51 GMT",
+      "sod": "Mon, 05 Oct 2026 19:06:51 GMT"
+    },
     "exit_date": "2026-08-10",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -7363,6 +8827,10 @@
     "documents_first_seen": {
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 10 Mar 2025 18:38:48 GMT",
+      "sod": "Mon, 10 Mar 2025 18:38:48 GMT"
     },
     "exit_date": "2024-12-10",
     "expired_from_state": false,
@@ -7384,6 +8852,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 08 Sep 2025 18:16:39 GMT",
+      "sod": "Mon, 08 Sep 2025 18:16:39 GMT"
+    },
     "exit_date": "2025-08-29",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -7403,6 +8875,10 @@
     "documents_first_seen": {
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 02 Feb 2026 19:09:51 GMT",
+      "sod": "Mon, 02 Feb 2026 19:09:51 GMT"
     },
     "exit_date": "2025-11-18",
     "expired_from_state": false,
@@ -7424,6 +8900,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 28 Sep 2026 22:21:28 GMT",
+      "sod": "Mon, 28 Sep 2026 22:21:28 GMT"
+    },
     "exit_date": "2026-08-20",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -7443,6 +8923,10 @@
     "documents_first_seen": {
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 24 Jun 2024 21:39:12 GMT",
+      "sod": "Mon, 24 Jun 2024 21:39:12 GMT"
     },
     "exit_date": "2024-05-28",
     "expired_from_state": false,
@@ -7464,6 +8948,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 09 Feb 2026 19:43:47 GMT",
+      "sod": "Mon, 09 Feb 2026 19:43:48 GMT"
+    },
     "exit_date": "2025-11-26",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -7484,6 +8972,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 03 Aug 2026 20:22:31 GMT",
+      "sod": "Mon, 03 Aug 2026 20:22:31 GMT"
+    },
     "exit_date": "2026-06-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -7500,6 +8992,10 @@
       "enforcement": "archive/0018760/2024-06-03_survey-complaint-self-report_enforcement.pdf",
       "sod": "archive/0018760/2024-06-03_survey-complaint-self-report_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 10 Jun 2024 19:52:34 GMT",
+      "sod": "Mon, 10 Jun 2024 19:52:34 GMT"
+    },
     "exit_date": "2024-06-03",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -7513,6 +9009,9 @@
     },
     "documents": {
       "sod": "archive/0018760/2025-01-22_verification-visit_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 27 Jan 2025 21:50:44 GMT"
     },
     "exit_date": "2025-01-22",
     "expired_from_state": false,
@@ -7530,6 +9029,10 @@
       "enforcement": "archive/0018760/2025-04-29_complaint_enforcement.pdf",
       "sod": "archive/0018760/2025-04-29_complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 09 Jun 2025 20:36:34 GMT",
+      "sod": "Mon, 09 Jun 2025 20:36:34 GMT"
+    },
     "exit_date": "2025-04-29",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -7546,6 +9049,10 @@
       "enforcement": "archive/0018760/2025-07-23_desk-review_enforcement.pdf",
       "sod": "archive/0018760/2025-07-23_desk-review_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 04 Aug 2025 19:39:03 GMT",
+      "sod": "Mon, 04 Aug 2025 19:39:03 GMT"
+    },
     "exit_date": "2025-07-23",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -7559,6 +9066,9 @@
     },
     "documents": {
       "sod": "archive/0018760/2025-08-13_desk-review_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 18 Aug 2025 21:38:55 GMT"
     },
     "exit_date": "2025-08-13",
     "expired_from_state": false,
@@ -7576,6 +9086,10 @@
       "enforcement": "archive/0018760/2025-11-06_complaint-vv_enforcement.pdf",
       "sod": "archive/0018760/2025-11-06_complaint-vv_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 12 Jan 2026 19:39:23 GMT",
+      "sod": "Mon, 12 Jan 2026 19:39:23 GMT"
+    },
     "exit_date": "2025-11-06",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -7591,6 +9105,10 @@
     "documents": {
       "enforcement": "archive/0018760/2026-06-30_survey-complaint-vv_enforcement.pdf",
       "sod": "archive/0018760/2026-06-30_survey-complaint-vv_sod.pdf"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 20 Jul 2026 22:12:28 GMT",
+      "sod": "Mon, 20 Jul 2026 22:12:28 GMT"
     },
     "exit_date": "2026-06-30",
     "expired_from_state": false,
@@ -7608,6 +9126,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 23 Oct 2023 12:31:23 GMT"
     },
     "exit_date": "2023-10-12",
     "expired_from_state": true,
@@ -7630,6 +9151,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 06 May 2024 19:17:46 GMT",
+      "sod": "Mon, 06 May 2024 19:17:46 GMT"
+    },
     "exit_date": "2023-12-19",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -7650,6 +9175,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 14 Oct 2024 20:12:03 GMT",
+      "sod": "Mon, 14 Oct 2024 20:12:03 GMT"
+    },
     "exit_date": "2024-07-29",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -7663,6 +9192,9 @@
     },
     "documents": {
       "sod": "archive/0018940/2025-04-23_survey_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 05 May 2025 16:07:21 GMT"
     },
     "exit_date": "2025-04-23",
     "expired_from_state": false,
@@ -7680,6 +9212,10 @@
       "enforcement": "archive/0018940/2025-12-17_complaint_enforcement.pdf",
       "sod": "archive/0018940/2025-12-17_complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 09 Feb 2026 19:43:45 GMT",
+      "sod": "Mon, 09 Feb 2026 19:43:45 GMT"
+    },
     "exit_date": "2025-12-17",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -7695,6 +9231,10 @@
     "documents": {
       "enforcement": "archive/0018940/2026-03-30_complaint-vv_enforcement.pdf",
       "sod": "archive/0018940/2026-03-30_complaint-vv_sod.pdf"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 27 Apr 2026 21:24:55 GMT",
+      "sod": "Mon, 27 Apr 2026 21:24:55 GMT"
     },
     "exit_date": "2026-03-30",
     "expired_from_state": false,
@@ -7712,6 +9252,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Tue, 23 Apr 2024 20:45:18 GMT"
     },
     "exit_date": "2024-04-16",
     "expired_from_state": false,
@@ -7733,6 +9276,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 29 Jun 2026 17:47:23 GMT",
+      "sod": "Mon, 29 Jun 2026 17:47:23 GMT"
+    },
     "exit_date": "2026-05-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -7746,6 +9293,9 @@
     },
     "documents": {
       "sod": "archive/0019222/2023-08-16_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 21 Aug 2023 12:14:41 GMT"
     },
     "exit_date": "2023-08-16",
     "expired_from_state": true,
@@ -7761,6 +9311,9 @@
     "documents": {
       "sod": "archive/0019222/2024-06-11_survey-complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 17 Jun 2024 20:04:58 GMT"
+    },
     "exit_date": "2024-06-11",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -7774,6 +9327,9 @@
     },
     "documents": {
       "sod": "archive/0019326/2023-12-21_survey-self-report_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 08 Jan 2024 13:23:59 GMT"
     },
     "exit_date": "2023-12-21",
     "expired_from_state": false,
@@ -7791,6 +9347,10 @@
       "enforcement": "archive/0019326/2025-04-16_complaint_enforcement.pdf",
       "sod": "archive/0019326/2025-04-16_complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 05 May 2025 16:07:19 GMT",
+      "sod": "Mon, 05 May 2025 16:07:19 GMT"
+    },
     "exit_date": "2025-04-16",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -7806,6 +9366,10 @@
     "documents": {
       "enforcement": "archive/0019326/2025-09-23_survey-complaint-vv_enforcement.pdf",
       "sod": "archive/0019326/2025-09-23_survey-complaint-vv_sod.pdf"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 06 Oct 2025 21:08:52 GMT",
+      "sod": "Mon, 06 Oct 2025 21:08:52 GMT"
     },
     "exit_date": "2025-09-23",
     "expired_from_state": false,
@@ -7823,6 +9387,10 @@
       "enforcement": "archive/0019328/2023-11-08_survey-complaint_enforcement.pdf",
       "sod": "archive/0019328/2023-11-08_survey-complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Tue, 05 Dec 2023 03:46:18 GMT",
+      "sod": "Tue, 05 Dec 2023 03:46:18 GMT"
+    },
     "exit_date": "2023-11-08",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -7836,6 +9404,9 @@
     },
     "documents": {
       "sod": "archive/0019328/2024-01-31_verification-visit_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 12 Feb 2024 13:54:43 GMT"
     },
     "exit_date": "2024-01-31",
     "expired_from_state": false,
@@ -7853,6 +9424,10 @@
       "enforcement": "archive/0019328/2024-12-19_complaint_enforcement.pdf",
       "sod": "archive/0019328/2024-12-19_complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 03 Mar 2025 22:11:43 GMT",
+      "sod": "Mon, 03 Mar 2025 22:11:43 GMT"
+    },
     "exit_date": "2024-12-19",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -7868,6 +9443,10 @@
     "documents": {
       "enforcement": "archive/0019328/2025-09-12_complaint_enforcement.pdf",
       "sod": "archive/0019328/2025-09-12_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 22 Sep 2025 18:58:50 GMT",
+      "sod": "Mon, 22 Sep 2025 18:58:50 GMT"
     },
     "exit_date": "2025-09-12",
     "expired_from_state": false,
@@ -7885,6 +9464,10 @@
       "enforcement": "archive/0019328/2025-10-22_survey-complaint-vv_enforcement.pdf",
       "sod": "archive/0019328/2025-10-22_survey-complaint-vv_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Tue, 04 Nov 2025 21:04:41 GMT",
+      "sod": "Tue, 04 Nov 2025 21:04:41 GMT"
+    },
     "exit_date": "2025-10-22",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -7901,6 +9484,10 @@
       "enforcement": "archive/0019329/2023-11-30_survey-complaint-vv_enforcement.pdf",
       "sod": "archive/0019329/2023-11-30_survey-complaint-vv_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 18 Dec 2023 12:35:01 GMT",
+      "sod": "Mon, 18 Dec 2023 12:35:01 GMT"
+    },
     "exit_date": "2023-11-30",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -7914,6 +9501,9 @@
     },
     "documents": {
       "sod": "archive/0019329/2024-02-26_complaint-vv_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 04 Mar 2024 13:39:03 GMT"
     },
     "exit_date": "2024-02-26",
     "expired_from_state": false,
@@ -7931,6 +9521,10 @@
       "enforcement": "archive/0019329/2026-04-01_survey-complaint_enforcement.pdf",
       "sod": "archive/0019329/2026-04-01_survey-complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 18 May 2026 19:36:28 GMT",
+      "sod": "Mon, 18 May 2026 19:36:28 GMT"
+    },
     "exit_date": "2026-04-01",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -7944,6 +9538,9 @@
     },
     "documents": {
       "sod": "archive/0019331/2023-12-21_survey_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Tue, 02 Jan 2024 13:56:49 GMT"
     },
     "exit_date": "2023-12-21",
     "expired_from_state": false,
@@ -7961,6 +9558,10 @@
       "enforcement": "archive/0019331/2025-10-20_survey-complaint_enforcement.pdf",
       "sod": "archive/0019331/2025-10-20_survey-complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 15 Dec 2025 19:29:12 GMT",
+      "sod": "Mon, 15 Dec 2025 19:29:12 GMT"
+    },
     "exit_date": "2025-10-20",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -7977,6 +9578,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 26 Jan 2026 19:05:01 GMT"
     },
     "exit_date": "2026-01-12",
     "expired_from_state": false,
@@ -7998,6 +9602,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 11 May 2026 22:16:39 GMT",
+      "sod": "Mon, 11 May 2026 22:16:39 GMT"
+    },
     "exit_date": "2026-02-19",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -8018,6 +9626,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 15 Jul 2024 17:51:25 GMT",
+      "sod": "Mon, 15 Jul 2024 17:51:25 GMT"
+    },
     "exit_date": "2024-06-18",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -8034,6 +9646,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 14 Oct 2024 20:12:07 GMT"
     },
     "exit_date": "2024-09-19",
     "expired_from_state": false,
@@ -8055,6 +9670,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Tue, 18 Aug 2026 21:15:04 GMT",
+      "sod": "Tue, 18 Aug 2026 21:15:04 GMT"
+    },
     "exit_date": "2026-06-02",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -8072,6 +9691,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 26 Aug 2024 20:41:51 GMT"
+    },
     "exit_date": "2024-08-15",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -8086,6 +9708,9 @@
     "documents": {
       "sod": "archive/0019733/2024-07-22_survey_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 29 Jul 2024 19:24:32 GMT"
+    },
     "exit_date": "2024-07-22",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -8099,6 +9724,9 @@
     },
     "documents": {
       "sod": "archive/0019733/2025-02-27_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 03 Mar 2025 22:11:44 GMT"
     },
     "exit_date": "2025-02-27",
     "expired_from_state": false,
@@ -8115,6 +9743,10 @@
     "documents": {
       "enforcement": "archive/0019733/2025-08-11_self-report_enforcement.pdf",
       "sod": "archive/0019733/2025-08-11_self-report_sod.pdf"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 25 Aug 2025 21:44:08 GMT",
+      "sod": "Mon, 25 Aug 2025 21:44:08 GMT"
     },
     "exit_date": "2025-08-11",
     "expired_from_state": false,
@@ -8133,6 +9765,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 29 Jan 2024 13:00:36 GMT"
+    },
     "exit_date": "2024-01-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -8149,6 +9784,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 06 May 2024 19:17:50 GMT"
     },
     "exit_date": "2024-04-23",
     "expired_from_state": false,
@@ -8167,6 +9805,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 26 Aug 2024 20:41:50 GMT"
+    },
     "exit_date": "2024-08-15",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -8183,6 +9824,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 17 Nov 2025 19:01:11 GMT"
     },
     "exit_date": "2025-11-05",
     "expired_from_state": false,
@@ -8204,6 +9848,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Tue, 03 Jun 2025 16:36:30 GMT",
+      "sod": "Tue, 03 Jun 2025 16:36:30 GMT"
+    },
     "exit_date": "2025-05-19",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -8220,6 +9868,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 17 Nov 2025 19:01:10 GMT"
     },
     "exit_date": "2025-11-04",
     "expired_from_state": false,
@@ -8238,6 +9889,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 09 Jun 2025 20:36:28 GMT"
+    },
     "exit_date": "2025-06-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -8255,6 +9909,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 09 Jun 2025 20:36:28 GMT"
+    },
     "exit_date": "2025-06-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -8268,6 +9925,9 @@
     },
     "documents": {
       "sod": "archive/0019937/2024-08-15_survey_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 19 Aug 2024 21:07:41 GMT"
     },
     "exit_date": "2024-08-15",
     "expired_from_state": false,
@@ -8283,6 +9943,9 @@
     "documents": {
       "sod": "archive/0019937/2025-07-02_complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 14 Jul 2025 18:58:42 GMT"
+    },
     "exit_date": "2025-07-02",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -8296,6 +9959,9 @@
     },
     "documents": {
       "sod": "archive/0019940/2024-09-12_survey_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 16 Sep 2024 17:34:23 GMT"
     },
     "exit_date": "2024-09-12",
     "expired_from_state": false,
@@ -8312,6 +9978,10 @@
     "documents": {
       "enforcement": "archive/0019940/2025-11-13_complaint_enforcement.pdf",
       "sod": "archive/0019940/2025-11-13_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 01 Dec 2025 19:07:25 GMT",
+      "sod": "Mon, 01 Dec 2025 19:07:25 GMT"
     },
     "exit_date": "2025-11-13",
     "expired_from_state": false,
@@ -8330,6 +10000,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Tue, 03 Jun 2025 16:36:27 GMT"
+    },
     "exit_date": "2025-05-23",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -8346,6 +10019,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 14 Apr 2025 19:08:35 GMT"
     },
     "exit_date": "2025-04-09",
     "expired_from_state": false,
@@ -8364,6 +10040,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 22 Dec 2025 20:51:01 GMT"
+    },
     "exit_date": "2025-11-11",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -8380,6 +10059,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 13 Oct 2025 18:52:24 GMT"
     },
     "exit_date": "2025-10-08",
     "expired_from_state": false,
@@ -8398,6 +10080,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 23 Feb 2026 19:27:35 GMT"
+    },
     "exit_date": "2026-02-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -8411,6 +10096,9 @@
     },
     "documents": {
       "sod": "archive/0020363/2024-11-27_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 09 Dec 2024 22:07:28 GMT"
     },
     "exit_date": "2024-11-27",
     "expired_from_state": false,
@@ -8426,6 +10114,9 @@
     "documents": {
       "sod": "archive/0020363/2025-08-07_complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 11 Aug 2025 21:53:01 GMT"
+    },
     "exit_date": "2025-08-07",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -8439,6 +10130,9 @@
     },
     "documents": {
       "sod": "archive/0020363/2026-09-09_survey-complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 21 Sep 2026 22:04:42 GMT"
     },
     "exit_date": "2026-09-09",
     "expired_from_state": false,
@@ -8454,6 +10148,9 @@
     "documents": {
       "sod": "archive/0020366/2024-11-13_survey-complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 18 Nov 2024 18:18:14 GMT"
+    },
     "exit_date": "2024-11-13",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -8467,6 +10164,9 @@
     },
     "documents": {
       "sod": "archive/0020366/2025-04-03_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 07 Apr 2025 21:15:38 GMT"
     },
     "exit_date": "2025-04-03",
     "expired_from_state": false,
@@ -8484,6 +10184,10 @@
       "enforcement": "archive/0020366/2025-07-28_complaint_enforcement.pdf",
       "sod": "archive/0020366/2025-07-28_complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 18 Aug 2025 21:38:54 GMT",
+      "sod": "Mon, 18 Aug 2025 21:38:54 GMT"
+    },
     "exit_date": "2025-07-28",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -8497,6 +10201,9 @@
     },
     "documents": {
       "sod": "archive/0020366/2025-09-24_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 29 Sep 2025 18:18:33 GMT"
     },
     "exit_date": "2025-09-24",
     "expired_from_state": false,
@@ -8512,6 +10219,9 @@
     "documents": {
       "sod": "archive/0020366/2026-01-27_survey-complaint-vv_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 02 Feb 2026 19:09:51 GMT"
+    },
     "exit_date": "2026-01-27",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -8525,6 +10235,9 @@
     },
     "documents": {
       "sod": "archive/0020366/2026-07-21_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 27 Jul 2026 21:31:18 GMT"
     },
     "exit_date": "2026-07-21",
     "expired_from_state": false,
@@ -8542,6 +10255,10 @@
       "enforcement": "archive/0020445/2024-10-01_survey-complaint_enforcement.pdf",
       "sod": "archive/0020445/2024-10-01_survey-complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 07 Oct 2024 22:08:10 GMT",
+      "sod": "Mon, 07 Oct 2024 22:08:10 GMT"
+    },
     "exit_date": "2024-10-01",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -8555,6 +10272,9 @@
     },
     "documents": {
       "sod": "archive/0020445/2024-12-04_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 09 Dec 2024 22:07:27 GMT"
     },
     "exit_date": "2024-12-04",
     "expired_from_state": false,
@@ -8572,6 +10292,10 @@
       "enforcement": "archive/0020445/2025-06-19_complaint-vv_enforcement.pdf",
       "sod": "archive/0020445/2025-06-19_complaint-vv_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 30 Jun 2025 20:27:08 GMT",
+      "sod": "Mon, 30 Jun 2025 20:27:09 GMT"
+    },
     "exit_date": "2025-06-19",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -8585,6 +10309,9 @@
     },
     "documents": {
       "sod": "archive/0020445/2026-08-19_verification-visit_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 31 Aug 2026 20:00:30 GMT"
     },
     "exit_date": "2026-08-19",
     "expired_from_state": false,
@@ -8602,6 +10329,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 23 Jun 2025 20:26:21 GMT"
     },
     "exit_date": "2025-06-11",
     "expired_from_state": false,
@@ -8623,6 +10353,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 13 Apr 2026 18:46:16 GMT",
+      "sod": "Mon, 13 Apr 2026 18:46:16 GMT"
+    },
     "exit_date": "2026-03-09",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -8639,6 +10373,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 13 Jul 2026 21:38:41 GMT"
     },
     "exit_date": "2026-06-30",
     "expired_from_state": false,
@@ -8660,6 +10397,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 22 Jul 2024 21:10:22 GMT",
+      "sod": "Mon, 22 Jul 2024 21:10:22 GMT"
+    },
     "exit_date": "2024-07-08",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -8676,6 +10417,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Tue, 27 May 2025 20:56:52 GMT"
     },
     "exit_date": "2025-05-19",
     "expired_from_state": false,
@@ -8694,6 +10438,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 08 Sep 2025 18:16:38 GMT"
+    },
     "exit_date": "2025-08-27",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -8710,6 +10457,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 08 Dec 2025 20:32:22 GMT"
     },
     "exit_date": "2025-11-25",
     "expired_from_state": false,
@@ -8731,6 +10481,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Tue, 27 May 2025 20:56:52 GMT",
+      "sod": "Tue, 27 May 2025 20:56:52 GMT"
+    },
     "exit_date": "2025-03-13",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -8750,6 +10504,10 @@
     "documents_first_seen": {
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 23 Feb 2026 19:27:32 GMT",
+      "sod": "Mon, 23 Feb 2026 19:27:32 GMT"
     },
     "exit_date": "2026-01-13",
     "expired_from_state": false,
@@ -8771,6 +10529,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 05 Oct 2026 19:06:50 GMT",
+      "sod": "Mon, 05 Oct 2026 19:06:50 GMT"
+    },
     "exit_date": "2026-07-23",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -8787,6 +10549,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 13 Oct 2025 18:52:23 GMT"
     },
     "exit_date": "2025-10-08",
     "expired_from_state": false,
@@ -8808,6 +10573,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 25 Aug 2025 21:44:10 GMT",
+      "sod": "Mon, 25 Aug 2025 21:44:10 GMT"
+    },
     "exit_date": "2025-08-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -8824,6 +10593,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 06 Jul 2026 20:39:00 GMT"
     },
     "exit_date": "2026-06-29",
     "expired_from_state": false,
@@ -8845,6 +10617,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 13 Apr 2026 18:46:15 GMT",
+      "sod": "Mon, 13 Apr 2026 18:46:15 GMT"
+    },
     "exit_date": "2026-01-26",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -8865,6 +10641,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 06 Jul 2026 20:38:59 GMT",
+      "sod": "Mon, 06 Jul 2026 20:38:59 GMT"
+    },
     "exit_date": "2026-06-18",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -8880,6 +10660,10 @@
     "documents": {
       "enforcement": "archive/0020912/2026-07-29_complaint_enforcement.pdf",
       "sod": "archive/0020912/2026-07-29_complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "enforcement": "Tue, 08 Sep 2026 17:00:44 GMT",
+      "sod": "Tue, 08 Sep 2026 17:00:44 GMT"
     },
     "exit_date": "2026-07-29",
     "expired_from_state": false,
@@ -8898,6 +10682,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 23 Feb 2026 19:27:35 GMT"
+    },
     "exit_date": "2026-02-12",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -8914,6 +10701,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Tue, 18 Aug 2026 21:15:03 GMT"
     },
     "exit_date": "2026-08-03",
     "expired_from_state": false,
@@ -8932,6 +10722,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 23 Feb 2026 19:27:36 GMT"
+    },
     "exit_date": "2026-02-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -8948,6 +10741,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Tue, 18 Aug 2026 21:15:03 GMT"
     },
     "exit_date": "2026-08-03",
     "expired_from_state": false,
@@ -8966,6 +10762,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 31 Aug 2026 20:00:32 GMT"
+    },
     "exit_date": "2026-08-19",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -8982,6 +10781,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 15 Jul 2024 17:51:23 GMT"
     },
     "exit_date": "2024-07-09",
     "expired_from_state": false,
@@ -9003,6 +10805,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 06 May 2024 19:17:51 GMT",
+      "sod": "Mon, 06 May 2024 19:17:51 GMT"
+    },
     "exit_date": "2024-02-27",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -9022,6 +10828,10 @@
     "documents_first_seen": {
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 07 Apr 2025 21:15:44 GMT",
+      "sod": "Mon, 07 Apr 2025 21:15:44 GMT"
     },
     "exit_date": "2025-03-04",
     "expired_from_state": false,
@@ -9043,6 +10853,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 20 Oct 2025 20:39:02 GMT",
+      "sod": "Mon, 20 Oct 2025 20:39:02 GMT"
+    },
     "exit_date": "2025-08-27",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -9062,6 +10876,10 @@
     "documents_first_seen": {
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 22 Dec 2025 20:51:03 GMT",
+      "sod": "Mon, 22 Dec 2025 20:51:03 GMT"
     },
     "exit_date": "2025-10-08",
     "expired_from_state": false,
@@ -9083,6 +10901,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 10 Aug 2026 22:06:24 GMT",
+      "sod": "Mon, 10 Aug 2026 22:06:24 GMT"
+    },
     "exit_date": "2026-06-01",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -9099,6 +10921,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Tue, 18 Aug 2026 21:15:06 GMT"
     },
     "exit_date": "2026-06-01",
     "expired_from_state": false,
@@ -9120,6 +10945,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 03 Jun 2024 22:04:50 GMT",
+      "sod": "Mon, 03 Jun 2024 22:04:51 GMT"
+    },
     "exit_date": "2024-04-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -9139,6 +10968,10 @@
     "documents_first_seen": {
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 07 Apr 2025 21:15:38 GMT",
+      "sod": "Mon, 07 Apr 2025 21:15:38 GMT"
     },
     "exit_date": "2024-12-23",
     "expired_from_state": false,
@@ -9160,6 +10993,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 28 Jul 2025 20:29:39 GMT",
+      "sod": "Mon, 28 Jul 2025 20:29:39 GMT"
+    },
     "exit_date": "2025-06-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -9179,6 +11016,10 @@
     "documents_first_seen": {
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 15 Dec 2025 19:29:09 GMT",
+      "sod": "Mon, 15 Dec 2025 19:29:09 GMT"
     },
     "exit_date": "2025-10-09",
     "expired_from_state": false,
@@ -9200,6 +11041,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 03 Aug 2026 20:22:31 GMT",
+      "sod": "Mon, 03 Aug 2026 20:22:31 GMT"
+    },
     "exit_date": "2026-05-20",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -9216,6 +11061,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Tue, 18 Mar 2025 14:49:10 GMT"
     },
     "exit_date": "2025-03-13",
     "expired_from_state": false,
@@ -9234,6 +11082,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 18 Aug 2025 21:38:54 GMT"
+    },
     "exit_date": "2025-08-13",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -9250,6 +11101,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 24 Mar 2025 21:21:19 GMT"
     },
     "exit_date": "2025-03-17",
     "expired_from_state": false,
@@ -9271,6 +11125,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 13 May 2024 17:28:18 GMT",
+      "sod": "Mon, 13 May 2024 17:28:18 GMT"
+    },
     "exit_date": "2024-02-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -9288,6 +11146,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 16 Sep 2024 17:34:26 GMT"
+    },
     "exit_date": "2024-09-12",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -9303,6 +11164,10 @@
     "documents": {
       "enforcement": "archive/610201/2024-05-28_survey-complaint_enforcement.pdf",
       "sod": "archive/610201/2024-05-28_survey-complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 17 Jun 2024 20:04:52 GMT",
+      "sod": "Mon, 17 Jun 2024 20:04:52 GMT"
     },
     "exit_date": "2024-05-28",
     "expired_from_state": false,
@@ -9324,6 +11189,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 30 Jun 2025 20:27:09 GMT",
+      "sod": "Mon, 30 Jun 2025 20:27:09 GMT"
+    },
     "exit_date": "2025-05-01",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -9341,6 +11210,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Tue, 02 Sep 2025 22:13:26 GMT"
+    },
     "exit_date": "2025-08-27",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -9357,6 +11229,10 @@
       "enforcement": "archive/611026/2023-11-02_survey-complaint_enforcement.pdf",
       "sod": "archive/611026/2023-11-02_survey-complaint_sod.pdf"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 13 Nov 2023 14:14:45 GMT",
+      "sod": "Mon, 13 Nov 2023 14:14:46 GMT"
+    },
     "exit_date": "2023-11-02",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -9371,6 +11247,9 @@
     "documents": {
       "sod": "archive/611026/2024-02-27_verification-visit_sod.pdf"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 04 Mar 2024 13:39:03 GMT"
+    },
     "exit_date": "2024-02-27",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
@@ -9384,6 +11263,9 @@
     },
     "documents": {
       "sod": "archive/611026/2025-05-07_survey-complaint_sod.pdf"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 12 May 2025 21:57:20 GMT"
     },
     "exit_date": "2025-05-07",
     "expired_from_state": false,
@@ -9405,6 +11287,10 @@
       "enforcement": "2026-10-07",
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "enforcement": "Mon, 30 Jun 2025 20:27:10 GMT",
+      "sod": "Mon, 30 Jun 2025 20:27:10 GMT"
+    },
     "exit_date": "2025-05-22",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -9422,6 +11308,9 @@
     "documents_first_seen": {
       "sod": "2026-10-07"
     },
+    "documents_last_modified": {
+      "sod": "Mon, 17 Feb 2025 22:49:18 GMT"
+    },
     "exit_date": "2025-02-11",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
@@ -9438,6 +11327,9 @@
     },
     "documents_first_seen": {
       "sod": "2026-10-07"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 15 Sep 2025 15:30:14 GMT"
     },
     "exit_date": "2025-09-08",
     "expired_from_state": false,

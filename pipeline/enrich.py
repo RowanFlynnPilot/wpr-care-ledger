@@ -334,10 +334,15 @@ def main():
     # (unless a plan of correction) mined. A Windows run once stored 20
     # backslash paths and the live forfeiture total silently dropped $7,550.
     surveys = json.loads((ROOT / "data" / "surveys.json").read_text())
+    held = [
+        (sid, kind, path)
+        for sid, s in surveys.items()
+        for kind, path in [*s["documents"].items(),
+                           *((k, r["path"]) for k, revs in s.get("revisions", {}).items() for r in revs)]
+    ]
     broken = [
         f"{sid}: {path}"
-        for sid, s in surveys.items()
-        for kind, path in s["documents"].items()
+        for sid, kind, path in held
         if "\\" in path or not (ROOT / path).is_file()
         or (kind != "poc" and path not in enrichment)
     ]

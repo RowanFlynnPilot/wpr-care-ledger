@@ -123,6 +123,34 @@ class NoDuplicateEmail(unittest.TestCase):
         self.assertIn("2 new enforcement actions", args[3])  # the --title value
         self.assertNotIn("1|2026-09-30|complaint", body)
 
+    def test_a_state_revision_is_alerted_once(self):
+        # The Waterford at Colby: the state replaced a letter at its address.
+        surveys = dict(SURVEYS)
+        old = dict(surveys["2|2026-05-01|complaint"])
+        old["revisions"] = {"enforcement": [{"path": "archive/2/e_rev2_enforcement.pdf",
+                                             "first_seen": RUN, "last_modified": "Mon, 21 Sep 2026"}]}
+        surveys["2|2026-05-01|complaint"] = old
+        enrichment = dict(ENRICHMENT, **{"archive/2/e_rev2_enforcement.pdf":
+                                         {"kind": "enforcement", "fine": 160, "sanctions": []}})
+        L = ledger(surveys, enrichment)
+        everything = "\n".join(f"<!-- {digest.ITEM_MARK} {sid} -->" for sid in SURVEYS)
+        created = []
+
+        def fake_gh(*args, stdin=None):
+            if args[:2] == ("issue", "create"):
+                created.append((args[3], stdin))
+                return "https://x/issues/10\n"
+            return everything + "".join(f"\n<!-- {b} -->" for _, b in created)
+
+        with mock.patch.object(digest, "gh", side_effect=fake_gh), \
+                contextlib.redirect_stdout(io.StringIO()):
+            digest.alert(L)
+            digest.alert(L)  # a rerun sends nothing twice
+        self.assertEqual(len(created), 1)
+        title, body = created[0]
+        self.assertIn("State revised records: Pine Meadows 3", title)
+        self.assertIn("forfeiture $400 → $160", body)
+
     def test_nothing_new_means_no_issue(self):
         L = ledger(SURVEYS, ENRICHMENT)
         everything = "\n".join(f"<!-- {digest.ITEM_MARK} {sid} -->" for sid in SURVEYS)

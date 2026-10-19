@@ -4913,6 +4913,30 @@
     ],
     "sod_ref": "UB3G11"
   },
+  "archive/0015955/2026-02-18_complaint_rev2_enforcement.pdf": {
+    "fine": 400,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Order to comply"
+    ],
+    "sod_ref": "UB3G11"
+  },
+  "archive/0015955/2026-02-18_complaint_rev2_sod.pdf": {
+    "census": 44,
+    "citations": [
+      {
+        "category": "Care and service plans",
+        "code": "83.35(3)(d)",
+        "tag": "N 389",
+        "title": "Service plans updated annually or on changes"
+      }
+    ],
+    "complaints_substantiated": 1,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 1,
+    "kind": "sod"
+  },
   "archive/0015955/2026-02-18_complaint_sod.pdf": {
     "census": 44,
     "citations": [

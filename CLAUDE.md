@@ -82,8 +82,12 @@ looking. The results grid isn't paged despite the 50-row setting (Wood's
    "no longer shown by the state" on the live site while every run
    reported success.
 6. Survey document PDFs are direct URLs
-   (`https://www.forwardhealth.wi.gov/kw/dqa/XXXXXXSODS.PDF`). Immutable
-   legal documents: archived once, never re-fetched.
+   (`https://www.forwardhealth.wi.gov/kw/dqa/XXXXXXSODS.PDF`). An archived
+   file is never overwritten — but the state *can* replace a document at
+   its address (The Waterford at Colby, 2026-09-21), so every run checks
+   each one (`check_revisions`: a HEAD for its Last-Modified, a download
+   only when that changed) and archives a changed file beside the
+   original as a revision.
 
 ## Data contract
 
@@ -109,7 +113,22 @@ SOD — so a document's kind comes from enrichment, never from its address.
 Recorded since
 2026-10-07; the 7 rows already aged off by then got theirs from the event
 ID each of their documents prints, every one proven by a byte-identical
-download from the state that day — derived, not guessed. **Append-only.** A row that vanishes from DQA flips
+download from the state that day — derived, not guessed.
+`revisions` (kind → list of `{path, first_seen, last_modified}`, oldest
+first): versions the state posted over the original at the same address,
+archived as `{exit_date}_{slug}_rev2_{kind}.pdf`, `rev3`, …; the original
+in `documents` is never touched. `documents_last_modified` (kind → the
+state's Last-Modified for the version held) lets a normal week check
+each document with one HEAD and download only what changed; a new date
+on identical bytes is not a revision. Fines, sanctions and citations
+everywhere (widget, facility pages, CSV, tip sheet, alerts) come from
+each document's latest version; the original stays linked with what
+changed. First found 2026-10-19: The Waterford at Colby (0015955), Feb.
+18, 2026 complaint — the state reissued both documents on 2026-09-18
+(posted 09-21), 4 deficiencies → 1 and $1,000 → $400, with no notice;
+the ledger holds the only copy of the originals (the Internet Archive
+step copies only current versions — an original is no longer served).
+**Append-only.** A row that vanishes from DQA flips
 `expired_from_state: true` and stays forever. That flag is the product —
 so it is guarded twice in `fetch.py`: every detail page must prove its
 identity (License Number field matches, Survey History section present
@@ -222,6 +241,11 @@ documents carry a `document_urls` address.
   ask DQA.
 - Enforcement density: 32 of 93 facilities have enforcement actions within
   the 3-year visible window alone.
+- Records the state rewrites: `revisions`. The Waterford at Colby's Feb.
+  18, 2026 complaint documents were replaced 2026-09-21 (fine $1,000 →
+  $400, deficiencies 4 → 1) with nothing on the state's site saying so.
+  Ask DQA why (appeal? informal dispute resolution?) before characterizing
+  it; the tip sheet's "Documents the state replaced" lists new ones.
 - Aged-off records are delisted, not deleted: on 2026-10-07 all 10 PDFs of
   the 7 held records were still served at their state addresses,
   byte-identical to the archive. "No longer shown by the state" means the
@@ -285,7 +309,12 @@ the assessed forfeiture ("(accruing)" when still running), serious
 sanctions ("Order not to admit new residents", revocation, suspension,
 nonrenewal), "Complaint substantiated", and up to three distinct
 cited-rule titles (repeats grouped "Services ×2"); held records show
-"Held in the ledger" plus when the state site last showed them. A
+"Held in the ledger" plus when the state site last showed them; records
+the state rewrote show a dashed "Revised by the state" stamp, the date
+its new file carries, what changed (`revisionChanges()` in ledger.js:
+"forfeiture reduced from $1,000 to $400; deficiencies cited from 4 to
+1"), and links to the originals — the figures shown are the current
+version's, and a revision found this week counts as "New this week". A
 probationary license gets a neutral chip with a tooltip — it is
 Wisconsin's standard first-year license, never styled as discipline.
 Below the masthead, a quarterly survey-activity chart (gray = no

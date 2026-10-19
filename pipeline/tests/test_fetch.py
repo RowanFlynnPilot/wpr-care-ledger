@@ -9,7 +9,10 @@ make that impossible. Fixtures are real pages saved from the state portal.
 Run: python -m unittest discover -s pipeline/tests
 """
 
+import contextlib
+import io
 import sys
+import tempfile
 import unittest
 from datetime import date
 from pathlib import Path
@@ -97,6 +100,65 @@ class ArchivePaths(unittest.TestCase):
         with mock.patch.object(fetch.Path, "exists", return_value=True):
             rel = fetch.archive_pdf(None, "u", "0013424", "2026-08-05", "COMPLAINT/VV", "sod")
         self.assertEqual(rel, "archive/0013424/2026-08-05_complaint-vv_sod.pdf")
+
+
+class Revisions(unittest.TestCase):
+    """The state replaced The Waterford at Colby's documents at the same
+    addresses (2026-09-21). The original must stay; the new one joins it."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        root = Path(self.tmp.name)
+        (root / "archive" / "1").mkdir(parents=True)
+        (root / "archive" / "1" / "2026-02-18_complaint_sod.pdf").write_bytes(b"%PDF original")
+        self.patches = [mock.patch.object(fetch, "ROOT", root),
+                        mock.patch.object(fetch, "ARCHIVE_DIR", root / "archive"),
+                        mock.patch.object(fetch.time, "sleep")]
+        for p in self.patches:
+            p.start()
+        self.root = root
+        self.surveys = {"1|2026-02-18|complaint": {
+            "license": "1", "exit_date": "2026-02-18", "survey_type": "COMPLAINT",
+            "documents": {"sod": "archive/1/2026-02-18_complaint_sod.pdf"},
+            "document_urls": {"sod": "https://www.forwardhealth.wi.gov/kw/dqa/UB3G11SODS.PDF"},
+        }}
+
+    def tearDown(self):
+        for p in self.patches:
+            p.stop()
+        self.tmp.cleanup()
+
+    def run_week(self, modified, body, status=200):
+        session = SimpleNamespace(head=lambda url, timeout: SimpleNamespace(
+            status_code=status, headers={"Last-Modified": modified}))
+        # Quiet: a fake "REVISED" line in CI logs reads like a real one.
+        with mock.patch.object(fetch, "get", return_value=SimpleNamespace(content=body)) as get, \
+                contextlib.redirect_stdout(io.StringIO()):
+            out = fetch.check_revisions(session, self.surveys, "2026-10-26")
+        return out, get.call_count
+
+    def test_a_replaced_document_is_archived_beside_the_original(self):
+        s = self.surveys["1|2026-02-18|complaint"]
+        (revised, gone), downloads = self.run_week("Mon, 23 Mar 2026", b"%PDF original")
+        self.assertEqual((revised, downloads), ([], 1))  # baseline: downloaded once, unchanged
+        (revised, _), downloads = self.run_week("Mon, 23 Mar 2026", b"%PDF original")
+        self.assertEqual(downloads, 0)  # same Last-Modified: no download at all
+        (revised, _), _ = self.run_week("Mon, 21 Sep 2026", b"%PDF reissued")
+        self.assertEqual(len(revised), 1)
+        rev = "archive/1/2026-02-18_complaint_rev2_sod.pdf"
+        self.assertEqual(s["revisions"]["sod"], [
+            {"path": rev, "first_seen": "2026-10-26", "last_modified": "Mon, 21 Sep 2026"}])
+        self.assertEqual((self.root / rev).read_bytes(), b"%PDF reissued")
+        self.assertEqual((self.root / s["documents"]["sod"]).read_bytes(), b"%PDF original")
+        self.assertEqual(fetch.current_path(s, "sod"), rev)
+        # A new date on identical bytes is not a revision.
+        (revised, _), _ = self.run_week("Tue, 22 Sep 2026", b"%PDF reissued")
+        self.assertEqual(revised, [])
+        self.assertEqual(len(s["revisions"]["sod"]), 1)
+
+    def test_a_document_the_state_stops_serving_is_reported(self):
+        (revised, gone), downloads = self.run_week(None, b"", status=404)
+        self.assertEqual((revised, downloads, len(gone)), ([], 0, 1))
 
 
 class DocumentProvenance(unittest.TestCase):

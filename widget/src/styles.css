@@ -421,15 +421,23 @@ body {
   color: var(--muted);
 }
 
-/* phones: the label takes its own line above the bar */
+/* phones: label and count share a line, a thin bar underneath — half the
+   height, so the search isn't two screens down */
 @media (max-width: 560px) {
   .cites-row {
     grid-template-columns: 1fr auto;
-    padding: 5px 0;
+    gap: 3px 10px;
+    padding: 4px 0;
   }
 
   .cites-cat {
+    font-size: 12.5px;
+  }
+
+  .cites-track {
     grid-column: 1 / -1;
+    grid-row: 2;
+    height: 5px;
   }
 
   /* room for the bar: the citation count stays in the text for screen
@@ -1288,6 +1296,32 @@ mark {
   line-height: 1.5;
   color: var(--sepia);
   margin: 1px 0 3px;
+}
+
+/* A record the state rewrote: dashed, because the document under it changed. */
+.revised-stamp {
+  display: inline-block;
+  font-family: var(--heading);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border: 1px dashed var(--ink);
+  padding: 2px 7px;
+  margin: 4px 0 2px;
+}
+
+.revised-note {
+  display: block;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: 1px 0 3px;
+}
+
+.revised-note a {
+  color: var(--teal-deep);
 }
 
 .held-inline {

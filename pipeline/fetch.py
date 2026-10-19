@@ -146,6 +146,12 @@ def check_portal(r):
     return r
 
 
+def requests_session():
+    session = requests.Session()
+    session.headers["User-Agent"] = USER_AGENT
+    return session
+
+
 def get(session, url, **kw):
     time.sleep(REQUEST_DELAY)
     return check_portal(session.get(url, timeout=TIMEOUT, **kw))
@@ -322,6 +328,52 @@ def archive_pdf(session, url, license_no, exit_date, survey_type, kind):
     return rel
 
 
+def current_path(survey, kind):
+    """The archive path of a document's latest version: its last revision,
+    else the original."""
+    revs = survey.get("revisions", {}).get(kind)
+    return revs[-1]["path"] if revs else survey["documents"][kind]
+
+
+def check_revisions(session, surveys, today):
+    """Archive any document the state has replaced at its address.
+
+    The state does not only add records: on 2026-09-21 it replaced The
+    Waterford at Colby's Feb. 18 statement of deficiency and enforcement
+    letter (4 deficiencies -> 1, $1,000 -> $400) at the same URLs, with no
+    notice. The original stays in the archive untouched; the new version is
+    archived beside it as a revision. Each document's Last-Modified header
+    is recorded, so a normal week costs one HEAD per document and downloads
+    only what the state changed; a file is a revision only if its bytes
+    differ from the latest version held. Returns (revised, gone) lists."""
+    revised, gone = [], []
+    for sid, s in sorted(surveys.items()):
+        for kind, url in sorted(s.get("document_urls", {}).items()):
+            recorded = s.get("documents_last_modified", {}).get(kind)
+            time.sleep(REQUEST_DELAY)
+            head = session.head(url, timeout=TIMEOUT)
+            if head.status_code != 200:
+                gone.append(f"{sid} {kind}: HTTP {head.status_code} {url}")
+                continue
+            modified = head.headers.get("Last-Modified")
+            if modified and modified == recorded:
+                continue
+            body = get(session, url).content
+            if not body.startswith(b"%PDF"):
+                raise RuntimeError(f"Not a PDF at {url}")
+            if body != (ROOT / current_path(s, kind)).read_bytes():
+                revs = s.setdefault("revisions", {}).setdefault(kind, [])
+                path = (ARCHIVE_DIR / s["license"] /
+                        f"{s['exit_date']}_{slug(s['survey_type'])}_rev{len(revs) + 2}_{kind}.pdf")
+                path.write_bytes(body)
+                rel = path.relative_to(ROOT).as_posix()
+                revs.append({"path": rel, "first_seen": today, "last_modified": modified})
+                revised.append(f"{sid} {kind}: {rel} (state's file dated {modified})")
+                print(f"  REVISED by the state: {sid} {kind} -> {rel}")
+            s.setdefault("documents_last_modified", {})[kind] = modified
+    return revised, gone
+
+
 # -------------------------------------------------------------------- merge
 
 def vanished_in_window(surveys, facilities, today_date):
@@ -365,8 +417,7 @@ def main():
     for county, code in COUNTIES.items():
         # A fresh session per county: the export and the grid's viewstate
         # belong to the session's latest search.
-        session = requests.Session()
-        session.headers["User-Agent"] = USER_AGENT
+        session = requests_session()
         print(f"{county.title()} County: searching (AFH + CBRF + RCAC, incl. closed)")
         results_soup = run_search(session, code)
         roster = download_roster(session)
@@ -403,6 +454,11 @@ def main():
             s["expired_on"] = today
             expired += 1
 
+    print("Checking every archived document against the state's current file")
+    revised, gone = check_revisions(requests_session(), surveys, today)
+    for line in gone:
+        print(f"  WARN no longer served by the state: {line}")
+
     save(FACILITIES_PATH, facilities)
     save(SURVEYS_PATH, surveys)
 
@@ -412,7 +468,7 @@ def main():
         f"({sum(1 for f in facilities.values() if f['on_state_roster'])} on state roster), "
         f"{len(surveys)} survey records ({new_surveys} new, {expired} newly expired from state, "
         f"{reappeared} previously flagged expired seen again), "
-        f"{docs} documents archived."
+        f"{docs} documents archived, {len(revised)} replaced by the state this run."
     )
 
 
