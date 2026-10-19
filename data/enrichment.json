@@ -3648,6 +3648,30 @@
     "deficiencies": 0,
     "kind": "sod"
   },
+  "archive/0015263/2026-08-31_complaint_enforcement.pdf": {
+    "fine": 3000,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Order to comply"
+    ],
+    "sod_ref": "I6O211"
+  },
+  "archive/0015263/2026-08-31_complaint_sod.pdf": {
+    "census": 27,
+    "citations": [
+      {
+        "category": "Care and service plans",
+        "code": "83.38(1)(b)",
+        "tag": "N 426",
+        "title": "Supervision."
+      }
+    ],
+    "complaints_substantiated": 2,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 1,
+    "kind": "sod"
+  },
   "archive/0015337/2023-10-18_complaint_sod.pdf": {
     "census": 55,
     "citations": [],
