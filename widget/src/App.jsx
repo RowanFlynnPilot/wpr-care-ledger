@@ -248,6 +248,8 @@ export default function App() {
   // the facilities cited in it.
   const [category, setCategory] = useState(null);
   const [open, setOpen] = useState(null);
+  // The facilities in view as a list or on the map.
+  const [view, setView] = useState("list");
   // Rows rendered: the first PAGE, then more on request. All 279 at once
   // made the embedded frame ~30,000px tall — a reader had to scroll past
   // every facility to reach the rest of the article.
@@ -265,7 +267,14 @@ export default function App() {
   const load = useCallback(() => {
     setError(null);
     Promise.all(
-      ["data/facilities.json", "data/surveys.json", "data/enrichment.json", "data/wayback.json"].map(
+      [
+        "data/facilities.json",
+        "data/surveys.json",
+        "data/enrichment.json",
+        "data/wayback.json",
+        "data/geocodes.json",
+        "data/basemap.json",
+      ].map(
         (p) =>
           fetch(p).then((r) => {
             if (!r.ok) throw new Error(`${p}: HTTP ${r.status}`);
@@ -273,8 +282,8 @@ export default function App() {
           })
       )
     )
-      .then(([facilities, surveys, enrichment, wayback]) =>
-        setDb(shape(facilities, surveys, enrichment, wayback))
+      .then(([facilities, surveys, enrichment, wayback, geocodes, basemap]) =>
+        setDb({ ...shape(facilities, surveys, enrichment, wayback, geocodes), basemap })
       )
       .catch((e) => setError(e.message));
   }, []);
@@ -331,7 +340,8 @@ export default function App() {
   // to closed licenses always resolve); #q=text presets the search box;
   // #county=Wood opens on one county; #cat=medications lists the facilities
   // cited in a category (the start of its name is enough: #cat=abuse).
-  // county, cat and q combine with "&" (#county=Wood&cat=medications).
+  // #view=map opens on the map. county, cat, q and view combine with "&"
+  // (#county=Wood&cat=medications&view=map).
   // Applied at load and on later hash changes (replaceState below doesn't
   // fire hashchange, so reflecting the open row can't loop back here).
   useEffect(() => {
@@ -343,7 +353,7 @@ export default function App() {
         if (i > 0) p[part.slice(0, i)] = safeDecode(part.slice(i + 1).replace(/\+/g, " "));
       }
       const lic = /^[0-9A-Za-z]+$/.test(p.lic || "") ? p.lic : null;
-      if (!lic && !p.q && !p.county && !p.cat) return;
+      if (!lic && !p.q && !p.county && !p.cat && !p.view) return;
       setLens("all");
       setType("ALL");
       setCounty((p.county && db.counties.find((x) => x === p.county.toUpperCase())) || "ALL");
@@ -355,6 +365,7 @@ export default function App() {
         // search, so the reader sees a match or an honest "no match".
         setShowClosed(true);
         setQuery(lic);
+        setView("list");
         if (db.byLicense[lic]) {
           setOpen(lic);
           if (!EMBEDDED) {
@@ -367,6 +378,7 @@ export default function App() {
         }
       } else {
         setQuery(p.q || "");
+        setView(p.view === "map" ? "map" : "list");
         // A record opened by an earlier link would stay open behind the new
         // view, and keep the address on its #lic=.
         setOpen(null);
@@ -388,13 +400,14 @@ export default function App() {
           county !== "ALL" && `county=${titleCase(county)}`,
           category && `cat=${catSlug(category)}`,
           q && `q=${encodeURIComponent(q)}`,
+          view === "map" && "view=map",
         ].filter(Boolean);
     window.history.replaceState(
       null,
       "",
       parts.length ? `#${parts.join("&")}` : window.location.pathname + window.location.search
     );
-  }, [open, query, county, category, db]);
+  }, [open, query, county, category, view, db]);
 
   // The county filter scopes everything: stats, chart, list. The rest of
   // the narrowing (search, type, closed toggle, lens) applies to the list.
@@ -535,6 +548,7 @@ export default function App() {
     setType("ALL");
     setCounty("ALL");
     setQuery(license);
+    setView("list");
     revealRow(license);
   };
 
@@ -546,6 +560,7 @@ export default function App() {
     setType("ALL");
     setCounty("ALL");
     setQuery(name);
+    setView("list");
     setOpen(null);
     requestAnimationFrame(() => briefRef.current?.focus());
   };
@@ -558,6 +573,7 @@ export default function App() {
     setCategory(null);
     setShowClosed(false);
     setOpen(null);
+    setView("list");
   };
 
   // Headline stats count everything on record, closed facilities included,
@@ -781,6 +797,16 @@ export default function App() {
             </>
           )}
         </p>
+        <div className="view-toggle" role="group" aria-label="View">
+          {[
+            ["list", "List"],
+            ["map", "Map"],
+          ].map(([id, label]) => (
+            <button key={id} type="button" aria-pressed={view === id} onClick={() => setView(id)}>
+              {label}
+            </button>
+          ))}
+        </div>
         {list.length > 0 && (
           <p className="downloads">
             Download as CSV:{" "}
@@ -809,8 +835,18 @@ export default function App() {
         )}
       </div>
 
+      {view === "map" && list.length > 0 && (
+        <FacilityMap
+          facilities={list}
+          basemap={db.basemap}
+          county={county}
+          onOpen={crossLink}
+          onPickCounty={setCounty}
+        />
+      )}
+
       <ol className="rows">
-        {list.slice(0, shown).map((f) => (
+        {view === "list" && list.slice(0, shown).map((f) => (
           <FacilityRow
             key={f.license}
             f={f}
@@ -822,7 +858,7 @@ export default function App() {
             onOperator={showOperator}
           />
         ))}
-        {list.length > shown && (
+        {view === "list" && list.length > shown && (
           <li className="more-row">
             <button className="show-more" onClick={() => showMore(false)}>
               Show {Math.min(PAGE, list.length - shown)} more
@@ -1384,6 +1420,373 @@ function CitationChart({ surveys, total, active, onPick }) {
           began. A facility counts once per area however often it was cited.
         </span>
       </p>
+    </figure>
+  );
+}
+
+/* ------------------------------------------------------------------- map */
+
+const MAP_MAX_H = 560; // a single county is taller than wide; keep it on screen
+const MAP_PAD = 12;
+
+// Even-odd ray cast over every ring of a GeoJSON Polygon/MultiPolygon.
+function inOutline(geometry, lon, lat) {
+  const polys = geometry.type === "Polygon" ? [geometry.coordinates] : geometry.coordinates;
+  let hit = false;
+  for (const poly of polys)
+    for (const ring of poly)
+      for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+        const [x1, y1] = ring[i];
+        const [x2, y2] = ring[j];
+        if (y1 > lat !== y2 > lat && lon < x1 + ((lat - y1) * (x2 - x1)) / (y2 - y1)) hit = !hit;
+      }
+  return hit;
+}
+
+// Where to print a county's name: the open spot inside it farthest from
+// any dot (towns cluster at county centers, under a centered label),
+// nudged toward the middle so labels don't hug the edges. Distances are
+// stretched vertically because a label is wider than it is tall.
+function labelSpot(geometry, unproject, box, dots) {
+  const [x0, y0, x1, y1] = box;
+  const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
+  let best = [cx, cy], score = -Infinity;
+  for (let x = x0 + 34; x <= x1 - 34; x += 6)
+    for (let y = y0 + 12; y <= y1 - 8; y += 6) {
+      const edge = [[-32, -8], [32, -8], [-32, 4], [32, 4]];
+      if (!edge.every(([dx, dy]) => inOutline(geometry, ...unproject(x + dx, y + dy)))) continue;
+      let clear = 40;
+      for (const d of dots) clear = Math.min(clear, Math.hypot((d.x - x) / 3, (d.y - y + 4) * 1.5));
+      const s = clear - 0.08 * Math.hypot(x - cx, y - cy);
+      if (s > score) [score, best] = [s, [x, y]];
+    }
+  return best;
+}
+
+/* Where the facilities in view are. A plain SVG over the Census Bureau's
+   county lines — no tile service, so nothing loads from a third party and
+   the frame stays light. Every dot is one facility, so this is a locator,
+   not a density map: red marks an enforcement action on record, hollow a
+   closed facility. Dots aren't focusable; the list view is the accessible
+   equivalent, and the toggle sits right above. */
+function FacilityMap({ facilities, basemap, county, onOpen, onPickCounty }) {
+  const wrapRef = useRef(null);
+  const [width, setWidth] = useState(640);
+  const [hover, setHover] = useState(null);
+  const [pin, setPin] = useState(null);
+
+  useEffect(() => {
+    const el = wrapRef.current;
+    const ro = new ResizeObserver(() => setWidth(el.clientWidth || 640));
+    ro.observe(el);
+    setWidth(el.clientWidth || 640);
+    return () => ro.disconnect();
+  }, []);
+
+  // A new search or filter is a new map: drop any open card.
+  useEffect(() => {
+    setPin(null);
+    setHover(null);
+  }, [facilities, county]);
+
+  useEffect(() => {
+    if (!pin) return;
+    const onKey = (e) => e.key === "Escape" && setPin(null);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [pin]);
+
+  // Frame the county in view (all nine by default), not the dots, so the
+  // map holds still while a search narrows it.
+  const geo = useMemo(() => {
+    const framed = basemap.counties.filter(
+      (f) => county === "ALL" || f.properties.county === county
+    );
+    let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+    for (const f of framed) {
+      const g = f.geometry;
+      for (const poly of g.type === "Polygon" ? [g.coordinates] : g.coordinates)
+        for (const [lon, lat] of poly[0]) {
+          x0 = Math.min(x0, lon); x1 = Math.max(x1, lon);
+          y0 = Math.min(y0, lat); y1 = Math.max(y1, lat);
+        }
+    }
+    // Equirectangular, longitude shrunk by the cosine of the middle
+    // latitude: at two degrees across, true enough to read distance by.
+    const k = Math.cos((((y0 + y1) / 2) * Math.PI) / 180);
+    const s = Math.min(
+      (width - 2 * MAP_PAD) / ((x1 - x0) * k),
+      (MAP_MAX_H - 2 * MAP_PAD) / (y1 - y0)
+    );
+    const height = Math.ceil((y1 - y0) * s + 2 * MAP_PAD);
+    const ox = (width - (x1 - x0) * k * s) / 2;
+    const project = (lon, lat) => [ox + (lon - x0) * k * s, MAP_PAD + (y1 - lat) * s];
+    const unproject = (x, y) => [x0 + (x - ox) / (k * s), y1 - (y - MAP_PAD) / s];
+    const paths = basemap.counties.map((f) => {
+      const g = f.geometry;
+      const d = (g.type === "Polygon" ? [g.coordinates] : g.coordinates)
+        .flatMap((poly) =>
+          poly.map((ring) => "M" + ring.map((p) => project(...p).map((v) => v.toFixed(1)).join(",")).join("L") + "Z")
+        )
+        .join("");
+      const pts = (g.type === "Polygon" ? [g.coordinates] : g.coordinates).flatMap((poly) =>
+        poly[0].map((p) => project(...p))
+      );
+      const box = [
+        Math.min(...pts.map((p) => p[0])),
+        Math.min(...pts.map((p) => p[1])),
+        Math.max(...pts.map((p) => p[0])),
+        Math.max(...pts.map((p) => p[1])),
+      ];
+      return { county: f.properties.county, d, box, geometry: g };
+    });
+    return { height, project, unproject, paths };
+  }, [basemap, county, width]);
+
+  const r = county === "ALL" ? 4.5 : 5.5;
+  const dots = useMemo(
+    () =>
+      facilities
+        .filter((f) => f.point)
+        .map((f) => {
+          const [x, y] = geo.project(f.point.lon, f.point.lat);
+          return { f, x, y, enforced: f.enforcementCount > 0 };
+        })
+        // Red on top: an enforcement dot is never hidden under a gray one.
+        .sort((a, b) => a.enforced - b.enforced),
+    [facilities, geo]
+  );
+  const unplaced = facilities.filter((f) => !f.point);
+  const countyLabels = useMemo(
+    () =>
+      county !== "ALL"
+        ? []
+        : geo.paths.map((p) => ({
+            county: p.county,
+            at: labelSpot(p.geometry, geo.unproject, p.box, dots),
+          })),
+    [geo, dots, county]
+  );
+  const enforcedN = dots.filter((d) => d.enforced).length;
+  const anyClosed = dots.some((d) => d.f.closed);
+
+  // Labels: county names across all nine; in one county, the towns where
+  // two or more of the facilities in view have their address (the roster
+  // spells some cities in capitals, some not). A name is anchored at the
+  // Census Gazetteer's point for the town -- not at its facilities, which a
+  // mailing city can spread miles out -- and set beside it, wherever it
+  // covers the fewest dots; skipped rather than printed over another name.
+  const towns = useMemo(() => {
+    if (county === "ALL") return [];
+    const count = {};
+    for (const d of dots) {
+      const c = titleCase(d.f.city.trim());
+      count[c] = (count[c] || 0) + 1;
+    }
+    const H = 11;
+    const placed = [];
+    const out = [];
+    // A town just across the county line still names its facilities here
+    // (Marshfield's point is in Wood; its north side is in Marathon).
+    const candidates = basemap.places
+      .filter((p) => (count[p.name] || 0) >= 2)
+      .map((p) => ({ ...p, at: geo.project(p.lon, p.lat) }))
+      .filter(({ at: [x, y] }) => x > -30 && x < width + 30 && y > -30 && y < geo.height + 30)
+      .sort((a, b) => count[b.name] - count[a.name]);
+    for (const p of candidates) {
+      const [px, py] = p.at;
+      const w = p.name.length * 7 + 4;
+      let best = null;
+      [r + 4, r + 16, r + 30].forEach((reach, ring) => {
+        for (const [ux, uy] of [[0, -1], [1, 0], [0, 1], [-1, 0], [0.7, -0.7], [-0.7, -0.7], [0.7, 0.7], [-0.7, 0.7]]) {
+          const cx = px + ux * (reach + w / 2) * Math.abs(Math.sign(ux));
+          const cy = py + uy * (reach + H / 2);
+          const box = [cx - w / 2, cy - H / 2, cx + w / 2, cy + H / 2];
+          if (box[0] < 0 || box[2] > width || box[1] < 0 || box[3] > geo.height) continue;
+          if (placed.some((b) => b[0] < box[2] && box[0] < b[2] && b[1] < box[3] && box[1] < b[3])) continue;
+          const covered = dots.filter(
+            (d) => d.x > box[0] - r && d.x < box[2] + r && d.y > box[1] - r && d.y < box[3] + r
+          ).length;
+          const score = covered * 10 + ring;
+          if (!best || score < best.score) best = { box, score };
+        }
+      });
+      if (!best) continue;
+      placed.push(best.box);
+      out.push({ city: p.name, x: (best.box[0] + best.box[2]) / 2, y: best.box[3] - 2 });
+    }
+    return out;
+  }, [dots, county, width, geo, r, basemap]);
+
+  // Everything under the pointer, nearest first: Wausau's dots overlap.
+  const near = (x, y) =>
+    dots
+      .map((d) => ({ d, dist: Math.hypot(d.x - x, d.y - y) }))
+      .filter((e) => e.dist <= r + 5)
+      .sort((a, b) => a.dist - b.dist)
+      .map((e) => e.d.f);
+  const local = (e) => {
+    const box = e.currentTarget.getBoundingClientRect();
+    return [e.clientX - box.left, e.clientY - box.top];
+  };
+  const countyAt = (x, y) => {
+    const [lon, lat] = geo.unproject(x, y);
+    return geo.paths.find((p) => inOutline(p.geometry, lon, lat))?.county;
+  };
+
+  const onMove = (e) => {
+    if (pin || e.pointerType === "touch") return;
+    const [x, y] = local(e);
+    const items = near(x, y);
+    setHover(items.length ? { x, y, items } : null);
+  };
+  const onClick = (e) => {
+    const [x, y] = local(e);
+    const items = near(x, y);
+    if (items.length) return setPin({ x, y, items });
+    if (pin) return setPin(null);
+    const c = county === "ALL" && countyAt(x, y);
+    if (c) onPickCounty(c);
+  };
+
+  const card = pin || hover;
+  const cardStyle = card && {
+    left: Math.max(0, Math.min(card.x - 130, width - 260)),
+    ...(card.y < geo.height / 2 ? { top: card.y + 14 } : { bottom: geo.height - card.y + 14 }),
+  };
+  // A hover card previews a few; a clicked one lists them all, scrolling.
+  const shownItems = card && (pin ? card.items : card.items.slice(0, 5));
+
+  return (
+    <figure className="facility-map">
+      <ul className="map-legend">
+        <li>
+          <span className="key-dot is-red" aria-hidden="true" /> Enforcement action on record (
+          {fmtNum(enforcedN)})
+        </li>
+        <li>
+          <span className="key-dot" aria-hidden="true" /> None on record ({fmtNum(dots.length - enforcedN)})
+        </li>
+        {anyClosed && (
+          <li>
+            <span className="key-dot is-hollow" aria-hidden="true" /> Closed
+          </li>
+        )}
+      </ul>
+      <div className="map-frame" ref={wrapRef}>
+        <svg
+          width={width}
+          height={geo.height}
+          viewBox={`0 0 ${width} ${geo.height}`}
+          role="img"
+          aria-label={`Map of ${fmtNum(dots.length)} of the ${fmtNum(facilities.length)} facilities in view; ${fmtNum(
+            enforcedN
+          )} have an enforcement action on record. The list view has the same facilities.`}
+          className={county === "ALL" && !card ? "is-pickable" : undefined}
+          onPointerMove={onMove}
+          onPointerLeave={() => !pin && setHover(null)}
+          onClick={onClick}
+        >
+          {geo.paths.map((p) => (
+            <path
+              key={p.county}
+              d={p.d}
+              className={county === "ALL" || p.county === county ? "map-county" : "map-county is-context"}
+            />
+          ))}
+          {countyLabels.map((l) => (
+            <text key={l.county} x={l.at[0]} y={l.at[1]} className="map-label">
+              {titleCase(l.county)}
+            </text>
+          ))}
+          {towns.map((t) => (
+            <text key={t.city} x={t.x} y={t.y} className="map-label is-town">
+              {t.city}
+            </text>
+          ))}
+          {dots.map(({ f, x, y, enforced }) => (
+            <circle
+              key={f.license}
+              cx={x.toFixed(1)}
+              cy={y.toFixed(1)}
+              r={r}
+              className={`map-dot${enforced ? " is-red" : ""}${f.closed ? " is-hollow" : ""}${
+                card?.items.includes(f) ? " is-hot" : ""
+              }`}
+            />
+          ))}
+        </svg>
+        {card && (
+          <div className={pin ? "map-card is-pinned" : "map-card"} style={cardStyle}>
+            {pin && (
+              <button className="map-card-close" onClick={() => setPin(null)} aria-label="Close">
+                ×
+              </button>
+            )}
+            {card.items.length > 1 && (
+              <p className="map-card-head">{card.items.length} facilities here</p>
+            )}
+            <ul>
+              {shownItems.map((f) => (
+                <li key={f.license}>
+                  <button className="map-card-name" onClick={() => onOpen(f.license)}>
+                    {smartTitle(f.name)}
+                  </button>
+                  <span className="map-card-meta">
+                    {titleCase(f.city)} · {f.typeAbbr}
+                    {f.closed && " · closed"}
+                  </span>
+                  <span className={f.enforcementCount ? "map-card-enf is-red" : "map-card-enf"}>
+                    {f.enforcementCount
+                      ? `${f.enforcementCount} enforcement ${f.enforcementCount === 1 ? "action" : "actions"}${
+                          f.fineTotal ? ` · $${fmtNum(f.fineTotal)} assessed` : ""
+                        }`
+                      : "No enforcement actions on record"}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            {!pin && (
+              <p className="map-card-hint">
+                {card.items.length > shownItems.length
+                  ? `+${card.items.length - shownItems.length} more · click to list them all`
+                  : "Click to keep this open"}
+              </p>
+            )}
+          </div>
+        )}
+      </div>
+      <figcaption className="chart-note">
+        <span>
+          {county === "ALL"
+            ? "Point at a dot for its facility; select a county to zoom in."
+            : "Point at a dot for its facility."}{" "}
+          Locations are the state roster&rsquo;s addresses as placed by the U.S. Census
+          Bureau&rsquo;s geocoder; county lines from Census TIGER.
+        </span>
+        {county !== "ALL" && (
+          <span className="map-zoom-out">
+            <button className="clear-filters" onClick={() => onPickCounty("ALL")}>
+              Show all nine counties
+            </button>
+          </span>
+        )}
+        {unplaced.length > 0 && (
+          <span className="map-unplaced">
+            Not on the map — the Census Bureau couldn&rsquo;t place the address:{" "}
+            {unplaced.map((f, i) => (
+              <React.Fragment key={f.license}>
+                {i > 0 && ", "}
+                <button className="clear-filters" onClick={() => onOpen(f.license)}>
+                  {smartTitle(f.name)}
+                </button>{" "}
+                ({titleCase(f.city)})
+              </React.Fragment>
+            ))}
+            .
+          </span>
+        )}
+      </figcaption>
     </figure>
   );
 }

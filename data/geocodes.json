@@ -1,0 +1,1806 @@
+{
+ "0008499": {
+  "address": "519 FLIGHT ROAD, ANTIGO, WI, 54409",
+  "match": "Exact",
+  "lat": 45.147425,
+  "lon": -89.134501
+ },
+ "0008655": {
+  "address": "1605 EVERGREEN ROAD, WAUSAU, WI, 54403",
+  "match": "Exact",
+  "lat": 45.002874,
+  "lon": -89.605484
+ },
+ "0008822": {
+  "address": "1421 ROGERS DRIVE, PLOVER, WI, 54467",
+  "match": "Exact",
+  "lat": 44.47652,
+  "lon": -89.519441
+ },
+ "0008890": {
+  "address": "1102 SOUTH CENTER AVENUE, MERRILL, WI, 54452",
+  "match": "Exact",
+  "lat": 45.16697,
+  "lon": -89.690513
+ },
+ "0009074": {
+  "address": "2482 TERREBONNE DRIVE, MOSINEE, WI, 54455",
+  "match": "Exact",
+  "lat": 44.857708,
+  "lon": -89.624049
+ },
+ "0009118": {
+  "address": "702 PLUMER STREET, WAUSAU, WI, 54403",
+  "match": "Exact",
+  "lat": 44.955068,
+  "lon": -89.621594
+ },
+ "0009226": {
+  "address": "805 PARCHER STREET, WAUSAU, WI, 54403",
+  "match": "Exact",
+  "lat": 44.98045,
+  "lon": -89.619334
+ },
+ "0009393": {
+  "address": "2711 SOUTH APPLE AVENUE, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.64296,
+  "lon": -90.169891
+ },
+ "0009462": {
+  "address": "920 W 5TH ST, NEILLSVILLE, WI, 54456",
+  "match": "Exact",
+  "lat": 44.559851,
+  "lon": -90.607652
+ },
+ "0009720": {
+  "address": "76 GREEN TREE ROAD, CLINTONVILLE, WI, 54929",
+  "match": "Exact",
+  "lat": 44.634241,
+  "lon": -88.759036
+ },
+ "0009722": {
+  "address": "1377 LINCOLN STREET, SHAWANO, WI, 54166",
+  "match": "Non_Exact",
+  "lat": 44.764093,
+  "lon": -88.603733
+ },
+ "0009724": {
+  "address": "1706 TAUBEL ROAD, NEW LONDON, WI, 54961",
+  "match": "Non_Exact",
+  "lat": 44.411038,
+  "lon": -88.745466
+ },
+ "0009754": {
+  "address": "1102 SOUTH CENTER AVENUE #2, MERRILL, WI, 54452",
+  "match": "Exact",
+  "lat": 45.16697,
+  "lon": -89.690513
+ },
+ "0009806": {
+  "address": "1200 ST JOSEPH AVE, MARSHFIELD, WI, 54449",
+  "match": "Tie"
+ },
+ "0010042": {
+  "address": "174295 BOUNDARY ROAD, HATLEY, WI, 54440",
+  "match": "Exact",
+  "lat": 44.856653,
+  "lon": -89.367861
+ },
+ "0010105": {
+  "address": "630 PEPPER AVENUE, WISCONSIN RAPIDS, WI, 54494",
+  "match": "Exact",
+  "lat": 44.373039,
+  "lon": -89.818952
+ },
+ "0010153": {
+  "address": "412 PROSPECT AVENUE, WAUSAU, WI, 54403",
+  "match": "Exact",
+  "lat": 44.954058,
+  "lon": -89.620247
+ },
+ "0010360": {
+  "address": "50 SHADOW WOODS LANE, WAUPACA, WI, 54981",
+  "match": "Exact",
+  "lat": 44.343867,
+  "lon": -89.083807
+ },
+ "0010381": {
+  "address": "801 PARCHER STREET, WAUSAU, WI, 54403",
+  "match": "Exact",
+  "lat": 44.98045,
+  "lon": -89.619415
+ },
+ "0010384": {
+  "address": "3402 TERRACE COURT, WAUSAU, WI, 54401",
+  "match": "Exact",
+  "lat": 44.9564,
+  "lon": -89.678597
+ },
+ "0010385": {
+  "address": "635 CEDAR STREET, MEDFORD, WI, 54451",
+  "match": "Exact",
+  "lat": 45.133903,
+  "lon": -90.358923
+ },
+ "0010446": {
+  "address": "798 STONE RIDGE DRIVE, MOSINEE, WI, 54455",
+  "match": "Exact",
+  "lat": 44.798431,
+  "lon": -89.678054
+ },
+ "0010521": {
+  "address": "359 PINE STREET, MANAWA, WI, 54949",
+  "match": "Exact",
+  "lat": 44.449373,
+  "lon": -88.923377
+ },
+ "0010689": {
+  "address": "183459 NORRIE ROAD, BIRNAMWOOD, WI, 54414",
+  "match": "Exact",
+  "lat": 44.88544,
+  "lon": -89.255148
+ },
+ "0010753": {
+  "address": "N2349 ASHLEY COURT, WAUPACA, WI, 54981",
+  "match": "Exact",
+  "lat": 44.324667,
+  "lon": -89.108159
+ },
+ "0011239": {
+  "address": "530 PARTRIDGE DRIVE, NEW LONDON, WI, 54961",
+  "match": "Exact",
+  "lat": 44.41356,
+  "lon": -88.74643
+ },
+ "0011240": {
+  "address": "531 PHEASANT DRIVE, NEW LONDON, WI, 54961",
+  "match": "Exact",
+  "lat": 44.410697,
+  "lon": -88.74596
+ },
+ "0011255": {
+  "address": "308 S EATON AVE, GREENWOOD, WI, 54437",
+  "match": "Exact",
+  "lat": 44.76481,
+  "lon": -90.595341
+ },
+ "0011268": {
+  "address": "3430 LARRY COURT, PLOVER, WI, 54467",
+  "match": "Exact",
+  "lat": 44.451295,
+  "lon": -89.557361
+ },
+ "0011313": {
+  "address": "5855 DELIKOWSKI STREET, WESTON, WI, 54476",
+  "match": "Exact",
+  "lat": 44.903522,
+  "lon": -89.586706
+ },
+ "0011314": {
+  "address": "1801 MILWAUKEE AVENUE, WAUSAU, WI, 54403",
+  "match": "Exact",
+  "lat": 44.938617,
+  "lon": -89.603982
+ },
+ "0011326": {
+  "address": "N2222 WHITE CEDAR ROAD, GRESHAM, WI, 54128",
+  "match": "Non_Exact",
+  "lat": 44.932848,
+  "lon": -88.755625
+ },
+ "0011327": {
+  "address": "503 WEST 17TH STREET, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.652056,
+  "lon": -90.187563
+ },
+ "0011417": {
+  "address": "500 W WASHINGTON ST, NEW LONDON, WI, 54961",
+  "match": "Exact",
+  "lat": 44.38661,
+  "lon": -88.744335
+ },
+ "0011469": {
+  "address": "100 NORTH GREEN AVENUE, STEVENS POINT, WI, 54481",
+  "match": "Non_Exact",
+  "lat": 44.534203,
+  "lon": -89.544489
+ },
+ "0011588": {
+  "address": "9207 ANDREA STREET, WESTON, WI, 54476",
+  "match": "Exact",
+  "lat": 44.892233,
+  "lon": -89.50874
+ },
+ "0011718": {
+  "address": "2121 CINDY COURT, WISCONSIN RAPIDS, WI, 54494",
+  "match": "Exact",
+  "lat": 44.375626,
+  "lon": -89.807988
+ },
+ "0011754": {
+  "address": "2131 CINDY CT, WISCONSIN RAPIDS, WI, 54494",
+  "match": "Exact",
+  "lat": 44.37555,
+  "lon": -89.807989
+ },
+ "0011758": {
+  "address": "104995 BACK COUNTRY RD, SPENCER, WI, 54479",
+  "match": "Exact",
+  "lat": 44.742895,
+  "lon": -90.255645
+ },
+ "0011778": {
+  "address": "5510 KELLNER ROAD, WISCONSIN RAPIDS, WI, 54494",
+  "match": "Exact",
+  "lat": 44.373262,
+  "lon": -89.756491
+ },
+ "0011779": {
+  "address": "5512 KELLNER ROAD, WISCONSIN RAPIDS, WI, 54494",
+  "match": "Exact",
+  "lat": 44.373262,
+  "lon": -89.756467
+ },
+ "0011795": {
+  "address": "100 N WILSON ST, THORP, WI, 54771",
+  "match": "Exact",
+  "lat": 44.959249,
+  "lon": -90.81043
+ },
+ "0011887": {
+  "address": "1813 MILWAUKEE AVENUE, WAUSAU, WI, 54403",
+  "match": "Exact",
+  "lat": 44.938287,
+  "lon": -89.603483
+ },
+ "0011888": {
+  "address": "1811 MILWAUKEE AVENUE, WAUSAU, WI, 54403",
+  "match": "Exact",
+  "lat": 44.938302,
+  "lon": -89.603505
+ },
+ "0011937": {
+  "address": "2011 NORTHWESTERN AVENUE, WAUSAU, WI, 54403",
+  "match": "Exact",
+  "lat": 44.93611,
+  "lon": -89.60227
+ },
+ "0011953": {
+  "address": "3349 BLDG A WHITING AVENUE, STEVENS POINT, WI, 54481",
+  "match": "Non_Exact",
+  "lat": 44.499148,
+  "lon": -89.574362
+ },
+ "0011954": {
+  "address": "3349 BLDG B WHITING AVENUE, STEVENS POINT, WI, 54481",
+  "match": "Non_Exact",
+  "lat": 44.499148,
+  "lon": -89.574362
+ },
+ "0011989": {
+  "address": "5342 3RD AVENUE, PITTSVILLE, WI, 54466",
+  "match": "Exact",
+  "lat": 44.440446,
+  "lon": -90.12627
+ },
+ "0012036": {
+  "address": "724 HAWK LANE, STEVENS POINT, WI, 54481",
+  "match": "Non_Exact",
+  "lat": 44.529122,
+  "lon": -89.503038
+ },
+ "0012042": {
+  "address": "2831 MAPLE DRIVE, PLOVER, WI, 54467",
+  "match": "Exact",
+  "lat": 44.449977,
+  "lon": -89.547306
+ },
+ "0012043": {
+  "address": "2841 MAPLE DRIVE, PLOVER, WI, 54467",
+  "match": "No_Match"
+ },
+ "0012069": {
+  "address": "3450 BRIDLEWOOD DR, PLOVER, WI, 54467",
+  "match": "Exact",
+  "lat": 44.4465,
+  "lon": -89.544682
+ },
+ "0012110": {
+  "address": "1710 MILWAUKEE AVENUE, WAUSAU, WI, 54403",
+  "match": "Exact",
+  "lat": 44.939828,
+  "lon": -89.605835
+ },
+ "0012111": {
+  "address": "1610 GINGER LANE, WAUSAU, WI, 54403",
+  "match": "Exact",
+  "lat": 44.9382,
+  "lon": -89.604801
+ },
+ "0012115": {
+  "address": "550 WISCONSIN STREET, WISCONSIN RAPIDS, WI, 54494",
+  "match": "Exact",
+  "lat": 44.39245,
+  "lon": -89.81977
+ },
+ "0012240": {
+  "address": "305 S CHESTNUT AVENUE, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.665419,
+  "lon": -90.176288
+ },
+ "0012331": {
+  "address": "3380 BRIDLEWOOD DR, PLOVER, WI, 54467",
+  "match": "Exact",
+  "lat": 44.447431,
+  "lon": -89.544643
+ },
+ "0012336": {
+  "address": "510 SHERMAN STREET #4, WAUSAU, WI, 54401",
+  "match": "Exact",
+  "lat": 44.952031,
+  "lon": -89.643086
+ },
+ "0012338": {
+  "address": "514 SHERMAN STREET #2, WAUSAU, WI, 54401",
+  "match": "Exact",
+  "lat": 44.952031,
+  "lon": -89.643109
+ },
+ "0012339": {
+  "address": "514 SHERMAN STREET #1, WAUSAU, WI, 54401",
+  "match": "Exact",
+  "lat": 44.952031,
+  "lon": -89.643109
+ },
+ "0012366": {
+  "address": "121 CTY HWY QQ, WAUPACA, WI, 54981",
+  "match": "No_Match"
+ },
+ "0012370": {
+  "address": "510 SHERMAN STREET #3, WAUSAU, WI, 54401",
+  "match": "Exact",
+  "lat": 44.952031,
+  "lon": -89.643086
+ },
+ "0012520": {
+  "address": "541 GARFIELD STREET, WISCONSIN RAPIDS, WI, 54495",
+  "match": "Non_Exact",
+  "lat": 44.386033,
+  "lon": -89.825466
+ },
+ "0012659": {
+  "address": "1175 BLUE IRIS CT, WISCONSIN RAPIDS, WI, 54494",
+  "match": "No_Match"
+ },
+ "0012689": {
+  "address": "203680 N FREY AVENUE, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.714251,
+  "lon": -90.218507
+ },
+ "0012713": {
+  "address": "1520 MICHAEL CT, WISCONSIN RAPIDS, WI, 54494",
+  "match": "Exact",
+  "lat": 44.375772,
+  "lon": -89.807805
+ },
+ "0012844": {
+  "address": "103 MADISON WAY, SHAWANO, WI, 54166",
+  "match": "Exact",
+  "lat": 44.781611,
+  "lon": -88.553384
+ },
+ "0012897": {
+  "address": "1909 NORTHWESTERN AVENUE, WAUSAU, WI, 54403",
+  "match": "Exact",
+  "lat": 44.937134,
+  "lon": -89.603516
+ },
+ "0012915": {
+  "address": "1120 GARDNER ST, WISCONSIN RAPIDS, WI, 54495",
+  "match": "Exact",
+  "lat": 44.390274,
+  "lon": -89.83742
+ },
+ "0012930": {
+  "address": "804 12TH STREET, MOSINEE, WI, 54455",
+  "match": "Exact",
+  "lat": 44.794352,
+  "lon": -89.715782
+ },
+ "0013002": {
+  "address": "418 E STANLEY STREET, THORP, WI, 54771",
+  "match": "Exact",
+  "lat": 44.959109,
+  "lon": -90.792571
+ },
+ "0013025": {
+  "address": "4602 BARBICAN AVENUE, WESTON, WI, 54476",
+  "match": "Exact",
+  "lat": 44.896953,
+  "lon": -89.566074
+ },
+ "0013040": {
+  "address": "155 N 3RD ST, DORCHESTER, WI, 54425",
+  "match": "Exact",
+  "lat": 45.003762,
+  "lon": -90.333945
+ },
+ "0013045": {
+  "address": "1810 LINCOLN ST, WISCONSIN RAPIDS, WI, 54495",
+  "match": "Non_Exact",
+  "lat": 44.378399,
+  "lon": -89.822276
+ },
+ "0013051": {
+  "address": "1500 PEPPER AVE, WISCONSIN RAPIDS, WI, 54494",
+  "match": "Exact",
+  "lat": 44.372996,
+  "lon": -89.808182
+ },
+ "0013089": {
+  "address": "651 2ND ST N, STEVENS POINT, WI, 54481",
+  "match": "Exact",
+  "lat": 44.54336,
+  "lon": -89.585643
+ },
+ "0013143": {
+  "address": "1406 S APPLE AVE, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.654424,
+  "lon": -90.169864
+ },
+ "0013144": {
+  "address": "613 W 11TH ST, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.658471,
+  "lon": -90.188874
+ },
+ "0013145": {
+  "address": "2401 S PEACH AVE, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.645986,
+  "lon": -90.171482
+ },
+ "0013278": {
+  "address": "1171 21ST ST NORTH, WISCONSIN RAPIDS, WI, 54494",
+  "match": "Exact",
+  "lat": 44.397201,
+  "lon": -89.800668
+ },
+ "0013295": {
+  "address": "3010  KINGSTON RD, WISCONSIN RAPIDS, WI, 54494",
+  "match": "Exact",
+  "lat": 44.401894,
+  "lon": -89.789184
+ },
+ "0013296": {
+  "address": "2910 KINGSTON RD, WISCONSIN RAPIDS, WI, 54494",
+  "match": "Exact",
+  "lat": 44.401866,
+  "lon": -89.790446
+ },
+ "0013373": {
+  "address": "3750 BLUE VIOLET LN, WISCONSIN RAPIDS, WI, 54494",
+  "match": "No_Match"
+ },
+ "0013395": {
+  "address": "307 W COOK ST, NEW LONDON, WI, 54961",
+  "match": "Exact",
+  "lat": 44.389204,
+  "lon": -88.742018
+ },
+ "0013397": {
+  "address": "75 N PARK ST, CLINTONVILLE, WI, 54929",
+  "match": "Exact",
+  "lat": 44.630358,
+  "lon": -88.749884
+ },
+ "0013419": {
+  "address": "226446 HUMMINGBIRD RD, WAUSAU, WI, 54401",
+  "match": "Exact",
+  "lat": 44.923477,
+  "lon": -89.660235
+ },
+ "0013422": {
+  "address": "220 W CAMPUS DR, WAUSAU, WI, 54401",
+  "match": "Exact",
+  "lat": 44.98825,
+  "lon": -89.638971
+ },
+ "0013424": {
+  "address": "210 W CAMPUS DR, WAUSAU, WI, 54401",
+  "match": "Exact",
+  "lat": 44.98825,
+  "lon": -89.638853
+ },
+ "0013429": {
+  "address": "1014 W BROADWAY AVE, MEDFORD, WI, 54451",
+  "match": "Exact",
+  "lat": 45.140511,
+  "lon": -90.365198
+ },
+ "0013441": {
+  "address": "212976 Hwy B, MOSINEE, WI, 54455",
+  "match": "Exact",
+  "lat": 44.802303,
+  "lon": -89.73177
+ },
+ "0013444": {
+  "address": "2711 12TH ST SOUTH, WISCONSIN RAPIDS, WI, 54494",
+  "match": "Exact",
+  "lat": 44.370297,
+  "lon": -89.811809
+ },
+ "0013445": {
+  "address": "2941 16TH ST SOUTH, WISCONSIN RAPIDS, WI, 54494",
+  "match": "Exact",
+  "lat": 44.368686,
+  "lon": -89.806725
+ },
+ "0013458": {
+  "address": "525 FLIGHT RD, ANTIGO, WI, 54409",
+  "match": "Exact",
+  "lat": 45.147423,
+  "lon": -89.134358
+ },
+ "0013700": {
+  "address": "2013 NORTHWESTERN AVE, WAUSAU, WI, 54403",
+  "match": "Exact",
+  "lat": 44.936084,
+  "lon": -89.602243
+ },
+ "0013747": {
+  "address": "112730 CTY RD C, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.757432,
+  "lon": -90.154604
+ },
+ "0013774": {
+  "address": "4525 RIVER DR, PLOVER, WI, 54467",
+  "match": "Exact",
+  "lat": 44.459019,
+  "lon": -89.580353
+ },
+ "0013785": {
+  "address": "5741 SANDPIPER DR, STEVENS POINT, WI, 54481",
+  "match": "Non_Exact",
+  "lat": 44.528211,
+  "lon": -89.503297
+ },
+ "0013949": {
+  "address": "5905 DELIKOWSKI ST, WESTON, WI, 54476",
+  "match": "Exact",
+  "lat": 44.902984,
+  "lon": -89.586709
+ },
+ "0014104": {
+  "address": "W4266 COUNTY HIGHWAY X, OWEN, WI, 54460",
+  "match": "Exact",
+  "lat": 44.944209,
+  "lon": -90.525715
+ },
+ "0014167": {
+  "address": "2530 GAYNOR AVE, WISCONSIN RAPIDS, WI, 54495",
+  "match": "Exact",
+  "lat": 44.380439,
+  "lon": -89.854962
+ },
+ "0014168": {
+  "address": "1610 25TH AVE SOUTH, WISCONSIN RAPIDS, WI, 54494",
+  "match": "Non_Exact",
+  "lat": 44.3812,
+  "lon": -89.854673
+ },
+ "0014318": {
+  "address": "3111 2ND ST S, WISCONSIN RAPIDS, WI, 54494",
+  "match": "Exact",
+  "lat": 44.366876,
+  "lon": -89.830792
+ },
+ "0014362": {
+  "address": "308 S EATON AVE, GREENWOOD, WI, 54437",
+  "match": "Exact",
+  "lat": 44.76481,
+  "lon": -90.595341
+ },
+ "0014369": {
+  "address": "113 MADISON WAY, SHAWANO, WI, 54166",
+  "match": "Exact",
+  "lat": 44.781258,
+  "lon": -88.5534
+ },
+ "0014421": {
+  "address": "8397 HERITAGE DR, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.626366,
+  "lon": -90.134849
+ },
+ "0014480": {
+  "address": "527 HAMILTON ST, WAUSAU, WI, 54403",
+  "match": "Exact",
+  "lat": 44.966408,
+  "lon": -89.624742
+ },
+ "0014496": {
+  "address": "401 EAST 4TH ST, MANAWA, WI, 54949",
+  "match": "Exact",
+  "lat": 44.460901,
+  "lon": -88.915876
+ },
+ "0014504": {
+  "address": "7805 BIRCH ST, WESTON, WI, 54476",
+  "match": "Exact",
+  "lat": 44.887181,
+  "lon": -89.582392
+ },
+ "0014552": {
+  "address": "112732 CTY RD C, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.75743,
+  "lon": -90.154499
+ },
+ "0014626": {
+  "address": "1204 W MCMILLAN ST, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.685219,
+  "lon": -90.191421
+ },
+ "0014663": {
+  "address": "1415 10TH AVE, ANTIGO, WI, 54409",
+  "match": "Exact",
+  "lat": 45.133265,
+  "lon": -89.167295
+ },
+ "0014728": {
+  "address": "307 S EATON AVENUE, GREENWOOD, WI, 54437",
+  "match": "Exact",
+  "lat": 44.764841,
+  "lon": -90.595502
+ },
+ "0014746": {
+  "address": "2807 S APPLE AVE, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.642131,
+  "lon": -90.169903
+ },
+ "0014834": {
+  "address": "8391 HERITAGE DR, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.626365,
+  "lon": -90.134603
+ },
+ "0014835": {
+  "address": "8393 HERITAGE DR, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.626365,
+  "lon": -90.134685
+ },
+ "0014864": {
+  "address": "309 MARBLE AVE, MATTOON, WI, 54450",
+  "match": "Exact",
+  "lat": 45.006958,
+  "lon": -89.043822
+ },
+ "0014921": {
+  "address": "1417 10TH AVENUE, ANTIGO, WI, 54409",
+  "match": "Exact",
+  "lat": 45.133266,
+  "lon": -89.167316
+ },
+ "0014923": {
+  "address": "W7641 STATE HWY 47, ANTIGO, WI, 54409",
+  "match": "Exact",
+  "lat": 45.058533,
+  "lon": -89.028848
+ },
+ "0015134": {
+  "address": "5625 SANDPIPER  DR, STEVENS POINT, WI, 54481",
+  "match": "Non_Exact",
+  "lat": 44.528203,
+  "lon": -89.507737
+ },
+ "0015140": {
+  "address": "W7343 HWY 47, PHLOX, WI, 54464",
+  "match": "No_Match"
+ },
+ "0015200": {
+  "address": "950 COUNTY RD QQ, WAUPACA, WI, 54981",
+  "match": "No_Match"
+ },
+ "0015223": {
+  "address": "2012 BLOEDEL AVENUE, SCHOFIELD, WI, 54476",
+  "match": "Exact",
+  "lat": 44.906449,
+  "lon": -89.598683
+ },
+ "0015224": {
+  "address": "2010 BLOEDEL AVENUE, SCHOFIELD, WI, 54476",
+  "match": "Exact",
+  "lat": 44.906449,
+  "lon": -89.598707
+ },
+ "0015263": {
+  "address": "300 THEILER STREET, TOMAHAWK, WI, 54487",
+  "match": "Non_Exact",
+  "lat": 45.461503,
+  "lon": -89.72689
+ },
+ "0015337": {
+  "address": "38 N MAIN ST, CLINTONVILLE, WI, 54929",
+  "match": "Exact",
+  "lat": 44.62439,
+  "lon": -88.758792
+ },
+ "0015376": {
+  "address": "3308 HORIZON COURT, WESTON, WI, 54476",
+  "match": "Exact",
+  "lat": 44.91026,
+  "lon": -89.582411
+ },
+ "0015395": {
+  "address": "309 MARBLE AVE, MATTOON, WI, 54450",
+  "match": "Exact",
+  "lat": 45.006958,
+  "lon": -89.043822
+ },
+ "0015404": {
+  "address": "401 CENTER ST, BIRNAMWOOD, WI, 54414",
+  "match": "Exact",
+  "lat": 44.931655,
+  "lon": -89.205962
+ },
+ "0015437": {
+  "address": "59 INDUSTRIAL AVE, CLINTONVILLE, WI, 54929",
+  "match": "Exact",
+  "lat": 44.628812,
+  "lon": -88.74485
+ },
+ "0015448": {
+  "address": "814 E 6TH ST, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.658719,
+  "lon": -90.167131
+ },
+ "0015453": {
+  "address": "142 OAK CT, SHAWANO, WI, 54166",
+  "match": "Exact",
+  "lat": 44.768271,
+  "lon": -88.589416
+ },
+ "0015454": {
+  "address": "132 OAK CT, SHAWANO, WI, 54166",
+  "match": "Exact",
+  "lat": 44.768345,
+  "lon": -88.589412
+ },
+ "0015624": {
+  "address": "1800 BLUEBELL LN, STEVENS POINT, WI, 54481",
+  "match": "Non_Exact",
+  "lat": 44.551039,
+  "lon": -89.5747
+ },
+ "0015628": {
+  "address": "3402 TERRACE COURT, WAUSAU, WI, 54401",
+  "match": "Exact",
+  "lat": 44.9564,
+  "lon": -89.678597
+ },
+ "0015631": {
+  "address": "2230 JAMES CT, WISCONSIN RAPIDS, WI, 54494",
+  "match": "Exact",
+  "lat": 44.3748,
+  "lon": -89.810143
+ },
+ "0015632": {
+  "address": "2230 14TH ST SOUTH, WISCONSIN RAPIDS, WI, 54494",
+  "match": "Exact",
+  "lat": 44.374225,
+  "lon": -89.809537
+ },
+ "0015633": {
+  "address": "1801 LILAC LN, STEVENS POINT, WI, 54481",
+  "match": "Non_Exact",
+  "lat": 44.551153,
+  "lon": -89.574699
+ },
+ "0015634": {
+  "address": "3312 TERRACE CT, WAUSAU, WI, 54401",
+  "match": "Exact",
+  "lat": 44.956805,
+  "lon": -89.677552
+ },
+ "0015687": {
+  "address": "2100 TOWNLINE ROAD, WAUSAU, WI, 54403",
+  "match": "Exact",
+  "lat": 44.94532,
+  "lon": -89.599955
+ },
+ "0015740": {
+  "address": "212772 TRYBA RD, HATLEY, WI, 54440",
+  "match": "Exact",
+  "lat": 44.79921,
+  "lon": -89.407125
+ },
+ "0015844": {
+  "address": "503 N 4TH AVE, WAUSAU, WI, 54401",
+  "match": "Exact",
+  "lat": 44.968788,
+  "lon": -89.64027
+ },
+ "0015885": {
+  "address": "3305 HORIZON  CT, WESTON, WI, 54476",
+  "match": "Exact",
+  "lat": 44.910144,
+  "lon": -89.581719
+ },
+ "0015886": {
+  "address": "3303 HORIZON CT, WESTON, WI, 54476",
+  "match": "Exact",
+  "lat": 44.910144,
+  "lon": -89.581703
+ },
+ "0015955": {
+  "address": "1110 N DIVISION STREET, COLBY, WI, 54421",
+  "match": "Exact",
+  "lat": 44.926741,
+  "lon": -90.315346
+ },
+ "0015957": {
+  "address": "491 25TH ST N, WISCONSIN RAPIDS, WI, 54494",
+  "match": "Exact",
+  "lat": 44.392724,
+  "lon": -89.795725
+ },
+ "0016033": {
+  "address": "2440 BAKER ST, WISCONSIN RAPIDS, WI, 54494",
+  "match": "Exact",
+  "lat": 44.392811,
+  "lon": -89.795932
+ },
+ "0016208": {
+  "address": "2404 MONIQUE LANE, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.670461,
+  "lon": -90.143029
+ },
+ "0016344": {
+  "address": "430 ORBITING DR, MOSINEE, WI, 54455",
+  "match": "Exact",
+  "lat": 44.783326,
+  "lon": -89.683185
+ },
+ "0016379": {
+  "address": "1403 CHURCHILL ST, WAUPACA, WI, 54981",
+  "match": "Exact",
+  "lat": 44.342085,
+  "lon": -89.069016
+ },
+ "0016456": {
+  "address": "4907 ANNABELLE CT, WESTON, WI, 54476",
+  "match": "Exact",
+  "lat": 44.895952,
+  "lon": -89.562099
+ },
+ "0016488": {
+  "address": "502 W ADAMS ST, COLBY, WI, 54421",
+  "match": "Exact",
+  "lat": 44.916672,
+  "lon": -90.322336
+ },
+ "0016514": {
+  "address": "4909 ANNABELLE CT, WESTON, WI, 54476",
+  "match": "Exact",
+  "lat": 44.895953,
+  "lon": -89.562086
+ },
+ "0016520": {
+  "address": "3302 HORIZON CT, WESTON, WI, 54476",
+  "match": "Exact",
+  "lat": 44.91026,
+  "lon": -89.582459
+ },
+ "0016627": {
+  "address": "1400 24TH ST S, WISCONSIN RAPIDS, WI, 54494",
+  "match": "Exact",
+  "lat": 44.378787,
+  "lon": -89.797085
+ },
+ "0016638": {
+  "address": "716 CAROLINE STREET, ATHENS, WI, 54411",
+  "match": "Exact",
+  "lat": 45.029559,
+  "lon": -90.075534
+ },
+ "0016658": {
+  "address": "W11749 COUNTY LINE ROAD, STANLEY, WI, 54768",
+  "match": "Exact",
+  "lat": 45.031304,
+  "lon": -90.900893
+ },
+ "0016736": {
+  "address": "7704 FRANCISCAN WAY, WESTON, WI, 54476",
+  "match": "Exact",
+  "lat": 44.887231,
+  "lon": -89.579309
+ },
+ "0016757": {
+  "address": "1210 W 4TH ST, NEILLSVILLE, WI, 54456",
+  "match": "Exact",
+  "lat": 44.55891,
+  "lon": -90.609078
+ },
+ "0016838": {
+  "address": "2105 2107 NORTHWESTERN AVE, WAUSAU, WI, 54403",
+  "match": "Non_Exact",
+  "lat": 44.934918,
+  "lon": -89.601254
+ },
+ "0016877": {
+  "address": "145 N CEDAR ST, NEKOOSA, WI, 54457",
+  "match": "Exact",
+  "lat": 44.315861,
+  "lon": -89.909004
+ },
+ "0016880": {
+  "address": "3001 WESTHILL DR, WAUSAU, WI, 54401",
+  "match": "Exact",
+  "lat": 44.96807,
+  "lon": -89.674398
+ },
+ "0016883": {
+  "address": "3001 WESTHILL DR, WAUSAU, WI, 54401",
+  "match": "Exact",
+  "lat": 44.96807,
+  "lon": -89.674398
+ },
+ "0016894": {
+  "address": "203702 N FREY AVE, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.716241,
+  "lon": -90.218514
+ },
+ "0016895": {
+  "address": "203700 N FREY AVE, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.71606,
+  "lon": -90.218512
+ },
+ "0016921": {
+  "address": "1030 GROVE AVE, WISCONSIN RAPIDS, WI, 54494",
+  "match": "Exact",
+  "lat": 44.369147,
+  "lon": -89.814082
+ },
+ "0016944": {
+  "address": "18 S RAILWAY ST, TOMAHAWK, WI, 54487",
+  "match": "Exact",
+  "lat": 45.470817,
+  "lon": -89.735155
+ },
+ "0016965": {
+  "address": "1226 BERLIN ST, WAUPACA, WI, 54981",
+  "match": "Exact",
+  "lat": 44.344089,
+  "lon": -89.081465
+ },
+ "0017035": {
+  "address": "314 E LINCOLN AVENUE, TOMAHAWK, WI, 54487",
+  "match": "Exact",
+  "lat": 45.473976,
+  "lon": -89.724676
+ },
+ "0017059": {
+  "address": "314 E LINCOLN AVE, TOMAHAWK, WI, 54487",
+  "match": "Exact",
+  "lat": 45.473976,
+  "lon": -89.724676
+ },
+ "0017080": {
+  "address": "1088 ENGLE DR, SHAWANO, WI, 54166",
+  "match": "Non_Exact",
+  "lat": 44.764679,
+  "lon": -88.578383
+ },
+ "0017129": {
+  "address": "1211 LLOYD ST, NEILLSVILLE, WI, 54456",
+  "match": "Exact",
+  "lat": 44.565504,
+  "lon": -90.587856
+ },
+ "0017158": {
+  "address": "8679 STATE HWY 186, ARPIN, WI, 54410",
+  "match": "Exact",
+  "lat": 44.561783,
+  "lon": -90.025308
+ },
+ "0017192": {
+  "address": "11854 COUNTY ROAD T, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.675322,
+  "lon": -90.099501
+ },
+ "0017202": {
+  "address": "1606 N ST JOSEPH AVE, MARSHFIELD, WI, 54449",
+  "match": "Non_Exact",
+  "lat": 44.684517,
+  "lon": -90.179935
+ },
+ "0017226": {
+  "address": "414 E 19TH ST, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.650225,
+  "lon": -90.177959
+ },
+ "0017303": {
+  "address": "3940 MAPLE DR, PLOVER, WI, 54467",
+  "match": "Exact",
+  "lat": 44.450046,
+  "lon": -89.56852
+ },
+ "0017335": {
+  "address": "729 PARK STREET, ANTIGO, WI, 54409",
+  "match": "Exact",
+  "lat": 45.142575,
+  "lon": -89.13611
+ },
+ "0017343": {
+  "address": "847 OLSON ST, SHAWANO, WI, 54166",
+  "match": "Non_Exact",
+  "lat": 44.773779,
+  "lon": -88.591222
+ },
+ "0017386": {
+  "address": "212 COLUMBUS DR, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.669589,
+  "lon": -90.193867
+ },
+ "0017393": {
+  "address": "107 E BECKERT ROAD, NEW LONDON, WI, 54961",
+  "match": "Exact",
+  "lat": 44.373922,
+  "lon": -88.736979
+ },
+ "0017437": {
+  "address": "1902 POST ROAD, STEVENS POINT, WI, 54481",
+  "match": "Exact",
+  "lat": 44.496644,
+  "lon": -89.558626
+ },
+ "0017439": {
+  "address": "1661 BIRON DR, WISCONSIN RAPIDS, WI, 54494",
+  "match": "Non_Exact",
+  "lat": 44.411493,
+  "lon": -89.803287
+ },
+ "0017493": {
+  "address": "104 SODERBERG DR, THORP, WI, 54771",
+  "match": "No_Match"
+ },
+ "0017545": {
+  "address": "510 RIVER ST, WAUPACA, WI, 54981",
+  "match": "Exact",
+  "lat": 44.362947,
+  "lon": -89.09304
+ },
+ "0017579": {
+  "address": "301 SUNSET AVE, SHAWANO, WI, 54166",
+  "match": "Exact",
+  "lat": 44.767092,
+  "lon": -88.61149
+ },
+ "0017638": {
+  "address": "1500 ODAY ST, MERRILL, WI, 54452",
+  "match": "No_Match"
+ },
+ "0017792": {
+  "address": "3100 POPP AVE, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.698435,
+  "lon": -90.213457
+ },
+ "0017857": {
+  "address": "61 INDUSTRIAL AVE, CLINTONVILLE, WI, 54929",
+  "match": "Exact",
+  "lat": 44.628818,
+  "lon": -88.744845
+ },
+ "0017953": {
+  "address": "1400 RIVER RUN DR, WISCONSIN RAPIDS, WI, 54494",
+  "match": "Exact",
+  "lat": 44.378269,
+  "lon": -89.811209
+ },
+ "0017958": {
+  "address": "1800B SHERMAN AVE, STEVENS POINT, WI, 54481",
+  "match": "Non_Exact",
+  "lat": 44.493698,
+  "lon": -89.579855
+ },
+ "0017960": {
+  "address": "1800 SHERMAN AVENUE, STEVENS POINT, WI, 54481",
+  "match": "Exact",
+  "lat": 44.493698,
+  "lon": -89.579855
+ },
+ "0017994": {
+  "address": "384 LYONS ROAD, BIRNAMWOOD, WI, 54414",
+  "match": "Exact",
+  "lat": 44.929128,
+  "lon": -89.202905
+ },
+ "0017995": {
+  "address": "1805 NORTH 6TH AVENUE, WAUSAU, WI, 54401",
+  "match": "Exact",
+  "lat": 44.988629,
+  "lon": -89.643711
+ },
+ "0017996": {
+  "address": "1815 NORTH 6TH AVENUE, WAUSAU, WI, 54401",
+  "match": "Exact",
+  "lat": 44.988771,
+  "lon": -89.643716
+ },
+ "0017997": {
+  "address": "380 MAPLE STREET, BIRNAMWOOD, WI, 54414",
+  "match": "No_Match"
+ },
+ "0018018": {
+  "address": "1807 MILWAUKEE AVENUE, WAUSAU, WI, 54403",
+  "match": "Exact",
+  "lat": 44.938501,
+  "lon": -89.60378
+ },
+ "0018153": {
+  "address": "2920 SHADY LN, WISCONSIN RAPIDS, WI, 54494",
+  "match": "Exact",
+  "lat": 44.368135,
+  "lon": -89.819121
+ },
+ "0018217": {
+  "address": "E397 GOLKE ROAD, WAUPACA, WI, 54981",
+  "match": "Exact",
+  "lat": 44.337822,
+  "lon": -89.209653
+ },
+ "0018238": {
+  "address": "845 OLSON STREET, SHAWANO, WI, 54166",
+  "match": "Non_Exact",
+  "lat": 44.773816,
+  "lon": -88.591224
+ },
+ "0018239": {
+  "address": "1041 SOUTH PARK STREET, SHAWANO, WI, 54166",
+  "match": "Exact",
+  "lat": 44.769739,
+  "lon": -88.596216
+ },
+ "0018266": {
+  "address": "7020 COUNTY ROAD K, WAUSAU, WI, 54401",
+  "match": "Exact",
+  "lat": 45.036775,
+  "lon": -89.692288
+ },
+ "0018276": {
+  "address": "3017 MANN STREET, MARSHFIELD, WI, 54449",
+  "match": "No_Match"
+ },
+ "0018300": {
+  "address": "5601 SHERMAN STREET, WAUSAU, WI, 54401",
+  "match": "Exact",
+  "lat": 44.951565,
+  "lon": -89.705653
+ },
+ "0018302": {
+  "address": "149500 COUNTY ROAD NN, WAUSAU, WI, 54401",
+  "match": "Exact",
+  "lat": 44.934239,
+  "lon": -89.690791
+ },
+ "0018366": {
+  "address": "W5012 HIGHLAND DRIVE, SHAWANO, WI, 54166",
+  "match": "Exact",
+  "lat": 44.796774,
+  "lon": -88.493145
+ },
+ "0018376": {
+  "address": "2610 WASHINGTON AVENUE, PLOVER, WI, 54467",
+  "match": "Exact",
+  "lat": 44.457794,
+  "lon": -89.539758
+ },
+ "0018400": {
+  "address": "1301 E DOEGE ST, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.666024,
+  "lon": -90.155096
+ },
+ "0018401": {
+  "address": "9787 WEST IVES STREET, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.67706,
+  "lon": -90.202896
+ },
+ "0018402": {
+  "address": "720 S CYPRESS AVENUE, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.663944,
+  "lon": -90.20111
+ },
+ "0018403": {
+  "address": "612 E 25TH ST, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.644801,
+  "lon": -90.173052
+ },
+ "0018525": {
+  "address": "1957 KOWALSKI ROAD, KRONENWETTER, WI, 54455",
+  "match": "Exact",
+  "lat": 44.843783,
+  "lon": -89.615422
+ },
+ "0018526": {
+  "address": "2023 KIMBERLY ROAD, KRONENWETTER, WI, 54455",
+  "match": "Exact",
+  "lat": 44.853177,
+  "lon": -89.613018
+ },
+ "0018636": {
+  "address": "920 WEST 5TH STREET, NEILLSVILLE, WI, 54456",
+  "match": "Exact",
+  "lat": 44.559851,
+  "lon": -90.607652
+ },
+ "0018719": {
+  "address": "1610 BOLES ST, WISCONSIN RAPIDS, WI, 54495",
+  "match": "Exact",
+  "lat": 44.38396,
+  "lon": -89.843802
+ },
+ "0018754": {
+  "address": "955 E ALLMAN ST, MEDFORD, WI, 54451",
+  "match": "Exact",
+  "lat": 45.149235,
+  "lon": -90.329377
+ },
+ "0018759": {
+  "address": "100 S 4TH AVE, ABBOTSFORD, WI, 54405",
+  "match": "Exact",
+  "lat": 44.945532,
+  "lon": -90.32915
+ },
+ "0018760": {
+  "address": "213721 LEGION ST, STRATFORD, WI, 54484",
+  "match": "Exact",
+  "lat": 44.808774,
+  "lon": -90.076181
+ },
+ "0018783": {
+  "address": "3120 Rosalie Parkway, Plover, WI, 54467",
+  "match": "Exact",
+  "lat": 44.451289,
+  "lon": -89.546764
+ },
+ "0018798": {
+  "address": "W9498 KINGTON RD, THORP, WI, 54771",
+  "match": "Exact",
+  "lat": 44.828982,
+  "lon": -90.790387
+ },
+ "0018848": {
+  "address": "1704 E MCMILLAN, MARSHFIELD, WI, 54449",
+  "match": "Non_Exact",
+  "lat": 44.685165,
+  "lon": -90.150917
+ },
+ "0018940": {
+  "address": "3013 MANN STREET, MARSHFIELD, WI, 54449",
+  "match": "No_Match"
+ },
+ "0018966": {
+  "address": "510 West Wausau Street, Colby, WI, 54421",
+  "match": "Exact",
+  "lat": 44.910555,
+  "lon": -90.321695
+ },
+ "0019071": {
+  "address": "6404 Camp Phillips Rd, Weston, WI, 54476",
+  "match": "Exact",
+  "lat": 44.899324,
+  "lon": -89.572905
+ },
+ "0019084": {
+  "address": "1607 Immanuel Ct, Marshfield, WI, 54449",
+  "match": "Exact",
+  "lat": 44.684063,
+  "lon": -90.18665
+ },
+ "0019177": {
+  "address": "2941 Shady Lane, Wisconsin Rapids, WI, 54494",
+  "match": "Exact",
+  "lat": 44.367521,
+  "lon": -89.819647
+ },
+ "0019222": {
+  "address": "1116 19th St, Mosinee, WI, 54455",
+  "match": "Exact",
+  "lat": 44.790525,
+  "lon": -89.724497
+ },
+ "0019326": {
+  "address": "4930 Alderson St, SCHOFIELD, WI, 54476",
+  "match": "Exact",
+  "lat": 44.912542,
+  "lon": -89.592693
+ },
+ "0019328": {
+  "address": "4932 Alderson St, Schofield, WI, 54476",
+  "match": "Exact",
+  "lat": 44.912525,
+  "lon": -89.592693
+ },
+ "0019329": {
+  "address": "385 Orbiting Dr, Mosinee, WI, 54455",
+  "match": "Exact",
+  "lat": 44.785208,
+  "lon": -89.683973
+ },
+ "0019331": {
+  "address": "2309 Ross Avenue, Schofield, WI, 54476",
+  "match": "Exact",
+  "lat": 44.912772,
+  "lon": -89.594923
+ },
+ "0019578": {
+  "address": "2160 James Court, Wisconsin Rapids, WI, 54494",
+  "match": "Exact",
+  "lat": 44.375017,
+  "lon": -89.809899
+ },
+ "0019609": {
+  "address": "800 South Drake Avenue, Marshfield, WI, 54449",
+  "match": "Exact",
+  "lat": 44.662713,
+  "lon": -90.191453
+ },
+ "0019651": {
+  "address": "411 W Prospect St, Thorp, WI, 54771",
+  "match": "Exact",
+  "lat": 44.958127,
+  "lon": -90.806237
+ },
+ "0019716": {
+  "address": "101 E Maple St, Thorp, WI, 54771",
+  "match": "Exact",
+  "lat": 44.954706,
+  "lon": -90.800258
+ },
+ "0019733": {
+  "address": "1150 Lake View Dr, Wausau, WI, 54403",
+  "match": "Exact",
+  "lat": 44.929889,
+  "lon": -89.634339
+ },
+ "0019736": {
+  "address": "1411 E Grand Ave, Wisconsin Rapids, WI, 54494",
+  "match": "Exact",
+  "lat": 44.38823,
+  "lon": -89.809225
+ },
+ "0019741": {
+  "address": "400 W Mill St, Bonduel, WI, 54107",
+  "match": "Exact",
+  "lat": 44.738569,
+  "lon": -88.450559
+ },
+ "0019818": {
+  "address": "405 W Prospect St, Thorp, WI, 54771",
+  "match": "Exact",
+  "lat": 44.958128,
+  "lon": -90.806103
+ },
+ "0019823": {
+  "address": "1209 West Taylor St, Merrill, WI, 54452",
+  "match": "Exact",
+  "lat": 45.192404,
+  "lon": -89.714127
+ },
+ "0019892": {
+  "address": "1207 West Taylor Street, Merrill, WI, 54452",
+  "match": "Exact",
+  "lat": 45.192404,
+  "lon": -89.714057
+ },
+ "0019893": {
+  "address": "700A Eugene St, Merrill, WI, 54452",
+  "match": "Non_Exact",
+  "lat": 45.172829,
+  "lon": -89.729299
+ },
+ "0019894": {
+  "address": "700B Eugene St, Merrill, WI, 54452",
+  "match": "Non_Exact",
+  "lat": 45.172829,
+  "lon": -89.729299
+ },
+ "0019937": {
+  "address": "9205 Andrea St, Weston, WI, 54476",
+  "match": "Exact",
+  "lat": 44.892234,
+  "lon": -89.50877
+ },
+ "0019940": {
+  "address": "5006 Chadwick St, Weston, WI, 54476",
+  "match": "Exact",
+  "lat": 44.911679,
+  "lon": -89.555697
+ },
+ "0019995": {
+  "address": "2921 Sampson St, Wisconsin Rapids, WI, 54494",
+  "match": "Exact",
+  "lat": 44.368329,
+  "lon": -89.827065
+ },
+ "0020028": {
+  "address": "16 Boon Blvd, Neillsville, WI, 54456",
+  "match": "Exact",
+  "lat": 44.548939,
+  "lon": -90.586391
+ },
+ "0020033": {
+  "address": "509 S Section St, Nekoosa, WI, 54457",
+  "match": "Non_Exact",
+  "lat": 44.311133,
+  "lon": -89.904058
+ },
+ "0020143": {
+  "address": "W12806 COUNTY ROAD A, BOWLER, WI, 54416",
+  "match": "Exact",
+  "lat": 44.870078,
+  "lon": -88.895348
+ },
+ "0020362": {
+  "address": "515 W Iola St, Iola, WI, 54945",
+  "match": "Exact",
+  "lat": 44.506049,
+  "lon": -89.138517
+ },
+ "0020363": {
+  "address": "663 Maratech Ave, Marathon, WI, 54448",
+  "match": "Exact",
+  "lat": 44.941155,
+  "lon": -89.83998
+ },
+ "0020366": {
+  "address": "1408 Lili Lane, Schofield, WI, 54476",
+  "match": "Exact",
+  "lat": 44.89282,
+  "lon": -89.60803
+ },
+ "0020445": {
+  "address": "1404 Lili Lane, Schofield, WI, 54476",
+  "match": "Exact",
+  "lat": 44.89282,
+  "lon": -89.608075
+ },
+ "0020446": {
+  "address": "2225 Eagle Summit, Stevens Point, WI, 54482",
+  "match": "Exact",
+  "lat": 44.54946,
+  "lon": -89.568937
+ },
+ "0020447": {
+  "address": "2301 Eagle Summit, Stevens Point, WI, 54482",
+  "match": "Exact",
+  "lat": 44.549626,
+  "lon": -89.566717
+ },
+ "0020448": {
+  "address": "2201 Eagle Summit, Stevens Point, WI, 54482",
+  "match": "Exact",
+  "lat": 44.549463,
+  "lon": -89.569643
+ },
+ "0020450": {
+  "address": "505 W Iola St, Iola, WI, 54945",
+  "match": "Exact",
+  "lat": 44.506046,
+  "lon": -89.138423
+ },
+ "0020557": {
+  "address": "440 Lyon St, Wisconsin Rapids, WI, 54495",
+  "match": "Non_Exact",
+  "lat": 44.384727,
+  "lon": -89.842375
+ },
+ "0020586": {
+  "address": "430 Orbiting Dr, Mosinee, WI, 54455",
+  "match": "Exact",
+  "lat": 44.783326,
+  "lon": -89.683185
+ },
+ "0020659": {
+  "address": "76 W Green Tree Road, Clintonville, WI, 54929",
+  "match": "Non_Exact",
+  "lat": 44.634065,
+  "lon": -88.749136
+ },
+ "0020661": {
+  "address": "1706 Taubel Boulevard, New London, WI, 54961",
+  "match": "Exact",
+  "lat": 44.411038,
+  "lon": -88.745466
+ },
+ "0020664": {
+  "address": "1377 S Lincoln St, Shawano, WI, 54166",
+  "match": "Exact",
+  "lat": 44.764093,
+  "lon": -88.603733
+ },
+ "0020739": {
+  "address": "4501 Pleasant View Dr, Stevens Point, WI, 54481",
+  "match": "Exact",
+  "lat": 44.506517,
+  "lon": -89.535111
+ },
+ "0020753": {
+  "address": "3214 Mannville Lane, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.70124,
+  "lon": -90.215769
+ },
+ "0020802": {
+  "address": "2641 Annamarie Dr, Kronenwetter, WI, 54455",
+  "match": "Exact",
+  "lat": 44.843533,
+  "lon": -89.585344
+ },
+ "0020893": {
+  "address": "510 White Oak Ave, Plover, WI, 54467",
+  "match": "Exact",
+  "lat": 44.490589,
+  "lon": -89.519577
+ },
+ "0020912": {
+  "address": "3404 Community Center Drive, Weston, WI, 54476",
+  "match": "Exact",
+  "lat": 44.896319,
+  "lon": -89.581631
+ },
+ "0020934": {
+  "address": "715 N 16th Ave, Wausau, WI, 54401",
+  "match": "Exact",
+  "lat": 44.97195,
+  "lon": -89.654872
+ },
+ "0020957": {
+  "address": "1128 S Lincoln St., Shawano, WI, 54166",
+  "match": "Exact",
+  "lat": 44.768709,
+  "lon": -88.603694
+ },
+ "0021052": {
+  "address": "5625 Sandpiper Drive, Stevens Point, WI, 54482",
+  "match": "Exact",
+  "lat": 44.528203,
+  "lon": -89.507737
+ },
+ "0021053": {
+  "address": "5625 Sandpiper Dr, Stevens Point, WI, 54482",
+  "match": "Exact",
+  "lat": 44.528203,
+  "lon": -89.507737
+ },
+ "0021167": {
+  "address": "5010 Heather St., Weston, WI, 54476",
+  "match": "Exact",
+  "lat": 44.911598,
+  "lon": -89.545139
+ },
+ "0021235": {
+  "address": "1406 S Apple Ave, Marshfield, WI, 54449",
+  "match": "Exact",
+  "lat": 44.654424,
+  "lon": -90.169864
+ },
+ "0021248": {
+  "address": "418 E. Stanley Street, Thorp, WI, 54771",
+  "match": "Exact",
+  "lat": 44.959109,
+  "lon": -90.792571
+ },
+ "0021269": {
+  "address": "226446 Hummingbird Road, Wausau, WI, 54401",
+  "match": "Exact",
+  "lat": 44.923477,
+  "lon": -89.660235
+ },
+ "0021271": {
+  "address": "132 Oak Court, Shawano, WI, 54166",
+  "match": "Exact",
+  "lat": 44.768345,
+  "lon": -88.589412
+ },
+ "0021273": {
+  "address": "142 Oak Court, Shawano, WI, 54166",
+  "match": "Exact",
+  "lat": 44.768271,
+  "lon": -88.589416
+ },
+ "0021297": {
+  "address": "1171 3rd St, Port Edwards, WI, 54469",
+  "match": "Exact",
+  "lat": 44.354323,
+  "lon": -89.861884
+ },
+ "0021323": {
+  "address": "3420 Rosewood Dr, Plover, WI, 54467",
+  "match": "Exact",
+  "lat": 44.448031,
+  "lon": -89.551998
+ },
+ "0021417": {
+  "address": "3349 Whiting Ave #A, Stevens Point, WI, 54481",
+  "match": "Non_Exact",
+  "lat": 44.499148,
+  "lon": -89.574362
+ },
+ "0021437": {
+  "address": "3349 Whiting Ave #B, Stevens Point, WI, 54481",
+  "match": "Non_Exact",
+  "lat": 44.499148,
+  "lon": -89.574362
+ },
+ "0021453": {
+  "address": "18 S Railway St, Tomahawk, WI, 54487",
+  "match": "Exact",
+  "lat": 45.470817,
+  "lon": -89.735155
+ },
+ "0021468": {
+  "address": "413 W Prospect St., Thorp, WI, 54771",
+  "match": "Exact",
+  "lat": 44.958127,
+  "lon": -90.806282
+ },
+ "0021469": {
+  "address": "415 W Prospect St, Thorp, WI, 54771",
+  "match": "Exact",
+  "lat": 44.958127,
+  "lon": -90.806326
+ },
+ "0021541": {
+  "address": "5108 Sunset St, Weston, WI, 54476",
+  "match": "Exact",
+  "lat": 44.910985,
+  "lon": -89.565322
+ },
+ "0021622": {
+  "address": "W10902 County Road X, Stanley, WI, 54768",
+  "match": "Exact",
+  "lat": 44.959233,
+  "lon": -90.861841
+ },
+ "0021783": {
+  "address": "3309 Vine St, Stevens Point, WI, 54481",
+  "match": "Exact",
+  "lat": 44.536769,
+  "lon": -89.553608
+ },
+ "0021809": {
+  "address": "1801 Milwaukee Ave, Wausau, WI, 54403",
+  "match": "Exact",
+  "lat": 44.938617,
+  "lon": -89.603982
+ },
+ "0021839": {
+  "address": "200 W 25th St, Marshfield, WI, 54449",
+  "match": "Exact",
+  "lat": 44.644835,
+  "lon": -90.182557
+ },
+ "0021849": {
+  "address": "565 Ann Drive, Stevens Point, WI, 54482",
+  "match": "Exact",
+  "lat": 44.580925,
+  "lon": -89.591776
+ },
+ "0021959": {
+  "address": "502 West Adams Street, Colby, WI, 54421",
+  "match": "Exact",
+  "lat": 44.916672,
+  "lon": -90.322336
+ },
+ "0022107": {
+  "address": "507 N 5th St, Colby, WI, 54421",
+  "match": "Exact",
+  "lat": 44.91433,
+  "lon": -90.322414
+ },
+ "410032": {
+  "address": "N2150 KESAEHKAHTEK, GRESHAM, WI, 54128",
+  "match": "Exact",
+  "lat": 44.93101,
+  "lon": -88.752911
+ },
+ "410107": {
+  "address": "604 SOUTH WEBB STREET, WITTENBERG, WI, 54499",
+  "match": "Exact",
+  "lat": 44.822132,
+  "lon": -89.168111
+ },
+ "410133": {
+  "address": "109 WEST LAKE STREET, WAUPACA, WI, 54981",
+  "match": "Exact",
+  "lat": 44.352454,
+  "lon": -89.085098
+ },
+ "410429": {
+  "address": "1835 DIVISION STREET, NEW LONDON, WI, 54961",
+  "match": "Exact",
+  "lat": 44.376256,
+  "lon": -88.736912
+ },
+ "510067": {
+  "address": "311 W HUNT ST, GREENWOOD, WI, 54437",
+  "match": "Exact",
+  "lat": 44.771493,
+  "lon": -90.60023
+ },
+ "590164": {
+  "address": "208 E KRYCH STREET, THORP, WI, 54771",
+  "match": "Exact",
+  "lat": 44.953693,
+  "lon": -90.797741
+ },
+ "610004": {
+  "address": "1019 ARLINGTON PLACE, STEVENS POINT, WI, 54481",
+  "match": "Exact",
+  "lat": 44.520073,
+  "lon": -89.582565
+ },
+ "610071": {
+  "address": "135 SOUTH GIBSON STREET, MEDFORD, WI, 54451",
+  "match": "Exact",
+  "lat": 45.135551,
+  "lon": -90.354098
+ },
+ "610201": {
+  "address": "309 BELLIS STREET, WAUSAU, WI, 54403",
+  "match": "Tie"
+ },
+ "610269": {
+  "address": "1016 SOUTH ADAMS AVENUE, MARSHFIELD, WI, 54449",
+  "match": "Non_Exact",
+  "lat": 44.659937,
+  "lon": -90.190332
+ },
+ "611026": {
+  "address": "2480 TERREBONNE DRIVE, MOSINEE, WI, 54455",
+  "match": "Exact",
+  "lat": 44.857638,
+  "lon": -89.624048
+ },
+ "611047": {
+  "address": "601 EAST 21ST STREET, MARSHFIELD, WI, 54449",
+  "match": "Exact",
+  "lat": 44.648502,
+  "lon": -90.174335
+ },
+ "611048": {
+  "address": "715 ACKLEY STREET, ANTIGO, WI, 54409",
+  "match": "Exact",
+  "lat": 45.159102,
+  "lon": -89.151658
+ },
+ "690022": {
+  "address": "2420 CRESCENT CT, PLOVER, WI, 54467",
+  "match": "Exact",
+  "lat": 44.461785,
+  "lon": -89.537087
+ }
+}

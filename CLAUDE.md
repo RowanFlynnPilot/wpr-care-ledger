@@ -203,6 +203,31 @@ Wayback CDX index is not used: it lagged hours behind replay and its
 prefix queries timed out. Never hand-edit; deleting the file and
 rerunning recaptures everything (two runs).
 
+`data/geocodes.json` — **derived** map locations from
+`pipeline/geocode.py`, keyed by license: `address` (the one-line roster
+address sent, which is also the change detector — only new or moved
+facilities are sent again; an unplaced address is not retried until it
+changes), `match` (Census `Exact` / `Non_Exact` / `No_Match` / `Tie`, or
+`Wrong_County`), and `lat`/`lon` only when placed. One request to the
+Census Bureau's batch geocoder (free, no key). Every match must fall
+inside the facility's own roster county or within 250 m of it — some
+streets *are* the county line (McMillan St in Marshfield divides Wood
+from Marathon; County Line Rd at Stanley) and the geocoder lands on the
+centerline; farther out is `Wrong_County`, no point: a dot in the wrong
+place is worse than a missing one. 2026-10-19: 292 of 305 placed (rural
+fire numbers and new subdivisions miss). Delete and rerun to geocode
+everything; never hand-edit.
+
+`data/basemap.json` — the map's static base, built once 2026-10-19 (the
+recipe is in geocode.py's docstring): `counties`, the nine outlines from
+Census TIGERweb generalized to ~30 m (these boundaries are mostly
+surveyed straight lines: 19–45 vertices each, 6.5 KB), used by the
+widget and by geocode.py's county check; and `places`, the 2025 Census
+Gazetteer point for each roster city that is a Census place in the nine
+counties (40 of 43; Marathon City, Phlox and Stanley aren't), where the
+widget prints town names. geocode.py fails if a county in `COUNTIES` has
+no outline — add one when the ledger grows.
+
 ## Known migration event — READ THIS WHEN THE SCRAPER DIES
 
 DHS announced the **Wisconsin Provider Finder** (planned spring 2026, not
@@ -358,7 +383,7 @@ result count reads "50 facilities cited for medications · Show all".
 `#cat=<slug>` deep-links the same view (`catSlug()`; `findCategory()`
 also accepts the start of a slug, so `#cat=abuse` works); `county`, `cat`
 and `q` combine with `&` (`#county=Wood&cat=medications`), and the URL
-reflects all three. Any link without `lic` closes an open record, so the
+reflects all three; `view=map` opens on the map and joins them too. Any link without `lic` closes an open record, so the
 address never sticks on a record the new view hides. Cross-links, stats
 and Clear reset the category.
 Expandable ledger rows: license facts + survey timeline
@@ -460,6 +485,31 @@ links to the archived PDFs and their archive.org copies. Built in the
 browser (no server): UTF-8 BOM for Excel, and a cell starting `= + - @`
 gets a leading apostrophe so a spreadsheet can't run it as a formula.
 Filenames carry the county and the ledger's update date.
+Beside it, a List · Map toggle (`view` state, `#view=map`). The map
+(`FacilityMap`) draws exactly the facilities in view — every narrowing
+applies, pagination doesn't — over the county outlines in plain SVG: no
+tile service, nothing loaded from a third party. Equirectangular with
+longitude scaled by cos(latitude), framed to the county filter (all nine,
+or one county with its neighbors faint), not to the dots, so it holds
+still while a search narrows it; a single county's height is capped at
+560px. Every dot is one facility — a locator, not a density map: red =
+an enforcement action on record (drawn on top), gray = none, hollow =
+closed; the legend counts each. Pointing at a dot (hover; tap on touch)
+shows a card for every facility within a few pixels, nearest first —
+Wausau's dots overlap — previewing five; clicking pins it, listing all
+in a scroll box with a close button (Escape and clicking empty map close
+it too); a name opens that record in the list via `crossLink`. With all
+nine shown, clicking empty space in a county zooms to it; zoomed, a
+"Show all nine counties" button returns. County names sit at each
+county's open spot farthest from any dot (`labelSpot`); zoomed in, towns
+with 2+ facilities in view are named, anchored at the Gazetteer point
+(never at their facilities — a mailing city's addresses spread miles
+out), placed beside it where the name covers fewest dots and skipped
+rather than overlapping another name. Facilities without a location are
+named under the map, each a link to its record. Dots aren't focusable:
+the SVG is `role="img"` with a summary label, and the list is the
+accessible equivalent. Cross-links, the operator link and Clear return
+to the list.
 Cross-links and deep links scroll the opened record into view
 (standalone only). A print stylesheet hides interactive chrome and keeps
 records intact across page breaks.
@@ -491,7 +541,10 @@ then bundles them into `dist/`, so **the Pages artifact is just
 ## Deploy
 
 - `fetch.yml` — Mondays 09:00 UTC: tests → fetch → **commit the ledger
-  and archive** → enrich → digest → commit `enrichment.json`. The archive
+  and archive** → enrich → digest → commit `enrichment.json` → geocode
+  new or moved facilities and commit `geocodes.json` (continue-on-error:
+  a Census Bureau outage leaves a new facility unplaced, named under the
+  map, until the next run sends it again) → alert. The archive
   commits before any derived step can fail, so a parser problem never
   costs a week of records. One run at a time (concurrency group), 30-min
   timeout, `pull --rebase` before each push. On failure it opens a
@@ -540,6 +593,8 @@ then bundles them into `dist/`, so **the Pages artifact is just
   block the deploy. `alert-test.yml` (Run workflow) posts a `[TEST]` issue
   to confirm delivery. Alert issues are public, like the repo — public
   records only.
+- Map locations: `python pipeline/geocode.py` (new or moved facilities
+  only; idempotent)
 - Internet Archive copies: `python pipeline/seed_wayback.py` (needs
   `IA_ACCESS_KEY` / `IA_SECRET_KEY`; idempotent). Paces itself under Save
   Page Now's documented 7 captures a minute, at most six in flight —

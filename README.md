@@ -14,7 +14,8 @@ three years of survey history; this repo never forgets.
 - Run the widget: `cd widget; npm install; npm run dev`
 - Data: `data/facilities.json`, `data/surveys.json`, the derived
   `data/enrichment.json` (fines, sanctions, citations read from the PDFs),
-  and `data/wayback.json` (the Internet Archive's copies)
+  `data/wayback.json` (the Internet Archive's copies), and
+  `data/geocodes.json` (map locations from the Census Bureau's geocoder)
 - Document archive: `archive/{license}/`
 
 ## Every Monday
@@ -127,8 +128,10 @@ Add a hash to the iframe `src` (or to the standalone URL):
   "What inspectors cite" category (`#cat=abuse`, `#cat=fire-safety`,
   `#cat=staffing` … the start of the name is enough), the same as clicking
   its row.
-- `county`, `cat` and `q` combine with `&`:
-  `…/wpr-care-ledger/#county=Wood&cat=medications`.
+- `…/wpr-care-ledger/#view=map` — opens on the map instead of the list.
+- `county`, `cat`, `q` and `view` combine with `&`:
+  `…/wpr-care-ledger/#county=Wood&cat=medications`, or
+  `…/wpr-care-ledger/#county=Marathon&view=map` for a map of one county.
 
 ### Embedding one facility in a story
 

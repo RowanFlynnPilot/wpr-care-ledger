@@ -38,7 +38,7 @@ REVISION_MARK = "care-ledger-revision:"
 
 # Same print rules as the widget's smartTitle(): state names arrive in
 # ALL CAPS; keep licensing acronyms, lowercase the small words.
-KEEP_UPPER = {"LLC", "LLP", "INC", "CO", "II", "III", "IV", "AFH", "CBRF", "RCAC", "AF", "ALF"}
+KEEP_UPPER = {"LLC", "LLP", "INC", "CO", "II", "III", "IV", "VI", "VII", "VIII", "AFH", "CBRF", "RCAC", "AF", "ALF"}
 KEEP_LOWER = {"of", "and", "the", "at", "by", "for", "on", "in"}
 
 SURVEY_PART_LABELS = {

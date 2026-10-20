@@ -71,7 +71,7 @@ export function titleCase(s) {
 /* Facility and operator names arrive from the state in ALL CAPS. Title-case
    them for print, preserving corporate and licensing acronyms. */
 export const KEEP_UPPER = new Set([
-  "LLC", "LLP", "INC", "CO", "II", "III", "IV", "AFH", "CBRF", "RCAC",
+  "LLC", "LLP", "INC", "CO", "II", "III", "IV", "VI", "VII", "VIII", "AFH", "CBRF", "RCAC",
   "AF", "ALF", "WI", "USA", "SLF", "HCBS",
 ]);
 export const KEEP_LOWER = new Set(["of", "and", "the", "at", "by", "for", "on", "in"]);
@@ -159,7 +159,7 @@ export function citeSummary(citations) {
 
 /* ----------------------------------------------------------------- shaping */
 
-export function shape(facilitiesObj, surveysObj, enrichmentObj, waybackObj) {
+export function shape(facilitiesObj, surveysObj, enrichmentObj, waybackObj, geocodesObj) {
   // Join machine-read document facts onto each survey event. A survey's
   // documents map kind -> archive path; enrichment.json is keyed by that
   // same path. Kinds come from the parsed structure, not the state's grid
@@ -295,10 +295,15 @@ export function shape(facilitiesObj, surveysObj, enrichmentObj, waybackObj) {
     // Latest Internet Archive capture of the state's page: unlike the
     // state link, it survives the weekly key rotation.
     const pageCopy = (waybackObj.pages[license] || []).at(-1)?.copy || "";
+    // Where the Census Bureau placed the roster address (geocode.py), or
+    // null when it couldn't — the map names those instead of guessing.
+    const g = geocodesObj[license];
+    const point = g && g.lat != null ? { lat: g.lat, lon: g.lon } : null;
     return {
       ...f,
       license,
       pageCopy,
+      point,
       surveys,
       closed,
       probationary: f.licensure_status === "PROBATIONARY",

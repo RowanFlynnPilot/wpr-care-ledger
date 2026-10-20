@@ -785,6 +785,278 @@ a:focus-visible {
   outline-offset: 2px;
 }
 
+/* ------------------------------------------------------ list / map view */
+
+.view-toggle {
+  display: inline-flex;
+  align-self: center;
+}
+
+.view-toggle button {
+  font-family: var(--heading);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid #949494;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+
+.view-toggle button + button {
+  border-left: none;
+}
+
+.view-toggle button:hover {
+  color: var(--teal-deep);
+}
+
+.view-toggle button[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.view-toggle button:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+  position: relative;
+}
+
+.facility-map {
+  margin: 4px 0 18px;
+  border-top: 1px solid var(--rule);
+  padding-top: 10px;
+}
+
+.map-legend {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  margin: 0 0 8px;
+  padding: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+
+.map-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.key-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #5c5c5c;
+  border: 1.5px solid #5c5c5c;
+}
+
+.key-dot.is-red {
+  background: var(--red);
+  border-color: var(--red);
+}
+
+.key-dot.is-hollow {
+  background: var(--paper);
+  border-color: var(--ink-soft);
+}
+
+.map-frame {
+  position: relative;
+  width: 100%;
+}
+
+.map-frame svg {
+  display: block;
+  max-width: 100%;
+  touch-action: manipulation;
+}
+
+.map-frame svg.is-pickable .map-county:hover {
+  fill: var(--hairline-soft);
+  cursor: zoom-in;
+}
+
+.map-county {
+  fill: var(--paper-shade);
+  stroke: #9a9a9a;
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+
+.map-county.is-context {
+  fill: var(--paper);
+  stroke: var(--hairline);
+}
+
+.map-label {
+  font-family: var(--heading);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-anchor: middle;
+  fill: #8a8a8a;
+  pointer-events: none;
+}
+
+.map-label.is-town {
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  fill: var(--ink-soft);
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+.map-dot {
+  fill: #5c5c5c;
+  stroke: var(--paper);
+  stroke-width: 1;
+  pointer-events: none;
+}
+
+.map-dot.is-red {
+  fill: var(--red);
+}
+
+.map-dot.is-hollow {
+  fill: var(--paper);
+  stroke: #5c5c5c;
+  stroke-width: 1.5;
+}
+
+.map-dot.is-hollow.is-red {
+  stroke: var(--red);
+}
+
+.map-dot.is-hot {
+  stroke: var(--ink);
+  stroke-width: 2;
+}
+
+.map-card {
+  position: absolute;
+  width: 260px;
+  max-width: 100%;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  padding: 8px 11px 9px;
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.45;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.map-card.is-pinned {
+  pointer-events: auto;
+  padding-right: 30px;
+}
+
+.map-card-close {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 28px;
+  height: 28px;
+  font: 18px/1 var(--body);
+  color: var(--ink-soft);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.map-card-close:hover {
+  color: var(--ink);
+}
+
+.map-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.map-card.is-pinned ul {
+  max-height: 264px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.map-card li + li {
+  margin-top: 7px;
+  padding-top: 7px;
+  border-top: 1px solid var(--hairline-soft);
+}
+
+.map-card-head,
+.map-card-hint {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 10.5px;
+}
+
+.map-card-hint {
+  margin: 6px 0 0;
+}
+
+.map-card-name {
+  display: block;
+  font-family: var(--heading);
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  line-height: 1.15;
+  text-align: left;
+  color: var(--ink);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: var(--hairline);
+  text-underline-offset: 3px;
+}
+
+.map-card-name:hover {
+  color: var(--teal-deep);
+  text-decoration-color: currentColor;
+}
+
+.map-card-meta,
+.map-card-enf {
+  display: block;
+  color: var(--ink-soft);
+}
+
+.map-card-enf.is-red {
+  color: var(--red);
+  font-weight: 700;
+}
+
+.map-unplaced,
+.map-zoom-out {
+  margin-top: 6px;
+}
+
+.map-unplaced .clear-filters {
+  font-size: inherit;
+}
+
+.map-zoom-out .clear-filters {
+  font-family: var(--mono);
+  font-size: 11.5px;
+}
+
 /* ------------------------------------------------------- operator brief */
 
 .operator-brief {

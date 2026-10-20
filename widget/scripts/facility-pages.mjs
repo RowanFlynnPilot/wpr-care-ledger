@@ -20,7 +20,7 @@ const SITE = "https://rowanflynnpilot.github.io/wpr-care-ledger/";
 const widget = dirname(dirname(fileURLToPath(import.meta.url)));
 const dist = join(widget, "dist");
 const read = (name) => JSON.parse(readFileSync(join(widget, "..", "data", name), "utf8"));
-const db = shape(read("facilities.json"), read("surveys.json"), read("enrichment.json"), read("wayback.json"));
+const db = shape(read("facilities.json"), read("surveys.json"), read("enrichment.json"), read("wayback.json"), read("geocodes.json"));
 
 const esc = (s) =>
   String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);

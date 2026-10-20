@@ -45,6 +45,18 @@ jobs:
           git diff --cached --quiet || git commit -m "Mine new documents $(date -u +%F)"
           git pull --rebase
           git push
+      # Map locations for new or moved facilities (Census Bureau geocoder).
+      # continue-on-error: a Census Bureau outage must not keep the week's
+      # records off the site; an unplaced facility is named under the map,
+      # and the next run sends it again.
+      - name: Geocode new facilities
+        continue-on-error: true
+        run: |
+          python pipeline/geocode.py
+          git add data/geocodes.json
+          git diff --cached --quiet || git commit -m "Geocode new facilities $(date -u +%F)"
+          git pull --rebase
+          git push
       # Newsroom alert: one issue listing enforcement actions new this run,
       # @mentioning the ALERT_MENTIONS repository variable; GitHub emails
       # everyone it notifies. continue-on-error: the deploy only follows a
