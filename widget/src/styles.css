@@ -457,6 +457,24 @@ button.cites-row {
   color: var(--muted);
 }
 
+/* The county chart measures enforcement, so its bars wear enforcement red;
+   its track shows the full 0-100% scale the bar sits on. */
+.county-chart .cites-bar {
+  background: var(--red);
+}
+
+.county-chart .cites-track {
+  background: var(--hairline-soft);
+}
+
+.county-chart .cites-row.is-active {
+  border-left-color: var(--red);
+}
+
+.county-chart .cites-row.is-active .cites-bar {
+  background: #8f2324;
+}
+
 .clear-category {
   font: inherit;
   letter-spacing: inherit;

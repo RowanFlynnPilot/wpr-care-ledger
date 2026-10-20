@@ -338,7 +338,15 @@ three-year window, bounded by a dashed line placed to the day — it
 advances every week, so the chart itself shows the archive outliving
 the state's public record. Its title carries the finding, computed for
 the counties in view: "223 of 547 surveys (41%) led to an enforcement
-action." Under it, "What inspectors cite": facilities cited at least
+action." Its tooltip and sr-only table give each quarter's enforcement
+rate. Next, "Enforcement by county": the share of each county's
+facilities (closed included) with at least one enforcement action,
+always all nine, sorted, on a fixed 0-100% scale with a visible track so
+a bar's length is its share, labeled count-first ("19 of 36 · 53%", then
+fines on wide screens), red because it measures enforcement; each row
+sets the county filter (again to clear) and the selected county stays
+marked; a footnote names the smallest county ("Taylor has 4
+facilities") because small counties swing widely. Then "What inspectors cite": facilities cited at least
 once in each citation category (a facility counts once per category)
 and their share of the facilities in view, sorted, plain labeled rows
 rather than a plot, following the county filter; phones drop the

@@ -662,6 +662,12 @@ export default function App() {
 
       <ActivityChart surveys={scopedSurveys} lastUpdated={db.lastUpdated} coverage={coverage} />
 
+      <CountyChart
+        facilities={db.facilities}
+        county={county}
+        onPick={(c) => setCounty(county === c ? "ALL" : c)}
+      />
+
       <CitationChart
         surveys={scopedSurveys}
         total={scoped.length}
@@ -1208,7 +1214,7 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
               Q{tip.q} {tip.y}
             </strong>{" "}
             · {tip.total} {tip.total === 1 ? "survey" : "surveys"} ·{" "}
-            {tip.enforcement} enforcement
+            {tip.enforcement} enforcement ({Math.round((tip.enforcement / tip.total) * 100)}%)
             {tip.held > 0 && ` · ${tip.held} held in the ledger`}
           </div>
         )}
@@ -1236,12 +1242,75 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
             <tr key={`sr-${b.y}q${b.q}`}>
               <th scope="row">{`Q${b.q} ${b.y}`}</th>
               <td>{b.total}</td>
-              <td>{b.enforcement}</td>
+              <td>
+                {b.enforcement} ({Math.round((b.enforcement / b.total) * 100)}%)
+              </td>
               <td>{b.held}</td>
             </tr>
           ))}
         </tbody>
       </table>
+    </figure>
+  );
+}
+
+/* Enforcement by county: the share of each county's facilities with at
+   least one enforcement action. Always all nine (it compares them), on a
+   fixed 0-100% scale so a bar's length is its share, counts first in every
+   label because small counties swing widely (Taylor's 50% is 2 of 4).
+   Each row sets the county filter; the selected county stays marked. */
+function CountyChart({ facilities, county, onPick }) {
+  const rows = useMemo(() => {
+    const by = {};
+    for (const f of facilities) {
+      const r = (by[f.county] ||= { county: f.county, total: 0, enforced: 0, fines: 0 });
+      r.total += 1;
+      r.enforced += f.enforcementCount > 0 ? 1 : 0;
+      r.fines += f.fineTotal;
+    }
+    return Object.values(by)
+      .map((r) => ({ ...r, share: r.enforced / r.total }))
+      .sort((a, b) => b.share - a.share || b.total - a.total);
+  }, [facilities]);
+  if (rows.length < 2) return null;
+  const smallest = rows.reduce((m, r) => (r.total < m.total ? r : m));
+
+  return (
+    <figure className="cites county-chart">
+      <div className="activity-head">
+        <h2 id="county-title">Enforcement by county</h2>
+        <p className="cites-sub">
+          Share of each county&rsquo;s facilities with at least one enforcement action · select one
+          to view it
+        </p>
+      </div>
+      <ol className="cites-list" aria-labelledby="county-title">
+        {rows.map((r) => (
+          <li key={r.county}>
+            <button
+              className={county === r.county ? "cites-row is-active" : "cites-row"}
+              aria-pressed={county === r.county}
+              onClick={() => onPick(r.county)}
+            >
+              <span className="cites-cat">{titleCase(r.county)}</span>
+              <span className="cites-track" aria-hidden="true">
+                <span className="cites-bar" style={{ width: `${r.share * 100}%` }} />
+              </span>
+              <span className="cites-val">
+                {r.enforced} of {r.total}
+                <span className="cites-pct"> · {Math.round(r.share * 100)}%</span>
+                <span className="cites-n"> · ${fmtNum(r.fines)} fines</span>
+              </span>
+            </button>
+          </li>
+        ))}
+      </ol>
+      <p className="chart-note">
+        <span>
+          Counts include closed facilities, since each county&rsquo;s archive began. Small counties
+          swing widely: {titleCase(smallest.county)} has {smallest.total} facilities.
+        </span>
+      </p>
     </figure>
   );
 }
