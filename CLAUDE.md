@@ -310,12 +310,20 @@ the assessed forfeiture ("(accruing)" when still running), serious
 sanctions ("Order not to admit new residents", revocation, suspension,
 nonrenewal), "Complaint substantiated", and up to three distinct
 cited-rule titles (repeats grouped "Services ×2"); held records show
-"Held in the ledger" plus when the state site last showed them; records
+"Held in the ledger" plus when the state's Provider Search last listed
+them (worded "no longer listed", never "no longer on the state site" —
+their PDFs are still served, and archive.org copies made after they
+aged off prove it); records
 the state rewrote show a dashed "Revised by the state" stamp, the date
 its new file carries, what changed (`revisionChanges()` in ledger.js:
 "forfeiture reduced from $1,000 to $400; deficiencies cited from 4 to
 1"), and links to the originals — the figures shown are the current
-version's, and a revision found this week counts as "New this week". A
+version's, and a revision found this week counts toward "New this week"
+but is labeled "Revised this week" (row chip "Revised") so it never
+reads as a new inspection (`newReason` in ledger.js). A record with no
+surveys says "No survey records since <its county's archive start>" —
+July 12, 2023 for Marathon, Oct. 7, 2023 for the rest. Search also
+matches the printed name ("the waterford"). A
 probationary license gets a neutral chip with a tooltip — it is
 Wisconsin's standard first-year license, never styled as discipline.
 Below the masthead, a quarterly survey-activity chart (gray = no

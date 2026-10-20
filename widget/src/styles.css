@@ -476,6 +476,18 @@ body {
   box-shadow: 2px 2px 0 rgba(17, 17, 17, 0.12);
 }
 
+/* Phones: a full tooltip ("Q4 2023 · 37 surveys · 18 enforcement · 8 held
+   in the ledger") is wider than the chart; center it and let it wrap. */
+@media (max-width: 560px) {
+  .chart-tip {
+    left: 50% !important;
+    width: max-content;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
 .chart-tip strong {
   font-weight: 700;
 }
@@ -579,6 +591,15 @@ a:focus-visible {
   font-size: 11.5px;
   color: var(--muted);
   margin: 0;
+}
+
+.downloads-note {
+  font-size: 10.5px;
+}
+
+.result-count:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
 }
 
 .download {
@@ -766,6 +787,13 @@ mark {
   padding: 12px 0;
   cursor: pointer;
   list-style: none;
+}
+
+.glossary-title {
+  display: inline;
+  font: inherit;
+  letter-spacing: inherit;
+  margin: 0;
 }
 
 .glossary summary::-webkit-details-marker {
@@ -1118,7 +1146,7 @@ mark {
 
 /* ------------------------------------------------------------- timeline */
 
-.history h4 {
+.history .history-heading {
   font-family: var(--heading);
   font-size: 12px;
   font-weight: 700;
@@ -1213,6 +1241,11 @@ mark {
 .event-cites strong {
   color: var(--red);
   font-weight: 700;
+}
+
+/* --muted is 4.3:1 on the sepia wash, under AA for 12px text. */
+.event.is-held .event-cites {
+  color: var(--ink-soft);
 }
 
 .event-docs {

@@ -11,7 +11,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   DOC_LABELS, SANCTION_LABELS, SUPPORT_URL, TYPE_FULL, revisionChanges, citeSummary, facilitySlug as slug, fmtDate, fmtNum, shape,
-  smartTitle, surveyLabel, titleCase, waybackDate,
+  smartTitle, surveyLabel, titleCase, waybackDate, windowStartOf,
 } from "../src/ledger.js";
 
 // The published address. Change here if the ledger moves to a custom domain.
@@ -63,6 +63,7 @@ ol.timeline li.held{border-left:3px solid var(--sepia);padding-left:10px;backgro
 .type{font:600 15px/1.35 Oswald,"Helvetica Neue",Arial,sans-serif}
 .fine,.sanction,.enf{color:var(--red);font-weight:700}
 .held-note{color:var(--sepia);font-size:13px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .revised{font-size:13px;color:var(--soft);border-left:2px dashed var(--ink);padding-left:8px;margin:4px 0}
 .cites{font-size:13px;color:var(--soft)}
 .docs{font-size:13px}.docs a{margin-right:12px}
@@ -117,12 +118,17 @@ function facilityPage(f) {
   const city = titleCase(f.city);
   const county = titleCase(f.county);
   const type = TYPE_FULL[f.typeAbbr] || f.typeAbbr;
-  const first = f.surveys.at(-1)?.exit_date;
+  // Dated from when the county's archive begins, not the first record:
+  // "since" a facility's first inspection would imply nothing came before.
+  const since = fmtDate(windowStartOf(db.countyStart[f.county]), "long");
   const record = f.surveys.length
-    ? `${plural(f.surveys.length, "state inspection", "state inspections")} since ${fmtDate(first, "long")}, ` +
-      `${plural(f.enforcementCount, "enforcement action", "enforcement actions")}` +
-      (f.fineTotal ? `, $${fmtNum(f.fineTotal)} in fines assessed` : "")
-    : "no state inspection records in the ledger";
+    ? `${plural(f.surveys.length, "state inspection", "state inspections")} and ` +
+      (f.enforcementCount
+        ? plural(f.enforcementCount, "enforcement action", "enforcement actions")
+        : "no enforcement actions") +
+      (f.fineTotal ? ` ($${fmtNum(f.fineTotal)} in fines assessed)` : "") +
+      ` on record since ${since}`
+    : `no state inspection records since ${since}`;
   const description = `${name}, ${type.toLowerCase()} in ${city}, ${county} County, Wisconsin: ${record}. Every report and enforcement letter, kept by Wausau Pilot & Review.`;
 
   const surveys = f.surveys
@@ -131,7 +137,7 @@ function facilityPage(f) {
       const docs = s.docs
         .map((d) =>
           `<a href="../../${esc(d.path)}">${esc(DOC_LABELS[d.kind])} (PDF)</a>` +
-          (d.copy ? `<a class="mono" href="${esc(d.copy)}">archive.org copy</a>` : ""))
+          (d.copy ? `<a class="mono" href="${esc(d.copy)}">archive.org copy<span class="sr"> of the ${esc(DOC_LABELS[d.kind].toLowerCase())}</span></a>` : ""))
         .join("");
       return `<li${s.expired_from_state ? ' class="held"' : ""}>
   <span class="mono">${esc(fmtDate(s.exit_date))}</span>
@@ -139,7 +145,7 @@ function facilityPage(f) {
     <div class="type">${esc(surveyLabel(s.survey_type))}${s.enr.fine ? ` <span class="fine">$${fmtNum(s.enr.fine)} forfeiture${s.enr.sanctions.includes("Accruing forfeiture") ? " (accruing)" : ""}</span>` : ""}</div>
     ${sanctions.length ? `<div class="sanction">${esc(sanctions.join(" · "))}</div>` : ""}
     ${s.enr.substantiated || s.enr.citations.length ? `<div class="cites">${s.enr.substantiated ? "<strong>Complaint substantiated</strong>" : ""}${s.enr.substantiated && s.enr.citations.length ? " · " : ""}${s.enr.citations.length ? `Cited: ${esc(citeSummary(s.enr.citations))}` : ""}</div>` : ""}
-    ${s.expired_from_state ? `<div class="held-note">Held in the ledger — no longer on the state site; last seen there ${esc(fmtDate(s.last_seen))}.</div>` : ""}
+    ${s.expired_from_state ? `<div class="held-note">Held in the ledger — no longer listed in the state's Provider Search; last listed ${esc(fmtDate(s.last_seen))}.</div>` : ""}
     ${s.revision ? `<div class="revised"><strong>Revised by the state</strong> on ${esc(fmtDate(s.revision.posted))}${revisionChanges(s.revision) ? `: ${esc(revisionChanges(s.revision))}` : ""}. Figures shown are from the current version. Originals, kept here: ${s.docs.filter((d) => d.original).map((d) => `<a href="../../${esc(d.original)}">original ${esc(DOC_LABELS[d.kind].toLowerCase())} (PDF)</a>`).join(" · ")}</div>` : ""}
     ${docs ? `<div class="docs">${docs}</div>` : ""}
   </div>
@@ -168,7 +174,7 @@ function facilityPage(f) {
     body: `<article>
 <h1>${esc(name)}</h1>
 <p class="meta">${esc(f.typeAbbr)} · ${esc(city)}, ${esc(county)} County · license ${esc(f.license)}${f.closed ? " · closed" : ""}</p>
-<p class="lede">${esc(name)} has ${esc(record)}${f.heldCount ? `, including ${plural(f.heldCount, "record", "records")} the state no longer shows` : ""}.</p>
+<p class="lede">${esc(name)} has ${esc(record)}${f.heldCount ? `, including ${plural(f.heldCount, "record", "records")} the state no longer lists` : ""}.</p>
 <p><a class="open" href="${SITE}#lic=${esc(f.license)}">Open in the interactive Care Ledger</a></p>
 <h2>Facility</h2>
 <dl class="facts">${facts}</dl>

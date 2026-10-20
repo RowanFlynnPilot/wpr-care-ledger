@@ -70,12 +70,13 @@ def smart_title(s):
     words = []
     for i, w in enumerate(s.split()):
         bare = "".join(c for c in w if c.isalnum())
-        if bare.upper() in KEEP_UPPER:
-            words.append(w.upper())
+        if bare.upper() in KEEP_UPPER or re.fullmatch(r"[A-Za-z]{1,3}&[A-Za-z]{1,3}", w):
+            words.append(w.upper())  # LLC; initials joined by "&": C&K, K&DS
         elif i and bare.lower() in KEEP_LOWER:
             words.append(w.lower())
         else:
-            words.append(w[:1].upper() + w[1:].lower())
+            w = re.sub(r"(^|[-/(&])([a-z])", lambda m: m.group(1) + m.group(2).upper(), w.lower())
+            words.append(re.sub(r"^Mc([a-z])(?=[a-z]{2})", lambda m: "Mc" + m.group(1).upper(), w))
     return " ".join(words)
 
 
@@ -244,7 +245,7 @@ def tip_sheet(L):
                          f"{labels[L.kind(column, original)]} replaced {http_date(rev['last_modified'])}"
                          + (f"; {', '.join(changes)}" if changes else ""))
     if aged_off:
-        lines += ["", "### No longer on the state site (now held only here)", ""]
+        lines += ["", "### No longer listed by the state (now held here)", ""]
         lines += [
             f"- {L.name(s)} — {s['exit_date']}, {s['survey_type']}"
             + (" · **enforcement**" if L.doc(s, "enforcement") else "")

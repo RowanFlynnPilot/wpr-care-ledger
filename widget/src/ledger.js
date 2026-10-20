@@ -88,11 +88,16 @@ export function smartTitle(s) {
     .map((w, i) => {
       const bare = w.replace(/[^A-Za-z0-9]/g, "");
       if (KEEP_UPPER.has(bare.toUpperCase())) return w.toUpperCase();
+      // Initials joined by "&" stay capitals: C&K, K&DS, S&C.
+      if (/^[A-Za-z]{1,3}&[A-Za-z]{1,3}$/.test(w)) return w.toUpperCase();
       const lower = w.toLowerCase();
       if (i > 0 && KEEP_LOWER.has(bare.toLowerCase())) return lower;
-      // Capitalize after hyphens, slashes, parens — but not apostrophes
-      // (Alzheimer's, not Alzheimer'S).
-      return lower.replace(/(^|[-/(])([a-z])/g, (m, p, c) => p + c.toUpperCase());
+      // Capitalize after hyphens, slashes, parens and "&" — but not
+      // apostrophes (Alzheimer's, not Alzheimer'S) — and after Mc
+      // (McKinley, McIntire).
+      return lower
+        .replace(/(^|[-/(&])([a-z])/g, (m, p, c) => p + c.toUpperCase())
+        .replace(/^Mc([a-z])(?=[a-z]{2})/, (m, c) => `Mc${c.toUpperCase()}`);
     })
     .join(" ");
 }
@@ -247,15 +252,16 @@ export function shape(facilitiesObj, surveysObj, enrichmentObj, waybackObj) {
   // stale: then there is no "this week".
   const stale = lastUpdated && (Date.now() - isoUTC(lastUpdated)) / 86400e3 > STALE_AFTER_DAYS;
   const newSince = lastUpdated ? isoMinusDays(lastUpdated, 7) : "";
-  const isNew = (s) => {
+  // Why a record is new this week: "new" (the survey or a document posted
+  // to it), "revised" (only a state revision of an existing document —
+  // not a new inspection, and labeled so), or null.
+  const newReason = (s) => {
+    if (stale) return null;
     const start = countyStart[facilitiesObj[s.license].county];
     const recent = (d) => d && d > start && d > newSince;
-    return (
-      !stale &&
-      (recent(s.first_seen) ||
-        Object.values(s.documents_first_seen || {}).some(recent) ||
-        Object.values(s.revisions || {}).some((list) => recent(list.at(-1).first_seen)))
-    );
+    if (recent(s.first_seen) || Object.values(s.documents_first_seen || {}).some(recent)) return "new";
+    if (Object.values(s.revisions || {}).some((list) => recent(list.at(-1).first_seen))) return "revised";
+    return null;
   };
 
   const surveysByLicense = {};
@@ -269,8 +275,9 @@ export function shape(facilitiesObj, surveysObj, enrichmentObj, waybackObj) {
       hasEnforcement: docs.some((d) => d.kind === "enforcement"),
       enr,
       revision: revisionOf(s, enr),
-      isNew: isNew(s),
+      newReason: newReason(s),
     };
+    row.isNew = Boolean(row.newReason);
     (surveysByLicense[s.license] ||= []).push(row);
   }
   for (const rows of Object.values(surveysByLicense)) {
@@ -300,9 +307,12 @@ export function shape(facilitiesObj, surveysObj, enrichmentObj, waybackObj) {
       fineTotal: surveys.reduce((n, s) => n + (s.enr.fine || 0), 0),
       heldCount: surveys.filter((s) => s.expired_from_state).length,
       newCount: surveys.filter((s) => s.isNew).length,
+      // Only revisions are new: the row's chip says "Revised", not "New".
+      revisedOnly: surveys.some((s) => s.isNew) && !surveys.some((s) => s.newReason === "new"),
       latest: surveys[0]?.exit_date || "",
       siblings: addressGroups[addressKey(f)].filter((l) => l !== license),
-      haystack: [f.name, f.city, f.corporate_name, f.licensee, license, f.address]
+      // The printed name too: "the waterford" must find WATERFORD AT COLBY (THE).
+      haystack: [f.name, smartTitle(f.name), f.city, f.corporate_name, f.licensee, license, f.address]
         .join(" ")
         .toLowerCase(),
     };
@@ -339,7 +349,7 @@ export const SUPPORT_URL =
   "https://wausaupilotandreview.com/support-our-publication/?utm_source=care-ledger&utm_medium=referral";
 
 /* What a state revision changed, in words: "forfeiture reduced from
-   $1,000 to $400; deficiencies cited from 4 to 1". Empty when the figures
+   $1,000 to $400; deficiencies cited reduced from 4 to 1". Empty when the figures
    the ledger reads didn't move (the wording or a date changed). */
 export function revisionChanges(rev) {
   const money = (n) => `$${fmtNum(n || 0)}`;
@@ -349,7 +359,8 @@ export function revisionChanges(rev) {
     parts.push(`forfeiture ${verb} from ${money(rev.was.fine)} to ${money(rev.now.fine)}`);
   }
   if (rev.was.deficiencies != null && rev.now.deficiencies != null && rev.was.deficiencies !== rev.now.deficiencies) {
-    parts.push(`deficiencies cited from ${rev.was.deficiencies} to ${rev.now.deficiencies}`);
+    const verb = rev.now.deficiencies < rev.was.deficiencies ? "reduced" : "raised";
+    parts.push(`deficiencies cited ${verb} from ${rev.was.deficiencies} to ${rev.now.deficiencies}`);
   }
   return parts.join("; ");
 }

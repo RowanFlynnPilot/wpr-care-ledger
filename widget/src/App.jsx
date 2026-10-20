@@ -87,7 +87,8 @@ const GLOSSARY = [
 function Glossary() {
   return (
     <details className="glossary" id="glossary">
-      <summary>What these terms mean</summary>
+      {/* Its own h2, so its group h3s don't land under "Facilities". */}
+      <summary><h2 className="glossary-title">What these terms mean</h2></summary>
       <div className="glossary-groups">
         {GLOSSARY.map(([group, terms]) => (
           <section key={group}>
@@ -182,7 +183,7 @@ function surveysCsv(list, filename) {
     filename,
     ["license", "facility", "county", "exit_date", "survey_type", "enforcement_action",
      "fine_assessed", "fine_accruing", "sanctions", "complaints_substantiated",
-     "citation_categories", "cited_rules", "no_longer_on_state_site", "state_last_showed",
+     "citation_categories", "cited_rules", "no_longer_listed_by_state", "state_last_listed",
      "documents", "archive_org_copies", "revised_by_state_on", "original_fine"],
     rows
   );
@@ -428,6 +429,15 @@ export default function App() {
     };
   }, [db, query]);
 
+  // The "Show them" and "Clear" buttons remove themselves when clicked;
+  // hand keyboard focus to the result count (which announces the new
+  // number) instead of letting it fall to the top of the page.
+  const countRef = useRef(null);
+  const thenFocusCount = (change) => {
+    change();
+    requestAnimationFrame(() => countRef.current?.focus());
+  };
+
   // Download filenames name the county in view, so two files don't collide.
   const csvScope = county === "ALL" ? "all-counties" : county.toLowerCase();
 
@@ -589,9 +599,9 @@ export default function App() {
         {stats.held > 0 ? (
           <Stat
             n={stats.held}
-            label="records the state no longer shows"
+            label="records the state no longer lists"
             tone="held"
-            action="Show facilities with records the state no longer shows"
+            action="Show facilities with records the state no longer lists"
             pressed={lens === "held"}
             onClick={() => showLensFromStat("held")}
           />
@@ -686,7 +696,7 @@ export default function App() {
 
       <h2 className="sr-only">Facilities</h2>
       <div className="result-bar">
-        <p className="result-count" role="status">
+        <p className="result-count" role="status" tabIndex={-1} ref={countRef}>
           {list.length} {list.length === 1 ? "facility" : "facilities"}
         </p>
         {list.length > 0 && (
@@ -709,6 +719,10 @@ export default function App() {
             >
               survey records
             </button>
+            <span className="downloads-note">
+              {" "}
+              · Excel drops license numbers&rsquo; leading zeros unless the column is imported as text
+            </span>
           </p>
         )}
       </div>
@@ -730,7 +744,7 @@ export default function App() {
           <li className="closed-hint">
             {hiddenClosedMatches} closed{" "}
             {hiddenClosedMatches === 1 ? "facility also matches" : "facilities also match"}.{" "}
-            <button className="clear-filters" onClick={() => setShowClosed(true)}>
+            <button className="clear-filters" onClick={() => thenFocusCount(() => setShowClosed(true))}>
               Show {hiddenClosedMatches === 1 ? "it" : "them"}
             </button>
           </li>
@@ -741,14 +755,14 @@ export default function App() {
             {hiddenClosedMatches > 0 ? (
               <button
                 className="clear-filters"
-                onClick={() => setShowClosed(true)}
+                onClick={() => thenFocusCount(() => setShowClosed(true))}
               >
                 Show {hiddenClosedMatches} closed{" "}
                 {hiddenClosedMatches === 1 ? "facility" : "facilities"} that{" "}
                 {hiddenClosedMatches === 1 ? "matches" : "match"}
               </button>
             ) : (
-              <button className="clear-filters" onClick={clearFilters}>
+              <button className="clear-filters" onClick={() => thenFocusCount(clearFilters)}>
                 Clear search and filters
               </button>
             )}
@@ -936,7 +950,7 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
           </li>
           {boundary !== null && anyHeld && (
             <li>
-              <span className="swatch swatch-held" /> No longer on the state site
+              <span className="swatch swatch-held" /> No longer listed by the state
             </li>
           )}
         </ul>
@@ -953,7 +967,7 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
           <desc id="activity-desc">
             {`Survey events per quarter from ${quarters[0].y} through ${quarters[n - 1].y}, with the number that carried an enforcement action shown in red.${
               boundary !== null && anyHeld
-                ? ` A shaded area marks surveys older than the state's three-year window, which the state no longer shows and this ledger keeps.`
+                ? ` A shaded area marks surveys older than the state's three-year window, which the state no longer lists and this ledger keeps.`
                 : ""
             } Full figures in the table that follows.`}
           </desc>
@@ -1124,7 +1138,7 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
             <th scope="col">Quarter</th>
             <th scope="col">Surveys</th>
             <th scope="col">With enforcement action</th>
-            <th scope="col">No longer on the state site</th>
+            <th scope="col">No longer listed by the state</th>
           </tr>
         </thead>
         <tbody>
@@ -1281,6 +1295,7 @@ function FacilityEmbed({ db, license, staleDays }) {
 
 function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOperator }) {
   const panelId = `panel-${f.license}`;
+  const HistoryHeading = single ? "h3" : "h4";
   const [copied, setCopied] = useState(false);
   const panelRef = useRef(null);
   // Render a record's panel on first open, then keep it mounted so the
@@ -1351,7 +1366,7 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
               {f.fineTotal > 0 && ` · $${fmtNum(f.fineTotal)}`}
             </span>
           )}
-          {f.newCount > 0 && <span className="chip chip-new">New</span>}
+          {f.newCount > 0 && <span className="chip chip-new">{f.revisedOnly ? "Revised" : "New"}</span>}
           {f.probationary && (
             <span
               className="chip chip-probation"
@@ -1466,12 +1481,16 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
           </dl>
 
           <div className="history">
-            <h4>
+            {/* An h4 under each row's h3; the single-facility embed's record
+                heading is an h2, so its history is an h3. */}
+            <HistoryHeading className="history-heading">
               Survey history<span className="sr-only"> for {smartTitle(f.name)}</span>
-            </h4>
+            </HistoryHeading>
             {f.surveys.length === 0 ? (
               <p className="no-surveys">
-                No survey records since mid-2023
+                {/* The archive begins at the state's window on the county's
+                    first capture: July 2023 for Marathon, October for the rest. */}
+                No survey records since {fmtDate(windowStartOf(db.countyStart[f.county]))}
                 {f.date_regular || f.date_probationary
                   ? ` — licensed ${fmtDate(f.date_regular || f.date_probationary)}`
                   : ""}
@@ -1497,7 +1516,7 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
                         {s.isNew && (
                           <>
                             {" "}
-                            <span className="new-stamp">New this week</span>
+                            <span className="new-stamp">{s.newReason === "revised" ? "Revised this week" : "New this week"}</span>
                           </>
                         )}
                       </span>
@@ -1525,7 +1544,7 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
                           <span className="held-note">
                             {s.source && s.source.startsWith("wayback")
                               ? `Recovered from an Internet Archive copy of the state site (${fmtDate(s.last_seen)}).`
-                              : `No longer on the state site — last seen there ${fmtDate(s.last_seen)}.`}
+                              : `No longer listed in the state's Provider Search — last listed ${fmtDate(s.last_seen)}.`}
                           </span>
                         </>
                       )}
