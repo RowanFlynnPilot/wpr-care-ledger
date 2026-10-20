@@ -15,7 +15,8 @@ three years of survey history; this repo never forgets.
 - Data: `data/facilities.json`, `data/surveys.json`, the derived
   `data/enrichment.json` (fines, sanctions, citations read from the PDFs),
   `data/wayback.json` (the Internet Archive's copies), and
-  `data/geocodes.json` (map locations from the Census Bureau's geocoder)
+  `data/geocodes.json` (map locations from the Census Bureau's geocoder),
+  and `data/basemap.json` (county outlines and town points for the map)
 - Document archive: `archive/{license}/`
 
 ## Every Monday
@@ -178,7 +179,8 @@ All of them are listed at `…/wpr-care-ledger/facility/`, and in
 ### Getting the data
 
 Above the facility list, **Download as CSV** exports whatever is in view
-(county, search, filters): one row per facility, or one per survey record
+(county, search, filters): one row per facility (with its latitude and
+longitude, blank where the address couldn't be placed), or one per survey record
 with fines, sanctions, cited rules and links to every document. Or take
 the raw files: `data/*.json` in this repo.
 

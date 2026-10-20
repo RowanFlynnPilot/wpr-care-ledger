@@ -163,13 +163,14 @@ function facilitiesCsv(list, filename) {
   const record = `${location.origin}${location.pathname}#lic=`;
   downloadCsv(
     filename,
-    ["license", "facility", "type", "address", "city", "zip", "county", "license_status",
+    ["license", "facility", "type", "address", "city", "zip", "county", "latitude", "longitude", "license_status",
      "closed", "date_closed", "operator", "licensee", "capacity", "surveys",
      "enforcement_actions", "fines_assessed", "records_state_no_longer_shows",
      "latest_survey", "ledger_record", "facility_page", "state_page_archived"],
     list.map((f) => [
       f.license, f.name, TYPE_FULL[f.typeAbbr], f.address, f.city, f.zip, f.county,
-      f.licensure_status, yesNo(f.closed), f.date_closed, f.corporate_name, f.licensee,
+      // Blank where the Census geocoder couldn't place the address.
+      f.point?.lat ?? "", f.point?.lon ?? "", f.licensure_status, yesNo(f.closed), f.date_closed, f.corporate_name, f.licensee,
       f.capacity, f.surveys.length, f.enforcementCount, f.fineTotal, f.heldCount,
       f.latest, record + f.license, `${LEDGER_URL}facility/${facilitySlug(f)}/`, f.pageCopy,
     ])
