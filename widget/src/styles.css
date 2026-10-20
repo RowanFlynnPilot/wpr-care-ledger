@@ -1503,6 +1503,13 @@ mark {
   gap: 26px;
 }
 
+.fact-map svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-top: 4px;
+}
+
 .facts {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1822,8 +1829,22 @@ mark {
   text-underline-offset: 2px;
 }
 
-.state-link a:hover {
+.state-link a:hover,
+.state-link .link-button:hover {
   color: var(--teal-deep);
+}
+
+/* A button that reads as the links beside it. */
+.state-link .link-button {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--ink-soft);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .copy-link {

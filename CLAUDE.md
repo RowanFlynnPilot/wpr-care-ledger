@@ -509,7 +509,15 @@ rather than overlapping another name. Facilities without a location are
 named under the map, each a link to its record. Dots aren't focusable:
 the SVG is `role="img"` with a summary label, and the list is the
 accessible equivalent. Cross-links, the operator link and Clear return
-to the list.
+to the list. Each record's "Show on the map" (beside "Page for this
+facility", when it has a location) resets the narrowing, zooms to its
+county and opens its card with focus on its name — the record closes,
+so focus can't be stranded; cards hang from their first facility's dot,
+so they stay attached when the frame resizes. Every record's facts end
+with a small locator ("Location": the nine counties, its own shaded, one
+dot) from `locatorSvg()` in ledger.js — built when the panel first
+opens, and drawn identically on the facility pages. The projection
+(`mapFrame()`, `outlinePath()`) lives in ledger.js for both.
 Cross-links and deep links scroll the opened record into view
 (standalone only). A print stylesheet hides interactive chrome and keeps
 records intact across page breaks.

@@ -19,6 +19,9 @@ import {
   isoMinusDays,
   windowStartOf,
   citeSummary,
+  locatorSvg,
+  mapFrame,
+  outlinePath,
   shape,
 } from "./ledger.js";
 
@@ -250,6 +253,8 @@ export default function App() {
   const [open, setOpen] = useState(null);
   // The facilities in view as a list or on the map.
   const [view, setView] = useState("list");
+  // A facility to show on the map, set by a record's "Show on the map".
+  const [mapFocus, setMapFocus] = useState(null);
   // Rows rendered: the first PAGE, then more on request. All 279 at once
   // made the embedded frame ~30,000px tall — a reader had to scroll past
   // every facility to reach the rest of the article.
@@ -552,6 +557,25 @@ export default function App() {
     revealRow(license);
   };
 
+  // From a record to its dot: the facility's county on the map, nothing
+  // narrowed away, its card open. The record closes, so focus moves to
+  // the card (FacilityMap) instead of being stranded in an inert panel.
+  const showOnMap = (f) => {
+    setShowClosed(true);
+    setLens("all");
+    setCategory(null);
+    setType("ALL");
+    setQuery("");
+    setCounty(f.county);
+    setOpen(null);
+    setView("map");
+    setMapFocus(f.license);
+    if (!EMBEDDED)
+      requestAnimationFrame(() =>
+        document.querySelector(".facility-map")?.scrollIntoView({ block: "start", behavior: "auto" })
+      );
+  };
+
   // Operators run facilities across county lines; show all of them.
   const showOperator = (name) => {
     setShowClosed(true);
@@ -840,6 +864,8 @@ export default function App() {
           facilities={list}
           basemap={db.basemap}
           county={county}
+          focus={mapFocus}
+          onFocused={() => setMapFocus(null)}
           onOpen={crossLink}
           onPickCounty={setCounty}
         />
@@ -856,6 +882,7 @@ export default function App() {
             onToggle={() => setOpen(open === f.license ? null : f.license)}
             onCrossLink={crossLink}
             onOperator={showOperator}
+            onShowOnMap={showOnMap}
           />
         ))}
         {view === "list" && list.length > shown && (
@@ -1469,8 +1496,9 @@ function labelSpot(geometry, unproject, box, dots) {
    not a density map: red marks an enforcement action on record, hollow a
    closed facility. Dots aren't focusable; the list view is the accessible
    equivalent, and the toggle sits right above. */
-function FacilityMap({ facilities, basemap, county, onOpen, onPickCounty }) {
+function FacilityMap({ facilities, basemap, county, focus, onFocused, onOpen, onPickCounty }) {
   const wrapRef = useRef(null);
+  const cardRef = useRef(null);
   const [width, setWidth] = useState(640);
   const [hover, setHover] = useState(null);
   const [pin, setPin] = useState(null);
@@ -1499,38 +1527,11 @@ function FacilityMap({ facilities, basemap, county, onOpen, onPickCounty }) {
   // Frame the county in view (all nine by default), not the dots, so the
   // map holds still while a search narrows it.
   const geo = useMemo(() => {
-    const framed = basemap.counties.filter(
-      (f) => county === "ALL" || f.properties.county === county
-    );
-    let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
-    for (const f of framed) {
-      const g = f.geometry;
-      for (const poly of g.type === "Polygon" ? [g.coordinates] : g.coordinates)
-        for (const [lon, lat] of poly[0]) {
-          x0 = Math.min(x0, lon); x1 = Math.max(x1, lon);
-          y0 = Math.min(y0, lat); y1 = Math.max(y1, lat);
-        }
-    }
-    // Equirectangular, longitude shrunk by the cosine of the middle
-    // latitude: at two degrees across, true enough to read distance by.
-    const k = Math.cos((((y0 + y1) / 2) * Math.PI) / 180);
-    const s = Math.min(
-      (width - 2 * MAP_PAD) / ((x1 - x0) * k),
-      (MAP_MAX_H - 2 * MAP_PAD) / (y1 - y0)
-    );
-    const height = Math.ceil((y1 - y0) * s + 2 * MAP_PAD);
-    const ox = (width - (x1 - x0) * k * s) / 2;
-    const project = (lon, lat) => [ox + (lon - x0) * k * s, MAP_PAD + (y1 - lat) * s];
-    const unproject = (x, y) => [x0 + (x - ox) / (k * s), y1 - (y - MAP_PAD) / s];
+    const framed = basemap.counties.filter((f) => county === "ALL" || f.properties.county === county);
+    const { height, project, unproject } = mapFrame(framed, width, MAP_MAX_H, MAP_PAD);
     const paths = basemap.counties.map((f) => {
-      const g = f.geometry;
-      const d = (g.type === "Polygon" ? [g.coordinates] : g.coordinates)
-        .flatMap((poly) =>
-          poly.map((ring) => "M" + ring.map((p) => project(...p).map((v) => v.toFixed(1)).join(",")).join("L") + "Z")
-        )
-        .join("");
-      const pts = (g.type === "Polygon" ? [g.coordinates] : g.coordinates).flatMap((poly) =>
-        poly[0].map((p) => project(...p))
+      const pts = (f.geometry.type === "Polygon" ? [f.geometry.coordinates] : f.geometry.coordinates).flatMap(
+        (poly) => poly[0].map((p) => project(...p))
       );
       const box = [
         Math.min(...pts.map((p) => p[0])),
@@ -1538,7 +1539,7 @@ function FacilityMap({ facilities, basemap, county, onOpen, onPickCounty }) {
         Math.max(...pts.map((p) => p[0])),
         Math.max(...pts.map((p) => p[1])),
       ];
-      return { county: f.properties.county, d, box, geometry: g };
+      return { county: f.properties.county, d: outlinePath(f.geometry, project), box, geometry: f.geometry };
     });
     return { height, project, unproject, paths };
   }, [basemap, county, width]);
@@ -1636,23 +1637,40 @@ function FacilityMap({ facilities, basemap, county, onOpen, onPickCounty }) {
 
   const onMove = (e) => {
     if (pin || e.pointerType === "touch") return;
-    const [x, y] = local(e);
-    const items = near(x, y);
-    setHover(items.length ? { x, y, items } : null);
+    const items = near(...local(e));
+    setHover(items.length ? { items } : null);
   };
   const onClick = (e) => {
     const [x, y] = local(e);
     const items = near(x, y);
-    if (items.length) return setPin({ x, y, items });
+    if (items.length) return setPin({ items });
     if (pin) return setPin(null);
     const c = county === "ALL" && countyAt(x, y);
     if (c) onPickCounty(c);
   };
 
+  // "Show on the map" from a record: open its card, nearest neighbors
+  // after it, and put keyboard focus on its name (Enter goes back).
+  const dotOf = useMemo(() => Object.fromEntries(dots.map((d) => [d.f.license, d])), [dots]);
+  useEffect(() => {
+    const d = focus && dotOf[focus];
+    if (!d) return;
+    setPin({ items: [d.f, ...near(d.x, d.y).filter((f) => f !== d.f)], focus: true });
+    onFocused();
+  }, [focus, dotOf]);
+  useEffect(() => {
+    if (pin?.focus) requestAnimationFrame(() => cardRef.current?.querySelector(".map-card-name")?.focus());
+  }, [pin]);
+
+  // A card hangs from its first facility's dot, so it stays attached when
+  // the frame resizes.
   const card = pin || hover;
-  const cardStyle = card && {
-    left: Math.max(0, Math.min(card.x - 130, width - 260)),
-    ...(card.y < geo.height / 2 ? { top: card.y + 14 } : { bottom: geo.height - card.y + 14 }),
+  const anchor = card && dotOf[card.items[0].license];
+  const cardStyle = anchor && {
+    left: Math.max(0, Math.min(anchor.x - 130, width - 260)),
+    ...(anchor.y < geo.height / 2
+      ? { top: anchor.y + r + 10 }
+      : { bottom: geo.height - anchor.y + r + 10 }),
   };
   // A hover card previews a few; a clicked one lists them all, scrolling.
   const shownItems = card && (pin ? card.items : card.items.slice(0, 5));
@@ -1716,8 +1734,8 @@ function FacilityMap({ facilities, basemap, county, onOpen, onPickCounty }) {
             />
           ))}
         </svg>
-        {card && (
-          <div className={pin ? "map-card is-pinned" : "map-card"} style={cardStyle}>
+        {anchor && (
+          <div ref={cardRef} className={pin ? "map-card is-pinned" : "map-card"} style={cardStyle}>
             {pin && (
               <button className="map-card-close" onClick={() => setPin(null)} aria-label="Close">
                 ×
@@ -1875,7 +1893,7 @@ function FacilityEmbed({ db, license, staleDays }) {
 
 /* ------------------------------------------------------------ facility row */
 
-function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOperator }) {
+function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOperator, onShowOnMap }) {
   const panelId = `panel-${f.license}`;
   const HistoryHeading = single ? "h3" : "h4";
   const [copied, setCopied] = useState(false);
@@ -1885,6 +1903,11 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
   // phones tens of thousands of DOM nodes.
   const everOpened = useRef(false);
   if (open) everOpened.current = true;
+  // Built with the panel, not for all 300 rows on load.
+  const locator = useMemo(
+    () => (everOpened.current ? locatorSvg(db.basemap, f, 220) : ""),
+    [db, f, everOpened.current]
+  );
 
   // Closed panels stay mounted (for the reveal animation) but must leave
   // the tab order and the accessibility tree. Set as a DOM property: React
@@ -2060,6 +2083,13 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
                 </dd>
               </div>
             )}
+            {locator && (
+              <div className="fact fact-wide fact-map">
+                <dt>Location</dt>
+                {/* Markup built by locatorSvg() from the ledger's own data. */}
+                <dd dangerouslySetInnerHTML={{ __html: locator }} />
+              </div>
+            )}
           </dl>
 
           <div className="history">
@@ -2200,6 +2230,11 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
               >
                 Page for this facility
               </a>
+              {onShowOnMap && f.point && (
+                <button type="button" className="page-copy link-button" onClick={() => onShowOnMap(f)}>
+                  Show on the map
+                </button>
+              )}
               {f.pageCopy && (
                 <a
                   className="page-copy"

@@ -387,3 +387,67 @@ export function findCategory(categories, text) {
   if (!want) return null;
   return categories.find((c) => catSlug(c) === want) || categories.find((c) => catSlug(c).startsWith(want)) || null;
 }
+
+/* ------------------------------------------------------------------ maps */
+
+const ringsOf = (geometry) => (geometry.type === "Polygon" ? [geometry.coordinates] : geometry.coordinates);
+
+/* A map frame fit to the given county outlines (data/basemap.json): width
+   fixed, height capped. Equirectangular with longitude shrunk by the
+   cosine of the middle latitude — at two degrees across, true enough to
+   read distance by. Shared by the widget's map and the facility pages. */
+export function mapFrame(features, width, maxHeight, pad = 12) {
+  let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+  for (const f of features)
+    for (const poly of ringsOf(f.geometry))
+      for (const [lon, lat] of poly[0]) {
+        x0 = Math.min(x0, lon); x1 = Math.max(x1, lon);
+        y0 = Math.min(y0, lat); y1 = Math.max(y1, lat);
+      }
+  const k = Math.cos((((y0 + y1) / 2) * Math.PI) / 180);
+  const s = Math.min((width - 2 * pad) / ((x1 - x0) * k), (maxHeight - 2 * pad) / (y1 - y0));
+  const ox = (width - (x1 - x0) * k * s) / 2;
+  return {
+    height: Math.ceil((y1 - y0) * s + 2 * pad),
+    project: (lon, lat) => [ox + (lon - x0) * k * s, pad + (y1 - lat) * s],
+    unproject: (x, y) => [x0 + (x - ox) / (k * s), y1 - (y - pad) / s],
+  };
+}
+
+/* SVG path data for a county outline in a frame. */
+export function outlinePath(geometry, project) {
+  return ringsOf(geometry)
+    .flatMap((poly) =>
+      poly.map((ring) => "M" + ring.map((p) => project(...p).map((v) => v.toFixed(1)).join(",")).join("L") + "Z")
+    )
+    .join("");
+}
+
+/* A small locator: the nine counties, the facility's own shaded, one dot
+   (red with an enforcement action on record). Plain SVG markup with its
+   colors inline, so a static page and the widget draw it the same. Empty
+   when the geocoder couldn't place the facility. */
+export function locatorSvg(basemap, f, width = 240) {
+  if (!f.point) return "";
+  const frame = mapFrame(basemap.counties, width, width, 6);
+  const own = (c) => c.properties.county === f.county;
+  const paths = [...basemap.counties]
+    .sort((a, b) => own(a) - own(b)) // its county last, so no neighbor overdraws the outline
+    .map(
+      (c) =>
+        `<path d="${outlinePath(c.geometry, frame.project)}" fill="${own(c) ? "#e6e6e6" : "#fafafa"}" ` +
+        `stroke="${own(c) ? "#777" : "#cfcfcf"}" stroke-width="1" stroke-linejoin="round"/>`
+    )
+    .join("");
+  const [x, y] = frame.project(f.point.lon, f.point.lat).map((v) => v.toFixed(1));
+  const color = f.enforcementCount > 0 ? "#b32d2e" : "#3d3d3d";
+  const label = `Map: ${smartTitle(f.name)} in ${titleCase(f.county)} County, among the nine counties in the ledger`
+    .replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  return (
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${frame.height}" width="${width}" height="${frame.height}" role="img" aria-label="${label}">` +
+    paths +
+    `<circle cx="${x}" cy="${y}" r="10" fill="none" stroke="${color}" stroke-opacity="0.35" stroke-width="2"/>` +
+    `<circle cx="${x}" cy="${y}" r="5" fill="${color}" stroke="#fff" stroke-width="1.5"/>` +
+    `</svg>`
+  );
+}

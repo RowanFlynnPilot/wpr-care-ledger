@@ -10,7 +10,7 @@ import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
-  DOC_LABELS, SANCTION_LABELS, SUPPORT_URL, TYPE_FULL, revisionChanges, citeSummary, facilitySlug as slug, fmtDate, fmtNum, shape,
+  DOC_LABELS, SANCTION_LABELS, SUPPORT_URL, TYPE_FULL, revisionChanges, citeSummary, facilitySlug as slug, fmtDate, fmtNum, locatorSvg, shape,
   smartTitle, surveyLabel, titleCase, waybackDate, windowStartOf,
 } from "../src/ledger.js";
 
@@ -21,6 +21,7 @@ const widget = dirname(dirname(fileURLToPath(import.meta.url)));
 const dist = join(widget, "dist");
 const read = (name) => JSON.parse(readFileSync(join(widget, "..", "data", name), "utf8"));
 const db = shape(read("facilities.json"), read("surveys.json"), read("enrichment.json"), read("wayback.json"), read("geocodes.json"));
+const basemap = read("basemap.json");
 
 const esc = (s) =>
   String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
@@ -66,6 +67,7 @@ ol.timeline li.held{border-left:3px solid var(--sepia);padding-left:10px;backgro
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .revised{font-size:13px;color:var(--soft);border-left:2px dashed var(--ink);padding-left:8px;margin:4px 0}
 .cites{font-size:13px;color:var(--soft)}
+.locator{margin:18px 0 0}.locator svg{display:block;max-width:100%;height:auto}.locator figcaption{margin-top:4px}
 .docs{font-size:13px}.docs a{margin-right:12px}
 footer{margin-top:32px;border-top:1px solid var(--ink);padding-top:12px;font-size:12.5px;color:var(--soft)}
 footer a.support{font-weight:700}
@@ -178,6 +180,7 @@ function facilityPage(f) {
 <p><a class="open" href="${SITE}#lic=${esc(f.license)}">Open in the interactive Care Ledger</a></p>
 <h2>Facility</h2>
 <dl class="facts">${facts}</dl>
+${f.point ? `<figure class="locator">${locatorSvg(basemap, f, 260)}<figcaption class="mono">${esc(county)} County, among the nine counties in the ledger. Location from the state roster's address, placed by the U.S. Census Bureau's geocoder.</figcaption></figure>` : ""}
 ${f.pageCopy ? `<p class="mono">State's page for this facility, <a href="${esc(f.pageCopy)}">as archived ${esc(fmtDate(waybackDate(f.pageCopy)))}</a> by the Internet Archive.</p>` : ""}
 <h2>Inspection history</h2>
 ${surveys ? `<ol class="timeline">\n${surveys}\n</ol>` : `<p>No inspection records since the ledger's archive for ${esc(county)} County began.</p>`}
