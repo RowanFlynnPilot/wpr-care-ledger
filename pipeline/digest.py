@@ -38,13 +38,15 @@ REVISION_MARK = "care-ledger-revision:"
 
 # Same print rules as the widget's smartTitle(): state names arrive in
 # ALL CAPS; keep licensing acronyms, lowercase the small words.
-KEEP_UPPER = {"LLC", "LLP", "INC", "CO", "II", "III", "IV", "VI", "VII", "VIII", "AFH", "CBRF", "RCAC", "AF", "ALF"}
+KEEP_UPPER = {"LLC", "LLP", "INC", "CO", "II", "III", "IV", "VI", "VII", "VIII", "AFH", "CBRF", "RCAC", "AF", "ALF",
+              "CSL", "LSS", "NSH"}
 KEEP_LOWER = {"of", "and", "the", "at", "by", "for", "on", "in"}
 
 SURVEY_PART_LABELS = {
     "SURVEY": "Standard survey", "COMPLAINT": "Complaint investigation",
-    "VV": "Follow-up visit", "VERIFICATION VISIT": "Verification visit",
+    "VV": "Follow-up visit", "VERIFICATION VISIT": "Follow-up visit",
     "SELF REPORT": "Self-report investigation", "DESK REVIEW": "Desk review",
+    "OTHER": "Other inspection", "LICENSURE": "Licensure inspection",
 }
 TYPE_ABBR = {
     "Adult Family Home": "AFH",
@@ -86,7 +88,9 @@ def long_date(iso):
 
 
 def survey_label(raw):
-    return " + ".join(SURVEY_PART_LABELS.get(p.strip(), p.strip().title()) for p in raw.split("/"))
+    # "SURVEY/COMPLAINT" -> "Standard survey and complaint investigation", as the widget prints it.
+    parts = [SURVEY_PART_LABELS.get(p.strip().upper(), p.strip().title()) for p in raw.split("/")]
+    return " and ".join([parts[0]] + [p[0].lower() + p[1:] for p in parts[1:]])
 
 
 class Ledger:

@@ -19,6 +19,12 @@ import {
   isoMinusDays,
   windowStartOf,
   citeSummary,
+  andList,
+  apNum,
+  licensedOn,
+  ownershipLabel,
+  sinceArchive,
+  statusLabel,
   locatorSvg,
   nearbyOf,
   mapFrame,
@@ -70,7 +76,7 @@ const GLOSSARY = [
     ["Standard survey", "A routine licensing inspection of the whole facility."],
     ["Complaint investigation", "An inspection prompted by a complaint from a resident, family member, employee or anyone else."],
     ["Self-report investigation", "An inspection of an incident the facility itself reported to the state, as it is required to."],
-    ["Verification visit / Follow-up visit", "A return inspection to check whether the facility fixed what it was cited for."],
+    ["Follow-up visit", "A return inspection to check whether the facility fixed what it was cited for. The state also calls it a verification visit."],
     ["Desk review", "A review of records the state does without visiting."],
     ["Substantiated complaint", "Inspectors found evidence that what the complaint described happened."],
   ]],
@@ -89,7 +95,7 @@ const GLOSSARY = [
     ["Revisit fee", "A fee the facility pays for the inspection that checks its corrections."],
   ]],
   ["Facilities and licenses", [
-    ["Adult family home (AFH)", "A home where three or four adults not related to the operator live and receive care. The ledger covers these 3–4 bed homes."],
+    ["Adult family home (AFH)", "A home where three or four adults not related to the operator live and receive care. The ledger covers these three- or four-bed homes."],
     ["Community-based residential facility (CBRF)", "A residence for five or more adults that provides care and supervision, including limited nursing care."],
     ["Residential care apartment complex (RCAC)", "Independent apartments for five or more residents, with limited personal, supportive and nursing services."],
     ["Probationary license", "The license Wisconsin issues for a facility's first year. It is not a penalty."],
@@ -670,10 +676,10 @@ export default function App() {
           <h1>The Care Ledger</h1>
           <p className="dek">
             Inspection and enforcement records since 2023 for every
-            state-licensed assisted living facility in Marathon County and the
+            state-regulated assisted living facility in Marathon County and the
             eight counties around it — kept after Wisconsin stops showing them.
           </p>
-          <p className="fresh">Updated {fmtDate(db.lastUpdated, "long")}</p>
+          <p className="fresh">Updated {fmtDate(db.lastUpdated)}</p>
         </div>
       </header>
       <div className="flag-rule" />
@@ -682,7 +688,7 @@ export default function App() {
       {staleDays > STALE_AFTER_DAYS && (
         <p className="stale-notice" role="note">
           <strong>This ledger is behind.</strong> It was last refreshed{" "}
-          {fmtDate(db.lastUpdated, "long")}. Records the state has posted
+          {fmtDate(db.lastUpdated)}. Records the state has posted
           since then may not appear here yet.
         </p>
       )}
@@ -692,15 +698,15 @@ export default function App() {
         {stats.finesTotal > 0 ? (
           <Stat
             n={`$${fmtNum(stats.finesTotal)}`}
-            label="in forfeitures assessed"
+            label="in fines assessed"
             tone="fine"
           />
         ) : (
-          <Stat n={stats.surveyEvents} label="survey events on record" />
+          <Stat n={stats.surveyEvents} label="inspections on record" />
         )}
         <Stat
           n={stats.withEnforcement}
-          label="facilities with enforcement"
+          label="facilities with enforcement actions"
           action="Show facilities with enforcement actions"
           pressed={lens === "enforcement"}
           onClick={() => showLensFromStat("enforcement")}
@@ -723,6 +729,7 @@ export default function App() {
 
       <CountyChart
         facilities={db.facilities}
+        since={sinceArchive(db.countyStart, db.counties)}
         county={county}
         onPick={(c) => setCounty(county === c ? "ALL" : c)}
       />
@@ -730,6 +737,7 @@ export default function App() {
       <CitationChart
         surveys={scopedSurveys}
         total={scoped.length}
+        since={sinceArchive(db.countyStart, county === "ALL" ? db.counties : [county])}
         active={category}
         onPick={pickCategory}
       />
@@ -756,15 +764,15 @@ export default function App() {
         </select>
         <select value={type} aria-label="Facility type" onChange={(e) => setType(e.target.value)}>
           <option value="ALL">All types</option>
-          <option value="CBRF">CBRF — community-based</option>
-          <option value="RCAC">RCAC — care apartments</option>
-          <option value="AFH">AFH — adult family home</option>
+          <option value="CBRF">Community-based residential facility (CBRF)</option>
+          <option value="RCAC">Residential care apartment complex (RCAC)</option>
+          <option value="AFH">Adult family home (AFH)</option>
         </select>
         <select value={sort} aria-label="Sort order" onChange={(e) => setSort(e.target.value)}>
           <option value="name">A to Z</option>
           <option value="recent">Latest activity</option>
           <option value="enforcement">Most enforcement</option>
-          <option value="fines">Most forfeitures</option>
+          <option value="fines">Largest fines</option>
         </select>
         <label className="closed-toggle">
           <input
@@ -966,14 +974,12 @@ export default function App() {
             Provider Search, which shows only the past three years of survey
             history. The Care Ledger checks the state record every Monday,
             archives every statement of deficiency, enforcement action, and
-            plan of correction, and keeps records after the state stops
+            plan of correction and keeps records after the state stops
             showing them — those entries are marked{" "}
             <span className="held-inline">held in the ledger</span>. Covers
-            Marathon County and its neighbors: {db.counties
-              .filter((c) => c !== "MARATHON")
-              .map(titleCase)
-              .join(", ")}
-            . {coverageText(db)} Each archive grows every week; earlier history
+            Marathon County and its neighbors,{" "}
+            {andList(db.counties.filter((c) => c !== "MARATHON").map(titleCase))} counties.{" "}
+            {coverageText(db)} Each archive grows every week; earlier history
             is not included, so a facility with no records listed has none
             since its county&rsquo;s archive begins. Forfeiture amounts and rule citations are machine-read from
             the archived documents; forfeitures shown are the amounts assessed
@@ -984,7 +990,7 @@ export default function App() {
             independent copy of each document and facility page is kept at
             the Internet Archive, captured from the state&rsquo;s own server
             (&ldquo;archive.org copy&rdquo;). Last updated{" "}
-            {fmtDate(db.lastUpdated, "long")}.
+            {fmtDate(db.lastUpdated)}.
           </p>
           <p className="support">
             The Care Ledger is free, with no paywall, because readers support
@@ -1079,12 +1085,12 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
   ).sort();
   const partialNote =
     startGroups.length === 1
-      ? `† The archive begins ${fmtDate(startGroups[0][0], "long")}, partway through this quarter.`
+      ? `† The archive begins ${fmtDate(startGroups[0][0])}, partway through this quarter.`
       : `† Partly covered: the archive begins ${startGroups
           .map(
             ([d, cs]) =>
-              `${fmtDate(d, "long")} for ${
-                cs.length === 1 ? `${titleCase(cs[0])} County` : `the other ${cs.length} counties`
+              `${fmtDate(d)}, for ${
+                cs.length === 1 ? `${titleCase(cs[0])} County` : `the other ${apNum(cs.length)} counties`
               }`
           )
           .join(" and ")}.`;
@@ -1116,13 +1122,13 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
   return (
     <figure className="activity">
       <div className="activity-head">
-        <h2 id="activity-title">Survey activity by quarter</h2>
+        <h2 id="activity-title">Inspections by quarter</h2>
         <ul className="legend">
           <li>
-            <span className="swatch swatch-plain" /> All surveys
+            <span className="swatch swatch-plain" /> All inspections
           </li>
           <li>
-            <span className="swatch swatch-enf" /> Led to enforcement action
+            <span className="swatch swatch-enf" /> Led to an enforcement action
           </li>
           {boundary !== null && anyHeld && (
             <li>
@@ -1135,7 +1141,7 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
           the red share holds near 4 in 10 year after year. */}
       <p className="chart-finding">
         <strong>
-          {fmtNum(enforcedTotal)} of {fmtNum(surveys.length)} surveys (
+          {fmtNum(enforcedTotal)} of {fmtNum(surveys.length)} inspections (
           {Math.round((enforcedTotal / surveys.length) * 100)}%)
         </strong>{" "}
         led to an enforcement action.
@@ -1150,9 +1156,9 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
           onMouseLeave={() => setHover(null)}
         >
           <desc id="activity-desc">
-            {`Survey events per quarter from ${quarters[0].y} through ${quarters[n - 1].y}, with the number that carried an enforcement action shown in red.${
+            {`Inspections per quarter from ${quarters[0].y} through ${quarters[n - 1].y}, with the number that carried an enforcement action shown in red.${
               boundary !== null && anyHeld
-                ? ` A shaded area marks surveys older than the state's three-year window, which the state no longer lists and this ledger keeps.`
+                ? ` A shaded area marks inspections older than the state's three-year window, which the state no longer lists and this ledger keeps.`
                 : ""
             } Full figures in the table that follows.`}
           </desc>
@@ -1185,7 +1191,7 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
                 y2={CHART.BASE}
               />
               <text className="window-label" x={`${boundary}%`} dx="5" y={CHART.TOP - 7}>
-                State&rsquo;s 3-year window ▸
+                State&rsquo;s three-year window ▸
               </text>
             </>
           )}
@@ -1289,7 +1295,7 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
             <strong>
               Q{tip.q} {tip.y}
             </strong>{" "}
-            · {tip.total} {tip.total === 1 ? "survey" : "surveys"} ·{" "}
+            · {tip.total} {tip.total === 1 ? "inspection" : "inspections"} ·{" "}
             {tip.enforcement} enforcement ({Math.round((tip.enforcement / tip.total) * 100)}%)
             {tip.held > 0 && ` · ${tip.held} held in the ledger`}
           </div>
@@ -1298,17 +1304,21 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
       {(filling.some(Boolean) || partial.some(Boolean)) && (
         <p className="chart-note">
           {filling.some(Boolean) && (
-            <span>* Still filling in: the state posts surveys weeks after they close.</span>
+            <span>* Still filling in: the state posts inspections weeks after they close.</span>
           )}
           {partial.some(Boolean) && <span>{partialNote}</span>}
         </p>
       )}
-      <table className="sr-only">
-        <caption>Survey events per quarter</caption>
+      {/* Hidden by a wrapping div: tables ignore width and overflow, so a
+          table with the hiding class itself kept its full width and pushed
+          the page wider than a phone. */}
+      <div className="sr-only">
+      <table>
+        <caption>Inspections per quarter</caption>
         <thead>
           <tr>
             <th scope="col">Quarter</th>
-            <th scope="col">Surveys</th>
+            <th scope="col">Inspections</th>
             <th scope="col">With enforcement action</th>
             <th scope="col">No longer listed by the state</th>
           </tr>
@@ -1326,6 +1336,7 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
           ))}
         </tbody>
       </table>
+      </div>
     </figure>
   );
 }
@@ -1335,7 +1346,7 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
    fixed 0-100% scale so a bar's length is its share, counts first in every
    label because small counties swing widely (Taylor's 50% is 2 of 4).
    Each row sets the county filter; the selected county stays marked. */
-function CountyChart({ facilities, county, onPick }) {
+function CountyChart({ facilities, since, county, onPick }) {
   const rows = useMemo(() => {
     const by = {};
     for (const f of facilities) {
@@ -1375,7 +1386,7 @@ function CountyChart({ facilities, county, onPick }) {
               <span className="cites-val">
                 {r.enforced} of {r.total}
                 <span className="cites-pct"> · {Math.round(r.share * 100)}%</span>
-                <span className="cites-n"> · ${fmtNum(r.fines)} fines</span>
+                <span className="cites-n"> · ${fmtNum(r.fines)} in fines</span>
               </span>
             </button>
           </li>
@@ -1383,8 +1394,8 @@ function CountyChart({ facilities, county, onPick }) {
       </ol>
       <p className="chart-note">
         <span>
-          Counts include closed facilities, since each county&rsquo;s archive began. Small counties
-          swing widely: {titleCase(smallest.county)} has {smallest.total} facilities.
+          Counts include closed facilities and every record {since}. Small counties swing
+          widely: {titleCase(smallest.county)} has {apNum(smallest.total)} facilities.
         </span>
       </p>
     </figure>
@@ -1394,7 +1405,7 @@ function CountyChart({ facilities, county, onPick }) {
 /* What inspectors cite: facilities cited at least once in each area, from
    the categories enrich.py gives every cited rule. One measure across
    categories, sorted, every bar labeled -- so plain rows, not a plot. */
-function CitationChart({ surveys, total, active, onPick }) {
+function CitationChart({ surveys, total, since, active, onPick }) {
   const rows = useMemo(() => {
     const by = {};
     for (const s of surveys) {
@@ -1409,7 +1420,6 @@ function CitationChart({ surveys, total, active, onPick }) {
       .sort((a, b) => b.facilities - a.facilities || b.citations - a.citations);
   }, [surveys]);
   if (rows.length < 2) return null;
-  const max = rows[0].facilities;
 
   return (
     <figure className="cites">
@@ -1431,7 +1441,9 @@ function CitationChart({ surveys, total, active, onPick }) {
             >
               <span className="cites-cat">{r.category}</span>
               <span className="cites-track" aria-hidden="true">
-                <span className="cites-bar" style={{ width: `${(r.facilities / max) * 100}%` }} />
+                {/* Its share of the facilities in view, on a 0-100% track like the
+                    county chart's, so the two read alike. */}
+                <span className="cites-bar" style={{ width: `${(r.facilities / total) * 100}%` }} />
               </span>
               <span className="cites-val">
                 {fmtNum(r.facilities)} {r.facilities === 1 ? "facility" : "facilities"}
@@ -1447,8 +1459,8 @@ function CitationChart({ surveys, total, active, onPick }) {
       </ol>
       <p className="chart-note">
         <span>
-          From the rules cited in statements of deficiency since each county&rsquo;s archive
-          began. A facility counts once per area however often it was cited.
+          From the rules cited in statements of deficiency {since}. A facility counts once per
+          category however often it was cited.
         </span>
       </p>
     </figure>
@@ -1795,8 +1807,8 @@ function FacilityMap({ facilities, basemap, county, focus, onFocused, onOpen, on
       <figcaption className="chart-note">
         <span>
           {county === "ALL"
-            ? "Point at a dot for its facility; select a county to zoom in."
-            : "Point at a dot for its facility."}{" "}
+            ? "Hover over or tap a dot to see the facility; select a county to zoom in."
+            : "Hover over or tap a dot to see the facility."}{" "}
           Locations are the state roster&rsquo;s addresses as placed by the U.S. Census
           Bureau&rsquo;s geocoder; county lines from Census TIGER.
         </span>
@@ -1857,7 +1869,7 @@ function FacilityEmbed({ db, license, staleDays }) {
             />
           </a>
           <p className="single-title">
-            The Care Ledger <span className="fresh">· updated {fmtDate(db.lastUpdated, "long")}</span>
+            The Care Ledger <span className="fresh">· updated {fmtDate(db.lastUpdated)}</span>
           </p>
         </div>
       </header>
@@ -1867,7 +1879,7 @@ function FacilityEmbed({ db, license, staleDays }) {
       {staleDays > STALE_AFTER_DAYS && (
         <p className="stale-notice" role="note">
           <strong>This ledger is behind.</strong> It was last refreshed{" "}
-          {fmtDate(db.lastUpdated, "long")}.
+          {fmtDate(db.lastUpdated)}.
         </p>
       )}
 
@@ -1978,7 +1990,7 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
           <span className="row-meta">
             {f.typeAbbr} · <Highlight text={titleCase(f.city)} q={query} /> ·{" "}
             {f.capacity} beds
-            {f.latest && <> · last survey {fmtDate(f.latest)}</>}
+            {f.latest && <> · latest inspection {fmtDate(f.latest)}</>}
             {matchNote && (
               <>
                 {" "}
@@ -2040,16 +2052,18 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
           {f.surveys.length > 0 && (
             <p className="panel-summary">
               <span>
-                {f.surveys.length} {f.surveys.length === 1 ? "survey" : "surveys"} on
+                {f.surveys.length} {f.surveys.length === 1 ? "inspection" : "inspections"} on
                 record
               </span>
               {f.enforcementCount > 0 && (
-                <span className="sum-enf">{f.enforcementCount} enforcement</span>
+                <span className="sum-enf">
+                  {f.enforcementCount} enforcement {f.enforcementCount === 1 ? "action" : "actions"}
+                </span>
               )}
               {f.fineTotal > 0 && (
                 <span className="sum-enf">${fmtNum(f.fineTotal)} assessed</span>
               )}
-              {f.latest && <span>latest survey {fmtDate(f.latest)}</span>}
+              {f.latest && <span>latest inspection {fmtDate(f.latest)}</span>}
             </p>
           )}
           <div className="panel-grid">
@@ -2058,7 +2072,7 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
             <Fact k="Address" v={`${titleCase(f.address)}, ${titleCase(f.city)} ${f.zip}`} />
             <Fact k="County" v={titleCase(f.county)} />
             <Fact k="License" v={f.license} mono />
-            <Fact k="Status" v={titleCase(f.licensure_status || "")} />
+            <Fact k="Status" v={statusLabel(f.licensure_status)} />
             {f.corporate_name && db.operatorCounts[f.corporate_name] > 1 ? (
               <div className="fact">
                 <dt>Operator</dt>
@@ -2076,9 +2090,9 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
             ) : (
               <Fact k="Operator" v={f.corporate_name ? smartTitle(f.corporate_name) : "—"} />
             )}
-            <Fact k="Ownership" v={f.ownership_type || "—"} />
-            {(f.date_regular || f.date_probationary) && (
-              <Fact k="Licensed" v={fmtDate(f.date_regular || f.date_probationary)} mono />
+            <Fact k="Ownership" v={ownershipLabel(f.ownership_type)} />
+            {licensedOn(f) && (
+              <Fact k="Licensed" v={fmtDate(licensedOn(f))} mono />
             )}
             {f.date_closed && <Fact k="Closed" v={fmtDate(f.date_closed)} mono />}
             <Fact k="Serves" v={f.client_groups ? smartTitle(f.client_groups) : "—"} wide />
@@ -2090,7 +2104,7 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
                     const s = db.byLicense[lic];
                     // Closed status first: one closed license has no
                     // closure date and must not read as "licensed".
-                    const licensed = s.date_regular || s.date_probationary;
+                    const licensed = licensedOn(s);
                     return (
                       <button key={lic} className="sibling" onClick={() => onCrossLink(lic)}>
                         {smartTitle(s.name)}
@@ -2118,7 +2132,7 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
                           {smartTitle(o.name)}
                         </button>{" "}
                         <span className="nearby-meta">
-                          {titleCase(o.city)} · {miles.toFixed(1)} mi
+                          {titleCase(o.city)} · {miles.toFixed(1)} miles
                           {o.enforcementCount > 0 && (
                             <span className="nearby-enf">
                               {" "}
@@ -2147,15 +2161,15 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
             {/* An h4 under each row's h3; in the single-facility embed the
                 record is the frame's h1, so its history is an h2. */}
             <HistoryHeading className="history-heading">
-              Survey history<span className="sr-only"> for {smartTitle(f.name)}</span>
+              Inspection history<span className="sr-only"> for {smartTitle(f.name)}</span>
             </HistoryHeading>
             {f.surveys.length === 0 ? (
               <p className="no-surveys">
                 {/* The archive begins at the state's window on the county's
                     first capture: July 2023 for Marathon, October for the rest. */}
-                No survey records since {fmtDate(windowStartOf(db.countyStart[f.county]))}
-                {f.date_regular || f.date_probationary
-                  ? ` — licensed ${fmtDate(f.date_regular || f.date_probationary)}`
+                No inspection records since {fmtDate(windowStartOf(db.countyStart[f.county]))}
+                {licensedOn(f)
+                  ? ` — licensed ${fmtDate(licensedOn(f))}`
                   : ""}
                 .
               </p>
@@ -2194,7 +2208,9 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
                         <span className="event-cites">
                           {s.enr.substantiated > 0 && (
                             <strong>
-                              Complaint substantiated
+                              {s.enr.substantiated === 1
+                                ? "Complaint substantiated"
+                                : `${apNum(s.enr.substantiated)} complaints substantiated`}
                               {s.enr.citations.length > 0 && " · "}
                             </strong>
                           )}
@@ -2323,7 +2339,8 @@ function Fact({ k, v, mono, wide }) {
 }
 
 /* "Marathon County's archive starts with what the state showed on July 12,
-   2026 — records back to July 12, 2023; the other 8 counties' …". Built from
+   2026 — records back to July 12, 2023; the other eight counties' archives
+   start …". Built from
    the data so it stays true as counties are added. */
 function coverageText(db) {
   const groups = Object.entries(
@@ -2333,9 +2350,9 @@ function coverageText(db) {
     groups
       .map(
         ([d, cs]) =>
-          `${cs.length === 1 ? `${titleCase(cs[0])} County's` : `the other ${cs.length} counties'`}
-          archive starts with what the state showed on ${fmtDate(d, "long")} — records back
-          to ${fmtDate(windowStartOf(d), "long")}`
+          `${cs.length === 1 ? `${titleCase(cs[0])} County's archive starts` : `the other ${apNum(cs.length)} counties' archives start`}
+          with what the state showed on ${fmtDate(d)} — records back
+          to ${fmtDate(windowStartOf(d))}`
       )
       .join("; ")
       .replace(/\s+/g, " ")

@@ -475,9 +475,6 @@ button.cites-row {
   background: var(--red);
 }
 
-.county-chart .cites-track {
-  background: var(--hairline-soft);
-}
 
 .county-chart .cites-row.is-active {
   border-left-color: var(--red);
@@ -506,8 +503,10 @@ button.cites-row {
   color: var(--ink);
 }
 
+/* Both row charts run on a 0-100% track, so a bar's length is its share. */
 .cites-track {
   height: 12px;
+  background: var(--hairline-soft);
 }
 
 .cites-bar {
@@ -667,6 +666,10 @@ button.cites-row {
 
 .controls select {
   cursor: pointer;
+  /* A select is as wide as its longest option; the type names would push
+     a phone layout sideways. */
+  max-width: 100%;
+  min-width: 0;
 }
 
 .controls input:focus-visible,

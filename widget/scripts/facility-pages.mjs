@@ -11,7 +11,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   DOC_LABELS, SANCTION_LABELS, SUPPORT_URL, TYPE_FULL, revisionChanges, citeSummary, facilitySlug as slug, fmtDate, fmtNum, locatorSvg, nearbyOf, shape,
-  smartTitle, surveyLabel, titleCase, waybackDate, windowStartOf,
+  smartTitle, surveyLabel, titleCase, waybackDate, windowStartOf, apNum, licensedOn, statusLabel,
 } from "../src/ledger.js";
 
 // The published address. Change here if the ledger moves to a custom domain.
@@ -106,7 +106,7 @@ function page({ title, description, path, body }) {
 <div class="rule"></div>
 ${body}
 <footer>
-  <p>Records from the Wisconsin Department of Health Services Division of Quality Assurance, which shows only three years of inspection history. The Care Ledger checks the state's records every Monday and keeps them after the state stops showing them. Updated ${esc(fmtDate(db.lastUpdated, "long"))}. Not affiliated with or endorsed by DHS. Questions or corrections: <a href="mailto:editor@wausaupilotandreview.com">editor@wausaupilotandreview.com</a>.</p>
+  <p>Records from the Wisconsin Department of Health Services Division of Quality Assurance, which shows only three years of inspection history. The Care Ledger checks the state's records every Monday and keeps them after the state stops showing them. Updated ${esc(fmtDate(db.lastUpdated))}. Not affiliated with or endorsed by DHS. Questions or corrections: <a href="mailto:editor@wausaupilotandreview.com">editor@wausaupilotandreview.com</a>.</p>
   <p>The Care Ledger is free, with no paywall, because readers support Wausau Pilot &amp; Review's reporting. <a class="support" href="${esc(SUPPORT_URL)}">Support this work</a></p>
   <p><a href="https://wausaupilotandreview.com/">Wausau Pilot &amp; Review</a> · 715-301-5539</p>
 </footer>
@@ -123,7 +123,7 @@ function facilityPage(f) {
   const type = TYPE_FULL[f.typeAbbr] || f.typeAbbr;
   // Dated from when the county's archive begins, not the first record:
   // "since" a facility's first inspection would imply nothing came before.
-  const since = fmtDate(windowStartOf(db.countyStart[f.county]), "long");
+  const since = fmtDate(windowStartOf(db.countyStart[f.county]));
   const record = f.surveys.length
     ? `${plural(f.surveys.length, "state inspection", "state inspections")} and ` +
       (f.enforcementCount
@@ -131,8 +131,10 @@ function facilityPage(f) {
         : "no enforcement actions") +
       (f.fineTotal ? ` ($${fmtNum(f.fineTotal)} in fines assessed)` : "") +
       ` on record since ${since}`
-    : `no state inspection records since ${since}`;
-  const description = `${name}, ${type.toLowerCase()} in ${city}, ${county} County, Wisconsin: ${record}. Every report and enforcement letter, kept by Wausau Pilot & Review.`;
+    : `no state inspection records since ${since}` +
+      (licensedOn(f) ? ` (licensed ${fmtDate(licensedOn(f))})` : "");
+  const article = /^[aeiou]/i.test(type) ? "an" : "a";
+  const description = `${name}, ${article} ${type.toLowerCase()} in ${city}, ${county} County, Wisconsin: ${record}. Every report and enforcement letter, kept by Wausau Pilot & Review.`;
 
   const surveys = f.surveys
     .map((s) => {
@@ -147,9 +149,9 @@ function facilityPage(f) {
   <div>
     <div class="type">${esc(surveyLabel(s.survey_type))}${s.enr.fine ? ` <span class="fine">$${fmtNum(s.enr.fine)} forfeiture${s.enr.sanctions.includes("Accruing forfeiture") ? " (accruing)" : ""}</span>` : ""}</div>
     ${sanctions.length ? `<div class="sanction">${esc(sanctions.join(" · "))}</div>` : ""}
-    ${s.enr.substantiated || s.enr.citations.length ? `<div class="cites">${s.enr.substantiated ? "<strong>Complaint substantiated</strong>" : ""}${s.enr.substantiated && s.enr.citations.length ? " · " : ""}${s.enr.citations.length ? `Cited: ${esc(citeSummary(s.enr.citations))}` : ""}</div>` : ""}
+    ${s.enr.substantiated || s.enr.citations.length ? `<div class="cites">${s.enr.substantiated ? `<strong>${s.enr.substantiated === 1 ? "Complaint substantiated" : `${apNum(s.enr.substantiated)} complaints substantiated`}</strong>` : ""}${s.enr.substantiated && s.enr.citations.length ? " · " : ""}${s.enr.citations.length ? `Cited: ${esc(citeSummary(s.enr.citations))}` : ""}</div>` : ""}
     ${s.expired_from_state ? `<div class="held-note">Held in the ledger — no longer listed in the state's Provider Search; last listed ${esc(fmtDate(s.last_seen))}.</div>` : ""}
-    ${s.revision ? `<div class="revised"><strong>Revised by the state</strong> on ${esc(fmtDate(s.revision.posted))}${revisionChanges(s.revision) ? `: ${esc(revisionChanges(s.revision))}` : ""}. Figures shown are from the current version. Originals, kept here: ${s.docs.filter((d) => d.original).map((d) => `<a href="../../${esc(d.original)}">original ${esc(DOC_LABELS[d.kind].toLowerCase())} (PDF)</a>`).join(" · ")}</div>` : ""}
+    ${s.revision ? `<div class="revised"><strong>Revised by the state</strong>: the state replaced ${s.docs.filter((d) => d.original).length > 1 ? "these documents" : "this document"} on its site on ${esc(fmtDate(s.revision.posted))}${revisionChanges(s.revision) ? `: ${esc(revisionChanges(s.revision))}` : ""}. Figures shown are from the current version. Originals, kept here: ${s.docs.filter((d) => d.original).map((d) => `<a href="../../${esc(d.original)}">original ${esc(DOC_LABELS[d.kind].toLowerCase())} (PDF)</a>`).join(" · ")}</div>` : ""}
     ${docs ? `<div class="docs">${docs}</div>` : ""}
   </div>
 </li>`;
@@ -161,10 +163,10 @@ function facilityPage(f) {
     ["Address", `${titleCase(f.address)}, ${city} ${f.zip}`],
     ["County", county],
     ["License", f.license],
-    ["Status", titleCase(f.licensure_status || "")],
+    ["Status", statusLabel(f.licensure_status)],
     ["Operator", f.corporate_name ? smartTitle(f.corporate_name) : "—"],
     ["Capacity", f.capacity ? `${f.capacity} beds` : "—"],
-    ...(f.date_regular || f.date_probationary ? [["Licensed", fmtDate(f.date_regular || f.date_probationary)]] : []),
+    ...(licensedOn(f) ? [["Licensed", fmtDate(licensedOn(f))]] : []),
     ...(f.date_closed ? [["Closed", fmtDate(f.date_closed)]] : []),
   ]
     .map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`)
@@ -185,7 +187,7 @@ ${f.point ? `<figure class="locator">${locatorSvg(basemap, f, 260)}<figcaption c
 ${f.pageCopy ? `<p class="mono">State's page for this facility, <a href="${esc(f.pageCopy)}">as archived ${esc(fmtDate(waybackDate(f.pageCopy)))}</a> by the Internet Archive.</p>` : ""}
 ${nearbyList(f)}
 <h2>Inspection history</h2>
-${surveys ? `<ol class="timeline">\n${surveys}\n</ol>` : `<p>No inspection records since the ledger's archive for ${esc(county)} County began.</p>`}
+${surveys ? `<ol class="timeline">\n${surveys}\n</ol>` : `<p>No inspection records since ${esc(since)}.</p>`}
 <p class="mono"><a href="../">All ${db.facilities.length} facilities</a></p>
 </article>`,
   });
@@ -198,7 +200,7 @@ function nearbyList(f) {
   if (!near.length) return "";
   const items = near
     .map(({ f: o, miles }) =>
-      `<li><a href="../${slug(o)}/">${esc(smartTitle(o.name))}</a> <span class="meta">${esc(titleCase(o.city))} · ${miles.toFixed(1)} mi${o.enforcementCount ? ` · <span class="enf">${plural(o.enforcementCount, "enforcement action", "enforcement actions")}</span>` : ""}</span></li>`)
+      `<li><a href="../${slug(o)}/">${esc(smartTitle(o.name))}</a> <span class="meta">${esc(titleCase(o.city))} · ${miles.toFixed(1)} miles${o.enforcementCount ? ` · <span class="enf">${plural(o.enforcementCount, "enforcement action", "enforcement actions")}</span>` : ""}</span></li>`)
     .join("\n");
   return `<h2>Nearest operating facilities</h2>
 <ul class="near">
@@ -226,7 +228,7 @@ function indexPage() {
     description: `State inspection and enforcement records for ${db.facilities.length} assisted living facilities in Marathon County and the eight counties around it, kept by Wausau Pilot & Review.`,
     path: "facility/",
     body: `<h1>Every facility in The Care Ledger</h1>
-<p class="lede">${db.facilities.length} state-licensed assisted living facilities in ${db.counties.length} central Wisconsin counties, with every inspection report and enforcement letter since 2023. <a href="${SITE}">Search them in the interactive ledger</a>.</p>
+<p class="lede">Every inspection report and enforcement letter since 2023 for the ${db.facilities.length} state-regulated assisted living facilities in ${apNum(db.counties.length)} central Wisconsin counties. <a href="${SITE}">Search them in the interactive ledger</a>.</p>
 ${sections}`,
   });
   // One level shallower than a facility page: fix the relative asset paths.

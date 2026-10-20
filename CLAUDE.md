@@ -316,7 +316,7 @@ render on first open and stay mounted (300+ hidden timelines on load
 would be tens of thousands of DOM nodes on a phone).
 
 Search by facility / city / operator / license, type filter, closed toggle,
-sort by name / latest activity / most enforcement / most forfeitures.
+sort by name / latest activity / most enforcement / largest fines.
 Lenses (buttons with live counts under the current search/type/closed
 narrowing): All · Enforcement actions · Held in the ledger · New this week
 (the last two appear only when the ledger has any). Four stats (slot 2 =
@@ -343,7 +343,7 @@ their PDFs are still served, and archive.org copies made after they
 aged off prove it); records
 the state rewrote show a dashed "Revised by the state" stamp, the date
 its new file carries, what changed (`revisionChanges()` in ledger.js:
-"forfeiture reduced from $1,000 to $400; deficiencies cited from 4 to
+"forfeiture reduced from $1,000 to $400; deficiencies cited went from 4 to
 1"), and links to the originals — the figures shown are the current
 version's, and a revision found this week counts toward "New this week"
 but is labeled "Revised this week" (row chip "Revised") so it never
@@ -353,7 +353,7 @@ July 12, 2023 for Marathon, Oct. 7, 2023 for the rest. Search also
 matches the printed name ("the waterford"). A
 probationary license gets a neutral chip with a tooltip — it is
 Wisconsin's standard first-year license, never styled as discipline.
-Below the masthead, a quarterly survey-activity chart: each bar is the
+Below the masthead, "Inspections by quarter": each bar is the
 quarter's surveys as a light outlined bar (outline #8a8a8a, 3.4:1, so it
 reads as a shape on white) filled from the baseline in red with those
 that led to enforcement — a whole and its red part, so the eye lands on
@@ -426,6 +426,30 @@ records with `expired_from_state: true`, plus the masthead stat that counts
 them once records start aging off (until then the fourth stat shows
 documents archived).
 
+Reader-facing copy follows AP style and one vocabulary, edited
+2026-10-20 (a copy review of every string): "inspection" in headings,
+counts and the chart (the state's own type names stay: "Standard survey",
+and the glossary's "Survey" entry explains the word on documents); "fines"
+in summaries, "forfeiture" on a record's own line, where it quotes the
+letter; "enforcement action(s)", never a bare "enforcement" count; numbers
+one through nine spelled (`apNum()`), no serial comma (`andList()`),
+"miles" not "mi"; combined survey types read "Standard survey and
+complaint investigation"; the state's VV and VERIFICATION VISIT are both
+"Follow-up visit". License status reads "Regular license" /
+"Probationary (first-year) license, not a penalty" (`statusLabel()`), so
+phones, which never see the chip's tooltip, get the explanation too;
+"Licensed" is the first license date — probationary before regular
+(`licensedOn()`; 95 facilities have a regular date about six months
+later); ownership types are tidied (`ownershipLabel()`). "Since each
+county's archive began" is always spelled out with its dates
+(`sinceArchive()`: "since July 12, 2023, in Marathon County and Oct. 7,
+2023, in the other eight counties"). "State-regulated", not
+"state-licensed": residential care apartment complexes are certified or
+registered, not licensed. "What inspectors cite" bars are each
+category's share of the facilities in view on the same 0-100% track as
+the county chart (they were scaled to the largest category, so the top
+bar always looked full).
+
 State names arrive ALL CAPS; `smartTitle()` title-cases them for print,
 preserving acronyms (LLC, CBRF, HCBS, …) and never capitalizing after an
 apostrophe (Alzheimer's).
@@ -462,12 +486,13 @@ the iframe's own height, so the frame could grow but never shrink. When
 embedded it never calls `scrollIntoView` (that would scroll the reader's
 article). Numbers format with a fixed `en-US` locale ("$39,640" on a
 German browser too); dates are AP style from `fmtDate()` in ledger.js
-("Sept. 21, 2026", "March 27, 2026"; "long" spells the month), never the
+("Sept. 21, 2026", "March 27, 2026"; the masthead too — there is no
+spelled-out form), never the
 browser's locale.
 
 Accessibility: masthead, `<main>`, footer landmarks (the single embed
 too, its foot a `<footer>`). Each facility's header button sits inside an `h3` (sr-only
-`h2` "Facilities" above the list; each panel's "Survey history" is an
+`h2` "Facilities" above the list; each panel's "Inspection history" is an
 `h4` naming the facility for screen readers; in the single-facility
 embed the record is the frame's `h1` and its history an `h2`). Document
 links, archive.org links, the CSV buttons and the unplaced-facility

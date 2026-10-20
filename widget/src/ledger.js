@@ -6,10 +6,13 @@
 export const SURVEY_PART_LABELS = {
   SURVEY: "Standard survey",
   COMPLAINT: "Complaint investigation",
+  // The state writes the same return visit both ways.
   VV: "Follow-up visit",
-  "VERIFICATION VISIT": "Verification visit",
+  "VERIFICATION VISIT": "Follow-up visit",
   "SELF REPORT": "Self-report investigation",
   "DESK REVIEW": "Desk review",
+  OTHER: "Other inspection",
+  LICENSURE: "Licensure inspection",
 };
 
 export const DOC_LABELS = {
@@ -57,11 +60,56 @@ export const STREET_ABBR = {
   TRAIL: "TRL", TERRACE: "TER", NORTH: "N", SOUTH: "S", EAST: "E", WEST: "W",
 };
 
+/* "SURVEY/COMPLAINT" -> "Standard survey and complaint investigation". */
 export function surveyLabel(raw) {
   return raw
     .split("/")
-    .map((p) => SURVEY_PART_LABELS[p.trim()] || titleCase(p.trim()))
-    .join(" + ");
+    .map((p) => SURVEY_PART_LABELS[p.trim().toUpperCase()] || titleCase(p.trim()))
+    .map((label, i) => (i ? label.charAt(0).toLowerCase() + label.slice(1) : label))
+    .join(" and ");
+}
+
+/* AP numbers: one through nine spelled out, 10 and up as figures. */
+const SMALL = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+export function apNum(n) {
+  return n >= 0 && n < 10 ? SMALL[n] : fmtNum(n);
+}
+
+/* "Clark, Langlade and Wood" (AP: no serial comma). */
+export function andList(items) {
+  return items.length < 2 ? items.join("") : `${items.slice(0, -1).join(", ")} and ${items.at(-1)}`;
+}
+
+/* The state's license statuses in words a family reads: a probationary
+   license is Wisconsin's first-year license, never a penalty. */
+export function statusLabel(status) {
+  return (
+    { REGULAR: "Regular license", PROBATIONARY: "Probationary (first-year) license, not a penalty", CLOSED: "Closed" }[
+      status
+    ] || titleCase(status || "")
+  );
+}
+
+/* The roster's ownership types, tidied: "Corporation - Non profit" ->
+   "Nonprofit corporation". */
+export function ownershipLabel(type) {
+  return (
+    {
+      "Corporation - Non profit": "Nonprofit corporation",
+      "Corporation - Business": "Business corporation",
+      "Limited Liability Company": "Limited liability company",
+      "Government-County": "County government",
+      "Government-State": "State government",
+    }[type] ||
+    type ||
+    "—"
+  );
+}
+
+/* When a facility was first licensed: the probationary (first-year)
+   license comes first; the regular one follows about six months later. */
+export function licensedOn(f) {
+  return f.date_probationary || f.date_regular || "";
 }
 
 export function titleCase(s) {
@@ -71,7 +119,7 @@ export function titleCase(s) {
 /* Facility and operator names arrive from the state in ALL CAPS. Title-case
    them for print, preserving corporate and licensing acronyms. */
 export const KEEP_UPPER = new Set([
-  "LLC", "LLP", "INC", "CO", "II", "III", "IV", "VI", "VII", "VIII", "AFH", "CBRF", "RCAC",
+  "LLC", "LLP", "INC", "CO", "II", "III", "IV", "VI", "VII", "VIII", "AFH", "CBRF", "RCAC", "CSL", "LSS", "NSH",
   "AF", "ALF", "WI", "USA", "SLF", "HCBS",
 ]);
 export const KEEP_LOWER = new Set(["of", "and", "the", "at", "by", "for", "on", "in"]);
@@ -102,16 +150,14 @@ export function smartTitle(s) {
     .join(" ");
 }
 
-/* AP style, as the newsroom prints dates: "Sept. 21, 2026", "March 27,
-   2026" ("long" spells every month: "September 21, 2026"). */
+/* AP style, as the newsroom prints dates, everywhere: "Sept. 21, 2026",
+   "March 27, 2026". */
 const AP_MONTHS = ["Jan.", "Feb.", "March", "April", "May", "June", "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."];
-const LONG_MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August",
-  "September", "October", "November", "December"];
 
-export function fmtDate(iso, month = "short") {
+export function fmtDate(iso) {
   if (!iso) return "";
   const [y, m, d] = iso.split("-").map(Number);
-  return `${(month === "long" ? LONG_MONTHS : AP_MONTHS)[m - 1]} ${d}, ${y}`;
+  return `${AP_MONTHS[m - 1]} ${d}, ${y}`;
 }
 
 /* "https://web.archive.org/web/20261015004022/…" -> "2026-10-15" (UTC). */
@@ -361,7 +407,7 @@ export const SUPPORT_URL =
   "https://wausaupilotandreview.com/support-our-publication/?utm_source=care-ledger&utm_medium=referral";
 
 /* What a state revision changed, in words: "forfeiture reduced from
-   $1,000 to $400; deficiencies cited reduced from 4 to 1". Empty when the figures
+   $1,000 to $400; deficiencies cited went from 4 to 1". Empty when the figures
    the ledger reads didn't move (the wording or a date changed). */
 export function revisionChanges(rev) {
   const money = (n) => `$${fmtNum(n || 0)}`;
@@ -371,8 +417,7 @@ export function revisionChanges(rev) {
     parts.push(`forfeiture ${verb} from ${money(rev.was.fine)} to ${money(rev.now.fine)}`);
   }
   if (rev.was.deficiencies != null && rev.now.deficiencies != null && rev.was.deficiencies !== rev.now.deficiencies) {
-    const verb = rev.now.deficiencies < rev.was.deficiencies ? "reduced" : "raised";
-    parts.push(`deficiencies cited ${verb} from ${rev.was.deficiencies} to ${rev.now.deficiencies}`);
+    parts.push(`deficiencies cited went from ${rev.was.deficiencies} to ${rev.now.deficiencies}`);
   }
   return parts.join("; ");
 }
@@ -476,4 +521,21 @@ export function nearbyOf(facilities, f, n = 5, maxMiles = 15) {
     .filter((x) => x.miles <= maxMiles)
     .sort((a, b) => a.miles - b.miles)
     .slice(0, n);
+}
+
+/* How far back the records go for the given counties, in words: "since
+   July 12, 2023, in Marathon County and Oct. 7, 2023, in the other eight
+   counties" — each county's archive starts at the state's window on its
+   first capture. One date for one start: "since Oct. 7, 2023". */
+export function sinceArchive(countyStart, counties) {
+  const groups = {};
+  for (const c of counties) (groups[windowStartOf(countyStart[c])] ||= []).push(c);
+  const dates = Object.keys(groups).sort();
+  if (dates.length === 1) return `since ${fmtDate(dates[0])}`;
+  return `since ${andList(
+    dates.map((d) => {
+      const cs = groups[d];
+      return `${fmtDate(d)}, in ${cs.length === 1 ? `${titleCase(cs[0])} County` : `the other ${apNum(cs.length)} counties`}`;
+    })
+  )}`;
 }
