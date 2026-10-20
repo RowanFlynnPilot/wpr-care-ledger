@@ -82,7 +82,7 @@ expanded rows — no inner scrollbar.
 
 ```html
 <iframe
-  id="care-ledger"
+  class="care-ledger"
   src="https://rowanflynnpilot.github.io/wpr-care-ledger/"
   title="The Care Ledger — assisted living oversight in central Wisconsin"
   style="width:100%;border:0;display:block;"
@@ -91,17 +91,26 @@ expanded rows — no inner scrollbar.
   allow="clipboard-write"
 ></iframe>
 <script>
+  // Sizes every Care Ledger frame on the page by the frame that sent the
+  // message, so several embeds (and the full ledger) can share an article.
   window.addEventListener("message", function (e) {
     if (e.origin !== "https://rowanflynnpilot.github.io") return;
-    if (e.data && e.data.type === "wpr-care-ledger:height") {
-      document.getElementById("care-ledger").style.height =
-        e.data.height + "px";
-    }
+    if (!e.data || e.data.type !== "wpr-care-ledger:height") return;
+    document.querySelectorAll("iframe.care-ledger").forEach(function (f) {
+      if (f.contentWindow === e.source) f.style.height = e.data.height + "px";
+    });
   });
 </script>
 ```
 
 The `height="1200"` is only the fallback before the first message arrives.
+Every Care Ledger embed uses this same script, matched to its own frame,
+so the full ledger and any number of single-facility embeds can share one
+article. (An earlier version of this snippet resized by `id` on every
+message, which would have snapped the full ledger to a facility embed's
+height.) WordPress keeps the `<script>` only for users allowed to post
+unfiltered HTML — editors and admins; for anyone else the frame still
+works, at the fixed fallback height.
 
 ### Linking to one facility from a story
 

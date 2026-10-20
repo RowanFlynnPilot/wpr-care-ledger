@@ -376,6 +376,13 @@ State names arrive ALL CAPS; `smartTitle()` title-cases them for print,
 preserving acronyms (LLC, CBRF, HCBS, …) and never capitalizing after an
 apostrophe (Alzheimer's).
 
+The list renders 20 rows, then "Show 20 more" / "show all" (focus moves
+to the first new row); any new search, filter, sort, lens or county
+starts again at 20. All 279 at once made the embedded frame ~30,000px
+tall, burying the rest of the article; now ~4,000. Deep links and
+cross-links narrow the list to their target, so paging never hides it;
+the CSV still exports every row in view.
+
 Embedding: the widget posts its height to the parent page measured from
 `#root` — never `documentElement.scrollHeight`, which can't drop below
 the iframe's own height, so the frame could grow but never shrink. When

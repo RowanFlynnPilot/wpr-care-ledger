@@ -42,6 +42,10 @@ const LENS_LABELS = {
 /* Inside the WordPress iframe the page has no scroller of its own, and
    scrolling into view would yank the reader's article instead. */
 const EMBEDDED = window.parent !== window;
+
+/* Facility rows shown before "Show more": enough to browse, short enough
+   that an embedded ledger doesn't bury the rest of the article. */
+const PAGE = 20;
 // ?facility=<license>: one facility's record alone, for a story about it.
 const FACILITY = new URLSearchParams(window.location.search).get("facility");
 // The full ledger, for links out of the single-facility view.
@@ -239,6 +243,10 @@ export default function App() {
   const [showClosed, setShowClosed] = useState(false);
   const [lens, setLens] = useState("all");
   const [open, setOpen] = useState(null);
+  // Rows rendered: the first PAGE, then more on request. All 279 at once
+  // made the embedded frame ~30,000px tall — a reader had to scroll past
+  // every facility to reach the rest of the article.
+  const [shown, setShown] = useState(PAGE);
 
   const searchRef = useRef(null);
   const briefRef = useRef(null);
@@ -408,6 +416,14 @@ export default function App() {
     };
     return { list: base.filter(LENS_TEST[lens]).sort(bySort[sort]), lensCounts };
   }, [db, scoped, query, type, sort, showClosed, lens]);
+
+  // A new search, filter or sort starts from the top of its results.
+  useEffect(() => setShown(PAGE), [query, type, sort, showClosed, lens, county]);
+  const showMore = (all) => {
+    const next = list[shown];
+    setShown(all ? list.length : shown + PAGE);
+    if (next) focusHeader(next.license); // keyboard users land on the first new row
+  };
 
   // When the search is exactly an operator's corporate name (the operator
   // cross-link does this), lead the results with an operator brief.
@@ -728,7 +744,7 @@ export default function App() {
       </div>
 
       <ol className="rows">
-        {list.map((f) => (
+        {list.slice(0, shown).map((f) => (
           <FacilityRow
             key={f.license}
             f={f}
@@ -740,6 +756,19 @@ export default function App() {
             onOperator={showOperator}
           />
         ))}
+        {list.length > shown && (
+          <li className="more-row">
+            <button className="show-more" onClick={() => showMore(false)}>
+              Show {Math.min(PAGE, list.length - shown)} more
+            </button>
+            <span className="more-count">
+              {fmtNum(list.length - shown)} of {fmtNum(list.length)} not yet shown ·{" "}
+              <button className="clear-filters" onClick={() => showMore(true)}>
+                show all
+              </button>
+            </span>
+          </li>
+        )}
         {list.length > 0 && hiddenClosedMatches > 0 && (
           <li className="closed-hint">
             {hiddenClosedMatches} closed{" "}
