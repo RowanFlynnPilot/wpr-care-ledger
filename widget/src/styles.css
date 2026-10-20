@@ -36,6 +36,12 @@ body {
   padding: 0;
 }
 
+/* Newsprint is light-only: without this a dark-mode browser may draw
+   dark native controls (selects, checkbox, scrollbars) on white. */
+:root {
+  color-scheme: light;
+}
+
 body {
   background: var(--paper);
   color: var(--ink);
@@ -43,6 +49,21 @@ body {
   font-size: 14px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Headlines break into even lines; prose avoids a lone last word. */
+h1,
+h2,
+.row-name {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+button {
+  touch-action: manipulation;
 }
 
 .ledger {
@@ -534,6 +555,16 @@ body {
   border: 1px solid #949494;
   border-radius: 0;
   padding: 9px 12px;
+  touch-action: manipulation;
+}
+
+/* iOS Safari zooms the page into any field under 16px when it's tapped —
+   inside an embedded frame, a jarring jump. */
+@media (max-width: 560px) {
+  .controls input[type="search"],
+  .controls select {
+    font-size: 16px;
+  }
 }
 
 .controls select {

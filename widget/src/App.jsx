@@ -635,8 +635,11 @@ export default function App() {
           ref={searchRef}
           type="search"
           value={query}
-          placeholder="Search facility, city, operator, or license"
+          placeholder="Name, city, operator or license"
           aria-label="Search facilities"
+          enterKeyHint="search"
+          autoComplete="off"
+          spellCheck={false}
           onChange={(e) => setQuery(e.target.value)}
         />
         <select value={county} aria-label="County" onChange={(e) => setCounty(e.target.value)}>
