@@ -528,7 +528,13 @@ so they stay attached when the frame resizes. Every record's facts end
 with a small locator ("Location": the nine counties, its own shaded, one
 dot) from `locatorSvg()` in ledger.js — built when the panel first
 opens, and drawn identically on the facility pages. The projection
-(`mapFrame()`, `outlinePath()`) lives in ledger.js for both.
+(`mapFrame()`, `outlinePath()`) lives in ledger.js for both. Above the
+locator, "Nearest operating facilities": up to five open facilities
+within 15 straight-line miles (`nearbyOf()`, haversine `milesBetween()`
+in ledger.js), nearest first, each with its city, distance and
+enforcement count, a cross-link to its record; same-address licenses
+are left out (they have their own fact). The facility pages list the
+same five, linked page to page.
 Cross-links and deep links scroll the opened record into view
 (standalone only). A print stylesheet hides interactive chrome and keeps
 records intact across page breaks.

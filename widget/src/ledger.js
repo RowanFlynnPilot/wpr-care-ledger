@@ -454,3 +454,26 @@ export function locatorSvg(basemap, f, width = 240) {
     `</svg>`
   );
 }
+
+/* Straight-line miles between two {lat, lon} points (haversine). */
+export function milesBetween(a, b) {
+  const rad = Math.PI / 180;
+  const dLat = (b.lat - a.lat) * rad;
+  const dLon = (b.lon - a.lon) * rad;
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(a.lat * rad) * Math.cos(b.lat * rad) * Math.sin(dLon / 2) ** 2;
+  return 3958.8 * 2 * Math.asin(Math.sqrt(h));
+}
+
+/* The operating facilities nearest a facility, for a family comparing
+   options: up to `n` within `maxMiles`, nearest first, as {f, miles}.
+   Licenses at the same address are left out (the record lists them as
+   "Also licensed at this address"). Empty without a location. */
+export function nearbyOf(facilities, f, n = 5, maxMiles = 15) {
+  if (!f.point) return [];
+  return facilities
+    .filter((o) => o !== f && o.point && !o.closed && !f.siblings.includes(o.license))
+    .map((o) => ({ f: o, miles: milesBetween(f.point, o.point) }))
+    .filter((x) => x.miles <= maxMiles)
+    .sort((a, b) => a.miles - b.miles)
+    .slice(0, n);
+}

@@ -1522,6 +1522,52 @@ mark {
   gap: 26px;
 }
 
+.nearby {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nearby-name {
+  font: inherit;
+  font-size: 13px;
+  color: var(--teal-deep);
+  background: none;
+  border: none;
+  padding: 4px 0; /* 24px tap target */
+  cursor: pointer;
+  text-align: left;
+  text-decoration: underline;
+  text-decoration-color: rgba(42, 101, 93, 0.4);
+  text-underline-offset: 2px;
+}
+
+.nearby-name:hover {
+  color: var(--ink);
+}
+
+.nearby-name:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
+.nearby-meta,
+.nearby-note {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.nearby-enf {
+  color: var(--red);
+  font-weight: 700;
+}
+
+.nearby-note {
+  display: block;
+  margin-top: 2px;
+}
+
 .fact-map svg {
   display: block;
   max-width: 100%;

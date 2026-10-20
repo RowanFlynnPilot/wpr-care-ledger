@@ -20,6 +20,7 @@ import {
   windowStartOf,
   citeSummary,
   locatorSvg,
+  nearbyOf,
   mapFrame,
   outlinePath,
   shape,
@@ -1936,6 +1937,10 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
     () => (everOpened.current ? locatorSvg(db.basemap, f, 220) : ""),
     [db, f, everOpened.current]
   );
+  const nearby = useMemo(
+    () => (everOpened.current ? nearbyOf(db.facilities, f) : []),
+    [db, f, everOpened.current]
+  );
 
   // Closed panels stay mounted (for the reveal animation) but must leave
   // the tab order and the accessibility tree. Set as a DOM property: React
@@ -2108,6 +2113,33 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
                       </button>
                     );
                   })}
+                </dd>
+              </div>
+            )}
+            {nearby.length > 0 && (
+              <div className="fact fact-wide">
+                <dt>Nearest operating facilities</dt>
+                <dd>
+                  <ul className="nearby">
+                    {nearby.map(({ f: o, miles }) => (
+                      <li key={o.license}>
+                        <button className="nearby-name" onClick={() => onCrossLink(o.license)}>
+                          {smartTitle(o.name)}
+                        </button>{" "}
+                        <span className="nearby-meta">
+                          {titleCase(o.city)} · {miles.toFixed(1)} mi
+                          {o.enforcementCount > 0 && (
+                            <span className="nearby-enf">
+                              {" "}
+                              · {o.enforcementCount} enforcement{" "}
+                              {o.enforcementCount === 1 ? "action" : "actions"}
+                            </span>
+                          )}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                  <span className="nearby-note">Straight-line distance, within 15 miles.</span>
                 </dd>
               </div>
             )}

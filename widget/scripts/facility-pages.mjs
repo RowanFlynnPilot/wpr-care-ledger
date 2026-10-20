@@ -10,7 +10,7 @@ import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
-  DOC_LABELS, SANCTION_LABELS, SUPPORT_URL, TYPE_FULL, revisionChanges, citeSummary, facilitySlug as slug, fmtDate, fmtNum, locatorSvg, shape,
+  DOC_LABELS, SANCTION_LABELS, SUPPORT_URL, TYPE_FULL, revisionChanges, citeSummary, facilitySlug as slug, fmtDate, fmtNum, locatorSvg, nearbyOf, shape,
   smartTitle, surveyLabel, titleCase, waybackDate, windowStartOf,
 } from "../src/ledger.js";
 
@@ -67,6 +67,7 @@ ol.timeline li.held{border-left:3px solid var(--sepia);padding-left:10px;backgro
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .revised{font-size:13px;color:var(--soft);border-left:2px dashed var(--ink);padding-left:8px;margin:4px 0}
 .cites{font-size:13px;color:var(--soft)}
+ul.near{margin:0;padding-left:18px}ul.near li{margin:4px 0}
 .locator{margin:18px 0 0}.locator svg{display:block;max-width:100%;height:auto}.locator figcaption{margin-top:4px}
 .docs{font-size:13px}.docs a{margin-right:12px}
 footer{margin-top:32px;border-top:1px solid var(--ink);padding-top:12px;font-size:12.5px;color:var(--soft)}
@@ -182,11 +183,28 @@ function facilityPage(f) {
 <dl class="facts">${facts}</dl>
 ${f.point ? `<figure class="locator">${locatorSvg(basemap, f, 260)}<figcaption class="mono">${esc(county)} County, among the nine counties in the ledger. Location from the state roster's address, placed by the U.S. Census Bureau's geocoder.</figcaption></figure>` : ""}
 ${f.pageCopy ? `<p class="mono">State's page for this facility, <a href="${esc(f.pageCopy)}">as archived ${esc(fmtDate(waybackDate(f.pageCopy)))}</a> by the Internet Archive.</p>` : ""}
+${nearbyList(f)}
 <h2>Inspection history</h2>
 ${surveys ? `<ol class="timeline">\n${surveys}\n</ol>` : `<p>No inspection records since the ledger's archive for ${esc(county)} County began.</p>`}
 <p class="mono"><a href="../">All ${db.facilities.length} facilities</a></p>
 </article>`,
   });
+}
+
+// The nearest operating facilities, linked: for a family comparing
+// options, and so every facility page leads to its neighbors.
+function nearbyList(f) {
+  const near = nearbyOf(db.facilities, f);
+  if (!near.length) return "";
+  const items = near
+    .map(({ f: o, miles }) =>
+      `<li><a href="../${slug(o)}/">${esc(smartTitle(o.name))}</a> <span class="meta">${esc(titleCase(o.city))} · ${miles.toFixed(1)} mi${o.enforcementCount ? ` · <span class="enf">${plural(o.enforcementCount, "enforcement action", "enforcement actions")}</span>` : ""}</span></li>`)
+    .join("\n");
+  return `<h2>Nearest operating facilities</h2>
+<ul class="near">
+${items}
+</ul>
+<p class="mono">Straight-line distance, within 15 miles.</p>`;
 }
 
 function indexPage() {
