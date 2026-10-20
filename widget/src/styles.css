@@ -828,6 +828,10 @@ a:focus-visible {
   position: relative;
 }
 
+.facility-map:focus {
+  outline: none; /* focus lands here only when a card closes */
+}
+
 .facility-map {
   margin: 4px 0 18px;
   border-top: 1px solid var(--rule);

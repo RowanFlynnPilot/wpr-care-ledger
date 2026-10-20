@@ -826,7 +826,17 @@ export default function App() {
             ["list", "List"],
             ["map", "Map"],
           ].map(([id, label]) => (
-            <button key={id} type="button" aria-pressed={view === id} onClick={() => setView(id)}>
+            <button
+              key={id}
+              type="button"
+              aria-pressed={view === id}
+              onClick={() => {
+                setView(id);
+                // The map hides the list: a record left open would keep the
+                // address on its #lic= and catch Escape out of sight.
+                if (id === "map") setOpen(null);
+              }}
+            >
               {label}
             </button>
           ))}
@@ -1517,9 +1527,20 @@ function FacilityMap({ facilities, basemap, county, focus, onFocused, onOpen, on
     setHover(null);
   }, [facilities, county]);
 
+  // Closing a card clears the hover preview under it too, and if focus was
+  // inside the card (it is after "Show on the map"), hands it to the map
+  // figure rather than dropping it to the top of the page.
+  const figureRef = useRef(null);
+  const closePin = () => {
+    const hadFocus = cardRef.current?.contains(document.activeElement);
+    setPin(null);
+    setHover(null);
+    if (hadFocus) figureRef.current?.focus({ preventScroll: EMBEDDED });
+  };
+
   useEffect(() => {
     if (!pin) return;
-    const onKey = (e) => e.key === "Escape" && setPin(null);
+    const onKey = (e) => e.key === "Escape" && closePin();
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [pin]);
@@ -1644,7 +1665,7 @@ function FacilityMap({ facilities, basemap, county, focus, onFocused, onOpen, on
     const [x, y] = local(e);
     const items = near(x, y);
     if (items.length) return setPin({ items });
-    if (pin) return setPin(null);
+    if (pin) return closePin();
     const c = county === "ALL" && countyAt(x, y);
     if (c) onPickCounty(c);
   };
@@ -1659,7 +1680,10 @@ function FacilityMap({ facilities, basemap, county, focus, onFocused, onOpen, on
     onFocused();
   }, [focus, dotOf]);
   useEffect(() => {
-    if (pin?.focus) requestAnimationFrame(() => cardRef.current?.querySelector(".map-card-name")?.focus());
+    if (pin?.focus)
+      requestAnimationFrame(() =>
+        cardRef.current?.querySelector(".map-card-name")?.focus({ preventScroll: EMBEDDED })
+      );
   }, [pin]);
 
   // A card hangs from its first facility's dot, so it stays attached when
@@ -1676,7 +1700,7 @@ function FacilityMap({ facilities, basemap, county, focus, onFocused, onOpen, on
   const shownItems = card && (pin ? card.items : card.items.slice(0, 5));
 
   return (
-    <figure className="facility-map">
+    <figure className="facility-map" ref={figureRef} tabIndex={-1}>
       <ul className="map-legend">
         <li>
           <span className="key-dot is-red" aria-hidden="true" /> Enforcement action on record (
@@ -1737,7 +1761,7 @@ function FacilityMap({ facilities, basemap, county, focus, onFocused, onOpen, on
         {anchor && (
           <div ref={cardRef} className={pin ? "map-card is-pinned" : "map-card"} style={cardStyle}>
             {pin && (
-              <button className="map-card-close" onClick={() => setPin(null)} aria-label="Close">
+              <button className="map-card-close" onClick={closePin} aria-label="Close">
                 ×
               </button>
             )}
@@ -1791,7 +1815,7 @@ function FacilityMap({ facilities, basemap, county, focus, onFocused, onOpen, on
         )}
         {unplaced.length > 0 && (
           <span className="map-unplaced">
-            Not on the map — the Census Bureau couldn&rsquo;t place the address:{" "}
+            Not on the map — no reliable location for the address:{" "}
             {unplaced.map((f, i) => (
               <React.Fragment key={f.license}>
                 {i > 0 && ", "}

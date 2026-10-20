@@ -6,10 +6,15 @@ Run: python -m unittest discover -s pipeline/tests
 
 import contextlib
 import io
+import json
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 from types import SimpleNamespace
+from unittest import mock
+
+import requests
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import geocode as gc  # noqa: E402
@@ -120,6 +125,30 @@ class CensusBatch(unittest.TestCase):
         session, _ = self.session('"1","x","No_Match"\n')
         with self.assertRaises(RuntimeError):
             gc.batch(session, {"1": "A, B, WI, 1", "2": "C, D, WI, 2"})
+
+
+class Outage(unittest.TestCase):
+    def test_unreachable_census_writes_nothing_and_warns(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            facilities = Path(tmp, "facilities.json")
+            facilities.write_text(json.dumps({"1": facility()}), encoding="utf-8")
+            out_path = Path(tmp, "geocodes.json")
+
+            def down(session, todo):
+                raise requests.ConnectionError("down")
+
+            with mock.patch.object(gc, "FACILITIES_PATH", facilities), \
+                    mock.patch.object(gc, "GEOCODES_PATH", out_path), \
+                    mock.patch.object(gc, "batch", down):
+                _, out = quiet(gc.main)
+            self.assertFalse(out_path.exists())  # next run sends the same addresses
+            self.assertIn("::warning::", out)
+
+    def test_a_malformed_reply_still_fails_the_run(self):
+        session = SimpleNamespace(post=lambda *a, **k: SimpleNamespace(
+            text='"1","x","Surprise"\n', raise_for_status=lambda: None))
+        with self.assertRaises(RuntimeError):
+            gc.batch(session, {"1": "A, B, WI, 1"})
 
 
 if __name__ == "__main__":

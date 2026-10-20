@@ -39,6 +39,8 @@ import json
 import math
 from pathlib import Path
 
+import requests
+
 from fetch import COUNTIES, requests_session
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -48,7 +50,7 @@ GEOCODES_PATH = ROOT / "data" / "geocodes.json"
 
 BATCH_URL = "https://geocoding.geo.census.gov/geocoder/locations/addressbatch"
 BENCHMARK = "Public_AR_Current"
-TIMEOUT = 600  # the batch endpoint answers in seconds, but can be slow
+TIMEOUT = 120  # a weekly batch of a few addresses answers in seconds
 BORDER_SLACK = 250  # meters; street centerline + the outlines' ~30 m generalization
 
 
@@ -167,8 +169,18 @@ def main():
     facilities = json.loads(FACILITIES_PATH.read_text(encoding="utf-8"))
     geocodes = (json.loads(GEOCODES_PATH.read_text(encoding="utf-8"))
                 if GEOCODES_PATH.exists() else {})
+    shapes = load_counties()
     session = requests_session()
-    sent = update(facilities, geocodes, load_counties(), lambda todo: batch(session, todo))
+    try:
+        sent = update(facilities, geocodes, shapes, lambda todo: batch(session, todo))
+    except requests.RequestException as e:
+        # The Census Bureau being down is the one failure that waits a week:
+        # nothing is written, so the next run sends the same addresses, and
+        # the widget names the facilities it can't place. Everything else —
+        # a county with no outline, a dropped or malformed row — raises and
+        # fails the run, which opens a fetch-failure issue.
+        print(f"::warning::Census geocoder unreachable ({e}); new or moved facilities wait for next week's run")
+        return
     GEOCODES_PATH.write_text(
         json.dumps(dict(sorted(geocodes.items())), indent=1, ensure_ascii=False) + "\n",
         encoding="utf-8")

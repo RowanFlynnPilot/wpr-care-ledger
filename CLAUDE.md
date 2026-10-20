@@ -215,8 +215,10 @@ streets *are* the county line (McMillan St in Marshfield divides Wood
 from Marathon; County Line Rd at Stanley) and the geocoder lands on the
 centerline; farther out is `Wrong_County`, no point: a dot in the wrong
 place is worse than a missing one. 2026-10-19: 292 of 305 placed (rural
-fire numbers and new subdivisions miss). Delete and rerun to geocode
-everything; never hand-edit.
+fire numbers and new subdivisions miss). The widget uses a point only
+while its `address` still matches the roster, so a facility that moved
+and wasn't geocoded again shows no dot rather than its old one. Delete
+and rerun to geocode everything; never hand-edit.
 
 `data/basemap.json` — the map's static base, built once 2026-10-19 (the
 recipe is in geocode.py's docstring): `counties`, the nine outlines from
@@ -512,7 +514,9 @@ accessible equivalent. Cross-links, the operator link and Clear return
 to the list. Each record's "Show on the map" (beside "Page for this
 facility", when it has a location) resets the narrowing, zooms to its
 county and opens its card with focus on its name — the record closes,
-so focus can't be stranded; cards hang from their first facility's dot,
+so focus can't be stranded, and closing a card that holds focus hands it
+to the map figure; the Map toggle closes an open record (it would keep
+the address on `#lic=`); cards hang from their first facility's dot,
 so they stay attached when the frame resizes. Every record's facts end
 with a small locator ("Location": the nine counties, its own shaded, one
 dot) from `locatorSvg()` in ledger.js — built when the panel first
@@ -549,10 +553,12 @@ then bundles them into `dist/`, so **the Pages artifact is just
 ## Deploy
 
 - `fetch.yml` — Mondays 09:00 UTC: tests → fetch → **commit the ledger
-  and archive** → enrich → digest → commit `enrichment.json` → geocode
-  new or moved facilities and commit `geocodes.json` (continue-on-error:
-  a Census Bureau outage leaves a new facility unplaced, named under the
-  map, until the next run sends it again) → alert. The archive
+  and archive** → enrich → digest → commit `enrichment.json` → alert →
+  geocode new or moved facilities and commit `geocodes.json` (5-minute
+  step limit; a Census Bureau outage is a `::warning::` inside
+  geocode.py that writes nothing, so the facilities wait a week, named
+  under the map; any other geocoder error — a county with no outline, a
+  dropped or malformed row — fails the run and opens the issue). The archive
   commits before any derived step can fail, so a parser problem never
   costs a week of records. One run at a time (concurrency group), 30-min
   timeout, `pull --rebase` before each push. On failure it opens a

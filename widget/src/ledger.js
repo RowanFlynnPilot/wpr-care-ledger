@@ -297,8 +297,11 @@ export function shape(facilitiesObj, surveysObj, enrichmentObj, waybackObj, geoc
     const pageCopy = (waybackObj.pages[license] || []).at(-1)?.copy || "";
     // Where the Census Bureau placed the roster address (geocode.py), or
     // null when it couldn't — the map names those instead of guessing.
+    // Only for the address the roster shows now: a facility that moved and
+    // hasn't been geocoded again (a Census outage) has no dot, not an old one.
     const g = geocodesObj[license];
-    const point = g && g.lat != null ? { lat: g.lat, lon: g.lon } : null;
+    const here = `${f.address}, ${f.city}, WI, ${f.zip}`; // geocode.py address_of()
+    const point = g && g.lat != null && g.address === here ? { lat: g.lat, lon: g.lon } : null;
     return {
       ...f,
       license,

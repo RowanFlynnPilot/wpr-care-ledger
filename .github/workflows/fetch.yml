@@ -45,18 +45,6 @@ jobs:
           git diff --cached --quiet || git commit -m "Mine new documents $(date -u +%F)"
           git pull --rebase
           git push
-      # Map locations for new or moved facilities (Census Bureau geocoder).
-      # continue-on-error: a Census Bureau outage must not keep the week's
-      # records off the site; an unplaced facility is named under the map,
-      # and the next run sends it again.
-      - name: Geocode new facilities
-        continue-on-error: true
-        run: |
-          python pipeline/geocode.py
-          git add data/geocodes.json
-          git diff --cached --quiet || git commit -m "Geocode new facilities $(date -u +%F)"
-          git pull --rebase
-          git push
       # Newsroom alert: one issue listing enforcement actions new this run,
       # @mentioning the ALERT_MENTIONS repository variable; GitHub emails
       # everyone it notifies. continue-on-error: the deploy only follows a
@@ -69,6 +57,18 @@ jobs:
           GH_REPO: ${{ github.repository }}
           ALERT_MENTIONS: ${{ vars.ALERT_MENTIONS }}
         run: python pipeline/digest.py --alert
+      # Map locations for new or moved facilities (Census Bureau geocoder).
+      # Last of the data steps, so it never delays the alert. A Census
+      # outage is a warning inside geocode.py (the facilities wait a week,
+      # named under the map); any other error fails the run like the rest.
+      - name: Geocode new facilities
+        timeout-minutes: 5
+        run: |
+          python pipeline/geocode.py
+          git add data/geocodes.json
+          git diff --cached --quiet || git commit -m "Geocode new facilities $(date -u +%F)"
+          git pull --rebase
+          git push
       # Fail loud: a red run nobody opens isn't loud. One open issue, not one
       # per week. Expected to fire when the state launches the Wisconsin
       # Provider Finder and retires DQA Provider Search (see CLAUDE.md).
@@ -84,7 +84,7 @@ jobs:
               --label fetch-failure \
               --body "The scheduled DQA fetch failed: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
-          If the failure is in fetch.py, nothing was committed; if it is in enrich.py, the week's records and documents were committed first and only the mined facts are behind. Either way the live widget keeps the last deployed data and tells readers when it goes stale. The run log's final RuntimeError names the cause: a portal error page, a detail page failing its identity check, a changed export, grid or survey table, survey records inside the state's three-year window vanishing, a document address that no longer serves a PDF during the weekly revision check, or ledger documents that don't join to the archive (see CLAUDE.md, data contract).
+          If the failure is in fetch.py, nothing was committed; if it is in enrich.py, the week's records and documents were committed first and only the mined facts are behind. Either way the live widget keeps the last deployed data and tells readers when it goes stale. The run log's final RuntimeError names the cause: a portal error page, a detail page failing its identity check, a changed export, grid or survey table, survey records inside the state's three-year window vanishing, a document address that no longer serves a PDF during the weekly revision check, ledger documents that don't join to the archive, or a geocoder problem other than an outage, such as a county missing from data/basemap.json (see CLAUDE.md, data contract).
 
           If the state's DQA Provider Search has been replaced by the Wisconsin Provider Finder, this is the migration event described in CLAUDE.md — rewrite the fetcher against the new tool; the ledger and archive carry forward untouched."
           fi
