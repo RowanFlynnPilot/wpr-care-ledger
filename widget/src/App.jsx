@@ -315,7 +315,16 @@ export default function App() {
     const ro = new ResizeObserver(post);
     ro.observe(root);
     post();
-    return () => ro.disconnect();
+    // embed.js, installed site-wide, may load after this frame first
+    // reported; it asks every ledger frame to measure again.
+    const onAsk = (e) => {
+      if (e.source === window.parent && e.data && e.data.type === "wpr-care-ledger:measure") post();
+    };
+    window.addEventListener("message", onAsk);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("message", onAsk);
+    };
   }, []);
 
   // Deep links: #lic=0015628 opens one facility (closed included so links

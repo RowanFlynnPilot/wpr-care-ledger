@@ -76,41 +76,42 @@ and reports on its summary page (Actions → wayback → latest run).
 
 ## Embedding on wausaupilotandreview.com
 
-Paste this into a **Custom HTML** block in WordPress. The widget reports its
-height to the parent page, so the iframe grows and shrinks with searches and
-expanded rows — no inner scrollbar.
+Two steps. Articles carry **only an iframe — no JavaScript** — because
+security firewalls (ModSecurity at many hosts) often reject a WordPress
+save whose content contains script, which surfaces as "Updating failed.
+The response is not a valid JSON response," and because WordPress strips
+`<script>` from authors without the unfiltered-HTML permission anyway.
+
+**1. Once, site-wide (an admin):** add this line to the site's header or
+footer code — e.g. a header/footer code plugin such as WPCode, or wherever
+the site keeps other third-party scripts:
 
 ```html
-<iframe
-  class="care-ledger"
-  src="https://rowanflynnpilot.github.io/wpr-care-ledger/"
-  title="The Care Ledger — assisted living oversight in central Wisconsin"
-  style="width:100%;border:0;display:block;"
-  height="1200"
-  loading="lazy"
-  allow="clipboard-write"
-></iframe>
-<script>
-  // Sizes every Care Ledger frame on the page by the frame that sent the
-  // message, so several embeds (and the full ledger) can share an article.
-  window.addEventListener("message", function (e) {
-    if (e.origin !== "https://rowanflynnpilot.github.io") return;
-    if (!e.data || e.data.type !== "wpr-care-ledger:height") return;
-    document.querySelectorAll("iframe.care-ledger").forEach(function (f) {
-      if (f.contentWindow === e.source) f.style.height = e.data.height + "px";
-    });
-  });
-</script>
+<script src="https://rowanflynnpilot.github.io/wpr-care-ledger/embed.js" defer></script>
 ```
 
-The `height="1200"` is only the fallback before the first message arrives.
-Every Care Ledger embed uses this same script, matched to its own frame,
-so the full ledger and any number of single-facility embeds can share one
-article. (An earlier version of this snippet resized by `id` on every
-message, which would have snapped the full ledger to a facility embed's
-height.) WordPress keeps the `<script>` only for users allowed to post
-unfiltered HTML — editors and admins; for anyone else the frame still
-works, at the fixed fallback height.
+It sizes every Care Ledger frame on a page to its content as readers open
+records and search — no inner scrollbar — each frame matched by the window
+that sent its message, so the full ledger and any number of
+single-facility embeds can share an article. Frames that load before it
+are asked to measure again; including it twice is harmless.
+
+**2. In each article:** a **Custom HTML** block (not a Paragraph or Code
+block) with just the frame:
+
+```html
+<iframe class="care-ledger" src="https://rowanflynnpilot.github.io/wpr-care-ledger/" title="The Care Ledger: assisted living oversight in central Wisconsin" style="width:100%;border:0;display:block;" height="1200" loading="lazy" allow="clipboard-write"></iframe>
+```
+
+- Without step 1 the frame still works: 1,200px tall with its own
+  scrollbar.
+- Paste from a plain-text source; "smart" curly quotes break the
+  attributes.
+- If a save still fails with the JSON error, the host's firewall is
+  blocking iframes too: ask the host to check its ModSecurity log for that
+  save and whitelist the rule (save once without the frame to confirm).
+- The earlier inline-script version of this snippet still works where it
+  was pasted, but don't use it for new articles.
 
 ### Linking to one facility from a story
 
@@ -133,29 +134,11 @@ Add a hash to the iframe `src` (or to the standalone URL):
 
 `?facility=<license>` shows that facility's record alone, already open,
 under a compact WPR flag, with a link to the full ledger. Leading zeros may
-be dropped (`?facility=13424`). Paste into a **Custom HTML** block:
+be dropped (`?facility=13424`). Paste into a **Custom HTML** block — the
+site-wide `embed.js` (step 1 above) sizes it too:
 
 ```html
-<iframe
-  class="care-ledger"
-  src="https://rowanflynnpilot.github.io/wpr-care-ledger/?facility=0013424"
-  title="The Care Ledger: inspection record for one facility"
-  style="width:100%;border:0;display:block;"
-  height="900"
-  loading="lazy"
-  allow="clipboard-write"
-></iframe>
-<script>
-  // Sizes every Care Ledger frame on the page by the frame that sent the
-  // message, so several embeds (and the full ledger) can share an article.
-  window.addEventListener("message", function (e) {
-    if (e.origin !== "https://rowanflynnpilot.github.io") return;
-    if (!e.data || e.data.type !== "wpr-care-ledger:height") return;
-    document.querySelectorAll("iframe.care-ledger").forEach(function (f) {
-      if (f.contentWindow === e.source) f.style.height = e.data.height + "px";
-    });
-  });
-</script>
+<iframe class="care-ledger" src="https://rowanflynnpilot.github.io/wpr-care-ledger/?facility=0013424" title="The Care Ledger: inspection record for one facility" style="width:100%;border:0;display:block;" height="900" loading="lazy" allow="clipboard-write"></iframe>
 ```
 
 Links to other facilities or the operator open the full ledger in a new tab.

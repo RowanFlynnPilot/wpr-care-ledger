@@ -404,7 +404,19 @@ tall, burying the rest of the article; now ~4,000. Deep links and
 cross-links narrow the list to their target, so paging never hides it;
 the CSV still exports every row in view.
 
-Embedding: the widget posts its height to the parent page measured from
+Embedding in WordPress: articles carry only an `<iframe>` — no inline
+JavaScript, which host firewalls (ModSecurity) reject on save ("The
+response is not a valid JSON response") and WordPress strips for authors
+without unfiltered_html. The resize listener is `widget/public/embed.js`,
+installed once site-wide (`<script src=".../embed.js" defer>`): it takes
+the ledger's origin from its own src, sizes any iframe whose src is the
+ledger (class or not) by matching `e.source`, is idempotent, and on load
+posts `wpr-care-ledger:measure` to every ledger frame so ones that
+reported before it listened answer again (the widget re-posts its height
+on that message). Without it a frame works at its fallback height with
+its own scrollbar. Tested with frames loaded before the script, a
+classless frame, and the script included twice (README, Embedding).
+The widget posts its height to the parent page measured from
 `#root` — never `documentElement.scrollHeight`, which can't drop below
 the iframe's own height, so the frame could grow but never shrink. When
 embedded it never calls `scrollIntoView` (that would scroll the reader's
