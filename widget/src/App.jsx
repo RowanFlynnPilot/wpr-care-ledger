@@ -669,6 +669,7 @@ export default function App() {
       </header>
       <div className="flag-rule" />
 
+      <main>
       {staleDays > STALE_AFTER_DAYS && (
         <p className="stale-notice" role="note">
           <strong>This ledger is behind.</strong> It was last refreshed{" "}
@@ -939,6 +940,7 @@ export default function App() {
       </ol>
 
       <Glossary />
+      </main>
 
       <footer className="site-footer">
         <img
@@ -1869,6 +1871,7 @@ function FacilityEmbed({ db, license, staleDays }) {
       </header>
       <div className="flag-rule" />
 
+      <main>
       {staleDays > STALE_AFTER_DAYS && (
         <p className="stale-notice" role="note">
           <strong>This ledger is behind.</strong> It was last refreshed{" "}
@@ -1900,8 +1903,9 @@ function FacilityEmbed({ db, license, staleDays }) {
       )}
 
       <Glossary />
+      </main>
 
-      <p className="single-foot">
+      <footer className="single-foot">
         <a href={f ? `${LEDGER_URL}#lic=${f.license}` : LEDGER_URL} target="_blank" rel="noopener noreferrer">
           See all {db.facilities.length} facilities in The Care Ledger
         </a>{" "}
@@ -1910,7 +1914,7 @@ function FacilityEmbed({ db, license, staleDays }) {
         <a href={SUPPORT_URL} target="_blank" rel="noopener noreferrer">
           Support this work
         </a>
-      </p>
+      </footer>
     </div>
   );
 }
@@ -1919,7 +1923,7 @@ function FacilityEmbed({ db, license, staleDays }) {
 
 function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOperator, onShowOnMap }) {
   const panelId = `panel-${f.license}`;
-  const HistoryHeading = single ? "h3" : "h4";
+  const HistoryHeading = single ? "h2" : "h4";
   const [copied, setCopied] = useState(false);
   const panelRef = useRef(null);
   // Render a record's panel on first open, then keep it mounted so the
@@ -2014,12 +2018,12 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
   return (
     <li className={open ? "row is-open" : "row"}>
       {single ? (
-        // One record alone: it is the page's subject, always open.
-        <h2 className="row-heading">
+        // One record alone: it is the frame's subject (its h1), always open.
+        <h1 className="row-heading">
           <span id={`head-${f.license}`} className="row-head row-head-static">
             {head}
           </span>
-        </h2>
+        </h1>
       ) : (
         <h3 className="row-heading">
           <button
@@ -2117,8 +2121,8 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
           </dl>
 
           <div className="history">
-            {/* An h4 under each row's h3; the single-facility embed's record
-                heading is an h2, so its history is an h3. */}
+            {/* An h4 under each row's h3; in the single-facility embed the
+                record is the frame's h1, so its history is an h2. */}
             <HistoryHeading className="history-heading">
               Survey history<span className="sr-only"> for {smartTitle(f.name)}</span>
             </HistoryHeading>

@@ -1708,8 +1708,18 @@ mark {
 .event-docs {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px 12px;
-  margin-top: 4px;
+  gap: 0 12px; /* the links' own padding spaces the rows */
+  margin-top: 0;
+}
+
+/* Tap targets at least 24px tall (WCAG 2.5.8): document links stack
+   closely on phones, so each carries its own vertical padding. */
+.doc,
+.doc-copy,
+.download,
+.unplaced-name {
+  display: inline-block;
+  padding: 4px 0;
 }
 
 .doc {

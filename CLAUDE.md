@@ -406,7 +406,7 @@ license, or one missing its leading zeros, becomes a search),
 `#q=<text>` presets the search (`+` decodes as a space; documented in
 README); `?facility=<license>` is the single-facility embed — that one
 record alone, open, under a compact flag (44px seal, wordmark, "The Care
-Ledger · updated"), its header a static `h2` instead of the accordion
+Ledger · updated"), its header a static `h1` instead of the accordion
 button, cross-links and the operator link opening the full ledger in a
 new tab, leading zeros optional, an unknown license an honest "not in the
 ledger" (README has a snippet whose resize script matches each message to
@@ -452,9 +452,16 @@ German browser too); dates are AP style from `fmtDate()` in ledger.js
 ("Sept. 21, 2026", "March 27, 2026"; "long" spells the month), never the
 browser's locale.
 
-Accessibility: each facility's header button sits inside an `h3` (sr-only
+Accessibility: masthead, `<main>`, footer landmarks (the single embed
+too, its foot a `<footer>`). Each facility's header button sits inside an `h3` (sr-only
 `h2` "Facilities" above the list; each panel's "Survey history" is an
-`h4` naming the facility for screen readers); facts are a real `<dl>`;
+`h4` naming the facility for screen readers; in the single-facility
+embed the record is the frame's `h1` and its history an `h2`). Document
+links, archive.org links, the CSV buttons and the unplaced-facility
+names are padded to 24px-tall tap targets (WCAG 2.5.8). Audited
+2026-10-19 with axe-core 4.10 (WCAG 2.2 AA + best practices) at phone
+width: list, open record, map with a pinned card, single embed, and the
+static facility and index pages — no violations; facts are a real `<dl>`;
 closing a record (Escape) or following a cross-link returns focus to a
 row header, and the operator link focuses the operator brief, so focus
 is never stranded in an inert panel. `inert` is set as a DOM property
