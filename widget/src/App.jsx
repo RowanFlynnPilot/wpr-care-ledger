@@ -2,6 +2,8 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import {
   DOC_LABELS,
   SUPPORT_URL,
+  catSlug,
+  findCategory,
   revisionChanges,
   facilitySlug,
   TYPE_FULL,
@@ -317,42 +319,48 @@ export default function App() {
   }, []);
 
   // Deep links: #lic=0015628 opens one facility (closed included so links
-  // to closed licenses always resolve); #q=text presets the search box.
+  // to closed licenses always resolve); #q=text presets the search box;
+  // #county=Wood opens on one county; #cat=medications lists the facilities
+  // cited in a category (the start of its name is enough: #cat=abuse).
+  // county, cat and q combine with "&" (#county=Wood&cat=medications).
   // Applied at load and on later hash changes (replaceState below doesn't
   // fire hashchange, so reflecting the open row can't loop back here).
   useEffect(() => {
     if (!db) return;
     const apply = () => {
-      const m = window.location.hash.match(
-        /^#(?:lic=([0-9A-Za-z]+)|q=(.+)|county=([A-Za-z]+))$/
-      );
-      if (!m) return;
+      const p = {};
+      for (const part of window.location.hash.slice(1).split("&")) {
+        const i = part.indexOf("=");
+        if (i > 0) p[part.slice(0, i)] = safeDecode(part.slice(i + 1).replace(/\+/g, " "));
+      }
+      const lic = /^[0-9A-Za-z]+$/.test(p.lic || "") ? p.lic : null;
+      if (!lic && !p.q && !p.county && !p.cat) return;
       setLens("all");
       setType("ALL");
-      setCategory(null);
-      if (m[3]) {
-        const c = db.counties.find((x) => x === m[3].toUpperCase());
-        setCounty(c || "ALL");
-        return;
-      }
-      setCounty("ALL");
-      if (m[1]) {
+      setCounty((p.county && db.counties.find((x) => x === p.county.toUpperCase())) || "ALL");
+      const cat = p.cat ? findCategory(db.categories, p.cat) : null;
+      setCategory(cat);
+      if (cat) setShowClosed(true); // the chart counts closed facilities too
+      if (lic) {
         // An unknown license (or one missing its leading zeros) becomes a
         // search, so the reader sees a match or an honest "no match".
         setShowClosed(true);
-        setQuery(m[1]);
-        if (db.byLicense[m[1]]) {
-          setOpen(m[1]);
+        setQuery(lic);
+        if (db.byLicense[lic]) {
+          setOpen(lic);
           if (!EMBEDDED) {
             setTimeout(() => {
               document
-                .getElementById(`panel-${m[1]}`)
+                .getElementById(`panel-${lic}`)
                 ?.scrollIntoView({ block: "nearest", behavior: "auto" });
             }, 120);
           }
         }
       } else {
-        setQuery(safeDecode(m[2].replace(/\+/g, " ")));
+        setQuery(p.q || "");
+        // A record opened by an earlier link would stay open behind the new
+        // view, and keep the address on its #lic=.
+        setOpen(null);
       }
     };
     apply();
@@ -360,23 +368,24 @@ export default function App() {
     return () => window.removeEventListener("hashchange", apply);
   }, [db]);
 
-  // Keep the standalone URL shareable: the open record, else the search,
-  // else the county.
+  // Keep the standalone URL shareable: the open record, else the county,
+  // category and search in view.
   useEffect(() => {
     if (!db) return;
     const q = query.trim();
+    const parts = open
+      ? [`lic=${open}`]
+      : [
+          county !== "ALL" && `county=${titleCase(county)}`,
+          category && `cat=${catSlug(category)}`,
+          q && `q=${encodeURIComponent(q)}`,
+        ].filter(Boolean);
     window.history.replaceState(
       null,
       "",
-      open
-        ? `#lic=${open}`
-        : q
-        ? `#q=${encodeURIComponent(q)}`
-        : county !== "ALL"
-        ? `#county=${titleCase(county)}`
-        : window.location.pathname + window.location.search
+      parts.length ? `#${parts.join("&")}` : window.location.pathname + window.location.search
     );
-  }, [open, query, county, db]);
+  }, [open, query, county, category, db]);
 
   // The county filter scopes everything: stats, chart, list. The rest of
   // the narrowing (search, type, closed toggle, lens) applies to the list.

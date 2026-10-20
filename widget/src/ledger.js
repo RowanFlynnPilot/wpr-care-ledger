@@ -331,6 +331,7 @@ export function shape(facilitiesObj, surveysObj, enrichmentObj, waybackObj) {
     facilities,
     byLicense: Object.fromEntries(facilities.map((f) => [f.license, f])),
     counties: Object.keys(countyStart).sort(),
+    categories: [...new Set(facilities.flatMap((f) => [...f.categories]))].sort(),
     countyStart,
     operatorCounts,
     lastUpdated,
@@ -366,4 +367,18 @@ export function revisionChanges(rev) {
     parts.push(`deficiencies cited ${verb} from ${rev.was.deficiencies} to ${rev.now.deficiencies}`);
   }
   return parts.join("; ");
+}
+
+/* A citation category as a story link writes it: "Abuse, neglect and
+   incident reporting" -> "abuse-neglect-and-incident-reporting". */
+export function catSlug(category) {
+  return category.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
+/* The category a #cat= link names: its slug, or the start of one, so
+   #cat=abuse and #cat=medications both work. Null when nothing matches. */
+export function findCategory(categories, text) {
+  const want = catSlug(text);
+  if (!want) return null;
+  return categories.find((c) => catSlug(c) === want) || categories.find((c) => catSlug(c).startsWith(want)) || null;
 }

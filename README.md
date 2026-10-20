@@ -122,6 +122,12 @@ Add a hash to the iframe `src` (or to the standalone URL):
   operator names too).
 - `…/wpr-care-ledger/#county=Wood` — opens on one county (stats, chart, and
   list all follow), for stories about a neighboring county.
+- `…/wpr-care-ledger/#cat=medications` — lists the facilities cited in one
+  "What inspectors cite" category (`#cat=abuse`, `#cat=fire-safety`,
+  `#cat=staffing` … the start of the name is enough), the same as clicking
+  its row.
+- `county`, `cat` and `q` combine with `&`:
+  `…/wpr-care-ledger/#county=Wood&cat=medications`.
 
 ### Embedding one facility in a story
 

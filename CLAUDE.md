@@ -347,7 +347,12 @@ the list to the facilities cited in that category (`category` state,
 `facility.categories` from ledger.js), resetting search, type and lens
 and including closed facilities so the list count equals the bar; the
 result count reads "50 facilities cited for medications · Show all".
-Deep links, cross-links, stats and Clear reset it.
+`#cat=<slug>` deep-links the same view (`catSlug()`; `findCategory()`
+also accepts the start of a slug, so `#cat=abuse` works); `county`, `cat`
+and `q` combine with `&` (`#county=Wood&cat=medications`), and the URL
+reflects all three. Any link without `lic` closes an open record, so the
+address never sticks on a record the new view hides. Cross-links, stats
+and Clear reset the category.
 Expandable ledger rows: license facts + survey timeline
 linking to archived PDFs, "View on state site" link built from the current
 week's detail key (known gap: it can 404 to the portal error page between
