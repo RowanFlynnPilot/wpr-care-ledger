@@ -239,8 +239,9 @@ documents carry a `document_urls` address.
   final total; Pine Meadows 4's 2026-04-01 letter states $2,900 (its
   reduced amount matches) but its itemized rows add to $2,500 or $3,000 —
   ask DQA.
-- Enforcement density: 32 of 93 facilities have enforcement actions within
-  the 3-year visible window alone.
+- Enforcement density: 126 of 305 facilities (about 4 in 10) had an
+  enforcement action in the window the ledger holds (as of 2026-10-19;
+  Marathon alone in July: 32 of 93).
 - Records the state rewrites: `revisions`. The Waterford at Colby's Feb.
   18, 2026 complaint documents were replaced 2026-09-21 (fine $1,000 →
   $400, deficiencies 4 → 1) with nothing on the state's site saying so.
@@ -477,7 +478,8 @@ then bundles them into `dist/`, so **the Pages artifact is just
   reparses everything — run after parser changes)
 - Weekly tip sheet: `python pipeline/digest.py` (read-only; in Actions it
   also lands on each run's summary page — new surveys, new enforcement
-  actions with forfeitures, records that aged off that run)
+  actions with forfeitures, documents the state replaced, records that
+  aged off that run)
 - Email alerts: `digest.py --alert` (last step of fetch.yml) opens one
   `new-enforcement` issue per run listing enforcement actions new that run
   — new surveys carrying a letter, and letters that arrived later on older

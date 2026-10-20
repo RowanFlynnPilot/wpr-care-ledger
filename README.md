@@ -20,9 +20,14 @@ three years of survey history; this repo never forgets.
 ## Every Monday
 
 GitHub Actions runs the tests, then the fetch, then the miner, commits what
-changed, and redeploys the widget. Each run's summary page carries a **tip
-sheet**: new surveys, new enforcement actions with their forfeitures, and
-records that aged off the state site that week (Actions → fetch → latest
+changed, and redeploys the widget. The fetch also checks every archived
+document against the state's current file: if the state replaces one at
+its address — it reissued The Waterford at Colby's records in September,
+cutting a $1,000 fine to $400 without notice — the new version is archived
+beside the original, and the ledger shows both. Each run's summary page
+carries a **tip sheet**: new surveys, new enforcement actions with their
+forfeitures, documents the state replaced, and records that aged off the
+state site that week (Actions → fetch → latest
 run). If a run fails, nothing is committed, a `fetch-failure` issue opens,
 and the widget keeps last week's data — telling readers it is behind if a
 failure lasts past ten days.
@@ -32,7 +37,9 @@ failure lasts past ten days.
 When a run finds a new enforcement action, it opens one GitHub issue
 (label `new-enforcement`) per run: the facility, survey, forfeiture,
 serious orders, cited rules, and links to the record and the letter.
-GitHub emails everyone the issue @mentions.
+Documents the state replaced get their own issue ("State revised
+records: …"), with what changed and links to the original and the new
+version. GitHub emails everyone the issue @mentions.
 
 - **Who gets it:** the `ALERT_MENTIONS` repository variable — Settings →
   Secrets and variables → Actions → Variables, space-separated GitHub
@@ -57,9 +64,13 @@ and reports on its summary page (Actions → wayback → latest run).
   one person), open <https://archive.org/account/s3.php>, and add the two
   keys as repository secrets (Settings → Secrets and variables → Actions →
   Secrets): `IA_ACCESS_KEY` and `IA_SECRET_KEY`.
-- **First run:** Actions → wayback → Run workflow. It copies everything,
-  about 1,100 captures at Save Page Now's limit of 7 a minute: roughly
-  three hours. Later weeks take minutes.
+- **Status:** set up 2026-10-15; since Oct. 19 every document and every
+  facility page has a copy. Each week copies what's new, in minutes.
+  Actions → wayback → Run workflow runs it by hand.
+- **Only proven copies are listed.** Save Page Now sometimes reports a
+  capture done that never appears, so each one is downloaded back and
+  checked — documents byte for byte against the ledger's file — before
+  the widget links it; a lost one is captured again.
 - **Finding a copy:** `data/wayback.json` maps each archived PDF to its
   Wayback URL, and each license to the captures of its state page.
 

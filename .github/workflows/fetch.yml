@@ -72,7 +72,7 @@ jobs:
               --label fetch-failure \
               --body "The scheduled DQA fetch failed: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
-          If the failure is in fetch.py, nothing was committed; if it is in enrich.py, the week's records and documents were committed first and only the mined facts are behind. Either way the live widget keeps the last deployed data and tells readers when it goes stale. The run log's final RuntimeError names the cause: a portal error page, a detail page failing its identity check, a changed export, grid or survey table, survey records inside the state's three-year window vanishing, or ledger documents that don't join to the archive (see CLAUDE.md, data contract).
+          If the failure is in fetch.py, nothing was committed; if it is in enrich.py, the week's records and documents were committed first and only the mined facts are behind. Either way the live widget keeps the last deployed data and tells readers when it goes stale. The run log's final RuntimeError names the cause: a portal error page, a detail page failing its identity check, a changed export, grid or survey table, survey records inside the state's three-year window vanishing, a document address that no longer serves a PDF during the weekly revision check, or ledger documents that don't join to the archive (see CLAUDE.md, data contract).
 
           If the state's DQA Provider Search has been replaced by the Wisconsin Provider Finder, this is the migration event described in CLAUDE.md — rewrite the fetcher against the new tool; the ledger and archive carry forward untouched."
           fi
