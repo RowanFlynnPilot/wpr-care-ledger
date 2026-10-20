@@ -377,6 +377,8 @@
     "archive/0015955/2025-04-10_survey-complaint_sod.pdf": "https://web.archive.org/web/20261015231859/https://www.forwardhealth.wi.gov/kw/dqa/B8B211SODS.PDF",
     "archive/0015955/2025-05-15_complaint_sod.pdf": "https://web.archive.org/web/20261015231928/https://www.forwardhealth.wi.gov/kw/dqa/IHS911SODS.PDF",
     "archive/0015955/2025-10-02_complaint_sod.pdf": "https://web.archive.org/web/20261015231911/https://www.forwardhealth.wi.gov/kw/dqa/CJY311SODS.PDF",
+    "archive/0015955/2026-02-18_complaint_rev2_enforcement.pdf": "https://web.archive.org/web/20261020000247/https://www.forwardhealth.wi.gov/kw/dqa/UB3G11ENFS.PDF",
+    "archive/0015955/2026-02-18_complaint_rev2_sod.pdf": "https://web.archive.org/web/20261020000355/https://www.forwardhealth.wi.gov/kw/dqa/UB3G11SODS.PDF",
     "archive/0015955/2026-06-08_complaint_sod.pdf": "https://web.archive.org/web/20261015232040/https://www.forwardhealth.wi.gov/kw/dqa/GQB011SODS.PDF",
     "archive/0015957/2024-05-20_complaint-vv_enforcement.pdf": "https://web.archive.org/web/20261015232041/https://www.forwardhealth.wi.gov/kw/dqa/FMFT15ENFS.PDF",
     "archive/0015957/2024-05-20_complaint-vv_sod.pdf": "https://web.archive.org/web/20261015232051/https://www.forwardhealth.wi.gov/kw/dqa/FMFT15SODS.PDF",
@@ -800,6 +802,12 @@
         "fingerprint": "aa3a1810eda3"
       }
     ],
+    "0008890": [
+      {
+        "copy": "https://web.archive.org/web/20261019235706/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15616707&keyb=-1",
+        "fingerprint": "520bc9477a56"
+      }
+    ],
     "0009074": [
       {
         "copy": "https://web.archive.org/web/20261015004115/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15598791&keyb=-1",
@@ -830,6 +838,12 @@
         "fingerprint": "152583616081"
       }
     ],
+    "0009720": [
+      {
+        "copy": "https://web.archive.org/web/20261019235624/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15624502&keyb=-1",
+        "fingerprint": "82f722ddf16d"
+      }
+    ],
     "0009722": [
       {
         "copy": "https://web.archive.org/web/20261015004326/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15598614&keyb=-1",
@@ -842,10 +856,22 @@
         "fingerprint": "f3acede9b6ad"
       }
     ],
+    "0009754": [
+      {
+        "copy": "https://web.archive.org/web/20261019235633/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15626722&keyb=-1",
+        "fingerprint": "be484018262d"
+      }
+    ],
     "0009806": [
       {
         "copy": "https://web.archive.org/web/20261015004407/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15601138&keyb=-1",
         "fingerprint": "a79eeb5a21a7"
+      }
+    ],
+    "0010042": [
+      {
+        "copy": "https://web.archive.org/web/20261019235744/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15625746&keyb=-1",
+        "fingerprint": "778da9d60a11"
       }
     ],
     "0010105": [
@@ -962,10 +988,22 @@
         "fingerprint": "64740d2756b2"
       }
     ],
+    "0011469": [
+      {
+        "copy": "https://web.archive.org/web/20261019235745/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15623368&keyb=-1",
+        "fingerprint": "98b9eaeeade3"
+      }
+    ],
     "0011588": [
       {
         "copy": "https://web.archive.org/web/20261015005355/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15596566&keyb=-1",
         "fingerprint": "e1eac8ca631b"
+      }
+    ],
+    "0011718": [
+      {
+        "copy": "https://web.archive.org/web/20261019235755/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15617560&keyb=-1",
+        "fingerprint": "4b99c3e0192e"
       }
     ],
     "0011754": [
@@ -1184,6 +1222,18 @@
         "fingerprint": "67d6e2e979ee"
       }
     ],
+    "0013045": [
+      {
+        "copy": "https://web.archive.org/web/20261019235804/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15625365&keyb=-1",
+        "fingerprint": "dd5ebb4f323f"
+      }
+    ],
+    "0013051": [
+      {
+        "copy": "https://web.archive.org/web/20261019235906/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15623793&keyb=-1",
+        "fingerprint": "126bf457573c"
+      }
+    ],
     "0013089": [
       {
         "copy": "https://web.archive.org/web/20261015225841/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15598709&keyb=-1",
@@ -1232,6 +1282,12 @@
         "fingerprint": "56e131e5d497"
       }
     ],
+    "0013395": [
+      {
+        "copy": "https://web.archive.org/web/20261019235905/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15625136&keyb=-1",
+        "fingerprint": "ebac3b791bc9"
+      }
+    ],
     "0013397": [
       {
         "copy": "https://web.archive.org/web/20261015011414/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15596636&keyb=-1",
@@ -1242,6 +1298,12 @@
       {
         "copy": "https://web.archive.org/web/20261015011352/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15596935&keyb=-1",
         "fingerprint": "1b7731cf3de2"
+      }
+    ],
+    "0013422": [
+      {
+        "copy": "https://web.archive.org/web/20261019235935/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15625428&keyb=-1",
+        "fingerprint": "b9e9b1e2dbce"
       }
     ],
     "0013424": [
@@ -1316,6 +1378,12 @@
         "fingerprint": "8731aa5b5dc3"
       }
     ],
+    "0014167": [
+      {
+        "copy": "https://web.archive.org/web/20261019235936/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15618882&keyb=-1",
+        "fingerprint": "571ee07c97d6"
+      }
+    ],
     "0014168": [
       {
         "copy": "https://web.archive.org/web/20261015011916/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15591877&keyb=-1",
@@ -1326,6 +1394,12 @@
       {
         "copy": "https://web.archive.org/web/20261015012019/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15592405&keyb=-1",
         "fingerprint": "43768b817796"
+      }
+    ],
+    "0014362": [
+      {
+        "copy": "https://web.archive.org/web/20261020000105/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15616942&keyb=-1",
+        "fingerprint": "4a57be08328f"
       }
     ],
     "0014369": [
@@ -1362,6 +1436,12 @@
       {
         "copy": "https://web.archive.org/web/20261015012202/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15590596&keyb=-1",
         "fingerprint": "2c26dd11d3a5"
+      }
+    ],
+    "0014626": [
+      {
+        "copy": "https://web.archive.org/web/20261020000200/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15617943&keyb=-1",
+        "fingerprint": "f5943ce4526d"
       }
     ],
     "0014663": [
@@ -2364,6 +2444,12 @@
         "fingerprint": "041a9e4c4826"
       }
     ],
+    "0021271": [
+      {
+        "copy": "https://web.archive.org/web/20261020000357/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15623252&keyb=-1",
+        "fingerprint": "9e696cf67270"
+      }
+    ],
     "0021273": [
       {
         "copy": "https://web.archive.org/web/20261015022534/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15595336&keyb=-1",
@@ -2394,6 +2480,24 @@
         "fingerprint": "7e9651ec5d33"
       }
     ],
+    "0021453": [
+      {
+        "copy": "https://web.archive.org/web/20261020000128/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15622512&keyb=-1",
+        "fingerprint": "a070c9c6b3d7"
+      }
+    ],
+    "0021468": [
+      {
+        "copy": "https://web.archive.org/web/20261020000120/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15622641&keyb=-1",
+        "fingerprint": "cff6bf3e2928"
+      }
+    ],
+    "0021469": [
+      {
+        "copy": "https://web.archive.org/web/20261020000137/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15622587&keyb=-1",
+        "fingerprint": "0bb2b191292e"
+      }
+    ],
     "0021541": [
       {
         "copy": "https://web.archive.org/web/20261015022947/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15595658&keyb=-1",
@@ -2418,10 +2522,22 @@
         "fingerprint": "ba2a9390b1ca"
       }
     ],
+    "0021839": [
+      {
+        "copy": "https://web.archive.org/web/20261020000527/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15622825&keyb=-1",
+        "fingerprint": "88f2a138b118"
+      }
+    ],
     "0021849": [
       {
         "copy": "https://web.archive.org/web/20261015023122/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15593504&keyb=-1",
         "fingerprint": "db1b3b3cbd4f"
+      }
+    ],
+    "0021959": [
+      {
+        "copy": "https://web.archive.org/web/20261020000505/https://www.forwardhealth.wi.gov/WIPortal/Subsystem/Public/DqaProviderDetails.aspx?key=15622843&keyb=-1",
+        "fingerprint": "b9ed6b131629"
       }
     ],
     "0022107": [
