@@ -1088,10 +1088,6 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
           )
           .join(" and ")}.`;
 
-  const gridStep = max > 12 ? 5 : max > 6 ? 3 : 2;
-  const gridLines = [];
-  for (let v = gridStep; v < max; v += gridStep) gridLines.push(v);
-
   const years = [];
   quarters.forEach((b, i) => {
     const cur = years[years.length - 1];
@@ -1122,10 +1118,10 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
         <h2 id="activity-title">Survey activity by quarter</h2>
         <ul className="legend">
           <li>
-            <span className="swatch swatch-enf" /> Enforcement action
+            <span className="swatch swatch-plain" /> All surveys
           </li>
           <li>
-            <span className="swatch swatch-plain" /> No enforcement
+            <span className="swatch swatch-enf" /> Led to enforcement action
           </li>
           {boundary !== null && anyHeld && (
             <li>
@@ -1168,16 +1164,6 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
               height={CHART.BASE - CHART.TOP + 16}
             />
           )}
-          {gridLines.map((v) => (
-            <line
-              key={`grid-${v}`}
-              className="gridline"
-              x1="0"
-              x2="100%"
-              y1={CHART.BASE - hOf(v)}
-              y2={CHART.BASE - hOf(v)}
-            />
-          ))}
           {hover !== null && (
             <rect
               x={`${hover * slot}%`}
@@ -1187,44 +1173,7 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
               fill="var(--paper-shade)"
             />
           )}
-          {quarters.map((b, i) => {
-            const x = `${i * slot + inset}%`;
-            const w = `${barW}%`;
-            const enfH = hOf(b.enforcement);
-            const plainH = hOf(b.total - b.enforcement);
-            const gap = b.enforcement > 0 && b.total > b.enforcement ? 2 : 0;
-            const top = CHART.BASE - enfH - gap - plainH;
-            return (
-              <g key={`${b.y}q${b.q}`}>
-                {b.enforcement > 0 && (
-                  <rect
-                    x={x}
-                    width={w}
-                    y={CHART.BASE - enfH}
-                    height={enfH}
-                    rx={gap ? 0 : 2}
-                    fill="var(--red)"
-                  />
-                )}
-                {b.total - b.enforcement > 0 && (
-                  <rect x={x} width={w} y={top} height={plainH} rx="2" fill="#767676" />
-                )}
-                <text className="bar-label" x={center(i)} y={top - 6} textAnchor="middle">
-                  {`${b.total}${qMark(i)}`}
-                </text>
-                {b.enforcement > 0 && enfH >= 15 && (
-                  <text
-                    className="bar-label-inner"
-                    x={center(i)}
-                    y={CHART.BASE - enfH / 2 + 3.5}
-                    textAnchor="middle"
-                  >
-                    {b.enforcement}
-                  </text>
-                )}
-              </g>
-            );
-          })}
+          {/* Under the bars, so it never strikes through a bar's label. */}
           {boundary !== null && anyHeld && (
             <>
               <line
@@ -1239,6 +1188,40 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
               </text>
             </>
           )}
+          {/* Each bar is a quarter's surveys, outlined, filled from the
+              baseline with the share that led to enforcement: one whole and
+              its red part, read at a glance. Totals above; the red count in
+              the red, or just above it when the red is too short. */}
+          {quarters.map((b, i) => {
+            const x = `${i * slot + inset}%`;
+            const w = `${barW}%`;
+            const totalH = hOf(b.total);
+            const enfH = hOf(b.enforcement);
+            const top = CHART.BASE - totalH;
+            const inside = enfH >= 15;
+            const above = !inside && b.enforcement > 0 && totalH - enfH >= 14;
+            return (
+              <g key={`${b.y}q${b.q}`}>
+                <rect className="bar-total" x={x} width={w} y={top} height={totalH} />
+                {b.enforcement > 0 && (
+                  <rect x={x} width={w} y={CHART.BASE - enfH} height={enfH} fill="var(--red)" />
+                )}
+                <text className="bar-label" x={center(i)} y={top - 6} textAnchor="middle">
+                  {`${b.total}${qMark(i)}`}
+                </text>
+                {b.enforcement > 0 && (inside || above) && (
+                  <text
+                    className={inside ? "bar-label-inner" : "bar-label-enf"}
+                    x={center(i)}
+                    y={inside ? CHART.BASE - enfH / 2 + 3.5 : CHART.BASE - enfH - 4}
+                    textAnchor="middle"
+                  >
+                    {b.enforcement}
+                  </text>
+                )}
+              </g>
+            );
+          })}
           <line
             x1="0"
             x2="100%"

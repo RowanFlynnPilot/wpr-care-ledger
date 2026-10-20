@@ -353,10 +353,16 @@ July 12, 2023 for Marathon, Oct. 7, 2023 for the rest. Search also
 matches the printed name ("the waterford"). A
 probationary license gets a neutral chip with a tooltip — it is
 Wisconsin's standard first-year license, never styled as discipline.
-Below the masthead, a quarterly survey-activity chart (gray = no
-enforcement, red = enforcement; every bar value-labeled, enforcement
-counts printed inside tall red segments, quarter + year axis, hover
-tooltips + sr-only table; quarter labels hide on mobile; footnote marks
+Below the masthead, a quarterly survey-activity chart: each bar is the
+quarter's surveys as a light outlined bar (outline #8a8a8a, 3.4:1, so it
+reads as a shape on white) filled from the baseline in red with those
+that led to enforcement — a whole and its red part, so the eye lands on
+the share the title states (it replaced dark-gray-on-red stacks,
+2026-10-20, whose gray dominated). No gridlines (every bar is labeled):
+totals above, the red count inside tall red or just above short red;
+quarter + year axis, quarter labels shrink on phones rather than hide;
+hover tooltips + sr-only table; the window line is drawn under the bars
+so it never strikes a label; footnote marks
 on bar labels: `*` for quarters ended within ~90 days of the refresh,
 still filling in because the state posts surveys weeks after they close,
 and `†` when the archive starts partway through the first quarter — no

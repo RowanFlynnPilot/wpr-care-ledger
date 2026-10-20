@@ -312,7 +312,8 @@ button {
 }
 
 .swatch-plain {
-  background: #767676;
+  background: #ececec;
+  box-shadow: inset 0 0 0 1px #8a8a8a;
 }
 
 .swatch-held {
@@ -353,6 +354,22 @@ button {
   fill: var(--ink);
 }
 
+/* All surveys: a light bar with an outline dark enough (3.4:1) to read
+   as a shape on white, so the red share is what the eye lands on. */
+.bar-total {
+  fill: #ececec;
+  stroke: #8a8a8a;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.bar-label-enf {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  fill: var(--red);
+}
+
 .bar-label-inner {
   font-family: var(--mono);
   font-size: 9.5px;
@@ -376,11 +393,6 @@ button {
 
 .year-tick {
   stroke: #949494;
-  stroke-width: 1;
-}
-
-.gridline {
-  stroke: var(--hairline-soft);
   stroke-width: 1;
 }
 
@@ -2040,7 +2052,7 @@ mark {
   }
 
   .q-label {
-    display: none;
+    font-size: 8px;
   }
 }
 
