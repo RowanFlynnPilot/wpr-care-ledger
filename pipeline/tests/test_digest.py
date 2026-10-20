@@ -128,7 +128,8 @@ class NoDuplicateEmail(unittest.TestCase):
         surveys = dict(SURVEYS)
         old = dict(surveys["2|2026-05-01|complaint"])
         old["revisions"] = {"enforcement": [{"path": "archive/2/e_rev2_enforcement.pdf",
-                                             "first_seen": RUN, "last_modified": "Mon, 21 Sep 2026"}]}
+                                             "first_seen": RUN,
+                                             "last_modified": "Mon, 21 Sep 2026 22:04:43 GMT"}]}
         surveys["2|2026-05-01|complaint"] = old
         enrichment = dict(ENRICHMENT, **{"archive/2/e_rev2_enforcement.pdf":
                                          {"kind": "enforcement", "fine": 160, "sanctions": []}})
@@ -150,6 +151,7 @@ class NoDuplicateEmail(unittest.TestCase):
         title, body = created[0]
         self.assertIn("State revised records: Pine Meadows 3", title)
         self.assertIn("forfeiture $400 → $160", body)
+        self.assertIn("replaced on the state's site on September 21, 2026", body)
 
     def test_nothing_new_means_no_issue(self):
         L = ledger(SURVEYS, ENRICHMENT)

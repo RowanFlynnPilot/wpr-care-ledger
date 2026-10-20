@@ -24,6 +24,7 @@ import re
 import subprocess
 import sys
 from datetime import date
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -165,6 +166,14 @@ class Ledger:
         return sorted(items, key=lambda it: it[1]["exit_date"])[-n:]
 
 
+def http_date(header):
+    """The state's Last-Modified header as a newsroom date ("on September 21,
+    2026"); "this week" if the server sent none."""
+    if not header:
+        return "this week"
+    return "on " + long_date(parsedate_to_datetime(header).date().isoformat())
+
+
 def revision_changes(L, original, revised):
     """What the ledger's figures did between two versions of a document."""
     was, now = L.enrichment.get(original, {}), L.enrichment.get(revised, {})
@@ -232,8 +241,8 @@ def tip_sheet(L):
         for s, column, original, rev in revised:
             changes = revision_changes(L, original, rev["path"])
             lines.append(f"- **{L.name(s)}** — {s['exit_date']} {s['survey_type']}: "
-                         f"{labels[L.kind(column, original)]} replaced (state's file dated "
-                         f"{rev['last_modified']})" + (f"; {', '.join(changes)}" if changes else ""))
+                         f"{labels[L.kind(column, original)]} replaced {http_date(rev['last_modified'])}"
+                         + (f"; {', '.join(changes)}" if changes else ""))
     if aged_off:
         lines += ["", "### No longer on the state site (now held only here)", ""]
         lines += [
@@ -348,21 +357,31 @@ def compose_revisions(L, items):
              f"at {'their addresses' if len(items) > 1 else 'its address'}, found in the Care "
              f"Ledger's run of {long_date(L.run)}. The originals are kept in the ledger; the "
              f"state's site now shows only the new versions. Ask DQA why before reporting it."]
-    for s, column, original, rev in items:
+    # One heading per survey: a reissue usually replaces its letter and its
+    # statement of deficiency together.
+    by_survey = {}
+    for item in items:
+        by_survey.setdefault(id(item[0]), []).append(item)
+    for group in by_survey.values():
+        s = group[0][0]
         f = L.facilities[s["license"]]
-        changes = revision_changes(L, original, rev["path"])
-        parts.append("\n".join([
+        lines = [
             f"### {smart_title(f['name'])} — {f['city'].title()}, {f['county'].title()} County",
             "",
             f"- **Survey:** {survey_label(s['survey_type'])}, closed {long_date(s['exit_date'])}",
-            f"- **Replaced:** the {labels[L.kind(column, original)]} (state's new file dated "
-            f"{rev['last_modified']})",
-            *([f"- **Changed:** {'; '.join(changes)}"] if changes else []),
-            f"- [Open in the Care Ledger]({SITE}#lic={s['license']}) · "
-            f"[Original (PDF)]({server}/{repo}/blob/main/{original}) · "
-            f"[New version (PDF)]({server}/{repo}/blob/main/{rev['path']})",
-            f"<!-- {REVISION_MARK} {s['license']}|{s['exit_date']}|{rev['path']} -->",
-        ]))
+        ]
+        for _, column, original, rev in group:
+            changes = revision_changes(L, original, rev["path"])
+            lines.append(
+                f"- **{labels[L.kind(column, original)].capitalize()}** replaced on the state's site "
+                f"{http_date(rev['last_modified'])}" + (f": {'; '.join(changes)}" if changes else "")
+                + f" — [original]({server}/{repo}/blob/main/{original}) · "
+                f"[new version]({server}/{repo}/blob/main/{rev['path']})"
+            )
+        lines.append(f"- [Open in the Care Ledger]({SITE}#lic={s['license']})")
+        lines += [f"<!-- {REVISION_MARK} {s['license']}|{s['exit_date']}|{rev['path']} -->"
+                  for _, _, _, rev in group]
+        parts.append("\n".join(lines))
     body = "\n\n".join(parts + ["---\nSent automatically by the Care Ledger's weekly fetch. "
                                 "Close this issue once reviewed."])
     mentions = os.environ.get("ALERT_MENTIONS", "").strip()
