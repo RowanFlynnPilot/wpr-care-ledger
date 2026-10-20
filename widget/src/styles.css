@@ -661,6 +661,9 @@ button.cites-row {
 .controls select:focus-visible,
 .row-head:focus-visible,
 .sibling:focus-visible,
+.map-card button:focus-visible,
+.unplaced-name:focus-visible,
+.link-button:focus-visible,
 a:focus-visible {
   outline: 2px solid var(--teal);
   outline-offset: 2px;
@@ -1048,8 +1051,20 @@ a:focus-visible {
   margin-top: 6px;
 }
 
-.map-unplaced .clear-filters {
-  font-size: inherit;
+/* Names, not a filter control: these must survive print. */
+.unplaced-name {
+  font: inherit;
+  color: var(--teal-deep);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.unplaced-name:hover {
+  color: var(--ink);
 }
 
 .map-zoom-out .clear-filters {
@@ -1987,7 +2002,10 @@ mark {
   .row-caret,
   .copy-link,
   .clear-filters,
-  .chart-tip {
+  .chart-tip,
+  .view-toggle,
+  .map-card,
+  .link-button {
     display: none !important;
   }
 

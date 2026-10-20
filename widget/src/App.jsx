@@ -1795,7 +1795,7 @@ function FacilityMap({ facilities, basemap, county, focus, onFocused, onOpen, on
             {unplaced.map((f, i) => (
               <React.Fragment key={f.license}>
                 {i > 0 && ", "}
-                <button className="clear-filters" onClick={() => onOpen(f.license)}>
+                <button className="unplaced-name" onClick={() => onOpen(f.license)}>
                   {smartTitle(f.name)}
                 </button>{" "}
                 ({titleCase(f.city)})
