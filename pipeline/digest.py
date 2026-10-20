@@ -319,8 +319,9 @@ def compose(L, items, mark, test):
 
 
 def gh(*args, stdin=None):
+    # UTF-8 explicitly: on Windows the default code page can't encode "→".
     return subprocess.run(["gh", *args], input=stdin, capture_output=True,
-                          text=True, check=True).stdout
+                          text=True, encoding="utf-8", check=True).stdout
 
 
 def ensure_label():
