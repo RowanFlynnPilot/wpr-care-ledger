@@ -13,6 +13,11 @@
  * that sent the message, so the full ledger and any number of
  * single-facility embeds share a page - to that height. Frames that loaded
  * before this script are asked to measure again. Safe to include twice.
+ *
+ * For full-ledger frames (not ?facility= embeds) it also passes this page's
+ * ledger link on (wausaupilotandreview.com/care-ledger/#lic=0015955 opens
+ * that record) and tells the frame this page's address, so the ledger's
+ * "Copy link to this record" points readers here.
  */
 (function () {
   if (window.__careLedgerEmbed) return;
@@ -31,6 +36,11 @@
     return out;
   }
 
+  // The full ledger, not a ?facility= embed of one record.
+  function isFullLedger(frame) {
+    return frame.src.indexOf("?facility=") === -1;
+  }
+
   window.addEventListener("message", function (e) {
     if (e.origin !== ORIGIN || !e.data || e.data.type !== "wpr-care-ledger:height") return;
     var frames = ledgerFrames();
@@ -38,9 +48,36 @@
       if (frames[i].contentWindow === e.source) {
         frames[i].style.height = Math.ceil(e.data.height) + "px";
         frames[i].setAttribute("scrolling", "no");
+        // Once a full ledger is up, tell it which page it is on, so its
+        // "Copy link to this record" gives readers this page (which opens
+        // on the record, below) rather than the ledger's own address.
+        if (isFullLedger(frames[i]) && !frames[i].hasAttribute("data-host-told")) {
+          frames[i].setAttribute("data-host-told", "");
+          e.source.postMessage(
+            { type: "wpr-care-ledger:host", url: location.origin + location.pathname },
+            ORIGIN
+          );
+        }
       }
     }
   });
+
+  // A link to this page ending in a ledger link (#lic=0015955, #q=…,
+  // #county=…, #cat=…, #view=map) is passed on to the full-ledger frames:
+  // the hash belongs to this page, and would never reach them otherwise.
+  // Other hashes (#comments) are left alone.
+  var LEDGER_HASH = /(?:^#|&)(?:lic|q|county|cat|view)=/;
+  function forwardHash() {
+    if (!LEDGER_HASH.test(location.hash)) return;
+    var frames = ledgerFrames();
+    for (var i = 0; i < frames.length; i++) {
+      if (!isFullLedger(frames[i])) continue;
+      var next = frames[i].src.split("#")[0] + location.hash;
+      if (frames[i].src !== next) frames[i].src = next; // a fragment change: no reload
+    }
+  }
+  forwardHash();
+  window.addEventListener("hashchange", forwardHash);
 
   // A frame that reported its height before this script ran would stay at
   // its fallback height: ask every ledger frame to measure again.

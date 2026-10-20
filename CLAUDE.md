@@ -440,7 +440,14 @@ the ledger's origin from its own src, sizes any iframe whose src is the
 ledger (class or not) by matching `e.source`, is idempotent, and on load
 posts `wpr-care-ledger:measure` to every ledger frame so ones that
 reported before it listened answer again (the widget re-posts its height
-on that message). Without it a frame works at its fallback height with
+on that message). For full-ledger frames (not `?facility=`) it also
+forwards the host page's ledger hash (`#lic=`, `#q=`, `#county=`,
+`#cat=`, `#view=`; other hashes such as `#comments` are left alone) by
+setting the frame's src fragment, on load and on hashchange, so
+`wausaupilotandreview.com/care-ledger/#lic=0015955` opens the record;
+and, after the frame's first height message, posts
+`wpr-care-ledger:host` with the page's address, which the widget uses
+(`hostUrl`) for "Copy link to this record". Without it a frame works at its fallback height with
 its own scrollbar. Tested with frames loaded before the script, a
 classless frame, and the script included twice (README, Embedding).
 The widget posts its height to the parent page measured from

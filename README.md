@@ -114,6 +114,27 @@ block) with just the frame:
 - The earlier inline-script version of this snippet still works where it
   was pasted, but don't use it for new articles.
 
+### A page of its own on the site
+
+To give the ledger a permanent home on wausaupilotandreview.com (e.g.
+`wausaupilotandreview.com/care-ledger/`), make a WordPress page with a
+**Custom HTML** block holding the full ledger, without lazy loading since
+it is the page's main content:
+
+```html
+<iframe class="care-ledger" src="https://rowanflynnpilot.github.io/wpr-care-ledger/" title="The Care Ledger: assisted living oversight in central Wisconsin" style="width:100%;border:0;display:block;" height="2000" allow="clipboard-write"></iframe>
+```
+
+- Use a wide or full-width page template so the charts and map get room.
+  The ledger carries its own WPR flag and headline, so the page can hide
+  its title (if the theme offers it) or keep just a one-line intro.
+- With `embed.js` installed (step 1 above), links to that page take the
+  same endings as the ledger's own address —
+  `wausaupilotandreview.com/care-ledger/#lic=0015955`,
+  `…/care-ledger/#county=Wood&view=map` — and the ledger's "Copy link to
+  this record" gives readers the site page, not the github.io address.
+  The same holds for the full ledger embedded in an article.
+
 ### Linking to one facility from a story
 
 Add a hash to the iframe `src` (or to the standalone URL):

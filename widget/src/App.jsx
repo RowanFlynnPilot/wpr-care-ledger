@@ -56,6 +56,11 @@ const PAGE = 20;
 const FACILITY = new URLSearchParams(window.location.search).get("facility");
 // The full ledger, for links out of the single-facility view.
 const LEDGER_URL = `${window.location.origin}${window.location.pathname}`;
+// The site page this frame sits on, when embed.js says so (a page of the
+// ledger's own on wausaupilotandreview.com, or an article): "Copy link to
+// this record" then gives readers that page, which embed.js opens on the
+// record. Null standalone, or before embed.js has spoken.
+let hostUrl = null;
 
 /* The terms the ledger prints, in plain English, grouped as a reader meets
    them. Labels match SURVEY_PART_LABELS, DOC_LABELS and SANCTION_LABELS. */
@@ -333,7 +338,9 @@ export default function App() {
     // embed.js, installed site-wide, may load after this frame first
     // reported; it asks every ledger frame to measure again.
     const onAsk = (e) => {
-      if (e.source === window.parent && e.data && e.data.type === "wpr-care-ledger:measure") post();
+      if (e.source !== window.parent || !e.data) return;
+      if (e.data.type === "wpr-care-ledger:measure") post();
+      if (e.data.type === "wpr-care-ledger:host" && /^https?:\/\/[^\s#]+$/.test(e.data.url)) hostUrl = e.data.url;
     };
     window.addEventListener("message", onAsk);
     return () => {
@@ -1964,7 +1971,7 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
   }
 
   const copyLink = () => {
-    const url = `${window.location.origin}${window.location.pathname}#lic=${f.license}`;
+    const url = `${hostUrl || LEDGER_URL}#lic=${f.license}`;
     if (navigator.clipboard) {
       navigator.clipboard.writeText(url).then(
         () => {
