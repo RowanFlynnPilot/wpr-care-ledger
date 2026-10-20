@@ -242,6 +242,9 @@ export default function App() {
   const [sort, setSort] = useState("name");
   const [showClosed, setShowClosed] = useState(false);
   const [lens, setLens] = useState("all");
+  // A citation category picked in "What inspectors cite": the list shows
+  // the facilities cited in it.
+  const [category, setCategory] = useState(null);
   const [open, setOpen] = useState(null);
   // Rows rendered: the first PAGE, then more on request. All 279 at once
   // made the embedded frame ~30,000px tall — a reader had to scroll past
@@ -326,6 +329,7 @@ export default function App() {
       if (!m) return;
       setLens("all");
       setType("ALL");
+      setCategory(null);
       if (m[3]) {
         const c = db.counties.find((x) => x === m[3].toUpperCase());
         setCounty(c || "ALL");
@@ -402,7 +406,8 @@ export default function App() {
       (f) =>
         (showClosed || !f.closed) &&
         (type === "ALL" || f.typeAbbr === type) &&
-        (!q || f.haystack.includes(q))
+        (!q || f.haystack.includes(q)) &&
+        (!category || f.categories.has(category))
     );
     const lensCounts = Object.fromEntries(
       Object.entries(LENS_TEST).map(([id, test]) => [id, base.filter(test).length])
@@ -415,10 +420,10 @@ export default function App() {
       fines: (a, b) => b.fineTotal - a.fineTotal || a.name.localeCompare(b.name),
     };
     return { list: base.filter(LENS_TEST[lens]).sort(bySort[sort]), lensCounts };
-  }, [db, scoped, query, type, sort, showClosed, lens]);
+  }, [db, scoped, query, type, sort, showClosed, lens, category]);
 
   // A new search, filter or sort starts from the top of its results.
-  useEffect(() => setShown(PAGE), [query, type, sort, showClosed, lens, county]);
+  useEffect(() => setShown(PAGE), [query, type, sort, showClosed, lens, county, category]);
   const showMore = (all) => {
     const next = list[shown];
     setShown(all ? list.length : shown + PAGE);
@@ -508,6 +513,7 @@ export default function App() {
   const crossLink = (license) => {
     setShowClosed(true);
     setLens("all");
+    setCategory(null);
     setType("ALL");
     setCounty("ALL");
     setQuery(license);
@@ -518,6 +524,7 @@ export default function App() {
   const showOperator = (name) => {
     setShowClosed(true);
     setLens("all");
+    setCategory(null);
     setType("ALL");
     setCounty("ALL");
     setQuery(name);
@@ -530,6 +537,7 @@ export default function App() {
     setType("ALL");
     setCounty("ALL");
     setLens("all");
+    setCategory(null);
     setShowClosed(false);
     setOpen(null);
   };
@@ -539,9 +547,26 @@ export default function App() {
   const showLensFromStat = (id) => {
     setQuery("");
     setType("ALL");
+    setCategory(null);
     setShowClosed(true);
     setLens(lens === id ? "all" : id);
     setOpen(null);
+  };
+
+  // The chart counts every facility in the county view, closed included,
+  // so picking a category resets the narrowing to make the list match it.
+  const pickCategory = (cat) => {
+    const next = category === cat ? null : cat;
+    setCategory(next);
+    setQuery("");
+    setType("ALL");
+    setLens("all");
+    setShowClosed(true);
+    setOpen(null);
+    requestAnimationFrame(() => {
+      if (!EMBEDDED) countRef.current?.scrollIntoView({ block: "start", behavior: "smooth" });
+      countRef.current?.focus({ preventScroll: true });
+    });
   };
 
   const staleDays = Math.floor(
@@ -628,7 +653,12 @@ export default function App() {
 
       <ActivityChart surveys={scopedSurveys} lastUpdated={db.lastUpdated} coverage={coverage} />
 
-      <CitationChart surveys={scopedSurveys} />
+      <CitationChart
+        surveys={scopedSurveys}
+        total={scoped.length}
+        active={category}
+        onPick={pickCategory}
+      />
 
       <div className="controls">
         <input
@@ -717,6 +747,15 @@ export default function App() {
       <div className="result-bar">
         <p className="result-count" role="status" tabIndex={-1} ref={countRef}>
           {list.length} {list.length === 1 ? "facility" : "facilities"}
+          {category && (
+            <>
+              {" "}
+              cited for {category.toLowerCase()}{" "}
+              <button className="clear-category" onClick={() => thenFocusCount(() => setCategory(null))}>
+                Show all<span className="sr-only"> facilities</span>
+              </button>
+            </>
+          )}
         </p>
         {list.length > 0 && (
           <p className="downloads">
@@ -968,6 +1007,7 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
   const anyHeld = quarters.some((b) => b.held > 0);
 
   const tip = hover === null ? null : quarters[hover];
+  const enforcedTotal = surveys.filter((s) => s.hasEnforcement).length;
 
   return (
     <figure className="activity">
@@ -987,6 +1027,15 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
           )}
         </ul>
       </div>
+      {/* The chart's point in one line, for whatever counties are in view:
+          the red share holds near 4 in 10 year after year. */}
+      <p className="chart-finding">
+        <strong>
+          {fmtNum(enforcedTotal)} of {fmtNum(surveys.length)} surveys (
+          {Math.round((enforcedTotal / surveys.length) * 100)}%)
+        </strong>{" "}
+        led to an enforcement action.
+      </p>
       <div className="chart-wrap">
         <svg
           width="100%"
@@ -1191,7 +1240,7 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
 /* What inspectors cite: facilities cited at least once in each area, from
    the categories enrich.py gives every cited rule. One measure across
    categories, sorted, every bar labeled -- so plain rows, not a plot. */
-function CitationChart({ surveys }) {
+function CitationChart({ surveys, total, active, onPick }) {
   const rows = useMemo(() => {
     const by = {};
     for (const s of surveys) {
@@ -1212,22 +1261,33 @@ function CitationChart({ surveys }) {
     <figure className="cites">
       <div className="activity-head">
         <h2 id="cites-title">What inspectors cite</h2>
-        <p className="cites-sub">Facilities cited at least once in each area</p>
+        <p className="cites-sub">
+          Share of the {fmtNum(total)} facilities in view cited at least once · select one to list them
+        </p>
       </div>
+      {/* Each row is a door into the list: "which facilities were cited
+          for medications?" is the question this chart raises. */}
       <ol className="cites-list" aria-labelledby="cites-title">
         {rows.map((r) => (
-          <li key={r.category} className="cites-row">
-            <span className="cites-cat">{r.category}</span>
-            <span className="cites-track" aria-hidden="true">
-              <span className="cites-bar" style={{ width: `${(r.facilities / max) * 100}%` }} />
-            </span>
-            <span className="cites-val">
-              {fmtNum(r.facilities)} {r.facilities === 1 ? "facility" : "facilities"}
-              <span className="cites-n">
-                {" "}
-                · {fmtNum(r.citations)} {r.citations === 1 ? "citation" : "citations"}
+          <li key={r.category}>
+            <button
+              className={active === r.category ? "cites-row is-active" : "cites-row"}
+              aria-pressed={active === r.category}
+              onClick={() => onPick(r.category)}
+            >
+              <span className="cites-cat">{r.category}</span>
+              <span className="cites-track" aria-hidden="true">
+                <span className="cites-bar" style={{ width: `${(r.facilities / max) * 100}%` }} />
               </span>
-            </span>
+              <span className="cites-val">
+                {fmtNum(r.facilities)} {r.facilities === 1 ? "facility" : "facilities"}
+                <span className="cites-pct"> · {Math.round((r.facilities / total) * 100)}%</span>
+                <span className="cites-n">
+                  {" "}
+                  · {fmtNum(r.citations)} {r.citations === 1 ? "citation" : "citations"}
+                </span>
+              </span>
+            </button>
           </li>
         ))}
       </ol>

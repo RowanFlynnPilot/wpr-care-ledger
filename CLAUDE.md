@@ -336,10 +336,18 @@ and `†` when the archive starts partway through the first quarter — no
 opacity dimming, which failed contrast). A sepia field marks history older than the state's
 three-year window, bounded by a dashed line placed to the day — it
 advances every week, so the chart itself shows the archive outliving
-the state's public record. Under it, "What inspectors cite": facilities
-cited at least once in each citation category (a facility counts once
-per category), sorted, plain labeled rows rather than a plot, following
-the county filter; phones drop the citation count to give the bar room.
+the state's public record. Its title carries the finding, computed for
+the counties in view: "223 of 547 surveys (41%) led to an enforcement
+action." Under it, "What inspectors cite": facilities cited at least
+once in each citation category (a facility counts once per category)
+and their share of the facilities in view, sorted, plain labeled rows
+rather than a plot, following the county filter; phones drop the
+citation count to give the bar room. Each row is a button: it filters
+the list to the facilities cited in that category (`category` state,
+`facility.categories` from ledger.js), resetting search, type and lens
+and including closed facilities so the list count equals the bar; the
+result count reads "50 facilities cited for medications · Show all".
+Deep links, cross-links, stats and Clear reset it.
 Expandable ledger rows: license facts + survey timeline
 linking to archived PDFs, "View on state site" link built from the current
 week's detail key (known gap: it can 404 to the portal error page between

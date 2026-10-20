@@ -281,12 +281,15 @@ button {
 .legend {
   list-style: none;
   display: flex;
-  gap: 14px;
+  flex-wrap: wrap;
+  gap: 4px 14px;
   margin: 0;
   padding: 0;
 }
 
+/* Each entry wraps as a unit, never "ENFORCEMENT / ACTION" on a phone. */
 .legend li {
+  white-space: nowrap;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -410,8 +413,62 @@ button {
   padding: 3px 0;
 }
 
+/* Each row is a button that lists the facilities cited in it. */
+button.cites-row {
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  background: none;
+  border: none;
+  border-left: 3px solid transparent;
+  margin: 0;
+  padding-left: 6px;
+  cursor: pointer;
+}
+
 .cites-row:hover {
   background: var(--paper-shade);
+}
+
+.cites-row:hover .cites-cat {
+  color: var(--teal-deep);
+}
+
+.cites-row:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 1px;
+}
+
+.cites-row.is-active {
+  background: var(--paper-shade);
+  border-left-color: var(--teal-deep);
+}
+
+.cites-row.is-active .cites-cat {
+  font-weight: 700;
+}
+
+.cites-row.is-active .cites-bar {
+  background: var(--teal-deep);
+}
+
+.cites-pct {
+  color: var(--muted);
+}
+
+.clear-category {
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: var(--teal-deep);
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 6px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .cites-cat {
@@ -470,6 +527,17 @@ button {
     overflow: hidden;
     clip-path: inset(50%);
   }
+}
+
+.chart-finding {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: -6px 0 12px;
+}
+
+.chart-finding strong {
+  color: var(--red);
 }
 
 .chart-note {

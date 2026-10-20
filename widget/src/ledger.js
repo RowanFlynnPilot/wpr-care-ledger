@@ -307,6 +307,9 @@ export function shape(facilitiesObj, surveysObj, enrichmentObj, waybackObj) {
       fineTotal: surveys.reduce((n, s) => n + (s.enr.fine || 0), 0),
       heldCount: surveys.filter((s) => s.expired_from_state).length,
       newCount: surveys.filter((s) => s.isNew).length,
+      // Citation categories this facility was cited in, for the chart's
+      // click-to-filter ("which facilities were cited for medications?").
+      categories: new Set(surveys.flatMap((s) => s.enr.citations.map((c) => c.category))),
       // Only revisions are new: the row's chip says "Revised", not "New".
       revisedOnly: surveys.some((s) => s.isNew) && !surveys.some((s) => s.newReason === "new"),
       latest: surveys[0]?.exit_date || "",
