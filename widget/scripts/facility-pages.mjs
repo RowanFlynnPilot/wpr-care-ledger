@@ -49,6 +49,7 @@ a{color:var(--teal)}
 .flag img.seal{width:44px;height:44px}.flag .wm{height:17px;width:auto;display:block}
 .flag p{margin:4px 0 0;font:700 15px/1.2 Oswald,"Helvetica Neue",Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase}
 .flag p a{color:inherit;text-decoration:none}
+.flag a{display:inline-block;padding:4px 0}
 .rule{border-top:4px solid var(--ink);border-bottom:1px solid var(--ink);height:3px;margin-bottom:18px}
 h1{font:700 clamp(26px,5vw,38px)/1.08 Oswald,"Helvetica Neue",Arial,sans-serif;text-transform:uppercase;letter-spacing:.01em;margin:0 0 6px}
 h2{font:700 12px/1.3 Oswald,"Helvetica Neue",Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:6px;margin:28px 0 12px}
@@ -69,7 +70,7 @@ ol.timeline li.held{border-left:3px solid var(--sepia);padding-left:10px;backgro
 .cites{font-size:13px;color:var(--soft)}
 ul.near{margin:0;padding-left:18px}ul.near li{margin:4px 0}
 .locator{margin:18px 0 0}.locator svg{display:block;max-width:100%;height:auto}.locator figcaption{margin-top:4px}
-.docs{font-size:13px}.docs a{margin-right:12px}
+.docs{font-size:13px}.docs a{display:inline-block;padding:4px 0;margin-right:12px}
 footer{margin-top:32px;border-top:1px solid var(--ink);padding-top:12px;font-size:12.5px;color:var(--soft)}
 footer a.support{font-weight:700}
 @media (max-width:560px){ol.timeline li{grid-template-columns:1fr}}`;
@@ -97,9 +98,9 @@ function page({ title, description, path, body }) {
 <body>
 <main>
 <header class="flag">
-  <img class="seal" src="../../brand/wpr-typewriter-192.png" alt="" width="44" height="44">
+  <img class="seal" src="../../brand/wpr-seal-88.webp" alt="" width="44" height="44">
   <div>
-    <a href="https://wausaupilotandreview.com/"><img class="wm" src="../../brand/wpr-wordmark.png" alt="Wausau Pilot &amp; Review" width="133" height="17"></a>
+    <a href="https://wausaupilotandreview.com/"><img class="wm" src="../../brand/wpr-wordmark-266.webp" alt="Wausau Pilot &amp; Review" width="133" height="17"></a>
     <p><a href="${SITE}">The Care Ledger</a></p>
   </div>
 </header>
@@ -243,6 +244,42 @@ for (const f of db.facilities) {
   written++;
 }
 writeFileSync(join(dist, "facility", "index.html"), indexPage());
+
+// The ledger described as a schema.org Dataset on its main page, for
+// Google Dataset Search, where researchers and reporters look for public
+// records data. Written at build time so dateModified is the data's own.
+const earliest = db.counties.map((c) => windowStartOf(db.countyStart[c])).sort()[0];
+const dataset = {
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  name: "The Care Ledger: Wisconsin assisted living inspection and enforcement records",
+  description:
+    `Every state inspection report, enforcement letter and plan of correction for the ${db.facilities.length} ` +
+    `state-regulated assisted living facilities in Marathon, Clark, Langlade, Lincoln, Portage, Shawano, Taylor, ` +
+    `Waupaca and Wood counties, Wisconsin, archived weekly from the Wisconsin Department of Health Services ` +
+    `Division of Quality Assurance and kept after the state's three-year Provider Search window drops them.`,
+  url: SITE,
+  sameAs: "https://github.com/RowanFlynnPilot/wpr-care-ledger",
+  creator: { "@type": "NewsMediaOrganization", name: "Wausau Pilot & Review", url: "https://wausaupilotandreview.com/" },
+  isAccessibleForFree: true,
+  temporalCoverage: `${earliest}/..`,
+  spatialCoverage: { "@type": "Place", name: "Marathon County and eight neighboring counties, Wisconsin, USA" },
+  dateModified: db.lastUpdated,
+  distribution: ["facilities", "surveys", "enrichment"].map((name) => ({
+    "@type": "DataDownload",
+    encodingFormat: "application/json",
+    contentUrl: `${SITE}data/${name}.json`,
+  })),
+};
+const indexPath = join(dist, "index.html");
+writeFileSync(
+  indexPath,
+  readFileSync(indexPath, "utf8").replace(
+    "</head>",
+    `<link rel="canonical" href="${SITE}" />\n` +
+      `<script type="application/ld+json">${JSON.stringify(dataset).replace(/</g, "\\u003c")}</script>\n</head>`
+  )
+);
 
 const urls = [SITE, `${SITE}facility/`, ...db.facilities.map((f) => `${SITE}facility/${slug(f)}/`)];
 writeFileSync(

@@ -540,7 +540,7 @@ export default function App() {
   if (!db)
     return (
       <div className="ledger loading">
-        <img src="brand/wpr-typewriter.png" alt="" width="52" height="52" />
+        <img src="brand/wpr-seal-168.webp" alt="" width="52" height="52" />
         <span>Opening the ledger…</span>
       </div>
     );
@@ -653,7 +653,7 @@ export default function App() {
       <header className="masthead">
         <img
           className="badge"
-          src="brand/wpr-typewriter.png"
+          src="brand/wpr-seal-168.webp"
           alt=""
           width="84"
           height="84"
@@ -667,7 +667,7 @@ export default function App() {
           >
             <img
               className="wordmark"
-              src="brand/wpr-wordmark.png"
+              src="brand/wpr-wordmark-266.webp"
               alt="Wausau Pilot &amp; Review"
               width="133"
               height="17"
@@ -962,7 +962,7 @@ export default function App() {
       <footer className="site-footer">
         <img
           className="footer-seal"
-          src="brand/wpr-typewriter-192.png"
+          src="brand/wpr-seal-88.webp"
           alt=""
           width="44"
           height="44"
@@ -1852,7 +1852,7 @@ function FacilityEmbed({ db, license, staleDays }) {
   return (
     <div className="ledger ledger-single">
       <header className="masthead masthead-single">
-        <img className="badge" src="brand/wpr-typewriter.png" alt="" width="44" height="44" />
+        <img className="badge" src="brand/wpr-seal-168.webp" alt="" width="44" height="44" />
         <div className="masthead-text">
           <a
             className="wordmark-link"
@@ -1862,7 +1862,7 @@ function FacilityEmbed({ db, license, staleDays }) {
           >
             <img
               className="wordmark"
-              src="brand/wpr-wordmark.png"
+              src="brand/wpr-wordmark-266.webp"
               alt="Wausau Pilot &amp; Review"
               width="133"
               height="17"
@@ -2003,7 +2003,7 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
         <span className="row-chips">
           {f.enforcementCount > 0 && (
             <span className="chip chip-enforcement">
-              {f.enforcementCount} enforcement
+              {f.enforcementCount} enforcement {f.enforcementCount === 1 ? "action" : "actions"}
               {f.fineTotal > 0 && ` · $${fmtNum(f.fineTotal)}`}
             </span>
           )}
@@ -2016,7 +2016,11 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
               Probationary license
             </span>
           )}
-          {f.heldCount > 0 && <span className="chip chip-held">{f.heldCount} held</span>}
+          {f.heldCount > 0 && (
+            <span className="chip chip-held">
+              {f.heldCount} {f.heldCount === 1 ? "record" : "records"} held
+            </span>
+          )}
           {f.closed && <span className="chip chip-closed">Closed</span>}
           {!single && <span className="row-caret" aria-hidden="true">+</span>}
         </span>
