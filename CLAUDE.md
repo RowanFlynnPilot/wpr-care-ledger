@@ -695,9 +695,19 @@ then bundles them into `dist/`, so **the Pages artifact is just
 - Mine documents: `python pipeline/enrich.py` (new docs only; `--rebuild`
   reparses everything — run after parser changes)
 - Weekly tip sheet: `python pipeline/digest.py` (read-only; in Actions it
-  also lands on each run's summary page — new surveys, new enforcement
-  actions with forfeitures, documents the state replaced, records that
-  aged off that run)
+  also lands on each run's summary page). In the widget's vocabulary and
+  AP dates, every facility linked to its page and every document to its
+  PDF on the site: new enforcement actions (fine, orders, complaints
+  substantiated, cited rules), new documents on earlier inspections,
+  other new inspections, documents the state replaced (original and new
+  version), roster changes — new licenses, flagged in bold when one opens
+  at the address of a closed facility (`address_key()`, the widget's
+  suffix-normalized match; the Acorn Hill pattern), and closures in the
+  last two weeks — and records no longer listed by the state that run.
+  `facility_slug()` / `address_key()` / `ap_date()` mirror ledger.js's
+  `facilitySlug()` / `addressKey()` / `fmtDate()` (checked identical for
+  all 305 facilities 2026-10-25; tests pin a slug). Alerts use the same
+  links and wording.
 - Email alerts: `digest.py --alert` (last step of fetch.yml) opens one
   `new-enforcement` issue per run listing enforcement actions new that run
   — new surveys carrying a letter, and letters that arrived later on older

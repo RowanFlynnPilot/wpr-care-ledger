@@ -20,9 +20,9 @@ RUN, FIRST_PULL = "2026-10-12", "2026-07-12"
 def ledger(surveys, enrichment, county_start=None):
     L = object.__new__(digest.Ledger)
     L.facilities = {
-        "1": {"name": "WELLINGTON PLACE AT RIB MOUNTAIN", "city": "WAUSAU",
+        "1": {"license": "1", "name": "WELLINGTON PLACE AT RIB MOUNTAIN", "city": "WAUSAU",
               "county": "MARATHON", "provider_type": "Community Based Residential Facility"},
-        "2": {"name": "PINE MEADOWS 3", "city": "SCHOFIELD",
+        "2": {"license": "2", "name": "PINE MEADOWS 3", "city": "SCHOFIELD",
               "county": "MARATHON", "provider_type": "Community Based Residential Facility"},
     }
     L.surveys, L.enrichment, L.run = surveys, enrichment, RUN
@@ -92,6 +92,23 @@ class Selection(unittest.TestCase):
         self.assertEqual(L.new_enforcement(), [])
 
 
+class Links(unittest.TestCase):
+    def test_facility_page_matches_the_widgets_slug(self):
+        # widget/src/ledger.js facilitySlug(); the built pages use it.
+        f = {"license": "0015955", "name": "WATERFORD AT COLBY (THE)"}
+        self.assertEqual(digest.page_url(f),
+                         digest.SITE + "facility/the-waterford-at-colby-0015955/")
+
+    def test_ap_dates(self):
+        self.assertEqual(digest.ap_date("2026-09-21"), "Sept. 21, 2026")
+        self.assertEqual(digest.ap_date("2026-03-27"), "March 27, 2026")
+
+    def test_same_address_with_suffix_spelled_out(self):
+        a = {"address": "226446 HUMMINGBIRD RD", "city": "WAUSAU"}
+        b = {"address": "226446 Hummingbird Road", "city": "Wausau"}
+        self.assertEqual(digest.address_key(a), digest.address_key(b))
+
+
 class Message(unittest.TestCase):
     def test_subject_counts_facilities_and_body_flags_serious_orders(self):
         L = ledger(SURVEYS, ENRICHMENT)
@@ -99,7 +116,7 @@ class Message(unittest.TestCase):
         self.assertTrue(title.startswith("3 new enforcement actions at 2 facilities:"))
         self.assertIn("Order not to admit new residents", body)
         self.assertIn("$650 (accruing", body)
-        self.assertIn("posted after the survey first appeared", body)
+        self.assertIn("posted after the inspection first appeared", body)
         self.assertIn("#lic=1", body)
 
 
@@ -151,7 +168,7 @@ class NoDuplicateEmail(unittest.TestCase):
         title, body = created[0]
         self.assertIn("State revised records: Pine Meadows 3", title)
         self.assertIn("forfeiture $400 → $160", body)
-        self.assertIn("replaced on the state's site on September 21, 2026", body)
+        self.assertIn("replaced on the state's site on Sept. 21, 2026", body)
 
     def test_nothing_new_means_no_issue(self):
         L = ledger(SURVEYS, ENRICHMENT)

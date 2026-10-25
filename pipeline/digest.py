@@ -23,7 +23,8 @@ import os
 import re
 import subprocess
 import sys
-from datetime import date
+import unicodedata
+from datetime import date, timedelta
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 
@@ -83,9 +84,53 @@ def smart_title(s):
     return " ".join(words)
 
 
-def long_date(iso):
+AP_MONTHS = ["Jan.", "Feb.", "March", "April", "May", "June", "July", "Aug.", "Sept.", "Oct.",
+             "Nov.", "Dec."]
+
+
+def ap_date(iso):
+    # AP style, as the widget's fmtDate(): "Sept. 21, 2026", "March 27, 2026".
     d = date.fromisoformat(iso)
-    return f"{d:%B} {d.day}, {d.year}"
+    return f"{AP_MONTHS[d.month - 1]} {d.day}, {d.year}"
+
+
+def facility_slug(f):
+    # The widget's facilitySlug(): facility/<name>-<license>/. Same steps in
+    # the same order, so a tip-sheet link lands on the page the build wrote.
+    name = unicodedata.normalize("NFKD", smart_title(f["name"]).lower())
+    name = re.sub(r"[^a-z0-9]+", "-", name).strip("-")
+    return f"{name}-{f['license']}"
+
+
+def page_url(f):
+    return f"{SITE}facility/{facility_slug(f)}/"
+
+
+# The widget's STREET_ABBR / addressKey(): "RD" and "Road" are one address.
+STREET_ABBR = {
+    "ROAD": "RD", "DRIVE": "DR", "STREET": "ST", "AVENUE": "AVE", "LANE": "LN", "COURT": "CT",
+    "BOULEVARD": "BLVD", "PLACE": "PL", "CIRCLE": "CIR", "PARKWAY": "PKWY", "HIGHWAY": "HWY",
+    "TRAIL": "TRL", "TERRACE": "TER", "NORTH": "N", "SOUTH": "S", "EAST": "E", "WEST": "W",
+}
+
+
+def address_key(f):
+    words = re.split(r"[^A-Z0-9]+", f"{f['address']} {f['city']}".upper())
+    return "".join(STREET_ABBR.get(w, w) for w in words if w)
+
+
+def cite_summary(citations, limit=3):
+    # "Services ×2 · Tenant rights", as the widget's citeSummary().
+    counts = {}
+    for c in citations:
+        t = c["title"].rstrip(".:")
+        counts[t] = counts.get(t, 0) + 1
+    shown = [f"{t} ×{n}" if n > 1 else t for t, n in counts.items()]
+    return " · ".join(shown[:limit]) + (f" · +{len(shown) - limit} more" if len(shown) > limit else "")
+
+
+def complaints_line(n):
+    return "Complaint substantiated" if n == 1 else f"{n} complaints substantiated"
 
 
 def survey_label(raw):
@@ -173,11 +218,11 @@ class Ledger:
 
 
 def http_date(header):
-    """The state's Last-Modified header as a newsroom date ("on September 21,
+    """The state's Last-Modified header as a newsroom date ("on Sept. 21,
     2026"); "this week" if the server sent none."""
     if not header:
         return "this week"
-    return "on " + long_date(parsedate_to_datetime(header).date().isoformat())
+    return "on " + ap_date(parsedate_to_datetime(header).date().isoformat())
 
 
 def revision_changes(L, original, revised):
@@ -194,15 +239,17 @@ def revision_changes(L, original, revised):
 # --------------------------------------------------------------- tip sheet
 
 def tip_sheet(L):
+    """The weekly tip sheet: what changed in the run, each item linked to
+    its facility page and documents, in the widget's vocabulary."""
     new = sorted((s for s in L.surveys.values() if L.is_new(s)), key=lambda s: s["exit_date"])
     started = sorted(c.title() for c, d in L.county_start.items() if d == L.run)
     # Documents that arrived this run on rows first seen earlier — usually an
     # enforcement letter catching up with its statement of deficiency.
     late_docs = sorted(
-        ((s, L.kind(column, s["documents"][column]))
+        ((s, column)
          for s in L.surveys.values() if s["first_seen"] != L.run
          for column, seen in s.get("documents_first_seen", {}).items() if seen == L.run),
-        key=lambda sk: sk[0]["exit_date"],
+        key=lambda sc: sc[0]["exit_date"],
     )
     # expired_on is stamped by fetch.py when it flags a record; rows flagged
     # before that field existed have none and are never credited to a run.
@@ -211,51 +258,116 @@ def tip_sheet(L):
         key=lambda s: s["exit_date"],
     )
     held = sum(s["expired_from_state"] for s in L.surveys.values())
-
-    lines = [f"## The Care Ledger — run of {L.run}", ""]
-    lines.append(
-        f"**{len(new)}** new survey records · **{len(aged_off)}** aged off the state site "
-        f"this run · **{held}** held in the ledger in all"
-    )
-    if started:
-        lines += ["", f"First capture (archive starts here, not counted as new): "
-                      f"{', '.join(started)} {'County' if len(started) == 1 else 'counties'}."]
     enf = [s for s in new if L.doc(s, "enforcement")]
-    if enf:
-        lines += ["", "### New enforcement actions", "",
-                  "| Facility | Survey exit | Type | Forfeiture |", "|---|---|---|---|"]
-        for s in enf:
-            f = L.fine(s)
-            lines.append(f"| {L.name(s)} | {s['exit_date']} | {s['survey_type']} | "
-                         f"{'$' + format(f, ',') if f else '—'} |")
     other = [s for s in new if not L.doc(s, "enforcement")]
-    if other:
-        lines += ["", "### Other new surveys", ""]
-        lines += [f"- {L.name(s)} — {s['exit_date']}, {s['survey_type']}" for s in other]
+    late_enf = [(s, c) for s, c in late_docs if L.kind(c, L.current(s)[c]) == "enforcement"]
+    actions = len(enf) + len(late_enf)
+    labels = {"enforcement": "enforcement letter", "sod": "statement of deficiency",
+              "poc": "plan of correction"}
+
+    def who(s):
+        f = L.facilities[s["license"]]
+        return (f"[{smart_title(f['name'])}]({page_url(f)}) "
+                f"({f['city'].title()}, {f['county'].title()} County)")
+
+    def pdf(path, text):
+        return f"[{text}]({SITE}{path})"
+
+    def facts(s):
+        """Fine, orders, complaints and cited rules, as the record prints them."""
+        parts = []
+        letter = L.doc(s, "enforcement")
+        if letter:
+            e = L.enrichment.get(letter[1], {})
+            if e.get("fine"):
+                accruing = "Accruing forfeiture" in e.get("sanctions", [])
+                parts.append(f"**${e['fine']:,} forfeiture**" + (" (accruing, so far)" if accruing else ""))
+            parts += [ORDER_TEXT[x] for x in e.get("sanctions", []) if x in ORDER_TEXT]
+        sod = L.doc(s, "sod")
+        if sod:
+            e = L.enrichment.get(sod[1], {})
+            if e.get("complaints_substantiated"):
+                parts.append(complaints_line(e["complaints_substantiated"]))
+            if e.get("citations"):
+                parts.append(f"Cited: {cite_summary(e['citations'])}")
+            elif e.get("deficiencies") == 0:
+                parts.append("No deficiencies")
+        return parts
+
+    def inspection(s):
+        return f"{survey_label(s['survey_type'])} ended {ap_date(s['exit_date'])}"
+
+    def docs(s):
+        return " · ".join(pdf(p, f"{labels.get(L.kind(c, p), c).capitalize()} (PDF)")
+                          for c, p in L.current(s).items())
+
+    def line(s, lead=""):
+        detail = " · ".join(facts(s))
+        return f"- {lead}{who(s)} — {inspection(s)}" + (f". {detail}" if detail else "") + f". {docs(s)}"
+
+    plural = lambda n, one, many: f"**{n}** {one if n == 1 else many}"
+    lines = [f"## The Care Ledger: week of {ap_date(L.run)}", ""]
+    lines.append(" · ".join([
+        plural(len(new), "new inspection record", "new inspection records"),
+        plural(actions, "new enforcement action", "new enforcement actions"),
+        f"**{len(aged_off)}** no longer listed by the state this week",
+        f"**{held}** held in the ledger in all",
+    ]))
+    if started:
+        lines += ["", f"First capture of {', '.join(started)} "
+                      f"{'County' if len(started) == 1 else 'counties'}: its archive starts here, "
+                      "so none of its records count as new."]
+    if enf:
+        lines += ["", "### New enforcement actions", ""]
+        lines += [line(s) for s in enf]
     if late_docs:
-        labels = {"enforcement": "**enforcement letter**", "sod": "statement of deficiency",
-                  "poc": "plan of correction"}
-        lines += ["", "### New documents on earlier surveys", ""]
-        lines += [f"- {L.name(s)} — {s['exit_date']} {s['survey_type']}: {labels[kind]}"
-                  + (f" (${L.fine(s):,} forfeiture)" if kind == "enforcement" and L.fine(s) else "")
-                  for s, kind in late_docs]
+        lines += ["", "### New documents on earlier inspections", ""]
+        for s, column in late_docs:
+            path = L.current(s)[column]
+            kind = L.kind(column, path)
+            detail = " · ".join(facts(s)) if kind == "enforcement" else ""
+            lines.append(f"- {who(s)} — {inspection(s)}: new {pdf(path, labels.get(kind, kind))}"
+                         + (f". {detail}" if detail else ""))
+    if other:
+        lines += ["", "### Other new inspections", ""]
+        lines += [line(s) for s in other]
     revised = L.revised()
     if revised:
-        labels = {"enforcement": "enforcement letter", "sod": "statement of deficiency",
-                  "poc": "plan of correction"}
         lines += ["", "### Documents the state replaced (originals kept here)", ""]
         for s, column, original, rev in revised:
             changes = revision_changes(L, original, rev["path"])
-            lines.append(f"- **{L.name(s)}** — {s['exit_date']} {s['survey_type']}: "
-                         f"{labels[L.kind(column, original)]} replaced {http_date(rev['last_modified'])}"
-                         + (f"; {', '.join(changes)}" if changes else ""))
+            label = labels.get(L.kind(column, original), column)
+            lines.append(f"- {who(s)} — {inspection(s)}: the state replaced the {label} "
+                         f"{http_date(rev['last_modified'])}"
+                         + (f" ({', '.join(changes)})" if changes else "")
+                         + f". {pdf(original, 'Original')} · {pdf(rev['path'], 'new version')}")
+    # The roster: new licenses — flagged when one opens where a closed
+    # facility was, the license flip of the Acorn Hill and Hummingbird Road
+    # stories — and closures the roster reports in the last two weeks.
+    opened = sorted((f for f in L.facilities.values()
+                     if f["first_seen"] == L.run and L.county_start[f["county"]] < L.run),
+                    key=lambda f: f["name"])
+    since = (date.fromisoformat(L.run) - timedelta(days=13)).isoformat()
+    closed = sorted((f for f in L.facilities.values() if (f.get("date_closed") or "") >= since),
+                    key=lambda f: f["date_closed"])
+    if opened or closed:
+        lines += ["", "### Roster changes", ""]
+        for f in opened:
+            flips = [o for o in L.facilities.values()
+                     if o is not f and o.get("date_closed") and address_key(o) == address_key(f)]
+            abbr = TYPE_ABBR.get(f["provider_type"].strip(), f["provider_type"].strip())
+            lines.append(f"- New: [{smart_title(f['name'])}]({page_url(f)}) ({f['city'].title()}, {abbr})"
+                         + "".join(f" — **same address as [{smart_title(o['name'])}]({page_url(o)}), "
+                                   f"closed {ap_date(o['date_closed'])}**" for o in flips))
+        for f in closed:
+            lines.append(f"- Closed {ap_date(f['date_closed'])}: "
+                         f"[{smart_title(f['name'])}]({page_url(f)}) ({f['city'].title()})")
     if aged_off:
         lines += ["", "### No longer listed by the state (now held here)", ""]
-        lines += [
-            f"- {L.name(s)} — {s['exit_date']}, {s['survey_type']}"
-            + (" · **enforcement**" if L.doc(s, "enforcement") else "")
-            for s in aged_off
-        ]
+        lines += [f"- {who(s)} — {inspection(s)}"
+                  + (" · **enforcement action**" if L.doc(s, "enforcement") else "")
+                  for s in aged_off]
+    lines += ["", f"[Open the Care Ledger]({SITE}) · figures as of the {ap_date(L.run)} run"]
     text = "\n".join(lines) + "\n"
     print(text)
     summary = os.environ.get("GITHUB_STEP_SUMMARY")
@@ -272,13 +384,11 @@ def render_item(L, sid, s, path, late, mark):
     sod_doc = L.doc(s, "sod")
     sod = L.enrichment.get(sod_doc[1], {}) if sod_doc else {}
     abbr = TYPE_ABBR.get(f["provider_type"].strip(), f["provider_type"].strip())
-    repo = os.environ.get("GITHUB_REPOSITORY", "RowanFlynnPilot/wpr-care-ledger")
-    server = os.environ.get("GITHUB_SERVER_URL", "https://github.com")
 
     lines = [f"### {smart_title(f['name'])} — {f['city'].title()}, "
              f"{f['county'].title()} County ({abbr})", ""]
-    lines.append(f"- **Survey:** {survey_label(s['survey_type'])}, closed {long_date(s['exit_date'])}"
-                 + (" — the enforcement letter was posted after the survey first appeared"
+    lines.append(f"- **Inspection:** {survey_label(s['survey_type'])}, ended {ap_date(s['exit_date'])}"
+                 + (" — the enforcement letter was posted after the inspection first appeared"
                     if late else ""))
     if letter.get("fine"):
         accruing = "Accruing forfeiture" in letter.get("sanctions", [])
@@ -288,17 +398,11 @@ def render_item(L, sid, s, path, late, mark):
     if orders:
         lines.append(f"- **Orders:** {' · '.join(orders)}")
     if sod.get("complaints_substantiated"):
-        lines.append("- **Complaint substantiated**")
-    titles = {}
-    for c in sod.get("citations", []):
-        t = c["title"].rstrip(".:")
-        titles[t] = titles.get(t, 0) + 1
-    if titles:
-        shown = [f"{t} ×{n}" if n > 1 else t for t, n in titles.items()]
-        lines.append(f"- **Cited:** {' · '.join(shown[:4])}"
-                     + (f" · +{len(shown) - 4} more" if len(shown) > 4 else ""))
+        lines.append(f"- **{complaints_line(sod['complaints_substantiated'])}**")
+    if sod.get("citations"):
+        lines.append(f"- **Cited:** {cite_summary(sod['citations'], limit=4)}")
     lines.append(f"- [Open in the Care Ledger]({SITE}#lic={s['license']}) · "
-                 f"[Enforcement letter (PDF)]({server}/{repo}/blob/main/{path})")
+                 f"[Facility page]({page_url(f)}) · [Enforcement letter (PDF)]({SITE}{path})")
     lines.append(f"<!-- {mark} {sid} -->")
     return "\n".join(lines)
 
@@ -313,7 +417,7 @@ def compose(L, items, mark, test):
         title = (f"{len(items)} new enforcement actions{at}: {', '.join(names[:2])}"
                  + (f" and {len(names) - 2} more" if len(names) > 2 else ""))
     intro = (f"**{len(items)} new enforcement action{'s' if len(items) > 1 else ''}** "
-             f"appeared in the Care Ledger's run of {long_date(L.run)}.")
+             f"appeared in the Care Ledger's run of {ap_date(L.run)}.")
     if test:
         title = f"[TEST] {title}"
         intro = ("> **Test alert.** Nothing new happened — this shows what an alert looks "
@@ -353,15 +457,13 @@ def post(title, body):
 def compose_revisions(L, items):
     """One alert for documents the state replaced at their addresses."""
     names = list(dict.fromkeys(L.name(s) for s, *_ in items))
-    repo = os.environ.get("GITHUB_REPOSITORY", "RowanFlynnPilot/wpr-care-ledger")
-    server = os.environ.get("GITHUB_SERVER_URL", "https://github.com")
     labels = {"enforcement": "enforcement letter", "sod": "statement of deficiency",
               "poc": "plan of correction"}
     title = (f"State revised records: {', '.join(names[:2])}"
              + (f" and {len(names) - 2} more" if len(names) > 2 else ""))
     parts = [f"**The state replaced {len(items)} document{'s' if len(items) > 1 else ''}** "
              f"at {'their addresses' if len(items) > 1 else 'its address'}, found in the Care "
-             f"Ledger's run of {long_date(L.run)}. The originals are kept in the ledger; the "
+             f"Ledger's run of {ap_date(L.run)}. The originals are kept in the ledger; the "
              f"state's site now shows only the new versions. Ask DQA why before reporting it."]
     # One heading per survey: a reissue usually replaces its letter and its
     # statement of deficiency together.
@@ -374,17 +476,17 @@ def compose_revisions(L, items):
         lines = [
             f"### {smart_title(f['name'])} — {f['city'].title()}, {f['county'].title()} County",
             "",
-            f"- **Survey:** {survey_label(s['survey_type'])}, closed {long_date(s['exit_date'])}",
+            f"- **Inspection:** {survey_label(s['survey_type'])}, ended {ap_date(s['exit_date'])}",
         ]
         for _, column, original, rev in group:
             changes = revision_changes(L, original, rev["path"])
             lines.append(
                 f"- **{labels[L.kind(column, original)].capitalize()}** replaced on the state's site "
                 f"{http_date(rev['last_modified'])}" + (f": {'; '.join(changes)}" if changes else "")
-                + f" — [original]({server}/{repo}/blob/main/{original}) · "
-                f"[new version]({server}/{repo}/blob/main/{rev['path']})"
+                + f" — [original]({SITE}{original}) · [new version]({SITE}{rev['path']})"
             )
-        lines.append(f"- [Open in the Care Ledger]({SITE}#lic={s['license']})")
+        lines.append(f"- [Open in the Care Ledger]({SITE}#lic={s['license']}) · "
+                     f"[Facility page]({page_url(f)})")
         lines += [f"<!-- {REVISION_MARK} {s['license']}|{s['exit_date']}|{rev['path']} -->"
                   for _, _, _, rev in group]
         parts.append("\n".join(lines))
