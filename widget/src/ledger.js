@@ -272,6 +272,9 @@ export function shape(facilitiesObj, surveysObj, enrichmentObj, waybackObj, geoc
         const k = enrichmentObj[path]?.kind;
         return {
           kind: k === "enforcement" || k === "sod" ? k : column,
+          // The state's grid column it came from: documents_first_seen and
+          // revisions are keyed by it, and it can differ from the kind.
+          column,
           path,
           // The Internet Archive's copy, fetched from the state's server.
           copy: waybackObj.documents[path],

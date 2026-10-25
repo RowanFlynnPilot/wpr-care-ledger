@@ -599,7 +599,15 @@ script-built page a search engine can't see into): `postbuild` runs
 for every facility (plain HTML: title and description built from the
 record, canonical URL, share tags, facts, the full inspection history
 with PDF and archive.org links, a button into the interactive ledger),
-`dist/facility/` (every facility by county), and `dist/sitemap.xml`;
+`dist/facility/` (every facility by county), `dist/sitemap.xml`, and
+Atom feeds of enforcement actions — `dist/feed.xml` (the ledger) and
+`dist/feed/<county>.xml` — each the 50 newest by the date the ledger
+first saw the letter (`documents_first_seen` of the letter's column, so a
+Notice and Order that posts weeks after its report leads the feed the
+week it appears; a county's first capture carries that date), entries
+linking the facility page and the letter, ids `tag:` URIs that never
+change; discoverable from every page head, linked from the widget footer
+(plus the county in view) and the facility index;
 it also writes into `dist/index.html` a canonical link and a schema.org
 `Dataset` (JSON-LD: description, creator, temporal and spatial coverage,
 `dateModified` from the data, the JSON files as downloads) for Google
@@ -636,8 +644,15 @@ then bundles them into `dist/`, so **the Pages artifact is just
   `fetch-failure` issue (one at a time) so a dead scraper is loud —
   expected to fire at the Provider Finder migration. Parse warnings go to
   the run's summary page beside the tip sheet.
-- `deploy.yml` — builds the widget and publishes `widget/dist` to GitHub
-  Pages. Triggers: pushes to main, successful completion of the fetch or
+- `deploy.yml` — builds the widget, runs the browser smoke tests against
+  that build (`widget/tests/smoke.spec.js`, Playwright 1.64.0 pinned,
+  Chromium, desktop and Pixel 7: load with no console errors, search and
+  open a record, `#lic`/`#cat`/`#county`+`#view=map` links, a map dot's
+  card opening its record, a chart pick returning to the list, the
+  single embed, a cross-origin WordPress stand-in sized by `embed.js`
+  with the story link forwarded, no sideways scroll at 320px, a facility
+  page, the feeds and sitemap), and only then publishes `widget/dist` to
+  GitHub Pages — a failing test leaves the last good build live. Triggers: pushes to main, successful completion of the fetch or
   wayback workflow (`workflow_run`), or manual dispatch. The `workflow_run` chain
   exists because commits pushed with the default `GITHUB_TOKEN` (the fetch
   bot) never trigger other workflows — a plain push trigger would leave the
@@ -692,6 +707,13 @@ then bundles them into `dist/`, so **the Pages artifact is just
   against foreign-county documents), so the ledger's own weekly fetch is
   the only archive this county has. Re-run only if IA coverage grows.
 - Widget dev: `cd widget; npm install; npm run dev`
+- Widget tests: `cd widget; npm run build; npm test` (serves `dist` on
+  port 4319 with `--strictPort` and never reuses a running server — port
+  4174 once answered with another project, and the suite tested it; the
+  embed test frames localhost from 127.0.0.1, so the config turns off
+  Chrome's local-network-access check for the test browser). The suite
+  found a real bug on its first run: the longer row chips overflowed a
+  320px phone.
 - Deps are pinned: `python -m pip install -r pipeline/requirements.txt`
   (upgrade deliberately: bump, run fetch + `enrich.py --rebuild`, diff
   data/ before committing)

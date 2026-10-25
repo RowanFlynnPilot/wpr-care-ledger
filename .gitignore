@@ -4,3 +4,5 @@ __pycache__/
 .DS_Store
 widget/public/data/
 widget/public/archive/
+test-results/
+playwright-report/

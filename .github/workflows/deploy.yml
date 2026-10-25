@@ -38,6 +38,13 @@ jobs:
         working-directory: widget
       - run: npm run build   # prebuild syncs data/ and archive/ into the bundle
         working-directory: widget
+      # What a reader does, against the very build about to go live: load,
+      # search, story links, map, embed, phone width, facility pages, feeds.
+      # A failure stops here, and the live site keeps the last good build.
+      - run: npx playwright install --with-deps chromium
+        working-directory: widget
+      - run: npm test
+        working-directory: widget
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5
         with:

@@ -1017,6 +1017,24 @@ export default function App() {
             (&ldquo;archive.org copy&rdquo;). Last updated{" "}
             {fmtDate(db.lastUpdated)}.
           </p>
+          <p className="feeds">
+            Follow new enforcement actions by RSS:{" "}
+            <a href={`${LEDGER_URL}feed.xml`} target="_blank" rel="noopener noreferrer">
+              all nine counties
+            </a>
+            {county !== "ALL" && (
+              <>
+                {" · "}
+                <a
+                  href={`${LEDGER_URL}feed/${county.toLowerCase()}.xml`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {titleCase(county)} County
+                </a>
+              </>
+            )}
+          </p>
           <p className="support">
             The Care Ledger is free, with no paywall, because readers support
             Wausau Pilot &amp; Review&rsquo;s reporting.{" "}

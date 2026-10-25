@@ -75,7 +75,15 @@ footer{margin-top:32px;border-top:1px solid var(--ink);padding-top:12px;font-siz
 footer a.support{font-weight:700}
 @media (max-width:560px){ol.timeline li{grid-template-columns:1fr}}`;
 
-function page({ title, description, path, body }) {
+// Atom feeds of enforcement actions: the ledger's and each county's, so a
+// reader or a newsroom can follow new ones without email or a server.
+const LEDGER_FEED = { path: "feed.xml", title: "The Care Ledger: new enforcement actions" };
+const countyFeed = (county) => ({
+  path: `feed/${county.toLowerCase()}.xml`,
+  title: `The Care Ledger: new enforcement actions in ${titleCase(county)} County`,
+});
+
+function page({ title, description, path, body, feed }) {
   const url = SITE + path;
   return `<!doctype html>
 <html lang="en">
@@ -93,6 +101,7 @@ function page({ title, description, path, body }) {
 <meta property="og:image" content="${SITE}og-card.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../../brand/wpr-typewriter-32.png">
+${feed ? `<link rel="alternate" type="application/atom+xml" title="${esc(feed.title)}" href="${esc(SITE + feed.path)}">` : ""}
 <style>${css}</style>
 </head>
 <body>
@@ -177,6 +186,7 @@ function facilityPage(f) {
     title: `${name} (${city}) inspection and enforcement records | The Care Ledger`,
     description,
     path: `facility/${slug(f)}/`,
+    feed: countyFeed(f.county),
     body: `<article>
 <h1>${esc(name)}</h1>
 <p class="meta">${esc(f.typeAbbr)} · ${esc(city)}, ${esc(county)} County · license ${esc(f.license)}${f.closed ? " · closed" : ""}</p>
@@ -228,8 +238,10 @@ function indexPage() {
     title: "Assisted living facilities in central Wisconsin: inspection records | The Care Ledger",
     description: `State inspection and enforcement records for ${db.facilities.length} assisted living facilities in Marathon County and the eight counties around it, kept by Wausau Pilot & Review.`,
     path: "facility/",
+    feed: LEDGER_FEED,
     body: `<h1>Every facility in The Care Ledger</h1>
 <p class="lede">Every inspection report and enforcement letter since 2023 for the ${db.facilities.length} state-regulated assisted living facilities in ${apNum(db.counties.length)} central Wisconsin counties. <a href="${SITE}">Search them in the interactive ledger</a>.</p>
+<p class="mono">Follow new enforcement actions by RSS: <a href="${SITE}${LEDGER_FEED.path}">all ${apNum(db.counties.length)} counties</a> · ${db.counties.map((c) => `<a href="${SITE}${countyFeed(c).path}">${esc(titleCase(c))}</a>`).join(" · ")}</p>
 ${sections}`,
   });
   // One level shallower than a facility page: fix the relative asset paths.
@@ -277,9 +289,71 @@ writeFileSync(
   readFileSync(indexPath, "utf8").replace(
     "</head>",
     `<link rel="canonical" href="${SITE}" />\n` +
+      `<link rel="alternate" type="application/atom+xml" title="${LEDGER_FEED.title}" href="${SITE}${LEDGER_FEED.path}" />\n` +
       `<script type="application/ld+json">${JSON.stringify(dataset).replace(/</g, "\\u003c")}</script>\n</head>`
   )
 );
+
+// Every enforcement action, dated by when the ledger first saw its letter
+// (a Notice and Order often posts weeks after its inspection's report), so
+// each week's new ones lead the feed. A county's first capture brought in
+// its history at once; those keep that date, newest inspections first.
+const actions = db.facilities
+  .flatMap((f) =>
+    f.surveys
+      .filter((s) => s.hasEnforcement)
+      .map((s) => {
+        const letter = s.docs.find((d) => d.kind === "enforcement");
+        return { f, s, letter, found: s.documents_first_seen?.[letter.column] || s.first_seen };
+      })
+  )
+  .sort((a, b) => b.found.localeCompare(a.found) || b.s.exit_date.localeCompare(a.s.exit_date));
+
+function atom(feed, items) {
+  const stamp = (d) => `${d}T12:00:00Z`;
+  const entries = items.slice(0, 50).map(({ f, s, letter, found }) => {
+    const name = smartTitle(f.name);
+    const fine = s.enr.fine
+      ? `$${fmtNum(s.enr.fine)} forfeiture${s.enr.sanctions.includes("Accruing forfeiture") ? " (accruing)" : ""}`
+      : "";
+    const sanctions = s.enr.sanctions.filter((x) => SANCTION_LABELS[x]).map((x) => SANCTION_LABELS[x]);
+    const summary = [
+      `${surveyLabel(s.survey_type)} ended ${fmtDate(s.exit_date)}, ${titleCase(f.city)}, ${titleCase(f.county)} County.`,
+      fine && `Assessed: ${fine}.`,
+      sanctions.length && `${sanctions.join("; ")}.`,
+      s.enr.citations.length && `Cited: ${citeSummary(s.enr.citations)}.`,
+      `Enforcement letter: ${SITE}${letter.path}`,
+    ]
+      .filter(Boolean)
+      .join(" ");
+    return `<entry>
+  <title>${esc(`${name}: enforcement action${fine ? `, ${fine}` : ""}`)}</title>
+  <link href="${esc(`${SITE}facility/${slug(f)}/`)}"/>
+  <id>${esc(`tag:rowanflynnpilot.github.io,2026:care-ledger/${s.id.replaceAll("|", "/")}`)}</id>
+  <published>${stamp(found)}</published>
+  <updated>${stamp(found)}</updated>
+  <summary type="text">${esc(summary)}</summary>
+</entry>`;
+  });
+  return `<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+<title>${esc(feed.title)}</title>
+<subtitle>State enforcement actions against assisted living facilities, as Wausau Pilot &amp; Review's Care Ledger finds them each week.</subtitle>
+<link rel="self" href="${esc(SITE + feed.path)}"/>
+<link href="${esc(SITE)}"/>
+<id>${esc(SITE + feed.path)}</id>
+<updated>${stamp(items[0]?.found || db.lastUpdated)}</updated>
+<author><name>Wausau Pilot &amp; Review</name><uri>https://wausaupilotandreview.com/</uri></author>
+${entries.join("\n")}
+</feed>
+`;
+}
+
+writeFileSync(join(dist, LEDGER_FEED.path), atom(LEDGER_FEED, actions));
+mkdirSync(join(dist, "feed"), { recursive: true });
+for (const c of db.counties) {
+  writeFileSync(join(dist, countyFeed(c).path), atom(countyFeed(c), actions.filter((a) => a.f.county === c)));
+}
 
 const urls = [SITE, `${SITE}facility/`, ...db.facilities.map((f) => `${SITE}facility/${slug(f)}/`)];
 writeFileSync(

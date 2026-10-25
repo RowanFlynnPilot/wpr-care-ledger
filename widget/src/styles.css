@@ -1368,9 +1368,11 @@ mark {
 
 .row-chips {
   display: flex;
+  flex-wrap: wrap; /* a phone's row can't fit "2 enforcement actions · $400" and "1 record held" side by side */
   align-items: center;
   gap: 6px;
   flex-shrink: 0;
+  max-width: 100%;
 }
 
 .chip {
