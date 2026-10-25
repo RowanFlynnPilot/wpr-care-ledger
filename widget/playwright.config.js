@@ -11,6 +11,9 @@ export default defineConfig({
   reporter: process.env.CI ? [["github"], ["list"]] : "list",
   use: {
     baseURL: "http://localhost:4319/",
+    // A failing test keeps a full trace (DOM, network, console, timing);
+    // deploy.yml uploads them, so a CI-only failure can be replayed.
+    trace: "retain-on-failure",
     // The embed test frames localhost from 127.0.0.1, which Chrome's
     // local-network-access check blocks; the real site (public to public)
     // never meets it.

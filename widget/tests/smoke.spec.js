@@ -31,16 +31,28 @@ test("search finds a facility and opens its record", async ({ page }) => {
   await expect(panel.locator(".nearby li").first()).toBeVisible();
 });
 
+// Each link as a reader meets it: a fresh page load from a story. (The
+// ?from= query only forces the new document; the ledger ignores it.)
 test("story links: #lic, #cat, #county + #view=map", async ({ page }) => {
-  await page.goto(`./#lic=${WATERFORD}`);
+  await page.goto(`./?from=lic#lic=${WATERFORD}`);
   await expect(page.locator(`#head-${WATERFORD}`)).toHaveAttribute("aria-expanded", "true");
 
-  await page.goto("./#cat=medications");
+  await page.goto("./?from=cat#cat=medications");
   await expect(page.locator(".result-count")).toContainText("cited for medications");
 
-  await page.goto("./#county=Wood&view=map");
+  await page.goto("./?from=county#county=Wood&view=map");
   await expect(page.getByLabel("County", { exact: true })).toHaveValue("WOOD");
   await expect.poll(() => page.locator(".map-dot").count()).toBeGreaterThan(30);
+});
+
+// A second link on a page already open (embed.js forwards a story link
+// this way): the hash changes in place and the view must follow it.
+test("a new link on an open page replaces the view", async ({ page }) => {
+  await page.goto(`./#lic=${WATERFORD}`);
+  await expect(page.locator(`#head-${WATERFORD}`)).toHaveAttribute("aria-expanded", "true");
+  await page.evaluate(() => (location.hash = "cat=medications"));
+  await expect(page.locator(".result-count")).toContainText("cited for medications");
+  await expect(page).toHaveURL(/#cat=medications$/);
 });
 
 test("map: a dot opens its card, the card opens the record", async ({ page }) => {

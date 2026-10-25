@@ -664,7 +664,11 @@ then bundles them into `dist/`, so **the Pages artifact is just
   address, a seven-figure fine, every chip, 12 long citations, no map
   location — into the real data by intercepting the JSON, and checks it
   renders whole at 320px with no console errors; it found the "Qq"
-  addresses), and only then publishes `widget/dist` to
+  addresses). Story links are tested as fresh page loads (how a reader
+  arrives); a separate test changes the hash on an open page, the path
+  embed.js uses. A failing test keeps a Playwright trace, uploaded as the
+  run's `playwright-traces` artifact (`npx playwright show-trace`), and
+  only then publishes `widget/dist` to
   GitHub Pages — a failing test leaves the last good build live. Triggers: pushes to main, successful completion of the fetch or
   wayback workflow (`workflow_run`), or manual dispatch. The `workflow_run` chain
   exists because commits pushed with the default `GITHUB_TOKEN` (the fetch
