@@ -359,7 +359,16 @@ July 12, 2023 for Marathon, Oct. 7, 2023 for the rest. Search also
 matches the printed name ("the waterford"). A
 probationary license gets a neutral chip with a tooltip — it is
 Wisconsin's standard first-year license, never styled as discipline.
-Below the masthead, "Inspections by quarter": each bar is the
+Page order (2026-10-25, search first): masthead, the four stats, then
+search, filters, lenses and the facility list or map — a family's task
+is finding one facility, which had sat 1.5 screens down on desktop and
+2.4 on a phone, below the charts — then "The big picture" (an `h2`
+section; the three charts' titles are `h3`), the glossary, the footer.
+A county or category picked in a chart filters the list above, so
+`backToList()` scrolls to the result count and focuses it (it announces
+the new number) — embedded too, the one scroll an embed makes, because
+it answers the reader's own click.
+"Inspections by quarter": each bar is the
 quarter's surveys as a light outlined bar (outline #8a8a8a, 3.4:1, so it
 reads as a shape on white) filled from the baseline in red with those
 that led to enforcement — a whole and its red part, so the eye lands on
@@ -490,8 +499,8 @@ classless frame, and the script included twice (README, Embedding).
 The widget posts its height to the parent page measured from
 `#root` — never `documentElement.scrollHeight`, which can't drop below
 the iframe's own height, so the frame could grow but never shrink. When
-embedded it never calls `scrollIntoView` (that would scroll the reader's
-article). Numbers format with a fixed `en-US` locale ("$39,640" on a
+embedded it never calls `scrollIntoView` on its own (that would scroll
+the reader's article) — only `backToList()`, after a chart click. Numbers format with a fixed `en-US` locale ("$39,640" on a
 German browser too); dates are AP style from `fmtDate()` in ledger.js
 ("Sept. 21, 2026", "March 27, 2026"; the masthead too — there is no
 spelled-out form), never the

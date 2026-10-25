@@ -626,6 +626,19 @@ export default function App() {
     setOpen(null);
   };
 
+  // The charts sit below the list, so a pick in one changes what's above
+  // it: bring the reader back up to the result count, which announces the
+  // new number. Embedded too — this scroll answers the reader's own click,
+  // unlike the deep-link scrolls an embed skips.
+  const backToList = () =>
+    requestAnimationFrame(() => {
+      countRef.current?.scrollIntoView({
+        block: "start",
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      });
+      countRef.current?.focus({ preventScroll: true });
+    });
+
   // The chart counts every facility in the county view, closed included,
   // so picking a category resets the narrowing to make the list match it.
   const pickCategory = (cat) => {
@@ -636,10 +649,14 @@ export default function App() {
     setLens("all");
     setShowClosed(true);
     setOpen(null);
-    requestAnimationFrame(() => {
-      if (!EMBEDDED) countRef.current?.scrollIntoView({ block: "start", behavior: "smooth" });
-      countRef.current?.focus({ preventScroll: true });
-    });
+    backToList();
+  };
+
+  // A county row in the chart sets the county filter (again to clear).
+  const pickCounty = (c) => {
+    setCounty(county === c ? "ALL" : c);
+    setOpen(null);
+    backToList();
   };
 
   const staleDays = Math.floor(
@@ -724,23 +741,6 @@ export default function App() {
           <Stat n={stats.documents} label="documents archived" />
         )}
       </dl>
-
-      <ActivityChart surveys={scopedSurveys} lastUpdated={db.lastUpdated} coverage={coverage} />
-
-      <CountyChart
-        facilities={db.facilities}
-        since={sinceArchive(db.countyStart, db.counties)}
-        county={county}
-        onPick={(c) => setCounty(county === c ? "ALL" : c)}
-      />
-
-      <CitationChart
-        surveys={scopedSurveys}
-        total={scoped.length}
-        since={sinceArchive(db.countyStart, county === "ALL" ? db.counties : [county])}
-        active={category}
-        onPick={pickCategory}
-      />
 
       <div className="controls">
         <input
@@ -956,6 +956,31 @@ export default function App() {
         )}
       </ol>
 
+      {/* Lookup first, the overview after it: a family's task is finding
+          one facility. A chart row filters the list above and jumps back
+          up to it. */}
+      <section className="big-picture" aria-labelledby="big-picture-title">
+        <h2 id="big-picture-title" className="section-title">
+          The big picture
+        </h2>
+        <ActivityChart surveys={scopedSurveys} lastUpdated={db.lastUpdated} coverage={coverage} />
+
+        <CountyChart
+          facilities={db.facilities}
+          since={sinceArchive(db.countyStart, db.counties)}
+          county={county}
+          onPick={pickCounty}
+        />
+
+        <CitationChart
+          surveys={scopedSurveys}
+          total={scoped.length}
+          since={sinceArchive(db.countyStart, county === "ALL" ? db.counties : [county])}
+          active={category}
+          onPick={pickCategory}
+        />
+      </section>
+
       <Glossary />
       </main>
 
@@ -1122,7 +1147,7 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
   return (
     <figure className="activity">
       <div className="activity-head">
-        <h2 id="activity-title">Inspections by quarter</h2>
+        <h3 id="activity-title">Inspections by quarter</h3>
         <ul className="legend">
           <li>
             <span className="swatch swatch-plain" /> All inspections
@@ -1365,7 +1390,7 @@ function CountyChart({ facilities, since, county, onPick }) {
   return (
     <figure className="cites county-chart">
       <div className="activity-head">
-        <h2 id="county-title">Enforcement by county</h2>
+        <h3 id="county-title">Enforcement by county</h3>
         <p className="cites-sub">
           Share of each county&rsquo;s facilities with at least one enforcement action · select one
           to view it
@@ -1424,7 +1449,7 @@ function CitationChart({ surveys, total, since, active, onPick }) {
   return (
     <figure className="cites">
       <div className="activity-head">
-        <h2 id="cites-title">What inspectors cite</h2>
+        <h3 id="cites-title">What inspectors cite</h3>
         <p className="cites-sub">
           Share of the {fmtNum(total)} facilities in view cited at least once · select one to list them
         </p>

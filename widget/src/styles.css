@@ -253,6 +253,10 @@ button {
 
 /* ------------------------------------------------------- activity chart */
 
+.big-picture .activity {
+  margin-top: 0;
+}
+
 .activity {
   margin: 22px 0 18px;
   padding-bottom: 12px;
@@ -268,7 +272,20 @@ button {
   margin-bottom: 14px;
 }
 
-.activity-head h2 {
+/* "The big picture": the charts' section, after the facility list. */
+.section-title {
+  font-family: var(--heading);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-top: 3px solid var(--rule);
+  padding-top: 10px;
+  margin: 34px 0 18px;
+}
+
+.activity-head h3 {
   font-family: var(--heading);
   font-size: 12px;
   font-weight: 700;
