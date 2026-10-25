@@ -19,6 +19,7 @@ import {
   isoMinusDays,
   windowStartOf,
   citeSummary,
+  addressCase,
   andList,
   apNum,
   licensedOn,
@@ -2005,7 +2006,7 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
     } else if (f.licensee && f.licensee.toLowerCase().includes(q)) {
       matchNote = { label: "licensee", value: smartTitle(f.licensee) };
     } else if (f.address && f.address.toLowerCase().includes(q)) {
-      matchNote = { label: "address", value: titleCase(f.address) };
+      matchNote = { label: "address", value: addressCase(f.address) };
     }
   }
 
@@ -2116,7 +2117,7 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
           <div className="panel-grid">
           <dl className="facts">
             <Fact k="Facility type" v={TYPE_FULL[f.typeAbbr]} />
-            <Fact k="Address" v={`${titleCase(f.address)}, ${titleCase(f.city)} ${f.zip}`} />
+            <Fact k="Address" v={`${addressCase(f.address)}, ${titleCase(f.city)} ${f.zip}`} />
             <Fact k="County" v={titleCase(f.county)} />
             <Fact k="License" v={f.license} mono />
             <Fact k="Status" v={statusLabel(f.licensure_status)} />

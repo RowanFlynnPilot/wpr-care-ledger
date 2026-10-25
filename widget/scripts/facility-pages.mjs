@@ -11,7 +11,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   DOC_LABELS, SANCTION_LABELS, SUPPORT_URL, TYPE_FULL, revisionChanges, citeSummary, facilitySlug as slug, fmtDate, fmtNum, locatorSvg, nearbyOf, shape,
-  smartTitle, surveyLabel, titleCase, waybackDate, windowStartOf, apNum, licensedOn, statusLabel,
+  smartTitle, surveyLabel, titleCase, waybackDate, windowStartOf, apNum, licensedOn, statusLabel, addressCase,
 } from "../src/ledger.js";
 
 // The published address. Change here if the ledger moves to a custom domain.
@@ -170,7 +170,7 @@ function facilityPage(f) {
 
   const facts = [
     ["Facility type", type],
-    ["Address", `${titleCase(f.address)}, ${city} ${f.zip}`],
+    ["Address", `${addressCase(f.address)}, ${city} ${f.zip}`],
     ["County", county],
     ["License", f.license],
     ["Status", statusLabel(f.licensure_status)],

@@ -455,7 +455,9 @@ in summaries, "forfeiture" on a record's own line, where it quotes the
 letter; "enforcement action(s)", never a bare "enforcement" count (row chips
 too: "2 enforcement actions · $400", "1 record held"); numbers
 one through nine spelled (`apNum()`), no serial comma (`andList()`),
-"miles" not "mi"; combined survey types read "Standard survey and
+"miles" not "mi"; addresses keep a lettered county highway in capitals
+(`addressCase()`: "County Rd QQ", not "Qq" — 11 facilities sit on
+lettered county roads); combined survey types read "Standard survey and
 complaint investigation"; the state's VV and VERIFICATION VISIT are both
 "Follow-up visit". License status reads "Regular license" /
 "Probationary (first-year) license, not a penalty" (`statusLabel()`), so
@@ -657,7 +659,12 @@ then bundles them into `dist/`, so **the Pages artifact is just
   card opening its record, a chart pick returning to the list, the
   single embed, a cross-origin WordPress stand-in sized by `embed.js`
   with the story link forwarded, no sideways scroll at 320px, a facility
-  page, the feeds and sitemap), and only then publishes `widget/dist` to
+  page, the feeds and sitemap; `tests/worst-case.spec.js` injects one
+  facility built to break the layout — longest name, operator and
+  address, a seven-figure fine, every chip, 12 long citations, no map
+  location — into the real data by intercepting the JSON, and checks it
+  renders whole at 320px with no console errors; it found the "Qq"
+  addresses), and only then publishes `widget/dist` to
   GitHub Pages — a failing test leaves the last good build live. Triggers: pushes to main, successful completion of the fetch or
   wayback workflow (`workflow_run`), or manual dispatch. The `workflow_run` chain
   exists because commits pushed with the default `GITHUB_TOKEN` (the fetch

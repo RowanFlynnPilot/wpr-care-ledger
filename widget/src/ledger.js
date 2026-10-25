@@ -117,6 +117,15 @@ export function titleCase(s) {
   return s.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
+/* Street addresses, title-cased, except a lettered county highway stays in
+   capitals: "950 COUNTY RD QQ" -> "950 County Rd QQ", not "Qq". */
+export function addressCase(s) {
+  return titleCase(s || "").replace(
+    /\b(Hwy|Highway|Rd|Road|Trunk)\s+(?!(?:Apt|Ste|Lot|Box)\b)([A-Za-z]{1,3})\b/g,
+    (m, road, letters) => `${road} ${letters.toUpperCase()}`
+  );
+}
+
 /* Facility and operator names arrive from the state in ALL CAPS. Title-case
    them for print, preserving corporate and licensing acronyms. */
 export const KEEP_UPPER = new Set([
