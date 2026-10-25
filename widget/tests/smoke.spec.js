@@ -40,12 +40,13 @@ test("story links: #lic, #cat, #county + #view=map", async ({ page }) => {
 
   await page.goto("./#county=Wood&view=map");
   await expect(page.getByLabel("County", { exact: true })).toHaveValue("WOOD");
-  expect(await page.locator(".map-dot").count()).toBeGreaterThan(30);
+  await expect.poll(() => page.locator(".map-dot").count()).toBeGreaterThan(30);
 });
 
 test("map: a dot opens its card, the card opens the record", async ({ page }) => {
   await page.goto("./#view=map");
-  expect(await page.locator(".map-dot").count()).toBeGreaterThan(200);
+  // Polled: a bare count() doesn't wait for the data to load (CI is fast).
+  await expect.poll(() => page.locator(".map-dot").count()).toBeGreaterThan(200);
   // Dots don't take pointer events; the map finds what's under the click.
   // The map sits below the fold, and the mouse only reaches the viewport.
   await page.locator(".facility-map svg").scrollIntoViewIfNeeded();
