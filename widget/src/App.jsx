@@ -91,7 +91,7 @@ const GLOSSARY = [
     ["Forfeiture", "A fine. The ledger shows the amount assessed; a facility that pays within 10 days and doesn't appeal may pay a reduced amount."],
     ["Accruing forfeiture", "A fine that grows each day until the facility complies. The ledger shows the amount assessed so far."],
     ["Order to comply", "An order to correct the violations cited."],
-    ["Order not to admit new residents", "A ban on taking new residents until the state lifts it — among the most serious steps short of closing a facility."],
+    ["Order not to admit new residents", "A ban on taking new residents until the state lifts it — among the most serious steps short of closing a facility. When a later letter keeps an earlier ban in place, the ledger labels it \"extended.\""],
     ["License revocation", "The state moving to take away the facility's license. A facility can appeal."],
     ["Revisit fee", "A fee the facility pays for the inspection that checks its corrections."],
   ]],
