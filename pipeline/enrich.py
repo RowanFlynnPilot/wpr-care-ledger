@@ -44,7 +44,10 @@ NOTICE_TYPES = [
     ("Revocation", r"NOTICE OF (?:LICENSE )?REVOCATION"),
     ("Summary suspension", r"NOTICE OF SUMMARY SUSPENSION"),
     ("Nonrenewal", r"NOTICE OF NON-?RENEWAL"),
-    ("Admissions ban", r"ORDER NOT TO ADMIT NEW OR ADDITIONAL RESIDENTS(?: - EXTENDED)?"),
+    ("Admissions ban", r"ORDER NOT TO ADMIT NEW OR ADDITIONAL RESIDENTS"),
+    # An extension of an earlier ban, not a new one (five of the 17 ban
+    # letters through 2026-10; the state writes the dash as - or –).
+    ("Admissions ban extended", r"ORDER NOT TO ADMIT NEW OR ADDITIONAL RESIDENTS\s*[-–—]\s*EXTENDED"),
     ("Accruing forfeiture", r"NOTICE OF ACCRUING FORFEITURE"),
     ("Forfeiture", r"NOTICE OF (?:IMPOSED )?FORFEITURE"),
     ("Special orders", r"NOTICE OF SPECIAL ORDERS"),
@@ -228,20 +231,29 @@ def parse_sod(text):
     elif re.search(r"\bno\s+(?:new\s+|repeat\s+)?deficiencies\s+(?:were\s+)?identifi?ed", text, re.I):
         deficiencies = 0
 
-    # "Two of 8 complaints were substantiated" counts two, not eight.
+    # "Two of 8 complaints were substantiated" counts two, not eight. Only
+    # the first statement of each kind counts: it is the survey summary on
+    # page one, and deficiency text often repeats it ("As a result of the
+    # current survey, four of 4 complaints were substantiated"), sometimes
+    # with a different number than the summary (0011954, 2024-04-30: three
+    # in the summary, four in the repeat). Summing every match overcounted
+    # (fact-check, 2026-10-25).
     substantiated = 0
     unsubstantiated = 0
+    seen = set()
     for m in re.finditer(
         r"\b(\w+)(?:\s+of\s+(?:the\s+)?\w+)?\s+complaints?\s+(?:was|were)\s+(un)?substantiated",
         text, re.I,
     ):
         n = num(m.group(1))
-        if n is None:
+        kind = "un" if m.group(2) else "sub"
+        if n is None or kind in seen:
             continue
-        if m.group(2):
-            unsubstantiated += n
+        seen.add(kind)
+        if kind == "un":
+            unsubstantiated = n
         else:
-            substantiated += n
+            substantiated = n
 
     # Keyed by normalized tag + code; when a citation appears twice (the
     # newer layout's first-page index repeats every tag, truncated), keep

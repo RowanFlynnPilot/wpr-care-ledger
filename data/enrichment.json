@@ -546,7 +546,7 @@
     "fine": null,
     "kind": "enforcement",
     "sanctions": [
-      "Admissions ban",
+      "Admissions ban extended",
       "Special orders",
       "Order to comply",
       "Revisit fee"
@@ -1042,7 +1042,7 @@
         "title": "Care"
       }
     ],
-    "complaints_substantiated": 8,
+    "complaints_substantiated": 4,
     "complaints_unsubstantiated": 0,
     "deficiencies": null,
     "kind": "sod"
@@ -1051,7 +1051,7 @@
     "fine": 2100,
     "kind": "enforcement",
     "sanctions": [
-      "Admissions ban",
+      "Admissions ban extended",
       "Forfeiture",
       "Order to comply"
     ],
@@ -1094,7 +1094,7 @@
     "fine": 6500,
     "kind": "enforcement",
     "sanctions": [
-      "Admissions ban",
+      "Admissions ban extended",
       "Forfeiture",
       "Order to comply",
       "Revisit fee"
@@ -1242,7 +1242,7 @@
         "title": "Care"
       }
     ],
-    "complaints_substantiated": 7,
+    "complaints_substantiated": 3,
     "complaints_unsubstantiated": 0,
     "deficiencies": null,
     "kind": "sod"
@@ -1275,7 +1275,7 @@
     "fine": 7250,
     "kind": "enforcement",
     "sanctions": [
-      "Admissions ban",
+      "Admissions ban extended",
       "Forfeiture",
       "Revisit fee"
     ],
@@ -1351,7 +1351,7 @@
         "title": "Leisure time activities."
       }
     ],
-    "complaints_substantiated": 6,
+    "complaints_substantiated": 3,
     "complaints_unsubstantiated": 0,
     "deficiencies": 11,
     "kind": "sod"
@@ -6734,7 +6734,7 @@
         "title": "Health monitoring."
       }
     ],
-    "complaints_substantiated": 2,
+    "complaints_substantiated": 1,
     "complaints_unsubstantiated": 0,
     "deficiencies": null,
     "kind": "sod"
@@ -7101,8 +7101,8 @@
         "title": "Out of state background checks"
       }
     ],
-    "complaints_substantiated": 15,
-    "complaints_unsubstantiated": 10,
+    "complaints_substantiated": 2,
+    "complaints_unsubstantiated": 1,
     "deficiencies": 16,
     "kind": "sod"
   },
@@ -8394,7 +8394,7 @@
         "title": "Out of state background checks"
       }
     ],
-    "complaints_substantiated": 4,
+    "complaints_substantiated": 2,
     "complaints_unsubstantiated": 0,
     "deficiencies": 15,
     "kind": "sod"
@@ -8497,7 +8497,7 @@
         "title": "Heating system maintenance."
       }
     ],
-    "complaints_substantiated": 6,
+    "complaints_substantiated": 3,
     "complaints_unsubstantiated": 0,
     "deficiencies": 10,
     "kind": "sod"
@@ -8706,7 +8706,7 @@
         "title": "Other evacuation drills."
       }
     ],
-    "complaints_substantiated": 13,
+    "complaints_substantiated": 3,
     "complaints_unsubstantiated": 0,
     "deficiencies": 1,
     "kind": "sod"
@@ -9569,7 +9569,7 @@
         "title": "Smoke and heat detectors per NFPA 72."
       }
     ],
-    "complaints_substantiated": 2,
+    "complaints_substantiated": 1,
     "complaints_unsubstantiated": 0,
     "deficiencies": 13,
     "kind": "sod"
@@ -10713,7 +10713,7 @@
     "fine": 1750,
     "kind": "enforcement",
     "sanctions": [
-      "Admissions ban",
+      "Admissions ban extended",
       "Forfeiture",
       "Special orders",
       "Order to comply",

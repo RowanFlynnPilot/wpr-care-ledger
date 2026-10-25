@@ -59,6 +59,7 @@ ORDER_TEXT = {
     "Summary suspension": "Summary suspension",
     "Nonrenewal": "License nonrenewal",
     "Admissions ban": "Order not to admit new residents",
+    "Admissions ban extended": "Order not to admit new residents, extended",
     "Special orders": "Special orders",
     "Plan of correction ordered": "Order to submit a plan of correction",
 }

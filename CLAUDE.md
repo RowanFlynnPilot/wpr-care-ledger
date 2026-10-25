@@ -152,11 +152,17 @@ the archived PDFs by `pipeline/enrich.py`, keyed by archive path (the same
 path `surveys.json` stores in `documents`, which is the widget's join key).
 Enforcement letters yield `sanctions` (line-anchored ALL-CAPS notice
 headers; the same phrases appear lowercase in boilerplate; includes
-"Admissions ban" and "Accruing forfeiture" — an accruing letter's `fine`
+"Admissions ban", "Admissions ban extended" (an extension of an earlier
+ban, its header ending "– EXTENDED": 5 of the 17 ban letters, so 12 new
+bans) and "Accruing forfeiture" — an accruing letter's `fine`
 is the amount so far, not final) and `fine` ("Total Forfeiture Due";
 audited 2026-10 against all 36 forfeiture letters: every value matches).
 SODs (state 2567 form) yield `census`, `deficiencies`, complaint outcomes
-("Two of 8 complaints" = 2; "Both" = 2), and `citations` (tag + full rule
+("Two of 8 complaints" = 2; "Both" = 2; only the first statement of
+each kind counts — it is the page-one summary, and later text repeats
+it or recounts earlier inspections: one Wellington Place report's
+history section once made 2 read as 15; corrected 2026-10-25 after a
+fact-check, 229 → 188), and `citations` (tag + full rule
 code including suffixes like `2.c` or `-(3)` + title; titles wrap in
 lowercase, ALL CAPS, and Title Case — see `continues_title()`; repeat
 violations brace the tag; the newer layout's first-page index repeats

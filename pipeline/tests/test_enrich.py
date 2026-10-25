@@ -164,16 +164,41 @@ class CitationLayouts(unittest.TestCase):
         self.assertEqual(layout["complaints_substantiated"], 2)  # "Both"
         self.assertEqual(layout["deficiencies"], 1)  # "One repeat … identifed"
 
+    def test_summary_counts_once_though_the_body_repeats_it(self):
+        # archive/0011954/2024-04-30_complaint-self-report-vv_sod.pdf: the
+        # page-one summary says three; a deficiency later repeats the
+        # sentence with four. The summary is the count.
+        text = (
+            "STATEMENT OF DEFICIENCIES\n"
+            "Three (3) of 3 complaints were substantiated. Two (2) of 4\n"
+            "previous citations were repeat violations.\n"
+            "N 214Continued From page 14 N 214\n"
+            "As a result of the current survey, four of 4\n"
+            "complaints were substantiated, two of 4 citations\n"
+        )
+        entry, _ = enrich.parse_sod(text)
+        self.assertEqual(entry["complaints_substantiated"], 3)
+
 
 class Sanctions(unittest.TestCase):
     def test_admissions_ban_accruing_forfeiture_and_typo(self):
         entry, warn = enrich.parse_enforcement(SANCTIONS_LETTER)
         self.assertEqual(
             entry["sanctions"],
-            ["Admissions ban", "Accruing forfeiture", "Forfeiture", "Order to comply"],
+            ["Admissions ban extended", "Accruing forfeiture", "Forfeiture", "Order to comply"],
         )
         self.assertEqual(entry["fine"], 500)
         self.assertIsNone(warn)
+
+    def test_a_new_ban_is_not_an_extension(self):
+        # 0009226 2026-02-17 orders a ban; 0011953 2024-06-10 extends one,
+        # with an en dash.
+        new, _ = enrich.parse_enforcement("NOTICE and ORDER\nORDER NOT TO ADMIT NEW OR ADDITIONAL RESIDENTS\n")
+        ext, _ = enrich.parse_enforcement(
+            "NOTICE and ORDER\nORDER NOT TO ADMIT NEW OR ADDITIONAL RESIDENTS – EXTENDED\n"
+        )
+        self.assertEqual(new["sanctions"], ["Admissions ban"])
+        self.assertEqual(ext["sanctions"], ["Admissions ban extended"])
 
 
 class Classification(unittest.TestCase):

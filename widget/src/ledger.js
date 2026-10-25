@@ -43,6 +43,7 @@ export const SANCTION_LABELS = {
   "Summary suspension": "Summary suspension",
   Nonrenewal: "License nonrenewal",
   "Admissions ban": "Order not to admit new residents",
+  "Admissions ban extended": "Order not to admit new residents, extended",
 };
 
 export const DOC_ORDER = ["enforcement", "sod", "poc"];
