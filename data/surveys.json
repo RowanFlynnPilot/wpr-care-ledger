@@ -19,7 +19,7 @@
     "exit_date": "2025-03-11",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0008499",
     "survey_type": "SURVEY/COMPLAINT/SELF REPORT"
   },
@@ -39,7 +39,7 @@
     "exit_date": "2025-08-26",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0008499",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -76,7 +76,7 @@
     "exit_date": "2025-01-02",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0008655",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -93,7 +93,7 @@
     "exit_date": "2025-06-12",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0008655",
     "survey_type": "SELF REPORT/VV"
   },
@@ -117,7 +117,7 @@
     "exit_date": "2025-05-13",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0008822",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -137,7 +137,7 @@
     "exit_date": "2025-09-22",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0008822",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -157,7 +157,7 @@
     "exit_date": "2024-02-27",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0008890",
     "survey_type": "SURVEY"
   },
@@ -177,7 +177,7 @@
     "exit_date": "2023-11-02",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0009074",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -194,7 +194,7 @@
     "exit_date": "2023-12-26",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0009118",
     "survey_type": "DESK REVIEW"
   },
@@ -211,7 +211,7 @@
     "exit_date": "2024-01-22",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0009118",
     "survey_type": "SURVEY"
   },
@@ -231,7 +231,7 @@
     "exit_date": "2024-05-22",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0009226",
     "survey_type": "COMPLAINT"
   },
@@ -248,7 +248,7 @@
     "exit_date": "2024-12-03",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0009226",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -265,7 +265,7 @@
     "exit_date": "2025-08-05",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0009226",
     "survey_type": "COMPLAINT"
   },
@@ -285,7 +285,7 @@
     "exit_date": "2026-02-17",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0009226",
     "survey_type": "DESK REVIEW"
   },
@@ -302,7 +302,7 @@
     "exit_date": "2026-03-20",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0009226",
     "survey_type": "DESK REVIEW"
   },
@@ -326,7 +326,7 @@
     "exit_date": "2024-06-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0009393",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -350,7 +350,7 @@
     "exit_date": "2025-05-08",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0009393",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -370,7 +370,7 @@
     "exit_date": "2025-08-27",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0009393",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -390,7 +390,7 @@
     "exit_date": "2025-04-08",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0009720",
     "survey_type": "COMPLAINT"
   },
@@ -414,7 +414,7 @@
     "exit_date": "2023-12-11",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0009722",
     "survey_type": "SURVEY/COMPLAINT/SELF REPORT"
   },
@@ -434,7 +434,7 @@
     "exit_date": "2024-03-13",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0009722",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -454,7 +454,7 @@
     "exit_date": "2024-07-24",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0009722",
     "survey_type": "COMPLAINT"
   },
@@ -474,7 +474,7 @@
     "exit_date": "2024-07-23",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0009724",
     "survey_type": "COMPLAINT/VV"
   },
@@ -498,7 +498,7 @@
     "exit_date": "2025-02-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0009724",
     "survey_type": "COMPLAINT"
   },
@@ -518,7 +518,7 @@
     "exit_date": "2025-05-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0009724",
     "survey_type": "COMPLAINT/VV"
   },
@@ -538,7 +538,7 @@
     "exit_date": "2024-07-11",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0009754",
     "survey_type": "COMPLAINT"
   },
@@ -558,7 +558,7 @@
     "exit_date": "2026-05-12",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0009754",
     "survey_type": "SURVEY"
   },
@@ -582,7 +582,7 @@
     "exit_date": "2025-07-31",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0009806",
     "survey_type": "SURVEY"
   },
@@ -602,7 +602,7 @@
     "exit_date": "2025-11-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0009806",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -626,7 +626,7 @@
     "exit_date": "2024-10-02",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0010105",
     "survey_type": "COMPLAINT/SELF REPORT/VV"
   },
@@ -643,7 +643,7 @@
     "exit_date": "2025-01-24",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0010153",
     "survey_type": "SURVEY"
   },
@@ -660,7 +660,7 @@
     "exit_date": "2024-08-07",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0010446",
     "survey_type": "SURVEY"
   },
@@ -680,7 +680,7 @@
     "exit_date": "2024-07-10",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0010521",
     "survey_type": "SURVEY"
   },
@@ -698,7 +698,8 @@
       "sod": "Mon, 08 Jan 2024 13:24:02 GMT"
     },
     "exit_date": "2023-10-19",
-    "expired_from_state": false,
+    "expired_from_state": true,
+    "expired_on": "2026-10-26",
     "first_seen": "2026-07-12",
     "last_seen": "2026-10-19",
     "license": "0010689",
@@ -720,7 +721,7 @@
     "exit_date": "2026-03-09",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0010753",
     "survey_type": "SURVEY"
   },
@@ -740,7 +741,7 @@
     "exit_date": "2026-07-14",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011239",
     "survey_type": "SURVEY"
   },
@@ -764,7 +765,7 @@
     "exit_date": "2024-05-28",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011240",
     "survey_type": "SURVEY"
   },
@@ -784,7 +785,7 @@
     "exit_date": "2024-10-07",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011255",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -808,7 +809,7 @@
     "exit_date": "2025-10-22",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011268",
     "survey_type": "SURVEY"
   },
@@ -828,7 +829,7 @@
     "exit_date": "2026-07-21",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011268",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -848,7 +849,7 @@
     "exit_date": "2025-07-23",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011313",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -868,7 +869,7 @@
     "exit_date": "2025-12-03",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011313",
     "survey_type": "COMPLAINT"
   },
@@ -888,7 +889,7 @@
     "exit_date": "2024-08-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011326",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -912,7 +913,7 @@
     "exit_date": "2025-04-09",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011326",
     "survey_type": "SURVEY/COMPLAINT/SELF REPORT"
   },
@@ -936,7 +937,7 @@
     "exit_date": "2025-09-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011326",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -956,7 +957,7 @@
     "exit_date": "2026-02-24",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011326",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -976,7 +977,7 @@
     "exit_date": "2026-07-09",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011326",
     "survey_type": "OTHER"
   },
@@ -996,7 +997,7 @@
     "exit_date": "2026-07-28",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011326",
     "survey_type": "COMPLAINT"
   },
@@ -1016,7 +1017,7 @@
     "exit_date": "2026-09-10",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011326",
     "survey_type": "COMPLAINT"
   },
@@ -1036,7 +1037,7 @@
     "exit_date": "2024-02-23",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011327",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -1056,7 +1057,7 @@
     "exit_date": "2025-04-03",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011417",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -1076,7 +1077,7 @@
     "exit_date": "2025-02-11",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011469",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -1096,7 +1097,7 @@
     "exit_date": "2025-11-03",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011469",
     "survey_type": "COMPLAINT"
   },
@@ -1116,7 +1117,7 @@
     "exit_date": "2026-07-08",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011469",
     "survey_type": "COMPLAINT"
   },
@@ -1140,7 +1141,7 @@
     "exit_date": "2025-08-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011718",
     "survey_type": "SURVEY"
   },
@@ -1160,7 +1161,7 @@
     "exit_date": "2026-01-22",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011718",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -1180,7 +1181,7 @@
     "exit_date": "2023-12-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011754",
     "survey_type": "COMPLAINT"
   },
@@ -1204,7 +1205,7 @@
     "exit_date": "2025-07-03",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011754",
     "survey_type": "COMPLAINT"
   },
@@ -1224,7 +1225,7 @@
     "exit_date": "2025-10-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011754",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -1241,7 +1242,7 @@
     "exit_date": "2023-12-07",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011887",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -1258,7 +1259,7 @@
     "exit_date": "2026-06-16",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011888",
     "survey_type": "SURVEY"
   },
@@ -1275,7 +1276,7 @@
     "exit_date": "2024-07-15",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011937",
     "survey_type": "SURVEY"
   },
@@ -1299,7 +1300,7 @@
     "exit_date": "2024-03-14",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011953",
     "survey_type": "COMPLAINT/SELF REPORT/VV"
   },
@@ -1323,7 +1324,7 @@
     "exit_date": "2024-06-10",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011953",
     "survey_type": "COMPLAINT/SELF REPORT"
   },
@@ -1347,7 +1348,7 @@
     "exit_date": "2024-11-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011953",
     "survey_type": "COMPLAINT/VV"
   },
@@ -1367,7 +1368,7 @@
     "exit_date": "2025-09-15",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011953",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -1391,7 +1392,7 @@
     "exit_date": "2024-04-30",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011954",
     "survey_type": "COMPLAINT/SELF REPORT/VV"
   },
@@ -1415,7 +1416,7 @@
     "exit_date": "2024-06-10",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011954",
     "survey_type": "COMPLAINT"
   },
@@ -1439,7 +1440,7 @@
     "exit_date": "2024-11-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011954",
     "survey_type": "COMPLAINT/SELF REPORT/VV"
   },
@@ -1459,7 +1460,7 @@
     "exit_date": "2025-09-15",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011954",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -1483,7 +1484,7 @@
     "exit_date": "2025-01-15",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011989",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -1503,7 +1504,7 @@
     "exit_date": "2025-06-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0011989",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -1523,7 +1524,7 @@
     "exit_date": "2024-02-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012036",
     "survey_type": "SURVEY"
   },
@@ -1547,7 +1548,7 @@
     "exit_date": "2023-12-07",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012042",
     "survey_type": "COMPLAINT"
   },
@@ -1571,7 +1572,7 @@
     "exit_date": "2024-05-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012042",
     "survey_type": "COMPLAINT"
   },
@@ -1595,7 +1596,7 @@
     "exit_date": "2025-04-29",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012042",
     "survey_type": "SURVEY/COMPLAINT/SELF REPORT"
   },
@@ -1615,7 +1616,7 @@
     "exit_date": "2025-07-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012042",
     "survey_type": "COMPLAINT"
   },
@@ -1639,7 +1640,7 @@
     "exit_date": "2025-11-10",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012042",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -1659,7 +1660,7 @@
     "exit_date": "2026-06-30",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012042",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -1679,7 +1680,7 @@
     "exit_date": "2024-05-24",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012043",
     "survey_type": "COMPLAINT"
   },
@@ -1703,7 +1704,7 @@
     "exit_date": "2024-07-11",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012043",
     "survey_type": "SURVEY/SELF REPORT"
   },
@@ -1723,7 +1724,7 @@
     "exit_date": "2025-04-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012043",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -1743,7 +1744,7 @@
     "exit_date": "2025-04-24",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012043",
     "survey_type": "COMPLAINT"
   },
@@ -1763,7 +1764,7 @@
     "exit_date": "2025-11-10",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012043",
     "survey_type": "SELF REPORT"
   },
@@ -1783,7 +1784,7 @@
     "exit_date": "2024-09-11",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012110",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -1800,7 +1801,7 @@
     "exit_date": "2025-01-22",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012110",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -1817,7 +1818,7 @@
     "exit_date": "2024-03-05",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012111",
     "survey_type": "SURVEY/VV"
   },
@@ -1834,7 +1835,7 @@
     "exit_date": "2024-09-11",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012111",
     "survey_type": "COMPLAINT"
   },
@@ -1858,7 +1859,7 @@
     "exit_date": "2024-11-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012115",
     "survey_type": "SURVEY"
   },
@@ -1878,7 +1879,7 @@
     "exit_date": "2025-06-20",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012115",
     "survey_type": "COMPLAINT/VV"
   },
@@ -1906,7 +1907,7 @@
     "exit_date": "2023-11-22",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012240",
     "survey_type": "COMPLAINT/VV"
   },
@@ -1926,7 +1927,7 @@
     "exit_date": "2024-06-20",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012240",
     "survey_type": "COMPLAINT/VV"
   },
@@ -1946,7 +1947,7 @@
     "exit_date": "2025-05-13",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012240",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -1974,7 +1975,7 @@
     "exit_date": "2025-06-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012240",
     "survey_type": "COMPLAINT"
   },
@@ -1994,7 +1995,7 @@
     "exit_date": "2026-04-27",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012240",
     "survey_type": "COMPLAINT"
   },
@@ -2039,7 +2040,7 @@
     "exit_date": "2026-06-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012331",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -2056,7 +2057,7 @@
     "exit_date": "2025-10-02",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012338",
     "survey_type": "SURVEY"
   },
@@ -2073,7 +2074,7 @@
     "exit_date": "2025-12-04",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012339",
     "survey_type": "SURVEY"
   },
@@ -2097,7 +2098,7 @@
     "exit_date": "2025-04-28",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012366",
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
@@ -2117,7 +2118,7 @@
     "exit_date": "2025-10-29",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012366",
     "survey_type": "COMPLAINT"
   },
@@ -2134,7 +2135,7 @@
     "exit_date": "2026-06-09",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012370",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -2154,7 +2155,7 @@
     "exit_date": "2025-07-23",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012520",
     "survey_type": "SELF REPORT"
   },
@@ -2174,7 +2175,7 @@
     "exit_date": "2024-03-26",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012659",
     "survey_type": "COMPLAINT/SELF REPORT"
   },
@@ -2194,7 +2195,7 @@
     "exit_date": "2026-06-02",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012659",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -2211,7 +2212,7 @@
     "exit_date": "2025-10-03",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012689",
     "survey_type": "SURVEY"
   },
@@ -2228,7 +2229,7 @@
     "exit_date": "2024-01-22",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012897",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -2252,7 +2253,7 @@
     "exit_date": "2026-04-14",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012915",
     "survey_type": "SURVEY"
   },
@@ -2269,7 +2270,7 @@
     "exit_date": "2025-11-04",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012930",
     "survey_type": "COMPLAINT"
   },
@@ -2289,7 +2290,7 @@
     "exit_date": "2026-06-10",
     "expired_from_state": false,
     "first_seen": "2026-10-06",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012930",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -2306,7 +2307,7 @@
     "exit_date": "2026-09-01",
     "expired_from_state": false,
     "first_seen": "2026-10-06",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0012930",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -2329,7 +2330,7 @@
     "exit_date": "2024-01-18",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013025",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -2346,7 +2347,7 @@
     "exit_date": "2025-03-24",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013025",
     "survey_type": "COMPLAINT"
   },
@@ -2363,7 +2364,7 @@
     "exit_date": "2026-02-26",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013025",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -2412,7 +2413,7 @@
     "exit_date": "2024-01-26",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013040",
     "survey_type": "COMPLAINT/VV"
   },
@@ -2432,7 +2433,7 @@
     "exit_date": "2024-11-07",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013040",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -2452,7 +2453,7 @@
     "exit_date": "2024-04-11",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013045",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -2472,7 +2473,7 @@
     "exit_date": "2026-04-28",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013051",
     "survey_type": "SURVEY"
   },
@@ -2492,7 +2493,7 @@
     "exit_date": "2026-08-20",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013051",
     "survey_type": "COMPLAINT"
   },
@@ -2512,7 +2513,7 @@
     "exit_date": "2026-07-01",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013089",
     "survey_type": "SURVEY"
   },
@@ -2536,7 +2537,7 @@
     "exit_date": "2024-08-15",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013143",
     "survey_type": "COMPLAINT"
   },
@@ -2560,7 +2561,7 @@
     "exit_date": "2025-06-10",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013143",
     "survey_type": "SURVEY/VV"
   },
@@ -2580,7 +2581,7 @@
     "exit_date": "2025-09-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013143",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -2600,7 +2601,7 @@
     "exit_date": "2024-08-09",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013145",
     "survey_type": "COMPLAINT"
   },
@@ -2624,7 +2625,7 @@
     "exit_date": "2025-06-23",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013145",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -2644,7 +2645,7 @@
     "exit_date": "2026-06-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013145",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -2668,7 +2669,7 @@
     "exit_date": "2025-03-21",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013278",
     "survey_type": "SURVEY/COMPLAINT/SELF REPORT"
   },
@@ -2688,7 +2689,7 @@
     "exit_date": "2025-04-22",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013295",
     "survey_type": "SURVEY"
   },
@@ -2708,7 +2709,7 @@
     "exit_date": "2025-04-17",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013296",
     "survey_type": "SURVEY"
   },
@@ -2732,7 +2733,7 @@
     "exit_date": "2026-02-18",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013373",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -2752,7 +2753,7 @@
     "exit_date": "2024-06-24",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013395",
     "survey_type": "OTHER"
   },
@@ -2772,7 +2773,7 @@
     "exit_date": "2025-03-18",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013395",
     "survey_type": "SURVEY"
   },
@@ -2796,7 +2797,7 @@
     "exit_date": "2024-12-20",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013397",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -2820,7 +2821,7 @@
     "exit_date": "2025-08-20",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013397",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -2840,7 +2841,7 @@
     "exit_date": "2026-03-03",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013397",
     "survey_type": "COMPLAINT"
   },
@@ -2860,7 +2861,7 @@
     "exit_date": "2026-03-18",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013419",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -2877,7 +2878,7 @@
     "exit_date": "2026-06-04",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013419",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -2897,7 +2898,7 @@
     "exit_date": "2023-12-11",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013422",
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
@@ -2914,7 +2915,7 @@
     "exit_date": "2024-11-26",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013422",
     "survey_type": "COMPLAINT"
   },
@@ -2934,7 +2935,7 @@
     "exit_date": "2025-12-02",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013422",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -2971,7 +2972,7 @@
     "exit_date": "2023-12-11",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013424",
     "survey_type": "COMPLAINT"
   },
@@ -2991,7 +2992,7 @@
     "exit_date": "2024-03-05",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013424",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -3011,7 +3012,7 @@
     "exit_date": "2024-11-26",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013424",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -3031,7 +3032,7 @@
     "exit_date": "2026-03-12",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013424",
     "survey_type": "SURVEY/VV"
   },
@@ -3048,7 +3049,7 @@
     "exit_date": "2026-08-05",
     "expired_from_state": false,
     "first_seen": "2026-10-06",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013424",
     "survey_type": "COMPLAINT/VV"
   },
@@ -3072,7 +3073,7 @@
     "exit_date": "2023-12-07",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013429",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -3092,7 +3093,7 @@
     "exit_date": "2024-09-12",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013429",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -3133,7 +3134,7 @@
     "exit_date": "2024-05-14",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013444",
     "survey_type": "COMPLAINT/SELF REPORT"
   },
@@ -3153,7 +3154,7 @@
     "exit_date": "2025-04-02",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013444",
     "survey_type": "SURVEY/VV"
   },
@@ -3173,7 +3174,7 @@
     "exit_date": "2025-09-02",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013445",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -3193,7 +3194,7 @@
     "exit_date": "2026-06-02",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013445",
     "survey_type": "COMPLAINT"
   },
@@ -3210,7 +3211,7 @@
     "exit_date": "2024-07-15",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013700",
     "survey_type": "SURVEY"
   },
@@ -3234,7 +3235,7 @@
     "exit_date": "2024-08-08",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013774",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -3254,7 +3255,7 @@
     "exit_date": "2024-06-19",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013785",
     "survey_type": "COMPLAINT"
   },
@@ -3274,7 +3275,7 @@
     "exit_date": "2025-04-03",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013785",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -3294,7 +3295,7 @@
     "exit_date": "2026-02-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013785",
     "survey_type": "COMPLAINT"
   },
@@ -3314,7 +3315,7 @@
     "exit_date": "2025-11-11",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013949",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -3331,7 +3332,7 @@
     "exit_date": "2026-04-07",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0013949",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -3351,7 +3352,7 @@
     "exit_date": "2023-11-08",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014104",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -3371,7 +3372,7 @@
     "exit_date": "2024-09-30",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014104",
     "survey_type": "COMPLAINT"
   },
@@ -3391,7 +3392,7 @@
     "exit_date": "2025-01-27",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014104",
     "survey_type": "COMPLAINT"
   },
@@ -3411,7 +3412,7 @@
     "exit_date": "2025-12-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014104",
     "survey_type": "COMPLAINT"
   },
@@ -3431,7 +3432,7 @@
     "exit_date": "2024-04-11",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014167",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -3451,7 +3452,7 @@
     "exit_date": "2024-01-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014168",
     "survey_type": "COMPLAINT/SELF REPORT"
   },
@@ -3471,7 +3472,7 @@
     "exit_date": "2024-09-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014168",
     "survey_type": "COMPLAINT"
   },
@@ -3495,7 +3496,7 @@
     "exit_date": "2025-10-13",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014318",
     "survey_type": "SURVEY"
   },
@@ -3515,7 +3516,7 @@
     "exit_date": "2025-02-13",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014362",
     "survey_type": "SURVEY"
   },
@@ -3533,7 +3534,8 @@
       "sod": "Mon, 30 Oct 2023 12:21:56 GMT"
     },
     "exit_date": "2023-10-19",
-    "expired_from_state": false,
+    "expired_from_state": true,
+    "expired_on": "2026-10-26",
     "first_seen": "2026-10-07",
     "last_seen": "2026-10-19",
     "license": "0014369",
@@ -3555,7 +3557,7 @@
     "exit_date": "2025-09-03",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014369",
     "survey_type": "SURVEY"
   },
@@ -3572,7 +3574,7 @@
     "exit_date": "2025-01-24",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014480",
     "survey_type": "SURVEY"
   },
@@ -3592,7 +3594,7 @@
     "exit_date": "2024-07-23",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014496",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -3612,7 +3614,7 @@
     "exit_date": "2026-06-04",
     "expired_from_state": false,
     "first_seen": "2026-10-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014496",
     "survey_type": "Licensure"
   },
@@ -3632,7 +3634,7 @@
     "exit_date": "2026-08-19",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014496",
     "survey_type": "OTHER"
   },
@@ -3649,7 +3651,7 @@
     "exit_date": "2025-06-24",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014504",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -3666,7 +3668,7 @@
     "exit_date": "2025-10-29",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014504",
     "survey_type": "COMPLAINT"
   },
@@ -3686,9 +3688,29 @@
     "exit_date": "2026-06-30",
     "expired_from_state": false,
     "first_seen": "2026-10-06",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014504",
     "survey_type": "COMPLAINT"
+  },
+  "0014504|2026-10-08|complaint-vv": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/QLCP12SODS.PDF"
+    },
+    "documents": {
+      "sod": "archive/0014504/2026-10-08_complaint-vv_sod.pdf"
+    },
+    "documents_first_seen": {
+      "sod": "2026-10-26"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 19 Oct 2026 20:27:29 GMT"
+    },
+    "exit_date": "2026-10-08",
+    "expired_from_state": false,
+    "first_seen": "2026-10-26",
+    "last_seen": "2026-10-26",
+    "license": "0014504",
+    "survey_type": "COMPLAINT/VV"
   },
   "0014626|2024-02-23|survey-complaint": {
     "document_urls": {
@@ -3706,7 +3728,7 @@
     "exit_date": "2024-02-23",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014626",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -3726,7 +3748,7 @@
     "exit_date": "2025-04-29",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014626",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -3746,7 +3768,7 @@
     "exit_date": "2026-01-28",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014626",
     "survey_type": "COMPLAINT"
   },
@@ -3766,7 +3788,7 @@
     "exit_date": "2024-02-28",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014663",
     "survey_type": "COMPLAINT/VV"
   },
@@ -3790,7 +3812,7 @@
     "exit_date": "2024-06-26",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014663",
     "survey_type": "COMPLAINT/SELF REPORT"
   },
@@ -3814,7 +3836,7 @@
     "exit_date": "2025-05-29",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014663",
     "survey_type": "SURVEY/SELF REPORT/COMPLAINT/VV"
   },
@@ -3838,7 +3860,7 @@
     "exit_date": "2025-12-10",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014663",
     "survey_type": "COMPLAINT/VV"
   },
@@ -3858,7 +3880,7 @@
     "exit_date": "2026-03-31",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014663",
     "survey_type": "COMPLAINT/VV"
   },
@@ -3878,7 +3900,7 @@
     "exit_date": "2025-08-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014746",
     "survey_type": "SURVEY"
   },
@@ -3898,7 +3920,7 @@
     "exit_date": "2026-06-01",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014835",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -3939,7 +3961,7 @@
     "exit_date": "2026-03-18",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014864",
     "survey_type": "SURVEY"
   },
@@ -3959,7 +3981,7 @@
     "exit_date": "2025-10-08",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014921",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -3979,7 +4001,7 @@
     "exit_date": "2026-02-12",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014921",
     "survey_type": "COMPLAINT"
   },
@@ -4003,7 +4025,7 @@
     "exit_date": "2026-06-24",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014921",
     "survey_type": "SELF REPORT"
   },
@@ -4027,7 +4049,7 @@
     "exit_date": "2024-03-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014923",
     "survey_type": "SURVEY"
   },
@@ -4047,7 +4069,7 @@
     "exit_date": "2024-08-12",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0014923",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -4067,7 +4089,7 @@
     "exit_date": "2024-04-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015200",
     "survey_type": "COMPLAINT"
   },
@@ -4087,7 +4109,7 @@
     "exit_date": "2025-07-24",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015200",
     "survey_type": "SURVEY"
   },
@@ -4107,7 +4129,7 @@
     "exit_date": "2026-02-23",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015200",
     "survey_type": "COMPLAINT"
   },
@@ -4124,7 +4146,7 @@
     "exit_date": "2024-04-30",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015223",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -4141,7 +4163,7 @@
     "exit_date": "2025-10-03",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015224",
     "survey_type": "SURVEY"
   },
@@ -4165,7 +4187,7 @@
     "exit_date": "2024-02-08",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015263",
     "survey_type": "COMPLAINT/SELF REPORT/VV"
   },
@@ -4189,7 +4211,7 @@
     "exit_date": "2024-03-19",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015263",
     "survey_type": "COMPLAINT"
   },
@@ -4213,7 +4235,7 @@
     "exit_date": "2024-06-10",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015263",
     "survey_type": "COMPLAINT/VV"
   },
@@ -4237,7 +4259,7 @@
     "exit_date": "2024-08-07",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015263",
     "survey_type": "COMPLAINT"
   },
@@ -4261,7 +4283,7 @@
     "exit_date": "2025-01-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015263",
     "survey_type": "COMPLAINT/SELF REPORT/VV"
   },
@@ -4285,7 +4307,7 @@
     "exit_date": "2025-02-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015263",
     "survey_type": "COMPLAINT"
   },
@@ -4305,7 +4327,7 @@
     "exit_date": "2025-06-09",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015263",
     "survey_type": "SURVEY/VV"
   },
@@ -4325,7 +4347,7 @@
     "exit_date": "2026-06-02",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015263",
     "survey_type": "COMPLAINT"
   },
@@ -4349,7 +4371,7 @@
     "exit_date": "2026-08-31",
     "expired_from_state": false,
     "first_seen": "2026-10-19",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015263",
     "survey_type": "COMPLAINT"
   },
@@ -4390,7 +4412,7 @@
     "exit_date": "2024-08-15",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015337",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -4418,7 +4440,7 @@
     "exit_date": "2025-05-12",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015337",
     "survey_type": "COMPLAINT"
   },
@@ -4438,7 +4460,7 @@
     "exit_date": "2025-08-14",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015337",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -4466,7 +4488,7 @@
     "exit_date": "2026-02-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015337",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -4486,7 +4508,7 @@
     "exit_date": "2026-06-29",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015337",
     "survey_type": "COMPLAINT/VV"
   },
@@ -4503,7 +4525,7 @@
     "exit_date": "2026-01-26",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015376",
     "survey_type": "SURVEY"
   },
@@ -4544,7 +4566,7 @@
     "exit_date": "2025-04-07",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015395",
     "survey_type": "COMPLAINT"
   },
@@ -4564,7 +4586,7 @@
     "exit_date": "2026-03-18",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015395",
     "survey_type": "SURVEY"
   },
@@ -4588,7 +4610,7 @@
     "exit_date": "2024-07-19",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015404",
     "survey_type": "COMPLAINT"
   },
@@ -4608,7 +4630,7 @@
     "exit_date": "2025-01-15",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015404",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -4632,7 +4654,7 @@
     "exit_date": "2026-04-23",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015404",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -4656,7 +4678,7 @@
     "exit_date": "2024-01-24",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015437",
     "survey_type": "SURVEY/COMPLAINT/SELF REPORT"
   },
@@ -4676,7 +4698,7 @@
     "exit_date": "2025-06-02",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015437",
     "survey_type": "COMPLAINT"
   },
@@ -4696,7 +4718,7 @@
     "exit_date": "2026-02-12",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015437",
     "survey_type": "SURVEY"
   },
@@ -4720,7 +4742,7 @@
     "exit_date": "2025-02-07",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015448",
     "survey_type": "SURVEY"
   },
@@ -4744,7 +4766,7 @@
     "exit_date": "2026-02-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015448",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -4764,7 +4786,7 @@
     "exit_date": "2024-03-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015453",
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
@@ -4784,7 +4806,7 @@
     "exit_date": "2025-03-20",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015453",
     "survey_type": "COMPLAINT"
   },
@@ -4808,7 +4830,7 @@
     "exit_date": "2025-10-28",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015453",
     "survey_type": "COMPLAINT"
   },
@@ -4832,7 +4854,7 @@
     "exit_date": "2024-03-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015454",
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
@@ -4856,7 +4878,7 @@
     "exit_date": "2024-11-29",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015454",
     "survey_type": "OTHER"
   },
@@ -4876,7 +4898,7 @@
     "exit_date": "2025-06-12",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015454",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -4900,7 +4922,7 @@
     "exit_date": "2025-10-28",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015454",
     "survey_type": "COMPLAINT"
   },
@@ -4920,7 +4942,7 @@
     "exit_date": "2024-03-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015624",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -4940,7 +4962,7 @@
     "exit_date": "2024-08-21",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015624",
     "survey_type": "COMPLAINT"
   },
@@ -4960,7 +4982,7 @@
     "exit_date": "2025-04-02",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015624",
     "survey_type": "COMPLAINT"
   },
@@ -4984,7 +5006,7 @@
     "exit_date": "2025-12-12",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015624",
     "survey_type": "COMPLAINT"
   },
@@ -5008,7 +5030,7 @@
     "exit_date": "2026-05-26",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015624",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -5026,7 +5048,8 @@
       "sod": "Mon, 08 Jan 2024 13:24:00 GMT"
     },
     "exit_date": "2023-10-24",
-    "expired_from_state": false,
+    "expired_from_state": true,
+    "expired_on": "2026-10-26",
     "first_seen": "2026-07-12",
     "last_seen": "2026-10-19",
     "license": "0015628",
@@ -5045,7 +5068,7 @@
     "exit_date": "2024-03-11",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015628",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -5062,7 +5085,7 @@
     "exit_date": "2024-07-10",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015628",
     "survey_type": "COMPLAINT"
   },
@@ -5082,7 +5105,7 @@
     "exit_date": "2025-08-29",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015628",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -5102,7 +5125,7 @@
     "exit_date": "2025-12-10",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015628",
     "survey_type": "COMPLAINT/VV"
   },
@@ -5119,7 +5142,7 @@
     "exit_date": "2026-03-10",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015628",
     "survey_type": "COMPLAINT"
   },
@@ -5139,7 +5162,7 @@
     "exit_date": "2024-06-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015631",
     "survey_type": "COMPLAINT"
   },
@@ -5163,7 +5186,7 @@
     "exit_date": "2025-03-03",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015631",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -5187,7 +5210,7 @@
     "exit_date": "2026-06-10",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015631",
     "survey_type": "COMPLAINT/VV"
   },
@@ -5207,7 +5230,7 @@
     "exit_date": "2024-02-09",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015632",
     "survey_type": "COMPLAINT"
   },
@@ -5231,7 +5254,7 @@
     "exit_date": "2024-06-21",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015632",
     "survey_type": "SURVEY/COMPLAINT/SELF REPORT"
   },
@@ -5255,7 +5278,7 @@
     "exit_date": "2025-03-03",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015632",
     "survey_type": "COMPLAINT/VV"
   },
@@ -5279,7 +5302,7 @@
     "exit_date": "2025-10-02",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015632",
     "survey_type": "COMPLAINT/VV"
   },
@@ -5299,7 +5322,7 @@
     "exit_date": "2026-06-10",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015632",
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
@@ -5319,7 +5342,7 @@
     "exit_date": "2026-08-19",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015632",
     "survey_type": "COMPLAINT"
   },
@@ -5339,7 +5362,7 @@
     "exit_date": "2024-03-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015633",
     "survey_type": "COMPLAINT"
   },
@@ -5363,7 +5386,7 @@
     "exit_date": "2025-06-24",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015633",
     "survey_type": "COMPLAINT"
   },
@@ -5391,7 +5414,7 @@
     "exit_date": "2026-05-26",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015633",
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
@@ -5408,7 +5431,7 @@
     "exit_date": "2024-01-02",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015634",
     "survey_type": "COMPLAINT"
   },
@@ -5425,7 +5448,7 @@
     "exit_date": "2024-07-09",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015634",
     "survey_type": "COMPLAINT"
   },
@@ -5442,7 +5465,7 @@
     "exit_date": "2025-07-11",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015634",
     "survey_type": "COMPLAINT"
   },
@@ -5459,7 +5482,7 @@
     "exit_date": "2024-12-23",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015844",
     "survey_type": "SURVEY"
   },
@@ -5479,7 +5502,7 @@
     "exit_date": "2026-03-11",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015844",
     "survey_type": "COMPLAINT/SELF REPORT"
   },
@@ -5496,7 +5519,7 @@
     "exit_date": "2026-07-16",
     "expired_from_state": false,
     "first_seen": "2026-10-06",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015844",
     "survey_type": "SURVEY/VV"
   },
@@ -5516,7 +5539,7 @@
     "exit_date": "2024-03-19",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015955",
     "survey_type": "COMPLAINT/SELF REPORT"
   },
@@ -5533,7 +5556,7 @@
     "exit_date": "2024-11-27",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015955",
     "survey_type": "COMPLAINT"
   },
@@ -5550,7 +5573,7 @@
     "exit_date": "2025-04-10",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015955",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -5567,7 +5590,7 @@
     "exit_date": "2025-05-15",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015955",
     "survey_type": "COMPLAINT"
   },
@@ -5584,7 +5607,7 @@
     "exit_date": "2025-10-02",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015955",
     "survey_type": "COMPLAINT"
   },
@@ -5604,7 +5627,7 @@
     "exit_date": "2026-02-18",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015955",
     "revisions": {
       "enforcement": [
@@ -5637,7 +5660,7 @@
     "exit_date": "2026-06-08",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015955",
     "survey_type": "COMPLAINT"
   },
@@ -5661,7 +5684,7 @@
     "exit_date": "2024-05-20",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015957",
     "survey_type": "COMPLAINT/VV"
   },
@@ -5685,7 +5708,7 @@
     "exit_date": "2024-08-08",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015957",
     "survey_type": "COMPLAINT"
   },
@@ -5705,7 +5728,7 @@
     "exit_date": "2025-05-21",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015957",
     "survey_type": "COMPLAINT/VV"
   },
@@ -5729,7 +5752,7 @@
     "exit_date": "2026-01-22",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015957",
     "survey_type": "SURVEY"
   },
@@ -5749,7 +5772,7 @@
     "exit_date": "2026-08-12",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0015957",
     "survey_type": "COMPLAINT/VV"
   },
@@ -5773,7 +5796,7 @@
     "exit_date": "2024-01-30",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016033",
     "survey_type": "COMPLAINT"
   },
@@ -5797,7 +5820,7 @@
     "exit_date": "2024-08-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016033",
     "survey_type": "COMPLAINT"
   },
@@ -5821,7 +5844,7 @@
     "exit_date": "2026-01-22",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016033",
     "survey_type": "SURVEY/COMPLAINT/SELF REPORT"
   },
@@ -5841,7 +5864,7 @@
     "exit_date": "2026-07-02",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016033",
     "survey_type": "COMPLAINT/VV"
   },
@@ -5861,7 +5884,7 @@
     "exit_date": "2024-04-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016208",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -5907,7 +5930,7 @@
     "exit_date": "2023-12-14",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016344",
     "survey_type": "COMPLAINT/VV"
   },
@@ -5924,7 +5947,7 @@
     "exit_date": "2024-01-09",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016344",
     "survey_type": "COMPLAINT"
   },
@@ -5947,7 +5970,7 @@
     "exit_date": "2024-05-15",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016344",
     "survey_type": "COMPLAINT/VV"
   },
@@ -5964,7 +5987,7 @@
     "exit_date": "2024-10-31",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016344",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -5981,7 +6004,7 @@
     "exit_date": "2024-12-04",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016344",
     "survey_type": "COMPLAINT"
   },
@@ -6005,7 +6028,7 @@
     "exit_date": "2023-10-26",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016379",
     "survey_type": "SURVEY/SELF REPORT"
   },
@@ -6025,7 +6048,7 @@
     "exit_date": "2024-04-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016379",
     "survey_type": "COMPLAINT"
   },
@@ -6045,7 +6068,7 @@
     "exit_date": "2024-04-11",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016379",
     "survey_type": "SELF REPORT"
   },
@@ -6069,7 +6092,7 @@
     "exit_date": "2026-05-28",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016379",
     "survey_type": "SURVEY"
   },
@@ -6089,7 +6112,7 @@
     "exit_date": "2026-09-21",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016379",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -6106,7 +6129,7 @@
     "exit_date": "2024-06-19",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016456",
     "survey_type": "SURVEY"
   },
@@ -6126,7 +6149,7 @@
     "exit_date": "2024-01-11",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016488",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -6150,7 +6173,7 @@
     "exit_date": "2026-01-28",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016488",
     "survey_type": "DESK REVIEW"
   },
@@ -6170,7 +6193,7 @@
     "exit_date": "2026-07-17",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016488",
     "survey_type": "DESK REVIEW"
   },
@@ -6187,7 +6210,7 @@
     "exit_date": "2024-06-19",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016514",
     "survey_type": "SURVEY"
   },
@@ -6204,7 +6227,7 @@
     "exit_date": "2024-06-20",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016520",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -6232,7 +6255,7 @@
     "exit_date": "2024-07-12",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016627",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -6260,7 +6283,7 @@
     "exit_date": "2025-05-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016627",
     "survey_type": "COMPLAINT/VV"
   },
@@ -6280,7 +6303,7 @@
     "exit_date": "2025-12-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016627",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -6300,7 +6323,7 @@
     "exit_date": "2026-02-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016627",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -6324,7 +6347,7 @@
     "exit_date": "2024-07-31",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016658",
     "survey_type": "SURVEY"
   },
@@ -6362,7 +6385,7 @@
     "exit_date": "2024-12-09",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016736",
     "survey_type": "COMPLAINT"
   },
@@ -6379,7 +6402,7 @@
     "exit_date": "2025-11-18",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016736",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -6399,7 +6422,7 @@
     "exit_date": "2026-04-27",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016736",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -6419,7 +6442,7 @@
     "exit_date": "2026-08-19",
     "expired_from_state": false,
     "first_seen": "2026-10-06",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016736",
     "survey_type": "COMPLAINT/VV"
   },
@@ -6443,7 +6466,7 @@
     "exit_date": "2024-10-29",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016757",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -6463,7 +6486,7 @@
     "exit_date": "2026-02-24",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016757",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -6480,7 +6503,7 @@
     "exit_date": "2026-04-07",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016838",
     "survey_type": "SURVEY"
   },
@@ -6500,7 +6523,7 @@
     "exit_date": "2024-01-08",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016877",
     "survey_type": "COMPLAINT"
   },
@@ -6520,7 +6543,7 @@
     "exit_date": "2024-06-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016877",
     "survey_type": "COMPLAINT"
   },
@@ -6540,9 +6563,29 @@
     "exit_date": "2026-01-21",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016877",
     "survey_type": "SURVEY/COMPLAINT"
+  },
+  "0016877|2026-10-14|complaint": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/L9N111SODS.PDF"
+    },
+    "documents": {
+      "sod": "archive/0016877/2026-10-14_complaint_sod.pdf"
+    },
+    "documents_first_seen": {
+      "sod": "2026-10-26"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 19 Oct 2026 20:27:28 GMT"
+    },
+    "exit_date": "2026-10-14",
+    "expired_from_state": false,
+    "first_seen": "2026-10-26",
+    "last_seen": "2026-10-26",
+    "license": "0016877",
+    "survey_type": "COMPLAINT"
   },
   "0016880|2026-03-24|complaint": {
     "document_urls": {
@@ -6557,7 +6600,7 @@
     "exit_date": "2026-03-24",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016880",
     "survey_type": "COMPLAINT"
   },
@@ -6591,7 +6634,7 @@
     "exit_date": "2025-06-19",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016883",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -6611,7 +6654,7 @@
     "exit_date": "2024-01-04",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016894",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -6628,7 +6671,7 @@
     "exit_date": "2025-04-21",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016894",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -6645,7 +6688,7 @@
     "exit_date": "2025-08-25",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016894",
     "survey_type": "COMPLAINT"
   },
@@ -6662,7 +6705,7 @@
     "exit_date": "2025-08-14",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016895",
     "survey_type": "SURVEY"
   },
@@ -6682,7 +6725,7 @@
     "exit_date": "2025-12-18",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016944",
     "survey_type": "SURVEY"
   },
@@ -6702,7 +6745,7 @@
     "exit_date": "2023-12-22",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016965",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -6726,7 +6769,7 @@
     "exit_date": "2025-12-03",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016965",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -6750,7 +6793,7 @@
     "exit_date": "2026-04-15",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0016965",
     "survey_type": "COMPLAINT/VV"
   },
@@ -6770,7 +6813,7 @@
     "exit_date": "2024-01-30",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017035",
     "survey_type": "SURVEY"
   },
@@ -6819,7 +6862,7 @@
     "exit_date": "2024-02-08",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017059",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -6839,7 +6882,7 @@
     "exit_date": "2024-09-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017059",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -6863,7 +6906,7 @@
     "exit_date": "2025-05-12",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017059",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -6883,7 +6926,7 @@
     "exit_date": "2025-11-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017059",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -6903,7 +6946,7 @@
     "exit_date": "2026-09-23",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017059",
     "survey_type": "COMPLAINT"
   },
@@ -6923,7 +6966,7 @@
     "exit_date": "2025-07-30",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017080",
     "survey_type": "SURVEY"
   },
@@ -6947,7 +6990,7 @@
     "exit_date": "2025-10-30",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017080",
     "survey_type": "COMPLAINT"
   },
@@ -6967,7 +7010,7 @@
     "exit_date": "2024-01-19",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017129",
     "survey_type": "COMPLAINT"
   },
@@ -6995,7 +7038,7 @@
     "exit_date": "2024-03-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017129",
     "survey_type": "COMPLAINT"
   },
@@ -7015,7 +7058,7 @@
     "exit_date": "2024-09-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017129",
     "survey_type": "SURVEY/VV"
   },
@@ -7035,7 +7078,7 @@
     "exit_date": "2025-02-18",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017129",
     "survey_type": "COMPLAINT"
   },
@@ -7055,7 +7098,7 @@
     "exit_date": "2025-11-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017129",
     "survey_type": "COMPLAINT"
   },
@@ -7079,7 +7122,7 @@
     "exit_date": "2025-12-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017129",
     "survey_type": "COMPLAINT"
   },
@@ -7103,7 +7146,7 @@
     "exit_date": "2024-07-01",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017158",
     "survey_type": "SURVEY/SELF REPORT/COMPLAINT/VV"
   },
@@ -7127,7 +7170,7 @@
     "exit_date": "2025-07-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017158",
     "survey_type": "COMPLAINT/VV"
   },
@@ -7151,7 +7194,7 @@
     "exit_date": "2026-07-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017158",
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
@@ -7171,7 +7214,7 @@
     "exit_date": "2026-04-07",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017192",
     "survey_type": "SURVEY"
   },
@@ -7191,7 +7234,7 @@
     "exit_date": "2024-02-09",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017202",
     "survey_type": "COMPLAINT"
   },
@@ -7211,7 +7254,7 @@
     "exit_date": "2025-05-28",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017202",
     "survey_type": "SURVEY"
   },
@@ -7235,7 +7278,7 @@
     "exit_date": "2025-09-03",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017202",
     "survey_type": "COMPLAINT"
   },
@@ -7255,7 +7298,7 @@
     "exit_date": "2026-04-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017202",
     "survey_type": "COMPLAINT/VV"
   },
@@ -7279,7 +7322,7 @@
     "exit_date": "2025-08-11",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017303",
     "survey_type": "SURVEY"
   },
@@ -7299,7 +7342,7 @@
     "exit_date": "2026-06-18",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017303",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -7319,7 +7362,7 @@
     "exit_date": "2023-11-13",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017335",
     "survey_type": "SURVEY"
   },
@@ -7339,7 +7382,7 @@
     "exit_date": "2026-04-08",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017335",
     "survey_type": "SURVEY/COMPLAINT/SELF REPORT"
   },
@@ -7359,7 +7402,7 @@
     "exit_date": "2025-05-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017343",
     "survey_type": "SURVEY"
   },
@@ -7379,7 +7422,7 @@
     "exit_date": "2023-11-09",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017386",
     "survey_type": "SURVEY"
   },
@@ -7399,7 +7442,7 @@
     "exit_date": "2023-11-27",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017393",
     "survey_type": "SURVEY"
   },
@@ -7419,7 +7462,7 @@
     "exit_date": "2025-08-13",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017393",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -7443,7 +7486,7 @@
     "exit_date": "2025-12-02",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017437",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -7463,7 +7506,7 @@
     "exit_date": "2026-06-29",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017437",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -7483,7 +7526,7 @@
     "exit_date": "2023-10-31",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017439",
     "survey_type": "COMPLAINT/VV"
   },
@@ -7507,7 +7550,7 @@
     "exit_date": "2024-02-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017439",
     "survey_type": "COMPLAINT"
   },
@@ -7527,7 +7570,7 @@
     "exit_date": "2024-04-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017439",
     "survey_type": "COMPLAINT"
   },
@@ -7551,7 +7594,7 @@
     "exit_date": "2025-02-13",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017439",
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
@@ -7571,7 +7614,7 @@
     "exit_date": "2026-06-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017439",
     "survey_type": "COMPLAINT/VV"
   },
@@ -7591,7 +7634,7 @@
     "exit_date": "2024-11-13",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017493",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -7611,7 +7654,7 @@
     "exit_date": "2025-09-24",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017493",
     "survey_type": "COMPLAINT"
   },
@@ -7631,7 +7674,7 @@
     "exit_date": "2026-03-03",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017493",
     "survey_type": "COMPLAINT"
   },
@@ -7651,7 +7694,7 @@
     "exit_date": "2026-05-20",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017493",
     "survey_type": "COMPLAINT"
   },
@@ -7675,7 +7718,7 @@
     "exit_date": "2023-11-17",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017545",
     "survey_type": "SURVEY/VV"
   },
@@ -7695,7 +7738,7 @@
     "exit_date": "2025-06-24",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017545",
     "survey_type": "COMPLAINT"
   },
@@ -7719,7 +7762,7 @@
     "exit_date": "2026-05-27",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017545",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -7739,7 +7782,7 @@
     "exit_date": "2024-05-22",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017579",
     "survey_type": "SURVEY"
   },
@@ -7759,7 +7802,7 @@
     "exit_date": "2026-08-10",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017579",
     "survey_type": "SURVEY"
   },
@@ -7783,7 +7826,7 @@
     "exit_date": "2024-01-18",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017638",
     "survey_type": "SURVEY"
   },
@@ -7803,7 +7846,7 @@
     "exit_date": "2024-04-30",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017638",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -7823,7 +7866,7 @@
     "exit_date": "2025-02-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017638",
     "survey_type": "COMPLAINT"
   },
@@ -7843,9 +7886,29 @@
     "exit_date": "2026-08-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017638",
     "survey_type": "SURVEY/COMPLAINT"
+  },
+  "0017792|2026-10-13|survey": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/384311SODS.PDF"
+    },
+    "documents": {
+      "sod": "archive/0017792/2026-10-13_survey_sod.pdf"
+    },
+    "documents_first_seen": {
+      "sod": "2026-10-26"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 19 Oct 2026 20:27:28 GMT"
+    },
+    "exit_date": "2026-10-13",
+    "expired_from_state": false,
+    "first_seen": "2026-10-26",
+    "last_seen": "2026-10-26",
+    "license": "0017792",
+    "survey_type": "SURVEY"
   },
   "0017857|2024-01-22|survey-complaint": {
     "document_urls": {
@@ -7867,7 +7930,7 @@
     "exit_date": "2024-01-22",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017857",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -7887,7 +7950,7 @@
     "exit_date": "2024-07-31",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017857",
     "survey_type": "SELF REPORT"
   },
@@ -7907,9 +7970,33 @@
     "exit_date": "2026-02-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017857",
     "survey_type": "SURVEY/COMPLAINT"
+  },
+  "0017857|2026-08-11|complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/6K5W11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/6K5W11SODS.PDF"
+    },
+    "documents": {
+      "enforcement": "archive/0017857/2026-08-11_complaint_enforcement.pdf",
+      "sod": "archive/0017857/2026-08-11_complaint_sod.pdf"
+    },
+    "documents_first_seen": {
+      "enforcement": "2026-10-26",
+      "sod": "2026-10-26"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 19 Oct 2026 20:27:27 GMT",
+      "sod": "Mon, 19 Oct 2026 20:27:27 GMT"
+    },
+    "exit_date": "2026-08-11",
+    "expired_from_state": false,
+    "first_seen": "2026-10-26",
+    "last_seen": "2026-10-26",
+    "license": "0017857",
+    "survey_type": "COMPLAINT"
   },
   "0017958|2024-01-19|complaint": {
     "document_urls": {
@@ -7927,7 +8014,7 @@
     "exit_date": "2024-01-19",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017958",
     "survey_type": "COMPLAINT"
   },
@@ -7947,7 +8034,7 @@
     "exit_date": "2024-05-11",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017958",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -7971,7 +8058,7 @@
     "exit_date": "2024-01-19",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017960",
     "survey_type": "COMPLAINT"
   },
@@ -7995,7 +8082,7 @@
     "exit_date": "2024-05-13",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017960",
     "survey_type": "COMPLAINT"
   },
@@ -8019,7 +8106,7 @@
     "exit_date": "2025-01-30",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017960",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -8039,7 +8126,7 @@
     "exit_date": "2025-07-02",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017960",
     "survey_type": "COMPLAINT"
   },
@@ -8059,7 +8146,7 @@
     "exit_date": "2025-11-13",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017960",
     "survey_type": "COMPLAINT/VV"
   },
@@ -8083,7 +8170,7 @@
     "exit_date": "2024-06-26",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017994",
     "survey_type": "SURVEY"
   },
@@ -8103,7 +8190,7 @@
     "exit_date": "2025-04-23",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017994",
     "survey_type": "COMPLAINT"
   },
@@ -8120,7 +8207,7 @@
     "exit_date": "2025-07-29",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017995",
     "survey_type": "SURVEY"
   },
@@ -8137,7 +8224,7 @@
     "exit_date": "2025-08-05",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017996",
     "survey_type": "SURVEY"
   },
@@ -8161,7 +8248,7 @@
     "exit_date": "2024-04-09",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017997",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -8181,7 +8268,7 @@
     "exit_date": "2024-12-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0017997",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -8198,7 +8285,7 @@
     "exit_date": "2025-07-03",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018018",
     "survey_type": "SURVEY"
   },
@@ -8218,7 +8305,7 @@
     "exit_date": "2025-05-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018238",
     "survey_type": "SURVEY"
   },
@@ -8238,7 +8325,7 @@
     "exit_date": "2025-10-07",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018239",
     "survey_type": "SURVEY"
   },
@@ -8255,7 +8342,7 @@
     "exit_date": "2024-01-22",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018266",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -8292,7 +8379,7 @@
     "exit_date": "2024-06-17",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018276",
     "survey_type": "COMPLAINT"
   },
@@ -8309,7 +8396,7 @@
     "exit_date": "2025-03-12",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018276",
     "survey_type": "SURVEY/VV"
   },
@@ -8329,7 +8416,7 @@
     "exit_date": "2025-11-03",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018276",
     "survey_type": "COMPLAINT"
   },
@@ -8346,7 +8433,7 @@
     "exit_date": "2024-12-11",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018300",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -8366,7 +8453,7 @@
     "exit_date": "2025-03-17",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018300",
     "survey_type": "COMPLAINT"
   },
@@ -8386,7 +8473,7 @@
     "exit_date": "2024-01-29",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018302",
     "survey_type": "SURVEY/COMPLAINT/SELF REPORT"
   },
@@ -8406,7 +8493,7 @@
     "exit_date": "2024-02-29",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018302",
     "survey_type": "COMPLAINT"
   },
@@ -8426,7 +8513,7 @@
     "exit_date": "2024-11-11",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018302",
     "survey_type": "COMPLAINT"
   },
@@ -8446,7 +8533,7 @@
     "exit_date": "2025-01-22",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018302",
     "survey_type": "COMPLAINT/SELF REPORT"
   },
@@ -8466,7 +8553,7 @@
     "exit_date": "2025-06-18",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018302",
     "survey_type": "COMPLAINT/VV"
   },
@@ -8486,7 +8573,7 @@
     "exit_date": "2026-07-14",
     "expired_from_state": false,
     "first_seen": "2026-10-06",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018302",
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
@@ -8506,7 +8593,7 @@
     "exit_date": "2026-08-25",
     "expired_from_state": false,
     "first_seen": "2026-10-06",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018302",
     "survey_type": "COMPLAINT"
   },
@@ -8530,7 +8617,7 @@
     "exit_date": "2024-11-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018366",
     "survey_type": "SURVEY"
   },
@@ -8550,7 +8637,7 @@
     "exit_date": "2025-06-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018366",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -8574,7 +8661,7 @@
     "exit_date": "2024-01-24",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018376",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -8594,7 +8681,7 @@
     "exit_date": "2025-06-13",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018400",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -8614,7 +8701,7 @@
     "exit_date": "2025-04-24",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018401",
     "survey_type": "SURVEY"
   },
@@ -8636,7 +8723,8 @@
       "sod": "Mon, 29 Jan 2024 13:00:43 GMT"
     },
     "exit_date": "2023-10-25",
-    "expired_from_state": false,
+    "expired_from_state": true,
+    "expired_on": "2026-10-26",
     "first_seen": "2026-10-07",
     "last_seen": "2026-10-19",
     "license": "0018402",
@@ -8658,7 +8746,7 @@
     "exit_date": "2024-11-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018402",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -8682,7 +8770,7 @@
     "exit_date": "2025-01-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018403",
     "survey_type": "COMPLAINT"
   },
@@ -8702,7 +8790,7 @@
     "exit_date": "2025-06-24",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018403",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -8719,7 +8807,7 @@
     "exit_date": "2025-08-26",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018526",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -8743,7 +8831,7 @@
     "exit_date": "2024-09-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018636",
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
@@ -8767,7 +8855,7 @@
     "exit_date": "2024-12-12",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018636",
     "survey_type": "COMPLAINT"
   },
@@ -8787,7 +8875,7 @@
     "exit_date": "2026-02-24",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018636",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -8811,7 +8899,7 @@
     "exit_date": "2026-08-10",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018719",
     "survey_type": "SURVEY"
   },
@@ -8835,7 +8923,7 @@
     "exit_date": "2024-12-10",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018754",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -8859,7 +8947,7 @@
     "exit_date": "2025-08-29",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018754",
     "survey_type": "COMPLAINT"
   },
@@ -8883,7 +8971,7 @@
     "exit_date": "2025-11-18",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018754",
     "survey_type": "COMPLAINT/VV"
   },
@@ -8907,7 +8995,7 @@
     "exit_date": "2026-08-20",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018754",
     "survey_type": "COMPLAINT/VV"
   },
@@ -8931,7 +9019,7 @@
     "exit_date": "2024-05-28",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018759",
     "survey_type": "COMPLAINT"
   },
@@ -8955,7 +9043,7 @@
     "exit_date": "2025-11-26",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018759",
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
@@ -8979,7 +9067,7 @@
     "exit_date": "2026-06-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018759",
     "survey_type": "COMPLAINT/VV"
   },
@@ -8999,7 +9087,7 @@
     "exit_date": "2024-06-03",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018760",
     "survey_type": "SURVEY/COMPLAINT/SELF REPORT"
   },
@@ -9016,7 +9104,7 @@
     "exit_date": "2025-01-22",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018760",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -9036,7 +9124,7 @@
     "exit_date": "2025-04-29",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018760",
     "survey_type": "COMPLAINT"
   },
@@ -9056,7 +9144,7 @@
     "exit_date": "2025-07-23",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018760",
     "survey_type": "DESK REVIEW"
   },
@@ -9073,7 +9161,7 @@
     "exit_date": "2025-08-13",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018760",
     "survey_type": "DESK REVIEW"
   },
@@ -9093,7 +9181,7 @@
     "exit_date": "2025-11-06",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018760",
     "survey_type": "COMPLAINT/VV"
   },
@@ -9113,7 +9201,7 @@
     "exit_date": "2026-06-30",
     "expired_from_state": false,
     "first_seen": "2026-10-06",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018760",
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
@@ -9158,7 +9246,7 @@
     "exit_date": "2023-12-19",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018848",
     "survey_type": "COMPLAINT"
   },
@@ -9182,7 +9270,7 @@
     "exit_date": "2024-07-29",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018848",
     "survey_type": "SURVEY/VV"
   },
@@ -9199,7 +9287,7 @@
     "exit_date": "2025-04-23",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018940",
     "survey_type": "SURVEY"
   },
@@ -9219,7 +9307,7 @@
     "exit_date": "2025-12-17",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018940",
     "survey_type": "COMPLAINT"
   },
@@ -9239,7 +9327,7 @@
     "exit_date": "2026-03-30",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018940",
     "survey_type": "COMPLAINT/VV"
   },
@@ -9259,7 +9347,7 @@
     "exit_date": "2024-04-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0018966",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -9283,7 +9371,7 @@
     "exit_date": "2026-05-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019084",
     "survey_type": "SURVEY"
   },
@@ -9317,7 +9405,7 @@
     "exit_date": "2024-06-11",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019222",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -9334,7 +9422,7 @@
     "exit_date": "2023-12-21",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019326",
     "survey_type": "SURVEY/SELF REPORT"
   },
@@ -9354,7 +9442,7 @@
     "exit_date": "2025-04-16",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019326",
     "survey_type": "COMPLAINT"
   },
@@ -9374,7 +9462,7 @@
     "exit_date": "2025-09-23",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019326",
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
@@ -9394,7 +9482,7 @@
     "exit_date": "2023-11-08",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019328",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -9411,7 +9499,7 @@
     "exit_date": "2024-01-31",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019328",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -9431,7 +9519,7 @@
     "exit_date": "2024-12-19",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019328",
     "survey_type": "COMPLAINT"
   },
@@ -9451,7 +9539,7 @@
     "exit_date": "2025-09-12",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019328",
     "survey_type": "COMPLAINT"
   },
@@ -9471,7 +9559,7 @@
     "exit_date": "2025-10-22",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019328",
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
@@ -9491,7 +9579,7 @@
     "exit_date": "2023-11-30",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019329",
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
@@ -9508,7 +9596,7 @@
     "exit_date": "2024-02-26",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019329",
     "survey_type": "COMPLAINT/VV"
   },
@@ -9528,7 +9616,7 @@
     "exit_date": "2026-04-01",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019329",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -9545,7 +9633,7 @@
     "exit_date": "2023-12-21",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019331",
     "survey_type": "SURVEY"
   },
@@ -9565,7 +9653,7 @@
     "exit_date": "2025-10-20",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019331",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -9585,7 +9673,7 @@
     "exit_date": "2026-01-12",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019578",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -9609,7 +9697,7 @@
     "exit_date": "2026-02-19",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019578",
     "survey_type": "COMPLAINT"
   },
@@ -9633,7 +9721,7 @@
     "exit_date": "2024-06-18",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019609",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -9653,7 +9741,7 @@
     "exit_date": "2024-09-19",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019609",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -9677,7 +9765,7 @@
     "exit_date": "2026-06-02",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019609",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -9697,7 +9785,7 @@
     "exit_date": "2024-08-15",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019651",
     "survey_type": "COMPLAINT"
   },
@@ -9714,7 +9802,7 @@
     "exit_date": "2024-07-22",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019733",
     "survey_type": "SURVEY"
   },
@@ -9731,7 +9819,7 @@
     "exit_date": "2025-02-27",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019733",
     "survey_type": "COMPLAINT"
   },
@@ -9751,7 +9839,7 @@
     "exit_date": "2025-08-11",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019733",
     "survey_type": "SELF REPORT"
   },
@@ -9771,7 +9859,7 @@
     "exit_date": "2024-01-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019741",
     "survey_type": "OTHER"
   },
@@ -9791,7 +9879,7 @@
     "exit_date": "2024-04-23",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019741",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -9811,7 +9899,7 @@
     "exit_date": "2024-08-15",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019818",
     "survey_type": "COMPLAINT"
   },
@@ -9831,7 +9919,7 @@
     "exit_date": "2025-11-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019818",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -9855,7 +9943,7 @@
     "exit_date": "2025-05-19",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019823",
     "survey_type": "COMPLAINT"
   },
@@ -9875,7 +9963,7 @@
     "exit_date": "2025-11-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019823",
     "survey_type": "SURVEY/VV"
   },
@@ -9895,7 +9983,7 @@
     "exit_date": "2025-06-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019893",
     "survey_type": "COMPLAINT"
   },
@@ -9915,7 +10003,7 @@
     "exit_date": "2025-06-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019894",
     "survey_type": "COMPLAINT"
   },
@@ -9932,7 +10020,7 @@
     "exit_date": "2024-08-15",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019937",
     "survey_type": "SURVEY"
   },
@@ -9949,7 +10037,7 @@
     "exit_date": "2025-07-02",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019937",
     "survey_type": "COMPLAINT"
   },
@@ -9966,7 +10054,7 @@
     "exit_date": "2024-09-12",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019940",
     "survey_type": "SURVEY"
   },
@@ -9986,7 +10074,7 @@
     "exit_date": "2025-11-13",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0019940",
     "survey_type": "COMPLAINT"
   },
@@ -10006,7 +10094,7 @@
     "exit_date": "2025-05-23",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020028",
     "survey_type": "COMPLAINT"
   },
@@ -10026,7 +10114,7 @@
     "exit_date": "2025-04-09",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020143",
     "survey_type": "COMPLAINT"
   },
@@ -10046,7 +10134,7 @@
     "exit_date": "2025-11-11",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020143",
     "survey_type": "COMPLAINT"
   },
@@ -10066,7 +10154,7 @@
     "exit_date": "2025-10-08",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020362",
     "survey_type": "COMPLAINT"
   },
@@ -10086,7 +10174,7 @@
     "exit_date": "2026-02-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020362",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -10103,7 +10191,7 @@
     "exit_date": "2024-11-27",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020363",
     "survey_type": "COMPLAINT"
   },
@@ -10120,7 +10208,7 @@
     "exit_date": "2025-08-07",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020363",
     "survey_type": "COMPLAINT"
   },
@@ -10137,7 +10225,7 @@
     "exit_date": "2026-09-09",
     "expired_from_state": false,
     "first_seen": "2026-10-06",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020363",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -10154,7 +10242,7 @@
     "exit_date": "2024-11-13",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020366",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -10171,7 +10259,7 @@
     "exit_date": "2025-04-03",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020366",
     "survey_type": "COMPLAINT"
   },
@@ -10191,7 +10279,7 @@
     "exit_date": "2025-07-28",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020366",
     "survey_type": "COMPLAINT"
   },
@@ -10208,7 +10296,7 @@
     "exit_date": "2025-09-24",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020366",
     "survey_type": "COMPLAINT"
   },
@@ -10225,7 +10313,7 @@
     "exit_date": "2026-01-27",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020366",
     "survey_type": "SURVEY/COMPLAINT/VV"
   },
@@ -10242,7 +10330,7 @@
     "exit_date": "2026-07-21",
     "expired_from_state": false,
     "first_seen": "2026-10-06",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020366",
     "survey_type": "COMPLAINT"
   },
@@ -10262,7 +10350,7 @@
     "exit_date": "2024-10-01",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020445",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -10279,7 +10367,7 @@
     "exit_date": "2024-12-04",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020445",
     "survey_type": "COMPLAINT"
   },
@@ -10299,7 +10387,7 @@
     "exit_date": "2025-06-19",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020445",
     "survey_type": "COMPLAINT/VV"
   },
@@ -10316,7 +10404,7 @@
     "exit_date": "2026-08-19",
     "expired_from_state": false,
     "first_seen": "2026-10-06",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020445",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -10336,7 +10424,7 @@
     "exit_date": "2025-06-11",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020446",
     "survey_type": "COMPLAINT"
   },
@@ -10360,7 +10448,7 @@
     "exit_date": "2026-03-09",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020446",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -10380,7 +10468,7 @@
     "exit_date": "2026-06-30",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020446",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -10404,7 +10492,7 @@
     "exit_date": "2024-07-08",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020447",
     "survey_type": "COMPLAINT"
   },
@@ -10424,7 +10512,7 @@
     "exit_date": "2025-05-19",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020447",
     "survey_type": "COMPLAINT"
   },
@@ -10444,7 +10532,7 @@
     "exit_date": "2025-08-27",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020447",
     "survey_type": "COMPLAINT"
   },
@@ -10464,9 +10552,33 @@
     "exit_date": "2025-11-25",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020447",
     "survey_type": "COMPLAINT"
+  },
+  "0020447|2026-08-11|survey-complaint": {
+    "document_urls": {
+      "enforcement": "https://www.forwardhealth.wi.gov/kw/dqa/SSKN11ENFS.PDF",
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/SSKN11SODS.PDF"
+    },
+    "documents": {
+      "enforcement": "archive/0020447/2026-08-11_survey-complaint_enforcement.pdf",
+      "sod": "archive/0020447/2026-08-11_survey-complaint_sod.pdf"
+    },
+    "documents_first_seen": {
+      "enforcement": "2026-10-26",
+      "sod": "2026-10-26"
+    },
+    "documents_last_modified": {
+      "enforcement": "Mon, 19 Oct 2026 20:27:29 GMT",
+      "sod": "Mon, 19 Oct 2026 20:27:29 GMT"
+    },
+    "exit_date": "2026-08-11",
+    "expired_from_state": false,
+    "first_seen": "2026-10-26",
+    "last_seen": "2026-10-26",
+    "license": "0020447",
+    "survey_type": "SURVEY/COMPLAINT"
   },
   "0020448|2025-03-13|complaint": {
     "document_urls": {
@@ -10488,7 +10600,7 @@
     "exit_date": "2025-03-13",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020448",
     "survey_type": "COMPLAINT"
   },
@@ -10512,7 +10624,7 @@
     "exit_date": "2026-01-13",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020448",
     "survey_type": "SURVEY/VV"
   },
@@ -10536,7 +10648,7 @@
     "exit_date": "2026-07-23",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020448",
     "survey_type": "COMPLAINT/VV"
   },
@@ -10556,7 +10668,7 @@
     "exit_date": "2025-10-08",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020450",
     "survey_type": "COMPLAINT"
   },
@@ -10580,7 +10692,7 @@
     "exit_date": "2025-08-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020659",
     "survey_type": "COMPLAINT"
   },
@@ -10600,7 +10712,7 @@
     "exit_date": "2026-06-29",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020661",
     "survey_type": "COMPLAINT"
   },
@@ -10624,7 +10736,7 @@
     "exit_date": "2026-01-26",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020893",
     "survey_type": "COMPLAINT"
   },
@@ -10648,9 +10760,29 @@
     "exit_date": "2026-06-18",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020893",
     "survey_type": "COMPLAINT/VV"
+  },
+  "0020893|2026-10-15|verification-visit": {
+    "document_urls": {
+      "sod": "https://www.forwardhealth.wi.gov/kw/dqa/6D4113SODS.PDF"
+    },
+    "documents": {
+      "sod": "archive/0020893/2026-10-15_verification-visit_sod.pdf"
+    },
+    "documents_first_seen": {
+      "sod": "2026-10-26"
+    },
+    "documents_last_modified": {
+      "sod": "Mon, 19 Oct 2026 20:27:27 GMT"
+    },
+    "exit_date": "2026-10-15",
+    "expired_from_state": false,
+    "first_seen": "2026-10-26",
+    "last_seen": "2026-10-26",
+    "license": "0020893",
+    "survey_type": "VERIFICATION VISIT"
   },
   "0020912|2026-07-29|complaint": {
     "document_urls": {
@@ -10668,7 +10800,7 @@
     "exit_date": "2026-07-29",
     "expired_from_state": false,
     "first_seen": "2026-10-06",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0020912",
     "survey_type": "COMPLAINT"
   },
@@ -10688,7 +10820,7 @@
     "exit_date": "2026-02-12",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0021417",
     "survey_type": "SURVEY"
   },
@@ -10708,7 +10840,7 @@
     "exit_date": "2026-08-03",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0021417",
     "survey_type": "COMPLAINT"
   },
@@ -10728,7 +10860,7 @@
     "exit_date": "2026-02-16",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0021437",
     "survey_type": "SURVEY"
   },
@@ -10748,7 +10880,7 @@
     "exit_date": "2026-08-03",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0021437",
     "survey_type": "COMPLAINT"
   },
@@ -10768,7 +10900,7 @@
     "exit_date": "2026-08-19",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "0021468",
     "survey_type": "COMPLAINT"
   },
@@ -10788,7 +10920,7 @@
     "exit_date": "2024-07-09",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "410032",
     "survey_type": "SURVEY"
   },
@@ -10812,7 +10944,7 @@
     "exit_date": "2024-02-27",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "410107",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -10836,7 +10968,7 @@
     "exit_date": "2025-03-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "410107",
     "survey_type": "COMPLAINT/VV"
   },
@@ -10860,7 +10992,7 @@
     "exit_date": "2025-08-27",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "410107",
     "survey_type": "COMPLAINT"
   },
@@ -10884,7 +11016,7 @@
     "exit_date": "2025-10-08",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "410107",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -10908,7 +11040,7 @@
     "exit_date": "2026-06-01",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "410107",
     "survey_type": "COMPLAINT/SELF REPORT/VV"
   },
@@ -10928,7 +11060,7 @@
     "exit_date": "2026-06-01",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "410107",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -10952,7 +11084,7 @@
     "exit_date": "2024-04-05",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "410133",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -10976,7 +11108,7 @@
     "exit_date": "2024-12-23",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "410133",
     "survey_type": "COMPLAINT/VV"
   },
@@ -11000,7 +11132,7 @@
     "exit_date": "2025-06-04",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "410133",
     "survey_type": "COMPLAINT/VV"
   },
@@ -11024,7 +11156,7 @@
     "exit_date": "2025-10-09",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "410133",
     "survey_type": "COMPLAINT/VV"
   },
@@ -11048,7 +11180,7 @@
     "exit_date": "2026-05-20",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "410133",
     "survey_type": "COMPLAINT/VV"
   },
@@ -11068,7 +11200,7 @@
     "exit_date": "2025-03-13",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "410429",
     "survey_type": "SURVEY"
   },
@@ -11088,7 +11220,7 @@
     "exit_date": "2025-08-13",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "410429",
     "survey_type": "COMPLAINT"
   },
@@ -11108,7 +11240,7 @@
     "exit_date": "2025-03-17",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "590164",
     "survey_type": "SURVEY"
   },
@@ -11132,7 +11264,7 @@
     "exit_date": "2024-02-06",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "610004",
     "survey_type": "SURVEY"
   },
@@ -11152,7 +11284,7 @@
     "exit_date": "2024-09-12",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "610071",
     "survey_type": "SURVEY"
   },
@@ -11172,7 +11304,7 @@
     "exit_date": "2024-05-28",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "610201",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -11196,7 +11328,7 @@
     "exit_date": "2025-05-01",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "610269",
     "survey_type": "SURVEY"
   },
@@ -11216,7 +11348,7 @@
     "exit_date": "2025-08-27",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "610269",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -11236,7 +11368,7 @@
     "exit_date": "2023-11-02",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "611026",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -11253,7 +11385,7 @@
     "exit_date": "2024-02-27",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "611026",
     "survey_type": "VERIFICATION VISIT"
   },
@@ -11270,7 +11402,7 @@
     "exit_date": "2025-05-07",
     "expired_from_state": false,
     "first_seen": "2026-07-12",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "611026",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -11294,7 +11426,7 @@
     "exit_date": "2025-05-22",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "611047",
     "survey_type": "SURVEY"
   },
@@ -11314,7 +11446,7 @@
     "exit_date": "2025-02-11",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "611048",
     "survey_type": "SURVEY/COMPLAINT"
   },
@@ -11334,7 +11466,7 @@
     "exit_date": "2025-09-08",
     "expired_from_state": false,
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-19",
+    "last_seen": "2026-10-26",
     "license": "690022",
     "survey_type": "SURVEY"
   }
