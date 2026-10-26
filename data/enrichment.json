@@ -3137,6 +3137,14 @@
     "deficiencies": 2,
     "kind": "sod"
   },
+  "archive/0014504/2026-10-08_complaint-vv_sod.pdf": {
+    "census": 53,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
   "archive/0014626/2024-02-23_survey-complaint_sod.pdf": {
     "census": null,
     "citations": [],
@@ -5790,6 +5798,14 @@
     "deficiencies": 0,
     "kind": "sod"
   },
+  "archive/0016877/2026-10-14_complaint_sod.pdf": {
+    "census": 32,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
   "archive/0016880/2026-03-24_complaint_sod.pdf": {
     "census": 36,
     "citations": [],
@@ -7266,6 +7282,14 @@
     "deficiencies": 0,
     "kind": "sod"
   },
+  "archive/0017792/2026-10-13_survey_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
   "archive/0017857/2024-01-22_survey-complaint_enforcement.pdf": {
     "fine": null,
     "kind": "enforcement",
@@ -7302,6 +7326,36 @@
     "citations": [],
     "complaints_substantiated": 0,
     "complaints_unsubstantiated": 1,
+    "deficiencies": null,
+    "kind": "sod"
+  },
+  "archive/0017857/2026-08-11_complaint_enforcement.pdf": {
+    "fine": 1100,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Order to comply"
+    ],
+    "sod_ref": "6K5W11"
+  },
+  "archive/0017857/2026-08-11_complaint_sod.pdf": {
+    "census": 25,
+    "citations": [
+      {
+        "category": "Care and service plans",
+        "code": "83.35(3)(d)",
+        "tag": "N 389",
+        "title": "Service plans updated annually or on changes"
+      },
+      {
+        "category": "Resident rights",
+        "code": "50.09(1)(L)",
+        "tag": "Y 3244",
+        "title": "Care"
+      }
+    ],
+    "complaints_substantiated": 1,
+    "complaints_unsubstantiated": 0,
     "deficiencies": null,
     "kind": "sod"
   },
@@ -10271,6 +10325,36 @@
     "deficiencies": 0,
     "kind": "sod"
   },
+  "archive/0020447/2026-08-11_survey-complaint_enforcement.pdf": {
+    "fine": 200,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Order to comply"
+    ],
+    "sod_ref": "SSKN11"
+  },
+  "archive/0020447/2026-08-11_survey-complaint_sod.pdf": {
+    "census": 18,
+    "citations": [
+      {
+        "category": "Resident rights",
+        "code": "83.32(3)(m)",
+        "tag": "N 357",
+        "title": "Rights of Residents: Recording and filming"
+      },
+      {
+        "category": "Building, cleanliness and food",
+        "code": "83.41(3)(b)",
+        "tag": "N 452",
+        "title": "Food safety."
+      }
+    ],
+    "complaints_substantiated": 1,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 2,
+    "kind": "sod"
+  },
   "archive/0020448/2025-03-13_complaint_enforcement.pdf": {
     "fine": null,
     "kind": "enforcement",
@@ -10525,6 +10609,14 @@
     "complaints_substantiated": 0,
     "complaints_unsubstantiated": 0,
     "deficiencies": null,
+    "kind": "sod"
+  },
+  "archive/0020893/2026-10-15_verification-visit_sod.pdf": {
+    "census": null,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
     "kind": "sod"
   },
   "archive/0020912/2026-07-29_complaint_enforcement.pdf": {
