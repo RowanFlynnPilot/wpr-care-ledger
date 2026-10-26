@@ -1709,6 +1709,12 @@
   "lat": 44.580925,
   "lon": -89.591776
  },
+ "0021917": {
+  "address": "1120 S Lafayette St, Shawano, WI, 54166",
+  "match": "Exact",
+  "lat": 44.770585,
+  "lon": -88.612705
+ },
  "0021959": {
   "address": "502 West Adams Street, Colby, WI, 54421",
   "match": "Exact",
