@@ -138,7 +138,8 @@ export function smartTitle(s) {
   if (!s) return s;
   // The roster files names by their main word: "WATERFORD AT COLBY (THE)"
   // (11 facilities) reads "The Waterford at Colby" in print.
-  const filed = s.trim().match(/^(.*?)\s*(?:\(THE\)|,\s*THE)$/i);
+  // Also a bare trailing "THE": "COTTAGES MEMORY CARE THE".
+  const filed = s.trim().match(/^(.*?)\s*(?:\(THE\)|,\s*THE|\s+THE)$/i);
   if (filed) s = `The ${filed[1]}`;
   return s
     .trim()

@@ -639,7 +639,9 @@ then bundles them into `dist/`, so **the Pages artifact is just
 
 ## Deploy
 
-- `fetch.yml` — Mondays 09:00 UTC: tests → fetch → **commit the ledger
+- `fetch.yml` — Mondays 09:17 UTC (off the hour: GitHub delays scheduled
+  runs under load, worst at the top of the hour — the 09:00 cron started
+  about seven hours late on Oct. 19 and 26, 2026): tests → fetch → **commit the ledger
   and archive** → enrich → digest → commit `enrichment.json` → alert →
   geocode new or moved facilities and commit `geocodes.json` (5-minute
   step limit; a Census Bureau outage is a `::warning::` inside

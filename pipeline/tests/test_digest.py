@@ -99,6 +99,11 @@ class Links(unittest.TestCase):
         self.assertEqual(digest.page_url(f),
                          digest.SITE + "facility/the-waterford-at-colby-0015955/")
 
+    def test_names_filed_under_the(self):
+        for raw in ("WATERFORD AT COLBY (THE)", "WATERFORD AT COLBY, THE"):
+            self.assertEqual(digest.smart_title(raw), "The Waterford at Colby")
+        self.assertEqual(digest.smart_title("COTTAGES MEMORY CARE THE"), "The Cottages Memory Care")
+
     def test_ap_dates(self):
         self.assertEqual(digest.ap_date("2026-09-21"), "Sept. 21, 2026")
         self.assertEqual(digest.ap_date("2026-03-27"), "March 27, 2026")

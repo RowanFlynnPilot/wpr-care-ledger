@@ -68,7 +68,8 @@ ORDER_TEXT = {
 
 def smart_title(s):
     # "WATERFORD AT COLBY (THE)" -> "The Waterford at Colby", as the widget prints it.
-    filed = re.match(r"^(.*?)\s*(?:\(THE\)|,\s*THE)$", s.strip(), re.I)
+    # Also a bare trailing "THE": "COTTAGES MEMORY CARE THE".
+    filed = re.match(r"^(.*?)\s*(?:\(THE\)|,\s*THE|\s+THE)$", s.strip(), re.I)
     if filed:
         s = f"The {filed.group(1)}"
     words = []

@@ -2,7 +2,10 @@ name: fetch
 
 on:
   schedule:
-    - cron: "0 9 * * 1"  # Mondays 09:00 UTC — DQA updates Sundays
+    # Mondays 09:17 UTC — DQA updates Sundays. Off the hour on purpose:
+    # GitHub delays scheduled runs under load, worst at the top of the hour
+    # (the 09:00 cron started at 16:12 and 15:51 UTC on Oct. 19 and 26).
+    - cron: "17 9 * * 1"
   workflow_dispatch:
 
 permissions:
