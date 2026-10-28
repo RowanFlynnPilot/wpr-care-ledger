@@ -475,8 +475,17 @@ the county chart (they were scaled to the largest category, so the top
 bar always looked full).
 
 State names arrive ALL CAPS; `smartTitle()` title-cases them for print,
-preserving acronyms (LLC, CBRF, HCBS, …) and never capitalizing after an
-apostrophe (Alzheimer's).
+preserving acronyms (LLC, CBRF, HCBS, OSL, …) and never capitalizing after an
+apostrophe (Alzheimer's). Rules, not a list, so new facilities print
+right: a 2–5-letter word with no vowels is initials (KSMS, NCHC, TSMM,
+TC) unless it's a street word (St, Rd, Bldg); letters before a number are
+an identifier (WR1); "INC" prints "Inc." (AP); "or" and "to" stay
+lowercase mid-name; a name filed under "(THE)", ", THE" or a bare
+trailing "THE" reads "The …". digest.py's `smart_title()` mirrors it
+exactly — it builds the tip sheet's text and facility links — and the
+same cases are pinned on both sides (`widget/tests/names.spec.js`,
+`pipeline/tests/test_digest.py`); the two had drifted (digest.py lacked
+four capitals) until 2026-10-28.
 
 The list renders 20 rows, then "Show 20 more" / "show all" (focus moves
 to the first new row); any new search, filter, sort, lens or county
@@ -750,6 +759,10 @@ then bundles them into `dist/`, so **the Pages artifact is just
   Chrome's local-network-access check for the test browser). The suite
   found a real bug on its first run: the longer row chips overflowed a
   320px phone.
+- Widget deps: Vite 8.3.4 and @vitejs/plugin-react 6.1.2, exact versions
+  (2026-10-28: from Vite 5, to clear `npm audit`'s seven advisories, all in
+  build tools — none ship to readers; 0 remain). Check `npm audit` when
+  upgrading; take versions at least two weeks old.
 - Deps are pinned: `python -m pip install -r pipeline/requirements.txt`
   (upgrade deliberately: bump, run fetch + `enrich.py --rebuild`, diff
   data/ before committing)

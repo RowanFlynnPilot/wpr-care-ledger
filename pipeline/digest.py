@@ -39,9 +39,11 @@ REVISION_MARK = "care-ledger-revision:"
 
 # Same print rules as the widget's smartTitle(): state names arrive in
 # ALL CAPS; keep licensing acronyms, lowercase the small words.
-KEEP_UPPER = {"LLC", "LLP", "INC", "CO", "II", "III", "IV", "VI", "VII", "VIII", "AFH", "CBRF", "RCAC", "AF", "ALF",
-              "CSL", "LSS", "NSH"}
-KEEP_LOWER = {"of", "and", "the", "at", "by", "for", "on", "in"}
+KEEP_UPPER = {"LLC", "LLP", "CO", "II", "III", "IV", "VI", "VII", "VIII", "AFH", "CBRF", "RCAC", "CSL", "LSS",
+              "NSH", "AF", "ALF", "WI", "USA", "SLF", "HCBS", "OSL"}
+KEEP_LOWER = {"of", "and", "the", "at", "by", "for", "on", "in", "or", "to"}
+# Vowel-less abbreviations that are words in an address, not initials.
+STREET_WORDS = {"ST", "RD", "DR", "LN", "CT", "PL", "MT", "FT", "BLDG", "BLVD", "PKWY", "CTR"}
 
 SURVEY_PART_LABELS = {
     "SURVEY": "Standard survey", "COMPLAINT": "Complaint investigation",
@@ -74,8 +76,15 @@ def smart_title(s):
         s = f"The {filed.group(1)}"
     words = []
     for i, w in enumerate(s.split()):
-        bare = "".join(c for c in w if c.isalnum())
-        if bare.upper() in KEEP_UPPER or re.fullmatch(r"[A-Za-z]{1,3}&[A-Za-z]{1,3}", w):
+        bare = re.sub(r"[^A-Za-z0-9]", "", w)
+        BARE = bare.upper()
+        if BARE == "INC" and BARE not in KEEP_UPPER:
+            words.append(re.sub(r"inc\.?", "Inc.", w, flags=re.I))  # AP: "Inc.", not "INC"
+        elif (BARE in KEEP_UPPER or re.fullmatch(r"[A-Za-z]{1,3}&[A-Za-z]{1,3}", w)
+              # initials: short, vowel-less, not a street word (KSMS, TC; not St, Rd)
+              or (re.fullmatch(r"[A-Z]{2,5}", BARE) and not re.search(r"[AEIOUY]", BARE)
+                  and BARE not in STREET_WORDS)
+              or re.fullmatch(r"[A-Z]{1,3}\d+", BARE)):  # an identifier: WR1, M311
             words.append(w.upper())  # LLC; initials joined by "&": C&K, K&DS
         elif i and bare.lower() in KEEP_LOWER:
             words.append(w.lower())

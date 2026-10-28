@@ -129,10 +129,12 @@ export function addressCase(s) {
 /* Facility and operator names arrive from the state in ALL CAPS. Title-case
    them for print, preserving corporate and licensing acronyms. */
 export const KEEP_UPPER = new Set([
-  "LLC", "LLP", "INC", "CO", "II", "III", "IV", "VI", "VII", "VIII", "AFH", "CBRF", "RCAC", "CSL", "LSS", "NSH",
-  "AF", "ALF", "WI", "USA", "SLF", "HCBS",
+  "LLC", "LLP", "CO", "II", "III", "IV", "VI", "VII", "VIII", "AFH", "CBRF", "RCAC", "CSL", "LSS", "NSH",
+  "AF", "ALF", "WI", "USA", "SLF", "HCBS", "OSL",
 ]);
-export const KEEP_LOWER = new Set(["of", "and", "the", "at", "by", "for", "on", "in"]);
+export const KEEP_LOWER = new Set(["of", "and", "the", "at", "by", "for", "on", "in", "or", "to"]);
+// Vowel-less abbreviations that are words in an address, not initials.
+const STREET_WORDS = new Set(["ST", "RD", "DR", "LN", "CT", "PL", "MT", "FT", "BLDG", "BLVD", "PKWY", "CTR"]);
 
 export function smartTitle(s) {
   if (!s) return s;
@@ -146,7 +148,15 @@ export function smartTitle(s) {
     .split(/\s+/)
     .map((w, i) => {
       const bare = w.replace(/[^A-Za-z0-9]/g, "");
-      if (KEEP_UPPER.has(bare.toUpperCase())) return w.toUpperCase();
+      const BARE = bare.toUpperCase();
+      if (KEEP_UPPER.has(BARE)) return w.toUpperCase();
+      // AP: "Inc.", not "INC".
+      if (BARE === "INC") return w.replace(/inc\.?/i, "Inc.");
+      // Initials: a short word with no vowels (KSMS, NCHC, TSMM, TC) that
+      // isn't a street abbreviation (St, Rd, Bldg); and letters before a
+      // number, an identifier (WR1, M311).
+      if (/^[A-Z]{2,5}$/.test(BARE) && !/[AEIOUY]/.test(BARE) && !STREET_WORDS.has(BARE)) return w.toUpperCase();
+      if (/^[A-Z]{1,3}\d+$/.test(BARE)) return w.toUpperCase();
       // Initials joined by "&" stay capitals: C&K, K&DS, S&C.
       if (/^[A-Za-z]{1,3}&[A-Za-z]{1,3}$/.test(w)) return w.toUpperCase();
       const lower = w.toLowerCase();

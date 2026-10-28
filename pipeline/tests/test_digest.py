@@ -104,6 +104,21 @@ class Links(unittest.TestCase):
             self.assertEqual(digest.smart_title(raw), "The Waterford at Colby")
         self.assertEqual(digest.smart_title("COTTAGES MEMORY CARE THE"), "The Cottages Memory Care")
 
+    def test_names_print_as_the_widget_prints_them(self):
+        # Same cases as widget/tests/names.spec.js (smartTitle in ledger.js).
+        cases = [
+            ("KSMS OUR HOUSE LLC", "KSMS Our House LLC"),
+            ("NCHC ADULT CRISIS STABILIZATION FACILITY", "NCHC Adult Crisis Stabilization Facility"),
+            ("BEST PLACE TO BE INC WR2", "Best Place to Be Inc. WR2"),
+            ("ST JOSEPH RESIDENCE INC", "St Joseph Residence Inc."),
+            ("PAISERS OAKHAVEN S&C LLC BLDG II", "Paisers Oakhaven S&C LLC Bldg II"),
+            ("TERRA OR DARRIN SCHNEIDER", "Terra or Darrin Schneider"),
+            ("OSL SP Operating LLC", "OSL SP Operating LLC"),
+            ("ALZHEIMER'S CARE CENTER OF MCKINLEY", "Alzheimer's Care Center of McKinley"),
+        ]
+        for raw, printed in cases:
+            self.assertEqual(digest.smart_title(raw), printed, raw)
+
     def test_ap_dates(self):
         self.assertEqual(digest.ap_date("2026-09-21"), "Sept. 21, 2026")
         self.assertEqual(digest.ap_date("2026-03-27"), "March 27, 2026")
