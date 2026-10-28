@@ -10,7 +10,8 @@
     "build": "vite build",
     "postbuild": "node scripts/facility-pages.mjs",
     "preview": "vite preview",
-    "test": "playwright test"
+    "test": "playwright test",
+    "figures": "node scripts/story-figures.mjs"
   },
   "dependencies": {
     "@fontsource-variable/jetbrains-mono": "^5.3.0",

@@ -722,6 +722,13 @@ then bundles them into `dist/`, so **the Pages artifact is just
   block the deploy. `alert-test.yml` (Run workflow) posts a `[TEST]` issue
   to confirm delivery. Alert issues are public, like the repo — public
   records only.
+- Story figures: `cd widget; npm run figures` prints every figure the
+  launch story cites — totals, fines, complaints, bans and extensions,
+  held records, the county and operator tables, largest fine totals,
+  citation categories, and every address shared by a closed facility and
+  a newer license — from the widget's own `shape()`, so print and tool
+  agree. Run it the morning a story publishes, after the latest Monday
+  update.
 - Map locations: `python pipeline/geocode.py` (new or moved facilities
   only; idempotent)
 - Internet Archive copies: `python pipeline/seed_wayback.py` (needs
