@@ -182,6 +182,10 @@ Above the facility list, **Download as CSV** exports whatever is in view
 (county, search, filters): one row per facility (with its latitude and
 longitude, blank where the address couldn't be placed), or one per survey record
 with fines, sanctions, cited rules and links to every document. Or take
-the raw files: `data/*.json` in this repo.
+the raw files: `data/*.json` in this repo. Every CSV column, what the
+figures mean and the ledger's limits are explained at
+<https://rowanflynnpilot.github.io/wpr-care-ledger/about/> ("How the Care
+Ledger works"); new enforcement actions are also published as feeds
+(`…/feed.xml`, and `…/feed/<county>.xml` for one county).
 
 A [Wausau Pilot & Review](https://wausaupilotandreview.com) project.

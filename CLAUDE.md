@@ -624,7 +624,10 @@ script-built page a search engine can't see into): `postbuild` runs
 for every facility (plain HTML: title and description built from the
 record, canonical URL, share tags, facts, the full inspection history
 with PDF and archive.org links, a button into the interactive ledger),
-`dist/facility/` (every facility by county), `dist/sitemap.xml`, and
+`dist/facility/` (every facility by county), `dist/sitemap.xml` (each
+facility page's `lastmod` is the last day its record changed — new
+inspection or document, revision, aging off, a document gone — not every
+Monday, which search engines learn to ignore), and
 Atom feeds of enforcement actions — `dist/feed.xml` (the ledger) and
 `dist/feed/<county>.xml` — each the 50 newest by the date the ledger
 first saw the letter (`documents_first_seen` of the letter's column, so a

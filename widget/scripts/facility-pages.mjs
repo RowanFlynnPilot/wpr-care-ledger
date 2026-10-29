@@ -474,11 +474,26 @@ for (const c of db.counties) {
   writeFileSync(join(dist, countyFeed(c).path), atom(countyFeed(c), actions.filter((a) => a.f.county === c)));
 }
 
-const urls = [SITE, `${SITE}about/`, `${SITE}facility/`, ...db.facilities.map((f) => `${SITE}facility/${slug(f)}/`)];
+// A facility page's lastmod is the last day its record changed — a new
+// inspection or document, a state revision, a record aging off, a document
+// the state stopped serving — not every Monday: search engines learn to
+// ignore a lastmod that is always today.
+const changedOn = (f) =>
+  [f.first_seen, ...f.surveys.flatMap((s) => [
+    s.first_seen, s.expired_on,
+    ...Object.values(s.documents_first_seen || {}),
+    ...Object.values(s.documents_gone || {}),
+    ...Object.values(s.revisions || {}).flat().map((r) => r.first_seen),
+  ])].filter(Boolean).sort().at(-1);
+const entries = [
+  [SITE, db.lastUpdated], [`${SITE}about/`, db.lastUpdated], [`${SITE}facility/`, db.lastUpdated],
+  ...db.facilities.map((f) => [`${SITE}facility/${slug(f)}/`, changedOn(f)]),
+];
+const urls = entries.map(([u]) => u);
 writeFileSync(
   join(dist, "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-    urls.map((u) => `  <url><loc>${esc(u)}</loc><lastmod>${db.lastUpdated}</lastmod></url>`).join("\n") +
+    entries.map(([u, d]) => `  <url><loc>${esc(u)}</loc><lastmod>${d}</lastmod></url>`).join("\n") +
     "\n</urlset>\n"
 );
 console.log(`wrote ${written} facility pages, the facility index, and sitemap.xml (${urls.length} URLs)`);
