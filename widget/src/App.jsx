@@ -367,9 +367,14 @@ export default function App() {
   // fire hashchange, so reflecting the open row can't loop back here).
   useEffect(() => {
     if (!db) return;
-    const apply = () => {
+    // On a hashchange, read the address the event was fired for (newURL),
+    // not the current one: the URL sync below can rewrite the address back
+    // to the old view between the link and its event, and the link would
+    // be lost (it was, in CI; tests/smoke.spec.js reproduces it).
+    const apply = (e) => {
+      const hash = e?.newURL ? new URL(e.newURL).hash : window.location.hash;
       const p = {};
-      for (const part of window.location.hash.slice(1).split("&")) {
+      for (const part of hash.slice(1).split("&")) {
         const i = part.indexOf("=");
         if (i > 0) p[part.slice(0, i)] = safeDecode(part.slice(i + 1).replace(/\+/g, " "));
       }

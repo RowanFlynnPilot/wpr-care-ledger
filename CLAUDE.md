@@ -693,7 +693,11 @@ then bundles them into `dist/`, so **the Pages artifact is just
   renders whole at 320px with no console errors; it found the "Qq"
   addresses). Story links are tested as fresh page loads (how a reader
   arrives); a separate test changes the hash on an open page, the path
-  embed.js uses. A failing test keeps a Playwright trace, uploaded as the
+  embed.js uses; and a third reproduces a race that once failed only in
+  CI: a link changed the hash, the widget's URL sync rewrote the address
+  back to the old view before the hashchange event ran, and the handler,
+  reading `location.hash`, lost the link. The handler now reads the
+  event's own `newURL`. A failing test keeps a Playwright trace, uploaded as the
   run's `playwright-traces` artifact (`npx playwright show-trace`), and
   only then publishes `widget/dist` to
   GitHub Pages — a failing test leaves the last good build live. Triggers: pushes to main, successful completion of the fetch or

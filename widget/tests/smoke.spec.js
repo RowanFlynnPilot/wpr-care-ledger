@@ -55,6 +55,19 @@ test("a new link on an open page replaces the view", async ({ page }) => {
   await expect(page).toHaveURL(/#cat=medications$/);
 });
 
+// The race behind a CI-only failure: a link changes the hash, and before
+// the hashchange event runs, the widget's own URL sync rewrites the address
+// back to the old view. The event must apply the link it was fired for.
+test("a link survives the URL being rewritten before its event fires", async ({ page }) => {
+  await page.goto(`./#lic=${WATERFORD}`);
+  await expect(page.locator(`#head-${WATERFORD}`)).toHaveAttribute("aria-expanded", "true");
+  await page.evaluate((lic) => {
+    location.hash = "cat=medications";
+    history.replaceState(null, "", `#lic=${lic}`); // what a pending sync effect does
+  }, WATERFORD);
+  await expect(page.locator(".result-count")).toContainText("cited for medications");
+});
+
 test("map: a dot opens its card, the card opens the record", async ({ page }) => {
   await page.goto("./#view=map");
   // Polled: a bare count() doesn't wait for the data to load (CI is fast).
