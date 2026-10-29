@@ -171,9 +171,9 @@ function facilitiesCsv(list, filename) {
   downloadCsv(
     filename,
     ["license", "facility", "type", "address", "city", "zip", "county", "latitude", "longitude", "license_status",
-     "closed", "date_closed", "operator", "licensee", "capacity", "surveys",
-     "enforcement_actions", "fines_assessed", "records_state_no_longer_shows",
-     "latest_survey", "ledger_record", "facility_page", "state_page_archived"],
+     "closed", "date_closed", "operator", "licensee", "capacity", "inspections",
+     "enforcement_actions", "fines_assessed", "records_no_longer_listed_by_state",
+     "latest_inspection", "ledger_record", "facility_page", "state_page_archived"],
     list.map((f) => [
       f.license, f.name, TYPE_FULL[f.typeAbbr], f.address, f.city, f.zip, f.county,
       // Blank where the Census geocoder couldn't place the address.
@@ -1016,7 +1016,10 @@ export default function App() {
             independent copy of each document and facility page is kept at
             the Internet Archive, captured from the state&rsquo;s own server
             (&ldquo;archive.org copy&rdquo;). Last updated{" "}
-            {fmtDate(db.lastUpdated)}.
+            {fmtDate(db.lastUpdated)}.{" "}
+            <a href={`${LEDGER_URL}about/`} target="_blank" rel="noopener noreferrer">
+              How the Care Ledger works
+            </a>
           </p>
           <p className="feeds">
             Follow new enforcement actions by RSS:{" "}
@@ -2319,6 +2322,11 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
                                 archive.org copy
                                 <span className="sr-only"> of the {DOC_LABELS[d.kind].toLowerCase()}</span>
                               </a>
+                            )}
+                            {d.gone && (
+                              <span className="doc-gone">
+                                no longer on the state&rsquo;s site since {fmtDate(d.gone)}; kept here
+                              </span>
                             )}
                           </span>
                         ))}

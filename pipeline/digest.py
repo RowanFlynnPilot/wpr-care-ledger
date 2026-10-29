@@ -351,6 +351,20 @@ def tip_sheet(L):
                          f"{http_date(rev['last_modified'])}"
                          + (f" ({', '.join(changes)})" if changes else "")
                          + f". {pdf(original, 'Original')} · {pdf(rev['path'], 'new version')}")
+    # A document whose state address stopped answering this run: the state
+    # removing a file, the one thing that would make "delisted, not
+    # deleted" untrue. The ledger's copy is then the public one.
+    stopped = sorted(((s, c) for s in L.surveys.values()
+                      for c, day in s.get("documents_gone", {}).items() if day == L.run),
+                     key=lambda sc: sc[0]["exit_date"])
+    if stopped:
+        lines += ["", "### Documents the state stopped serving (copies kept here)", ""]
+        for s, column in stopped:
+            path = L.current(s)[column]
+            label = labels.get(L.kind(column, path), column)
+            lines.append(f"- **{who(s)}** — {inspection(s)}: the state's address for the {label} "
+                         f"no longer answers. {pdf(path, 'The ledger’s copy')} · "
+                         f"state address: {s['document_urls'][column]}")
     # The roster: new licenses — flagged when one opens where a closed
     # facility was, the license flip of the Acorn Hill and Hummingbird Road
     # stories — and closures the roster reports in the last two weeks.

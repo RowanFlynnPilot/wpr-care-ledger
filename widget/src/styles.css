@@ -1832,6 +1832,13 @@ mark {
   white-space: nowrap;
 }
 
+/* The state stopped serving this file: the archive's copy is the public one. */
+.doc-gone {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--sepia);
+}
+
 .doc-copy,
 .page-copy {
   font-family: var(--mono);

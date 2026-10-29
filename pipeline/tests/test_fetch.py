@@ -160,6 +160,15 @@ class Revisions(unittest.TestCase):
         (revised, gone), downloads = self.run_week(None, b"", status=404)
         self.assertEqual((revised, downloads, len(gone)), ([], 0, 1))
 
+    def test_the_day_it_stopped_is_recorded_and_cleared_if_it_returns(self):
+        s = self.surveys["1|2026-02-18|complaint"]
+        self.run_week(None, b"", status=404)
+        self.assertEqual(s["documents_gone"], {"sod": "2026-10-26"})
+        self.run_week(None, b"", status=404)  # still gone: the first date stands
+        self.assertEqual(s["documents_gone"], {"sod": "2026-10-26"})
+        self.run_week("Mon, 23 Mar 2026", b"%PDF original")
+        self.assertNotIn("documents_gone", s)
+
 
 class DocumentProvenance(unittest.TestCase):
     def test_the_state_url_is_recorded_and_first_seen_wins(self):

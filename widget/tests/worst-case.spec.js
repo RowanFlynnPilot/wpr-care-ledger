@@ -31,7 +31,9 @@ test.beforeEach(async ({ page }) => {
       documents: { enforcement: ENF, sod: SOD }, first_seen: updated, last_seen: updated,
       expired_from_state: false, ...extra,
     });
-    surveys[`${LIC}|2026-10-01|complaint-self-report-vv`] = row("2026-10-01", {});
+    surveys[`${LIC}|2026-10-01|complaint-self-report-vv`] = row("2026-10-01", {
+      documents_gone: { sod: updated }, // the state stopped serving its report
+    });
     surveys[`${LIC}|2023-08-01|complaint`] = row("2023-08-01", {
       survey_type: "COMPLAINT", first_seen: "2026-07-12", expired_from_state: true, expired_on: updated,
     });
@@ -80,6 +82,7 @@ test("a worst-case facility renders whole on a small phone", async ({ page }) =>
   await expect(panel).toContainText("Held in the ledger");
   await expect(panel).toContainText("Probationary (first-year) license, not a penalty");
   await expect(panel).toContainText("County Highway QQ"); // a lettered county road stays in capitals
+  await expect(panel).toContainText("no longer on the state’s site since");
 
   const over = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
   expect(over, "sideways scroll with the worst-case record open").toBeLessThanOrEqual(0);

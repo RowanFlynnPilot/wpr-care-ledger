@@ -352,9 +352,17 @@ def check_revisions(session, surveys, today):
             recorded = s.get("documents_last_modified", {}).get(kind)
             time.sleep(REQUEST_DELAY)
             head = session.head(url, timeout=TIMEOUT)
+            # Recorded, not just logged: the day the state's address first
+            # stopped serving a document is a fact the ledger shows (the
+            # archive's copy is then the public one); cleared if it returns.
             if head.status_code != 200:
+                s.setdefault("documents_gone", {}).setdefault(kind, today)
                 gone.append(f"{sid} {kind}: HTTP {head.status_code} {url}")
                 continue
+            if kind in s.get("documents_gone", {}):
+                del s["documents_gone"][kind]
+                if not s["documents_gone"]:
+                    del s["documents_gone"]
             modified = head.headers.get("Last-Modified")
             if modified and modified == recorded:
                 continue

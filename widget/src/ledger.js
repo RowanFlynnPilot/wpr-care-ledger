@@ -301,6 +301,8 @@ export function shape(facilitiesObj, surveysObj, enrichmentObj, waybackObj, geoc
           copy: waybackObj.documents[path],
           // The version the state replaced, kept here only.
           original: path !== original(s, column) ? original(s, column) : null,
+          // The day the state's address stopped serving it (fetch.py), or null.
+          gone: s.documents_gone?.[column] || null,
         };
       })
       .sort((a, b) => DOC_ORDER.indexOf(a.kind) - DOC_ORDER.indexOf(b.kind));

@@ -121,7 +121,11 @@ test("static facility page, index, feeds and sitemap", async ({ page, request })
   await expect(page.locator(".locator svg")).toBeVisible();
   await expect(page.getByRole("heading", { name: "Nearest operating facilities" })).toBeVisible();
 
-  for (const path of ["facility/", "feed.xml", "feed/marathon.xml", "sitemap.xml"]) {
+  await page.goto("./about/");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("How the Care Ledger works");
+  await expect(page.getByRole("heading", { name: "Facilities CSV" })).toBeVisible();
+
+  for (const path of ["facility/", "about/", "feed.xml", "feed/marathon.xml", "sitemap.xml"]) {
     const res = await request.get(`./${path}`);
     expect(res.status(), path).toBe(200);
   }

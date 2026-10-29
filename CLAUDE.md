@@ -114,6 +114,14 @@ Recorded since
 2026-10-07; the 7 rows already aged off by then got theirs from the event
 ID each of their documents prints, every one proven by a byte-identical
 download from the state that day — derived, not guessed.
+`documents_gone` (kind → the run date the state's address first stopped
+answering for that document; removed if it answers again): the weekly
+revision check HEADs every document, and a non-200 used to be only a log
+warning. It is the one event that would make "delisted, not deleted"
+untrue, so it is recorded, listed in the tip sheet ("Documents the state
+stopped serving"), noted in the record and facility page ("no longer on
+the state's site since …; kept here"), and counted on the methodology
+page. None through 2026-10-26.
 `revisions` (kind → list of `{path, first_seen, last_modified}`, oldest
 first): versions the state posted over the original at the same address,
 archived as `{exit_date}_{slug}_rev2_{kind}.pdf`, `rev3`, …; the original
@@ -625,6 +633,11 @@ week it appears; a county's first capture carries that date), entries
 linking the facility page and the letter, ids `tag:` URIs that never
 change; discoverable from every page head, linked from the widget footer
 (plus the county in view) and the facility index;
+`dist/about/` ("How the Care Ledger works": sources, what "held in the
+ledger" means, how far back each county goes, what the figures mean and
+don't, revisions, archive.org copies, maps, limits, a data dictionary for
+both CSVs, corrections — every count computed from the data; linked from
+the widget's "About this data" paragraph and every page's footer);
 it also writes into `dist/index.html` a canonical link and a schema.org
 `Dataset` (JSON-LD: description, creator, temporal and spatial coverage,
 `dateModified` from the data, the JSON files as downloads) for Google

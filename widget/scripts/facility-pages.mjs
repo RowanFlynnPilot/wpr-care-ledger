@@ -11,7 +11,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   DOC_LABELS, SANCTION_LABELS, SUPPORT_URL, TYPE_FULL, revisionChanges, citeSummary, facilitySlug as slug, fmtDate, fmtNum, locatorSvg, nearbyOf, shape,
-  smartTitle, surveyLabel, titleCase, waybackDate, windowStartOf, apNum, licensedOn, statusLabel, addressCase,
+  smartTitle, surveyLabel, titleCase, waybackDate, windowStartOf, apNum, licensedOn, statusLabel, addressCase, sinceArchive,
 } from "../src/ledger.js";
 
 // The published address. Change here if the ledger moves to a custom domain.
@@ -68,7 +68,9 @@ ol.timeline li.held{border-left:3px solid var(--sepia);padding-left:10px;backgro
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .revised{font-size:13px;color:var(--soft);border-left:2px dashed var(--ink);padding-left:8px;margin:4px 0}
 .cites{font-size:13px;color:var(--soft)}
-ul.near{margin:0;padding-left:18px}ul.near li{margin:4px 0}
+ul.near{margin:0;padding-left:18px}
+h3{font:600 15px/1.3 Oswald,"Helvetica Neue",Arial,sans-serif;text-transform:uppercase;letter-spacing:.04em;margin:22px 0 10px}
+dl.dict{grid-template-columns:1fr}dl.dict dd{color:var(--soft);font-size:14px}ul.near li{margin:4px 0}
 .locator{margin:18px 0 0}.locator svg{display:block;max-width:100%;height:auto}.locator figcaption{margin-top:4px}
 .docs{font-size:13px}.docs a{display:inline-block;padding:4px 0;margin-right:12px}
 footer{margin-top:32px;border-top:1px solid var(--ink);padding-top:12px;font-size:12.5px;color:var(--soft)}
@@ -116,7 +118,7 @@ ${feed ? `<link rel="alternate" type="application/atom+xml" title="${esc(feed.ti
 <div class="rule"></div>
 ${body}
 <footer>
-  <p>Records from the Wisconsin Department of Health Services Division of Quality Assurance, which shows only three years of inspection history. The Care Ledger checks the state's records every Monday and keeps them after the state stops showing them. Updated ${esc(fmtDate(db.lastUpdated))}. Not affiliated with or endorsed by DHS. Questions or corrections: <a href="mailto:editor@wausaupilotandreview.com">editor@wausaupilotandreview.com</a>.</p>
+  <p>Records from the Wisconsin Department of Health Services Division of Quality Assurance, which shows only three years of inspection history. The Care Ledger checks the state's records every Monday and keeps them after the state stops showing them. Updated ${esc(fmtDate(db.lastUpdated))}. <a href="${SITE}about/">How the Care Ledger works</a>. Not affiliated with or endorsed by DHS. Questions or corrections: <a href="mailto:editor@wausaupilotandreview.com">editor@wausaupilotandreview.com</a>.</p>
   <p>The Care Ledger is free, with no paywall, because readers support Wausau Pilot &amp; Review's reporting. <a class="support" href="${esc(SUPPORT_URL)}">Support this work</a></p>
   <p><a href="https://wausaupilotandreview.com/">Wausau Pilot &amp; Review</a> · 715-301-5539</p>
 </footer>
@@ -152,7 +154,8 @@ function facilityPage(f) {
       const docs = s.docs
         .map((d) =>
           `<a href="../../${esc(d.path)}">${esc(DOC_LABELS[d.kind])} (PDF)</a>` +
-          (d.copy ? `<a class="mono" href="${esc(d.copy)}">archive.org copy<span class="sr"> of the ${esc(DOC_LABELS[d.kind].toLowerCase())}</span></a>` : ""))
+          (d.copy ? `<a class="mono" href="${esc(d.copy)}">archive.org copy<span class="sr"> of the ${esc(DOC_LABELS[d.kind].toLowerCase())}</span></a>` : "") +
+          (d.gone ? `<span class="held-note">no longer on the state's site since ${esc(fmtDate(d.gone))}; kept here</span>` : ""))
         .join("");
       return `<li${s.expired_from_state ? ' class="held"' : ""}>
   <span class="mono">${esc(fmtDate(s.exit_date))}</span>
@@ -220,6 +223,120 @@ ${items}
 <p class="mono">Straight-line distance, within 15 miles.</p>`;
 }
 
+// "How the Care Ledger works": methodology, limits and a data dictionary,
+// in plain HTML, every count from the data it describes.
+const FACILITY_COLUMNS = [
+  ["license", "State license number. Keep it as text: spreadsheets drop its leading zeros."],
+  ["facility", "Facility name, as the state's roster spells it."],
+  ["type", "Adult family home, community-based residential facility or residential care apartment complex."],
+  ["address, city, zip, county", "From the state's roster."],
+  ["latitude, longitude", "Where the U.S. Census Bureau's geocoder placed the address; blank when it couldn't place it within the facility's county."],
+  ["license_status", "Regular, probationary (Wisconsin's first-year license, not a penalty) or closed."],
+  ["closed, date_closed", "Whether, and when, the license closed."],
+  ["operator, licensee", "The corporate operator and licensee the roster names."],
+  ["capacity", "Licensed beds or units."],
+  ["inspections", "Inspection records the ledger holds for the facility."],
+  ["enforcement_actions", "Inspections that led to an enforcement letter (Notice and Order)."],
+  ["fines_assessed", "Total forfeitures the letters assess, in dollars; see \"What the figures mean.\""],
+  ["records_no_longer_listed_by_state", "Inspection records the state's search no longer lists, held here."],
+  ["latest_inspection", "Date the most recent inspection ended."],
+  ["ledger_record, facility_page, state_page_archived", "Links: the record in the ledger, its own page, and the Internet Archive's copy of the state's page."],
+];
+const SURVEY_COLUMNS = [
+  ["license, facility, county", "As above."],
+  ["exit_date", "The last day inspectors were on site."],
+  ["survey_type", "The state's inspection type codes, joined by \"/\" (SURVEY = standard survey, COMPLAINT, SELF REPORT, VV = follow-up visit, DESK REVIEW)."],
+  ["enforcement_action", "Whether the inspection led to an enforcement letter."],
+  ["fine_assessed, fine_accruing", "The letter's forfeiture, and whether it was still accruing (the amount so far)."],
+  ["sanctions", "Orders in the letter: admissions ban (or its extension), revocation, forfeiture, order to comply and others."],
+  ["complaints_substantiated", "From the inspection report's own first-page summary."],
+  ["citation_categories, cited_rules", "Each rule cited (code and title) and its plain-English category."],
+  ["no_longer_listed_by_state, state_last_listed", "Whether the state's search still lists the record, and when it last did."],
+  ["documents, archive_org_copies", "Links to the archived PDFs and to the Internet Archive's checked copies."],
+  ["revised_by_state_on, original_fine", "When the state replaced a document on its site, and the fine before it did."],
+];
+
+function aboutPage() {
+  const wayback = read("wayback.json");
+  const S = db.facilities.flatMap((f) => f.surveys);
+  const files = new Set();
+  for (const s of S) for (const d of s.docs) {
+    files.add(d.path);
+    if (d.original) files.add(d.original);
+  }
+  const copies = [...files].filter((p) => wayback.documents[p]).length;
+  // Originals the state replaced are no longer served by design; the rest
+  // are checked every week (documents_gone marks any that stop).
+  const originals = S.flatMap((s) => s.docs).filter((d) => d.original).length;
+  const goneCount = S.flatMap((s) => s.docs).filter((d) => d.gone).length;
+  const stillServed = files.size - originals - goneCount;
+  const held = S.filter((s) => s.expired_from_state).length;
+  const placed = db.facilities.filter((f) => f.point).length;
+  const revised = S.filter((s) => s.revision).length;
+  const counties = db.counties.map(titleCase);
+  const dictionary = (rows) =>
+    `<dl class="facts dict">${rows.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>`;
+
+  const html = page({
+    title: "How the Care Ledger works | The Care Ledger",
+    description: `Where the Care Ledger's records come from, what its figures mean, its limits, and how to use its data: state inspection and enforcement records for ${db.facilities.length} assisted living facilities in central Wisconsin.`,
+    path: "about/",
+    feed: LEDGER_FEED,
+    body: `<article>
+<h1>How the Care Ledger works</h1>
+<p class="lede">The Care Ledger keeps every state inspection report and enforcement letter for the ${db.facilities.length} state-regulated assisted living facilities in ${esc(counties.slice(0, -1).join(", "))} and ${esc(counties.at(-1))} counties, and keeps them after Wisconsin stops listing them. It is a project of Wausau Pilot &amp; Review. Updated ${esc(fmtDate(db.lastUpdated))}.</p>
+<p><a class="open" href="${SITE}">Search the Care Ledger</a></p>
+
+<h2>Where the records come from</h2>
+<p>The Wisconsin Department of Health Services' Division of Quality Assurance posts inspection records in its online Provider Search, which it updates on Sundays. The ledger checks that search every Monday. For each facility it records the license details on the state's roster and every inspection the state lists, and it downloads each document: the statement of deficiency (the inspection report), any enforcement letter and the plan of correction.</p>
+<p>It covers adult family homes of three or four beds, community-based residential facilities and residential care apartment complexes. Nursing homes, which are regulated separately, are not included. Closed facilities stay in the ledger.</p>
+
+<h2>What "held in the ledger" means</h2>
+<p>The state's search shows about three years of inspections. When a record drops out of that window, the ledger keeps it and marks it "held in the ledger." That is not the same as deletion: each week the ledger checks every document's address on the state's server, and ${stillServed === files.size - originals ? `as of ${esc(fmtDate(db.lastUpdated))} every one was still there` : `as of ${esc(fmtDate(db.lastUpdated))}, ${goneCount} ${goneCount === 1 ? "is" : "are"} no longer served (each marked in its record)`}, including the documents of records the search no longer lists. For a family using the state's search, though, that history can't be found. ${held} records have aged off since the ledger began.</p>
+
+<h2>How far back it goes</h2>
+<p>Each county's archive starts with what the state's search showed the first time the ledger looked, so the records go back ${esc(sinceArchive(db.countyStart, db.counties).replace(/^since /, "to "))}. Earlier history is not included: a facility with no records listed has none since then, not none ever.</p>
+
+<h2>What the figures mean</h2>
+<ul>
+<li><strong>Enforcement action:</strong> an inspection that led to a Notice and Order letter from the state.</li>
+<li><strong>Fines:</strong> the forfeiture each letter assesses. A facility that pays on time and doesn't appeal can pay 35% less, so the money collected may be lower. An accruing forfeiture grows each day until the facility complies; the ledger shows the amount so far.</li>
+<li><strong>Complaints substantiated:</strong> from each inspection report's own summary on its first page.</li>
+<li><strong>Orders not to admit new residents:</strong> a later letter that keeps an earlier ban in place is labeled "extended," not counted as a new ban.</li>
+<li><strong>Citations:</strong> each rule cited in an inspection report, grouped into nine plain-English categories by the rule's subject. A facility counts once per category however often it was cited.</li>
+</ul>
+<p>Fines, orders, citations and complaint counts are read from the documents by software. The fines were checked against every forfeiture letter in October 2026. Read the documents before relying on a figure; every one is linked.</p>
+
+<h2>When the state changes a record</h2>
+<p>Each week the ledger also checks every document it holds against the state's current file. If the state replaces a document at the same address, the ledger keeps the original, archives the new version and says what changed; its figures come from the newest version. The state has replaced documents on ${revised} ${revised === 1 ? "inspection" : "inspections"} so far.</p>
+
+<h2>Copies at the Internet Archive</h2>
+<p>Each document and each facility's page on the state's site is also captured by the Internet Archive's Wayback Machine, directly from the state's server, so anyone can check what the state published without taking our word for it. A copy is listed only after it is checked: a document's copy must match the ledger's file byte for byte. ${copies} of the ${files.size} archived files have a checked copy; originals the state later replaced have none, because the state no longer serves them.</p>
+
+<h2>Maps and distances</h2>
+<p>Locations are the state roster's addresses as placed by the U.S. Census Bureau's geocoder, and a location must fall in the facility's own county. ${placed} of ${db.facilities.length} facilities are on the map; the others are named under it. Distances between facilities are straight-line miles.</p>
+
+<h2>Limits</h2>
+<ul>
+<li>Names, addresses and operators are the state roster's. The operator named may differ from a facility's owner.</li>
+<li>An inspection record is not the whole story. A facility with no recent inspections has not necessarily been problem-free, and one citation can be minor. Read the documents, and call the facility and the state with questions.</li>
+<li>The ledger depends on the state's search. When the state replaces it with its planned Wisconsin Provider Finder, the records already here stay.</li>
+</ul>
+
+<h2>Using the data</h2>
+<p>In the ledger, "Download as CSV" exports exactly the facilities in view, one row per facility or one per inspection. The underlying files are public in the project's <a href="https://github.com/RowanFlynnPilot/wpr-care-ledger">GitHub repository</a> (folder <span class="mono">data/</span>), along with every archived document. New enforcement actions are also published as feeds: <a href="${SITE}${LEDGER_FEED.path}">all ${apNum(db.counties.length)} counties</a> or <a href="${SITE}facility/">by county</a>.</p>
+<h3>Facilities CSV</h3>
+${dictionary(FACILITY_COLUMNS)}
+<h3>Inspections CSV</h3>
+${dictionary(SURVEY_COLUMNS)}
+
+<h2>Corrections</h2>
+<p>Questions, corrections and tips: <a href="mailto:editor@wausaupilotandreview.com">editor@wausaupilotandreview.com</a>. The Care Ledger is not affiliated with or endorsed by the Wisconsin Department of Health Services.</p>
+</article>`,
+  });
+  return html.replaceAll("../../", "../");
+}
+
 function indexPage() {
   const byCounty = {};
   for (const f of db.facilities) (byCounty[f.county] ||= []).push(f);
@@ -256,6 +373,8 @@ for (const f of db.facilities) {
   written++;
 }
 writeFileSync(join(dist, "facility", "index.html"), indexPage());
+mkdirSync(join(dist, "about"), { recursive: true });
+writeFileSync(join(dist, "about", "index.html"), aboutPage());
 
 // The ledger described as a schema.org Dataset on its main page, for
 // Google Dataset Search, where researchers and reporters look for public
@@ -355,7 +474,7 @@ for (const c of db.counties) {
   writeFileSync(join(dist, countyFeed(c).path), atom(countyFeed(c), actions.filter((a) => a.f.county === c)));
 }
 
-const urls = [SITE, `${SITE}facility/`, ...db.facilities.map((f) => `${SITE}facility/${slug(f)}/`)];
+const urls = [SITE, `${SITE}about/`, `${SITE}facility/`, ...db.facilities.map((f) => `${SITE}facility/${slug(f)}/`)];
 writeFileSync(
   join(dist, "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
