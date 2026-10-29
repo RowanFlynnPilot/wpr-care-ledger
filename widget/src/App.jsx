@@ -21,6 +21,7 @@ import {
   citeSummary,
   addressCase,
   andList,
+  countyGroupLabel,
   apNum,
   licensedOn,
   ownershipLabel,
@@ -30,6 +31,7 @@ import {
   nearbyOf,
   mapFrame,
   outlinePath,
+  ringsOf,
   shape,
 } from "./ledger.js";
 
@@ -62,7 +64,9 @@ const PAGE = 20;
 // ?facility=<license>: one facility's record alone, for a story about it.
 const FACILITY = new URLSearchParams(window.location.search).get("facility");
 // The full ledger, for links out of the single-facility view.
-const LEDGER_URL = `${window.location.origin}${window.location.pathname}`;
+// A directory base, so ".../index.html" or "?facility=" can't leak into
+// links built on it ("index.htmlabout/").
+const LEDGER_URL = new URL(".", window.location.href).href;
 // The site page this frame sits on, when embed.js says so (a page of the
 // ledger's own on wausaupilotandreview.com, or an article): "Copy link to
 // this record" then gives readers that page, which embed.js opens on the
@@ -149,7 +153,9 @@ function Highlight({ text, q }) {
 function downloadCsv(filename, header, rows) {
   const cell = (v) => {
     let s = v === null || v === undefined ? "" : String(v);
-    if (/^[=+\-@]/.test(s)) s = `'${s}`;
+    // Leading tab and carriage return too (OWASP): some importers trim
+    // them and then run what follows.
+    if (/^[=+\-@\t\r]/.test(s)) s = `'${s}`;
     return /[",\r\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
   };
   const text = [header, ...rows].map((r) => r.map(cell).join(",")).join("\r\n");
@@ -160,7 +166,9 @@ function downloadCsv(filename, header, rows) {
   document.body.append(a);
   a.click();
   a.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 0);
+  // Not on the next tick: Safari starts the download asynchronously and a
+  // URL revoked that soon can cancel it.
+  setTimeout(() => URL.revokeObjectURL(url), 30_000);
 }
 
 const yesNo = (b) => (b ? "yes" : "no");
@@ -528,9 +536,10 @@ export default function App() {
         f.closed &&
         LENS_TEST[lens](f) &&
         (type === "ALL" || f.typeAbbr === type) &&
-        (!q || f.haystack.includes(q))
+        (!q || f.haystack.includes(q)) &&
+        (!category || f.categories.has(category))
     ).length;
-  }, [db, scoped, query, type, lens, showClosed]);
+  }, [db, scoped, query, type, lens, showClosed, category]);
 
   if (error)
     return (
@@ -665,11 +674,11 @@ export default function App() {
     backToList();
   };
 
-  const staleDays = Math.floor(
-    (Date.now() - isoUTC(db.lastUpdated)) / 86400e3
-  );
+  // The same rule shape() applies to "New this week" (fractional days),
+  // so the stamps never vanish a day before this notice appears.
+  const stale = db.stale;
 
-  if (FACILITY) return <FacilityEmbed db={db} license={FACILITY} staleDays={staleDays} />;
+  if (FACILITY) return <FacilityEmbed db={db} license={FACILITY} stale={stale} />;
 
   return (
     <div className="ledger">
@@ -708,7 +717,7 @@ export default function App() {
       <div className="flag-rule" />
 
       <main>
-      {staleDays > STALE_AFTER_DAYS && (
+      {stale && (
         <p className="stale-notice" role="note">
           <strong>This ledger is behind.</strong> It was last refreshed{" "}
           {fmtDate(db.lastUpdated)}. Records the state has posted
@@ -1139,12 +1148,7 @@ function ActivityChart({ surveys, lastUpdated, coverage }) {
     startGroups.length === 1
       ? `† The archive begins ${fmtDate(startGroups[0][0])}, partway through this quarter.`
       : `† Partly covered: the archive begins ${startGroups
-          .map(
-            ([d, cs]) =>
-              `${fmtDate(d)}, for ${
-                cs.length === 1 ? `${titleCase(cs[0])} County` : `the other ${apNum(cs.length)} counties`
-              }`
-          )
+          .map(([d, cs]) => `${fmtDate(d)}, for ${countyGroupLabel(cs, startGroups.map(([, g]) => g))}`)
           .join(" and ")}.`;
 
   const years = [];
@@ -1526,9 +1530,8 @@ const MAP_PAD = 12;
 
 // Even-odd ray cast over every ring of a GeoJSON Polygon/MultiPolygon.
 function inOutline(geometry, lon, lat) {
-  const polys = geometry.type === "Polygon" ? [geometry.coordinates] : geometry.coordinates;
   let hit = false;
-  for (const poly of polys)
+  for (const poly of ringsOf(geometry))
     for (const ring of poly)
       for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
         const [x1, y1] = ring[i];
@@ -1542,19 +1545,31 @@ function inOutline(geometry, lon, lat) {
 // any dot (towns cluster at county centers, under a centered label),
 // nudged toward the middle so labels don't hug the edges. Distances are
 // stretched vertically because a label is wider than it is tall.
-function labelSpot(geometry, unproject, box, dots) {
+function labelCells(geometry, unproject, box) {
+  const [x0, y0, x1, y1] = box;
+  const cells = [];
+  const edge = [[-32, -8], [32, -8], [-32, 4], [32, 4]];
+  for (let x = x0 + 34; x <= x1 - 34; x += 6)
+    for (let y = y0 + 12; y <= y1 - 8; y += 6)
+      if (edge.every(([dx, dy]) => inOutline(geometry, ...unproject(x + dx, y + dy)))) cells.push([x, y]);
+  return cells;
+}
+
+// The spots a label fits inside its county depend only on the frame, so
+// labelCells runs once per frame size; this scores them against the dots in
+// view on every search, reading only dots near enough to matter (clearance
+// is capped at 40, i.e. 120px across or about 27px down).
+function labelSpot(cells, box, dots) {
   const [x0, y0, x1, y1] = box;
   const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
+  const near = dots.filter((d) => d.x > x0 - 120 && d.x < x1 + 120 && d.y > y0 - 30 && d.y < y1 + 30);
   let best = [cx, cy], score = -Infinity;
-  for (let x = x0 + 34; x <= x1 - 34; x += 6)
-    for (let y = y0 + 12; y <= y1 - 8; y += 6) {
-      const edge = [[-32, -8], [32, -8], [-32, 4], [32, 4]];
-      if (!edge.every(([dx, dy]) => inOutline(geometry, ...unproject(x + dx, y + dy)))) continue;
-      let clear = 40;
-      for (const d of dots) clear = Math.min(clear, Math.hypot((d.x - x) / 3, (d.y - y + 4) * 1.5));
-      const s = clear - 0.08 * Math.hypot(x - cx, y - cy);
-      if (s > score) [score, best] = [s, [x, y]];
-    }
+  for (const [x, y] of cells) {
+    let clear = 40;
+    for (const d of near) clear = Math.min(clear, Math.hypot((d.x - x) / 3, (d.y - y + 4) * 1.5));
+    const s = clear - 0.08 * Math.hypot(x - cx, y - cy);
+    if (s > score) [score, best] = [s, [x, y]];
+  }
   return best;
 }
 
@@ -1609,16 +1624,20 @@ function FacilityMap({ facilities, basemap, county, focus, onFocused, onOpen, on
     const framed = basemap.counties.filter((f) => county === "ALL" || f.properties.county === county);
     const { height, project, unproject } = mapFrame(framed, width, MAP_MAX_H, MAP_PAD);
     const paths = basemap.counties.map((f) => {
-      const pts = (f.geometry.type === "Polygon" ? [f.geometry.coordinates] : f.geometry.coordinates).flatMap(
-        (poly) => poly[0].map((p) => project(...p))
-      );
+      const pts = ringsOf(f.geometry).flatMap((poly) => poly[0].map((p) => project(...p)));
       const box = [
         Math.min(...pts.map((p) => p[0])),
         Math.min(...pts.map((p) => p[1])),
         Math.max(...pts.map((p) => p[0])),
         Math.max(...pts.map((p) => p[1])),
       ];
-      return { county: f.properties.county, d: outlinePath(f.geometry, project), box, geometry: f.geometry };
+      return {
+        county: f.properties.county,
+        d: outlinePath(f.geometry, project),
+        box,
+        geometry: f.geometry,
+        cells: county === "ALL" ? labelCells(f.geometry, unproject, box) : [],
+      };
     });
     return { height, project, unproject, paths };
   }, [basemap, county, width]);
@@ -1643,7 +1662,7 @@ function FacilityMap({ facilities, basemap, county, focus, onFocused, onOpen, on
         ? []
         : geo.paths.map((p) => ({
             county: p.county,
-            at: labelSpot(p.geometry, geo.unproject, p.box, dots),
+            at: labelSpot(p.cells, p.box, dots),
           })),
     [geo, dots, county]
   );
@@ -1896,7 +1915,7 @@ function FacilityMap({ facilities, basemap, county, focus, onFocused, onOpen, on
 /* ?facility=<license>: one record, open, under a compact WPR flag — for a
    story about one facility. Links to other facilities or an operator open
    the full ledger in a new tab rather than navigating the small frame. */
-function FacilityEmbed({ db, license, staleDays }) {
+function FacilityEmbed({ db, license, stale }) {
   // Licenses are 6 or 7 digits; a link that dropped leading zeros still works.
   const f = db.byLicense[license] || db.byLicense[license.padStart(7, "0")];
   const openLedger = (hash) => window.open(`${LEDGER_URL}${hash}`, "_blank", "noopener");
@@ -1928,7 +1947,7 @@ function FacilityEmbed({ db, license, staleDays }) {
       <div className="flag-rule" />
 
       <main>
-      {staleDays > STALE_AFTER_DAYS && (
+      {stale && (
         <p className="stale-notice" role="note">
           <strong>This ledger is behind.</strong> It was last refreshed{" "}
           {fmtDate(db.lastUpdated)}.
@@ -2411,7 +2430,7 @@ function coverageText(db) {
     groups
       .map(
         ([d, cs]) =>
-          `${cs.length === 1 ? `${titleCase(cs[0])} County's archive starts` : `the other ${apNum(cs.length)} counties' archives start`}
+          `${countyGroupLabel(cs, groups.map(([, g]) => g))}${cs.length === 1 ? "'s archive starts" : "' archives start"}
           with what the state showed on ${fmtDate(d)} — records back
           to ${fmtDate(windowStartOf(d))}`
       )

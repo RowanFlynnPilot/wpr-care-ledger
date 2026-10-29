@@ -415,6 +415,9 @@ export function shape(facilitiesObj, surveysObj, enrichmentObj, waybackObj, geoc
     countyStart,
     operatorCounts,
     lastUpdated,
+    // Over STALE_AFTER_DAYS since the refresh: no "New this week", and the
+    // widget says the ledger is behind. One rule for both.
+    stale: Boolean(stale),
   };
 }
 
@@ -464,7 +467,8 @@ export function findCategory(categories, text) {
 
 /* ------------------------------------------------------------------ maps */
 
-const ringsOf = (geometry) => (geometry.type === "Polygon" ? [geometry.coordinates] : geometry.coordinates);
+/* A Polygon or MultiPolygon as a list of polygons (each a list of rings). */
+export const ringsOf = (geometry) => (geometry.type === "Polygon" ? [geometry.coordinates] : geometry.coordinates);
 
 /* A map frame fit to the given county outlines (data/basemap.json): width
    fixed, height capped. Equirectangular with longitude shrunk by the
@@ -558,10 +562,17 @@ export function sinceArchive(countyStart, counties) {
   for (const c of counties) (groups[windowStartOf(countyStart[c])] ||= []).push(c);
   const dates = Object.keys(groups).sort();
   if (dates.length === 1) return `since ${fmtDate(dates[0])}`;
-  return `since ${andList(
-    dates.map((d) => {
-      const cs = groups[d];
-      return `${fmtDate(d)}, in ${cs.length === 1 ? `${titleCase(cs[0])} County` : `the other ${apNum(cs.length)} counties`}`;
-    })
-  )}`;
+  const all = dates.map((d) => groups[d]);
+  return `since ${andList(dates.map((d) => `${fmtDate(d)}, in ${countyGroupLabel(groups[d], all)}`))}`;
+}
+
+/* A group of counties that share an archive start, named so a sentence
+   listing every group stays true: "Marathon County"; "the other eight
+   counties" when it is the only multi-county group; otherwise by name
+   ("Clark and Wood counties"). groups: every group, as county arrays. */
+export function countyGroupLabel(cs, groups) {
+  if (cs.length === 1) return `${titleCase(cs[0])} County`;
+  return groups.filter((g) => g.length > 1).length === 1
+    ? `the other ${apNum(cs.length)} counties`
+    : `${andList([...cs].sort().map(titleCase))} counties`;
 }

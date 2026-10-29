@@ -48,15 +48,19 @@
       if (frames[i].contentWindow === e.source) {
         frames[i].style.height = Math.ceil(e.data.height) + "px";
         frames[i].setAttribute("scrolling", "no");
-        // Once a full ledger is up, tell it which page it is on, so its
+        // Once a full ledger is up, tell it which page it is on (query
+        // included: ?p=123 and preview links address a page by it), so its
         // "Copy link to this record" gives readers this page (which opens
-        // on the record, below) rather than the ledger's own address.
+        // on the record, below) rather than the ledger's own address. And
+        // pass the story link on again: a lazy-loading plugin may have
+        // given the frame its src after this script first looked.
         if (isFullLedger(frames[i]) && !frames[i].hasAttribute("data-host-told")) {
           frames[i].setAttribute("data-host-told", "");
           e.source.postMessage(
-            { type: "wpr-care-ledger:host", url: location.origin + location.pathname },
+            { type: "wpr-care-ledger:host", url: location.origin + location.pathname + location.search },
             ORIGIN
           );
+          forwardHash();
         }
       }
     }

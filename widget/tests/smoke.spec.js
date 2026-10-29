@@ -91,6 +91,20 @@ test("a chart pick filters the list and returns to it", async ({ page }) => {
   await expect(page.locator(".result-count")).toBeFocused();
 });
 
+// "N closed facilities also match" must count only what "Show them" adds:
+// with a citation category picked, closed facilities outside it don't.
+test("the closed-facilities hint counts what Show them adds", async ({ page }) => {
+  await page.goto("./?from=hint#cat=medications");
+  const count = page.locator(".result-count");
+  await expect(count).toContainText("cited for medications");
+  await page.getByLabel("Include closed").uncheck();
+  const hint = page.locator(".closed-hint");
+  const before = parseInt(await count.textContent(), 10);
+  const promised = parseInt(await hint.textContent(), 10);
+  await hint.getByRole("button").click();
+  await expect(count).toContainText(`${before + promised} facilities`);
+});
+
 test("single-facility embed", async ({ page }) => {
   await page.goto("./?facility=15955"); // leading zeros optional
   await expect(page.getByRole("heading", { level: 1 })).toContainText("The Waterford at Colby");
@@ -116,6 +130,23 @@ test("WordPress embed: sized by embed.js, story link forwarded", async ({ page }
   await expect(page.locator("iframe")).toHaveAttribute("scrolling", "no"); // embed.js sized it
   const height = await page.locator("iframe").evaluate((f) => parseInt(f.style.height, 10));
   expect(height).toBeGreaterThan(1200);
+});
+
+// WordPress lazy-load plugins (WP Rocket's iframe lazyload) render the frame
+// blank and swap its src in later, after embed.js first looked: the story
+// link must still reach it.
+test("WordPress embed: a lazy-loaded frame still gets the story link", async ({ page }) => {
+  await page.route("http://127.0.0.1:4319/article/**", (route) =>
+    route.fulfill({
+      contentType: "text/html",
+      body: `<!doctype html><title>Article</title><p>Story text.</p>
+        <iframe class="care-ledger" src="about:blank" data-lazy-src="http://localhost:4319/" style="width:100%;border:0" height="1200"></iframe>
+        <script src="http://localhost:4319/embed.js"></script>
+        <script>setTimeout(() => { const f = document.querySelector("iframe"); f.src = f.dataset.lazySrc; }, 300);</script>`,
+    })
+  );
+  await page.goto(`http://127.0.0.1:4319/article/care-ledger/#lic=${WATERFORD}`);
+  await expect(page.frameLocator("iframe").locator(`#head-${WATERFORD}`)).toHaveAttribute("aria-expanded", "true");
 });
 
 test("no sideways scroll on a small phone", async ({ page }) => {
