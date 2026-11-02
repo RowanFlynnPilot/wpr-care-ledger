@@ -857,6 +857,14 @@
     "deficiencies": 0,
     "kind": "sod"
   },
+  "archive/0011588/2026-10-20_survey_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
   "archive/0011718/2025-08-25_survey_enforcement.pdf": {
     "fine": null,
     "kind": "enforcement",
@@ -2024,6 +2032,14 @@
     "deficiencies": 5,
     "kind": "sod"
   },
+  "archive/0012915/2026-10-20_verification-visit_sod.pdf": {
+    "census": 4,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
   "archive/0012930/2025-11-04_complaint_sod.pdf": {
     "census": 10,
     "citations": [],
@@ -2598,6 +2614,14 @@
     "deficiencies": 2,
     "kind": "sod"
   },
+  "archive/0013422/2026-10-21_complaint-vv_sod.pdf": {
+    "census": 20,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 2,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
   "archive/0013424/2023-09-25_survey-complaint_enforcement.pdf": {
     "fine": 150,
     "kind": "enforcement",
@@ -2825,6 +2849,14 @@
   },
   "archive/0013444/2025-04-02_survey-vv_sod.pdf": {
     "census": 17,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0013444/2026-10-27_survey-complaint_sod.pdf": {
+    "census": 18,
     "citations": [],
     "complaints_substantiated": 0,
     "complaints_unsubstantiated": 0,
@@ -3942,6 +3974,14 @@
     ],
     "complaints_substantiated": 0,
     "complaints_unsubstantiated": 0,
+    "deficiencies": null,
+    "kind": "sod"
+  },
+  "archive/0015404/2026-10-15_complaint-vv_sod.pdf": {
+    "census": 9,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
     "deficiencies": null,
     "kind": "sod"
   },
@@ -6879,6 +6919,14 @@
     "deficiencies": null,
     "kind": "sod"
   },
+  "archive/0017343/2026-10-27_complaint_sod.pdf": {
+    "census": 3,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": null,
+    "kind": "sod"
+  },
   "archive/0017386/2023-11-09_survey_sod.pdf": {
     "census": 8,
     "citations": [],
@@ -7686,6 +7734,14 @@
     "complaints_substantiated": 2,
     "complaints_unsubstantiated": 0,
     "deficiencies": 2,
+    "kind": "sod"
+  },
+  "archive/0018276/2026-10-21_complaint-vv_sod.pdf": {
+    "census": 8,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
     "kind": "sod"
   },
   "archive/0018300/2024-12-11_survey-complaint_sod.pdf": {
@@ -10018,6 +10074,29 @@
     "deficiencies": 1,
     "kind": "sod"
   },
+  "archive/0019940/2026-09-21_survey-complaint_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply"
+    ],
+    "sod_ref": "YGIW11"
+  },
+  "archive/0019940/2026-09-21_survey-complaint_sod.pdf": {
+    "census": 8,
+    "citations": [
+      {
+        "category": "Care and service plans",
+        "code": "83.35(4)",
+        "tag": "N 392",
+        "title": "Resident satisfaction evaluation."
+      }
+    ],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 1,
+    "kind": "sod"
+  },
   "archive/0020028/2025-05-23_complaint_sod.pdf": {
     "census": 18,
     "citations": [],
@@ -10659,6 +10738,22 @@
     "complaints_substantiated": 1,
     "complaints_unsubstantiated": 0,
     "deficiencies": 4,
+    "kind": "sod"
+  },
+  "archive/0021271/2026-10-19_survey_sod.pdf": {
+    "census": 6,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": null,
+    "kind": "sod"
+  },
+  "archive/0021273/2026-10-19_survey_sod.pdf": {
+    "census": 13,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": null,
     "kind": "sod"
   },
   "archive/0021417/2026-02-12_survey_sod.pdf": {
