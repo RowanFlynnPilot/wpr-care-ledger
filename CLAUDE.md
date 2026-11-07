@@ -606,7 +606,11 @@ links, archive.org links, the CSV buttons and the unplaced-facility
 names are padded to 24px-tall tap targets (WCAG 2.5.8). Audited
 2026-10-19 with axe-core 4.10 (WCAG 2.2 AA + best practices) at phone
 width: list, open record, map with a pinned card, single embed, and the
-static facility and index pages — no violations; facts are a real `<dl>`;
+static facility and index pages — no violations. Since 2026-11-07 it is a
+deploy gate, `tests/a11y.spec.js` (@axe-core/playwright 4.14.0, exact):
+the list, an open record, report search results, the map, the single
+embed, a facility page and the methodology page, desktop and phone; a
+violation fails the deploy and names the rule and nodes. Facts are a real `<dl>`;
 closing a record (Escape) or following a cross-link returns focus to a
 row header, and the operator link focuses the operator brief, so focus
 is never stranded in an inert panel. `inert` is set as a DOM property
