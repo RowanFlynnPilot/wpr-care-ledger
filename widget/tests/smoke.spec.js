@@ -90,7 +90,7 @@ test("map: a dot opens its card, the card opens the record", async ({ page }) =>
 test("report search: a story link finds reports and a hit opens its record", async ({ page }) => {
   await page.goto("./?from=text#text=%22medication%20error%22");
   const count = page.locator(".report-count");
-  await expect(count).toContainText(/\d+ reports? mentions? "medication error"/);
+  await expect(count).toContainText(/\d+ reports? match(es)? "medication error"/);
   const all = parseInt(await count.textContent(), 10);
   expect(all).toBeGreaterThan(5);
   // A story link searches every facility, closed ones included.
@@ -105,6 +105,21 @@ test("report search: a story link finds reports and a hit opens its record", asy
   await page.locator(".report-facility").first().click();
   await expect(page).toHaveURL(/#lic=/);
   await expect(page.locator(".row.is-open")).toHaveCount(1);
+});
+
+// Pagefind falls back to shorter prefixes for a word it lacks ("xyzzyplugh"
+// once matched 20 reports through "Administrator X"): a word the reports
+// don't contain is never searched, and a near miss gets suggestions.
+test("report search: no false matches, and a misspelling gets suggestions", async ({ page }) => {
+  await page.goto("./?from=typo#text=xyzzyplugh");
+  const count = page.locator(".report-count");
+  await expect(count).toContainText("No report uses the word “xyzzyplugh”");
+  await expect(page.locator(".report-hit")).toHaveCount(0);
+
+  await page.goto("./?from=typo2#text=elopment");
+  await count.getByRole("button", { name: "elopement", exact: true }).click();
+  await expect(count).toContainText(/\d+ reports? match(es)? elopement/);
+  await expect(page.locator(".report-hit").first()).toBeVisible();
 });
 
 test("a chart pick filters the list and returns to it", async ({ page }) => {

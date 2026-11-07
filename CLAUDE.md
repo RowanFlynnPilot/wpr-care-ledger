@@ -710,7 +710,19 @@ excerpt with `<mark>` (anything else tag-like is stripped), the PDF;
 ten at a time; best match or newest first; quotes for phrases; English
 stemming (eloped, eloping). A `#text=` or `#view=reports` link turns on
 "Include closed" (as `#cat=` does): a story's search covers every
-facility. Each record's address in the index is `facility/<slug>/#<exit
+facility. Pagefind matches word stems by prefix ("resident" also finds
+residence, residential: 249 reports, checked against the text) and,
+when nothing starts with a word, falls back to ever-shorter prefixes —
+"xyzzyplugh" matched the "X" of "Administrator X" in 20 reports. So the
+build writes `pagefind/words.json` (every word in the indexed text, most
+widely used first; ~33 KB gzipped, loaded with the index), and the
+widget searches only words the reports contain (`knownWord()`: starts a
+report word, or is one plus an ending such as -s, -ed, -ing). Anything
+else reads "No report uses the word “elopment”. Did you mean elopement
+or elopements?" (`nearestWords()`: edit distance ≤ 2, nearest then most
+used; each a button). Counts read "N reports match", and the dek says a
+word finds its forms. The facility name is meta `facility`, not
+`title`, which Pagefind would search. Each record's address in the index is `facility/<slug>/#<exit
 date>-<survey type>-<column>` — date alone collided at 410107 and
 Pagefind silently kept one — and the build fails if the index's page
 count differs from the reports sent. The dek and the methodology page say a

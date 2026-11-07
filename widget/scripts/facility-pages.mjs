@@ -568,8 +568,10 @@ for (const { f, s, sod, content, url } of reports) {
     url,
     content,
     language: "en",
+    // Not `title`: Pagefind searches a record's title, and "resident"
+    // matched 32 reports through names like Stone Crest Residence.
     meta: {
-      title: smartTitle(f.name),
+      facility: smartTitle(f.name),
       lic: f.license,
       city: titleCase(f.city),
       inspection: surveyLabel(s.survey_type),
@@ -589,3 +591,17 @@ if (page_count !== reports.length) {
   throw new Error(`report index holds ${page_count} of ${reports.length} reports`);
 }
 console.log(`indexed the text of ${reports.length} inspection reports`);
+
+// Every word in the indexed text, most widely used first. Pagefind falls
+// back to ever-shorter prefixes when a word isn't in its index
+// ("xyzzyplugh" matched the "X" in "Administrator X" in 20 reports), so
+// the widget searches only for words the reports contain, and suggests the
+// nearest ones otherwise (`knownWord()` in App.jsx).
+const df = new Map();
+for (const { content } of reports) {
+  for (const w of new Set(content.toLowerCase().match(/[a-z0-9]+/g))) df.set(w, (df.get(w) || 0) + 1);
+}
+writeFileSync(
+  join(dist, "pagefind", "words.json"),
+  JSON.stringify([...df].sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1)).map(([w]) => w))
+);

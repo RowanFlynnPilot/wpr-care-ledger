@@ -1600,18 +1600,61 @@ function labelSpot(cells, box, dots) {
    equivalent, and the toggle sits right above. */
 // The search index of what inspectors wrote (scripts/facility-pages.mjs
 // builds it into dist/pagefind). Loaded on first use, never with the page.
+// With it, every word the reports contain, most widely used first.
 let pagefindLoad = null;
 const loadPagefind = () =>
-  (pagefindLoad ??= import(/* @vite-ignore */ new URL("pagefind/pagefind.js", document.baseURI).href).then(
-    async (pf) => {
+  (pagefindLoad ??= Promise.all([
+    import(/* @vite-ignore */ new URL("pagefind/pagefind.js", document.baseURI).href).then(async (pf) => {
       await pf.options({ excerptLength: 36 });
       pf.init();
       return pf;
-    }
-  ));
+    }),
+    fetch(new URL("pagefind/words.json", document.baseURI)).then((r) => {
+      if (!r.ok) throw new Error(`words.json: ${r.status}`);
+      return r.json();
+    }),
+  ])
+    .then(([pf, words]) => ({ pf, words, wordSet: new Set(words) }))
+    .catch((e) => {
+      pagefindLoad = null; // a passing failure: the next visit to Reports tries again
+      throw e;
+    }));
 
 const REPORT_EXAMPLES = ["fall", "elopement", "medication error", "choking", "bruise", "water temperature"];
 const REPORT_PAGE = 10;
+const ENDINGS = ["s", "es", "ed", "d", "ing", "ly", "er", "ers"];
+
+/* Whether the reports contain a word. Pagefind matches by prefix, and when
+   nothing starts with a word it falls back to shorter and shorter prefixes:
+   "xyzzyplugh" matched the "X" in "Administrator X" in 20 reports, which a
+   count would have stated as fact. So only words the reports contain are
+   searched — one that starts a report word, or a report word plus an
+   ending ("elopements", "falls"). */
+function knownWord(token, { words, wordSet }) {
+  return (
+    words.some((w) => w.startsWith(token)) ||
+    ENDINGS.some((e) => token.endsWith(e) && token.length - e.length >= 3 && wordSet.has(token.slice(0, -e.length)))
+  );
+}
+
+// Up to three report words within two typing slips, nearest and most
+// widely used first: "elopment" -> elopement.
+function nearestWords(token, words) {
+  const near = [];
+  words.forEach((w, rank) => {
+    if (Math.abs(w.length - token.length) > 2) return;
+    let prev = Array.from({ length: w.length + 1 }, (_, j) => j);
+    for (let i = 1; i <= token.length; i++) {
+      const row = [i];
+      for (let j = 1; j <= w.length; j++) {
+        row[j] = Math.min(prev[j] + 1, row[j - 1] + 1, prev[j - 1] + (token[i - 1] === w[j - 1] ? 0 : 1));
+      }
+      prev = row;
+    }
+    if (prev[w.length] <= 2) near.push([prev[w.length], rank, w]);
+  });
+  return near.sort((a, b) => a[0] - b[0] || a[1] - b[1]).slice(0, 3).map(([, , w]) => w);
+}
 
 // Pagefind's excerpts are escaped text with <mark> around matches; anything
 // else that looks like a tag is dropped before it reaches the page.
@@ -1622,7 +1665,8 @@ const markOnly = (html) => html.replace(/<(?!\/?mark>)[^>]*>/g, "");
    does the map. A hit names the facility (opening its record), the
    inspection, an excerpt and the report itself. */
 function ReportSearch({ facilities, total, term, onTerm, onOpen }) {
-  const [pf, setPf] = useState(null);
+  const [index, setIndex] = useState(null); // { pf, words, wordSet }
+  const pf = index?.pf;
   const [failed, setFailed] = useState(false);
   const [sort, setSort] = useState("relevance");
   const [inView, setInView] = useState(null); // reports for the facilities in view
@@ -1631,8 +1675,16 @@ function ReportSearch({ facilities, total, term, onTerm, onOpen }) {
   const [shown, setShown] = useState(REPORT_PAGE);
 
   useEffect(() => {
-    loadPagefind().then(setPf, () => setFailed(true));
+    loadPagefind().then(setIndex, () => setFailed(true));
   }, []);
+
+  // Words the reports don't contain: never sent to Pagefind (see knownWord).
+  const q = term.trim();
+  const unknown = useMemo(
+    () => (index && q ? (q.toLowerCase().match(/[a-z0-9]+/g) || []).filter((t) => !knownWord(t, index)) : []),
+    [index, q]
+  );
+  const searchable = q && unknown.length === 0;
 
   const narrowed = facilities.length < total;
   const licKey = facilities.map((f) => f.license).join(",");
@@ -1649,8 +1701,7 @@ function ReportSearch({ facilities, total, term, onTerm, onOpen }) {
   }, [pf, filters]);
 
   useEffect(() => {
-    const q = term.trim();
-    if (!pf || !q) return setFound(null);
+    if (!pf || !searchable) return setFound(null);
     let live = true;
     pf.debouncedSearch(q, { filters, ...(sort === "newest" ? { sort: { date: "desc" } } : {}) }, 250).then(
       (r) => {
@@ -1664,7 +1715,7 @@ function ReportSearch({ facilities, total, term, onTerm, onOpen }) {
     return () => {
       live = false;
     };
-  }, [pf, term, sort, filters]);
+  }, [pf, q, searchable, sort, filters]);
 
   useEffect(() => {
     if (!found?.results.length) return setHits([]);
@@ -1682,8 +1733,8 @@ function ReportSearch({ facilities, total, term, onTerm, onOpen }) {
       </p>
     );
   }
-  const q = term.trim();
   const n = found && found.term === q ? found.results.length : null;
+  const suggestions = unknown.length ? nearestWords(unknown[0], index.words) : [];
   return (
     <section className="report-search" aria-labelledby="report-search-h">
       <h3 id="report-search-h">Search what inspectors wrote</h3>
@@ -1691,7 +1742,8 @@ function ReportSearch({ facilities, total, term, onTerm, onOpen }) {
         The findings in {inView == null ? "every" : fmtNum(inView)} inspection{" "}
         {inView === 1 ? "report" : "reports"}
         {narrowed ? " for the facilities in view" : ""}. A match means the words appear in a report,
-        not that it happened there: read the excerpt. Use quotes for an exact phrase.
+        not that it happened there: read the excerpt. A word also finds its forms (&ldquo;fall&rdquo;
+        finds &ldquo;falls&rdquo;); quotes find an exact phrase.
       </p>
       <div className="controls report-controls">
         <input
@@ -1724,17 +1776,50 @@ function ReportSearch({ facilities, total, term, onTerm, onOpen }) {
       )}
       {q && (
         <p className="report-count" role="status">
-          {n == null
-            ? "Searching…"
-            : `${fmtNum(n)} ${n === 1 ? "report mentions" : "reports mention"} ${q}`}
+          {unknown.length > 0 ? (
+            <>
+              No report uses {unknown.length === 1 ? "the word" : "the words"}{" "}
+              {unknown.map((t, i) => (
+                <span key={t}>
+                  {i > 0 && (i === unknown.length - 1 ? " or " : ", ")}&ldquo;{t}&rdquo;
+                </span>
+              ))}
+              .
+              {suggestions.length > 0 ? (
+                <>
+                  {" "}
+                  Did you mean{" "}
+                  {suggestions.map((s, i) => (
+                    <span key={s}>
+                      {i > 0 && (i === suggestions.length - 1 ? " or " : ", ")}
+                      <button
+                        type="button"
+                        className="clear-filters"
+                        onClick={() => onTerm(term.replace(new RegExp(`\\b${unknown[0]}\\b`, "i"), s))}
+                      >
+                        {s}
+                      </button>
+                    </span>
+                  ))}
+                  ?
+                </>
+              ) : (
+                " Try another word."
+              )}
+            </>
+          ) : n == null ? (
+            "Searching…"
+          ) : (
+            `${fmtNum(n)} ${n === 1 ? "report matches" : "reports match"} ${q}`
+          )}
         </p>
       )}
-      {q && hits.length > 0 && (
+      {searchable && n != null && hits.length > 0 && (
         <ol className="report-hits">
           {hits.map((h) => (
             <li key={h.url} className="report-hit">
               <button type="button" className="report-facility" onClick={() => onOpen(h.meta.lic)}>
-                {h.meta.title}
+                {h.meta.facility}
               </button>
               <span className="report-meta">
                 {" "}
@@ -1748,7 +1833,7 @@ function ReportSearch({ facilities, total, term, onTerm, onOpen }) {
           ))}
         </ol>
       )}
-      {q && n != null && n > shown && (
+      {searchable && n != null && n > shown && (
         <p className="more-row">
           <button className="show-more" onClick={() => setShown(shown + REPORT_PAGE)}>
             Show {Math.min(REPORT_PAGE, n - shown)} more
