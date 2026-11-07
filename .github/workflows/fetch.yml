@@ -43,6 +43,24 @@ jobs:
           git diff --cached --quiet || git commit -m "Weekly ledger update $(date -u +%F)"
           git pull --rebase
           git push
+      # Every archived document against the state's current file (~800
+      # HEADs): revisions archived, documents gone recorded. After the
+      # ledger commit, so an outage here can never cost the week; before
+      # enrich, so a revision is mined this run. continue-on-error keeps the
+      # week's mining, tip sheet and alerts going, and the failure step below
+      # still opens the issue (e.g. too many 404s to believe: none recorded).
+      - name: Check documents against the state's
+        id: revisions
+        continue-on-error: true
+        run: |
+          # It saves before it raises: commit what it found, then fail.
+          status=0
+          python pipeline/fetch.py --revisions || status=$?
+          git add data/surveys.json archive
+          git diff --cached --quiet || git commit -m "Check documents against the state's $(date -u +%F)"
+          git pull --rebase
+          git push
+          exit $status
       - run: python pipeline/enrich.py
       - run: python pipeline/digest.py   # weekly tip sheet on the run's summary page
       - name: Commit mined document facts
@@ -79,7 +97,7 @@ jobs:
       # per week. Expected to fire when the state launches the Wisconsin
       # Provider Finder and retires DQA Provider Search (see CLAUDE.md).
       - name: Open issue on failure
-        if: failure()
+        if: failure() || steps.revisions.outcome == 'failure'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -90,7 +108,7 @@ jobs:
               --label fetch-failure \
               --body "The scheduled DQA fetch failed: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
-          If the failure is in fetch.py, nothing was committed; if it is in enrich.py, the week's records and documents were committed first and only the mined facts are behind. Either way the live widget keeps the last deployed data and tells readers when it goes stale. The run log's final RuntimeError names the cause: a portal error page, a detail page failing its identity check, a changed export, grid or survey table, survey records inside the state's three-year window vanishing, a document address that no longer serves a PDF during the weekly revision check, ledger documents that don't join to the archive, or a geocoder problem other than an outage, such as a county missing from data/basemap.json (see CLAUDE.md, data contract).
+          If the failure is in fetch.py, nothing was committed; if it is in enrich.py, the week's records and documents were committed first and only the mined facts are behind. Either way the live widget keeps the last deployed data and tells readers when it goes stale. The run log's final RuntimeError names the cause: a portal error page, a detail page failing its identity check, a changed export, grid or survey table, survey records inside the state's three-year window vanishing, an open facility (or a recently closed one, or several closed ones at once) vanishing from the search, a duplicate survey key, too many documents answering 'not found' in the revision check to believe (none recorded; that step failed alone and the rest of the run went on), ledger documents that don't join to the archive, or a geocoder problem other than an outage, such as a county missing from data/basemap.json (see CLAUDE.md, data contract).
 
           If the state's DQA Provider Search has been replaced by the Wisconsin Provider Finder, this is the migration event described in CLAUDE.md — rewrite the fetcher against the new tool; the ledger and archive carry forward untouched."
           fi

@@ -101,7 +101,10 @@ this; never set on a county's first capture; absent on closures before
 from the search; removed if it is listed again). The search includes
 closed facilities, so an **open** facility vanishing fails the run
 (`unlist_vanished()`): it means the search broke, and its records would
-otherwise read as aged off. A closed one may leave — first seen 2026-11-02:
+otherwise read as aged off. So does one closed less than a year ago, or
+more than `UNLIST_LIMIT` (2) closed ones in one run — a search that
+quietly stopped including closed facilities would unlist all 24, and
+nothing is marked before it raises. A closed one may leave — first seen 2026-11-02:
 0013774, Aurora Residential Alt Inc 053 (Plover), closed Oct. 31, 2024,
 dropped about two years after closing with its Aug. 8, 2024 enforcement
 record still inside the three-year window (its `unlisted_on` was set
@@ -129,13 +132,18 @@ Recorded since
 ID each of their documents prints, every one proven by a byte-identical
 download from the state that day — derived, not guessed.
 `documents_gone` (kind → the run date the state's address first answered
-404 or 410 for that document; removed if it answers again): the weekly
-revision check HEADs every document (redirects followed, each request
-retried through network errors, 5xx and 429). Anything short of a
-definite "not here" — an outage, a 403, a non-PDF — is never recorded as
-gone and never fails the run: it is a `::warning::` on the run's page
-and the document is checked again next week (the check runs before the
-ledger is saved, so one blip once could have cost the week's records). It is the one event that would make "delisted, not deleted"
+404 or 410 for that document, twice, five seconds apart; removed if it
+answers again): the weekly revision check (`fetch.py --revisions`, its
+own workflow step after the ledger commit) HEADs every document
+(redirects followed, each request retried through network errors, 5xx
+and 429). Anything short of a definite "not here" — an outage, a 403, a
+non-PDF — is never recorded as gone: it is a `::warning::` on the run's
+page and the document is checked again next week; ten documents in a
+row with no answer (`OUTAGE_STREAK`) end the check. More than
+`GONE_LIMIT` (5) "not found" in one run is a server fault, not removals:
+none is recorded and the step fails (opening the issue) after saving
+what else it found. The check once ran before the ledger was saved; a
+long outage could have cost the week (code review, 2026-11-07). It is the one event that would make "delisted, not deleted"
 untrue, so it is recorded, listed in the tip sheet ("Documents the state
 stopped serving"), noted in the record and facility page ("no longer on
 the state's site since …; kept here"), and counted on the methodology
@@ -700,7 +708,12 @@ counts the reports in view with a filter-only search. Hits: facility
 (a cross-link to its record), city, inspection and date, a 36-word
 excerpt with `<mark>` (anything else tag-like is stripped), the PDF;
 ten at a time; best match or newest first; quotes for phrases; English
-stemming (eloped, eloping). The dek and the methodology page say a
+stemming (eloped, eloping). A `#text=` or `#view=reports` link turns on
+"Include closed" (as `#cat=` does): a story's search covers every
+facility. Each record's address in the index is `facility/<slug>/#<exit
+date>-<survey type>-<column>` — date alone collided at 410107 and
+Pagefind silently kept one — and the build fails if the index's page
+count differs from the reports sent. The dek and the methodology page say a
 match means the words appear, not that it happened there. Not
 available in `npm run dev` (the index is built after the bundle).
 Cross-links and deep links scroll the opened record into view
@@ -756,7 +769,9 @@ then bundles them into `dist/`, so **the Pages artifact is just
 - `fetch.yml` — Mondays 09:17 UTC (off the hour: GitHub delays scheduled
   runs under load, worst at the top of the hour — the 09:00 cron started
   about seven hours late on Oct. 19 and 26, 2026): tests → fetch → **commit the ledger
-  and archive** → enrich → digest → commit `enrichment.json` → alert →
+  and archive** → check documents against the state's (`fetch.py
+  --revisions`, `continue-on-error`, commits what it found; its failure
+  still opens the issue) → enrich → digest → commit `enrichment.json` → alert →
   geocode new or moved facilities and commit `geocodes.json` (5-minute
   step limit; a Census Bureau outage is a `::warning::` inside
   geocode.py that writes nothing, so the facilities wait a week, named

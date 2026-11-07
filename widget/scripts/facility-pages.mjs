@@ -25,6 +25,23 @@ const db = shape(read("facilities.json"), read("surveys.json"), read("enrichment
 const basemap = read("basemap.json");
 const narratives = read("narratives.json"); // the report search's text, from enrich.py
 
+// Every report the search indexes (below), one per inspection with a
+// statement of deficiency, latest version. The address is the record's
+// identity in the index: date and type, as the ledger keys surveys (two
+// inspections at 410107 ended June 1, 2026; by date alone, one vanished).
+const reports = db.facilities.flatMap((f) =>
+  f.surveys.flatMap((s) => {
+    const sod = s.docs.find((d) => d.kind === "sod");
+    const content = sod && narratives[sod.path];
+    if (!content) return [];
+    const type = s.survey_type.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+    return [{ f, s, sod, content, url: `facility/${slug(f)}/#${s.exit_date}-${type}-${sod.column}` }];
+  })
+);
+if (new Set(reports.map((r) => r.url)).size !== reports.length) {
+  throw new Error("two reports share a search-index address; one would be dropped");
+}
+
 const esc = (s) =>
   String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 const plural = (n, one, many) => `${fmtNum(n)} ${n === 1 ? one : many}`;
@@ -287,7 +304,7 @@ function aboutPage() {
   const windowStart = windowStartOf(db.lastUpdated);
   const unlistedRecords = unlisted.flatMap((f) => f.surveys).filter((s) => s.exit_date >= windowStart).length;
   const placed = db.facilities.filter((f) => f.point).length;
-  const searchable = S.filter((s) => s.docs.some((d) => d.kind === "sod" && narratives[d.path])).length;
+  const searchable = reports.length;
   const revised = S.filter((s) => s.revision).length;
   const counties = db.counties.map(titleCase);
   const dictionary = (rows) =>
@@ -543,33 +560,32 @@ console.log(`wrote ${written} facility pages, the facility index, and sitemap.xm
 // statement of deficiency's findings (data/narratives.json, from enrich.py),
 // latest version, in a Pagefind index — static files a reader's browser
 // loads in slices as it searches, never the whole text. One record per
-// report; `lic` lets the widget narrow results to the facilities in view.
+// report (`reports`, above); `lic` lets the widget narrow results to the
+// facilities in view.
 const { index } = await createIndex();
-let indexed = 0;
-for (const f of db.facilities) {
-  for (const s of f.surveys) {
-    const sod = s.docs.find((d) => d.kind === "sod");
-    const content = sod && narratives[sod.path];
-    if (!content) continue;
-    const { errors } = await index.addCustomRecord({
-      url: `facility/${slug(f)}/#${s.exit_date}-${sod.column}`,
-      content,
-      language: "en",
-      meta: {
-        title: smartTitle(f.name),
-        lic: f.license,
-        city: titleCase(f.city),
-        inspection: surveyLabel(s.survey_type),
-        date: s.exit_date,
-        pdf: sod.path,
-      },
-      filters: { lic: [f.license] },
-      sort: { date: s.exit_date },
-    });
-    if (errors.length) throw new Error(`report index, ${sod.path}: ${errors.join("; ")}`);
-    indexed++;
-  }
+for (const { f, s, sod, content, url } of reports) {
+  const { errors } = await index.addCustomRecord({
+    url,
+    content,
+    language: "en",
+    meta: {
+      title: smartTitle(f.name),
+      lic: f.license,
+      city: titleCase(f.city),
+      inspection: surveyLabel(s.survey_type),
+      date: s.exit_date,
+      pdf: sod.path,
+    },
+    filters: { lic: [f.license] },
+    sort: { date: s.exit_date },
+  });
+  if (errors.length) throw new Error(`report index, ${sod.path}: ${errors.join("; ")}`);
 }
 await index.writeFiles({ outputPath: join(dist, "pagefind") });
 await closePagefind();
-console.log(`indexed the text of ${indexed} inspection reports`);
+// Pagefind keeps one record per address: every report must have arrived.
+const { page_count } = JSON.parse(readFileSync(join(dist, "pagefind", "pagefind-entry.json"), "utf8")).languages.en;
+if (page_count !== reports.length) {
+  throw new Error(`report index holds ${page_count} of ${reports.length} reports`);
+}
+console.log(`indexed the text of ${reports.length} inspection reports`);

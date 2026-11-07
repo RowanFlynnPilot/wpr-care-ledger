@@ -417,6 +417,9 @@ export default function App() {
         setQuery(p.q || "");
         setReportText(p.text || "");
         setView(p.view === "map" ? "map" : p.text || p.view === "reports" ? "reports" : "list");
+        // A story's report search covers every facility: closed ones hold
+        // some of the heaviest records (Wisteria, Azura).
+        if (p.text || p.view === "reports") setShowClosed(true);
         // A record opened by an earlier link would stay open behind the new
         // view, and keep the address on its #lic=.
         setOpen(null);

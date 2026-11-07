@@ -75,6 +75,10 @@ ARCHIVE_DIR = ROOT / "archive"
 REQUEST_DELAY = 0.5  # seconds between requests; be a polite citizen
 TIMEOUT = 30
 RETRIES = 3  # per document in the weekly revision check
+OUTAGE_STREAK = 10  # documents in a row with no answer: the server is down, stop asking
+GONE_RECHECK = 5  # seconds before asking again about a document that answered 404
+GONE_LIMIT = 5  # more "not found" in one run than this is a server fault, not removals
+UNLIST_LIMIT = 2  # closed facilities leaving the search in one run before it's a search fault
 USER_AGENT = "Mozilla/5.0 (compatible; WausauPilotCareLedger/1.0; +https://wausaupilotandreview.com)"
 
 # DQA shows three years of survey history. A record may only be treated as
@@ -352,50 +356,69 @@ def check_revisions(session, surveys, today):
     only what the state changed; a file is a revision only if its bytes
     differ from the latest version held.
 
-    Runs after the week's records are merged and before anything is saved,
-    across ~800 documents, so a network blip or a server hiccup must not
-    cost the week: each request is retried, and a document that still can't
-    be checked is listed (a run warning) and checked again next week.
-    Returns (revised, gone, unchecked) lists."""
-    revised, gone, unchecked = [], [], []
-    for sid, s in sorted(surveys.items()):
-        for kind, url in sorted(s.get("document_urls", {}).items()):
-            recorded = s.get("documents_last_modified", {}).get(kind)
-            head = retried(session, "HEAD", url)
-            # Recorded, not just logged: the day the state's address first
-            # stopped serving a document is a fact the ledger shows (the
-            # archive's copy is then the public one); cleared if it returns.
-            # Only a definite "not here" counts — never an outage.
-            if head is not None and head.status_code in (404, 410):
-                s.setdefault("documents_gone", {}).setdefault(kind, today)
-                gone.append(f"{sid} {kind}: HTTP {head.status_code} {url}")
-                continue
-            if head is None or head.status_code != 200:
-                unchecked.append(f"{sid} {kind}: {answer(head)} {url}")
-                continue
-            if kind in s.get("documents_gone", {}):
-                del s["documents_gone"][kind]
-                if not s["documents_gone"]:
-                    del s["documents_gone"]
-            modified = head.headers.get("Last-Modified")
-            if modified and modified == recorded:
-                continue
-            r = retried(session, "GET", url)
-            if r is None or r.status_code != 200 or not r.content.startswith(b"%PDF"):
-                unchecked.append(f"{sid} {kind}: download gave {answer(r, pdf=True)} {url}")
-                continue
-            body = r.content
-            if body != (ROOT / current_path(s, kind)).read_bytes():
-                revs = s.setdefault("revisions", {}).setdefault(kind, [])
-                path = (ARCHIVE_DIR / s["license"] /
-                        f"{s['exit_date']}_{slug(s['survey_type'])}_rev{len(revs) + 2}_{kind}.pdf")
-                path.write_bytes(body)
-                rel = path.relative_to(ROOT).as_posix()
-                revs.append({"path": rel, "first_seen": today, "last_modified": modified})
-                revised.append(f"{sid} {kind}: {rel} (state's file dated {modified})")
-                print(f"  REVISED by the state: {sid} {kind} -> {rel}")
-            s.setdefault("documents_last_modified", {})[kind] = modified
-    return revised, gone, unchecked
+    Its own step (`fetch.py --revisions`), run after the week's records are
+    committed, so nothing here can cost them. Each request is retried; a
+    document that still can't be checked is listed (a run warning) and
+    checked again next week, and a server that stops answering
+    (OUTAGE_STREAK documents in a row) ends the check rather than spend
+    the job's hour on it. Returns (revised, gone, unchecked, refused):
+    `refused` lists "not found" answers too many to believe (see
+    GONE_LIMIT), recorded nowhere."""
+    revised, missing, unchecked = [], [], []
+    docs = [(sid, s, kind, url) for sid, s in sorted(surveys.items())
+            for kind, url in sorted(s.get("document_urls", {}).items())]
+    streak = 0
+    for i, (sid, s, kind, url) in enumerate(docs):
+        if streak >= OUTAGE_STREAK:
+            unchecked.append(f"{len(docs) - i} documents not asked: the state's server stopped answering")
+            break
+        recorded = s.get("documents_last_modified", {}).get(kind)
+        head = retried(session, "HEAD", url)
+        if head is not None and head.status_code in (404, 410):
+            time.sleep(GONE_RECHECK)
+            head = retried(session, "HEAD", url)  # a one-off 404 is not a removal
+        streak = streak + 1 if head is None or head.status_code >= 500 or head.status_code == 429 else 0
+        # Recorded, not just logged: the day the state's address first
+        # stopped serving a document is a fact the ledger shows (the
+        # archive's copy is then the public one); cleared if it returns.
+        # Only a definite "not here", twice — never an outage.
+        if head is not None and head.status_code in (404, 410):
+            missing.append((s, kind, f"{sid} {kind}: HTTP {head.status_code} {url}"))
+            continue
+        if head is None or head.status_code != 200:
+            unchecked.append(f"{sid} {kind}: {answer(head)} {url}")
+            continue
+        if kind in s.get("documents_gone", {}):
+            del s["documents_gone"][kind]
+            if not s["documents_gone"]:
+                del s["documents_gone"]
+        modified = head.headers.get("Last-Modified")
+        if modified and modified == recorded:
+            continue
+        r = retried(session, "GET", url)
+        if r is None or r.status_code != 200 or not r.content.startswith(b"%PDF"):
+            unchecked.append(f"{sid} {kind}: download gave {answer(r, pdf=True)} {url}")
+            continue
+        body = r.content
+        if body != (ROOT / current_path(s, kind)).read_bytes():
+            revs = s.setdefault("revisions", {}).setdefault(kind, [])
+            path = (ARCHIVE_DIR / s["license"] /
+                    f"{s['exit_date']}_{slug(s['survey_type'])}_rev{len(revs) + 2}_{kind}.pdf")
+            path.write_bytes(body)
+            rel = path.relative_to(ROOT).as_posix()
+            revs.append({"path": rel, "first_seen": today, "last_modified": modified})
+            revised.append(f"{sid} {kind}: {rel} (state's file dated {modified})")
+            print(f"  REVISED by the state: {sid} {kind} -> {rel}")
+        s.setdefault("documents_last_modified", {})[kind] = modified
+    # The state removing a file is the one event that would make "delisted,
+    # not deleted" untrue, and it is published. Dozens at once is a server
+    # fault (a misrouted path answers 404 for everything), not a removal.
+    lines = [line for _, _, line in missing]
+    if len(missing) > GONE_LIMIT:
+        return revised, [], unchecked, lines
+    for s, kind, _ in missing:
+        s.setdefault("documents_gone", {}).setdefault(kind, today)
+    return revised, lines, unchecked, []
 
 
 def retried(session, method, url):
@@ -455,20 +478,38 @@ def unlist_vanished(facilities, today):
     may leave: on 2026-11-02 the state dropped 0013774, closed Oct. 31,
     2024, with its Aug. 2024 enforcement record still inside the three-year
     window. The run that saw it go is recorded (`unlisted_on`; cleared if it
-    is listed again)."""
-    unlisted = []
-    for lic, f in sorted(facilities.items()):
-        if f["last_seen"] != today and f["on_state_roster"]:
-            if not f.get("date_closed"):
-                raise RuntimeError(
-                    f"{lic} {f['name']} ({f['county']}) is open by the ledger's last "
-                    f"roster but absent from this week's search, which includes closed "
-                    f"facilities. Investigate before its records are marked no longer shown."
-                )
-            f["on_state_roster"] = False
-            f["unlisted_on"] = today
-            unlisted.append(f"{lic} {f['name']} (closed {f['date_closed']})")
-    return unlisted
+    is listed again).
+
+    But a search that quietly stopped including closed facilities (a
+    renamed WebForms field is dropped without an error) would unlist all of
+    them at once, flagging their in-window records as aged off. So more
+    than UNLIST_LIMIT in one run, or one closed less than a year ago, raises
+    too: one at a time, long closed, is the only pattern seen."""
+    gone = [(lic, f) for lic, f in sorted(facilities.items())
+            if f["last_seen"] != today and f["on_state_roster"]]
+    year_ago = (date.fromisoformat(today) - timedelta(days=365)).isoformat()
+    for lic, f in gone:
+        if not f.get("date_closed"):
+            raise RuntimeError(
+                f"{lic} {f['name']} ({f['county']}) is open by the ledger's last "
+                f"roster but absent from this week's search, which includes closed "
+                f"facilities. Investigate before its records are marked no longer shown."
+            )
+        if f["date_closed"] > year_ago:
+            raise RuntimeError(
+                f"{lic} {f['name']} closed {f['date_closed']}, less than a year ago, and is "
+                f"absent from this week's search. Investigate before its records are marked "
+                f"no longer shown (the one closed facility seen leaving had been closed two years)."
+            )
+    if len(gone) > UNLIST_LIMIT:
+        raise RuntimeError(
+            f"{len(gone)} closed facilities left the search in one run — did it stop including "
+            f"closed facilities? Investigate before marking any: {[lic for lic, _ in gone]}"
+        )
+    for lic, f in gone:
+        f["on_state_roster"] = False
+        f["unlisted_on"] = today
+    return [f"{lic} {f['name']} (closed {f['date_closed']})" for lic, f in gone]
 
 
 def load(path):
@@ -525,15 +566,9 @@ def main():
             s["expired_on"] = today
             expired += 1
 
-    print("Checking every archived document against the state's current file")
-    revised, gone, unchecked = check_revisions(requests_session(), surveys, today)
-    # GitHub annotations: they show on the run's page, not only in its log.
+    # A GitHub annotation: it shows on the run's page, not only in its log.
     for line in unlisted:
         print(f"::warning::No longer listed by the state: {line}")
-    for line in gone:
-        print(f"::warning::No longer served by the state: {line}")
-    for line in unchecked:
-        print(f"::warning::Not checked for revisions this week (next week will): {line}")
 
     save(FACILITIES_PATH, facilities)
     save(SURVEYS_PATH, surveys)
@@ -544,8 +579,32 @@ def main():
         f"({sum(1 for f in facilities.values() if f['on_state_roster'])} on state roster), "
         f"{len(surveys)} survey records ({new_surveys} new, {expired} newly expired from state, "
         f"{reappeared} previously flagged expired seen again), "
-        f"{docs} documents archived, {len(revised)} replaced by the state this run."
+        f"{docs} documents archived. Next: fetch.py --revisions."
     )
+
+
+def check_main():
+    """`fetch.py --revisions`: every archived document against the state's
+    current file. Its own workflow step, after the week's records are
+    committed, so an outage here can't cost them."""
+    today = date.today().isoformat()
+    surveys = load(SURVEYS_PATH)
+    print("Checking every archived document against the state's current file")
+    revised, gone, unchecked, refused = check_revisions(requests_session(), surveys, today)
+    save(SURVEYS_PATH, surveys)
+    # GitHub annotations: they show on the run's page, not only in its log.
+    for line in gone:
+        print(f"::warning::No longer served by the state: {line}")
+    for line in unchecked:
+        print(f"::warning::Not checked for revisions this week (next week will): {line}")
+    print(f"\nDone. {len(revised)} replaced by the state, {len(gone)} no longer served, "
+          f"{len(unchecked)} not checked.")
+    if refused:
+        raise RuntimeError(
+            f"{len(refused)} documents answered 'not found' twice in one run — more than "
+            f"GONE_LIMIT ({GONE_LIMIT}), so a server fault is likelier than the state removing "
+            f"them; none was recorded as gone. Check the state's site by hand: {refused[:10]}"
+        )
 
 
 def fetch_county(session, roster, keys, facilities, surveys, today):
@@ -617,4 +676,4 @@ def fetch_county(session, roster, keys, facilities, surveys, today):
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(check_main() if "--revisions" in sys.argv else main())

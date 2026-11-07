@@ -93,6 +93,9 @@ test("report search: a story link finds reports and a hit opens its record", asy
   await expect(count).toContainText(/\d+ reports? mentions? "medication error"/);
   const all = parseInt(await count.textContent(), 10);
   expect(all).toBeGreaterThan(5);
+  // A story link searches every facility, closed ones included.
+  await expect(page.getByLabel("Include closed")).toBeChecked();
+  await expect(page.locator(".report-dek")).not.toContainText("for the facilities in view");
   await expect(page.locator(".report-excerpt mark").first()).toBeVisible();
 
   await page.getByLabel("County", { exact: true }).selectOption("WOOD");

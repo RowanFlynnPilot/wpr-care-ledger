@@ -150,11 +150,11 @@ class Revisions(unittest.TestCase):
 
     def test_a_replaced_document_is_archived_beside_the_original(self):
         s = self.surveys["1|2026-02-18|complaint"]
-        (revised, gone, _), downloads = self.run_week("Mon, 23 Mar 2026", b"%PDF original")
+        (revised, gone, _, _), downloads = self.run_week("Mon, 23 Mar 2026", b"%PDF original")
         self.assertEqual((revised, downloads), ([], 1))  # baseline: downloaded once, unchanged
-        (revised, _, _), downloads = self.run_week("Mon, 23 Mar 2026", b"%PDF original")
+        (revised, _, _, _), downloads = self.run_week("Mon, 23 Mar 2026", b"%PDF original")
         self.assertEqual(downloads, 0)  # same Last-Modified: no download at all
-        (revised, _, _), _ = self.run_week("Mon, 21 Sep 2026", b"%PDF reissued")
+        (revised, _, _, _), _ = self.run_week("Mon, 21 Sep 2026", b"%PDF reissued")
         self.assertEqual(len(revised), 1)
         rev = "archive/1/2026-02-18_complaint_rev2_sod.pdf"
         self.assertEqual(s["revisions"]["sod"], [
@@ -163,12 +163,12 @@ class Revisions(unittest.TestCase):
         self.assertEqual((self.root / s["documents"]["sod"]).read_bytes(), b"%PDF original")
         self.assertEqual(fetch.current_path(s, "sod"), rev)
         # A new date on identical bytes is not a revision.
-        (revised, _, _), _ = self.run_week("Tue, 22 Sep 2026", b"%PDF reissued")
+        (revised, _, _, _), _ = self.run_week("Tue, 22 Sep 2026", b"%PDF reissued")
         self.assertEqual(revised, [])
         self.assertEqual(len(s["revisions"]["sod"]), 1)
 
     def test_a_document_the_state_stops_serving_is_reported(self):
-        (revised, gone, _), downloads = self.run_week(None, b"", status=404)
+        (revised, gone, _, _), downloads = self.run_week(None, b"", status=404)
         self.assertEqual((revised, downloads, len(gone)), ([], 0, 1))
 
     # ~800 requests a week, before anything is saved: one blip used to cost
@@ -176,7 +176,7 @@ class Revisions(unittest.TestCase):
     def test_a_passing_outage_is_retried(self):
         s = self.surveys["1|2026-02-18|complaint"]
         blip = fetch.requests.ConnectionError("reset")
-        (_, gone, unchecked), downloads = self.run_week(
+        (_, gone, unchecked, _), downloads = self.run_week(
             "Mon, 23 Mar 2026", b"%PDF original", answers=[blip, 503, 200])
         self.assertEqual((gone, unchecked, downloads), ([], [], 1))
         self.assertEqual(s["documents_last_modified"], {"sod": "Mon, 23 Mar 2026"})
@@ -185,12 +185,38 @@ class Revisions(unittest.TestCase):
         s = self.surveys["1|2026-02-18|complaint"]
         for answer in (503, 403, fetch.requests.Timeout("slow")):
             with self.subTest(answer=answer):
-                (_, gone, unchecked), _ = self.run_week(None, b"", answers=[answer])
+                (_, gone, unchecked, _), _ = self.run_week(None, b"", answers=[answer])
                 self.assertEqual((gone, len(unchecked)), ([], 1))
                 self.assertNotIn("documents_gone", s)
 
+    def test_a_one_off_404_is_asked_again_and_not_recorded(self):
+        s = self.surveys["1|2026-02-18|complaint"]
+        (_, gone, unchecked, refused), _ = self.run_week("Mon, 23 Mar 2026", b"%PDF original",
+                                                         answers=[404, 200])
+        self.assertEqual((gone, unchecked, refused), ([], [], []))
+        self.assertNotIn("documents_gone", s)
+
+    def many(self, n):
+        for i in range(2, n + 1):
+            self.surveys[f"{i}|2026-02-18|complaint"] = dict(self.surveys["1|2026-02-18|complaint"])
+
+    # A misrouted server answers 404 for everything: that must not publish
+    # 800 documents as removed by the state.
+    def test_too_many_404s_to_believe_are_refused_and_none_recorded(self):
+        self.many(fetch.GONE_LIMIT + 1)
+        (_, gone, _, refused), _ = self.run_week(None, b"", status=404)
+        self.assertEqual((gone, len(refused)), ([], fetch.GONE_LIMIT + 1))
+        self.assertFalse(any("documents_gone" in s for s in self.surveys.values()))
+
+    def test_a_server_that_stops_answering_ends_the_check(self):
+        self.many(fetch.OUTAGE_STREAK + 5)
+        (_, gone, unchecked, _), _ = self.run_week(None, b"", answers=[503])
+        self.assertEqual(gone, [])
+        self.assertEqual(len(unchecked), fetch.OUTAGE_STREAK + 1)  # ten tried, then the rest in one line
+        self.assertIn("5 documents not asked", unchecked[-1])
+
     def test_a_non_pdf_answer_is_unchecked_not_a_failed_run(self):
-        (revised, _, unchecked), _ = self.run_week("Mon, 21 Sep 2026", b"<html>Unexpected Error")
+        (revised, _, unchecked, _), _ = self.run_week("Mon, 21 Sep 2026", b"<html>Unexpected Error")
         self.assertEqual((revised, len(unchecked)), ([], 1))
 
     def test_the_day_it_stopped_is_recorded_and_cleared_if_it_returns(self):
@@ -253,6 +279,22 @@ class Roster(unittest.TestCase):
                    "last_seen": "2026-10-26", "on_state_roster": True}}
         self.assertEqual(len(fetch.unlist_vanished(f, "2026-11-02")), 1)
         self.assertEqual((f["1"]["on_state_roster"], f["1"]["unlisted_on"]), (False, "2026-11-02"))
+
+    def test_a_recently_closed_facility_vanishing_fails_the_run(self):
+        f = {"1": {"name": "A", "county": "WOOD", "date_closed": "2026-06-01",
+                   "last_seen": "2026-10-26", "on_state_roster": True}}
+        with self.assertRaises(RuntimeError):
+            fetch.unlist_vanished(f, "2026-11-02")
+        self.assertTrue(f["1"]["on_state_roster"])  # nothing marked
+
+    # A search that quietly dropped closed facilities would unlist them all.
+    def test_many_closed_facilities_at_once_fail_the_run(self):
+        f = {str(i): {"name": "A", "county": "WOOD", "date_closed": "2023-01-01",
+                      "last_seen": "2026-10-26", "on_state_roster": True}
+             for i in range(fetch.UNLIST_LIMIT + 1)}
+        with self.assertRaises(RuntimeError):
+            fetch.unlist_vanished(f, "2026-11-02")
+        self.assertFalse(any("unlisted_on" in x for x in f.values()))
 
     def test_an_open_facility_vanishing_fails_the_run(self):
         f = {"1": {"name": "A", "county": "WOOD", "date_closed": "",
