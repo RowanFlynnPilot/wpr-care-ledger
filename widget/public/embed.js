@@ -70,7 +70,7 @@
   // #county=…, #cat=…, #view=map) is passed on to the full-ledger frames:
   // the hash belongs to this page, and would never reach them otherwise.
   // Other hashes (#comments) are left alone.
-  var LEDGER_HASH = /(?:^#|&)(?:lic|q|county|cat|view)=/;
+  var LEDGER_HASH = /(?:^#|&)(?:lic|q|county|cat|view|text)=/;
   function forwardHash() {
     if (!LEDGER_HASH.test(location.hash)) return;
     var frames = ledgerFrames();

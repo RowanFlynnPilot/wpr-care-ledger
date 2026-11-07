@@ -47,7 +47,7 @@ jobs:
       - run: python pipeline/digest.py   # weekly tip sheet on the run's summary page
       - name: Commit mined document facts
         run: |
-          git add data/enrichment.json
+          git add data/enrichment.json data/narratives.json  # narratives: the report search
           git diff --cached --quiet || git commit -m "Mine new documents $(date -u +%F)"
           git pull --rebase
           git push

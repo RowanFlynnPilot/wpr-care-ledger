@@ -7,6 +7,7 @@
 // Labels, fines and document kinds come from src/ledger.js — the widget's
 // own shape() — so a page can never disagree with the ledger.
 import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { close as closePagefind, createIndex } from "pagefind";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
@@ -22,6 +23,7 @@ const dist = join(widget, "dist");
 const read = (name) => JSON.parse(readFileSync(join(widget, "..", "data", name), "utf8"));
 const db = shape(read("facilities.json"), read("surveys.json"), read("enrichment.json"), read("wayback.json"), read("geocodes.json"));
 const basemap = read("basemap.json");
+const narratives = read("narratives.json"); // the report search's text, from enrich.py
 
 const esc = (s) =>
   String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
@@ -278,6 +280,7 @@ function aboutPage() {
   const windowStart = windowStartOf(db.lastUpdated);
   const unlistedRecords = unlisted.flatMap((f) => f.surveys).filter((s) => s.exit_date >= windowStart).length;
   const placed = db.facilities.filter((f) => f.point).length;
+  const searchable = S.filter((s) => s.docs.some((d) => d.kind === "sod" && narratives[d.path])).length;
   const revised = S.filter((s) => s.revision).length;
   const counties = db.counties.map(titleCase);
   const dictionary = (rows) =>
@@ -319,6 +322,9 @@ ${unlisted.length ? `<p>Age is not the only way out. The search lists closed fac
 
 <h2>Copies at the Internet Archive</h2>
 <p>Each document and each facility's page on the state's site is also captured by the Internet Archive's Wayback Machine, directly from the state's server, so anyone can check what the state published without taking our word for it. A copy is listed only after it is checked: a document's copy must match the ledger's file byte for byte. ${copies} of the ${files.size} archived files have a checked copy; originals the state later replaced have none, because the state no longer serves them.</p>
+
+<h2>Searching what inspectors wrote</h2>
+<p>The ledger's Reports view searches the findings in ${fmtNum(searchable)} statements of deficiency, the latest version of each. The text is read from the state's PDFs; the form's repeated headers and each quoted regulation are left out, so a search finds what inspectors observed rather than the wording of a rule (each citation keeps its rule number and title). Enforcement letters and plans of correction are not searched. A match means the words appear in a report, not that the event happened at that facility: "fall" also matches "fall risk," and a report can describe something that happened elsewhere. Read the excerpt and the report before drawing a conclusion.</p>
 
 <h2>Maps and distances</h2>
 <p>Locations are the state roster's addresses as placed by the U.S. Census Bureau's geocoder, and a location must fall in the facility's own county. ${placed} of ${db.facilities.length} facilities are on the map; the others are named under it. Distances between facilities are straight-line miles.</p>
@@ -486,7 +492,7 @@ for (const c of db.counties) {
 // the state stopped serving — not every Monday: search engines learn to
 // ignore a lastmod that is always today.
 const changedOn = (f) =>
-  [f.first_seen, ...f.surveys.flatMap((s) => [
+  [f.first_seen, f.closed_seen, f.unlisted_on, ...f.surveys.flatMap((s) => [
     s.first_seen, s.expired_on,
     ...Object.values(s.documents_first_seen || {}),
     ...Object.values(s.documents_gone || {}),
@@ -504,3 +510,38 @@ writeFileSync(
     "\n</urlset>\n"
 );
 console.log(`wrote ${written} facility pages, the facility index, and sitemap.xml (${urls.length} URLs)`);
+
+// What inspectors wrote, searchable in the widget's Reports view: each
+// statement of deficiency's findings (data/narratives.json, from enrich.py),
+// latest version, in a Pagefind index — static files a reader's browser
+// loads in slices as it searches, never the whole text. One record per
+// report; `lic` lets the widget narrow results to the facilities in view.
+const { index } = await createIndex();
+let indexed = 0;
+for (const f of db.facilities) {
+  for (const s of f.surveys) {
+    const sod = s.docs.find((d) => d.kind === "sod");
+    const content = sod && narratives[sod.path];
+    if (!content) continue;
+    const { errors } = await index.addCustomRecord({
+      url: `facility/${slug(f)}/#${s.exit_date}-${sod.column}`,
+      content,
+      language: "en",
+      meta: {
+        title: smartTitle(f.name),
+        lic: f.license,
+        city: titleCase(f.city),
+        inspection: surveyLabel(s.survey_type),
+        date: s.exit_date,
+        pdf: sod.path,
+      },
+      filters: { lic: [f.license] },
+      sort: { date: s.exit_date },
+    });
+    if (errors.length) throw new Error(`report index, ${sod.path}: ${errors.join("; ")}`);
+    indexed++;
+  }
+}
+await index.writeFiles({ outputPath: join(dist, "pagefind") });
+await closePagefind();
+console.log(`indexed the text of ${indexed} inspection reports`);

@@ -220,6 +220,20 @@ immutable so each parses once; `--rebuild` reparses all after parser
 changes. Deleting the file and rerunning is always safe; never hand-edit.
 Per-document parse gaps warn loudly but never fail the weekly run.
 
+`data/narratives.json` — **derived** by enrich.py beside enrichment.json:
+each statement of deficiency's findings as one line of prose (archive
+path → text), for the widget's report search. The 2567 form's repeated
+header and sign-off, "Continued From page N" carry-overs and braced tags
+are dropped, and each citation's quoted regulation — everything between
+the rule code and "This Rule is not met as evidenced by:" — becomes
+"code title:" (`narrative()`; found backward from each lead-in to the
+nearest of that report's own codes, never forward, since the newer
+layout lists every code on page one). Audited 2026-11-07: all 784
+removed spans were rule text, none a finding; without the cut, "choking"
+matched 22 reports, 6 of them only through the rule. One line per
+document (indent=0), ~3.5 MB; never copied into the published site
+(dev-sync skips it). fetch.yml commits it with enrichment.json.
+
 `data/wayback.json` — the Internet Archive's independent copies, written
 by `pipeline/seed_wayback.py`: `documents` (archive path → Wayback URL of
 a capture of the document's `document_urls` address) and `pages` (license
@@ -545,7 +559,7 @@ posts `wpr-care-ledger:measure` to every ledger frame so ones that
 reported before it listened answer again (the widget re-posts its height
 on that message). For full-ledger frames (not `?facility=`) it also
 forwards the host page's ledger hash (`#lic=`, `#q=`, `#county=`,
-`#cat=`, `#view=`; other hashes such as `#comments` are left alone) by
+`#cat=`, `#view=`, `#text=`; other hashes such as `#comments` are left alone) by
 setting the frame's src fragment, on load, on hashchange and on the
 frame's first height message (WordPress lazy-load plugins such as WP
 Rocket give a frame its src after the script first looked), so
@@ -651,6 +665,23 @@ in ledger.js), nearest first, each with its city, distance and
 enforcement count, a cross-link to its record; same-address licenses
 are left out (they have their own fact). The facility pages list the
 same five, linked page to page.
+A third view, Reports (List · Map · Reports, `#view=reports`,
+`#text=<words>`), searches what inspectors wrote: "Search what
+inspectors wrote" over every statement of deficiency (`ReportSearch`).
+The index is Pagefind (1.5.2, exact, dev dependency): facility-pages.mjs
+adds one custom record per report — the latest version's narrative,
+meta for facility, city, inspection label, date and PDF, a `lic` filter,
+a `date` sort — and writes `dist/pagefind/` (~4 MB in ~600 files; a
+search loads a few slices, loaded on first use, never with the page).
+Every narrowing in view scopes it through the `lic` filter, as on the
+map ("Waterford" plus "fall" searches that facility's reports); the dek
+counts the reports in view with a filter-only search. Hits: facility
+(a cross-link to its record), city, inspection and date, a 36-word
+excerpt with `<mark>` (anything else tag-like is stripped), the PDF;
+ten at a time; best match or newest first; quotes for phrases; English
+stemming (eloped, eloping). The dek and the methodology page say a
+match means the words appear, not that it happened there. Not
+available in `npm run dev` (the index is built after the bundle).
 Cross-links and deep links scroll the opened record into view
 (standalone only). A print stylesheet hides interactive chrome and keeps
 records intact across page breaks.
@@ -737,7 +768,13 @@ then bundles them into `dist/`, so **the Pages artifact is just
   event's own `newURL`. A failing test keeps a Playwright trace, uploaded as the
   run's `playwright-traces` artifact (`npx playwright show-trace`), and
   only then publishes `widget/dist` to
-  GitHub Pages — a failing test leaves the last good build live. Triggers: pushes to main, successful completion of the fetch or
+  GitHub Pages — a failing test leaves the last good build live. The
+  publish step retries once after 90 seconds: on Nov. 6–7, 2026, GitHub's
+  Pages service stalled in `syncing_files` until the action's 10-minute
+  ceiling, across many repositories, three times here with green tests.
+  To retry by hand use Run workflow, never "Re-run failed jobs" (it
+  uploads a second `github-pages` artifact and the deploy refuses both).
+  Triggers: pushes to main, successful completion of the fetch or
   wayback workflow (`workflow_run`), or manual dispatch. The `workflow_run` chain
   exists because commits pushed with the default `GITHUB_TOKEN` (the fetch
   bot) never trigger other workflows — a plain push trigger would leave the
@@ -816,7 +853,9 @@ then bundles them into `dist/`, so **the Pages artifact is just
   Chrome's local-network-access check for the test browser). The suite
   found a real bug on its first run: the longer row chips overflowed a
   320px phone.
-- Widget deps: Vite 8.3.4 and @vitejs/plugin-react 6.1.2, exact versions
+- Widget deps: Pagefind 1.5.2 (exact; the report search index, built in
+  postbuild; 1.6.0 was six days old when chosen, 2026-11-07).
+  Vite 8.3.4 and @vitejs/plugin-react 6.1.2, exact versions
   (2026-10-28: from Vite 5, to clear `npm audit`'s seven advisories, all in
   build tools — none ship to readers; 0 remain). Check `npm audit` when
   upgrading; take versions at least two weeks old.

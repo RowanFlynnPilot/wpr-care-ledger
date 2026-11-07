@@ -34,6 +34,9 @@ from pypdf import PdfReader
 ROOT = Path(__file__).resolve().parent.parent
 ARCHIVE_DIR = ROOT / "archive"
 ENRICHMENT_PATH = ROOT / "data" / "enrichment.json"
+# Each SOD's findings text, for the widget build's report-text search index
+# (scripts/facility-pages.mjs). Never shipped to readers whole.
+NARRATIVES_PATH = ROOT / "data" / "narratives.json"
 
 # Fixed vocabulary of notice headers on DQA "NOTICE and ORDER" letters.
 # Headers stand alone as ALL-CAPS lines; the same phrases also appear
@@ -324,11 +327,55 @@ def parse_sod(text):
             "citations": citations}, warn
 
 
+FORM_HEADER_END = "REGULATORY OR LSC IDENTIFYING INFORMATION)"
+
+
+RULE_NOT_MET = re.compile(r"This\s+Rule\s+is\s+not\s+met\s+as\s+evidenced\s+by:?", re.I)
+
+
+def narrative(pages, citations):
+    """An SOD's findings as one line of prose, for the ledger's search of
+    report text: each page without the 2567 form's header (it ends at the
+    column heading above) and sign-off, and without the "{N 499}Continued
+    From page 1{N 499}" carry-overs and braced tags that break sentences.
+
+    Each citation quotes its rule in full before "This Rule is not met as
+    evidenced by:"; that text is the regulation, not a finding, and would
+    make "choking" or "abuse" match every report citing those rules. It
+    becomes "83.55(6)(b) Bath and toilet areas: water temperature:". Found
+    backward from each lead-in to the nearest of the report's own codes
+    (never forward: the newer layout lists every code on page one)."""
+    bodies = []
+    for page in pages:
+        i = page.find(FORM_HEADER_END)
+        body = page[i + len(FORM_HEADER_END):] if i >= 0 else page
+        if (end := re.search(r"LABORATORY DIRECTOR'S|If continuation sheet", body)):
+            body = body[:end.start()]
+        body = re.sub(r"\{?[A-Z] ?\d{3,4}\}?\s*Continued From page \d+\s*\{?[A-Z] ?\d{3,4}\}?", " ", body)
+        bodies.append(re.sub(r"\{[A-Z] ?\d{3,4}\}", " ", body))
+    text = " ".join(" ".join(bodies).split())
+
+    titles = {c["code"]: c["title"] for c in citations}
+    if not titles:
+        return text
+    code = re.compile("|".join(re.escape(c) for c in sorted(titles, key=len, reverse=True)))
+    out, pos = [], 0
+    for lead in RULE_NOT_MET.finditer(text):
+        quoted = [*code.finditer(text, max(pos, lead.start() - 3000), lead.start())]
+        if quoted:
+            rule = quoted[-1]
+            out += [text[pos:rule.start()], f"{rule.group()} {titles[rule.group()]}: "]
+            pos = lead.end()
+    return " ".join(("".join(out) + text[pos:]).split())
+
+
 def main():
     rebuild = "--rebuild" in sys.argv
-    enrichment = {}
+    enrichment, narratives = {}, {}
     if ENRICHMENT_PATH.exists() and not rebuild:
         enrichment = json.loads(ENRICHMENT_PATH.read_text())
+    if NARRATIVES_PATH.exists() and not rebuild:
+        narratives = json.loads(NARRATIVES_PATH.read_text(encoding="utf-8"))
 
     parsed = skipped = 0
     warnings = []
@@ -337,7 +384,7 @@ def main():
         kind = rel.rsplit("_", 1)[-1].removesuffix(".pdf")
         if kind == "poc":
             continue  # plans of correction: provider prose, nothing to mine
-        if rel in enrichment:
+        if rel in enrichment and (enrichment[rel]["kind"] != "sod" or rel in narratives):
             skipped += 1
             continue
         # A PDF pypdf can't open is a parse gap like an unreadable scan: it
@@ -365,6 +412,7 @@ def main():
                            "page one has both or neither the 2567 form header and the DHS letterhead")
         elif structure == "sod":
             entry, warn = parse_sod(text)
+            narratives[rel] = narrative(pages, entry["citations"])
         else:
             entry, warn = parse_enforcement(text)
         if entry["kind"] not in (kind, "unreadable", "unclassified"):
@@ -384,6 +432,10 @@ def main():
 
     ENRICHMENT_PATH.write_text(
         json.dumps(enrichment, indent=2, sort_keys=True) + "\n"
+    )
+    # One document per line: a week's new reports diff as added lines.
+    NARRATIVES_PATH.write_text(
+        json.dumps(narratives, indent=0, sort_keys=True, ensure_ascii=False) + "\n", encoding="utf-8"
     )
 
     # The widget joins surveys to enrichment by exact path string, so every

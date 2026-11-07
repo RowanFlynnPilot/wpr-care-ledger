@@ -312,5 +312,38 @@ class StatementsOfDeficiency(unittest.TestCase):
             "01/13/2022 was corrected.")[0]["deficiencies"])
 
 
+class Narratives(unittest.TestCase):
+    """The findings text behind the widget's report search."""
+    HEADER = ("A. BUILDING: ____\nSTATEMENT OF DEFICIENCIES\nAND PLAN OF CORRECTION\n"
+              "SUMMARY STATEMENT OF DEFICIENCIES\n(EACH DEFICIENCY MUST BE PRECEDED BY FULL \n"
+              "REGULATORY OR LSC IDENTIFYING INFORMATION)\n")
+    FOOTER = ("LABORATORY DIRECTOR'S OR PROVIDER/SUPPLIER REPRESENTATIVE'S SIGNATURE\n"
+              "If continuation sheet  1 of 46899STATE FORM BBM812")
+    PAGES = [
+        HEADER + "{N 000} Initial Comments {N 000}\nTwo deficiencies were identified.\n"
+        "{N 617} 83.55(6)(b) Bath and toilet areas: water \ntemperature\nThe CBRF shall set "
+        "the temperature of all water heaters at 140F. Staff shall prevent choking.\n" + FOOTER,
+        HEADER + "{N 617}Continued From page 1{N 617}\nThis Rule  is not met as evidenced by:\n"
+        "Based on interview, Resident 1 was scalded.\n" + FOOTER,
+    ]
+    CITES = [{"code": "83.55(6)(b)", "title": "Bath and toilet areas: water temperature"}]
+
+    def test_form_header_footer_and_carryovers_are_dropped(self):
+        text = enrich.narrative(self.PAGES, self.CITES)
+        for gone in ("STATEMENT OF DEFICIENCIES", "LABORATORY", "Continued From", "{N", "STATE FORM"):
+            self.assertNotIn(gone, text)
+        self.assertIn("Based on interview, Resident 1 was scalded.", text)
+
+    # A search for "choking" must find what inspectors saw, not the rule.
+    def test_quoted_rule_text_becomes_its_code_and_title(self):
+        text = enrich.narrative(self.PAGES, self.CITES)
+        self.assertIn("83.55(6)(b) Bath and toilet areas: water temperature: Based on interview", text)
+        self.assertNotIn("choking", text)
+        self.assertNotIn("This Rule", text)
+
+    def test_without_citations_nothing_is_cut(self):
+        self.assertIn("choking", enrich.narrative(self.PAGES, []))
+
+
 if __name__ == "__main__":
     unittest.main()

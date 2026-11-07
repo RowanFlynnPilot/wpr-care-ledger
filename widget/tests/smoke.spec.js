@@ -84,6 +84,26 @@ test("map: a dot opens its card, the card opens the record", async ({ page }) =>
   await expect(page.locator(".row.is-open")).toHaveCount(1);
 });
 
+// The text of every inspection report, searched in the browser (Pagefind):
+// a story link lands on results, the county narrows them, a hit opens its
+// record. Polled: the index loads on first use.
+test("report search: a story link finds reports and a hit opens its record", async ({ page }) => {
+  await page.goto("./?from=text#text=%22medication%20error%22");
+  const count = page.locator(".report-count");
+  await expect(count).toContainText(/\d+ reports? mentions? "medication error"/);
+  const all = parseInt(await count.textContent(), 10);
+  expect(all).toBeGreaterThan(5);
+  await expect(page.locator(".report-excerpt mark").first()).toBeVisible();
+
+  await page.getByLabel("County", { exact: true }).selectOption("WOOD");
+  await expect.poll(async () => parseInt(await count.textContent(), 10)).toBeLessThan(all);
+  await expect(page).toHaveURL(/county=Wood&text=/);
+
+  await page.locator(".report-facility").first().click();
+  await expect(page).toHaveURL(/#lic=/);
+  await expect(page.locator(".row.is-open")).toHaveCount(1);
+});
+
 test("a chart pick filters the list and returns to it", async ({ page }) => {
   await page.goto("./");
   await page.locator(".county-chart .cites-row").first().click();

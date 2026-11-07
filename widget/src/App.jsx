@@ -276,6 +276,7 @@ export default function App() {
   const [open, setOpen] = useState(null);
   // The facilities in view as a list or on the map.
   const [view, setView] = useState("list");
+  const [reportText, setReportText] = useState(""); // the Reports view's search
   // A facility to show on the map, set by a record's "Show on the map".
   const [mapFocus, setMapFocus] = useState(null);
   // Rows rendered: the first PAGE, then more on request. All 279 at once
@@ -388,7 +389,7 @@ export default function App() {
         if (i > 0) p[part.slice(0, i)] = safeDecode(part.slice(i + 1).replace(/\+/g, " "));
       }
       const lic = /^[0-9A-Za-z]+$/.test(p.lic || "") ? p.lic : null;
-      if (!lic && !p.q && !p.county && !p.cat && !p.view) return;
+      if (!lic && !p.q && !p.county && !p.cat && !p.view && !p.text) return;
       setLens("all");
       setType("ALL");
       setCounty((p.county && db.counties.find((x) => x === p.county.toUpperCase())) || "ALL");
@@ -413,7 +414,8 @@ export default function App() {
         }
       } else {
         setQuery(p.q || "");
-        setView(p.view === "map" ? "map" : "list");
+        setReportText(p.text || "");
+        setView(p.view === "map" ? "map" : p.text || p.view === "reports" ? "reports" : "list");
         // A record opened by an earlier link would stay open behind the new
         // view, and keep the address on its #lic=.
         setOpen(null);
@@ -436,13 +438,14 @@ export default function App() {
           category && `cat=${catSlug(category)}`,
           q && `q=${encodeURIComponent(q)}`,
           view === "map" && "view=map",
+          view === "reports" && (reportText.trim() ? `text=${encodeURIComponent(reportText.trim())}` : "view=reports"),
         ].filter(Boolean);
     window.history.replaceState(
       null,
       "",
       parts.length ? `#${parts.join("&")}` : window.location.pathname + window.location.search
     );
-  }, [open, query, county, category, view, db]);
+  }, [open, query, county, category, view, reportText, db]);
 
   // The county filter scopes everything: stats, chart, list. The rest of
   // the narrowing (search, type, closed toggle, lens) applies to the list.
@@ -859,6 +862,7 @@ export default function App() {
           {[
             ["list", "List"],
             ["map", "Map"],
+            ["reports", "Reports"],
           ].map(([id, label]) => (
             <button
               key={id}
@@ -866,9 +870,9 @@ export default function App() {
               aria-pressed={view === id}
               onClick={() => {
                 setView(id);
-                // The map hides the list: a record left open would keep the
-                // address on its #lic= and catch Escape out of sight.
-                if (id === "map") setOpen(null);
+                // The map and reports hide the list: a record left open would
+                // keep the address on its #lic= and catch Escape out of sight.
+                if (id !== "list") setOpen(null);
               }}
             >
               {label}
@@ -902,6 +906,16 @@ export default function App() {
           </p>
         )}
       </div>
+
+      {view === "reports" && list.length > 0 && (
+        <ReportSearch
+          facilities={list}
+          total={db.facilities.length}
+          term={reportText}
+          onTerm={setReportText}
+          onOpen={crossLink}
+        />
+      )}
 
       {view === "map" && list.length > 0 && (
         <FacilityMap
@@ -1580,6 +1594,167 @@ function labelSpot(cells, box, dots) {
    not a density map: red marks an enforcement action on record, hollow a
    closed facility. Dots aren't focusable; the list view is the accessible
    equivalent, and the toggle sits right above. */
+// The search index of what inspectors wrote (scripts/facility-pages.mjs
+// builds it into dist/pagefind). Loaded on first use, never with the page.
+let pagefindLoad = null;
+const loadPagefind = () =>
+  (pagefindLoad ??= import(/* @vite-ignore */ new URL("pagefind/pagefind.js", document.baseURI).href).then(
+    async (pf) => {
+      await pf.options({ excerptLength: 36 });
+      pf.init();
+      return pf;
+    }
+  ));
+
+const REPORT_EXAMPLES = ["fall", "elopement", "medication error", "choking", "bruise", "water temperature"];
+const REPORT_PAGE = 10;
+
+// Pagefind's excerpts are escaped text with <mark> around matches; anything
+// else that looks like a tag is dropped before it reaches the page.
+const markOnly = (html) => html.replace(/<(?!\/?mark>)[^>]*>/g, "");
+
+/* Search the findings of every inspection report in view: the ledger's
+   narrowing (county, type, closed, lens, facility search) scopes it, as it
+   does the map. A hit names the facility (opening its record), the
+   inspection, an excerpt and the report itself. */
+function ReportSearch({ facilities, total, term, onTerm, onOpen }) {
+  const [pf, setPf] = useState(null);
+  const [failed, setFailed] = useState(false);
+  const [sort, setSort] = useState("relevance");
+  const [inView, setInView] = useState(null); // reports for the facilities in view
+  const [found, setFound] = useState(null); // { term, results }
+  const [hits, setHits] = useState([]);
+  const [shown, setShown] = useState(REPORT_PAGE);
+
+  useEffect(() => {
+    loadPagefind().then(setPf, () => setFailed(true));
+  }, []);
+
+  const narrowed = facilities.length < total;
+  const licKey = facilities.map((f) => f.license).join(",");
+  const filters = useMemo(() => ({ lic: { any: licKey.split(",") } }), [licKey]);
+
+  // A filter-only search: how many reports the facilities in view have.
+  useEffect(() => {
+    if (!pf) return;
+    let live = true;
+    pf.search(null, { filters }).then((r) => live && setInView(r.results.length));
+    return () => {
+      live = false;
+    };
+  }, [pf, filters]);
+
+  useEffect(() => {
+    const q = term.trim();
+    if (!pf || !q) return setFound(null);
+    let live = true;
+    pf.debouncedSearch(q, { filters, ...(sort === "newest" ? { sort: { date: "desc" } } : {}) }, 250).then(
+      (r) => {
+        // null: a newer keystroke superseded this search.
+        if (live && r) {
+          setFound({ term: q, results: r.results });
+          setShown(REPORT_PAGE);
+        }
+      }
+    );
+    return () => {
+      live = false;
+    };
+  }, [pf, term, sort, filters]);
+
+  useEffect(() => {
+    if (!found?.results.length) return setHits([]);
+    let live = true;
+    Promise.all(found.results.slice(0, shown).map((r) => r.data())).then((d) => live && setHits(d));
+    return () => {
+      live = false;
+    };
+  }, [found, shown]);
+
+  if (failed) {
+    return (
+      <p className="report-note">
+        Report search isn&rsquo;t available right now. Each record still links its reports.
+      </p>
+    );
+  }
+  const q = term.trim();
+  const n = found && found.term === q ? found.results.length : null;
+  return (
+    <section className="report-search" aria-labelledby="report-search-h">
+      <h3 id="report-search-h">Search what inspectors wrote</h3>
+      <p className="report-dek">
+        The findings in {inView == null ? "every" : fmtNum(inView)} inspection{" "}
+        {inView === 1 ? "report" : "reports"}
+        {narrowed ? " for the facilities in view" : ""}. A match means the words appear in a report,
+        not that it happened there: read the excerpt. Use quotes for an exact phrase.
+      </p>
+      <div className="controls report-controls">
+        <input
+          type="search"
+          value={term}
+          placeholder="Try: fall, elopement, &quot;medication error&quot;"
+          aria-label="Search inspection reports"
+          enterKeyHint="search"
+          autoComplete="off"
+          spellCheck={false}
+          onChange={(e) => onTerm(e.target.value)}
+        />
+        <select value={sort} aria-label="Order of reports" onChange={(e) => setSort(e.target.value)}>
+          <option value="relevance">Best match</option>
+          <option value="newest">Newest first</option>
+        </select>
+      </div>
+      {!q && (
+        <p className="report-examples">
+          Examples:{" "}
+          {REPORT_EXAMPLES.map((x, i) => (
+            <span key={x}>
+              {i > 0 && " · "}
+              <button type="button" className="clear-filters" onClick={() => onTerm(x.includes(" ") ? `"${x}"` : x)}>
+                {x}
+              </button>
+            </span>
+          ))}
+        </p>
+      )}
+      {q && (
+        <p className="report-count" role="status">
+          {n == null
+            ? "Searching…"
+            : `${fmtNum(n)} ${n === 1 ? "report mentions" : "reports mention"} ${q}`}
+        </p>
+      )}
+      {q && hits.length > 0 && (
+        <ol className="report-hits">
+          {hits.map((h) => (
+            <li key={h.url} className="report-hit">
+              <button type="button" className="report-facility" onClick={() => onOpen(h.meta.lic)}>
+                {h.meta.title}
+              </button>
+              <span className="report-meta">
+                {" "}
+                {h.meta.city} · {h.meta.inspection}, ended {fmtDate(h.meta.date)}
+              </span>
+              <p className="report-excerpt" dangerouslySetInnerHTML={{ __html: `…${markOnly(h.excerpt)}…` }} />
+              <a className="doc doc-sod" href={h.meta.pdf} target="_blank" rel="noopener noreferrer">
+                Statement of deficiency (PDF)
+              </a>
+            </li>
+          ))}
+        </ol>
+      )}
+      {q && n != null && n > shown && (
+        <p className="more-row">
+          <button className="show-more" onClick={() => setShown(shown + REPORT_PAGE)}>
+            Show {Math.min(REPORT_PAGE, n - shown)} more
+          </button>
+        </p>
+      )}
+    </section>
+  );
+}
+
 function FacilityMap({ facilities, basemap, county, focus, onFocused, onOpen, onPickCounty }) {
   const wrapRef = useRef(null);
   const cardRef = useRef(null);

@@ -9,7 +9,12 @@ import { dirname, join } from "node:path";
 const widget = dirname(dirname(fileURLToPath(import.meta.url)));
 const root = dirname(widget);
 
-cpSync(join(root, "data"), join(widget, "public", "data"), { recursive: true });
+// narratives.json (every report's text, ~4 MB) feeds the build's search
+// index and is never shipped whole.
+cpSync(join(root, "data"), join(widget, "public", "data"), {
+  recursive: true,
+  filter: (src) => !src.endsWith("narratives.json"),
+});
 cpSync(join(root, "archive"), join(widget, "public", "archive"), {
   recursive: true,
   force: false,

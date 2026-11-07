@@ -151,9 +151,13 @@ Add a hash to the iframe `src` (or to the standalone URL):
   `#cat=staffing` … the start of the name is enough), the same as clicking
   its row.
 - `…/wpr-care-ledger/#view=map` — opens on the map instead of the list.
-- `county`, `cat`, `q` and `view` combine with `&`:
-  `…/wpr-care-ledger/#county=Wood&cat=medications`, or
-  `…/wpr-care-ledger/#county=Marathon&view=map` for a map of one county.
+- `…/wpr-care-ledger/#text=elopement` — opens the Reports view on a search
+  of what inspectors wrote (`#text=%22medication%20error%22` for an exact
+  phrase); `#view=reports` opens it empty.
+- `county`, `cat`, `q`, `view` and `text` combine with `&`:
+  `…/wpr-care-ledger/#county=Wood&cat=medications`,
+  `…/wpr-care-ledger/#county=Marathon&view=map` for a map of one county, or
+  `…/wpr-care-ledger/#county=Wood&text=choking` for one county's reports.
 
 ### Embedding one facility in a story
 
