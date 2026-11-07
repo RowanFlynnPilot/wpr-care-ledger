@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import {
   DOC_LABELS,
   SUPPORT_URL,
+  TIP_URL,
   catSlug,
   findCategory,
   revisionChanges,
@@ -2576,6 +2577,12 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
               <span className="sr-only" role="status">
                 {copied ? "Link to this record copied" : ""}
               </span>
+            </p>
+            <p className="tip-line">
+              Know something about this facility?{" "}
+              <a href={TIP_URL} target="_blank" rel="noopener noreferrer">
+                Tell Wausau Pilot &amp; Review&rsquo;s reporters
+              </a>
             </p>
           </div>
           </div>

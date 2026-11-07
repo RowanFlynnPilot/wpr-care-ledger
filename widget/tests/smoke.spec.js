@@ -182,6 +182,15 @@ test("no sideways scroll on a small phone", async ({ page }) => {
 test("static facility page, index, feeds and sitemap", async ({ page, request }) => {
   await page.goto(`./facility/the-waterford-at-colby-${WATERFORD}/`);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("The Waterford at Colby");
+  // Its own share card, drawn at build time, not the ledger's general one.
+  const card = await page.locator('meta[property="og:image"]').getAttribute("content");
+  expect(card).toMatch(new RegExp(`/og/the-waterford-at-colby-${WATERFORD}\\.png$`));
+  const png = await request.get(`./og/the-waterford-at-colby-${WATERFORD}.png`);
+  expect(png.headers()["content-type"]).toBe("image/png");
+  await expect(page.getByRole("link", { name: /Tell Wausau Pilot & Review/ })).toHaveAttribute(
+    "href",
+    /wausaupilotandreview\.com\/send-a-tip\//
+  );
   await expect(page.locator(".locator svg")).toBeVisible();
   await expect(page.getByRole("heading", { name: "Nearest operating facilities" })).toBeVisible();
 

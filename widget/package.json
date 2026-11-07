@@ -8,7 +8,7 @@
     "dev": "vite",
     "prebuild": "node scripts/dev-sync.mjs",
     "build": "vite build",
-    "postbuild": "node scripts/facility-pages.mjs",
+    "postbuild": "node scripts/facility-pages.mjs && python scripts/facility-cards.py",
     "preview": "vite preview",
     "test": "playwright test",
     "figures": "node scripts/story-figures.mjs"

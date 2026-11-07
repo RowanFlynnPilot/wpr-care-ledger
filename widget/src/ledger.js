@@ -444,6 +444,13 @@ export function facilitySlug(f) {
 export const SUPPORT_URL =
   "https://wausaupilotandreview.com/support-our-publication/?utm_source=care-ledger&utm_medium=referral";
 
+/* "Tell Wausau Pilot & Review's reporters", on every record and facility
+   page: the newsroom's own tip page ("Get in Touch" on its homepage), which
+   takes tips by form "as a basis for future reporting". Tagged like the
+   support link so WPR can count tips the ledger brings. */
+export const TIP_URL =
+  "https://wausaupilotandreview.com/send-a-tip/?utm_source=care-ledger&utm_medium=referral";
+
 /* What a state revision changed, in words: "forfeiture reduced from
    $1,000 to $400; deficiencies cited went from 4 to 1". Empty when the figures
    the ledger reads didn't move (the wording or a date changed). */

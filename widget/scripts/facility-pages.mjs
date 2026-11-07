@@ -11,7 +11,7 @@ import { close as closePagefind, createIndex } from "pagefind";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
-  DOC_LABELS, SANCTION_LABELS, SUPPORT_URL, TYPE_FULL, revisionChanges, citeSummary, facilitySlug as slug, fmtDate, fmtNum, locatorSvg, nearbyOf, shape,
+  DOC_LABELS, SANCTION_LABELS, SUPPORT_URL, TIP_URL, TYPE_FULL, revisionChanges, citeSummary, facilitySlug as slug, fmtDate, fmtNum, locatorSvg, nearbyOf, shape,
   smartTitle, surveyLabel, titleCase, waybackDate, windowStartOf, apNum, andList, licensedOn, unlistedNote, statusLabel, addressCase, sinceArchive,
 } from "../src/ledger.js";
 
@@ -87,7 +87,7 @@ const countyFeed = (county) => ({
   title: `The Care Ledger: new enforcement actions in ${titleCase(county)} County`,
 });
 
-function page({ title, description, path, body, feed }) {
+function page({ title, description, path, body, feed, image = "og-card.png", imageAlt }) {
   const url = SITE + path;
   return `<!doctype html>
 <html lang="en">
@@ -102,7 +102,10 @@ function page({ title, description, path, body, feed }) {
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${esc(url)}">
-<meta property="og:image" content="${SITE}og-card.png">
+<meta property="og:image" content="${esc(SITE + image)}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+${imageAlt ? `<meta property="og:image:alt" content="${esc(imageAlt)}">` : ""}
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../../brand/wpr-typewriter-32.png">
 ${feed ? `<link rel="alternate" type="application/atom+xml" title="${esc(feed.title)}" href="${esc(SITE + feed.path)}">` : ""}
@@ -193,6 +196,9 @@ function facilityPage(f) {
     description,
     path: `facility/${slug(f)}/`,
     feed: countyFeed(f.county),
+    // Its own share card (scripts/facility-cards.py draws it from `cards`).
+    image: `og/${slug(f)}.png`,
+    imageAlt: `${name}, ${city}: ${record}.`,
     body: `<article>
 <h1>${esc(name)}</h1>
 <p class="meta">${esc(f.typeAbbr)} · ${esc(city)}, ${esc(county)} County · license ${esc(f.license)}${f.closed ? " · closed" : ""}</p>
@@ -205,6 +211,7 @@ ${f.pageCopy ? `<p class="mono">State's page for this facility, <a href="${esc(f
 ${nearbyList(f)}
 <h2>Inspection history</h2>
 ${surveys ? `<ol class="timeline">\n${surveys}\n</ol>` : `<p>No inspection records since ${esc(since)}.</p>`}
+<p>Know something about this facility? <a href="${esc(TIP_URL)}">Tell Wausau Pilot &amp; Review's reporters</a></p>
 <p class="mono"><a href="../">All ${db.facilities.length} facilities</a></p>
 </article>`,
   });
@@ -385,6 +392,27 @@ for (const f of db.facilities) {
   writeFileSync(join(dir, "index.html"), facilityPage(f));
   written++;
 }
+
+// What each facility's share card says, from the same shape() as its page,
+// for scripts/facility-cards.py (Pillow) to draw into dist/og/<slug>.png.
+mkdirSync(join(dist, "og"), { recursive: true });
+writeFileSync(
+  join(dist, "og", "cards.json"),
+  JSON.stringify(
+    db.facilities.map((f) => ({
+      slug: slug(f),
+      name: smartTitle(f.name),
+      kind: TYPE_FULL[f.typeAbbr] || f.typeAbbr,
+      place: `${titleCase(f.city)}, ${titleCase(f.county)} County`,
+      inspections: f.surveys.length,
+      enforcement: f.enforcementCount,
+      fines: f.fineTotal,
+      held: f.heldCount,
+      closed: f.closed,
+      since: fmtDate(windowStartOf(db.countyStart[f.county])),
+    }))
+  )
+);
 writeFileSync(join(dist, "facility", "index.html"), indexPage());
 mkdirSync(join(dist, "about"), { recursive: true });
 writeFileSync(join(dist, "about", "index.html"), aboutPage());
