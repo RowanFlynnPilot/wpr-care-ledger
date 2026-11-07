@@ -26,7 +26,7 @@ jobs:
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.first_try.outputs.page_url }}
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -56,5 +56,16 @@ jobs:
       - uses: actions/upload-pages-artifact@v5
         with:
           path: widget/dist
+      # GitHub's Pages service can stall in "syncing_files" until the action's
+      # 10-minute ceiling (Nov. 6-7, 2026, across many repositories; the
+      # build and tests here were green each time). One retry publishes the
+      # same tested artifact. Never "Re-run failed jobs" by hand instead: it
+      # uploads a second github-pages artifact and the deploy refuses both.
+      - id: first_try
+        uses: actions/deploy-pages@v5
+        continue-on-error: true
+      - if: steps.first_try.outcome == 'failure'
+        run: sleep 90  # let the stalled deployment clear before asking again
       - id: deployment
+        if: steps.first_try.outcome == 'failure'
         uses: actions/deploy-pages@v5
