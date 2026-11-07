@@ -11,7 +11,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   DOC_LABELS, SANCTION_LABELS, SUPPORT_URL, TYPE_FULL, revisionChanges, citeSummary, facilitySlug as slug, fmtDate, fmtNum, locatorSvg, nearbyOf, shape,
-  smartTitle, surveyLabel, titleCase, waybackDate, windowStartOf, apNum, licensedOn, unlistedNote, statusLabel, addressCase, sinceArchive,
+  smartTitle, surveyLabel, titleCase, waybackDate, windowStartOf, apNum, andList, licensedOn, unlistedNote, statusLabel, addressCase, sinceArchive,
 } from "../src/ledger.js";
 
 // The published address. Change here if the ledger moves to a custom domain.
@@ -272,6 +272,11 @@ function aboutPage() {
   const goneCount = S.flatMap((s) => s.docs).filter((d) => d.gone).length;
   const stillServed = files.size - originals - goneCount;
   const held = S.filter((s) => s.expired_from_state).length;
+  // Closed facilities the search dropped whole, newer records and all.
+  const unlisted = db.facilities.filter((f) => unlistedNote(f));
+  // Their records the three-year window alone would still show.
+  const windowStart = windowStartOf(db.lastUpdated);
+  const unlistedRecords = unlisted.flatMap((f) => f.surveys).filter((s) => s.exit_date >= windowStart).length;
   const placed = db.facilities.filter((f) => f.point).length;
   const revised = S.filter((s) => s.revision).length;
   const counties = db.counties.map(titleCase);
@@ -293,7 +298,8 @@ function aboutPage() {
 <p>It covers adult family homes of three or four beds, community-based residential facilities and residential care apartment complexes. Nursing homes, which are regulated separately, are not included. Closed facilities stay in the ledger.</p>
 
 <h2>What "held in the ledger" means</h2>
-<p>The state's search shows about three years of inspections. When a record drops out of that window, the ledger keeps it and marks it "held in the ledger." That is not the same as deletion: each week the ledger checks every document's address on the state's server, and ${stillServed === files.size - originals ? `as of ${esc(fmtDate(db.lastUpdated))} every one was still there` : `as of ${esc(fmtDate(db.lastUpdated))}, ${goneCount} ${goneCount === 1 ? "is" : "are"} no longer served (each marked in its record)`}, including the documents of records the search no longer lists. For a family using the state's search, though, that history can't be found. ${held} records have aged off since the ledger began.</p>
+<p>The state's search shows about three years of inspections. When a record drops out of that window, the ledger keeps it and marks it "held in the ledger." That is not the same as deletion: each week the ledger checks every document's address on the state's server, and ${stillServed === files.size - originals ? `as of ${esc(fmtDate(db.lastUpdated))} every one was still there` : `as of ${esc(fmtDate(db.lastUpdated))}, ${goneCount} ${goneCount === 1 ? "is" : "are"} no longer served (each marked in its record)`}, including the documents of records the search no longer lists. For a family using the state's search, though, that history can't be found. ${held} records are held so far.</p>
+${unlisted.length ? `<p>Age is not the only way out. The search lists closed facilities, but not indefinitely: ${apNum(unlisted.length)} closed ${unlisted.length === 1 ? "facility has" : "facilities have"} dropped out of it entirely${unlistedRecords ? `, and with ${unlisted.length === 1 ? "it" : "them"} ${apNum(unlistedRecords)} inspection ${unlistedRecords === 1 ? "record" : "records"} still inside the three-year window` : ""} (${andList(unlisted.map((f) => `<a href="${SITE}facility/${slug(f)}/">${esc(smartTitle(f.name))}</a>, closed ${esc(fmtDate(f.date_closed))}`))}). The ledger keeps those too, and the facility's record notes when the state last listed it.</p>` : ""}
 
 <h2>How far back it goes</h2>
 <p>Each county's archive starts with what the state's search showed the first time the ledger looked, so the records go back ${esc(sinceArchive(db.countyStart, db.counties).replace(/^since /, "to "))}. Earlier history is not included: a facility with no records listed has none since then, not none ever.</p>
