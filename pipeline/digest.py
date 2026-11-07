@@ -24,7 +24,7 @@ import re
 import subprocess
 import sys
 import unicodedata
-from datetime import date, timedelta
+from datetime import date
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 
@@ -367,14 +367,17 @@ def tip_sheet(L):
                          f"state address: {s['document_urls'][column]}")
     # The roster: new licenses — flagged when one opens where a closed
     # facility was, the license flip of the Acorn Hill and Hummingbird Road
-    # stories — and closures the roster reports in the last two weeks.
+    # stories — closures this run first saw (the state backdates them and
+    # can post one weeks late), and closed facilities the state's search
+    # stopped listing, their whole history with them.
     opened = sorted((f for f in L.facilities.values()
                      if f["first_seen"] == L.run and L.county_start[f["county"]] < L.run),
                     key=lambda f: f["name"])
-    since = (date.fromisoformat(L.run) - timedelta(days=13)).isoformat()
-    closed = sorted((f for f in L.facilities.values() if (f.get("date_closed") or "") >= since),
+    closed = sorted((f for f in L.facilities.values() if f.get("closed_seen") == L.run),
                     key=lambda f: f["date_closed"])
-    if opened or closed:
+    unlisted = sorted((f for f in L.facilities.values() if f.get("unlisted_on") == L.run),
+                      key=lambda f: f["name"])
+    if opened or closed or unlisted:
         lines += ["", "### Roster changes", ""]
         for f in opened:
             flips = [o for o in L.facilities.values()
@@ -386,6 +389,10 @@ def tip_sheet(L):
         for f in closed:
             lines.append(f"- Closed {ap_date(f['date_closed'])}: "
                          f"[{smart_title(f['name'])}]({page_url(f)}) ({f['city'].title()})")
+        for f in unlisted:
+            lines.append(f"- **No longer listed by the state:** [{smart_title(f['name'])}]({page_url(f)}) "
+                         f"({f['city'].title()}, closed {ap_date(f['date_closed'])}) — its records "
+                         "are no longer in the Provider Search; the ledger holds them")
     if aged_off:
         lines += ["", "### No longer listed by the state (now held here)", ""]
         lines += [f"- {who(s)} — {inspection(s)}"

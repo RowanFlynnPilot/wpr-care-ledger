@@ -111,7 +111,9 @@ def batch(session, addresses):
     rows = io.StringIO()
     writer = csv.writer(rows)
     for key, line in addresses.items():
-        street, city, state, zip_code = [p.strip() for p in line.split(",")]
+        # From the right: a street may carry its own comma ("100 MAIN ST,
+        # UNIT 2"); city, state and ZIP never do.
+        street, city, state, zip_code = [p.strip() for p in line.rsplit(",", 3)]
         writer.writerow([key, street, city, state, zip_code])
     r = session.post(
         BATCH_URL,

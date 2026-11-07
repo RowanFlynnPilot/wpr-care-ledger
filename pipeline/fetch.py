@@ -74,6 +74,7 @@ ARCHIVE_DIR = ROOT / "archive"
 
 REQUEST_DELAY = 0.5  # seconds between requests; be a polite citizen
 TIMEOUT = 30
+RETRIES = 3  # per document in the weekly revision check
 USER_AGENT = "Mozilla/5.0 (compatible; WausauPilotCareLedger/1.0; +https://wausaupilotandreview.com)"
 
 # DQA shows three years of survey history. A record may only be treated as
@@ -198,8 +199,10 @@ def download_roster(session):
 
     roster = {}
     for row in rows[1:]:
+        if not any(row):  # trailing empty rows the export sometimes carries
+            continue
         f = {
-            "license": str(row[0]).strip(),
+            "license": str(row[0] or "").strip(),
             "name": str(row[2]).strip(),
             "provider_type": str(row[3]).strip(),
             "class": str(row[4] or "").strip(),
@@ -311,21 +314,23 @@ def fetch_detail(session, key, license_no):
 
 def archive_pdf(session, url, license_no, exit_date, survey_type, kind):
     """Download a survey document into the permanent archive. Immutable:
-    if the file already exists, it is never re-fetched."""
+    if the file already exists, it is never re-fetched. Returns its archive
+    path and the state's Last-Modified for it (None if already held), so the
+    same run's revision check needn't download it again."""
     name = f"{exit_date}_{slug(survey_type)}_{kind}.pdf"
     path = ARCHIVE_DIR / license_no / name
     # POSIX form on every OS: this string is a URL in the widget and the join
     # key into enrichment.json.
     rel = path.relative_to(ROOT).as_posix()
     if path.exists():
-        return rel
+        return rel, None
     r = get(session, url)
     if not r.content.startswith(b"%PDF"):
         raise RuntimeError(f"Not a PDF at {url}")
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_bytes(r.content)
     print(f"  archived {rel} ({len(r.content):,} bytes)")
-    return rel
+    return rel, r.headers.get("Last-Modified")
 
 
 def current_path(survey, kind):
@@ -345,19 +350,28 @@ def check_revisions(session, surveys, today):
     archived beside it as a revision. Each document's Last-Modified header
     is recorded, so a normal week costs one HEAD per document and downloads
     only what the state changed; a file is a revision only if its bytes
-    differ from the latest version held. Returns (revised, gone) lists."""
-    revised, gone = [], []
+    differ from the latest version held.
+
+    Runs after the week's records are merged and before anything is saved,
+    across ~800 documents, so a network blip or a server hiccup must not
+    cost the week: each request is retried, and a document that still can't
+    be checked is listed (a run warning) and checked again next week.
+    Returns (revised, gone, unchecked) lists."""
+    revised, gone, unchecked = [], [], []
     for sid, s in sorted(surveys.items()):
         for kind, url in sorted(s.get("document_urls", {}).items()):
             recorded = s.get("documents_last_modified", {}).get(kind)
-            time.sleep(REQUEST_DELAY)
-            head = session.head(url, timeout=TIMEOUT)
+            head = retried(session, "HEAD", url)
             # Recorded, not just logged: the day the state's address first
             # stopped serving a document is a fact the ledger shows (the
             # archive's copy is then the public one); cleared if it returns.
-            if head.status_code != 200:
+            # Only a definite "not here" counts — never an outage.
+            if head is not None and head.status_code in (404, 410):
                 s.setdefault("documents_gone", {}).setdefault(kind, today)
                 gone.append(f"{sid} {kind}: HTTP {head.status_code} {url}")
+                continue
+            if head is None or head.status_code != 200:
+                unchecked.append(f"{sid} {kind}: {answer(head)} {url}")
                 continue
             if kind in s.get("documents_gone", {}):
                 del s["documents_gone"][kind]
@@ -366,9 +380,11 @@ def check_revisions(session, surveys, today):
             modified = head.headers.get("Last-Modified")
             if modified and modified == recorded:
                 continue
-            body = get(session, url).content
-            if not body.startswith(b"%PDF"):
-                raise RuntimeError(f"Not a PDF at {url}")
+            r = retried(session, "GET", url)
+            if r is None or r.status_code != 200 or not r.content.startswith(b"%PDF"):
+                unchecked.append(f"{sid} {kind}: download gave {answer(r, pdf=True)} {url}")
+                continue
+            body = r.content
             if body != (ROOT / current_path(s, kind)).read_bytes():
                 revs = s.setdefault("revisions", {}).setdefault(kind, [])
                 path = (ARCHIVE_DIR / s["license"] /
@@ -379,7 +395,32 @@ def check_revisions(session, surveys, today):
                 revised.append(f"{sid} {kind}: {rel} (state's file dated {modified})")
                 print(f"  REVISED by the state: {sid} {kind} -> {rel}")
             s.setdefault("documents_last_modified", {})[kind] = modified
-    return revised, gone
+    return revised, gone, unchecked
+
+
+def retried(session, method, url):
+    """One document request, following redirects, tried up to RETRIES times
+    through network errors and server-side failures (5xx, 429) with
+    backoff. The last response, or None if none ever came."""
+    r = None
+    for attempt in range(RETRIES):
+        time.sleep(REQUEST_DELAY * 4 ** attempt)  # 0.5 s, 2 s, 8 s
+        try:
+            r = session.request(method, url, timeout=TIMEOUT, allow_redirects=True)
+        except requests.RequestException:
+            r = None
+            continue
+        if r.status_code < 500 and r.status_code != 429:
+            break
+    return r
+
+
+def answer(r, pdf=False):
+    if r is None:
+        return "no response"
+    if pdf and r.status_code == 200:
+        return f"a non-PDF ({r.headers.get('Content-Type', 'no type')}, from {r.url})"
+    return f"HTTP {r.status_code}"
 
 
 # -------------------------------------------------------------------- merge
@@ -403,6 +444,31 @@ def vanished_in_window(surveys, facilities, today_date):
         and facilities[s["license"]]["last_seen"] == today
         and s["exit_date"] > must_still_show
     )
+
+
+def unlist_vanished(facilities, today):
+    """Mark facilities the state no longer lists; returns them.
+
+    The search includes closed facilities, so an open one vanishing means
+    the search went wrong (a dropped county, a changed filter) — and every
+    record it holds would be flagged as aged off. That raises. A closed one
+    may leave: on 2026-11-02 the state dropped 0013774, closed Oct. 31,
+    2024, with its Aug. 2024 enforcement record still inside the three-year
+    window. The run that saw it go is recorded (`unlisted_on`; cleared if it
+    is listed again)."""
+    unlisted = []
+    for lic, f in sorted(facilities.items()):
+        if f["last_seen"] != today and f["on_state_roster"]:
+            if not f.get("date_closed"):
+                raise RuntimeError(
+                    f"{lic} {f['name']} ({f['county']}) is open by the ledger's last "
+                    f"roster but absent from this week's search, which includes closed "
+                    f"facilities. Investigate before its records are marked no longer shown."
+                )
+            f["on_state_roster"] = False
+            f["unlisted_on"] = today
+            unlisted.append(f"{lic} {f['name']} (closed {f['date_closed']})")
+    return unlisted
 
 
 def load(path):
@@ -441,10 +507,7 @@ def main():
         new_surveys += n
         reappeared += r
 
-    # Anything we've seen before that the state no longer shows.
-    for lic, f in facilities.items():
-        if f["last_seen"] != today:
-            f["on_state_roster"] = False
+    unlisted = unlist_vanished(facilities, today)
 
     vanished = vanished_in_window(surveys, facilities, today_date)
     if vanished:
@@ -463,9 +526,14 @@ def main():
             expired += 1
 
     print("Checking every archived document against the state's current file")
-    revised, gone = check_revisions(requests_session(), surveys, today)
+    revised, gone, unchecked = check_revisions(requests_session(), surveys, today)
+    # GitHub annotations: they show on the run's page, not only in its log.
+    for line in unlisted:
+        print(f"::warning::No longer listed by the state: {line}")
     for line in gone:
-        print(f"  WARN no longer served by the state: {line}")
+        print(f"::warning::No longer served by the state: {line}")
+    for line in unchecked:
+        print(f"::warning::Not checked for revisions this week (next week will): {line}")
 
     save(FACILITIES_PATH, facilities)
     save(SURVEYS_PATH, surveys)
@@ -492,6 +560,14 @@ def fetch_county(session, roster, keys, facilities, surveys, today):
         detail, history = fetch_detail(session, key, license_no)
 
         record = facilities.get(license_no, {"first_seen": today})
+        # The run that first saw a closure: the state backdates date_closed
+        # and can post it weeks late, so the tip sheet lists closures by
+        # this. Never on a first capture, whose closures aren't news.
+        if not facility["date_closed"]:
+            record.pop("closed_seen", None)
+        elif license_no in facilities and not record.get("date_closed"):
+            record["closed_seen"] = today
+        record.pop("unlisted_on", None)
         record.update(facility)
         record.update(detail)
         record["key"] = key
@@ -499,8 +575,14 @@ def fetch_county(session, roster, keys, facilities, surveys, today):
         record["on_state_roster"] = True
         facilities[license_no] = record
 
+        sids = set()
         for s in history:
             sid = f"{license_no}|{s['exit_date']}|{slug(s['survey_type'])}"
+            # Two rows with one key would merge, the second's documents
+            # silently dropped: never yet seen, so stop rather than guess.
+            if sid in sids:
+                raise RuntimeError(f"Two survey rows share the key {sid}: the key needs another part")
+            sids.add(sid)
             entry = surveys.get(sid, {"first_seen": today})
             reappeared += entry.get("expired_from_state", False)
             entry.pop("expired_on", None)
@@ -519,9 +601,11 @@ def fetch_county(session, roster, keys, facilities, surveys, today):
                 # seen wins, like the file itself.
                 urls.setdefault(kind, url)
                 if kind not in archived:
-                    archived[kind] = archive_pdf(
+                    archived[kind], modified = archive_pdf(
                         session, url, license_no, s["exit_date"], s["survey_type"], kind
                     )
+                    if modified:
+                        entry.setdefault("documents_last_modified", {})[kind] = modified
                     # A Notice & Order often posts weeks after its SOD, onto
                     # a row that is no longer new; date each document too.
                     entry.setdefault("documents_first_seen", {})[kind] = today

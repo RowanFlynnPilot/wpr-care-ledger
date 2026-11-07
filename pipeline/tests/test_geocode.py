@@ -121,6 +121,11 @@ class CensusBatch(unittest.TestCase):
         self.assertEqual(out["3"], ("Tie", None, None))
         self.assertIn("1,210 W CAMPUS DR,WAUSAU,WI,54401", posted["csv"])
 
+    def test_a_street_with_its_own_comma_is_one_field(self):
+        session, posted = self.session('"1","x","No_Match"\n')
+        gc.batch(session, {"1": "100 MAIN ST, UNIT 2, WAUSAU, WI, 54401"})
+        self.assertIn('1,"100 MAIN ST, UNIT 2",WAUSAU,WI,54401', posted["csv"])
+
     def test_a_dropped_address_fails_loudly(self):
         session, _ = self.session('"1","x","No_Match"\n')
         with self.assertRaises(RuntimeError):

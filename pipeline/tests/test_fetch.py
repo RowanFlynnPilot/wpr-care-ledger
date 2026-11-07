@@ -98,7 +98,7 @@ class AgeOffGuard(unittest.TestCase):
 class ArchivePaths(unittest.TestCase):
     def test_paths_are_posix_on_every_os(self):
         with mock.patch.object(fetch.Path, "exists", return_value=True):
-            rel = fetch.archive_pdf(None, "u", "0013424", "2026-08-05", "COMPLAINT/VV", "sod")
+            rel, _ = fetch.archive_pdf(None, "u", "0013424", "2026-08-05", "COMPLAINT/VV", "sod")
         self.assertEqual(rel, "archive/0013424/2026-08-05_complaint-vv_sod.pdf")
 
 
@@ -128,22 +128,33 @@ class Revisions(unittest.TestCase):
             p.stop()
         self.tmp.cleanup()
 
-    def run_week(self, modified, body, status=200):
-        session = SimpleNamespace(head=lambda url, timeout: SimpleNamespace(
-            status_code=status, headers={"Last-Modified": modified}))
+    def run_week(self, modified, body, status=200, answers=None):
+        """One week's check. `answers` scripts the HEAD replies in order (a
+        status, or an exception to raise); the GET always serves `body`."""
+        answers = list(answers or [status])
+        calls = []
+
+        def request(method, url, timeout, allow_redirects):
+            calls.append(method)
+            if method == "GET":
+                return SimpleNamespace(status_code=200, content=body, headers={}, url=url)
+            a = answers.pop(0) if len(answers) > 1 else answers[0]
+            if isinstance(a, Exception):
+                raise a
+            return SimpleNamespace(status_code=a, headers={"Last-Modified": modified}, url=url)
+
         # Quiet: a fake "REVISED" line in CI logs reads like a real one.
-        with mock.patch.object(fetch, "get", return_value=SimpleNamespace(content=body)) as get, \
-                contextlib.redirect_stdout(io.StringIO()):
-            out = fetch.check_revisions(session, self.surveys, "2026-10-26")
-        return out, get.call_count
+        with contextlib.redirect_stdout(io.StringIO()):
+            out = fetch.check_revisions(SimpleNamespace(request=request), self.surveys, "2026-10-26")
+        return out, calls.count("GET")
 
     def test_a_replaced_document_is_archived_beside_the_original(self):
         s = self.surveys["1|2026-02-18|complaint"]
-        (revised, gone), downloads = self.run_week("Mon, 23 Mar 2026", b"%PDF original")
+        (revised, gone, _), downloads = self.run_week("Mon, 23 Mar 2026", b"%PDF original")
         self.assertEqual((revised, downloads), ([], 1))  # baseline: downloaded once, unchanged
-        (revised, _), downloads = self.run_week("Mon, 23 Mar 2026", b"%PDF original")
+        (revised, _, _), downloads = self.run_week("Mon, 23 Mar 2026", b"%PDF original")
         self.assertEqual(downloads, 0)  # same Last-Modified: no download at all
-        (revised, _), _ = self.run_week("Mon, 21 Sep 2026", b"%PDF reissued")
+        (revised, _, _), _ = self.run_week("Mon, 21 Sep 2026", b"%PDF reissued")
         self.assertEqual(len(revised), 1)
         rev = "archive/1/2026-02-18_complaint_rev2_sod.pdf"
         self.assertEqual(s["revisions"]["sod"], [
@@ -152,13 +163,35 @@ class Revisions(unittest.TestCase):
         self.assertEqual((self.root / s["documents"]["sod"]).read_bytes(), b"%PDF original")
         self.assertEqual(fetch.current_path(s, "sod"), rev)
         # A new date on identical bytes is not a revision.
-        (revised, _), _ = self.run_week("Tue, 22 Sep 2026", b"%PDF reissued")
+        (revised, _, _), _ = self.run_week("Tue, 22 Sep 2026", b"%PDF reissued")
         self.assertEqual(revised, [])
         self.assertEqual(len(s["revisions"]["sod"]), 1)
 
     def test_a_document_the_state_stops_serving_is_reported(self):
-        (revised, gone), downloads = self.run_week(None, b"", status=404)
+        (revised, gone, _), downloads = self.run_week(None, b"", status=404)
         self.assertEqual((revised, downloads, len(gone)), ([], 0, 1))
+
+    # ~800 requests a week, before anything is saved: one blip used to cost
+    # the whole week's records. And an outage is not the state removing a file.
+    def test_a_passing_outage_is_retried(self):
+        s = self.surveys["1|2026-02-18|complaint"]
+        blip = fetch.requests.ConnectionError("reset")
+        (_, gone, unchecked), downloads = self.run_week(
+            "Mon, 23 Mar 2026", b"%PDF original", answers=[blip, 503, 200])
+        self.assertEqual((gone, unchecked, downloads), ([], [], 1))
+        self.assertEqual(s["documents_last_modified"], {"sod": "Mon, 23 Mar 2026"})
+
+    def test_a_lasting_outage_is_unchecked_never_gone(self):
+        s = self.surveys["1|2026-02-18|complaint"]
+        for answer in (503, 403, fetch.requests.Timeout("slow")):
+            with self.subTest(answer=answer):
+                (_, gone, unchecked), _ = self.run_week(None, b"", answers=[answer])
+                self.assertEqual((gone, len(unchecked)), ([], 1))
+                self.assertNotIn("documents_gone", s)
+
+    def test_a_non_pdf_answer_is_unchecked_not_a_failed_run(self):
+        (revised, _, unchecked), _ = self.run_week("Mon, 21 Sep 2026", b"<html>Unexpected Error")
+        self.assertEqual((revised, len(unchecked)), ([], 1))
 
     def test_the_day_it_stopped_is_recorded_and_cleared_if_it_returns(self):
         s = self.surveys["1|2026-02-18|complaint"]
@@ -176,15 +209,71 @@ class DocumentProvenance(unittest.TestCase):
         history = [{"survey_type": "SURVEY/VV", "exit_date": "2026-03-12",
                     "docs": {"enforcement": first}}]
         detail = {"licensure_status": "REGULAR", "ownership_type": "", "owner_name": ""}
-        roster = {"0013424": {"license": "0013424"}}
+        roster = {"0013424": {"license": "0013424", "date_closed": ""}}
         facilities, surveys = {}, {}
         with mock.patch.object(fetch, "fetch_detail", return_value=(detail, history)), \
-                mock.patch.object(fetch, "archive_pdf", return_value="archive/0013424/x.pdf"):
+                mock.patch.object(fetch, "archive_pdf",
+                                  return_value=("archive/0013424/x.pdf", "Thu, 12 Mar 2026")):
             fetch.fetch_county(None, roster, {"0013424": "k"}, facilities, surveys, "2026-10-07")
             history[0]["docs"]["enforcement"] = "https://www.forwardhealth.wi.gov/kw/dqa/OTHERENFS.PDF"
             fetch.fetch_county(None, roster, {"0013424": "k"}, facilities, surveys, "2026-10-14")
-        self.assertEqual(surveys["0013424|2026-03-12|survey-vv"]["document_urls"],
-                         {"enforcement": first})
+        s = surveys["0013424|2026-03-12|survey-vv"]
+        self.assertEqual(s["document_urls"], {"enforcement": first})
+        # Dated as archived: that week's revision check needn't download it.
+        self.assertEqual(s["documents_last_modified"], {"enforcement": "Thu, 12 Mar 2026"})
+
+
+class Roster(unittest.TestCase):
+    DETAIL = {"licensure_status": "REGULAR", "ownership_type": "", "owner_name": ""}
+
+    def merge(self, facilities, surveys, roster, today, history=()):
+        with mock.patch.object(fetch, "fetch_detail", return_value=(self.DETAIL, list(history))):
+            fetch.fetch_county(None, roster, {k: "k" for k in roster}, facilities, surveys, today)
+
+    def test_a_closure_is_dated_by_the_run_that_first_saw_it(self):
+        facilities = {}
+        row = {"license": "1", "date_closed": ""}
+        self.merge(facilities, {}, {"1": dict(row)}, "2026-10-07")
+        self.merge(facilities, {}, {"1": row | {"date_closed": "2026-09-01"}}, "2026-11-09")
+        self.merge(facilities, {}, {"1": row | {"date_closed": "2026-09-01"}}, "2026-11-16")
+        self.assertEqual(facilities["1"]["closed_seen"], "2026-11-09")  # backdated: still news
+
+    def test_closed_at_first_capture_is_not_a_closure(self):
+        facilities = {}
+        self.merge(facilities, {}, {"1": {"license": "1", "date_closed": "2024-10-31"}}, "2026-10-07")
+        self.assertNotIn("closed_seen", facilities["1"])
+
+    def test_two_rows_with_one_key_fail_the_run(self):
+        row = {"survey_type": "COMPLAINT", "exit_date": "2026-03-12", "docs": {}}
+        with self.assertRaises(RuntimeError):
+            self.merge({}, {}, {"1": {"license": "1", "date_closed": ""}}, "2026-11-09", [row, row])
+
+    def test_a_closed_facility_may_leave_the_search(self):
+        f = {"1": {"name": "A", "county": "PORTAGE", "date_closed": "2024-10-31",
+                   "last_seen": "2026-10-26", "on_state_roster": True}}
+        self.assertEqual(len(fetch.unlist_vanished(f, "2026-11-02")), 1)
+        self.assertEqual((f["1"]["on_state_roster"], f["1"]["unlisted_on"]), (False, "2026-11-02"))
+
+    def test_an_open_facility_vanishing_fails_the_run(self):
+        f = {"1": {"name": "A", "county": "WOOD", "date_closed": "",
+                   "last_seen": "2026-10-26", "on_state_roster": True}}
+        with self.assertRaises(RuntimeError):
+            fetch.unlist_vanished(f, "2026-11-02")
+
+    def test_a_blank_export_row_is_skipped_and_a_missing_license_fails(self):
+        header = fetch.EXPORT_HEADER
+        blank = (None,) * len(header)
+        nameless = ("", None, "X HOME") + (None,) * (len(header) - 3)
+        for rows, fails in (([header, blank], False), ([header, nameless], True)):
+            ws = SimpleNamespace(iter_rows=lambda values_only, rows=rows: iter(rows))
+            r = SimpleNamespace(headers={"Content-Type": "spreadsheetml"}, content=b"")
+            with mock.patch.object(fetch, "get", return_value=r), \
+                    mock.patch.object(fetch.openpyxl, "load_workbook",
+                                      return_value=SimpleNamespace(active=ws)):
+                if fails:
+                    self.assertRaises(RuntimeError, fetch.download_roster, None)
+                else:
+                    self.assertEqual(fetch.download_roster(None), {})
 
 
 if __name__ == "__main__":

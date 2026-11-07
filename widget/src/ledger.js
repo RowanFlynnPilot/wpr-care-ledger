@@ -113,6 +113,15 @@ export function licensedOn(f) {
   return f.date_probationary || f.date_regular || "";
 }
 
+/* A closed facility the state's Provider Search no longer lists, and with it
+   every record it held (0013774, two years after closing, with an
+   enforcement action still inside the three-year window). "" while listed. */
+export function unlistedNote(f) {
+  return f.on_state_roster === false
+    ? `No longer listed in the state's Provider Search; last listed ${fmtDate(f.last_seen)}`
+    : "";
+}
+
 export function titleCase(s) {
   return s.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
 }

@@ -61,8 +61,17 @@ WORD_NUM = {
     "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9,
     "ten": 10, "eleven": 11, "twelve": 12, "thirteen": 13, "fourteen": 14,
     "fifteen": 15, "sixteen": 16, "seventeen": 17, "eighteen": 18,
-    "nineteen": 19, "twenty": 20,
+    "nineteen": 19, "twenty": 20, "thirty": 30, "forty": 40,
 }
+_UNITS = "one|two|three|four|five|six|seven|eight|nine"
+# A number as the state spells it: a word above, or a compound such as
+# "twenty one" / "twenty-one" (longest alternatives first).
+def number_words(words):
+    return (rf"(?:twenty|thirty|forty)(?:[\s-]+(?:{_UNITS}))?|"
+            + "|".join(sorted(words, key=len, reverse=True)))
+
+
+NUMBER_WORDS = number_words(WORD_NUM)
 
 # A citation's first line: tag, rule code, title. The tag number may be
 # glued to the code ("M 43688.07(2)(a) SERVICES"), zero-padded or glued to
@@ -156,15 +165,17 @@ def continues_title(title, frag):
     return len(frag) <= 30 and title_case_fragment(frag)
 
 
-def classify(first_page, rel):
+def classify(first_page):
     """'sod' or 'enforcement', from page one: the 2567 form header or the DHS
-    letterhead. Ambiguity raises — guessing would mislabel a public record."""
+    letterhead; None when page one has both or neither. Never a guess — the
+    caller records it unclassified and warns (a parse gap, not a failed
+    run, per the data contract)."""
     sod_form = "STATEMENT OF DEFICIENCIES" in first_page
     letterhead = any(m in first_page for m in (
         "NOTICE and ORDER", "NOTICE AND ORDER", "DIVISION OF QUALITY ASSURANCE"))
     if sod_form != letterhead:
         return "sod" if sod_form else "enforcement"
-    raise RuntimeError(f"Can't tell letter from SOD by page one of {rel}")
+    return None
 
 
 def recover_font(text):
@@ -176,8 +187,14 @@ def recover_font(text):
 
 
 def num(word):
+    """"four" -> 4, "13" -> 13, "twenty one" / "twenty-one" -> 21."""
     w = word.lower().strip()
-    return WORD_NUM.get(w, int(w) if w.isdigit() else None)
+    if w.isdigit():
+        return int(w)
+    parts = re.split(r"[\s-]+", w)
+    if len(parts) == 2 and parts[0] in ("twenty", "thirty", "forty") and parts[1] in WORD_NUM:
+        return WORD_NUM[parts[0]] + WORD_NUM[parts[1]]
+    return WORD_NUM.get(w)
 
 
 def dollars(s):
@@ -219,16 +236,32 @@ def parse_sod(text):
     if m:
         census = int(m.group(1))
 
-    # "One repeat deficiency was identified", "Thirteen deficiencies…", and
-    # the state's own "identifed" typo; "no deficiencies" only if no count.
+    # The summary's count, in every way the state words it: "One repeat
+    # deficiency was identified", "Twenty one deficiencies…" (a compound
+    # once read as 1), "Thirteen (13) new deficiencies…" (the figure in
+    # parentheses wins), "A total of 15…", "2 deficient practices were
+    # identified", "Two deficiencies identified", and the state's own
+    # "identifed" typo. Zero only when stated: "no deficient practices were
+    # identified", "no new citations were issued", "no deficiencies will be
+    # issued". Otherwise None — never guessed from the citations.
+    # Follow-up visits first recount the earlier report — "The deficiency
+    # identified in statement of deficiency (SOD) KZEG11 was corrected" —
+    # so "the" is no count, and nothing "identified in" a statement counts.
     deficiencies = None
     m = re.search(
-        r"(\w+)\s+(?:(?:new|repeat|additional)\s+)?deficienc(?:y|ies)\s+(?:was|were)\s+identifi?ed",
+        rf"\b({number_words(WORD_NUM.keys() - {'the'})}|\d+)\s*(?:\((\d+)\)\s*)?"
+        r"(?:(?:new|repeat|additional)\s+)?(?:deficienc(?:y|ies)|deficient\s+practices?)\s+"
+        r"(?:(?:was|were)\s+)?(?:identifi?ed|found)"
+        r"(?!\s+in\s+(?:the\s+)?(?:statement|sod)\b)",
         text, re.I,
     )
     if m:
-        deficiencies = num(m.group(1))
-    elif re.search(r"\bno\s+(?:new\s+|repeat\s+)?deficiencies\s+(?:were\s+)?identifi?ed", text, re.I):
+        deficiencies = int(m.group(2)) if m.group(2) else num(m.group(1))
+    if deficiencies is None and re.search(
+        r"\bno\s+(?:new\s+|repeat\s+)?(?:deficienc(?:y|ies)|deficient\s+practices?|citations?)\s+"
+        r"(?:(?:was|were|will\s+be)\s+)?(?:identifi?ed|issued|cited|found)",
+        text, re.I,
+    ):
         deficiencies = 0
 
     # "Two of 8 complaints were substantiated" counts two, not eight. Only
@@ -307,7 +340,16 @@ def main():
         if rel in enrichment:
             skipped += 1
             continue
-        pages = [recover_font(p.extract_text() or "") for p in PdfReader(pdf).pages]
+        # A PDF pypdf can't open is a parse gap like an unreadable scan: it
+        # warns and is recorded, so one bad file can't fail every week (the
+        # archive never re-fetches it). --rebuild retries it after a fix.
+        try:
+            pages = [recover_font(p.extract_text() or "") for p in PdfReader(pdf).pages]
+        except Exception as e:  # pypdf raises several unrelated types
+            enrichment[rel] = {"kind": "unreadable"}
+            parsed += 1
+            warnings.append(f"{rel}: PDF could not be read ({type(e).__name__}: {e})")
+            continue
         text = "\n".join(pages)
         # Classify by structure, not by the state's grid column (it has
         # served letters and SODs swapped) — and by the FIRST PAGE, not the
@@ -318,11 +360,14 @@ def main():
         if sum(c.isalpha() for c in text) < 200:
             # Scanned page or broken font mapping — nothing minable.
             entry, warn = {"kind": "unreadable"}, "no readable text extracted"
-        elif classify(pages[0], rel) == "sod":
+        elif (structure := classify(pages[0])) is None:
+            entry, warn = ({"kind": "unclassified"},
+                           "page one has both or neither the 2567 form header and the DHS letterhead")
+        elif structure == "sod":
             entry, warn = parse_sod(text)
         else:
             entry, warn = parse_enforcement(text)
-        if entry["kind"] not in (kind, "unreadable"):
+        if entry["kind"] not in (kind, "unreadable", "unclassified"):
             warnings.append(f"{rel}: filed as {kind}, structurally a {entry['kind']}")
         enrichment[rel] = entry
         parsed += 1

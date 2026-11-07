@@ -206,17 +206,17 @@ class Classification(unittest.TestCase):
     # pages quote a Notice and Order; whole-text matching filed it as a letter.
     def test_sod_that_quotes_a_notice_and_order_is_an_sod(self):
         page_one = "A. BUILDING: ____\nSTATEMENT OF DEFICIENCIES\nAND PLAN OF CORRECTION\n"
-        self.assertEqual(enrich.classify(page_one, "x"), "sod")
+        self.assertEqual(enrich.classify(page_one), "sod")
 
     def test_letter_page_one_is_a_letter(self):
         page_one = "Tony Evers\nGovernor\nDIVISION OF QUALITY ASSURANCE\nNOTICE and ORDER\n"
-        self.assertEqual(enrich.classify(page_one, "x"), "enforcement")
+        self.assertEqual(enrich.classify(page_one), "enforcement")
 
-    def test_ambiguous_page_one_fails_loudly(self):
-        with self.assertRaises(RuntimeError):
-            enrich.classify("STATEMENT OF DEFICIENCIES\nNOTICE and ORDER\n", "x")
-        with self.assertRaises(RuntimeError):
-            enrich.classify("an unfamiliar cover page", "x")
+    # Never a guess: ambiguity is None, which the run records as
+    # "unclassified" and warns about (a parse gap must not fail the week).
+    def test_ambiguous_page_one_is_not_guessed(self):
+        self.assertIsNone(enrich.classify("STATEMENT OF DEFICIENCIES\nNOTICE and ORDER\n"))
+        self.assertIsNone(enrich.classify("an unfamiliar cover page"))
 
 
 class Categories(unittest.TestCase):
@@ -281,6 +281,35 @@ class StatementsOfDeficiency(unittest.TestCase):
             [{"tag": "N 617", "code": "83.55(6)(b)",
               "title": "Bath and toilet areas: water temperature"}],
         )
+
+    # The phrasings inspectors use for the count, each seen in the archive.
+    def test_deficiency_count_phrasings(self):
+        cases = {
+            "Three deficiencies were identified.": 3,
+            "One repeat deficiency was identifed.": 1,
+            "Twenty-one deficiencies were identified.": 21,
+            "twenty one deficiencies were found": 21,
+            "Five (5) deficiencies were identified.": 5,
+            "13 deficiencies were identified.": 13,
+            "Two new deficient practices were identified.": 2,
+            "No deficiencies were identified.": 0,
+            # A follow-up visit recounts the earlier report first: that
+            # sentence is not this visit's count (0012110, 0014663).
+            "The deficiency identified in statement of deficiency (SOD) KZEG11 was "
+            "corrected. No deficiencies were identified.": 0,
+            "The deficiencies identified in statement of deficiency (SOD) M9WS12 were "
+            "corrected. One of 3 complaints was substantiated. One deficiency was identified.": 1,
+            "Thirteen (13) new deficiencies were identified.": 13,
+            "No citations were issued.": 0,
+        }
+        for text, want in cases.items():
+            with self.subTest(text=text):
+                self.assertEqual(enrich.parse_sod(text)[0]["deficiencies"], want)
+
+    def test_no_count_stated_is_none_not_zero(self):
+        self.assertIsNone(enrich.parse_sod(
+            "The deficiency identified in Statement of Deficiency (SOD) 5G1Y11, dated "
+            "01/13/2022 was corrected.")[0]["deficiencies"])
 
 
 if __name__ == "__main__":

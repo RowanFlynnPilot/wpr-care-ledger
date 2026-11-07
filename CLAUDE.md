@@ -93,7 +93,21 @@ looking. The results grid isn't paged despite the 50-row setting (Wood's
 
 `data/facilities.json` — dict keyed by license number. State roster fields
 (export columns) + detail-page fields (`licensure_status`, `ownership_type`,
-`owner_name`) + `key`, `first_seen`, `last_seen`, `on_state_roster`.
+`owner_name`) + `key`, `first_seen`, `last_seen`, `on_state_roster`,
+`closed_seen` (the run that first saw `date_closed` — the state backdates
+closures and can post one weeks late, so the tip sheet lists closures by
+this; never set on a county's first capture; absent on closures before
+2026-11) and `unlisted_on` (the run that found a closed facility gone
+from the search; removed if it is listed again). The search includes
+closed facilities, so an **open** facility vanishing fails the run
+(`unlist_vanished()`): it means the search broke, and its records would
+otherwise read as aged off. A closed one may leave — first seen 2026-11-02:
+0013774, Aurora Residential Alt Inc 053 (Plover), closed Oct. 31, 2024,
+dropped about two years after closing with its Aug. 8, 2024 enforcement
+record still inside the three-year window (its `unlisted_on` was set
+from that run's own `expired_on` on its record, not guessed). The widget
+and facility pages show it as a "State listing" fact (`unlistedNote()`);
+the tip sheet lists it under roster changes.
 
 `data/surveys.json` — dict keyed by `license|exit_date|survey-type-slug`.
 Fields: `license`, `survey_type`, `exit_date`, `documents` (kind → archive
@@ -114,10 +128,14 @@ Recorded since
 2026-10-07; the 7 rows already aged off by then got theirs from the event
 ID each of their documents prints, every one proven by a byte-identical
 download from the state that day — derived, not guessed.
-`documents_gone` (kind → the run date the state's address first stopped
-answering for that document; removed if it answers again): the weekly
-revision check HEADs every document, and a non-200 used to be only a log
-warning. It is the one event that would make "delisted, not deleted"
+`documents_gone` (kind → the run date the state's address first answered
+404 or 410 for that document; removed if it answers again): the weekly
+revision check HEADs every document (redirects followed, each request
+retried through network errors, 5xx and 429). Anything short of a
+definite "not here" — an outage, a 403, a non-PDF — is never recorded as
+gone and never fails the run: it is a `::warning::` on the run's page
+and the document is checked again next week (the check runs before the
+ledger is saved, so one blip once could have cost the week's records). It is the one event that would make "delisted, not deleted"
 untrue, so it is recorded, listed in the tip sheet ("Documents the state
 stopped serving"), noted in the record and facility page ("no longer on
 the state's site since …; kept here"), and counted on the methodology
@@ -187,8 +205,17 @@ citation each run, so a mapping change needs no `--rebuild`; an unmapped
 section comes out "Other" with a warning — add it. Every ledger
 document path must exist on disk in POSIX form and be mined, or
 enrich.py fails the run.
+`deficiencies` is the visit's own count ("Twenty one deficiencies were
+identified" = 21, "Thirteen (13) new …" = 13, "No deficiencies were
+identified" = 0), never the earlier report a follow-up visit recounts
+first ("The deficiency identified in statement of deficiency (SOD) …
+was corrected"), and None when no count is stated; corrected 2026-11-06,
+which filled 110 counts and fixed one (0018759: 1 → 21).
 Kind is detected from document *structure* — the state has served
-letters and SODs in swapped grid columns (see license 0019331). Docs are
+letters and SODs in swapped grid columns (see license 0019331). A page
+one with both or neither structure is recorded `"kind": "unclassified"`,
+and a PDF pypdf can't open `"unreadable"`; both warn without failing the
+run, and `--rebuild` retries them. Docs are
 immutable so each parses once; `--rebuild` reparses all after parser
 changes. Deleting the file and rerunning is always safe; never hand-edit.
 Per-document parse gaps warn loudly but never fail the weekly run.
@@ -288,6 +315,11 @@ documents carry a `document_urls` address.
   $400, deficiencies 4 → 1) with nothing on the state's site saying so.
   Ask DQA why (appeal? informal dispute resolution?) before characterizing
   it; the tip sheet's "Documents the state replaced" lists new ones.
+- Closed facilities leave the state's search early, history and all:
+  0013774 (closed Oct. 31, 2024) dropped out 2026-11-02 with an Aug.
+  2024 enforcement record that the three-year window should still show.
+  One case so far — ask DQA how long closed facilities stay listed
+  before writing that it is a rule.
 - Aged-off records are delisted, not deleted: on 2026-10-07 all 10 PDFs of
   the 7 held records were still served at their state addresses,
   byte-identical to the archive. "No longer shown by the state" means the
@@ -679,8 +711,8 @@ then bundles them into `dist/`, so **the Pages artifact is just
   under the map; any other geocoder error — a county with no outline, a
   dropped or malformed row — fails the run and opens the issue). The archive
   commits before any derived step can fail, so a parser problem never
-  costs a week of records. One run at a time (concurrency group), 30-min
-  timeout, `pull --rebase` before each push. On failure it opens a
+  costs a week of records. One run at a time (concurrency group), 60-min
+  timeout (runs took 15–26 minutes by 2026-11 and grow with the archive), `pull --rebase` before each push. On failure it opens a
   `fetch-failure` issue (one at a time) so a dead scraper is loud —
   expected to fire at the Provider Finder migration. Parse warnings go to
   the run's summary page beside the tip sheet.

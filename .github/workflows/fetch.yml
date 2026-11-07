@@ -21,7 +21,10 @@ concurrency:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # Runs took 15-26 minutes by 2026-11 (the weekly revision check HEADs
+    # every document, ~800, and grows with the archive); a timeout kills
+    # the run before the ledger is committed.
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7

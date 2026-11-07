@@ -24,6 +24,7 @@ import {
   countyGroupLabel,
   apNum,
   licensedOn,
+  unlistedNote,
   ownershipLabel,
   sinceArchive,
   statusLabel,
@@ -2170,6 +2171,7 @@ function FacilityRow({ f, db, query, open, single, onToggle, onCrossLink, onOper
               <Fact k="Licensed" v={fmtDate(licensedOn(f))} mono />
             )}
             {f.date_closed && <Fact k="Closed" v={fmtDate(f.date_closed)} mono />}
+            {unlistedNote(f) && <Fact k="State listing" v={unlistedNote(f)} wide />}
             <Fact k="Serves" v={f.client_groups ? smartTitle(f.client_groups) : "—"} wide />
             {f.siblings.length > 0 && (
               <div className="fact fact-wide">

@@ -11,7 +11,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   DOC_LABELS, SANCTION_LABELS, SUPPORT_URL, TYPE_FULL, revisionChanges, citeSummary, facilitySlug as slug, fmtDate, fmtNum, locatorSvg, nearbyOf, shape,
-  smartTitle, surveyLabel, titleCase, waybackDate, windowStartOf, apNum, licensedOn, statusLabel, addressCase, sinceArchive,
+  smartTitle, surveyLabel, titleCase, waybackDate, windowStartOf, apNum, licensedOn, unlistedNote, statusLabel, addressCase, sinceArchive,
 } from "../src/ledger.js";
 
 // The published address. Change here if the ledger moves to a custom domain.
@@ -181,6 +181,7 @@ function facilityPage(f) {
     ["Capacity", f.capacity ? `${f.capacity} beds` : "—"],
     ...(licensedOn(f) ? [["Licensed", fmtDate(licensedOn(f))]] : []),
     ...(f.date_closed ? [["Closed", fmtDate(f.date_closed)]] : []),
+    ...(unlistedNote(f) ? [["State listing", unlistedNote(f)]] : []),
   ]
     .map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`)
     .join("");

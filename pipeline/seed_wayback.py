@@ -181,6 +181,10 @@ def keys_current(license_no, key):
     except RuntimeError as e:
         print(f"Facility pages wait for the next fetch -- detail keys are stale: {e}")
         return False
+    except requests.RequestException as e:
+        # The portal down is no reason to fail the documents half too.
+        print(f"Facility pages wait for the next run -- the state's portal didn't answer: {e}")
+        return False
     return True
 
 
