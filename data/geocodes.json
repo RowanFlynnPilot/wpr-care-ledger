@@ -1583,6 +1583,12 @@
   "lat": 44.768709,
   "lon": -88.603694
  },
+ "0020968": {
+  "address": "804 12th Street, Mosinee, WI, 54455",
+  "match": "Exact",
+  "lat": 44.794352,
+  "lon": -89.715782
+ },
  "0021052": {
   "address": "5625 Sandpiper Drive, Stevens Point, WI, 54482",
   "match": "Exact",
@@ -1726,6 +1732,12 @@
   "match": "Exact",
   "lat": 44.91433,
   "lon": -90.322414
+ },
+ "0022667": {
+  "address": "5625 Sandpiper Dr., Stevens Point, WI, 54482",
+  "match": "Exact",
+  "lat": 44.528203,
+  "lon": -89.507737
  },
  "410032": {
   "address": "N2150 KESAEHKAHTEK, GRESHAM, WI, 54128",
