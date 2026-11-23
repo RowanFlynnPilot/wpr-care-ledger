@@ -1691,6 +1691,12 @@
   "lat": 44.959233,
   "lon": -90.861841
  },
+ "0021643": {
+  "address": "311 West Hunt Street, Greenwood, WI, 54437",
+  "match": "Exact",
+  "lat": 44.771493,
+  "lon": -90.60023
+ },
  "0021783": {
   "address": "3309 Vine St, Stevens Point, WI, 54481",
   "match": "Exact",
