@@ -83,6 +83,14 @@
     "deficiencies": 0,
     "kind": "sod"
   },
+  "archive/0008655/2026-11-02_survey-complaint_sod.pdf": {
+    "census": 18,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 1,
+    "deficiencies": 0,
+    "kind": "sod"
+  },
   "archive/0008822/2025-05-13_survey-complaint_enforcement.pdf": {
     "fine": null,
     "kind": "enforcement",
@@ -1951,6 +1959,22 @@
     "complaints_substantiated": 0,
     "complaints_unsubstantiated": 0,
     "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0012520/2026-08-20_survey-complaint_enforcement.pdf": {
+    "fine": null,
+    "kind": "enforcement",
+    "sanctions": [
+      "Order to comply"
+    ],
+    "sod_ref": "ORGP11"
+  },
+  "archive/0012520/2026-08-20_survey-complaint_sod.pdf": {
+    "census": 3,
+    "citations": [],
+    "complaints_substantiated": 0,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 2,
     "kind": "sod"
   },
   "archive/0012659/2024-03-26_complaint-self-report_sod.pdf": {
@@ -5024,6 +5048,23 @@
     "complaints_substantiated": 0,
     "complaints_unsubstantiated": 1,
     "deficiencies": 0,
+    "kind": "sod"
+  },
+  "archive/0015955/2026-09-22_complaint-self-report_enforcement.pdf": {
+    "fine": 1200,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Order to comply"
+    ],
+    "sod_ref": "967911"
+  },
+  "archive/0015955/2026-09-22_complaint-self-report_sod.pdf": {
+    "census": 40,
+    "citations": [],
+    "complaints_substantiated": 2,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 1,
     "kind": "sod"
   },
   "archive/0015957/2024-05-20_complaint-vv_enforcement.pdf": {
@@ -10738,6 +10779,67 @@
     "complaints_substantiated": 1,
     "complaints_unsubstantiated": 0,
     "deficiencies": 4,
+    "kind": "sod"
+  },
+  "archive/0020912/2026-09-28_complaint-self-report_enforcement.pdf": {
+    "fine": 3850,
+    "kind": "enforcement",
+    "sanctions": [
+      "Forfeiture",
+      "Special orders",
+      "Order to comply"
+    ],
+    "sod_ref": "33JE11"
+  },
+  "archive/0020912/2026-09-28_complaint-self-report_sod.pdf": {
+    "census": 63,
+    "citations": [
+      {
+        "category": "Abuse, neglect and incident reporting",
+        "code": "83.12(3)(a)",
+        "tag": "N 161",
+        "title": "Investigate injuries of unknown source."
+      },
+      {
+        "category": "Abuse, neglect and incident reporting",
+        "code": "83.12(5)(a)",
+        "tag": "N 169",
+        "title": "Notification: incident, injury, changes."
+      },
+      {
+        "category": "Abuse, neglect and incident reporting",
+        "code": "83.12(5)(b)",
+        "tag": "N 170",
+        "title": "Notification: abuse and neglect allegations."
+      },
+      {
+        "category": "Medications",
+        "code": "83.32(3)(h)",
+        "tag": "N 352",
+        "title": "Rights of Residents: Receive medication"
+      },
+      {
+        "category": "Care and service plans",
+        "code": "83.38(1)(g)",
+        "tag": "N 431",
+        "title": "Health monitoring."
+      },
+      {
+        "category": "Care and service plans",
+        "code": "83.38(1)(i)",
+        "tag": "N 433",
+        "title": "Behavior management."
+      },
+      {
+        "category": "Records and administration",
+        "code": "83.42(1)",
+        "tag": "N 454",
+        "title": "Resident record maintained."
+      }
+    ],
+    "complaints_substantiated": 3,
+    "complaints_unsubstantiated": 0,
+    "deficiencies": 7,
     "kind": "sod"
   },
   "archive/0021271/2026-10-19_survey_sod.pdf": {
